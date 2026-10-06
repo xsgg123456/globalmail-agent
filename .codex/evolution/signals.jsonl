@@ -1,0 +1,1 @@
+{"type":"correction","prompt":"提交git的时候 要用中文 把这条规则写入一下","resolution":"已写入 AGENTS.md 总体规则：Git 提交信息的标题和正文使用中文；Conventional Commits 类型、作用域及代码标识符可保留英文。"}
