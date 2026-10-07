@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-07",
+  "scope": "technical_selection_and_component_probes_only",
+  "reviewer": "independent_code_review_agent",
+  "stage_1": "passed",
+  "stage_2": "passed",
+  "remaining_high_medium": 0,
+  "stored_component_checks": 14,
+  "offline_failure_regressions": 4,
+  "independent_failure_injections": [
+    "inspect_failure",
+    "stop_failure"
+  ],
+  "resolved_findings": [
+    "cleanup_failure_skips_credentials_and_report",
+    "failed_rerun_keeps_old_green_report",
+    "stale_spec_data_counts"
+  ],
+  "limitations": [
+    "not_application_acceptance",
+    "provider_and_observability_success_reports_not_rerun_during_review",
+    "full_Langfuse_service_not_deployed"
+  ],
+  "reviewed_file_sha256": {
+    "database-results.json": "b67107112bc52cb6c1a9d63fe34b19b59179e7836c5d046cbbadf7d4fc69bd81",
+    "observability-results.json": "6dd5a2b7b2d6ac3bb9f1e542539abd5401413ba173bdaac7d4ff0b7f5b6b43ab",
+    "probe_database.py": "1563d3ec0ce87fd2304533006e3a21ec7ccdb94df62020ad0e4efadebca1ff8d",
+    "probe_observability.py": "8be1838bed1f9fefa7e593435681b5749c1660b12eb9ebcc5ae496148b9cf926",
+    "probe_provider.py": "43eee2e60205d55d18087e80c5824d29c3b2deea3b35d1558a8f60286f606a56",
+    "probe_support.py": "e6e085fb69614e740b50ef93cdcaef4a4010352baae6a3e73c7796fb2c98af16",
+    "provider-results.json": "c7d14f6217067cd3c856ae3b1af3122492b3a97ff770312cbf41cecc2355f3f2",
+    "pyproject.toml": "bd61eebbb11cee2a75425148a70dc70a3f160ef06115b2fc66f26c12919b995d",
+    "test_probe_failures.py": "c9daf12ae8571b1f41d01ac653ca0870243484745519a0bb8673a2909686b876",
+    "uv.lock": "9e9105e3d522e3b858d07f3944f6244e8557a2e210638c5db47ab14f11a50d1c"
+  }
+}

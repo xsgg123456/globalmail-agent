@@ -1,0 +1,2053 @@
+{
+  "scope": "developer_retrieval_assembly_and_limited_guard_not_agent_acceptance",
+  "models": [
+    {
+      "model": "text-embedding-v4",
+      "observations": [
+        {
+          "query_id": "KQ-001",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTON-01",
+            "SOP-OUTON-01",
+            "CASE-002",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2525
+        },
+        {
+          "query_id": "KQ-002",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTON-01",
+            "MAN-OUTON-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2119
+        },
+        {
+          "query_id": "KQ-003",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTON-01",
+            "MAN-OUTON-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2119
+        },
+        {
+          "query_id": "KQ-004",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTON-02",
+            "SOP-OUTON-02",
+            "CASE-001",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2399
+        },
+        {
+          "query_id": "KQ-005",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTON-02",
+            "MAN-OUTON-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2059
+        },
+        {
+          "query_id": "KQ-006",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTON-02",
+            "MAN-OUTON-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2059
+        },
+        {
+          "query_id": "KQ-007",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTON-03",
+            "MAN-OUTON-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1862
+        },
+        {
+          "query_id": "KQ-008",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTON-03",
+            "SOP-OUTON-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1862
+        },
+        {
+          "query_id": "KQ-009",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTON-03",
+            "MAN-OUTON-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1862
+        },
+        {
+          "query_id": "KQ-010",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTONLIFE-01",
+            "SOP-OUTONLIFE-01",
+            "CASE-003",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2387
+        },
+        {
+          "query_id": "KQ-011",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTONLIFE-01",
+            "SOP-OUTONLIFE-01",
+            "CASE-003",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2387
+        },
+        {
+          "query_id": "KQ-012",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTONLIFE-01",
+            "SOP-OUTONLIFE-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2040
+        },
+        {
+          "query_id": "KQ-013",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTONLIFE-02",
+            "SOP-OUTONLIFE-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1930
+        },
+        {
+          "query_id": "KQ-014",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTONLIFE-02",
+            "SOP-OUTONLIFE-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1930
+        },
+        {
+          "query_id": "KQ-015",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTONLIFE-02",
+            "MAN-OUTONLIFE-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1930
+        },
+        {
+          "query_id": "KQ-016",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-BELEEV-01",
+            "MAN-BELEEV-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1905
+        },
+        {
+          "query_id": "KQ-017",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-BELEEV-01",
+            "SOP-BELEEV-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1905
+        },
+        {
+          "query_id": "KQ-018",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-BELEEV-01",
+            "SOP-BELEEV-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1905
+        },
+        {
+          "query_id": "KQ-019",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-BELEEV-02",
+            "MAN-BELEEV-02",
+            "CASE-005",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2160
+        },
+        {
+          "query_id": "KQ-020",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-BELEEV-02",
+            "SOP-BELEEV-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1905
+        },
+        {
+          "query_id": "KQ-021",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-BELEEV-02",
+            "MAN-BELEEV-02",
+            "CASE-005",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2160
+        },
+        {
+          "query_id": "KQ-022",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-BELEEV-03",
+            "MAN-BELEEV-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1851
+        },
+        {
+          "query_id": "KQ-023",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-BELEEV-03",
+            "MAN-BELEEV-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1851
+        },
+        {
+          "query_id": "KQ-024",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-BELEEV-03",
+            "SOP-BELEEV-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1851
+        },
+        {
+          "query_id": "KQ-025",
+          "kind": "positive",
+          "document_ids": [
+            "CASE-001",
+            "MAN-OUTON-02",
+            "SOP-OUTON-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2399
+        },
+        {
+          "query_id": "KQ-026",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTON-01",
+            "SOP-OUTON-01",
+            "CASE-002",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2525
+        },
+        {
+          "query_id": "KQ-027",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTONLIFE-01",
+            "CASE-003",
+            "SOP-OUTONLIFE-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2387
+        },
+        {
+          "query_id": "KQ-028",
+          "kind": "positive",
+          "document_ids": [
+            "CASE-004",
+            "MAN-OUTONLIFE-01",
+            "SOP-OUTONLIFE-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2322
+        },
+        {
+          "query_id": "KQ-029",
+          "kind": "positive",
+          "document_ids": [
+            "CASE-005",
+            "MAN-BELEEV-02",
+            "SOP-BELEEV-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2160
+        },
+        {
+          "query_id": "KQ-030",
+          "kind": "positive",
+          "document_ids": [
+            "POL-SIM-V1",
+            "MAN-OUTON-01",
+            "SOP-OUTON-01"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2119
+        },
+        {
+          "query_id": "KQ-031",
+          "kind": "positive",
+          "document_ids": [
+            "POL-SIM-V1",
+            "MAN-OUTONLIFE-01",
+            "SOP-OUTONLIFE-01",
+            "CASE-003"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2387
+        },
+        {
+          "query_id": "KQ-032",
+          "kind": "positive",
+          "document_ids": [
+            "POL-SIM-V1",
+            "MAN-OUTON-02",
+            "SOP-OUTON-02"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2059
+        },
+        {
+          "query_id": "KQ-033",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-BELEEV-01",
+            "SOP-BELEEV-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1905
+        },
+        {
+          "query_id": "KQ-034",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTONLIFE-01",
+            "POL-SIM-V1",
+            "SOP-OUTONLIFE-01"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2040
+        },
+        {
+          "query_id": "KQ-035",
+          "kind": "positive",
+          "document_ids": [
+            "POL-SIM-V1",
+            "SOP-OUTON-01",
+            "MAN-OUTON-01"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2119
+        },
+        {
+          "query_id": "KQ-036",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTON-02",
+            "SOP-OUTON-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2059
+        },
+        {
+          "query_id": "KQ-037",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-038",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-039",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-040",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-041",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-042",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-043",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-044",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-045",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-046",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-047",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-048",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-049",
+          "kind": "unanswerable",
+          "document_ids": [
+            "MAN-OUTON-01",
+            "SOP-OUTON-01",
+            "CASE-002",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": null,
+          "empty": false,
+          "context_tokens": 2525
+        },
+        {
+          "query_id": "KQ-050",
+          "kind": "unanswerable",
+          "document_ids": [
+            "MAN-OUTON-03",
+            "SOP-OUTON-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": null,
+          "empty": false,
+          "context_tokens": 1862
+        },
+        {
+          "query_id": "KQ-051",
+          "kind": "unanswerable",
+          "document_ids": [
+            "MAN-OUTONLIFE-02",
+            "SOP-OUTONLIFE-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": null,
+          "empty": false,
+          "context_tokens": 1930
+        },
+        {
+          "query_id": "KQ-052",
+          "kind": "unanswerable",
+          "document_ids": [
+            "MAN-BELEEV-01",
+            "SOP-BELEEV-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": null,
+          "empty": false,
+          "context_tokens": 1905
+        },
+        {
+          "query_id": "KQ-053",
+          "kind": "unanswerable",
+          "document_ids": [
+            "MAN-BELEEV-03",
+            "SOP-BELEEV-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": null,
+          "empty": false,
+          "context_tokens": 1851
+        },
+        {
+          "query_id": "KQ-054",
+          "kind": "unanswerable",
+          "document_ids": [
+            "MAN-OUTONLIFE-01",
+            "SOP-OUTONLIFE-01",
+            "CASE-003",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": null,
+          "empty": false,
+          "context_tokens": 2387
+        },
+        {
+          "query_id": "KQ-055",
+          "kind": "multi_evidence",
+          "document_ids": [
+            "MAN-OUTON-02",
+            "CASE-001",
+            "SOP-OUTON-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2399
+        },
+        {
+          "query_id": "KQ-056",
+          "kind": "multi_evidence",
+          "document_ids": [
+            "MAN-OUTON-01",
+            "SOP-OUTON-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2119
+        },
+        {
+          "query_id": "KQ-057",
+          "kind": "multi_evidence",
+          "document_ids": [
+            "MAN-OUTONLIFE-01",
+            "SOP-OUTONLIFE-01",
+            "CASE-003",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2387
+        },
+        {
+          "query_id": "KQ-058",
+          "kind": "multi_evidence",
+          "document_ids": [
+            "SOP-BELEEV-03",
+            "MAN-BELEEV-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1851
+        },
+        {
+          "query_id": "KQ-059",
+          "kind": "multi_evidence",
+          "document_ids": [
+            "SOP-OUTONLIFE-02",
+            "MAN-OUTONLIFE-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1930
+        },
+        {
+          "query_id": "KQ-060",
+          "kind": "multi_evidence",
+          "document_ids": [
+            "SOP-BELEEV-02",
+            "MAN-BELEEV-02",
+            "CASE-005",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2160
+        }
+      ],
+      "summary": {
+        "positive": {
+          "total": 36,
+          "passed": 36
+        },
+        "multi_evidence": {
+          "total": 6,
+          "passed": 6
+        },
+        "boundary": {
+          "total": 12,
+          "passed": 12
+        }
+      }
+    },
+    {
+      "model": "qwen3.7-text-embedding",
+      "observations": [
+        {
+          "query_id": "KQ-001",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTON-01",
+            "SOP-OUTON-01",
+            "CASE-002",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2525
+        },
+        {
+          "query_id": "KQ-002",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTON-01",
+            "MAN-OUTON-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2119
+        },
+        {
+          "query_id": "KQ-003",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTON-01",
+            "MAN-OUTON-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2119
+        },
+        {
+          "query_id": "KQ-004",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTON-02",
+            "CASE-001",
+            "SOP-OUTON-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2399
+        },
+        {
+          "query_id": "KQ-005",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTON-02",
+            "MAN-OUTON-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2059
+        },
+        {
+          "query_id": "KQ-006",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTON-02",
+            "SOP-OUTON-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2059
+        },
+        {
+          "query_id": "KQ-007",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTON-03",
+            "SOP-OUTON-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1862
+        },
+        {
+          "query_id": "KQ-008",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTON-03",
+            "MAN-OUTON-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1862
+        },
+        {
+          "query_id": "KQ-009",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTON-03",
+            "MAN-OUTON-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1862
+        },
+        {
+          "query_id": "KQ-010",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTONLIFE-01",
+            "SOP-OUTONLIFE-01",
+            "CASE-003",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2387
+        },
+        {
+          "query_id": "KQ-011",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTONLIFE-01",
+            "MAN-OUTONLIFE-01",
+            "CASE-003",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2387
+        },
+        {
+          "query_id": "KQ-012",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTONLIFE-01",
+            "MAN-OUTONLIFE-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2040
+        },
+        {
+          "query_id": "KQ-013",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTONLIFE-02",
+            "SOP-OUTONLIFE-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1930
+        },
+        {
+          "query_id": "KQ-014",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTONLIFE-02",
+            "SOP-OUTONLIFE-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1930
+        },
+        {
+          "query_id": "KQ-015",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-OUTONLIFE-02",
+            "MAN-OUTONLIFE-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1930
+        },
+        {
+          "query_id": "KQ-016",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-BELEEV-01",
+            "MAN-BELEEV-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1905
+        },
+        {
+          "query_id": "KQ-017",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-BELEEV-01",
+            "SOP-BELEEV-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1905
+        },
+        {
+          "query_id": "KQ-018",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-BELEEV-01",
+            "SOP-BELEEV-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1905
+        },
+        {
+          "query_id": "KQ-019",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-BELEEV-02",
+            "MAN-BELEEV-02",
+            "CASE-005",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2160
+        },
+        {
+          "query_id": "KQ-020",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-BELEEV-02",
+            "SOP-BELEEV-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1905
+        },
+        {
+          "query_id": "KQ-021",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-BELEEV-02",
+            "MAN-BELEEV-02",
+            "CASE-005",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2160
+        },
+        {
+          "query_id": "KQ-022",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-BELEEV-03",
+            "MAN-BELEEV-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1851
+        },
+        {
+          "query_id": "KQ-023",
+          "kind": "positive",
+          "document_ids": [
+            "SOP-BELEEV-03",
+            "MAN-BELEEV-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1851
+        },
+        {
+          "query_id": "KQ-024",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-BELEEV-03",
+            "SOP-BELEEV-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1851
+        },
+        {
+          "query_id": "KQ-025",
+          "kind": "positive",
+          "document_ids": [
+            "CASE-001",
+            "MAN-OUTON-02",
+            "SOP-OUTON-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2399
+        },
+        {
+          "query_id": "KQ-026",
+          "kind": "positive",
+          "document_ids": [
+            "CASE-002",
+            "MAN-OUTON-01",
+            "SOP-OUTON-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2525
+        },
+        {
+          "query_id": "KQ-027",
+          "kind": "positive",
+          "document_ids": [
+            "MAN-OUTONLIFE-01",
+            "CASE-003",
+            "SOP-OUTONLIFE-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2387
+        },
+        {
+          "query_id": "KQ-028",
+          "kind": "positive",
+          "document_ids": [
+            "CASE-004",
+            "MAN-OUTONLIFE-01",
+            "SOP-OUTONLIFE-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2322
+        },
+        {
+          "query_id": "KQ-029",
+          "kind": "positive",
+          "document_ids": [
+            "CASE-005",
+            "MAN-BELEEV-02",
+            "SOP-BELEEV-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2160
+        },
+        {
+          "query_id": "KQ-030",
+          "kind": "positive",
+          "document_ids": [
+            "POL-SIM-V1",
+            "MAN-OUTON-01",
+            "SOP-OUTON-01"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2119
+        },
+        {
+          "query_id": "KQ-031",
+          "kind": "positive",
+          "document_ids": [
+            "POL-SIM-V1",
+            "SOP-OUTONLIFE-01",
+            "MAN-OUTONLIFE-01",
+            "CASE-003"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2387
+        },
+        {
+          "query_id": "KQ-032",
+          "kind": "positive",
+          "document_ids": [
+            "POL-SIM-V1",
+            "MAN-OUTON-02",
+            "SOP-OUTON-02"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2059
+        },
+        {
+          "query_id": "KQ-033",
+          "kind": "positive",
+          "document_ids": [
+            "POL-SIM-V1",
+            "MAN-BELEEV-01",
+            "SOP-BELEEV-01"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1905
+        },
+        {
+          "query_id": "KQ-034",
+          "kind": "positive",
+          "document_ids": [
+            "POL-SIM-V1",
+            "MAN-OUTONLIFE-01",
+            "SOP-OUTONLIFE-01"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2040
+        },
+        {
+          "query_id": "KQ-035",
+          "kind": "positive",
+          "document_ids": [
+            "POL-SIM-V1",
+            "MAN-OUTON-01",
+            "SOP-OUTON-01"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2119
+        },
+        {
+          "query_id": "KQ-036",
+          "kind": "positive",
+          "document_ids": [
+            "POL-SIM-V1",
+            "MAN-OUTON-02",
+            "SOP-OUTON-02"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2059
+        },
+        {
+          "query_id": "KQ-037",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-038",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-039",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-040",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-041",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-042",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-043",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-044",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-045",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-046",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-047",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-048",
+          "kind": "boundary",
+          "document_ids": [],
+          "all_evidence_covered": null,
+          "empty": true,
+          "context_tokens": 0
+        },
+        {
+          "query_id": "KQ-049",
+          "kind": "unanswerable",
+          "document_ids": [
+            "MAN-OUTON-01",
+            "SOP-OUTON-01",
+            "CASE-002",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": null,
+          "empty": false,
+          "context_tokens": 2525
+        },
+        {
+          "query_id": "KQ-050",
+          "kind": "unanswerable",
+          "document_ids": [
+            "MAN-OUTON-03",
+            "SOP-OUTON-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": null,
+          "empty": false,
+          "context_tokens": 1862
+        },
+        {
+          "query_id": "KQ-051",
+          "kind": "unanswerable",
+          "document_ids": [
+            "MAN-OUTONLIFE-02",
+            "SOP-OUTONLIFE-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": null,
+          "empty": false,
+          "context_tokens": 1930
+        },
+        {
+          "query_id": "KQ-052",
+          "kind": "unanswerable",
+          "document_ids": [
+            "MAN-BELEEV-01",
+            "SOP-BELEEV-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": null,
+          "empty": false,
+          "context_tokens": 1905
+        },
+        {
+          "query_id": "KQ-053",
+          "kind": "unanswerable",
+          "document_ids": [
+            "MAN-BELEEV-03",
+            "SOP-BELEEV-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": null,
+          "empty": false,
+          "context_tokens": 1851
+        },
+        {
+          "query_id": "KQ-054",
+          "kind": "unanswerable",
+          "document_ids": [
+            "MAN-OUTONLIFE-01",
+            "SOP-OUTONLIFE-01",
+            "CASE-003",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": null,
+          "empty": false,
+          "context_tokens": 2387
+        },
+        {
+          "query_id": "KQ-055",
+          "kind": "multi_evidence",
+          "document_ids": [
+            "MAN-OUTON-02",
+            "CASE-001",
+            "SOP-OUTON-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2399
+        },
+        {
+          "query_id": "KQ-056",
+          "kind": "multi_evidence",
+          "document_ids": [
+            "MAN-OUTON-01",
+            "SOP-OUTON-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2119
+        },
+        {
+          "query_id": "KQ-057",
+          "kind": "multi_evidence",
+          "document_ids": [
+            "SOP-OUTONLIFE-01",
+            "CASE-003",
+            "MAN-OUTONLIFE-01",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2387
+        },
+        {
+          "query_id": "KQ-058",
+          "kind": "multi_evidence",
+          "document_ids": [
+            "MAN-BELEEV-03",
+            "SOP-BELEEV-03",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1851
+        },
+        {
+          "query_id": "KQ-059",
+          "kind": "multi_evidence",
+          "document_ids": [
+            "MAN-OUTONLIFE-02",
+            "SOP-OUTONLIFE-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 1930
+        },
+        {
+          "query_id": "KQ-060",
+          "kind": "multi_evidence",
+          "document_ids": [
+            "SOP-BELEEV-02",
+            "CASE-005",
+            "MAN-BELEEV-02",
+            "POL-SIM-V1"
+          ],
+          "all_evidence_covered": true,
+          "empty": false,
+          "context_tokens": 2160
+        }
+      ],
+      "summary": {
+        "positive": {
+          "total": 36,
+          "passed": 36
+        },
+        "multi_evidence": {
+          "total": 6,
+          "passed": 6
+        },
+        "boundary": {
+          "total": 12,
+          "passed": 12
+        }
+      }
+    }
+  ],
+  "guard_checks": [
+    {
+      "query_id": "KQ-001",
+      "output": {
+        "decision": "supported",
+        "citations": [
+          {
+            "document_id": "MAN-OUTON-01",
+            "quote": "观察的是灯本体闪烁，不是遥控器上的红色指示灯。客户只看到红灯常亮时，不能说已经配对成功。"
+          },
+          {
+            "document_id": "SOP-OUTON-01",
+            "quote": "观察的是灯本体闪烁，不是遥控器上的红色指示灯。客户只看到红灯常亮时，不能说已经配对成功。"
+          }
+        ],
+        "missing_information": ""
+      },
+      "usage": {
+        "completion_tokens": 134,
+        "prompt_tokens": 2685,
+        "total_tokens": 2819,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2685
+        }
+      },
+      "elapsed_seconds": 8.594,
+      "cache_hit": false,
+      "kind": "positive",
+      "quotes_verified": true,
+      "expected_decision": "supported",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-004",
+      "output": {
+        "decision": "supported",
+        "citations": [
+          {
+            "document_id": "MAN-OUTON-02",
+            "quote": "灯罩固定环损坏，或安装时发现缺件\n\n处理思路\n1. 让客户描述损坏部位，已有订单号和照片就继续使用，不重复索要。\n2. 核对是塑料固定环、灯罩本身，还是托盘紧固件。"
+          },
+          {
+            "document_id": "SOP-OUTON-02",
+            "quote": "容易弄错的地方\n- 灯罩固定环损坏时，应先确认灯罩、灯座和固定环是否仍在，不把整盏灯都当成报废。"
+          }
+        ],
+        "missing_information": ""
+      },
+      "usage": {
+        "completion_tokens": 172,
+        "prompt_tokens": 2585,
+        "total_tokens": 2757,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2585
+        }
+      },
+      "elapsed_seconds": 8.875,
+      "cache_hit": false,
+      "kind": "positive",
+      "quotes_verified": true,
+      "expected_decision": "supported",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-010",
+      "output": {
+        "decision": "supported",
+        "citations": [
+          {
+            "document_id": "MAN-OUTONLIFE-01",
+            "quote": "礼物接收者暂时拿不到订单时，说明需要它来确认版本，并保留客户已提供的商品线索。"
+          },
+          {
+            "document_id": "MAN-OUTONLIFE-01",
+            "quote": "缺订单时，优先解释核对版本的原因；客户后来补充订单后继续原问题，不重新开始。"
+          },
+          {
+            "document_id": "SOP-OUTONLIFE-01",
+            "quote": "We understand that the bookshelf was a gift and that you would like to buy the replacement part. The original order number helps us identify the exact version. If you can obtain it from the purchaser, we can continue checking the part without asking you to repeat the details you have already sent."
+          }
+        ],
+        "missing_information": ""
+      },
+      "usage": {
+        "completion_tokens": 225,
+        "prompt_tokens": 2594,
+        "total_tokens": 2819,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2594
+        }
+      },
+      "elapsed_seconds": 8.015,
+      "cache_hit": false,
+      "kind": "positive",
+      "quotes_verified": true,
+      "expected_decision": "supported",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-016",
+      "output": {
+        "decision": "supported",
+        "citations": [
+          {
+            "document_id": "SOP-BELEEV-01",
+            "quote": "把手或立杆松脱时停止骑乘，不要求孩子继续骑来拍视频。"
+          },
+          {
+            "document_id": "MAN-BELEEV-01",
+            "quote": "把手或立杆松脱时停止骑乘，不要求孩子继续骑来拍视频。"
+          }
+        ],
+        "missing_information": ""
+      },
+      "usage": {
+        "completion_tokens": 97,
+        "prompt_tokens": 2105,
+        "total_tokens": 2202,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2105
+        }
+      },
+      "elapsed_seconds": 5.266,
+      "cache_hit": false,
+      "kind": "positive",
+      "quotes_verified": true,
+      "expected_decision": "supported",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-025",
+      "output": {
+        "decision": "insufficient",
+        "citations": [
+          {
+            "document_id": "CASE-001",
+            "quote": "客服已答应安排补件；没有证据确认已发货、已收货或问题已解决。"
+          },
+          {
+            "document_id": "CASE-001",
+            "quote": "客户：客户表示感谢；未明确确认收到部件或产品恢复正常。"
+          },
+          {
+            "document_id": "POL-SIM-V1",
+            "quote": "客户说“谢谢”、申请通过或补件单创建，都不能单独作为问题已经解决的依据。"
+          }
+        ],
+        "missing_information": "The sources explicitly state that there is no proof the ring arrived or fixed the lamp. The case summary notes a lack of evidence for shipping, receipt, or resolution, and the policy document clarifies that a customer's 'thank you' does not constitute proof of problem resolution."
+      },
+      "usage": {
+        "completion_tokens": 217,
+        "prompt_tokens": 2579,
+        "total_tokens": 2796,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2579
+        }
+      },
+      "elapsed_seconds": 7.89,
+      "cache_hit": false,
+      "kind": "positive",
+      "quotes_verified": true,
+      "expected_decision": "supported",
+      "expected_source_ids_covered": true,
+      "passed": false
+    },
+    {
+      "query_id": "KQ-030",
+      "output": {
+        "decision": "insufficient",
+        "citations": [],
+        "missing_information": "The provided source 'POL-SIM-V1' is explicitly labeled as an 'internal exercise draft' (内部演练草案) and states it is 'not yet a formal after-sales commitment of the three brands, nor does it represent the current requirements of the sales platform or the region' (尚不是三品牌的正式售后承诺，也不代表销售平台或所在地区的现行要求). Therefore, it cannot be used to establish a verified fact about the actual return policy for a real customer. Additionally, while the draft mentions a 30-day window including the 30th day, it does not confirm if this applies to the specific German Amazon shop's current legal or platform obligations, which are excluded from the draft's scope ('other markets or channels to be verified by customer service'). The sources do not provide a verified, non-fabricated response regarding the actual eligibility and postage responsibility for a real-world transaction."
+      },
+      "usage": {
+        "completion_tokens": 209,
+        "prompt_tokens": 2300,
+        "total_tokens": 2509,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2300
+        }
+      },
+      "elapsed_seconds": 8.234,
+      "cache_hit": false,
+      "kind": "positive",
+      "quotes_verified": true,
+      "expected_decision": "supported",
+      "expected_source_ids_covered": false,
+      "passed": false
+    },
+    {
+      "query_id": "KQ-049",
+      "output": {
+        "decision": "insufficient",
+        "citations": [],
+        "missing_information": "The provided sources do not contain the exact radio frequency in MHz used by the remote for the H-CTD16-US-BK lamp. The sources discuss troubleshooting steps (e.g., pairing procedures, checking batteries), product identification, and after-sales policies, but they do not list technical specifications such as the operating frequency of the remote control."
+      },
+      "usage": {
+        "completion_tokens": 87,
+        "prompt_tokens": 2683,
+        "total_tokens": 2770,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2683
+        }
+      },
+      "elapsed_seconds": 4.829,
+      "cache_hit": false,
+      "kind": "unanswerable",
+      "quotes_verified": true,
+      "expected_decision": "insufficient",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-050",
+      "output": {
+        "decision": "insufficient",
+        "citations": [],
+        "missing_information": "Die Quellen bestätigen explizit, dass die Informationen zur Smartphone-App und zum Kopplungscode nicht vorliegen. In MAN-OUTON-03 und SOP-OUTON-03 heißt es: \"noch nicht die vollständige Bedienungsanleitung für die entsprechende Version erhalten\" bzw. \"unbestätigte App-Einstellungen und Pairing-Details\". Zudem wird in beiden Quellen als Regel festgehalten: \"Wenn Kunden nach dem App-Namen, der Bindungsmethode oder dem Passwort fragen, geben Sie Inhalte, die nicht in den Unterlagen enthalten sind, zuerst zur Bestätigung an den Kundenservice weiter.\" Daher können der genaue App-Name und der werkseitige Kopplungscode aus den vorliegenden Quellen nicht beantwortet werden."
+      },
+      "usage": {
+        "completion_tokens": 181,
+        "prompt_tokens": 2061,
+        "total_tokens": 2242,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2061
+        }
+      },
+      "elapsed_seconds": 5.641,
+      "cache_hit": false,
+      "kind": "unanswerable",
+      "quotes_verified": true,
+      "expected_decision": "insufficient",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-051",
+      "output": {
+        "decision": "insufficient",
+        "citations": [],
+        "missing_information": "The provided sources do not contain the maximum charging output in watts or the specific USB Power Delivery profiles supported by the F-ZZZ0002-US-BK side-table lamp. Source MAN-OUTONLIFE-02 explicitly states that 'charging interface type, power, and pairing steps' should not be guessed and must be verified before answering ('充电接口类型、功率和配对步骤没有核实前，不凭同类商品猜测'). The sources only confirm that the US black model includes a charging function but do not provide technical specifications."
+      },
+      "usage": {
+        "completion_tokens": 127,
+        "prompt_tokens": 2139,
+        "total_tokens": 2266,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2139
+        }
+      },
+      "elapsed_seconds": 6.469,
+      "cache_hit": false,
+      "kind": "unanswerable",
+      "quotes_verified": true,
+      "expected_decision": "insufficient",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-052",
+      "output": {
+        "decision": "insufficient",
+        "citations": [],
+        "missing_information": "The provided sources do not contain the exact torque specification in Newton meters for the handlebar connection of the A2 SP-SLHBC01-BK. Source MAN-BELEEV-01 explicitly states that 'images cannot replace assembly or maintenance instructions' and that 'specific repair steps have not been confirmed' ('具体修复步骤尚未确认'). Source SOP-BELEEV-01 further clarifies that it is an 'internal compilation, not the manufacturer's original manual' ('内部整理，非厂家原版说明') and that 'unconfirmed repair operations must not be sent directly to customers' ('未经确认的维修操作不得直接发送给客户'). Both sources direct staff to refer to the product's valid manual or escalate to customer support/artificial confirmation for tightening requirements, rather than providing a specific numerical value."
+      },
+      "usage": {
+        "completion_tokens": 181,
+        "prompt_tokens": 2105,
+        "total_tokens": 2286,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2105
+        }
+      },
+      "elapsed_seconds": 6.109,
+      "cache_hit": false,
+      "kind": "unanswerable",
+      "quotes_verified": true,
+      "expected_decision": "insufficient",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-053",
+      "output": {
+        "decision": "insufficient",
+        "citations": [],
+        "missing_information": "The provided sources identify the product model (A9) and code (SP-SLHBC12-PU) but do not contain any information regarding the maximum certified rider weight in kilograms. The texts focus on folding mechanism issues, troubleshooting steps, and after-sales policies (returns, refunds, replacements), but lack technical specifications such as weight limits."
+      },
+      "usage": {
+        "completion_tokens": 88,
+        "prompt_tokens": 2039,
+        "total_tokens": 2127,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2039
+        }
+      },
+      "elapsed_seconds": 4.704,
+      "cache_hit": false,
+      "kind": "unanswerable",
+      "quotes_verified": true,
+      "expected_decision": "insufficient",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-054",
+      "output": {
+        "decision": "insufficient",
+        "citations": [],
+        "missing_information": "Die bereitgestellten Quellen enthalten keine Informationen zur maximalen Belastbarkeit (in Kilogramm) der einzelnen Ablagen des Bücherregals F-SJ001-US-BBR. Die Dokumente befassen sich ausschließlich mit Kundenservice-Prozessen, der Unterscheidung von Schadensarten (Struktur, Lampenfassung, Fernbedienung), der Notwendigkeit der Order-Nummer zur Versionsbestimmung und allgemeinen Rückgabe- bzw. Garantiebedingungen. Es wird zwar erwähnt, dass bei '层板开裂' (Riss in der Ablage) oder '倾倒风险' (Kippgefahr) der Gebrauch eingestellt werden soll, aber es wird kein spezifischer numerischer Grenzwert für das Gewicht pro Ablage genannt."
+      },
+      "usage": {
+        "completion_tokens": 167,
+        "prompt_tokens": 2583,
+        "total_tokens": 2750,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2583
+        }
+      },
+      "elapsed_seconds": 5.407,
+      "cache_hit": false,
+      "kind": "unanswerable",
+      "quotes_verified": true,
+      "expected_decision": "insufficient",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-055",
+      "output": {
+        "decision": "supported",
+        "citations": [
+          {
+            "document_id": "MAN-OUTON-02",
+            "quote": "安装或检查灯罩固定件前先断电，灯泡冷却后再操作。"
+          },
+          {
+            "document_id": "SOP-OUTON-02",
+            "quote": "安装或检查灯罩固定件前先断电，灯泡冷却后再操作。"
+          },
+          {
+            "document_id": "CASE-001",
+            "quote": "客服已答应安排补件；没有证据确认已发货、已收货或问题已解决。"
+          },
+          {
+            "document_id": "POL-SIM-V1",
+            "quote": "客户说“谢谢”、申请通过或补件单创建，都不能单独作为问题已经解决的依据。"
+          }
+        ],
+        "missing_information": ""
+      },
+      "usage": {
+        "completion_tokens": 208,
+        "prompt_tokens": 2588,
+        "total_tokens": 2796,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2588
+        }
+      },
+      "elapsed_seconds": 9.656,
+      "cache_hit": false,
+      "kind": "multi_evidence",
+      "quotes_verified": true,
+      "expected_decision": "supported",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-056",
+      "output": {
+        "decision": "supported",
+        "citations": [
+          {
+            "document_id": "MAN-OUTON-01",
+            "quote": "观察的是灯本体闪烁，不是遥控器上的红色指示灯。客户只看到红灯常亮时，不能说已经配对成功。"
+          },
+          {
+            "document_id": "SOP-OUTON-01",
+            "quote": "观察的是灯本体闪烁，不是遥控器上的红色指示灯。客户只看到红灯常亮时，不能说已经配对成功。"
+          },
+          {
+            "document_id": "POL-SIM-V1",
+            "quote": "部分退款方案最高为对应商品实付的 20%。先告诉客户具体金额和币种，取得明确同意后再提交；客户询问金额、表达不满或没有回复，都不算接受。"
+          }
+        ],
+        "missing_information": ""
+      },
+      "usage": {
+        "completion_tokens": 203,
+        "prompt_tokens": 2307,
+        "total_tokens": 2510,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2307
+        }
+      },
+      "elapsed_seconds": 7.375,
+      "cache_hit": false,
+      "kind": "multi_evidence",
+      "quotes_verified": true,
+      "expected_decision": "supported",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-057",
+      "output": {
+        "decision": "supported",
+        "citations": [
+          {
+            "document_id": "SOP-OUTONLIFE-01",
+            "quote": "灯座损坏及裸线交人工检查，不能只凭客户写了 E26 就推荐通用灯座。"
+          },
+          {
+            "document_id": "MAN-OUTONLIFE-01",
+            "quote": "灯座脱落、裸线、层板开裂或倾倒风险时，停止使用并交人工。"
+          },
+          {
+            "document_id": "CASE-003",
+            "quote": "客户已补充原订单号；后续是否找到或购买配件仍未知。"
+          }
+        ],
+        "missing_information": ""
+      },
+      "usage": {
+        "completion_tokens": 176,
+        "prompt_tokens": 2602,
+        "total_tokens": 2778,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2602
+        }
+      },
+      "elapsed_seconds": 6.282,
+      "cache_hit": false,
+      "kind": "multi_evidence",
+      "quotes_verified": true,
+      "expected_decision": "supported",
+      "expected_source_ids_covered": true,
+      "passed": true
+    },
+    {
+      "query_id": "KQ-058",
+      "output": {
+        "decision": "supported",
+        "citations": [
+          {
+            "document_id": "MAN-BELEEV-03",
+            "quote": "灯轮正常也不能说明整车安全，结构与照明分别检查。... 锁止不可靠、裂纹、夹伤，或轮组/刹车异常时停止使用并交人工。"
+          },
+          {
+            "document_id": "SOP-BELEEV-03",
+            "quote": "Please do not ride the scooter if the folding mechanism is not locking securely."
+          },
+          {
+            "document_id": "POL-SIM-V1",
+            "quote": "适用于 OUTON、OUTONLIFE、BELEEV，在美国、英国、德国、加拿大、澳大利亚的 Amazon 与品牌自营渠道演练订单。... 质量问题的退货标签费用由商家承担。"
+          }
+        ],
+        "missing_information": ""
+      },
+      "usage": {
+        "completion_tokens": 206,
+        "prompt_tokens": 2078,
+        "total_tokens": 2284,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2078
+        }
+      },
+      "elapsed_seconds": 8.937,
+      "cache_hit": false,
+      "kind": "multi_evidence",
+      "quotes_verified": false,
+      "expected_decision": "supported",
+      "expected_source_ids_covered": true,
+      "passed": false
+    },
+    {
+      "query_id": "KQ-059",
+      "output": {
+        "decision": "insufficient",
+        "citations": [
+          {
+            "document_id": "MAN-OUTONLIFE-02",
+            "quote": "异常发热、异味、线缆损伤或持续闪烁且无明确处理依据时暂停使用。"
+          },
+          {
+            "document_id": "SOP-OUTONLIFE-02",
+            "quote": "异常发热、异味、线缆损伤或持续闪烁且无明确处理依据时暂停使用。"
+          },
+          {
+            "document_id": "POL-SIM-V1",
+            "quote": "默认更换相同商品编码的产品，确认有库存、收件地址无误，并在退件验货通过后安排换出。"
+          },
+          {
+            "document_id": "POL-SIM-V1",
+            "quote": "本稿用于本项目业务演练，尚不是三品牌的正式售后承诺，也不代表销售平台或所在地区的现行要求。"
+          }
+        ],
+        "missing_information": "The sources do not confirm if an exchange can be sent before the returned item is inspected; in fact, the provided policy draft explicitly states exchanges are arranged 'after the return is inspected' ('在退件验货通过后安排换出'). Additionally, the policy source is labeled as an internal drill draft and not a formal commitment. While the sources advise to 'suspend use' for continuous flickering, they do not provide specific repair instructions for a trapped cable other than noting it should be avoided during installation."
+      },
+      "usage": {
+        "completion_tokens": 330,
+        "prompt_tokens": 2156,
+        "total_tokens": 2486,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2156
+        }
+      },
+      "elapsed_seconds": 8.672,
+      "cache_hit": false,
+      "kind": "multi_evidence",
+      "quotes_verified": true,
+      "expected_decision": "supported",
+      "expected_source_ids_covered": true,
+      "passed": false
+    },
+    {
+      "query_id": "KQ-060",
+      "output": {
+        "decision": "insufficient",
+        "citations": [
+          {
+            "document_id": "SOP-BELEEV-02",
+            "quote": "车轮和把手反复不对齐，或者紧固后仍松动时，停止骑乘并交客服。... 不要给客户未经确认的紧固扭矩，也不要要求用更大力气反复拧紧。"
+          },
+          {
+            "document_id": "CASE-005",
+            "quote": "最后看到了什么结果\n客服已请求补充资料；没有后续诊断或修复结果。\n...\n还不能确定什么\n- 没有工程诊断、补件或修复结果"
+          }
+        ],
+        "missing_information": "The sources explicitly state that for the similar case (CASE-005), there was no confirmed repair outcome ('没有后续诊断或修复结果'). Therefore, it is not possible to confirm whether a repair was actually confirmed in that historical case based on the provided text. Additionally, while the sources advise against tightening further, they do not provide a specific technical reason why the V2 model behaves this way, only the procedural instruction to stop use and escalate."
+      },
+      "usage": {
+        "completion_tokens": 254,
+        "prompt_tokens": 2373,
+        "total_tokens": 2627,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": 2373
+        }
+      },
+      "elapsed_seconds": 7.609,
+      "cache_hit": false,
+      "kind": "multi_evidence",
+      "quotes_verified": false,
+      "expected_decision": "supported",
+      "expected_source_ids_covered": true,
+      "passed": false
+    }
+  ],
+  "guard_passed": 13,
+  "guard_total": 18,
+  "limitations": [
+    "same developer set after tuning, not unseen accuracy",
+    "small per-SKU candidate corpus; top5 includes most applicable documents",
+    "guard is probabilistic and only a fixed 18-query subset; not a verified customer reply",
+    "whole-parent expansion limited to <=1200 proxy tokens and 4500 total; long-document strategy needs further samples"
+  ],
+  "status": "completed"
+}

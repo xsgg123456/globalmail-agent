@@ -1,6 +1,6 @@
 # 生产素材候选目录
 
-观察时间：2026-10-07 09:25:45（北京时间）。对应根目录 DATA-CATALOG.md 与 Product-Spec v1.6。
+观察时间：2026-10-07 09:25:45（北京时间）。对应 [候选目录](../../../docs/data/DATA-CATALOG.md) 与根目录 Product-Spec v1.6 的历史基线。
 
 本目录用于定位产品、视频与待复核会话，不是训练集、RAG 资料包或已标注评测集。没有客户姓名、邮箱、订单号、邮件正文、附件内容或访问凭据；内部来源 UUID 仅用于授权回溯。
 
@@ -12,9 +12,9 @@
 | case-review-queue.json | 53 个候选会话及范围检查；全部未分用途、未复核正文，不可直接索引 |
 | video-directory.json | 启用视频目录，内容未观看，SKU 对应关系未确认 |
 | catalog-summary.json | 目录计数、范围检查结果、原始目录 SHA-256 |
-| build_catalog.py | 离线重建派生目录和根目录 DATA-CATALOG.md；不会连接生产 |
+| build_catalog.py | 离线重建派生目录和 docs/data/DATA-CATALOG.md；不会连接生产 |
 
-在项目根目录运行 `python data/preparation/2026-10-07/build_catalog.py` 可从已经保存的目录重建派生文件。脚本会覆盖本目录派生 JSON 和 DATA-CATALOG.md，原始目录不改写。
+在项目根目录运行 `python data/preparation/2026-10-07/build_catalog.py` 可从已经保存的目录重建派生文件。脚本会覆盖本目录派生 JSON 和 `docs/data/DATA-CATALOG.md`，原始目录不改写。
 
 再次从生产提取时应新建观察日期/批次，保留实际观察时间。查询只允许原脚本所示只读事务，不运行生产写操作，也不检查真实 ERP 执行能力。
 

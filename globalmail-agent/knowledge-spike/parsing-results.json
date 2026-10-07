@@ -1,0 +1,1628 @@
+{
+  "scope": "developer_parser_comparison_not_product_acceptance",
+  "results": [
+    {
+      "source": "product-manuals-v1.pdf",
+      "parser": "pypdf",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_seconds": 0.64,
+      "peak_process_tree_rss_mib": 45.7,
+      "completed": true,
+      "parser_version": "6.19.0",
+      "source_sha256": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+      "pages": 17,
+      "full_document": true,
+      "images": 8,
+      "sku_checks": [
+        {
+          "sku": "H-CTD16-US-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-US-SGY",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-UK-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-EU-SGY",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-EU-W",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-UK-SGY",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-US-W",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-EU-WD",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-UK-WT",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-EU-WT",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-US-WD",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-US-WT",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-AU-WT",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-EU-WTG",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-UK-BG",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-UK-WD",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-US-BG",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-LBD05-UK-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-SJ001-US-BBR",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-SJ001-EU-BBR",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-SJ001-EU-W",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-SJ001-US-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-UK-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-UK-GY",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-US-BBR-2PCS",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-US-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-US-BTB",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC01-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC01-BL",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-XLLHBC02-PP",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-XLLHBC02-P",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC12-PU",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC12-B",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC12-LP",
+          "found_in_expected_pages": true
+        }
+      ],
+      "sku_hits": 34,
+      "quality_gate": true,
+      "quality_scope": "page_sku_image_presence_only_not_visual_factual_review"
+    },
+    {
+      "source": "difficult-native.pdf",
+      "parser": "pypdf",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_seconds": 0.45,
+      "peak_process_tree_rss_mib": 26.4,
+      "completed": true,
+      "parser_version": "6.19.0",
+      "source_sha256": "a3cc085edabed7f46bd32f721b74cbf323b896f265ad32ccdbc2a92d60172cfc",
+      "pages": 4,
+      "full_document": true,
+      "images": 1,
+      "marker_checks": [
+        {
+          "page": 1,
+          "phrase": "SIM-ALPHA",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "SIM-BETA",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "7 seconds",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "LAMP flash twice",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "burning smell",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "sealed controller",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "闻到焦味立即停止",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R01",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "12",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "1.5",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R08",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "24",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "2.0",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R09",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R16",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "Voltage",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "Current",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "90 seconds",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "terminal B only",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "Never bridge A and B",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "casing is cracked",
+          "found": false
+        }
+      ],
+      "marker_hits": 17,
+      "marker_total": 21,
+      "structured_table_rows": 0,
+      "table_checks": [
+        {
+          "part": "SIM-R01",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R02",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R03",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R04",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R05",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R06",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R07",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R08",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R09",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R10",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R11",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R12",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R13",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R14",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R15",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R16",
+          "structured_cells_correct": false
+        }
+      ],
+      "table_rows_correct": 0,
+      "quality_gate": false
+    },
+    {
+      "source": "difficult-scanned.pdf",
+      "parser": "pypdf",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_seconds": 0.44,
+      "peak_process_tree_rss_mib": 34.5,
+      "completed": true,
+      "parser_version": "6.19.0",
+      "source_sha256": "0eda966ce458cb333f94fdef91103b9aeb527c81964043f1873bd348b5e724e5",
+      "pages": 4,
+      "full_document": true,
+      "images": 4,
+      "marker_checks": [
+        {
+          "page": 1,
+          "phrase": "SIM-ALPHA",
+          "found": false
+        },
+        {
+          "page": 1,
+          "phrase": "SIM-BETA",
+          "found": false
+        },
+        {
+          "page": 1,
+          "phrase": "7 seconds",
+          "found": false
+        },
+        {
+          "page": 1,
+          "phrase": "LAMP flash twice",
+          "found": false
+        },
+        {
+          "page": 1,
+          "phrase": "burning smell",
+          "found": false
+        },
+        {
+          "page": 1,
+          "phrase": "sealed controller",
+          "found": false
+        },
+        {
+          "page": 1,
+          "phrase": "闻到焦味立即停止",
+          "found": false
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R01",
+          "found": false
+        },
+        {
+          "page": 2,
+          "phrase": "12",
+          "found": false
+        },
+        {
+          "page": 2,
+          "phrase": "1.5",
+          "found": false
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R08",
+          "found": false
+        },
+        {
+          "page": 2,
+          "phrase": "24",
+          "found": false
+        },
+        {
+          "page": 2,
+          "phrase": "2.0",
+          "found": false
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R09",
+          "found": false
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R16",
+          "found": false
+        },
+        {
+          "page": 3,
+          "phrase": "Voltage",
+          "found": false
+        },
+        {
+          "page": 3,
+          "phrase": "Current",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "90 seconds",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "terminal B only",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "Never bridge A and B",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "casing is cracked",
+          "found": false
+        }
+      ],
+      "marker_hits": 0,
+      "marker_total": 21,
+      "structured_table_rows": 0,
+      "table_checks": [
+        {
+          "part": "SIM-R01",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R02",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R03",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R04",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R05",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R06",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R07",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R08",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R09",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R10",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R11",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R12",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R13",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R14",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R15",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R16",
+          "structured_cells_correct": false
+        }
+      ],
+      "table_rows_correct": 0,
+      "quality_gate": false
+    },
+    {
+      "source": "product-manuals-v1.pdf",
+      "parser": "mineru-flash",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_seconds": 4.89,
+      "peak_process_tree_rss_mib": 244.3,
+      "completed": true,
+      "parser_version": "4.0.10",
+      "source_sha256": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+      "pages": 17,
+      "full_document": true,
+      "images": 8,
+      "sku_checks": [
+        {
+          "sku": "H-CTD16-US-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-US-SGY",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-UK-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-EU-SGY",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-EU-W",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-UK-SGY",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-US-W",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-EU-WD",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-UK-WT",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-EU-WT",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-US-WD",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-US-WT",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-AU-WT",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-EU-WTG",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-UK-BG",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-UK-WD",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-US-BG",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-LBD05-UK-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-SJ001-US-BBR",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-SJ001-EU-BBR",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-SJ001-EU-W",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-SJ001-US-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-UK-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-UK-GY",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-US-BBR-2PCS",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-US-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-US-BTB",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC01-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC01-BL",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-XLLHBC02-PP",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-XLLHBC02-P",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC12-PU",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC12-B",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC12-LP",
+          "found_in_expected_pages": true
+        }
+      ],
+      "sku_hits": 34,
+      "quality_gate": true,
+      "quality_scope": "page_sku_image_presence_only_not_visual_factual_review"
+    },
+    {
+      "source": "difficult-native.pdf",
+      "parser": "mineru-flash",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_seconds": 4.06,
+      "peak_process_tree_rss_mib": 238.5,
+      "completed": true,
+      "parser_version": "4.0.10",
+      "source_sha256": "a3cc085edabed7f46bd32f721b74cbf323b896f265ad32ccdbc2a92d60172cfc",
+      "pages": 4,
+      "full_document": true,
+      "images": 1,
+      "marker_checks": [
+        {
+          "page": 1,
+          "phrase": "SIM-ALPHA",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "SIM-BETA",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "7 seconds",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "LAMP flash twice",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "burning smell",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "sealed controller",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "闻到焦味立即停止",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R01",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "12",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "1.5",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R08",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "24",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "2.0",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R09",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R16",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "Voltage",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "Current",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "90 seconds",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "terminal B only",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "Never bridge A and B",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "casing is cracked",
+          "found": false
+        }
+      ],
+      "marker_hits": 17,
+      "marker_total": 21,
+      "structured_table_rows": 14,
+      "table_checks": [
+        {
+          "part": "SIM-R01",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R02",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R03",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R04",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R05",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R06",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R07",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R08",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R09",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R10",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R11",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R12",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R13",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R14",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R15",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R16",
+          "structured_cells_correct": true
+        }
+      ],
+      "table_rows_correct": 14,
+      "quality_gate": false
+    },
+    {
+      "source": "difficult-scanned.pdf",
+      "parser": "mineru-flash",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_seconds": 4.3,
+      "peak_process_tree_rss_mib": 259.8,
+      "completed": true,
+      "parser_version": "4.0.10",
+      "source_sha256": "0eda966ce458cb333f94fdef91103b9aeb527c81964043f1873bd348b5e724e5",
+      "pages": 4,
+      "full_document": true,
+      "images": 4,
+      "marker_checks": [
+        {
+          "page": 1,
+          "phrase": "SIM-ALPHA",
+          "found": false
+        },
+        {
+          "page": 1,
+          "phrase": "SIM-BETA",
+          "found": false
+        },
+        {
+          "page": 1,
+          "phrase": "7 seconds",
+          "found": false
+        },
+        {
+          "page": 1,
+          "phrase": "LAMP flash twice",
+          "found": false
+        },
+        {
+          "page": 1,
+          "phrase": "burning smell",
+          "found": false
+        },
+        {
+          "page": 1,
+          "phrase": "sealed controller",
+          "found": false
+        },
+        {
+          "page": 1,
+          "phrase": "闻到焦味立即停止",
+          "found": false
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R01",
+          "found": false
+        },
+        {
+          "page": 2,
+          "phrase": "12",
+          "found": false
+        },
+        {
+          "page": 2,
+          "phrase": "1.5",
+          "found": false
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R08",
+          "found": false
+        },
+        {
+          "page": 2,
+          "phrase": "24",
+          "found": false
+        },
+        {
+          "page": 2,
+          "phrase": "2.0",
+          "found": false
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R09",
+          "found": false
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R16",
+          "found": false
+        },
+        {
+          "page": 3,
+          "phrase": "Voltage",
+          "found": false
+        },
+        {
+          "page": 3,
+          "phrase": "Current",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "90 seconds",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "terminal B only",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "Never bridge A and B",
+          "found": false
+        },
+        {
+          "page": 4,
+          "phrase": "casing is cracked",
+          "found": false
+        }
+      ],
+      "marker_hits": 0,
+      "marker_total": 21,
+      "structured_table_rows": 0,
+      "table_checks": [
+        {
+          "part": "SIM-R01",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R02",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R03",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R04",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R05",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R06",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R07",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R08",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R09",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R10",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R11",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R12",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R13",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R14",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R15",
+          "structured_cells_correct": false
+        },
+        {
+          "part": "SIM-R16",
+          "structured_cells_correct": false
+        }
+      ],
+      "table_rows_correct": 0,
+      "quality_gate": false
+    },
+    {
+      "source": "product-manuals-v1.pdf",
+      "parser": "mineru-basic",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_seconds": 19.91,
+      "peak_process_tree_rss_mib": 2205.5,
+      "completed": true,
+      "parser_version": "4.0.10",
+      "source_sha256": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+      "pages": 17,
+      "full_document": true,
+      "images": 8,
+      "sku_checks": [
+        {
+          "sku": "H-CTD16-US-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-US-SGY",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-UK-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-EU-SGY",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-EU-W",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-UK-SGY",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-CTD16-US-W",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-EU-WD",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-UK-WT",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-EU-WT",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-US-WD",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-US-WT",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-AU-WT",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-EU-WTG",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-UK-BG",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-UK-WD",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-SJJ0001-US-BG",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "H-LBD05-UK-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-SJ001-US-BBR",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-SJ001-EU-BBR",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-SJ001-EU-W",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-SJ001-US-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-UK-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-UK-GY",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-US-BBR-2PCS",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-US-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "F-ZZZ0002-US-BTB",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC01-BK",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC01-BL",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-XLLHBC02-PP",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-XLLHBC02-P",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC12-PU",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC12-B",
+          "found_in_expected_pages": true
+        },
+        {
+          "sku": "SP-SLHBC12-LP",
+          "found_in_expected_pages": true
+        }
+      ],
+      "sku_hits": 34,
+      "quality_gate": true,
+      "quality_scope": "page_sku_image_presence_only_not_visual_factual_review"
+    },
+    {
+      "source": "difficult-native.pdf",
+      "parser": "mineru-basic",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_seconds": 8.58,
+      "peak_process_tree_rss_mib": 1252.2,
+      "completed": true,
+      "parser_version": "4.0.10",
+      "source_sha256": "a3cc085edabed7f46bd32f721b74cbf323b896f265ad32ccdbc2a92d60172cfc",
+      "pages": 4,
+      "full_document": true,
+      "images": 0,
+      "marker_checks": [
+        {
+          "page": 1,
+          "phrase": "SIM-ALPHA",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "SIM-BETA",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "7 seconds",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "LAMP flash twice",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "burning smell",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "sealed controller",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "闻到焦味立即停止",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R01",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "12",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "1.5",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R08",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "24",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "2.0",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R09",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R16",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "Voltage",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "Current",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "90 seconds",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "terminal B only",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "Never bridge A and B",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "casing is cracked",
+          "found": true
+        }
+      ],
+      "marker_hits": 21,
+      "marker_total": 21,
+      "structured_table_rows": 18,
+      "table_checks": [
+        {
+          "part": "SIM-R01",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R02",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R03",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R04",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R05",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R06",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R07",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R08",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R09",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R10",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R11",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R12",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R13",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R14",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R15",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R16",
+          "structured_cells_correct": true
+        }
+      ],
+      "table_rows_correct": 16,
+      "quality_gate": true
+    },
+    {
+      "source": "difficult-scanned.pdf",
+      "parser": "mineru-basic",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_seconds": 11.27,
+      "peak_process_tree_rss_mib": 1621.7,
+      "completed": true,
+      "parser_version": "4.0.10",
+      "source_sha256": "0eda966ce458cb333f94fdef91103b9aeb527c81964043f1873bd348b5e724e5",
+      "pages": 4,
+      "full_document": true,
+      "images": 0,
+      "marker_checks": [
+        {
+          "page": 1,
+          "phrase": "SIM-ALPHA",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "SIM-BETA",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "7 seconds",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "LAMP flash twice",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "burning smell",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "sealed controller",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "闻到焦味立即停止",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R01",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "12",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "1.5",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R08",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "24",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "2.0",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R09",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R16",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "Voltage",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "Current",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "90 seconds",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "terminal B only",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "Never bridge A and B",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "casing is cracked",
+          "found": true
+        }
+      ],
+      "marker_hits": 21,
+      "marker_total": 21,
+      "structured_table_rows": 18,
+      "table_checks": [
+        {
+          "part": "SIM-R01",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R02",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R03",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R04",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R05",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R06",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R07",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R08",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R09",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R10",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R11",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R12",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R13",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R14",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R15",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R16",
+          "structured_cells_correct": true
+        }
+      ],
+      "table_rows_correct": 16,
+      "quality_gate": true
+    }
+  ],
+  "all_invocations_completed": true,
+  "limitations": [
+    "single cold/warm mixed run; resource metric is process-tree RSS, not GPU memory",
+    "fixtures are synthetic; marker checks do not prove reading order or visual meaning"
+  ],
+  "status": "completed"
+}

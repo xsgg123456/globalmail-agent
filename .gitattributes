@@ -1,6 +1,9 @@
-# 资料哈希及前端副本按原始字节校验，避免跨平台检出转换换行。
+# 资料、实验证据及前端副本按原始字节校验，避免跨平台检出转换换行。
 /data/** -text
 /globalmail-agent/frontend/** -text
+# 实验文件保留已有 CRLF；仍检查实际行尾空格、文件尾空行和空格后 Tab。
+/globalmail-agent/tech-spike/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/globalmail-agent/knowledge-spike/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /output/** -text
 
 # PDF 可能使用纯 ASCII 编码，也必须按二进制保存。

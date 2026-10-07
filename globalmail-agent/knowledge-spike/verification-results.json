@@ -1,0 +1,138 @@
+{
+  "recorded_at": "2026-10-07T07:10:51.001660+00:00",
+  "status": "completed",
+  "scope": "experiment_verification_not_product_acceptance",
+  "compiled": [
+    {
+      "file": "artifact_contract.py",
+      "lines": 51,
+      "sha256": "46143f315534fdbb6ff1a45bbee748040072dd8df50cc093ebb2a34f2b64d73c"
+    },
+    {
+      "file": "build_fixtures.py",
+      "lines": 124,
+      "sha256": "48aa97d2d950f6a422cfbc875415129bd9a7cc48989a70afacdcd7eed0f9987a"
+    },
+    {
+      "file": "chunking.py",
+      "lines": 190,
+      "sha256": "04377e51ab905bacfe0482f40b75449a36f10873fa05f1d29126e215d1b4a7a3"
+    },
+    {
+      "file": "common.py",
+      "lines": 45,
+      "sha256": "83aab35a1b6d445d93145fbefef1b704bacfff534b275764a108642200768d47"
+    },
+    {
+      "file": "embedding_client.py",
+      "lines": 77,
+      "sha256": "0b6132f9ce513a022de1430aa5b998ad8d5f870779fe294c6a3413119e424bde"
+    },
+    {
+      "file": "lifecycle_store.py",
+      "lines": 186,
+      "sha256": "fe7bf710913a746ff1e2e5809264f6c3aebf361a75578a05b3b45f1d4251d3df"
+    },
+    {
+      "file": "parse_one.py",
+      "lines": 91,
+      "sha256": "50760e5cfa151019c7047d1d151829808c68ff75fa41bc30d922a5708f88fe2d"
+    },
+    {
+      "file": "probe_evidence.py",
+      "lines": 136,
+      "sha256": "731b4b4c4863ddf39d054a7700a2b70e7eef81af1bb2436cd8c0bff1edb2dc22"
+    },
+    {
+      "file": "probe_lifecycle.py",
+      "lines": 243,
+      "sha256": "f7cc9babf0fea7e91fed5b72edd028a5296ff5e886f2ae884d7d5369a745ff6f"
+    },
+    {
+      "file": "probe_parsing.py",
+      "lines": 118,
+      "sha256": "db3b6785de4381f45585350e06cea10906a3391422f356ba1324a3dd1870b092"
+    },
+    {
+      "file": "probe_retrieval.py",
+      "lines": 108,
+      "sha256": "6a254a48f73c602d193a902fb1de6cfd7711806885fca605c9fa166e499f9798"
+    },
+    {
+      "file": "test_artifact_contract.py",
+      "lines": 62,
+      "sha256": "d87abba090f3967cd0850ece734d6fea16d9394864715ef22cbe30e007ed197b"
+    },
+    {
+      "file": "test_knowledge_contracts.py",
+      "lines": 125,
+      "sha256": "d5c199314bf4c5fd1795ce23e6e5d3b8cd7b35bb90d7b3d589b5ac7f07214dce"
+    },
+    {
+      "file": "test_lifecycle_contract.py",
+      "lines": 164,
+      "sha256": "520a05df08c0ecda5df6ceac62b9b29d7bf981ddf3639e2e399abb4437583843"
+    }
+  ],
+  "dependency_check": {
+    "command": "uv pip check --python tmp/knowledge-spike/mineru-venv/Scripts/python.exe",
+    "packages": 115,
+    "exit_code": 0,
+    "evidence": "executed after final code fixes; tool transcript"
+  },
+  "unit_test_run": {
+    "tests_run": 24,
+    "passed": 19,
+    "skipped_database_tests": 5,
+    "failures": 0,
+    "command": "python -m unittest discover -p test_*.py -v",
+    "evidence": "tool transcript after M1/M2 fixes; DB tests exercised by lifecycle separately"
+  },
+  "lifecycle": {
+    "groups_passed": 7,
+    "contract_tests": {
+      "tests_run": 8,
+      "passed": true,
+      "failures": [],
+      "errors": [],
+      "skipped": []
+    },
+    "resources_cleaned": true,
+    "input_hashes_current": true
+  },
+  "current_upstream_snapshots_and_evidence_inputs_verified": true,
+  "guard_checks": {
+    "passed": 18,
+    "total": 18,
+    "cached_responses_on_final_replay": true
+  },
+  "frozen_query_sha256": "6621dd696c3c7a89bd32044cd479c17dfc0a90a2dcf99a22ded2faae4fd5dad3",
+  "evidence_sha256": {
+    "chunking-results.json": "826c5a90d1d3fe823735aba198c7c48c3449ff210055222b7146c3b969f671fd",
+    "evidence-initial-results.json": "01d8411f3096a89cf78d9ab0d5f97b8b0ee238274335eafd436ad99412ae0727",
+    "evidence-results.json": "66a97688414f1059a7eb731772bd31d4cd48d336a226ff6f0ffbafb31da23d73",
+    "lifecycle-results.json": "6c8786ccd0f00c54ba0feb716d3fbacba9703c57a3db55cd5f6510a96329c895",
+    "mineru-requirements.lock": "5a607b637aceb0419d50e9f20cad9eb9a30d08e9d08a6cb416622c476d20e1a6",
+    "model-assets.json": "ceb18b4384ba97b0cf0731476e6b779da615d360a0aa2d9ce735b88ffea884bc",
+    "parsing-results.json": "b48155bece579e45b28d2a0baaa5e15abe5990b6c945ce97ce5c151aceb5e547",
+    "parsing-standard-results.json": "0b58f5969161a1b7c02a6e47a91365a1a1ff3bbf1be7b186df9c0f4e56217830",
+    "retrieval-initial-results.json": "ed0632c26714161963b25cf3fc5ab1256e7daef15736577e08c00c8d95eb2d81",
+    "retrieval-queries.jsonl": "6621dd696c3c7a89bd32044cd479c17dfc0a90a2dcf99a22ded2faae4fd5dad3",
+    "retrieval-results.json": "5ab81c648ba22e73e099b7e8bdcf801cad277401f7949b30d16cfaed2d3ffda5"
+  },
+  "independent_review": {
+    "file": "review-final.md",
+    "status": "PASS",
+    "stage_1": "PASS",
+    "stage_2": "PASS",
+    "closed_findings": [
+      "M1",
+      "M2",
+      "M3"
+    ],
+    "new_high_or_medium": 0,
+    "sha256": "41e62643a82b99e572fa34a934da48dfdbd964d902a1c345b852420ed4ce8dac",
+    "sha256_before_document_relocation": "38d71958623004728d686998b5dde6f21cffd1428760d5332e6095e7f70a1372",
+    "hash_update_note": "2026-10-07 提交前校验：仅将报告中的根目录 KNOWLEDGE-VALIDATION.md 引用迁至项目内 docs/verification/KNOWLEDGE-VALIDATION.md；反向替换后与原摘要完全一致，审查内容和结论未变，未重新执行独立审查。"
+  }
+}

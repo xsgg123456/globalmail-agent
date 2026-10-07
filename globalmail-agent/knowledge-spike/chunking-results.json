@@ -1,0 +1,32 @@
+{
+  "documents": 22,
+  "strategies": {
+    "whole": {
+      "chunks": 22,
+      "max_tokens": 933,
+      "total_tokens": 11158,
+      "fingerprint": "2ddfb92fbc2f0553853064402e625e8dfa95c801b55eb844fc9b1b4ac737ea92"
+    },
+    "fixed500": {
+      "chunks": 50,
+      "max_tokens": 375,
+      "total_tokens": 12510,
+      "fingerprint": "4ab6000d066db3ebfa9e721af2e4743950ff3203d16643cb46ed93f19b606201"
+    },
+    "structured300": {
+      "chunks": 124,
+      "max_tokens": 428,
+      "total_tokens": 16432,
+      "fingerprint": "48fc4bc421468f751ff0635290aee4449dd49c54979ebd2c1b3058948b56054b"
+    },
+    "structured500": {
+      "chunks": 124,
+      "max_tokens": 428,
+      "total_tokens": 16432,
+      "fingerprint": "a2efc3dd55f25469be7a28e7b45ccee20ef9e605769e4443456bb62d963bb52c"
+    }
+  },
+  "tokenizer": "Qwen/Qwen3-Embedding-0.6B proxy; hosted v4 tokenizer parity unverified",
+  "tokenizer_sha256": "78b5dd3a6a1d17178249e395ef9208589aec5d3dc8e0cb09754dd4c77cdc3bf9",
+  "status": "completed"
+}

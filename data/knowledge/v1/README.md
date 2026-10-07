@@ -67,7 +67,7 @@
 
 - 含图 PDF 是手册导入原件，authoring/product-content.json 是编辑源，不得用它替代 PDF 解析测试。
 - assets/photos/ 保存实际生产订单商品图片，最终 PDF 只使用这些图片。旧的线条示意图不是交付资产。图片版权归原权利人，当前仅作内部资料参考；未据图推断尺寸、接线和兼容关系。
-- SOP 与案例按问题/步骤/结果切分；片段继承对应范围和来源。案例只供经验参考，不能充当退款政策或执行回执。
+- SOP 与案例先核对适用范围和语义完整性：短文完整保留，长文才按章节/完整步骤切分并补齐前提和警告；片段继承对应范围和来源。当前策略见 [知识设计](../../../docs/architecture/KNOWLEDGE-DESIGN.md)，案例不能充当退款政策或执行回执。
 - 政策 canonical 文件是 authoring/policy-profile.json；policies/ 内 JSON 是发布副本，MD 是同源生成的中文业务说明，不堆字段名。业务正文源为 authoring/business-copy.json，生成器在最终修订步骤覆盖技术初稿。
 - scenarios/ 和 evaluation/ 不进入 RAG。控制事件、预期结果、fault injection 均由测试程序持有，不作为 Agent 邮件上下文。
 - 订单、库存和履约状态由业务服务读取；不要将这些瞬时记录切块后作为“当前状态”检索。
@@ -81,14 +81,14 @@
 3. 离线重建运行 tools/build_all.py：基础数据 → 场景结构 → 业务资料修订 → PDF 渲染 → 检查。不要只跑 build_materials.py 后交付中间技术稿。当前内部重建需要受控来源目录。
 4. validate_materials.py 检查数据关系和生成逐页检查图；视觉检查签名绑定最终 PDF 哈希，内容改动后必须重做。整个离线构建不调用模型、生产或业务系统。
 
-检查结果见 validation-report.json：40 项离线检查；最终 PDF 17 页已逐页查看渲染。已确认商品图来源、业务正文无测试术语、客户邮件无内部编码、数据关联等；尚未执行向量化、pgvector 检索、PDF 图片理解、Agent 场景回归或独立历史评测。
+检查结果见 validation-report.json：40 项离线检查；最终 PDF 17 页已逐页查看渲染。已确认商品图来源、业务正文无测试术语、客户邮件无内部编码、数据关联等。这份资料制作报告不包含向量化、pgvector 检索、PDF 图片理解、Agent 场景回归或独立历史评测；后续组件实验另见下文，不改写原报告结论。
 
 连续资料检查见 journey-validation-report.json：33 项离线检查及 8 项正反例测试，包含先验收后退款/换货、部分退款明确接受、地址版本和新版寄回附件关联。检查的是编写的数据，不是业务执行器、状态机或模型实测。可用现有 Python 环境依次运行 tools/complete_step_fixtures.py、tools/build_journeys.py、tools/validate_journeys.py、tools/test_journey_integrity.py，单独重建本次补充；完整重建仍用 tools/build_all.py。
 
-## 尚待后续工作
+## 后续实验进展与应用剩余工作
 
-- 选择并验证 PDF 图文解析与 Embedding 接口，建立真正的入库、更新、移除流程。
-- 将 24 条开发检索查询实际运行，检查正确资料命中和错误型号排除。
+- 已完成 PDF/模型输入、Embedding 及原24条开发查询的组件验证，并扩展为60条双模型查询和临时PG生命周期实验，见 [技术选型](../../../docs/architecture/TECH-SELECTION.md) 与 [知识实测](../../../docs/verification/KNOWLEDGE-VALIDATION.md)。实验索引独立存在，不修改本包 prepared_not_indexed 状态，也不代表正式应用已入库。
+- 按已确定的解析与切分方案实现正式入库、发布、更新和移除；使用未参与调参的新查询验收应用检索，不重复把已完成实验列为首次验证。
 - 实现模拟业务适配器与场景控制台，先运行新增 21 条连续流程，再回归原 51 个环节样例；数据中的 gate 和事实前提须由执行器落实，不能只按顺序自动播放成功结果。
 - 保留评测组尚未进行完整隐私复核和合理动作标注，不报告独立准确率。
 - 商品真实额定参数、结构修订和视频适用性仍未知，本包的 SIM 设定不能覆盖这些未知事实。

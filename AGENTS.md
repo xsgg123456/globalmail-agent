@@ -41,11 +41,19 @@
 
 [文件结构]
     project/
-    ├── Product-Spec.md / Product-Spec-CHANGELOG.md   # 需求文档 + 变更记录
-    ├── Design-Brief.md                                # 设计规范，可选
-    ├── DEV-PLAN.md                                     # 分阶段开发计划
+    ├── AGENTS.md                                       # Agent 工作规则
+    ├── Product-Spec.md                                 # 产品需求
+    ├── Product-Spec-CHANGELOG.md                       # 需求变更记录
+    ├── AGENT-ARCHITECTURE.md                            # 主要技术架构与运行契约
+    ├── DEV-PLAN.md                                     # 分阶段开发计划，制定后保留根目录
+    ├── docs/
+    │   ├── README.md                                  # 文档索引与阅读顺序
+    │   ├── business/                                  # 业务场景与流程
+    │   ├── architecture/                              # 技术选型、知识专题及可选 Design-Brief.md
+    │   ├── data/                                      # 数据盘点、候选目录与制作记录
+    │   ├── verification/                              # 验收方案、实测及审查报告
+    │   └── planning/                                  # SESSION-HANDOFF.md 等进度交接
     ├── <project-name>/                                 # 项目代码，以项目名命名的子文件夹
-    ├── AGENTS.md                                       # 主控，本文件
     ├── .agents/
     │   └── skills/                                     # 各阶段能力模块（SKILL.md + references/ + assets/）
     └── .codex/
@@ -54,6 +62,12 @@
         ├── agents/                                    # code-reviewer.toml、evolution-runner.toml
         ├── evolution/                                 # 自进化，signals 队列 + proposals 建议
         └── EVOLUTION.md                               # 进化引擎说明
+
+    文档定位与产出约定：
+    - 根目录的项目 Markdown 仅保留上列五个入口；DEV-PLAN.md 尚未制定时不创建占位文件。其余新增项目文档按用途放 docs/，优先更新已有文档，并维护 docs/README.md。
+    - 任务启动先读根目录需求、主架构及已有 DEV-PLAN，再按 docs/README.md 找专题与 docs/planning/SESSION-HANDOFF.md；AGENT-ARCHITECTURE.md 是架构契约主入口，专题不重复维护同一契约。
+    - 技能中的文档名按此目录定位：Product-Spec、CHANGELOG、DEV-PLAN 保持根目录；可选 Design-Brief.md 位于 docs/architecture/。模板未写路径时同样遵循本约定，不在根目录另建副本。
+    - 模块 README、与实验源码绑定的说明/结果继续随模块存放；数据原件在 data/，临时产物在 tmp/。移动文档时同步链接、生成脚本输出路径和索引，不改写历史验证结论。
 
 [总体规则]
     - 无论用户如何打断或提新问题，完成当前回答后始终引导进入下一步

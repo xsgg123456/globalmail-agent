@@ -1,0 +1,144 @@
+{
+  "scope": "isolated_minimum_lifecycle_contract_not_product_acceptance",
+  "image": "pgvector/pgvector@sha256:78bf48b801e792f99e3ac62b5036fd3876e9be48afda16c1e331af1c75ceb2ff",
+  "passed": true,
+  "checks": [
+    {
+      "name": "initial_publish_real_vectors_and_idempotent_build",
+      "passed": true,
+      "detail": {
+        "chunks": 124,
+        "dimensions": 1024,
+        "model": "text-embedding-v4",
+        "repeat_build_rows": 124,
+        "conflicting_payload_rejected": true
+      }
+    },
+    {
+      "name": "sql_scope_before_vector_ranking",
+      "passed": true,
+      "detail": {
+        "developer_queries": 60,
+        "negative_fields": [
+          "sku",
+          "brand",
+          "mode",
+          "knowledge_split",
+          "as_of"
+        ],
+        "candidate_cte": "MATERIALIZED; filters precede ORDER BY/LIMIT",
+        "query_split": "dev is query-set membership; knowledge_split=rag is retrieval authorization",
+        "brand_source": "registered products.json SKU mapping; no SKU-prefix inference"
+      }
+    },
+    {
+      "name": "unready_replacement_preserves_previous_release",
+      "passed": true,
+      "detail": {
+        "rejected": true,
+        "active": "baseline"
+      }
+    },
+    {
+      "name": "atomic_publication_rollback_and_two_connection_snapshot",
+      "passed": true,
+      "detail": {
+        "old_transaction": "content-v1",
+        "new_transaction": "content-v2",
+        "rollback": "content-v1",
+        "old_reference_guard": false,
+        "version_variant": "synthetic version labels; unchanged real text/vectors"
+      }
+    },
+    {
+      "name": "real_same_dimension_profile_switch_failure_and_rollback",
+      "passed": true,
+      "detail": {
+        "models": [
+          "text-embedding-v4",
+          "qwen3.7-text-embedding"
+        ],
+        "dimensions": 1024,
+        "old_profile_on_new_release_rows": 0,
+        "old_transaction_keeps_old_space": true,
+        "new_transaction_only_new_space": true,
+        "failed_build_keeps_old_profile": true,
+        "injected_completion_failure": "missing vector rejected as vector_count"
+      }
+    },
+    {
+      "name": "disable_invalidates_new_search_cache_reply_and_late_task",
+      "passed": true,
+      "detail": {
+        "documents": 22,
+        "cached_epoch": 5,
+        "live_epoch": 6,
+        "new_rows": 0,
+        "reply_guard": false,
+        "late_completion_and_publish": "stale_epoch"
+      }
+    },
+    {
+      "name": "content_vectors_deleted_tombstone_blocks_rebuild_and_republish",
+      "passed": true,
+      "detail": {
+        "remaining_content_vector_rows": 0,
+        "tombstones": 22,
+        "scope": "database rows only; no object store, checkpoint, trace or backup cleanup"
+      }
+    }
+  ],
+  "stage": "completed",
+  "limitations": [
+    "No API, UI, worker leases, bounded retries or production service.",
+    "No policy-rule/explanation atomic bundle or embedding cache reuse implementation.",
+    "Deletion covers experiment database content/vector rows only; no privacy cleanup or restore claim.",
+    "Retained MVCC snapshots can see old rows; guard uses a fresh transaction before submission."
+  ],
+  "vector_provenance": {
+    "retrieval_and_profile_switch": "real provider vectors from existing frozen inputs",
+    "content_version_change": "synthetic version labels; unchanged real content and embeddings",
+    "failure_and_concurrency_tests": "explicit three-dimensional synthetic fixtures"
+  },
+  "inputs": [
+    {
+      "file": "retrieval-text-embedding-v4-structured500.json",
+      "file_sha256": "f6a4378e0425b7792e2a6432a74f2e3279323f18f43ab73938abf77b7d2f5fbe",
+      "fingerprint": "dc3f950ecd805a10bc7f0325154d26d6b1e8df78d8f11583674d586ededef248",
+      "profile": {
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "model": "text-embedding-v4",
+        "dimensions": 1024,
+        "input_format": "plain_title_path_body_v1",
+        "provider_weight_revision": "not_exposed"
+      }
+    },
+    {
+      "file": "retrieval-qwen3.7-text-embedding-structured500.json",
+      "file_sha256": "0b83239a99e6fe9ae7826d6b765982de328ee0d57cfeae3d8695abb658ce91c6",
+      "fingerprint": "00095c546a588944e05084b60beb3fc6afd9469f3a19b42679eed5d1c2069512",
+      "profile": {
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "model": "qwen3.7-text-embedding",
+        "dimensions": 1024,
+        "input_format": "plain_title_path_body_v1",
+        "provider_weight_revision": "not_exposed"
+      }
+    }
+  ],
+  "psycopg": "3.3.6",
+  "postgresql": "18.6 (Debian 18.6-1.pgdg13+2)",
+  "pgvector": "0.8.6",
+  "contract_tests": {
+    "tests_run": 8,
+    "passed": true,
+    "failures": [],
+    "errors": [],
+    "skipped": []
+  },
+  "temporary_container_removed": true,
+  "temporary_credentials_removed": true,
+  "started_at": "2026-10-07T07:07:32.177125+00:00",
+  "finished_at": "2026-10-07T07:07:41.940557+00:00",
+  "status": "completed"
+}

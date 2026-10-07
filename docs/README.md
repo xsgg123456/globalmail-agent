@@ -1,0 +1,40 @@
+# 项目文档索引
+
+本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口，DEV-PLAN v1.0已制定、各开发阶段尚未开始。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
+
+## 根目录入口
+
+| 文档 | 职责 |
+|---|---|
+| [AGENTS.md](../AGENTS.md) | Agent 工作规则、目录约定与任务路由 |
+| [Product-Spec.md](../Product-Spec.md) | 产品范围、需求和验收条件的单一事实来源 |
+| [Product-Spec-CHANGELOG.md](../Product-Spec-CHANGELOG.md) | 需求变更及相关文档布局记录 |
+| [AGENT-ARCHITECTURE.md](../AGENT-ARCHITECTURE.md) | 主要技术架构、状态、工具、事务及运行契约 |
+| [DEV-PLAN.md](../DEV-PLAN.md) | 13个开发阶段、具体文件、依赖及82项AC归属；保留根目录 |
+
+## 专题分类
+
+| 分类 | 文档 | 用途 |
+|---|---|---|
+| business | [BUSINESS-SCENARIOS.md](business/BUSINESS-SCENARIOS.md) | 七类业务、连续场景及待制作图片专项 |
+| architecture | [BACKEND-ARCHITECTURE.md](architecture/BACKEND-ARCHITECTURE.md) | 后端总览与取舍；具体运行契约以根目录主架构为准 |
+| architecture | [TECH-SELECTION.md](architecture/TECH-SELECTION.md) | 技术选择、依赖版本、已有验证及能力边界 |
+| architecture | [KNOWLEDGE-DESIGN.md](architecture/KNOWLEDGE-DESIGN.md) | 知识维护、解析、切分、向量化及版本生命周期 |
+| data | [DATA-PREPARATION.md](data/DATA-PREPARATION.md) | 数据盘点和准备清单，保留各批次证据 |
+| data | [DATA-CATALOG.md](data/DATA-CATALOG.md) | 三品牌商品、案例和资料候选目录 |
+| data | [DATA-BUILD-PLAN.md](data/DATA-BUILD-PLAN.md) | 首批资料制作计划、调整及离线验收记录 |
+| verification | [AGENT-ACCEPTANCE.md](verification/AGENT-ACCEPTANCE.md) | 产品验收映射与故障时序设计，区别于已通过测试 |
+| verification | [KNOWLEDGE-VALIDATION.md](verification/KNOWLEDGE-VALIDATION.md) | 知识专项实验结果及尚未验证部分 |
+| verification | [AGENT-ARCHITECTURE-REVIEW.md](verification/AGENT-ARCHITECTURE-REVIEW.md) | 原架构设计审查，结论限于报告指定版本 |
+| verification | [AGENT-VISUAL-REVIEW.md](verification/AGENT-VISUAL-REVIEW.md) | 客户图片能力增量设计审查 |
+| verification | [DOCUMENT-CONSISTENCY-REVIEW.md](verification/DOCUMENT-CONSISTENCY-REVIEW.md) | 本轮文档偏差、修订依据及开发计划覆盖自检 |
+| planning | [SESSION-HANDOFF.md](planning/SESSION-HANDOFF.md) | 当前进度、已有产出、未完成项和下一步 |
+
+## 任务阅读与新增文档
+
+1. 先读根目录工作规则、需求、主架构及已有开发计划，再读当前交接；只按本轮任务加载相关专题。
+2. 优先更新已有专题；确需新文档时按上表分类并补充索引。验收方案、实测报告和历史审查应明确各自状态，不改写旧结论。
+3. 可选设计规范 `Design-Brief.md` 后续放 `docs/architecture/`；`DEV-PLAN.md` 始终保留根目录。技能中只写文件名时按 AGENTS.md 的定位约定处理。
+4. Markdown 链接相对所在文件；正文代码片段中的项目路径默认相对仓库根目录，另有明确运行目录说明时从其说明。搬迁须同步链接和生成脚本输出路径，禁止留下根目录重复副本。
+
+当前图片专项仍待制作和实测；本轮一致性修订与计划编制未改变业务范围、需求/架构版本或既有验证结论。数据盘点/制作记录保留批次时间，项目当前进度以DEV-PLAN及交接顶部为准。

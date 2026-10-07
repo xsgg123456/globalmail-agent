@@ -1,0 +1,592 @@
+{
+  "scope": "component_probes_not_agent_acceptance",
+  "model": "qwen3.7-plus",
+  "beijing_date": "2026-10-07",
+  "checks": [
+    {
+      "name": "native_json_schema",
+      "passed": true,
+      "detail": {
+        "method": "json_schema",
+        "validated": {
+          "order_number": "999-1000001-2000001",
+          "ask_shipment_status": true,
+          "conditional_refund": true,
+          "authorize_refund_now": false
+        }
+      },
+      "elapsed_seconds": 3.23
+    },
+    {
+      "name": "streamed_tool_roundtrip_and_usage",
+      "passed": true,
+      "detail": {
+        "stream_chunks": 19,
+        "tool_name": "get_order_snapshot",
+        "final_reply": "Based on the order lookup:\n\n- **SKU**: H-CTD16-US-BK\n- **Shipment Status**: label_created (This means a shipping label has been created, but it has not yet shipped)",
+        "stream_usage_present": true
+      },
+      "elapsed_seconds": 5.14
+    },
+    {
+      "name": "pdf_text_images_and_page_render",
+      "passed": true,
+      "detail": {
+        "pages": 17,
+        "sku_tokens_found": 34,
+        "embedded_images": 8,
+        "characters": 8716,
+        "pdf_sha256": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265"
+      },
+      "elapsed_seconds": 0.42
+    },
+    {
+      "name": "qwen_page_vision",
+      "passed": true,
+      "detail": {
+        "page": 2,
+        "output": "Based on the provided product reference page:\n\n*   **Visible Product Type:** Floor lamp (specifically described in the text as an \"upward-facing light\" or \"sky light\" with a circular head and control buttons on the pole).\n*   **Figure Label:** The text below the image states: \"商品图对应: H-CTD16-US-BK\" (Product image corresponds to: H-CTD16-US-BK).\n*   **One Visible SKU:** H-CTD16-US-BK (Other visible SKUs listed under \"本批商品编码\" include H-CTD16-US-SGY, H-CTD16-UK-BK, etc.).",
+        "scope": "one_page_image_input_smoke_not_full_visual_ingestion"
+      },
+      "elapsed_seconds": 4.89
+    },
+    {
+      "name": "cross_language_embedding_baseline",
+      "passed": true,
+      "detail": {
+        "embedding_model": "text-embedding-v4",
+        "dimensions": 1024,
+        "documents": 22,
+        "queries": 24,
+        "positive_queries": 16,
+        "negative_queries": 8,
+        "global_top1_hits": 14,
+        "scoped_passed": 24,
+        "embedding_usage": [
+          {
+            "prompt_tokens": 5558,
+            "total_tokens": 5558
+          },
+          {
+            "prompt_tokens": 5029,
+            "total_tokens": 5029
+          },
+          {
+            "prompt_tokens": 686,
+            "total_tokens": 686
+          },
+          {
+            "prompt_tokens": 148,
+            "total_tokens": 148
+          },
+          {
+            "prompt_tokens": 92,
+            "total_tokens": 92
+          }
+        ],
+        "observations": [
+          {
+            "query_id": "RQ-OUTON-01-en",
+            "expected": [
+              "MAN-OUTON-01",
+              "SOP-OUTON-01"
+            ],
+            "global_top5": [
+              "SOP-OUTON-01",
+              "MAN-OUTON-01",
+              "SOP-OUTON-03",
+              "MAN-OUTON-03",
+              "CASE-002"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "SOP-OUTON-01",
+              "MAN-OUTON-01",
+              "CASE-002"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTON-01-de",
+            "expected": [
+              "MAN-OUTON-01",
+              "SOP-OUTON-01"
+            ],
+            "global_top5": [
+              "SOP-OUTON-03",
+              "MAN-OUTON-03",
+              "SOP-OUTON-01",
+              "MAN-OUTON-01",
+              "SOP-OUTONLIFE-02"
+            ],
+            "global_top1_hit": false,
+            "scoped_top5": [
+              "SOP-OUTON-01",
+              "MAN-OUTON-01",
+              "CASE-002"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTON-01-unknown",
+            "expected": [],
+            "global_top5": [
+              "SOP-OUTON-01",
+              "MAN-OUTON-01",
+              "SOP-OUTON-03",
+              "MAN-OUTON-03",
+              "CASE-002"
+            ],
+            "global_top1_hit": false,
+            "scoped_top5": [],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTON-02-en",
+            "expected": [
+              "MAN-OUTON-02",
+              "SOP-OUTON-02"
+            ],
+            "global_top5": [
+              "MAN-OUTON-02",
+              "SOP-OUTON-02",
+              "MAN-OUTONLIFE-02",
+              "SOP-BELEEV-01",
+              "MAN-BELEEV-01"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "MAN-OUTON-02",
+              "SOP-OUTON-02"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTON-02-de",
+            "expected": [
+              "MAN-OUTON-02",
+              "SOP-OUTON-02"
+            ],
+            "global_top5": [
+              "SOP-BELEEV-01",
+              "SOP-BELEEV-03",
+              "SOP-OUTON-02",
+              "MAN-BELEEV-01",
+              "SOP-BELEEV-02"
+            ],
+            "global_top1_hit": false,
+            "scoped_top5": [
+              "SOP-OUTON-02",
+              "MAN-OUTON-02"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTON-02-unknown",
+            "expected": [],
+            "global_top5": [
+              "MAN-OUTON-02",
+              "SOP-OUTON-02",
+              "MAN-OUTONLIFE-02",
+              "SOP-BELEEV-01",
+              "MAN-BELEEV-01"
+            ],
+            "global_top1_hit": false,
+            "scoped_top5": [],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTON-03-en",
+            "expected": [
+              "MAN-OUTON-03",
+              "SOP-OUTON-03"
+            ],
+            "global_top5": [
+              "SOP-OUTON-03",
+              "MAN-OUTON-03",
+              "MAN-OUTON-01",
+              "SOP-OUTON-01",
+              "SOP-OUTONLIFE-02"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "SOP-OUTON-03",
+              "MAN-OUTON-03"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTON-03-de",
+            "expected": [
+              "MAN-OUTON-03",
+              "SOP-OUTON-03"
+            ],
+            "global_top5": [
+              "SOP-OUTON-03",
+              "MAN-OUTON-03",
+              "SOP-OUTON-01",
+              "SOP-OUTONLIFE-02",
+              "MAN-OUTON-01"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "SOP-OUTON-03",
+              "MAN-OUTON-03"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTON-03-unknown",
+            "expected": [],
+            "global_top5": [
+              "SOP-OUTON-03",
+              "MAN-OUTON-03",
+              "MAN-OUTON-01",
+              "SOP-OUTON-01",
+              "SOP-OUTONLIFE-02"
+            ],
+            "global_top1_hit": false,
+            "scoped_top5": [],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTONLIFE-01-en",
+            "expected": [
+              "MAN-OUTONLIFE-01",
+              "SOP-OUTONLIFE-01"
+            ],
+            "global_top5": [
+              "MAN-OUTONLIFE-01",
+              "SOP-OUTONLIFE-01",
+              "SOP-OUTONLIFE-02",
+              "MAN-OUTONLIFE-02",
+              "MAN-OUTON-02"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "MAN-OUTONLIFE-01",
+              "SOP-OUTONLIFE-01",
+              "CASE-003"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTONLIFE-01-de",
+            "expected": [
+              "MAN-OUTONLIFE-01",
+              "SOP-OUTONLIFE-01"
+            ],
+            "global_top5": [
+              "MAN-OUTONLIFE-01",
+              "SOP-OUTONLIFE-01",
+              "MAN-OUTON-02",
+              "SOP-OUTON-02",
+              "SOP-OUTONLIFE-02"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "MAN-OUTONLIFE-01",
+              "SOP-OUTONLIFE-01",
+              "CASE-003"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTONLIFE-01-unknown",
+            "expected": [],
+            "global_top5": [
+              "MAN-OUTONLIFE-01",
+              "SOP-OUTONLIFE-01",
+              "SOP-OUTONLIFE-02",
+              "MAN-OUTONLIFE-02",
+              "MAN-OUTON-02"
+            ],
+            "global_top1_hit": false,
+            "scoped_top5": [],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTONLIFE-02-en",
+            "expected": [
+              "MAN-OUTONLIFE-02",
+              "SOP-OUTONLIFE-02"
+            ],
+            "global_top5": [
+              "SOP-OUTONLIFE-02",
+              "MAN-OUTONLIFE-02",
+              "MAN-OUTON-02",
+              "MAN-OUTONLIFE-01",
+              "MAN-OUTON-03"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "SOP-OUTONLIFE-02",
+              "MAN-OUTONLIFE-02"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTONLIFE-02-de",
+            "expected": [
+              "MAN-OUTONLIFE-02",
+              "SOP-OUTONLIFE-02"
+            ],
+            "global_top5": [
+              "SOP-OUTONLIFE-02",
+              "SOP-OUTON-02",
+              "MAN-OUTONLIFE-02",
+              "MAN-OUTON-02",
+              "CASE-003"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "SOP-OUTONLIFE-02",
+              "MAN-OUTONLIFE-02"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-OUTONLIFE-02-unknown",
+            "expected": [],
+            "global_top5": [
+              "SOP-OUTONLIFE-02",
+              "MAN-OUTONLIFE-02",
+              "MAN-OUTON-02",
+              "MAN-OUTONLIFE-01",
+              "MAN-OUTON-03"
+            ],
+            "global_top1_hit": false,
+            "scoped_top5": [],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-BELEEV-01-en",
+            "expected": [
+              "MAN-BELEEV-01",
+              "SOP-BELEEV-01"
+            ],
+            "global_top5": [
+              "SOP-BELEEV-01",
+              "MAN-BELEEV-01",
+              "SOP-BELEEV-02",
+              "MAN-BELEEV-02",
+              "SOP-BELEEV-03"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "SOP-BELEEV-01",
+              "MAN-BELEEV-01"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-BELEEV-01-de",
+            "expected": [
+              "MAN-BELEEV-01",
+              "SOP-BELEEV-01"
+            ],
+            "global_top5": [
+              "SOP-BELEEV-01",
+              "SOP-BELEEV-03",
+              "MAN-BELEEV-01",
+              "MAN-BELEEV-03",
+              "SOP-BELEEV-02"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "SOP-BELEEV-01",
+              "MAN-BELEEV-01"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-BELEEV-01-unknown",
+            "expected": [],
+            "global_top5": [
+              "SOP-BELEEV-01",
+              "MAN-BELEEV-01",
+              "SOP-BELEEV-02",
+              "MAN-BELEEV-02",
+              "SOP-BELEEV-03"
+            ],
+            "global_top1_hit": false,
+            "scoped_top5": [],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-BELEEV-02-en",
+            "expected": [
+              "MAN-BELEEV-02",
+              "SOP-BELEEV-02"
+            ],
+            "global_top5": [
+              "SOP-BELEEV-02",
+              "MAN-BELEEV-02",
+              "CASE-005",
+              "SOP-BELEEV-03",
+              "MAN-BELEEV-03"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "SOP-BELEEV-02",
+              "MAN-BELEEV-02"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-BELEEV-02-de",
+            "expected": [
+              "MAN-BELEEV-02",
+              "SOP-BELEEV-02"
+            ],
+            "global_top5": [
+              "SOP-BELEEV-02",
+              "MAN-BELEEV-02",
+              "CASE-005",
+              "SOP-BELEEV-03",
+              "SOP-BELEEV-01"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "SOP-BELEEV-02",
+              "MAN-BELEEV-02"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-BELEEV-02-unknown",
+            "expected": [],
+            "global_top5": [
+              "SOP-BELEEV-02",
+              "MAN-BELEEV-02",
+              "CASE-005",
+              "SOP-BELEEV-03",
+              "MAN-BELEEV-03"
+            ],
+            "global_top1_hit": false,
+            "scoped_top5": [],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-BELEEV-03-en",
+            "expected": [
+              "MAN-BELEEV-03",
+              "SOP-BELEEV-03"
+            ],
+            "global_top5": [
+              "SOP-BELEEV-03",
+              "MAN-BELEEV-03",
+              "SOP-BELEEV-01",
+              "SOP-BELEEV-02",
+              "MAN-BELEEV-01"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "SOP-BELEEV-03",
+              "MAN-BELEEV-03"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-BELEEV-03-de",
+            "expected": [
+              "MAN-BELEEV-03",
+              "SOP-BELEEV-03"
+            ],
+            "global_top5": [
+              "SOP-BELEEV-03",
+              "MAN-BELEEV-03",
+              "SOP-BELEEV-02",
+              "CASE-005",
+              "SOP-BELEEV-01"
+            ],
+            "global_top1_hit": true,
+            "scoped_top5": [
+              "SOP-BELEEV-03",
+              "MAN-BELEEV-03"
+            ],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          },
+          {
+            "query_id": "RQ-BELEEV-03-unknown",
+            "expected": [],
+            "global_top5": [
+              "SOP-BELEEV-03",
+              "MAN-BELEEV-03",
+              "SOP-BELEEV-01",
+              "SOP-BELEEV-02",
+              "MAN-BELEEV-01"
+            ],
+            "global_top1_hit": false,
+            "scoped_top5": [],
+            "scoped_hit": true,
+            "wrong_sku_excluded": true
+          }
+        ],
+        "limitations": "Small developer set; whole-document ranking and explicit SKU filtering, not independent RAG quality evaluation."
+      },
+      "elapsed_seconds": 10.34
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 80,
+      "output_tokens": 63,
+      "total_tokens": 143,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {}
+    },
+    {
+      "input_tokens": 330,
+      "output_tokens": 56,
+      "total_tokens": 386,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {}
+    },
+    {
+      "input_tokens": 170,
+      "output_tokens": 46,
+      "total_tokens": 216,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {}
+    },
+    {
+      "input_tokens": 1144,
+      "output_tokens": 149,
+      "total_tokens": 1293,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {}
+    }
+  ]
+}

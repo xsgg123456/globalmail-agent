@@ -1,0 +1,395 @@
+{
+  "scope": "developer_parser_comparison_not_product_acceptance",
+  "results": [
+    {
+      "source": "difficult-native.pdf",
+      "parser": "mineru-standard",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_seconds": 14.0,
+      "peak_process_tree_rss_mib": 2070.8,
+      "completed": true,
+      "parser_version": "4.0.10",
+      "source_sha256": "a3cc085edabed7f46bd32f721b74cbf323b896f265ad32ccdbc2a92d60172cfc",
+      "pages": 4,
+      "full_document": true,
+      "images": 0,
+      "marker_checks": [
+        {
+          "page": 1,
+          "phrase": "SIM-ALPHA",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "SIM-BETA",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "7 seconds",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "LAMP flash twice",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "burning smell",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "sealed controller",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "闻到焦味立即停止",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R01",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "12",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "1.5",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R08",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "24",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "2.0",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R09",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R16",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "Voltage",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "Current",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "90 seconds",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "terminal B only",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "Never bridge A and B",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "casing is cracked",
+          "found": true
+        }
+      ],
+      "marker_hits": 21,
+      "marker_total": 21,
+      "structured_table_rows": 18,
+      "table_checks": [
+        {
+          "part": "SIM-R01",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R02",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R03",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R04",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R05",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R06",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R07",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R08",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R09",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R10",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R11",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R12",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R13",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R14",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R15",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R16",
+          "structured_cells_correct": true
+        }
+      ],
+      "table_rows_correct": 16,
+      "quality_gate": true
+    },
+    {
+      "source": "difficult-scanned.pdf",
+      "parser": "mineru-standard",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_seconds": 34.11,
+      "peak_process_tree_rss_mib": 2151.0,
+      "completed": true,
+      "parser_version": "4.0.10",
+      "source_sha256": "0eda966ce458cb333f94fdef91103b9aeb527c81964043f1873bd348b5e724e5",
+      "pages": 4,
+      "full_document": true,
+      "images": 0,
+      "marker_checks": [
+        {
+          "page": 1,
+          "phrase": "SIM-ALPHA",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "SIM-BETA",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "7 seconds",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "LAMP flash twice",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "burning smell",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "sealed controller",
+          "found": true
+        },
+        {
+          "page": 1,
+          "phrase": "闻到焦味立即停止",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R01",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "12",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "1.5",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "SIM-R08",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "24",
+          "found": true
+        },
+        {
+          "page": 2,
+          "phrase": "2.0",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R09",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "SIM-R16",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "Voltage",
+          "found": true
+        },
+        {
+          "page": 3,
+          "phrase": "Current",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "90 seconds",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "terminal B only",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "Never bridge A and B",
+          "found": true
+        },
+        {
+          "page": 4,
+          "phrase": "casing is cracked",
+          "found": true
+        }
+      ],
+      "marker_hits": 21,
+      "marker_total": 21,
+      "structured_table_rows": 18,
+      "table_checks": [
+        {
+          "part": "SIM-R01",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R02",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R03",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R04",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R05",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R06",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R07",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R08",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R09",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R10",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R11",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R12",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R13",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R14",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R15",
+          "structured_cells_correct": true
+        },
+        {
+          "part": "SIM-R16",
+          "structured_cells_correct": true
+        }
+      ],
+      "table_rows_correct": 16,
+      "quality_gate": true
+    }
+  ],
+  "all_invocations_completed": true,
+  "limitations": [
+    "single cold/warm mixed run; resource metric is process-tree RSS, not GPU memory",
+    "fixtures are synthetic; marker checks do not prove reading order or visual meaning"
+  ],
+  "status": "completed"
+}

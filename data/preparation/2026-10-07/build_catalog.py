@@ -6,6 +6,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
+CATALOG_PATH = ROOT / "docs" / "data" / "DATA-CATALOG.md"
 SOURCE = HERE / "production-catalog.json"
 data = json.loads(SOURCE.read_text(encoding="utf-8"))
 assert data["transaction_read_only"] == "on"
@@ -145,5 +146,6 @@ lines += ["", "案例队列没有客户身份和正文，因此尚未按同一�
     "- `catalog-summary.json`：计数与源文件 SHA-256；`build_catalog.py` 可离线重建派生目录。", "",
     "业务源 ID 为内部回溯用途，目录不作为公开发布素材。若准备包需分享，另行去除内部回溯信息。", "",
 ]
-(ROOT / "DATA-CATALOG.md").write_text("\n".join(lines), encoding="utf-8")
+CATALOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+CATALOG_PATH.write_text("\n".join(lines), encoding="utf-8")
 print(json.dumps(summary, ensure_ascii=True))

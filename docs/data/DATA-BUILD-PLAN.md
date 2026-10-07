@@ -2,6 +2,8 @@
 
 日期：2026-10-07。依据 Product-Spec v1.7。目标：三品牌、8 个产品族、34 个 SKU 的可追溯前置资料，以及覆盖七类业务的模拟输入。主 Agent 执行，不改生产系统。
 
+记录范围：下文“本轮/未实现/待后续”均指当时的资料制作批次，不是当前项目进度。后续组件实测见 [TECH-SELECTION](../architecture/TECH-SELECTION.md)、[KNOWLEDGE-VALIDATION](../verification/KNOWLEDGE-VALIDATION.md)，当前开发顺序见 [DEV-PLAN](../../DEV-PLAN.md)；历史检查结果保持原样。
+
 ## 用户纠正后的重做标准
 
 - 上述技术资料初稿不作为最终业务资料验收。优先生产订单中的商品实物图、品牌公开商品页和真实往来，正文使用日常客服/客户语言。

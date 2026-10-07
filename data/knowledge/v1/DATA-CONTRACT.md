@@ -19,7 +19,7 @@ PDF 的八条逻辑文档共用一个物理文件，但各自有 page_range。�
 
 `knowledge-bindings.json` 是业务范围的权威清单，正文中的名称或编辑源只是说明。绑定包括 document_version、section_id、skus 或明确政策范围、basis、allowed_modes、available_at、status。没有匹配绑定就不能向该商品提供专属步骤。
 
-`prepared_not_indexed` 表示资料已经生成但未进入向量库。当前没有 chunk_id、embedding、索引状态或向量检索通过记录；后续导入器负责生成。
+`prepared_not_indexed` 表示本资料包已经生成、尚未导入正式应用索引。本包不承载运行时 chunk_id、embedding 或发布状态，后续导入器在应用数据区生成；tech-spike/knowledge-spike 的实验向量和检索记录独立保存，不改变源包状态，也不代表正式应用已入库。
 
 ## 3. 来源与案例
 
