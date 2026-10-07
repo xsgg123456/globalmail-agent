@@ -1,0 +1,250 @@
+{
+  "validation_kind": "offline_data_consistency_not_agent_or_rag_test",
+  "passed": true,
+  "checks": [
+    {
+      "name": "34 unique production SKUs / 8 families",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "three brands",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "manufacturer parameters left unknown",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "source transaction read only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unique document ids",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "document paths and hashes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all docs bound",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "binding versions and scopes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no cross-brand product binding",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no synthetic knowledge in historical modes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all parts explicit SIM identifiers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "compatibility points to real selected SKU and synthetic part",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "inventory balances and all product/part stock rows valid",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "policy generated from one canonical file",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readable policy generated from current canonical rules",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "videos not promoted to verified knowledge",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity groups do not cross splits",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reviewed cases use only RAG candidate sources",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "case evidence message IDs and times resolve",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unknown outcomes preserved",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "51 unique scenarios",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "SCN-001 through SCN-030 complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "three brands times seven baseline scenarios",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "assertions isolated and complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "future events are controller only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "events ordered with explicit intentional duplicate",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "scenario customer order line and amount consistency",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "negative scenarios contain relevant missing/conflict data",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "replay fixture has no synthetic policy",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "24 developer retrieval queries, targets exist",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "17 PDF pages",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internal reference notice on every PDF page",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all SKU tokens extract from PDF",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "8 genuine embedded raster figures",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "PDF chapter page mapping",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no test terminology in business PDF",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "eight production-backed photos with exact SKU evidence",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no internal codes in customer mail",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all JSON and JSONL parse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no raw order number email or API key in published text",
+      "passed": true,
+      "detail": "[]"
+    }
+  ],
+  "counts": {
+    "products": 34,
+    "families": 8,
+    "knowledge_documents": 22,
+    "pdf_pages": 17,
+    "case_cards": 5,
+    "scenarios": 51,
+    "controller_event_rows": 48,
+    "retrieval_queries": 24
+  },
+  "not_run": [
+    "PDF image OCR / multimodal extraction",
+    "embeddings and pgvector retrieval",
+    "scenario execution by Agent",
+    "independent historical evaluation",
+    "real system actions"
+  ],
+  "visual_review": {
+    "status": "passed",
+    "pdf_sha256": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+    "reviewer": "assistant_visual_review",
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "render_dpi": 90,
+    "method": "Poppler renders; reviewed all 17 revised pages plus eight production photos",
+    "findings": "Real product photos preserve aspect ratio; no clipping, overlap or missing Chinese glyphs observed."
+  }
+}

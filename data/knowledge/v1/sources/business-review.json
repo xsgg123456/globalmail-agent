@@ -1,0 +1,19 @@
+{
+  "status": "passed_offline_and_visual_review_not_runtime",
+  "photo_count": 8,
+  "photo_basis": "exact SKU in current production order snapshot",
+  "customer_text_contains_internal_codes": false,
+  "prices_from_production_observations": 51,
+  "price_rows": 51,
+  "known_gaps": [
+    "No manufacturer approved repair manual",
+    "Price proxies not full historical tax/discount reconstruction",
+    "Stock and policy values remain authored simulation data",
+    "Public product name can refer to a different revision"
+  ],
+  "removed": [
+    "schematic drawings in delivered manual",
+    "invented remote target-switch sequence",
+    "SIM-V1 and RAG terminology in business prose"
+  ]
+}

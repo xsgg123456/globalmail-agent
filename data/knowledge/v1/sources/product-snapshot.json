@@ -1,0 +1,689 @@
+{
+  "observed_at": "2026-10-07T03:00:26.554737+00:00",
+  "transaction_read_only": "on",
+  "products": [
+    {
+      "sku": "H-CTD16-US-BK",
+      "brand": "OUTON",
+      "sites": [
+        "加拿大",
+        "美国"
+      ],
+      "product_names": [
+        "朝天灯-四按键-美规-黑色"
+      ],
+      "conversation_ids": [
+        "071fc798-f50c-4d19-8767-3c75cb9fffea",
+        "26304f3a-3c6b-4141-b191-d0e9f62cba7c",
+        "73dc79d7-0c4d-4ba5-81c2-46a4bf075d8f",
+        "a08f9a8d-73a2-4aed-bf8b-d91c47dd05a2",
+        "b8507ae7-a579-4934-b9be-7f922e3c3b9a",
+        "e90e7800-e64c-4d4b-af78-d34e3a201016",
+        "f9bf235d-e4ff-4ed0-bb1a-5ff4ad4141fd"
+      ],
+      "registration_ids": [
+        "1aa68126-3a96-42f5-bb5b-51b3747b26d0",
+        "1f60baba-d93f-4aa2-afef-83d64bd16caf",
+        "39aaa5b6-5c04-45e2-acc9-16c2a4b6dbae",
+        "39bbe376-6a80-406d-8799-b51177beaf88",
+        "5f439a58-ab5a-4070-901a-6cdf522e8a54",
+        "6855a018-bce7-41d6-9b9a-ef3fc9ed07e7",
+        "68c64262-b5ab-4695-aac5-a0ce3feadd36",
+        "8c4b43a9-c867-4d94-bd50-10a01548005e",
+        "a40979a0-99eb-4065-b546-aeac58dabbe1",
+        "b2e8f5fa-13fb-4815-a665-5474fa12d9b4",
+        "d5fba450-dc57-40bf-b60a-cc4737459520",
+        "f6e93c8d-a10b-45be-83b4-1a538d94d98d"
+      ],
+      "registration_count": 12,
+      "linked_conversation_count": 7,
+      "reviewed_registration_count": 12
+    },
+    {
+      "sku": "H-CTD16-US-SGY",
+      "brand": "OUTON",
+      "sites": [
+        "加拿大",
+        "美国"
+      ],
+      "product_names": [
+        "朝天灯-四按键-美规-银灰色"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "07f5180f-c62a-447f-a961-4059b6a7f7ca",
+        "230c841a-3a48-4077-9a6b-744a3967e073",
+        "2c95d8b5-4f80-43c9-8501-f9a6b7e12ad6",
+        "3b8ec6ba-444d-4526-8fb0-facec4da35a5"
+      ],
+      "registration_count": 4,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 4
+    },
+    {
+      "sku": "H-CTD16-UK-BK",
+      "brand": "OUTON",
+      "sites": [
+        "沙特阿拉伯",
+        "英国"
+      ],
+      "product_names": [
+        "朝天灯-四按键-英规-黑色"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "54031b1c-50a2-40be-a4d7-a36ace73841d",
+        "7098f15b-eb33-4620-8f97-2a062a4454d3",
+        "a6acdd28-d5af-4576-aa49-30c02ede3670"
+      ],
+      "registration_count": 3,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 3
+    },
+    {
+      "sku": "H-CTD16-EU-SGY",
+      "brand": "OUTON",
+      "sites": [
+        "西班牙"
+      ],
+      "product_names": [
+        "朝天灯-四按键-欧规-银灰色"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "13c4bef0-9609-49e4-a4a9-417bef227c20"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "H-CTD16-EU-W",
+      "brand": "OUTON",
+      "sites": [
+        "法国"
+      ],
+      "product_names": [
+        "朝天灯-四按键-欧规-白色"
+      ],
+      "conversation_ids": [
+        "978cdd4c-2b26-4f02-a351-6a104d08e3a8"
+      ],
+      "registration_ids": [
+        "fd84431f-7698-4964-8be1-5e276c18ddde"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "H-CTD16-UK-SGY",
+      "brand": "OUTON",
+      "sites": [
+        "英国"
+      ],
+      "product_names": [
+        "朝天灯-四按键-英规-银灰色"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "64bc1469-60b4-4e57-a71e-e7bcce8c28dc"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "H-CTD16-US-W",
+      "brand": "OUTON",
+      "sites": [
+        "加拿大"
+      ],
+      "product_names": [
+        "朝天灯-四按键-美规-白色"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "83c766bb-4a01-4f2a-a5f3-e90ea44ac381"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "H-SJJ0001-EU-WD",
+      "brand": "OUTON",
+      "sites": [
+        "德国",
+        "意大利",
+        "法国"
+      ],
+      "product_names": [
+        "三脚架-带托盘-欧规-原木色-荞麦色灯罩"
+      ],
+      "conversation_ids": [
+        "3a2e1381-3311-4e55-89c5-00d231e4852e",
+        "3d9f9666-bb37-4f24-bca3-ebe6ca9eb979",
+        "e2f55263-2e9c-46d5-ac85-d409c7fbcab0"
+      ],
+      "registration_ids": [
+        "2975477d-e8fe-4546-a5eb-f6b9935592ec",
+        "5f5605d2-edaf-411d-831f-f7cf447580d0",
+        "616ddfac-632e-4e41-b00d-7bac1bb43877",
+        "a388c179-499b-4b54-bf18-8fae29151a8c",
+        "f811c070-fe89-443f-8a4d-dd9f69e6f100",
+        "f93ee55a-52ff-46c1-8db7-812ade625bef"
+      ],
+      "registration_count": 6,
+      "linked_conversation_count": 3,
+      "reviewed_registration_count": 6
+    },
+    {
+      "sku": "H-SJJ0001-UK-WT",
+      "brand": "OUTON",
+      "sites": [
+        "沙特阿拉伯",
+        "英国"
+      ],
+      "product_names": [
+        "三脚架-带托盘-英规-胡桃木色-荞麦色灯罩"
+      ],
+      "conversation_ids": [
+        "8ff51b6e-46ac-4386-b8ad-7065866f5168"
+      ],
+      "registration_ids": [
+        "25e9d8c3-0b1b-4044-8ae1-877c68aa03bd",
+        "4ddab301-6921-4ddb-ab26-7c9bcb5f0190",
+        "5c59e2cd-1fd9-4714-8514-55e840163968",
+        "923f8c68-23b6-4eb7-9929-ab06d790e0c9",
+        "b2589d63-8994-4fb9-900f-d1e82ea1e530"
+      ],
+      "registration_count": 5,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 5
+    },
+    {
+      "sku": "H-SJJ0001-EU-WT",
+      "brand": "OUTON",
+      "sites": [
+        "德国",
+        "比利时",
+        "法国"
+      ],
+      "product_names": [
+        "三脚架-带托盘-欧规-胡桃木色-荞麦色灯罩"
+      ],
+      "conversation_ids": [
+        "512b103f-f934-4136-8965-a57e83a50c3f"
+      ],
+      "registration_ids": [
+        "278c8c89-e632-4d41-a26d-38ca123b7621",
+        "b9d62187-38f2-4bcb-af2c-5eaf62183ee2",
+        "f3b5b3f3-2168-4860-80f9-c9df9f214134"
+      ],
+      "registration_count": 3,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 3
+    },
+    {
+      "sku": "H-SJJ0001-US-WD",
+      "brand": "OUTON",
+      "sites": [
+        "美国"
+      ],
+      "product_names": [
+        "三脚架-带托盘-美规-原木色-荞麦色灯罩"
+      ],
+      "conversation_ids": [
+        "6a4fe374-9621-42bc-b2b2-b01f2567e672"
+      ],
+      "registration_ids": [
+        "85dfebae-810f-4b4c-a8a6-0904cf16bb01",
+        "93a91fe3-1f50-481d-b72a-6473c8dbe733",
+        "9500507f-d250-4264-b009-e927c127247c"
+      ],
+      "registration_count": 3,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 3
+    },
+    {
+      "sku": "H-SJJ0001-US-WT",
+      "brand": "OUTON",
+      "sites": [
+        "加拿大",
+        "美国"
+      ],
+      "product_names": [
+        "三脚架-带托盘-美规-胡桃木色-荞麦色灯罩"
+      ],
+      "conversation_ids": [
+        "6bfa040f-5293-46c3-83d4-312300f33db8"
+      ],
+      "registration_ids": [
+        "90c913f2-1179-40cd-bd6a-abad0842a312",
+        "b874702f-7349-439e-9425-eeb4dd354ba6"
+      ],
+      "registration_count": 2,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 2
+    },
+    {
+      "sku": "H-SJJ0001-AU-WT",
+      "brand": "OUTON",
+      "sites": [
+        "澳大利亚"
+      ],
+      "product_names": [
+        "三脚架-带托盘-澳规-胡桃木色-荞麦色灯罩"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "8df945d8-59fd-488f-88da-dce865f7696e"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "H-SJJ0001-EU-WTG",
+      "brand": "OUTON",
+      "sites": [
+        "德国"
+      ],
+      "product_names": [
+        "三脚架-带托盘-欧规-胡桃木拼金色-荞麦色灯罩"
+      ],
+      "conversation_ids": [
+        "50f8650d-5168-4569-9ac4-74caf30caeb5"
+      ],
+      "registration_ids": [
+        "f0353237-4ec7-45cc-a5c0-276cfc67afde"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "H-SJJ0001-UK-BG",
+      "brand": "OUTON",
+      "sites": [
+        "阿联酋"
+      ],
+      "product_names": [
+        "三脚架-带托盘-英规-黑金色-荞麦色灯罩"
+      ],
+      "conversation_ids": [
+        "1856790c-0a2d-42e1-a768-d538be965004"
+      ],
+      "registration_ids": [
+        "3b2fd266-7938-444b-8d40-38985c37e729"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "H-SJJ0001-UK-WD",
+      "brand": "OUTON",
+      "sites": [
+        "英国"
+      ],
+      "product_names": [
+        "三脚架-带托盘-英规-原木色-荞麦色灯罩"
+      ],
+      "conversation_ids": [
+        "f95f9f72-45db-4446-ae66-a38f332db595"
+      ],
+      "registration_ids": [
+        "927604c6-5137-4f80-9809-db0682f35a6d"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "H-SJJ0001-US-BG",
+      "brand": "OUTON",
+      "sites": [
+        "加拿大"
+      ],
+      "product_names": [
+        "三脚架-带托盘-美规-黑金色-荞麦色灯罩"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "e6d206e2-5b9d-4923-bf43-52e576edd2f4"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "H-LBD05-UK-BK",
+      "brand": "OUTON",
+      "sites": [
+        "英国"
+      ],
+      "product_names": [
+        "喇叭子母灯-滑条遥控款-英规-黑色-低压遥控灯泡"
+      ],
+      "conversation_ids": [
+        "2b5b268c-6135-41ac-96c8-d8d1432dc504",
+        "a3c28bd1-635c-42a5-9f31-3424d66e484f"
+      ],
+      "registration_ids": [
+        "57c953c3-7399-4b70-abd2-4ff7ac85701c",
+        "59dd8d5f-a984-47b3-8639-71977fec66a9",
+        "6f57c3ba-ba47-41cc-99a2-689fb1f6c42f",
+        "723da5b2-cc2d-4f53-94f1-fe9d2ab0b08c",
+        "9b9eb8a2-047c-425a-86e3-40b926efa30e"
+      ],
+      "registration_count": 5,
+      "linked_conversation_count": 2,
+      "reviewed_registration_count": 5
+    },
+    {
+      "sku": "F-SJ001-US-BBR",
+      "brand": "OUTONLIFE",
+      "sites": [
+        "加拿大",
+        "美国"
+      ],
+      "product_names": [
+        "书架-树形书架带灯-美规-复古黄"
+      ],
+      "conversation_ids": [
+        "0958d92d-cb34-47f8-9c72-588b4a0cccca",
+        "6f8476c4-1404-4db6-a7aa-0a866744bf31"
+      ],
+      "registration_ids": [
+        "2d3c72b7-de92-424f-a242-bd8090522761",
+        "43ce8f6d-ceaf-4437-9659-42243e8ae648",
+        "48ac0948-d215-4665-bc4c-f0e774afe0ad"
+      ],
+      "registration_count": 3,
+      "linked_conversation_count": 2,
+      "reviewed_registration_count": 3
+    },
+    {
+      "sku": "F-SJ001-EU-BBR",
+      "brand": "OUTONLIFE",
+      "sites": [
+        "德国",
+        "意大利"
+      ],
+      "product_names": [
+        "书架-树形书架带灯-欧规-复古黄"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "1f2cc1eb-ea7e-4ff1-818b-35a294483df6",
+        "d98f97d5-641c-4d64-b1d8-61cac2fa8c03"
+      ],
+      "registration_count": 2,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 2
+    },
+    {
+      "sku": "F-SJ001-EU-W",
+      "brand": "OUTONLIFE",
+      "sites": [
+        "德国",
+        "西班牙"
+      ],
+      "product_names": [
+        "书架-树形书架带灯-欧规-白色"
+      ],
+      "conversation_ids": [
+        "33ab152a-5103-4f65-80e7-58ec0b827374"
+      ],
+      "registration_ids": [
+        "01aff781-bc18-4395-bf71-9627b45dd0d6",
+        "19ccd9f4-079d-4adc-847a-e374112ce361"
+      ],
+      "registration_count": 2,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 2
+    },
+    {
+      "sku": "F-SJ001-US-BK",
+      "brand": "OUTONLIFE",
+      "sites": [
+        "加拿大"
+      ],
+      "product_names": [
+        "书架-树形书架带灯-美规-黑色"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "be4fa0d1-db0d-4865-950e-a242c2cbf475"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "F-ZZZ0002-UK-BK",
+      "brand": "OUTONLIFE",
+      "sites": [
+        "英国"
+      ],
+      "product_names": [
+        "ZZZ-02方形杂志桌灯-充电款-遥控灯泡-英规-黑色"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "16b0bad6-eaa9-4971-8305-bbb15164f20a"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "F-ZZZ0002-UK-GY",
+      "brand": "OUTONLIFE",
+      "sites": [
+        "英国"
+      ],
+      "product_names": [
+        "ZZZ-02方形杂志桌灯-充电款-遥控灯泡-英规-灰色"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "671ec1bf-3ceb-4232-9915-e94aed842e6e"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "F-ZZZ0002-US-BBR-2PCS",
+      "brand": "OUTONLIFE",
+      "sites": [
+        "加拿大"
+      ],
+      "product_names": [
+        "ZZZ-02方形杂志桌灯-充电2个布抽款-遥控灯泡-美规-复古黄"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "a3dd16b9-0a51-4169-bdf4-f5f438f4de1b"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "F-ZZZ0002-US-BK",
+      "brand": "OUTONLIFE",
+      "sites": [
+        "美国"
+      ],
+      "product_names": [
+        "ZZZ-02方形杂志桌灯-充电款-遥控灯泡-美规-黑色"
+      ],
+      "conversation_ids": [
+        "6f6c7fd9-a3a4-4c25-82c1-ec2aa207b6e3"
+      ],
+      "registration_ids": [
+        "0397d683-bce2-448e-b448-dc4a0d73d844"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "F-ZZZ0002-US-BTB",
+      "brand": "OUTONLIFE",
+      "sites": [
+        "加拿大"
+      ],
+      "product_names": [
+        "ZZZ-02方形杂志桌灯-藤编双罩-充电款-遥控灯泡-美规-黑色"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "4fa09734-e765-416d-9208-e95740995e49"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "SP-SLHBC01-BK",
+      "brand": "BELEEV",
+      "sites": [
+        "加拿大"
+      ],
+      "product_names": [
+        "A2彩杆 三轮滑板车(黑色)"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "b03dedd5-e1f0-4c16-80eb-d3642cbea9fb"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "SP-SLHBC01-BL",
+      "brand": "BELEEV",
+      "sites": [
+        "美国"
+      ],
+      "product_names": [
+        "A2彩杆 三轮滑板车(蓝色)"
+      ],
+      "conversation_ids": [
+        "545fed4d-5728-427d-9287-3def45379351"
+      ],
+      "registration_ids": [
+        "6afa5964-cdc5-4702-8df3-100ddf261959"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "SP-XLLHBC02-PP",
+      "brand": "BELEEV",
+      "sites": [
+        "加拿大",
+        "美国"
+      ],
+      "product_names": [
+        "V2-带灯小两轮滑板车（紫色）"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "25b756b5-13ad-4d11-9e00-2b0ae928efb7",
+        "5637539d-e3f7-4a59-801c-54242e72e662",
+        "75216ba4-62d8-4b1f-b83d-b4266de81eca",
+        "b203f660-550d-44c5-8585-6e8913974ad8"
+      ],
+      "registration_count": 4,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 4
+    },
+    {
+      "sku": "SP-XLLHBC02-P",
+      "brand": "BELEEV",
+      "sites": [
+        "英国"
+      ],
+      "product_names": [
+        "V2-带灯小两轮滑板车（彩粉色）"
+      ],
+      "conversation_ids": [
+        "a544adac-fc0a-4a45-8c07-d82de8b20f78"
+      ],
+      "registration_ids": [
+        "3c4902bd-9631-408d-a278-b8e65cd6e995"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "SP-SLHBC12-PU",
+      "brand": "BELEEV",
+      "sites": [
+        "德国",
+        "日本",
+        "美国"
+      ],
+      "product_names": [
+        "滑板车-儿童三轮滑板车-A9 带灯折叠款-紫色"
+      ],
+      "conversation_ids": [
+        "74bd7e8f-3c1f-4a5f-826b-8d345a46aab3"
+      ],
+      "registration_ids": [
+        "0be1547b-4162-4a8b-ae4d-70b66c0236e2",
+        "11042164-dbab-4e7e-b445-dcc9283e61b1",
+        "37d121ad-0950-46fa-b8e8-a9edceedcf5d",
+        "7f536215-1040-4a53-9f2d-4de57c0d6d7f"
+      ],
+      "registration_count": 4,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 4
+    },
+    {
+      "sku": "SP-SLHBC12-B",
+      "brand": "BELEEV",
+      "sites": [
+        "德国"
+      ],
+      "product_names": [
+        "滑板车-儿童三轮滑板车-A9 带灯折叠款-黑色"
+      ],
+      "conversation_ids": null,
+      "registration_ids": [
+        "1d67a4fe-8474-4f2e-9f70-d8526cada8c8"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 0,
+      "reviewed_registration_count": 1
+    },
+    {
+      "sku": "SP-SLHBC12-LP",
+      "brand": "BELEEV",
+      "sites": [
+        "美国"
+      ],
+      "product_names": [
+        "滑板车-儿童三轮滑板车-A9 带灯折叠款-粉色"
+      ],
+      "conversation_ids": [
+        "d4d8f713-26a9-491b-a37c-57680b9bc058"
+      ],
+      "registration_ids": [
+        "fb98dbdb-a069-4533-a566-3745af319028"
+      ],
+      "registration_count": 1,
+      "linked_conversation_count": 1,
+      "reviewed_registration_count": 1
+    }
+  ]
+}

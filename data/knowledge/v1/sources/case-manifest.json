@@ -1,0 +1,850 @@
+[
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-680ed3f69708bef8f820",
+    "source_conversation_id": "071fc798-f50c-4d19-8767-3c75cb9fffea",
+    "customer_key": "customer-c963f873851f74ff8ff9",
+    "group_id": "group-680ed3f69708bef8f820",
+    "usage_split": "rag_candidate",
+    "message_count": 4,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTONLIFE",
+    "selected_family_ids": [
+      "OUTONLIFE-01"
+    ],
+    "registration_skus": [
+      "F-SJ001-US-BBR"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-3ba20d2d0363c624d9dc",
+    "source_conversation_id": "0958d92d-cb34-47f8-9c72-588b4a0cccca",
+    "customer_key": "customer-7bcb3dd4d56b480b5200",
+    "group_id": "group-3ba20d2d0363c624d9dc",
+    "usage_split": "rag_candidate",
+    "message_count": 6,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "BELEEV",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "SP-HBC0009-D"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-0a9546ec58c603bf9f23",
+    "source_conversation_id": "14430a69-eb81-49d8-a220-5837909903a0",
+    "customer_key": "customer-ece98f4f54724740b6ce",
+    "group_id": "group-0a9546ec58c603bf9f23",
+    "usage_split": "rag_candidate",
+    "message_count": 9,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "registration_skus": [
+      "H-SJJ0001-UK-BG"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-0cf739c3497f9364e472",
+    "source_conversation_id": "1856790c-0a2d-42e1-a768-d538be965004",
+    "customer_key": "customer-88d3f45e39d277249542",
+    "group_id": "group-0cf739c3497f9364e472",
+    "usage_split": "eval_holdout",
+    "message_count": 7,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTONLIFE",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "F-ZZZ000901-US-BBR"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-2ba76f5328f76723cd5c",
+    "source_conversation_id": "21ec3026-9d5c-4066-b2d6-dc4c29ae9644",
+    "customer_key": "customer-3ca6a05aaaf528c59753",
+    "group_id": "group-2ba76f5328f76723cd5c",
+    "usage_split": "eval_holdout",
+    "message_count": 10,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "complete_history_candidate": false,
+    "case_id": "case-92eb75a6c1759a054245",
+    "source_conversation_id": "26304f3a-3c6b-4141-b191-d0e9f62cba7c",
+    "customer_key": "customer-b5cd6b8b69e93b16b4c5",
+    "group_id": "group-92eb75a6c1759a054245",
+    "usage_split": "rag_candidate",
+    "message_count": 2,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "H-BZD05-UK-BK"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-65244d8055e842a11398",
+    "source_conversation_id": "2aae2926-80ea-47b1-aef9-1f2814381ff7",
+    "customer_key": "customer-ee72b43a64014b9d7664",
+    "group_id": "group-65244d8055e842a11398",
+    "usage_split": "rag_candidate",
+    "message_count": 13,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-03"
+    ],
+    "registration_skus": [
+      "H-LBD05-UK-BK"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-d4026bd56492131ab0a3",
+    "source_conversation_id": "2b5b268c-6135-41ac-96c8-d8d1432dc504",
+    "customer_key": "customer-21acd1f2bfe7e7003dd7",
+    "group_id": "group-d4026bd56492131ab0a3",
+    "usage_split": "rag_candidate",
+    "message_count": 6,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTONLIFE",
+    "selected_family_ids": [
+      "OUTONLIFE-01"
+    ],
+    "registration_skus": [
+      "F-SJ001-EU-W"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-de415245498968f816fc",
+    "source_conversation_id": "33ab152a-5103-4f65-80e7-58ec0b827374",
+    "customer_key": "customer-1de65b3717598d5bffe9",
+    "group_id": "group-de415245498968f816fc",
+    "usage_split": "rag_candidate",
+    "message_count": 6,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "registration_skus": [
+      "H-SJJ0001-EU-WD"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-0256350d5d25b86ec823",
+    "source_conversation_id": "3a2e1381-3311-4e55-89c5-00d231e4852e",
+    "customer_key": "customer-3d6a759c6ffd15f5ae3b",
+    "group_id": "group-0256350d5d25b86ec823",
+    "usage_split": "dev_candidate",
+    "message_count": 4,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "registration_skus": [
+      "H-SJJ0001-EU-WD"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-5bbb9ecc480d54ac13b6",
+    "source_conversation_id": "3d9f9666-bb37-4f24-bca3-ebe6ca9eb979",
+    "customer_key": "customer-cd5b93679bad9d46ad66",
+    "group_id": "group-5bbb9ecc480d54ac13b6",
+    "usage_split": "rag_candidate",
+    "message_count": 4,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTONLIFE",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "F-YMJ000201-US-BBR"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-b14830492a6f294a9e09",
+    "source_conversation_id": "41392391-01a9-441b-ab57-fbde9bce4d1d",
+    "customer_key": "customer-f166636c9c71b280cea0",
+    "group_id": "group-b14830492a6f294a9e09",
+    "usage_split": "rag_candidate",
+    "message_count": 4,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTONLIFE",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "F-SJ0008-US-W"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-d4aedc917823c8131cf2",
+    "source_conversation_id": "46a88293-8f66-4a07-886c-7c59c1a84ab6",
+    "customer_key": "customer-3c2ac3e35329fd223166",
+    "group_id": "group-d4aedc917823c8131cf2",
+    "usage_split": "eval_holdout",
+    "message_count": 13,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTONLIFE",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "F-ZZZ000701-US-BBR"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-f757679c4206bfd74171",
+    "source_conversation_id": "4c1434f1-0afa-4f50-bfcd-e6d0fc8c0c12",
+    "customer_key": "customer-90d23c92715b599f3eb4",
+    "group_id": "group-f757679c4206bfd74171",
+    "usage_split": "eval_holdout",
+    "message_count": 4,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "registration_skus": [
+      "H-SJJ0001-EU-WTG"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-044bec9103e3ffcdee0b",
+    "source_conversation_id": "50f8650d-5168-4569-9ac4-74caf30caeb5",
+    "customer_key": "customer-96c711056eb14d2a0930",
+    "group_id": "group-044bec9103e3ffcdee0b",
+    "usage_split": "dev_candidate",
+    "message_count": 8,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "registration_skus": [
+      "H-SJJ0001-EU-WT"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-43fffb8f7fee1e54e53e",
+    "source_conversation_id": "512b103f-f934-4136-8965-a57e83a50c3f",
+    "customer_key": "customer-ababb8c39b8abf354c29",
+    "group_id": "group-43fffb8f7fee1e54e53e",
+    "usage_split": "eval_holdout",
+    "message_count": 4,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "BELEEV",
+    "selected_family_ids": [
+      "BELEEV-01"
+    ],
+    "registration_skus": [
+      "SP-SLHBC01-BL"
+    ],
+    "complete_history_candidate": false,
+    "case_id": "case-5c4e6d62379f6ce6bc4f",
+    "source_conversation_id": "545fed4d-5728-427d-9287-3def45379351",
+    "customer_key": "customer-4f78c557144327d26138",
+    "group_id": "group-5c4e6d62379f6ce6bc4f",
+    "usage_split": "rag_candidate",
+    "message_count": 2,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "H-CTD05-US-BK"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-b2560b0fa9aca7819dcf",
+    "source_conversation_id": "56b8dc78-7c8e-45b3-aeec-026c0c2afe7b",
+    "customer_key": "customer-d827cb6559d456aee06c",
+    "group_id": "group-b2560b0fa9aca7819dcf",
+    "usage_split": "rag_candidate",
+    "message_count": 12,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "registration_skus": [
+      "H-SJJ0001-US-WD"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-d80b6f6eeafb261e0dcb",
+    "source_conversation_id": "6a4fe374-9621-42bc-b2b2-b01f2567e672",
+    "customer_key": "customer-1f5953648ff68015b848",
+    "group_id": "group-d80b6f6eeafb261e0dcb",
+    "usage_split": "rag_candidate",
+    "message_count": 6,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "registration_skus": [
+      "H-SJJ0001-US-WT"
+    ],
+    "complete_history_candidate": false,
+    "case_id": "case-26901ebec9af1beb84e7",
+    "source_conversation_id": "6bfa040f-5293-46c3-83d4-312300f33db8",
+    "customer_key": "customer-34e6b46f578249c945a6",
+    "group_id": "group-26901ebec9af1beb84e7",
+    "usage_split": "eval_holdout",
+    "message_count": 1,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTONLIFE",
+    "selected_family_ids": [
+      "OUTONLIFE-02"
+    ],
+    "registration_skus": [
+      "F-ZZZ0002-US-BK"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-a65aad041b359e1acb2b",
+    "source_conversation_id": "6f6c7fd9-a3a4-4c25-82c1-ec2aa207b6e3",
+    "customer_key": "customer-93edac1e7fba29a8d749",
+    "group_id": "group-a65aad041b359e1acb2b",
+    "usage_split": "eval_holdout",
+    "message_count": 4,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTONLIFE",
+    "selected_family_ids": [
+      "OUTONLIFE-01"
+    ],
+    "registration_skus": [
+      "F-SJ001-US-BBR"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-813a759b38e55838c026",
+    "source_conversation_id": "6f8476c4-1404-4db6-a7aa-0a866744bf31",
+    "customer_key": "customer-6cfd49302282033936e6",
+    "group_id": "group-813a759b38e55838c026",
+    "usage_split": "rag_candidate",
+    "message_count": 4,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "BELEEV",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "SP-SLHBC08-P"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-597d2936c403df6b14f3",
+    "source_conversation_id": "700bd5c7-fefd-44aa-86c3-4917d5d1b502",
+    "customer_key": "customer-6596c37e2d2e83f49dd0",
+    "group_id": "group-597d2936c403df6b14f3",
+    "usage_split": "eval_holdout",
+    "message_count": 7,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "complete_history_candidate": false,
+    "case_id": "case-44ec4a1f0349076c0183",
+    "source_conversation_id": "73dc79d7-0c4d-4ba5-81c2-46a4bf075d8f",
+    "customer_key": "customer-cb1fdf91fe2e63b57462",
+    "group_id": "group-44ec4a1f0349076c0183",
+    "usage_split": "rag_candidate",
+    "message_count": 2,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "BELEEV",
+    "selected_family_ids": [
+      "BELEEV-03"
+    ],
+    "registration_skus": [
+      "SP-SLHBC12-PU"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-e48bc01236cae6885520",
+    "source_conversation_id": "74bd7e8f-3c1f-4a5f-826b-8d345a46aab3",
+    "customer_key": "customer-6e89cc3063d920ff7c59",
+    "group_id": "group-e48bc01236cae6885520",
+    "usage_split": "eval_holdout",
+    "message_count": 6,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "H-SFD0004-UK-BK"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-927cf40014b8e4004c6d",
+    "source_conversation_id": "7517119c-fd27-4d97-8033-6d94ab5c7c5a",
+    "customer_key": "customer-fc9d5f67f872943eac3a",
+    "group_id": "group-927cf40014b8e4004c6d",
+    "usage_split": "rag_candidate",
+    "message_count": 12,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "H-BD000802-W-1PCS"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-91b69d86a905f7f25ae8",
+    "source_conversation_id": "8edf2079-a4f1-4cf8-8d06-6b5bf4cb0131",
+    "customer_key": "customer-89378b832c94b0ffc34f",
+    "group_id": "group-91b69d86a905f7f25ae8",
+    "usage_split": "rag_candidate",
+    "message_count": 12,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "registration_skus": [
+      "H-SJJ0001-UK-WT"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-80c4dae4d1fa2f08d4a8",
+    "source_conversation_id": "8ff51b6e-46ac-4386-b8ad-7065866f5168",
+    "customer_key": "customer-ba5456d9f916aba734d0",
+    "group_id": "group-80c4dae4d1fa2f08d4a8",
+    "usage_split": "rag_candidate",
+    "message_count": 10,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "registration_skus": [
+      "H-CTD16-EU-W"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-68756da32229cf381508",
+    "source_conversation_id": "978cdd4c-2b26-4f02-a351-6a104d08e3a8",
+    "customer_key": "customer-1e2165dfb9e1b8704bf5",
+    "group_id": "group-68756da32229cf381508",
+    "usage_split": "dev_candidate",
+    "message_count": 5,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "H-ZWD000102-EU-BK"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-8976bec5b3bd643f0aaa",
+    "source_conversation_id": "98aae5ac-caaf-466e-b109-9b7f452ff45d",
+    "customer_key": "customer-4e5ea95c2dce1cf459d4",
+    "group_id": "group-8976bec5b3bd643f0aaa",
+    "usage_split": "rag_candidate",
+    "message_count": 11,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "complete_history_candidate": false,
+    "case_id": "case-b4b3ec6c4b2cd148fc3e",
+    "source_conversation_id": "a08f9a8d-73a2-4aed-bf8b-d91c47dd05a2",
+    "customer_key": "customer-ce666e97e934b702775e",
+    "group_id": "group-b4b3ec6c4b2cd148fc3e",
+    "usage_split": "rag_candidate",
+    "message_count": 1,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-03"
+    ],
+    "registration_skus": [
+      "H-LBD05-UK-BK"
+    ],
+    "complete_history_candidate": false,
+    "case_id": "case-5e5afcfe58d9ce8bef83",
+    "source_conversation_id": "a3c28bd1-635c-42a5-9f31-3424d66e484f",
+    "customer_key": "customer-8950d7e40b9a0f0d2b1b",
+    "group_id": "group-5e5afcfe58d9ce8bef83",
+    "usage_split": "rag_candidate",
+    "message_count": 2,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "BELEEV",
+    "selected_family_ids": [
+      "BELEEV-02"
+    ],
+    "registration_skus": [
+      "SP-XLLHBC02-P"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-412fbb121a123f7ea9f2",
+    "source_conversation_id": "a544adac-fc0a-4a45-8c07-d82de8b20f78",
+    "customer_key": "customer-778909ce755226fecd96",
+    "group_id": "group-412fbb121a123f7ea9f2",
+    "usage_split": "rag_candidate",
+    "message_count": 3,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "H-BD001002-BK-2PCS"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-9dda302bb7c1b899abf0",
+    "source_conversation_id": "a7559067-981d-460d-a0b4-e783048ceab6",
+    "customer_key": "customer-e40333847eeaec91a1a2",
+    "group_id": "group-9dda302bb7c1b899abf0",
+    "usage_split": "eval_holdout",
+    "message_count": 21,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "complete_history_candidate": false,
+    "case_id": "case-8a46d9f09d8e1ee059fa",
+    "source_conversation_id": "b8507ae7-a579-4934-b9be-7f922e3c3b9a",
+    "customer_key": "customer-3739d773a3c879b3ee64",
+    "group_id": "group-8a46d9f09d8e1ee059fa",
+    "usage_split": "rag_candidate",
+    "message_count": 2,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "BELEEV",
+    "selected_family_ids": [
+      "BELEEV-03"
+    ],
+    "registration_skus": [
+      "SP-SLHBC12-LP"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-7e8f4c7468247c476bcb",
+    "source_conversation_id": "d4d8f713-26a9-491b-a37c-57680b9bc058",
+    "customer_key": "customer-39223404304cc2372606",
+    "group_id": "group-7e8f4c7468247c476bcb",
+    "usage_split": "dev_candidate",
+    "message_count": 5,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "H-FSD0004-US-WD"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-3e4aeabbb31d792c0209",
+    "source_conversation_id": "d7895ad4-5474-4f71-a26c-2e3d7d733538",
+    "customer_key": "customer-52589400b985e32e0a2e",
+    "group_id": "group-3e4aeabbb31d792c0209",
+    "usage_split": "dev_candidate",
+    "message_count": 15,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "registration_skus": [
+      "H-SJJ0001-EU-WD"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-97545a0801313a930814",
+    "source_conversation_id": "e2f55263-2e9c-46d5-ac85-d409c7fbcab0",
+    "customer_key": "customer-92633f5dc0748b2efab6",
+    "group_id": "group-97545a0801313a930814",
+    "usage_split": "rag_candidate",
+    "message_count": 4,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTONLIFE",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "F-SJ0004-US-BBR"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-1fb22d4249845be18e55",
+    "source_conversation_id": "e7273d35-79e1-4036-a881-388cf25e4227",
+    "customer_key": "customer-b4e6ef49e40ce3483cec",
+    "group_id": "group-1fb22d4249845be18e55",
+    "usage_split": "rag_candidate",
+    "message_count": 6,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-e6ba57162a1e278e8b44",
+    "source_conversation_id": "e90e7800-e64c-4d4b-af78-d34e3a201016",
+    "customer_key": "customer-119767882a4d70c62e53",
+    "group_id": "group-e6ba57162a1e278e8b44",
+    "usage_split": "rag_candidate",
+    "message_count": 8,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "BELEEV",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "SP-DLLHBC04-P"
+    ],
+    "complete_history_candidate": false,
+    "case_id": "case-4d840a87978d4fec9d5e",
+    "source_conversation_id": "eb5b0c4d-55a6-4950-8d8e-96d756519ced",
+    "customer_key": "customer-4d9a2d9ef4cea0bc005e",
+    "group_id": "group-4d840a87978d4fec9d5e",
+    "usage_split": "rag_candidate",
+    "message_count": 2,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "registration_skus": [
+      "H-SJJ0001-UK-WD"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-26079845d258c8425e05",
+    "source_conversation_id": "f95f9f72-45db-4446-ae66-a38f332db595",
+    "customer_key": "customer-8e41cf6352c248bd8608",
+    "group_id": "group-26079845d258c8425e05",
+    "usage_split": "rag_candidate",
+    "message_count": 4,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "complete_history_candidate": false,
+    "case_id": "case-b7e95fc8037eb73ca25c",
+    "source_conversation_id": "f9bf235d-e4ff-4ed0-bb1a-5ff4ad4141fd",
+    "customer_key": "customer-cd01519ef96b3e88869c",
+    "group_id": "group-b7e95fc8037eb73ca25c",
+    "usage_split": "rag_candidate",
+    "message_count": 2,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  },
+  {
+    "brand": "OUTON",
+    "selected_family_ids": [],
+    "registration_skus": [
+      "H-FWD0002-UK-BK"
+    ],
+    "complete_history_candidate": true,
+    "case_id": "case-ec36f13d5e461cd75e89",
+    "source_conversation_id": "f9fa13d9-9e60-4b24-aea1-8e5ad4d6ee01",
+    "customer_key": "customer-d26a80d4a9294ddf6cb8",
+    "group_id": "group-ec36f13d5e461cd75e89",
+    "usage_split": "rag_candidate",
+    "message_count": 12,
+    "captured_at": "2026-10-07T03:00:38.507102+00:00",
+    "privacy_review": "pending",
+    "indexable": false,
+    "source_read_only": "on"
+  }
+]

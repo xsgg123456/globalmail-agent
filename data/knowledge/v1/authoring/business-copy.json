@@ -1,0 +1,82 @@
+{
+  "OUTON-01": {
+    "intro": "朝天灯，灯头向上照明，灯杆上带控制按键。生产订单的商品标题同时提到遥控调节；客户来信中常见机身可以控制、遥控器失灵的情况。",
+    "setup": ["先确认订单中的商品和客户手中的灯一致，尤其是插头规格、颜色和控制方式。", "检查外露电线、插头和灯杆连接处是否损坏。发现焦味、火花或异常发热时，停止使用并交客服处理。", "先问清楚机身按键能否开灯、调光，再判断是否只涉及遥控器，避免一开始就让客户重复全部操作。"],
+    "operation": ["客户已换电池、断电或重新配对的，先记录结果，不再从头重复要求。", "历史客服曾使用以下配对方法：先确认灯能点亮，再断电；按住遥控器开关键重新接通电源，直到灯本体闪烁。需要核对适用版本后再采用。", "观察的是灯本体闪烁，不是遥控器上的红色指示灯。客户只看到红灯常亮时，不能说已经配对成功。"],
+    "symptom": "灯能正常开关，遥控器却没有反应",
+    "diagnosis": ["确认机身控制是否正常，以及遥控电池是否已经更换。", "如果客户说已经配对过，问清看到的现象，不把同一步骤原样再发一遍。", "有适用依据时补充一次关键差异说明；仍失败就检查是否需要更换遥控器。", "需要补件时先核对遥控器是否适配，再确认收件信息。付费购买配件的订单与原灯具订单分别跟进。"],
+    "stop": "灯体也无法工作、出现电气异常，或没有可靠的下一步时交人工，不继续要求反复通电。",
+    "reply": "Thanks for explaining what you have already tried. Since the lamp still works from its own controls, we will check the remote separately. When you tried pairing it, did the lamp itself flash, or did only the red light on the remote come on?",
+    "basis": "生产商品标题；CASE-002 的客户描述和客服往来。配对步骤是历史处理参考，尚非厂家核准说明。"
+  },
+  "OUTON-02": {
+    "intro": "木质三脚架落地灯，带圆形托盘和布艺灯罩。生产订单可见不同木色、灯罩和地区版本，部分商品标题包含遥控功能。",
+    "setup": ["先看订单商品与客户描述是否一致，再确认是灯罩固定、托盘晃动还是灯光问题。", "安装或检查灯罩固定件前先断电，灯泡冷却后再操作。", "如果包装缺零件，请客户说明缺少的位置；收到照片后由客服核对，不凭“螺丝”两个字猜配件。"],
+    "operation": ["灯罩固定环损坏时，应先确认灯罩、灯座和固定环是否仍在，不把整盏灯都当成报废。", "更换灯泡前确认灯座和灯泡标识；规格不清楚时先核对，不只看灯泡外形。", "同样叫三脚架灯的款式，灯罩、托盘和电气配置也可能不同，配件按原订单核对。"],
+    "symptom": "灯罩固定环损坏，或安装时发现缺件",
+    "diagnosis": ["让客户描述损坏部位，已有订单号和照片就继续使用，不重复索要。", "核对是塑料固定环、灯罩本身，还是托盘紧固件。", "能提供配件时确认方案与收件信息，再交负责同事安排。", "安排补寄后查询实际补发记录，有物流信息再通知客户；不能把“会尽快寄出”写成“已经发货”。"],
+    "stop": "灯座破裂、线缆损伤或支架不稳时暂停使用，交客服进一步处理。",
+    "reply": "We can help check the part that holds the lampshade in place. Please let us know whether it is the threaded retaining ring or the shade itself that is damaged. If you have already sent your order number, you do not need to send it again.",
+    "basis": "生产商品图和订单名称；CASE-001 的固定环损坏及补件往来。"
+  },
+  "OUTON-03": {
+    "intro": "带主灯和独立阅读灯的子母落地灯。当前选取的是英规黑色款；生产商品标题提到机身、遥控及应用控制，但尚未取得对应版本的完整操作说明。",
+    "setup": ["先确认客户说的是主灯、阅读灯，还是两盏灯都不能工作。", "分别记录机身控制和遥控控制的表现。", "若支臂、灯杆或电线已经损坏，停止使用并交客服，不继续测试。"],
+    "operation": ["一盏灯正常、另一盏异常时，应分别记录，不笼统回答“整灯坏了”。", "遥控器按键布局和应用设置以这款产品的资料为准；没有确切说明时不要套用其他朝天灯的配对步骤。", "客户询问应用名称、绑定方式或密码时，资料里没有的内容先交客服确认。"],
+    "symptom": "主灯正常，阅读灯或其控制不正常",
+    "diagnosis": ["询问哪一盏灯异常，以及能否通过机身控制开启。", "复用客户已经做过的检查，区分灯源和遥控问题。", "有精确型号的对应说明时再提供下一步；否则交人工确认。", "需要换遥控器或其他配件时，按本款商品核对，不与别的灯具共用。"],
+    "stop": "阅读灯支臂松脱、线缆破损、异味，或没有适用的进一步指导时交人工。",
+    "reply": "Could you let us know whether the main light, the reading light, or both are affected? Also, do the controls on the lamp still work? This will help us check the right part without asking you to repeat the same tests.",
+    "basis": "生产订单中的实物图、SKU 和商品标题；未确认应用设置及配对细节。"
+  },
+  "OUTONLIFE-01": {
+    "intro": "带照明的树形书架。生产商品标题有遥控、定时等功能描述，不同站点对层数的写法并不一致，因此客服应按具体订单与实物核对。",
+    "setup": ["先核对订单。礼物接收者暂时拿不到订单时，说明需要它来确认版本，并保留客户已提供的商品线索。", "区分书架结构损坏、灯座损坏和遥控器故障，不把几类问题混在一起。", "灯座或电线损坏时停止使用，不让客户自行接线；照片交客服进一步核对。"],
+    "operation": ["客户想付费购买配件时，不能自动当成免费保修申请。", "已有西语客户在重新配对后反馈恢复，但这只是特定订单的案例，不能直接说明所有书架灯都用同样步骤。", "商品标题出现的层数、灯泡参数或功能，按对应商品记录保留来源；有冲突时不自行选一个答案。"],
+    "symptom": "礼物没有订单号，或灯座与遥控器需要售后处理",
+    "diagnosis": ["缺订单时，优先解释核对版本的原因；客户后来补充订单后继续原问题，不重新开始。", "灯座损坏及裸线交人工检查，不能只凭客户写了 E26 就推荐通用灯座。", "遥控故障先记录是否换电池、是否已尝试配对，再查对应版本的指导。", "客户明确说已经恢复正常时记录结果，再由客服确认是否结案。"],
+    "stop": "灯座脱落、裸线、层板开裂或倾倒风险时，停止使用并交人工。",
+    "reply": "We understand that the bookshelf was a gift and that you would like to buy the replacement part. The original order number helps us identify the exact version. If you can obtain it from the purchaser, we can continue checking the part without asking you to repeat the details you have already sent.",
+    "basis": "生产订单商品图及名称；CASE-003 礼物配件咨询、CASE-004 西语遥控排障。"
+  },
+  "OUTONLIFE-02": {
+    "intro": "带灯的边桌，照明与收纳结合。当前生产订单中的美规黑色款标题包含充电、遥控和定时功能；其他抽屉、灯罩或地区变体不能直接按这一款回答。",
+    "setup": ["先核对客户购买的款式，再检查灯罩、桌面、收纳部件是否齐全。", "安装时保持断电，避免线缆夹在桌面与支撑件之间。", "先确认桌体平稳，再放置物品；有裂纹或晃动时先处理结构问题。"],
+    "operation": ["照明、遥控、充电和收纳分别记录问题，不能因为灯亮就认为充电功能也正常。", "客户说缺抽屉或布袋时，先确认该订单是否包含这个部件。", "充电接口类型、功率和配对步骤没有核实前，不凭同类商品猜测。"],
+    "symptom": "配件不齐、灯光闪烁，或充电功能不能使用",
+    "diagnosis": ["核对具体款式及出现问题的功能。", "询问问题从收货时就有，还是使用一段时间后出现；保留已尝试操作。", "缺件明确时查询是否能补寄；电气异常或没有可靠指导时交人工。", "不同抽屉或灯罩版本的配件不随意替换，补件前再核对订单。"],
+    "stop": "异常发热、异味、线缆损伤或持续闪烁且无明确处理依据时暂停使用。",
+    "reply": "Could you tell us whether the problem is with the light, the remote, or the charging function? If a storage part is missing, please describe which part you expected to find. We will check it against the version on your order.",
+    "basis": "生产订单美规黑色款的实物图、商品名称与标题；其他款式只保留登记信息。"
+  },
+  "BELEEV-01": {
+    "intro": "A2 三轮滑板车。当前生产图片可见双前轮、后轮刹车和高度调节立杆。客户提到把手松动时，要先处理骑乘安全，再讨论补件。",
+    "setup": ["核对 A2 型号及实物，成人检查把手、立杆、轮组和刹车有无明显损伤。", "把手或立杆松脱时停止骑乘，不要求孩子继续骑来拍视频。", "年龄、承重和紧固要求以这款产品的有效说明为准；现有资料不能确认时交客服核对。"],
+    "operation": ["把手装饰套与立杆锁止件不是同一种配件，客户只说“把手坏了”时需要再问位置。", "结构松脱不能用绑扎、胶粘或反复加力紧固代替正式处理。", "图片只作外观核对，不代表已确认内部结构或拆装方式。"],
+    "symptom": "把手松动，或从立杆连接处脱开",
+    "diagnosis": ["先提醒停止骑乘，并确认松动位置。", "复用订单和已提供的问题描述，请客服查看客户照片或视频。", "查询是否有对应配件或换货方案，安全相关部件交人工确认。", "安排补寄或换货后跟进实际执行记录，不把申请成功当作已经寄出。"],
+    "stop": "立杆、轮轴、刹车或踏板结构异常均交人工，不能让客户继续骑乘验证。",
+    "reply": "Please stop using the scooter for now if the handlebar is coming loose. Let us know which connection is affected, and we will have our support team check the appropriate solution for the model on your order.",
+    "basis": "生产订单 A2 实物图与商品名称；把手松脱来自已知售后问题原型。具体修复步骤尚未确认。"
+  },
+  "BELEEV-02": {
+    "intro": "V2 两轮滑板车。生产订单图片为带花纹踏板和发光轮的款式。公开页面另有同名升级款，不能将升级款的灯杆照明等功能直接套到本批订单。",
+    "setup": ["确认问题是轮灯不亮，还是轮子、转向连接或刹车本身异常。", "车轮和把手反复不对齐，或者紧固后仍松动时，停止骑乘并交客服。", "不要给客户未经确认的紧固扭矩，也不要要求用更大力气反复拧紧。"],
+    "operation": ["轮灯和车轮机械状态分别记录：灯不亮与轮轴松动不是同一个问题。", "客户已经尝试紧固仍无效时，保留这一结果，不再次发送同样要求。", "收到视频链接只表示有附件线索；未实际查看时不能回复“视频显示某零件损坏”。"],
+    "symptom": "车轮与把手不对齐，紧固后仍反复松动",
+    "diagnosis": ["先提示停止骑乘，记录发生时间与使用经过。", "核对订单和具体型号，将客户提供的视频交客服检查。", "在没有可靠诊断前，不让客户自行拆轮或调整转向连接。", "人工确认方案后再跟进配件或换货进度。"],
+    "stop": "轮轴松动、卡滞、刹车失效或结构损坏，停止使用并交人工。",
+    "reply": "As the handlebar and wheel keep going out of alignment even after tightening, please stop using the scooter for now. We have noted the steps you have already tried and will ask our support team to review the issue.",
+    "basis": "生产订单 V2 实物图；CASE-005 的真实多轮描述。公开同名新版商品仅作检索线索，不作为本款参数依据。"
+  },
+  "BELEEV-03": {
+    "intro": "A9 可折叠三轮滑板车。当前生产图片显示三轮结构和立杆连接位置；折叠与锁止异常需要单独处理。",
+    "setup": ["确认 A9 型号，让成人按真实随附说明检查展开和锁止状态。", "车身已经展开并不代表锁止完成；站立检查不能替代实际结构确认。", "缺少有效说明时，不凭图片猜测按钮顺序或扳动方向。"],
+    "operation": ["A2 和 A9 都是三轮车，但锁止组件不能因此视为通用。", "折叠机构卡住时，不要求踩压、敲击或强行扳动。", "灯轮正常也不能说明整车安全，结构与照明分别检查。"],
+    "symptom": "展开后锁不住，或折叠机构卡住",
+    "diagnosis": ["先提醒停止骑乘，问清楚卡住或松动的位置。", "确认是否以前能正常锁止，以及已经尝试过哪些操作。", "没有该版本的可靠指导时交客服查看照片或视频。", "补件或换货由客服确认，后续查询本次处理的单据和物流。"],
+    "stop": "锁止不可靠、裂纹、夹伤，或轮组/刹车异常时停止使用并交人工。",
+    "reply": "Please do not ride the scooter if the folding mechanism is not locking securely. Let us know whether it has ever locked correctly and what happens when you try to unfold it. Our support team will check the next step for this model.",
+    "basis": "生产订单 A9 实物图和商品名称；缺少经确认的拆装步骤，故不编写拆修指导。"
+  }
+}

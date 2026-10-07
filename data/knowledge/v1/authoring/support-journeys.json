@@ -1,0 +1,4279 @@
+[
+  {
+    "journey_id": "JRN-01",
+    "title": "已知订单的灯具控制方式咨询并确认理解",
+    "business": "BIZ-01",
+    "variant": "main",
+    "seed_scenario_id": "BASE-OUTON-01",
+    "tags": [
+      "已知订单复用",
+      "控制方式资料",
+      "无虚构参数",
+      "人工结案"
+    ],
+    "initial_message": "Hello, I have the black OUTON floor lamp from Amazon order $order_number. The lamp is working, but the remote is still packed away after our move. Can I use the controls on the pole to adjust the light, or do I need the remote every time?\nThanks, Emily",
+    "initial_state_patch": {},
+    "steps": [
+      {
+        "id": "s01",
+        "after_hours": 0.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "核对原订单与四按键朝天灯资料，回答机身控制与遥控器的区别。",
+        "gate": {
+          "after_step": "initial_message"
+        },
+        "record": {},
+        "expected_actions": [
+          "复用订单号并查询精确SKU",
+          "仅据OUTON-01 SOP说明机身可开灯和调光，不编按钮组合、亮度档数或参数",
+          "询问客户实际控制需求"
+        ],
+        "forbidden_actions": [
+          "不得再次索要已有订单号",
+          "不得猜测配对步骤或按键长按时长",
+          "不得创建补件或退款申请"
+        ],
+        "reference_reply": "The lamp on your order has controls on the pole as well as a remote. You can use the lamp controls to switch it on and adjust the brightness. Are you trying to change the brightness, or is one of the controls not responding?"
+      },
+      {
+        "id": "s02",
+        "after_hours": 5,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Thanks. I only wanted to lower the brightness beside the sofa. The buttons respond normally. If I misplace the remote later, could I ask about buying a spare without returning the lamp?",
+        "gate": {
+          "after_step": "s01"
+        },
+        "record": {},
+        "expected_actions": [
+          "保留客户确认控制正常的事实，识别为未来购买咨询"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s03",
+        "after_hours": 5.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "回答备用遥控器咨询的办理方式。",
+        "gate": {
+          "after_step": "s02"
+        },
+        "record": {},
+        "expected_actions": [
+          "说明可依原订单核对配件适配、供应及报价",
+          "说明购买备用件不自动构成免费补寄权益",
+          "不在未有购买决定时建单"
+        ],
+        "forbidden_actions": [
+          "不得承诺配件永久免费或一定有货",
+          "不得虚构配件售价"
+        ],
+        "reference_reply": "Yes, you can contact us with this order number if you need a spare remote later. We would first check the correct version, availability and price. There is no need to arrange anything while your current controls are working."
+      },
+      {
+        "id": "s04",
+        "after_hours": 22,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "That clears it up. I found the brightness control and can use the lamp comfortably without unpacking the remote. I do not need a spare at the moment. Thank you.",
+        "gate": {
+          "after_step": "s03"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录咨询已解释清楚且暂不购买"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s05",
+        "after_hours": 22.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "记录客户已掌握操作，无待执行售后事项。",
+        "gate": {
+          "after_step": "s04"
+        },
+        "record": {},
+        "expected_actions": [
+          "可建议人工结案，但不得自动改为已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s06",
+        "after_hours": 24,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "客户确认机身控制可用、疑问已解决且暂不购买备用件，客服核对后结案。",
+        "gate": {
+          "after_step": "s05"
+        },
+        "record": {},
+        "expected_actions": [
+          "客服核对客户确认及相关记录后人工标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      }
+    ],
+    "outcome": "客户确认机身控制可用、疑问已解决且暂不购买备用件，客服核对后结案。",
+    "knowledge_note": "依据对应SKU生产商品记录、适用SOP及项目售后政策；来信和业务进展为隔离资料创作，技术缺口不补写厂家参数。"
+  },
+  {
+    "journey_id": "JRN-02",
+    "title": "遥控器无反应经低风险电池检查恢复",
+    "business": "BIZ-02",
+    "variant": "main",
+    "seed_scenario_id": "BASE-OUTON-02",
+    "tags": [
+      "区分机身与遥控故障",
+      "电池低风险检查",
+      "保留已做操作",
+      "客户确认恢复"
+    ],
+    "initial_message": "Hi, the remote for my OUTON lamp has stopped responding this morning. It worked last night. The Amazon order is $order_number. I have not tried anything yet and would appreciate some help before ordering another remote.\nRegards, Daniel",
+    "initial_state_patch": {},
+    "steps": [
+      {
+        "id": "s01",
+        "after_hours": 0.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "先区分灯体与遥控器现象。",
+        "gate": {
+          "after_step": "initial_message"
+        },
+        "record": {},
+        "expected_actions": [
+          "复用订单定位SKU与适用SOP",
+          "询问机身控制是否正常及电池是否换过",
+          "有损伤、异味或发热则停止排障并转人工"
+        ],
+        "forbidden_actions": [
+          "不得直接提供未经核实的配对按键步骤",
+          "不得认定遥控器已损坏"
+        ],
+        "reference_reply": "Does the lamp still switch on and adjust normally using its own controls? Also, have you replaced the remote batteries since this started? Please let us know if you have noticed any damage, unusual heat or smell."
+      },
+      {
+        "id": "s02",
+        "after_hours": 3,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The buttons on the lamp still turn it on and dim it. There is no unusual smell or heat and I cannot see any damage. I have not changed the remote batteries since we received it.",
+        "gate": {
+          "after_step": "s01"
+        },
+        "record": {},
+        "expected_actions": [
+          "保留机身正常、未换电池且无异常现象的客户报告"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s03",
+        "after_hours": 3.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "仅提出适用资料支持的常规电池检查。",
+        "gate": {
+          "after_step": "s02"
+        },
+        "record": {},
+        "expected_actions": [
+          "建议按电池仓已有标识更换匹配电池并核对正负极",
+          "不指定未知电池型号，不拆遥控器或灯体",
+          "记录本次只做电池处理"
+        ],
+        "forbidden_actions": [
+          "不得编造电池型号、复位组合或配对时序",
+          "不得要求反复通电"
+        ],
+        "reference_reply": "Please try fresh batteries of the type marked inside the remote battery compartment, matching the + and - markings. There is no need to open the lamp or repeat any pairing steps at this stage."
+      },
+      {
+        "id": "s04",
+        "after_hours": 18,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I replaced the batteries using the markings in the compartment. The remote now turns the lamp on and changes the brightness again. I tried it again this evening and it is still working. Thanks for the help.",
+        "gate": {
+          "after_step": "s03"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录客户两次确认遥控恢复，不推断内部故障根因"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s05",
+        "after_hours": 18.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "问题恢复，留存本次处理结果。",
+        "gate": {
+          "after_step": "s04"
+        },
+        "record": {},
+        "expected_actions": [
+          "归纳电池更换后客户报告恢复",
+          "不创建不必要的补件申请",
+          "提出人工结案建议"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s06",
+        "after_hours": 24,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "客户确认更换电池后遥控器持续恢复正常，客服核对后结案。",
+        "gate": {
+          "after_step": "s05"
+        },
+        "record": {},
+        "expected_actions": [
+          "客服核对客户确认及相关记录后人工标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      }
+    ],
+    "outcome": "客户确认更换电池后遥控器持续恢复正常，客服核对后结案。",
+    "knowledge_note": "依据对应SKU生产商品记录、适用SOP及项目售后政策；来信和业务进展为隔离资料创作，技术缺口不补写厂家参数。"
+  },
+  {
+    "journey_id": "JRN-03",
+    "title": "原包裹长时间无更新经查件恢复运输并收货",
+    "business": "BIZ-03",
+    "variant": "main",
+    "seed_scenario_id": "BASE-OUTON-03",
+    "tags": [
+      "原包裹",
+      "物流停滞",
+      "内部查件待办",
+      "承运商新扫描",
+      "客户收货确认"
+    ],
+    "initial_message": "Hello, could you check the OUTON lamp on order $order_number? The parcel was last scanned at a sorting depot on 29 September and there has been no movement since. It has not reached us. We will be home for deliveries this week.\nThank you, Rachel",
+    "initial_state_patch": {
+      "orders": [
+        {
+          "order_id": "$order",
+          "customer_id": "$customer",
+          "brand": "OUTON",
+          "market": "US",
+          "channel": "amazon",
+          "currency": "$currency",
+          "paid_minor": "$amount",
+          "refunded_minor": 0,
+          "pending_refund_minor": 0,
+          "purchase_at": "2026-09-10T09:00:00+08:00",
+          "delivered_at": null,
+          "snapshot_at": "2026-10-08T09:00:00+08:00",
+          "source_kind": "synthetic",
+          "lines": [
+            {
+              "line_id": "$line",
+              "sku": "H-CTD16-US-BK",
+              "quantity": 1,
+              "paid_minor": "$amount",
+              "hardware_revision": "SIM-V1"
+            }
+          ],
+          "display_order_number": "$order_number",
+          "display_order_number_source": "synthetic_not_a_real_customer_order",
+          "pricing_source": "production_observed_unit_price_same_sku_currency",
+          "tax_and_discount_semantics": "fixture amount uses observed item amount as proxy; not a reconstructed real transaction"
+        }
+      ],
+      "shipments": [
+        {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "original",
+          "execution_id": null,
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "in_transit",
+          "updated_at": "2026-09-29T15:10:00+08:00"
+        }
+      ]
+    },
+    "steps": [
+      {
+        "id": "s01",
+        "after_hours": 0.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "查询原包裹及最后有效扫描。",
+        "gate": {
+          "after_step": "initial_message"
+        },
+        "record": {},
+        "expected_actions": [
+          "确认订单尚无客户收货事实",
+          "核对超过7天无更新，建立查件内部待办",
+          "回复已有状态及查件安排，不保证到货日"
+        ],
+        "forbidden_actions": [
+          "不得把物流停滞解释成确定丢失",
+          "不得直接退款或补发",
+          "不得自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s02",
+        "after_hours": 4,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "物流同事已受理查件，向承运商查询停滞包裹的分拣情况。",
+        "gate": {
+          "after_step": "s01",
+          "operation_required": {
+            "kind": "investigation",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "JRN-03-INVESTIGATION",
+          "operation_selector": {
+            "kind": "investigation",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "investigation",
+          "amount_minor": null,
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "仅有真实查件待办才登记外部受理",
+          "告知查件处理中，不推断已恢复运输"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s03",
+        "after_hours": 29,
+        "kind": "service_note",
+        "actor": "carrier",
+        "text": "承运商回复：包裹在分拣中心滞留，已找到并交给下一班干线；尚未进入本地派送。",
+        "gate": {
+          "after_step": "s02",
+          "operation_required": {
+            "kind": "investigation",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {},
+        "expected_actions": [
+          "关联原查件记录",
+          "说明找到包裹与妥投不同，不给确定到货日"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s04",
+        "after_hours": 31,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "承运商新增离开分拣中心的扫描，原运单继续有效。",
+        "gate": {
+          "after_step": "s03"
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "original",
+          "execution_id": null,
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "in_transit"
+        },
+        "expected_actions": [
+          "更新原包裹，不创建第二份补发"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s05",
+        "after_hours": 47,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I can see the new scan now. Thank you for finding out what happened. The delivery address on the order is correct; please keep me updated if the carrier needs anything from us.",
+        "gate": {
+          "after_step": "s04"
+        },
+        "record": {},
+        "expected_actions": [
+          "保持查件和原包裹关联，继续等待派送"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s06",
+        "after_hours": 72,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "原包裹已有投递扫描，签收位置记为门口。",
+        "gate": {
+          "after_step": "s05"
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "original",
+          "execution_id": null,
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "delivered"
+        },
+        "expected_actions": [
+          "可以通知物流显示投递并询问是否收到",
+          "不能据此将会话标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s07",
+        "after_hours": 77,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The lamp was delivered this afternoon. We brought the box inside, checked it and have everything we ordered. There is no delivery problem left to follow up. Thanks.",
+        "gate": {
+          "after_step": "s06"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录客户实际收货且物品齐全"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s08",
+        "after_hours": 78,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "物流同事依据找回记录和客户收货确认完成查件。",
+        "gate": {
+          "after_step": "s07",
+          "operation_required": {
+            "kind": "investigation",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "JRN-03-INVESTIGATION",
+          "operation_selector": {
+            "kind": "investigation",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "succeeded",
+          "kind": "investigation",
+          "amount_minor": null,
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "完结同一查件申请，不新增赔付"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s09",
+        "after_hours": 80,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "承运商找回滞留包裹，客户确认完整收到，查件完成后由客服结案。",
+        "gate": {
+          "after_step": "s08"
+        },
+        "record": {},
+        "expected_actions": [
+          "客服核对客户确认及相关记录后人工标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      }
+    ],
+    "outcome": "承运商找回滞留包裹，客户确认完整收到，查件完成后由客服结案。",
+    "knowledge_note": "依据对应SKU生产商品记录、适用SOP及项目售后政策；来信和业务进展为隔离资料创作，技术缺口不补写厂家参数。"
+  },
+  {
+    "journey_id": "JRN-07",
+    "title": "缺少遥控器核对后补寄并确认有效",
+    "business": "BIZ-07",
+    "variant": "main",
+    "seed_scenario_id": "BASE-OUTON-07",
+    "tags": [
+      "缺件识别",
+      "客户明确选择",
+      "地址确认",
+      "内部申请与发货区分",
+      "补件到货有效"
+    ],
+    "initial_message": "Hello, my OUTON lamp from order $order_number arrived without a remote. I checked the small cardboard sleeves and all the packing material before throwing anything away. The lamp itself works from the buttons. Could you send the correct remote?\nBest, Laura",
+    "initial_state_patch": {},
+    "steps": [
+      {
+        "id": "s01",
+        "after_hours": 0.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "核对订单、包装缺遥控的描述与适配清单。",
+        "gate": {
+          "after_step": "initial_message"
+        },
+        "record": {},
+        "expected_actions": [
+          "确认需补一只精确适配遥控器及可用库存",
+          "复用订单号，确认客户愿意补件并确认完整地址",
+          "在条件齐备前不创建履约成功状态"
+        ],
+        "forbidden_actions": [
+          "不得凭商品族推定通用遥控器",
+          "不得直接声称已寄出"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s02",
+        "after_hours": 6,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, please send one replacement remote for this lamp. The correct address is Laura Ellis, 418 Maple Avenue, Apt 2B, Columbus, OH 43215, United States. This is where the lamp was delivered.",
+        "gate": {
+          "after_step": "s01"
+        },
+        "record": {},
+        "expected_actions": [
+          "依据此来信记录补一只遥控器的选择和地址"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s03",
+        "after_hours": 6.1,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "客服录入客户本次确认的完整收件信息，版本1。",
+        "gate": {
+          "after_step": "s02"
+        },
+        "record": {
+          "version": 1,
+          "confirmed": true,
+          "address": {
+            "name": "Laura Ellis",
+            "line1": "418 Maple Avenue",
+            "line2": "Apt 2B",
+            "city": "Columbus",
+            "region": "OH",
+            "postal_code": "43215",
+            "country": "US"
+          },
+          "source_step": "s02",
+          "customer_id": "$customer"
+        },
+        "expected_actions": [
+          "地址确认须关联上一封客户来信，不沿用种子默认确认"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s04",
+        "after_hours": 6.3,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "补件前提齐备，等待Agent实际创建内部申请。",
+        "gate": {
+          "after_step": "s03"
+        },
+        "record": {},
+        "expected_actions": [
+          "查询精确SKU与遥控器适配、库存及地址版本1",
+          "为同一订单行和问题创建一份补件内部待办",
+          "回复已提交安排，等待业务同事执行"
+        ],
+        "forbidden_actions": [
+          "不得预填Agent申请",
+          "不得将内部待办描述为已出库"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s05",
+        "after_hours": 24,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "负责同事在履约系统建立一只遥控器的补发单，仓库等待打包。",
+        "gate": {
+          "after_step": "s04",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "spare_part",
+          "amount_minor": null,
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "关联Agent实际补件待办",
+          "普通履约操作不触发整段会话人工接管"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s06",
+        "after_hours": 25,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "已创建补件面单，尚无承运商揽收扫描。",
+        "gate": {
+          "after_step": "s05",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "label_created"
+        },
+        "expected_actions": [
+          "区分面单创建与已经发货"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s07",
+        "after_hours": 33,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Thanks. The tracking page only says a label has been created. Has the remote actually left your warehouse yet?",
+        "gate": {
+          "after_step": "s06"
+        },
+        "record": {},
+        "expected_actions": [
+          "查询本补件包裹，不引用原灯具签收状态"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s08",
+        "after_hours": 33.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "按现有回执回答发货进度。",
+        "gate": {
+          "after_step": "s07"
+        },
+        "record": {},
+        "expected_actions": [
+          "说明目前仅创建面单，尚无揽收记录",
+          "继续跟进原申请，不重复建补发单"
+        ],
+        "forbidden_actions": [
+          "不得将label_created说成已发货",
+          "不得承诺确切到货日期"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s09",
+        "after_hours": 48,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "承运商完成补件揽收，首个运输扫描已回传。",
+        "gate": {
+          "after_step": "s08",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "in_transit"
+        },
+        "expected_actions": [
+          "可以说明补件已交承运商并提供此包裹运单"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s10",
+        "after_hours": 120,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "补件包裹显示已投递。",
+        "gate": {
+          "after_step": "s09",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "delivered"
+        },
+        "expected_actions": [
+          "询问客户是否收到及遥控是否可用，保持会话开放"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s11",
+        "after_hours": 126,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The remote arrived today. I have tried switching the lamp on and adjusting the brightness, and both work. Thank you for sorting out the missing item.",
+        "gate": {
+          "after_step": "s10"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录配件收到且主要控制功能有效"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s12",
+        "after_hours": 132,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "补件经历建单、面单、揽收与投递，客户确认遥控可用，客服核对后结案。",
+        "gate": {
+          "after_step": "s11"
+        },
+        "record": {},
+        "expected_actions": [
+          "客服核对客户确认及相关记录后人工标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      }
+    ],
+    "outcome": "补件经历建单、面单、揽收与投递，客户确认遥控可用，客服核对后结案。",
+    "knowledge_note": "依据对应SKU生产商品记录、适用SOP及项目售后政策；来信和业务进展为隔离资料创作，技术缺口不补写厂家参数。"
+  },
+  {
+    "journey_id": "JRN-08",
+    "title": "礼物咨询缺订单后补充并延续原问题",
+    "business": "BIZ-01",
+    "variant": "branch",
+    "seed_scenario_id": "BASE-OUTONLIFE-01",
+    "tags": [
+      "缺订单补问",
+      "礼物收件人",
+      "订单补充后继续",
+      "资料范围核对"
+    ],
+    "initial_message": "Hi, my sister gave me an OUTONLIFE bookshelf lamp. I have the shelf and the remote, but no receipt. Before I put the empty box away, could you tell me whether I need to keep an order number if I ever need a spare fixing part? I do not know which version she bought.\nThanks, Olivia",
+    "initial_state_patch": {
+      "conversation": {
+        "known_order_ids": []
+      }
+    },
+    "steps": [
+      {
+        "id": "s01",
+        "after_hours": 0.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "只依据客户通用问题解释订单的用途。",
+        "gate": {
+          "after_step": "initial_message"
+        },
+        "record": {},
+        "expected_actions": [
+          "说明订单用于识别商品版本和对应配件",
+          "请求向购买者取得订单号，保留已提供品牌和礼物背景",
+          "补单号前不能读取商品专属资料"
+        ],
+        "forbidden_actions": [
+          "不得根据品牌或外观猜SKU",
+          "不得把服务端候选订单当作已知客户订单",
+          "不得承诺配件适配或免费"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s02",
+        "after_hours": 27,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "My sister has found the Amazon order number: $order_number. It is the brown tree-shaped bookshelf with a light. Nothing is broken or missing; I only wanted to know what to save in case I need support later.",
+        "gate": {
+          "after_step": "s01"
+        },
+        "record": {},
+        "expected_actions": [
+          "将新订单号用于识别商品，延续原咨询"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s03",
+        "after_hours": 27.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "订单补齐后核对树形书架型号，再回答备件咨询。",
+        "gate": {
+          "after_step": "s02"
+        },
+        "record": {},
+        "expected_actions": [
+          "查订单与精确SKU的适用SOP",
+          "说明保留订单号以及所需配件位置描述即可协助核对",
+          "购买备用件需另核适配、供应与报价，不自动免费"
+        ],
+        "forbidden_actions": [
+          "不得重新索要用户已经补充的订单号",
+          "不得把层数或电气参数差异自行统一"
+        ],
+        "reference_reply": "Thank you, that order number lets us identify the bookshelf version. Please keep it with your purchase records. If you need a part later, tell us where it fits and what is missing or damaged, and we can check availability and any charge for the correct part."
+      },
+      {
+        "id": "s04",
+        "after_hours": 30,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Perfect, I have saved the number with the instructions. Everything is complete and I am not asking you to send anything now. That answers my question.",
+        "gate": {
+          "after_step": "s03"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录客户仅咨询且已得到答案"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s05",
+        "after_hours": 30.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "确认没有当前缺件或购买事项。",
+        "gate": {
+          "after_step": "s04"
+        },
+        "record": {},
+        "expected_actions": [
+          "不创建售后待办，只建议人工结案"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s06",
+        "after_hours": 32,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "礼物收件人补充订单后收到对应版本的咨询答复，确认物品齐全且无需寄件，客服结案。",
+        "gate": {
+          "after_step": "s05"
+        },
+        "record": {},
+        "expected_actions": [
+          "客服核对客户确认及相关记录后人工标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      }
+    ],
+    "outcome": "礼物收件人补充订单后收到对应版本的咨询答复，确认物品齐全且无需寄件，客服结案。",
+    "knowledge_note": "依据OUTONLIFE-01 SOP的礼物订单核对与付费配件咨询说明；服务端保留候选订单，但补单号前不得向Agent暴露商品专属资料或视为已绑定。客户为虚构且未发生配件购买。"
+  },
+  {
+    "journey_id": "JRN-09",
+    "title": "购买备用装饰套适配待核实并报价后暂不购买",
+    "business": "BIZ-01",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-003",
+    "tags": [
+      "付费备用件",
+      "适配未知转人工",
+      "报价非免费权益",
+      "人工回复后等待客户",
+      "客户暂不购买"
+    ],
+    "initial_message": "Hello, I would like to buy an extra blue handle grip for the BELEEV scooter on order $order_number. The original grip is still fine. I saw several similar-looking pieces online and do not know which one fits ours. I am happy to pay, but could you check the right part and the total cost first?\nRegards, Mark",
+    "initial_state_patch": {
+      "requested_part_id": "SIM-UNKNOWN-PART",
+      "compatibility_override": "unknown"
+    },
+    "steps": [
+      {
+        "id": "s01",
+        "after_hours": 0.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "购买目的明确，但当前请求的配件未能可靠匹配。",
+        "gate": {
+          "after_step": "initial_message"
+        },
+        "record": {},
+        "expected_actions": [
+          "复用订单并确认购买备用件不代表故障或缺件",
+          "因适配未知转人工接管整段会话",
+          "在人工确认前不报价或创建免费补件"
+        ],
+        "forbidden_actions": [
+          "不得将购买请求转成免费保修",
+          "不得按颜色或名称推定适配"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s02",
+        "after_hours": 7,
+        "kind": "service_note",
+        "actor": "staff",
+        "text": "客服核对订单为蓝色A2滑板车；确认客户要的是非结构性把手装饰套，不是立杆锁止件。所选目录件为SIM-BELEEV-01-GRIP-02，可用库存8只；本次人工报价一只USD 6.00，已含普通邮寄费用。",
+        "gate": {
+          "after_step": "s01"
+        },
+        "record": {
+          "item_id": "SIM-BELEEV-01-GRIP-02",
+          "on_hand": 8,
+          "reserved": 0
+        },
+        "expected_actions": [
+          "人工核对记录入库",
+          "人工接管中不得自动回复客户或触发补件"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s03",
+        "after_hours": 8,
+        "kind": "human_reply",
+        "actor": "staff",
+        "text": "Hello Mark, I have checked the blue A2 on your order. The part available is the decorative handle grip, not the handlebar locking mechanism. We can offer one matching spare for USD 6.00 including standard postage. This would be a separate purchase. Would you like to proceed, or would you prefer to leave it for now?",
+        "gate": {
+          "after_step": "s02"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录人工答复已发出，等待下一封客户来信恢复Agent"
+        ],
+        "forbidden_actions": [
+          "人工答复本身不得恢复自动处理",
+          "不得创建支付成功或发货记录"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s04",
+        "after_hours": 10,
+        "kind": "inventory_update",
+        "actor": "warehouse",
+        "text": "仓库再次确认该装饰套仍有8只可用，未为该咨询占用库存。",
+        "gate": {
+          "after_step": "s03"
+        },
+        "record": {
+          "item_id": "SIM-BELEEV-01-GRIP-02",
+          "on_hand": 8,
+          "reserved": 0
+        },
+        "expected_actions": [
+          "人工回复后等待客户期间，库存事件仅入库提示",
+          "不得因此自动回复或创建购买订单"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s05",
+        "after_hours": 28,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Thank you for checking. I will leave it for now since the original grip is fine. Please do not place an order or send anything. I will come back to you if I need one later.",
+        "gate": {
+          "after_step": "s04"
+        },
+        "record": {},
+        "expected_actions": [
+          "此来信恢复Agent",
+          "记录客户拒绝本次购买，清楚保留无订单无收费"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s06",
+        "after_hours": 28.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "跟进客户暂不购买的决定。",
+        "gate": {
+          "after_step": "s05"
+        },
+        "record": {},
+        "expected_actions": [
+          "确认没有购买单、收费或寄件安排",
+          "不再推销或创建免费补件"
+        ],
+        "forbidden_actions": [
+          "不得保留待执行的购买或补件动作"
+        ],
+        "reference_reply": "Understood. We have not placed a parts order or arranged a shipment. You can contact us again if you decide you need a spare later."
+      },
+      {
+        "id": "s07",
+        "after_hours": 30,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "人工确认正确装饰套并给出单次报价后，客户明确暂不购买；无收费、无寄件，客服结案。",
+        "gate": {
+          "after_step": "s06"
+        },
+        "record": {},
+        "expected_actions": [
+          "客服核对客户确认及相关记录后人工标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      }
+    ],
+    "outcome": "人工确认正确装饰套并给出单次报价后，客户明确暂不购买；无收费、无寄件，客服结案。",
+    "knowledge_note": "原滑板车SKU与实付沿SCN-003；装饰套目录与精确适配来自现有parts/compatibility；人工单次报价USD 6.00含邮为虚构商业记录，不是品牌价目表或生产单价，未创建支付记录。"
+  },
+  {
+    "journey_id": "JRN-10",
+    "title": "排障多次失败补遥控仍无效后退回退款",
+    "business": "BIZ-02",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-005",
+    "tags": [
+      "重复失败不重发步骤",
+      "人工确认补件",
+      "补件无效再人工处理",
+      "退件验收后退款"
+    ],
+    "initial_message": "Hello, the remote on my OUTON lamp still does not work. This is order $order_number. I have already changed the batteries, and an earlier support reply had me try pairing again, but it made no difference. The lamp works from its own buttons and there is no smell or unusual heat. Please do not send the same instructions again.\nThanks, Peter",
+    "initial_state_patch": {
+      "attempted_steps": []
+    },
+    "steps": [
+      {
+        "id": "s01",
+        "after_hours": 0.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "多次操作无效，现有资料不足以支持新的可靠排障。",
+        "gate": {
+          "after_step": "initial_message"
+        },
+        "record": {},
+        "expected_actions": [
+          "将客户已换电池和尝试配对失败记入当前问题",
+          "触发整段会话人工接管",
+          "不重新提供未核实配对步骤"
+        ],
+        "forbidden_actions": [
+          "不得再次要求原样重复失败操作",
+          "不得声称已确诊接收器损坏"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s02",
+        "after_hours": 8,
+        "kind": "human_reply",
+        "actor": "staff",
+        "text": "Hi Peter, I have reviewed what you have already tried. We will not ask you to repeat those steps. We can offer one remote matched to the lamp on your order at no charge. If you would like us to arrange that, please confirm the delivery address. If the replacement does not resolve it, we will review the next option with you.",
+        "gate": {
+          "after_step": "s01"
+        },
+        "record": {},
+        "expected_actions": [
+          "人工确认精确适配目录及库存后提出补件方案",
+          "人工回复后仍等待客户来信恢复，不直接创建Agent待办"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s03",
+        "after_hours": 24,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, please try the replacement remote. Send it to Peter Shaw, 27 Garden Lane, Madison, WI 53703, United States. I would prefer to keep the lamp if this solves the problem.",
+        "gate": {
+          "after_step": "s02"
+        },
+        "record": {},
+        "expected_actions": [
+          "下一封客户来信恢复Agent",
+          "记录选择一只遥控器和地址"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s04",
+        "after_hours": 24.1,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "录入客户确认的本次补件地址。",
+        "gate": {
+          "after_step": "s03"
+        },
+        "record": {
+          "version": 1,
+          "confirmed": true,
+          "address": {
+            "name": "Peter Shaw",
+            "line1": "27 Garden Lane",
+            "line2": "",
+            "city": "Madison",
+            "region": "WI",
+            "postal_code": "53703",
+            "country": "US"
+          },
+          "source_step": "s03",
+          "customer_id": "$customer"
+        },
+        "expected_actions": [
+          "地址证据来自上一封客户来信"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s05",
+        "after_hours": 24.3,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "人工方案获客户接受，补件前置条件齐备。",
+        "gate": {
+          "after_step": "s04"
+        },
+        "record": {},
+        "expected_actions": [
+          "再次查询精确适配、库存和地址版本1",
+          "创建一份补件内部待办",
+          "保留原故障与所有失败操作的上下文"
+        ],
+        "forbidden_actions": [
+          "不得新开独立客户会话丢失原问题",
+          "不得声称已寄出"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s06",
+        "after_hours": 42,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "履约同事建立一只匹配遥控器的补发单。",
+        "gate": {
+          "after_step": "s05",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "spare_part",
+          "amount_minor": null,
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "根据Agent实际申请登记执行"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s07",
+        "after_hours": 44,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "补件面单已创建，等待承运商。",
+        "gate": {
+          "after_step": "s06",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "label_created"
+        },
+        "expected_actions": [
+          "不能将面单状态写为已发货"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s08",
+        "after_hours": 65,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "补件包裹已揽收进入运输。",
+        "gate": {
+          "after_step": "s07",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "in_transit"
+        },
+        "expected_actions": [
+          "查询补件运单告知客户进度"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s09",
+        "after_hours": 137,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "补件包裹显示已投递。",
+        "gate": {
+          "after_step": "s08",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "delivered"
+        },
+        "expected_actions": [
+          "等待客户验证效果，不自动结案"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s10",
+        "after_hours": 145,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The new remote arrived, but it does not operate the lamp either. I checked the batteries against the markings and the lamp buttons still work. After all these attempts, I would now like to return it for a refund. I have kept the carton and both remotes.",
+        "gate": {
+          "after_step": "s09"
+        },
+        "record": {},
+        "expected_actions": [
+          "将补件无效与原故障关联",
+          "记录客户新的退款选择，不重复寄遥控器"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s11",
+        "after_hours": 145.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "补件仍无效，缺少可靠下一步。",
+        "gate": {
+          "after_step": "s10"
+        },
+        "record": {},
+        "expected_actions": [
+          "再次转人工接管整个会话",
+          "查询已补发记录并停止重复补件",
+          "不推断灯体内部根因"
+        ],
+        "forbidden_actions": [
+          "不得继续循环配对或连续寄件",
+          "不得直接豁免退回"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s12",
+        "after_hours": 154,
+        "kind": "human_reply",
+        "actor": "staff",
+        "text": "I am sorry the replacement remote has not resolved this. We can arrange a prepaid return of the lamp and both remotes, followed by a full refund of $price_text to the original payment method after the return is received and checked. Please keep the lamp unplugged while it is packed. Would you like us to arrange collection on that basis?",
+        "gate": {
+          "after_step": "s11"
+        },
+        "record": {},
+        "expected_actions": [
+          "提出清楚的退回数量、配件范围、验收条件与金额",
+          "人工回复后等待客户恢复"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s13",
+        "after_hours": 170,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, I agree to return the lamp and both remotes for the full refund of $price_text after the return is checked. Please arrange the prepaid collection. The address you used for the remote is still correct.",
+        "gate": {
+          "after_step": "s12"
+        },
+        "record": {},
+        "expected_actions": [
+          "恢复Agent，明确接受退货退款及收件地址"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s14",
+        "after_hours": 170.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "客户已明确选择退回退款，等待Agent建立退货内部待办。",
+        "gate": {
+          "after_step": "s13"
+        },
+        "record": {},
+        "expected_actions": [
+          "复用订单行、数量1及前述缺陷原因",
+          "按客户本次选择建立退货待办，先退回验收再退款",
+          "缺陷退货由商家承担标签费用"
+        ],
+        "forbidden_actions": [
+          "不得在没有退货标签记录时编造寄回地址或标签",
+          "不得在验收前创建已成功退款"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s15",
+        "after_hours": 188.2,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "客服已出具缺陷退货标签并安排上门取件；本单数量1，备妥期限为出具标签后7个自然日，延期可先联系。该期限仅为本次安排。",
+        "gate": {
+          "after_step": "s14",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "Remote control failure remained after the matching replacement was received.",
+          "status": "authorized",
+          "received": false,
+          "inspection": null,
+          "instructions": {
+            "label_reference": "$return_parcel",
+            "tracking_number": "$return_tracking",
+            "fee_payer": "merchant",
+            "quantity": 1,
+            "packing": "Keep the lamp unplugged. Use the original carton if it is intact, include the supplied accessories, protect loose parts, and place the issued return label over the old shipping label.",
+            "handoff": "Use the collection arranged in this return record; do not send the parcel to the original sender address.",
+            "deadline": "Please have the parcel ready within 7 calendar days after this label is issued. Contact support before that date if you need more time."
+          },
+          "return_address": "After-Sales Returns, 2400 Commerce Drive, Suite 12, Columbus, OH 43219, United States",
+          "recipient": "After-Sales Returns",
+          "postage_payer": "merchant",
+          "postage_arranged_by": "merchant",
+          "carrier": "USPS",
+          "label_status": "issued"
+        },
+        "expected_actions": [
+          "必须匹配Agent实际退货待办",
+          "此时才可向客户提供已存在的标签和本次退件说明",
+          "说明仓库验收后再安排原支付渠道退款"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s16",
+        "after_hours": 218.2,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The courier collected the boxed lamp and both remotes today using your return label. I have kept the collection receipt. Please let me know when the warehouse has checked it.",
+        "gate": {
+          "after_step": "s15"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录客户已交件，不把交件或承运商扫描视作仓库验收"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s17",
+        "after_hours": 219.2,
+        "kind": "return_update",
+        "actor": "carrier",
+        "text": "退件运单新增承运商揽收扫描，尚未到仓。",
+        "gate": {
+          "after_step": "s16",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "Remote control failure remained after the matching replacement was received.",
+          "status": "in_transit",
+          "received": false,
+          "inspection": null,
+          "instructions": {
+            "label_reference": "$return_parcel",
+            "tracking_number": "$return_tracking",
+            "fee_payer": "merchant",
+            "quantity": 1,
+            "packing": "Keep the lamp unplugged. Use the original carton if it is intact, include the supplied accessories, protect loose parts, and place the issued return label over the old shipping label.",
+            "handoff": "Use the collection arranged in this return record; do not send the parcel to the original sender address.",
+            "deadline": "Please have the parcel ready within 7 calendar days after this label is issued. Contact support before that date if you need more time."
+          },
+          "return_address": "After-Sales Returns, 2400 Commerce Drive, Suite 12, Columbus, OH 43219, United States",
+          "recipient": "After-Sales Returns",
+          "postage_payer": "merchant",
+          "postage_arranged_by": "merchant",
+          "carrier": "USPS",
+          "label_status": "issued"
+        },
+        "expected_actions": [
+          "保持退款待验收，查询退件进度时引用此记录"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s18",
+        "after_hours": 314.2,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库签收一箱退件，订单与数量1匹配，尚待检查。",
+        "gate": {
+          "after_step": "s17",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "Remote control failure remained after the matching replacement was received.",
+          "status": "received",
+          "received": true,
+          "inspection": null,
+          "instructions": {
+            "label_reference": "$return_parcel",
+            "tracking_number": "$return_tracking",
+            "fee_payer": "merchant",
+            "quantity": 1,
+            "packing": "Keep the lamp unplugged. Use the original carton if it is intact, include the supplied accessories, protect loose parts, and place the issued return label over the old shipping label.",
+            "handoff": "Use the collection arranged in this return record; do not send the parcel to the original sender address.",
+            "deadline": "Please have the parcel ready within 7 calendar days after this label is issued. Contact support before that date if you need more time."
+          },
+          "return_address": "After-Sales Returns, 2400 Commerce Drive, Suite 12, Columbus, OH 43219, United States",
+          "recipient": "After-Sales Returns",
+          "postage_payer": "merchant",
+          "postage_arranged_by": "merchant",
+          "carrier": "USPS",
+          "label_status": "issued"
+        },
+        "expected_actions": [
+          "区分仓库收货与验收通过，不提前宣称退款已完成"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s19",
+        "after_hours": 338.2,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库完成退件核对：商品与订单一致，数量1及随箱配件齐全；缺陷退货验收通过。",
+        "gate": {
+          "after_step": "s18",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "Remote control failure remained after the matching replacement was received.",
+          "status": "inspected",
+          "received": true,
+          "inspection": "passed",
+          "instructions": {
+            "label_reference": "$return_parcel",
+            "tracking_number": "$return_tracking",
+            "fee_payer": "merchant",
+            "quantity": 1,
+            "packing": "Keep the lamp unplugged. Use the original carton if it is intact, include the supplied accessories, protect loose parts, and place the issued return label over the old shipping label.",
+            "handoff": "Use the collection arranged in this return record; do not send the parcel to the original sender address.",
+            "deadline": "Please have the parcel ready within 7 calendar days after this label is issued. Contact support before that date if you need more time."
+          },
+          "return_address": "After-Sales Returns, 2400 Commerce Drive, Suite 12, Columbus, OH 43219, United States",
+          "recipient": "After-Sales Returns",
+          "postage_payer": "merchant",
+          "postage_arranged_by": "merchant",
+          "carrier": "USPS",
+          "label_status": "issued"
+        },
+        "expected_actions": [
+          "依据收货与验收记录才允许继续退款",
+          "安全问题不要求重新通电验证"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s20",
+        "after_hours": 339.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "退件验收完成，核对实付与既有退款余额。",
+        "gate": {
+          "after_step": "s19"
+        },
+        "record": {},
+        "expected_actions": [
+          "以原订单行实付$price_text核对可退余额",
+          "查询同一问题所有待办与执行，避免重复赔付",
+          "建立原支付渠道全额退款内部待办"
+        ],
+        "forbidden_actions": [
+          "不得把退货待办当退款待办",
+          "不得把退款申请当作到账"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s21",
+        "after_hours": 362.2,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付同事已受理全额退款，原支付渠道处理中。",
+        "gate": {
+          "after_step": "s20",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "JRN-10-REFUND-EXECUTION",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "refund",
+          "amount_minor": "$amount",
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "匹配Agent实际退款待办",
+          "仅说明处理中，不保证到账时间"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s22",
+        "after_hours": 410.2,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付渠道返回全额退款成功回执，金额与原订单行实付一致。",
+        "gate": {
+          "after_step": "s21",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "JRN-10-REFUND-EXECUTION",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "succeeded",
+          "kind": "refund",
+          "amount_minor": "$amount",
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "可依据成功回执说明已完成退款处理",
+          "不要求客户再提供银行卡信息"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s23",
+        "after_hours": 434.2,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The refund of $price_text is now showing on the card used for the order. Everything has been returned and there is nothing else I need. Thank you.",
+        "gate": {
+          "after_step": "s22"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录客户确认退款及问题处理结果"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s24",
+        "after_hours": 440.2,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "客户选择退回退款，仓库收货并验收通过，原支付渠道全额退款成功且客户确认，客服核对后结案。",
+        "gate": {
+          "after_step": "s23"
+        },
+        "record": {},
+        "expected_actions": [
+          "客服核对客户确认及相关记录后人工标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      }
+    ],
+    "outcome": "客户选择退回退款，仓库收货并验收通过，原支付渠道全额退款成功且客户确认，客服核对后结案。",
+    "knowledge_note": "依据对应SKU生产商品记录、适用SOP及项目售后政策；客户来信和业务记录为隔离资料创作，不编写厂家未确认的维修步骤。"
+  },
+  {
+    "journey_id": "JRN-11",
+    "title": "灯具冒烟停止使用后人工安排退回并完成退款",
+    "business": "BIZ-02",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-006",
+    "tags": [
+      "安全报告",
+      "停止使用",
+      "整段人工接管",
+      "事件仅入库",
+      "下一来信恢复",
+      "退回验收退款"
+    ],
+    "initial_message": "Hello, I need help with the OUTONLIFE table lamp on order $order_number. Yesterday there was a burning smell and a little smoke near the light fitting. I unplugged it and have not used it again. Nobody was hurt and it is cool now. I do not want to test it again. Please tell me how this can be handled.\nRegards, Emma",
+    "initial_state_patch": {},
+    "steps": [
+      {
+        "id": "s01",
+        "after_hours": 0.1,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "识别烟雾与焦味，立即安全分流。",
+        "gate": {
+          "after_step": "initial_message"
+        },
+        "record": {},
+        "expected_actions": [
+          "确认继续停用断电，不要求再次通电或拆解",
+          "立即触发人工接管整个会话",
+          "保留订单及无人受伤、当前已冷却的客户报告"
+        ],
+        "forbidden_actions": [
+          "不得要求重现冒烟或拍通电视频",
+          "不得提供接线、拆灯座或更换电气部件步骤",
+          "不得仅按普通遥控故障处理"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s02",
+        "after_hours": 4,
+        "kind": "service_note",
+        "actor": "staff",
+        "text": "安全客服核对客户陈述，确定走整件退回检查；取件前保持停用，具体包装与收运条件由本单安全审核提供。",
+        "gate": {
+          "after_step": "s01"
+        },
+        "record": {},
+        "expected_actions": [
+          "人工接管期间业务记录只入库提示，不唤起自动回复"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s03",
+        "after_hours": 9,
+        "kind": "human_reply",
+        "actor": "staff",
+        "text": "Hello Emma, please leave the lamp unplugged and do not test or dismantle it. We can arrange a prepaid collection for inspection and then refund the full $price_text to the original payment method. Our returns team will provide the collection and packing instructions for this unit. Please confirm that you want to return the complete lamp, and tell us where it is to be collected.",
+        "gate": {
+          "after_step": "s02"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录人工方案，安全退件仍须实际审核与标签",
+          "人工回复后等待下一封客户来信恢复"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s04",
+        "after_hours": 12,
+        "kind": "service_note",
+        "actor": "staff",
+        "text": "退件负责同事确认可安排上门收运；需客户确认地址后才能发标签和预约。",
+        "gate": {
+          "after_step": "s03"
+        },
+        "record": {},
+        "expected_actions": [
+          "人工回复后等待客户期间，仅保存业务进展",
+          "不自动回复、不预约未确认地址"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s05",
+        "after_hours": 26,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, I would like to return the complete lamp for the full refund of $price_text. It is still unplugged and cool. Please collect it from Emma Brooks, 62 Willow Street, Raleigh, NC 27601, United States. I have the original box and accessories.",
+        "gate": {
+          "after_step": "s04"
+        },
+        "record": {},
+        "expected_actions": [
+          "此来信恢复Agent",
+          "记录客户选择、数量1、当前状态和取件地址"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s06",
+        "after_hours": 26.1,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "录入客户确认的退件取件地址。",
+        "gate": {
+          "after_step": "s05"
+        },
+        "record": {
+          "version": 1,
+          "confirmed": true,
+          "address": {
+            "name": "Emma Brooks",
+            "line1": "62 Willow Street",
+            "line2": "",
+            "city": "Raleigh",
+            "region": "NC",
+            "postal_code": "27601",
+            "country": "US"
+          },
+          "source_step": "s05",
+          "customer_id": "$customer"
+        },
+        "expected_actions": [
+          "以本封客户来信建立地址版本1"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s07",
+        "after_hours": 26.3,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "客户已明确选择退回退款，等待Agent建立退货内部待办。",
+        "gate": {
+          "after_step": "s06"
+        },
+        "record": {},
+        "expected_actions": [
+          "复用订单行、数量1及前述缺陷原因",
+          "按客户本次选择建立退货待办，先退回验收再退款",
+          "缺陷退货由商家承担标签费用"
+        ],
+        "forbidden_actions": [
+          "不得在没有退货标签记录时编造寄回地址或标签",
+          "不得在验收前创建已成功退款"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s08",
+        "after_hours": 44.3,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "客服已出具缺陷退货标签并安排上门取件；本单数量1，备妥期限为出具标签后7个自然日，延期可先联系。该期限仅为本次安排。",
+        "gate": {
+          "after_step": "s07",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "Reported smoke and burning smell; unit unplugged and referred for safety review.",
+          "status": "authorized",
+          "received": false,
+          "inspection": null,
+          "instructions": {
+            "label_reference": "$return_parcel",
+            "tracking_number": "$return_tracking",
+            "fee_payer": "merchant",
+            "quantity": 1,
+            "packing": "The safety team has reviewed the reported condition and approved collection of the unplugged unit after it has cooled. Keep it unplugged and do not test or dismantle it. If heat or smoke returns, do not pack or hand it over; contact support for revised collection instructions.",
+            "handoff": "Use the collection arranged in this return record; do not send the parcel to the original sender address.",
+            "deadline": "Please have the parcel ready within 7 calendar days after this label is issued. Contact support before that date if you need more time."
+          },
+          "return_address": "After-Sales Returns, 2400 Commerce Drive, Suite 12, Columbus, OH 43219, United States",
+          "recipient": "After-Sales Returns",
+          "postage_payer": "merchant",
+          "postage_arranged_by": "merchant",
+          "carrier": "USPS",
+          "label_status": "issued"
+        },
+        "expected_actions": [
+          "必须匹配Agent实际退货待办",
+          "此时才可向客户提供已存在的标签和本次退件说明",
+          "说明仓库验收后再安排原支付渠道退款"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s09",
+        "after_hours": 74.3,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The courier collected the lamp today under the arrangements in your message. It stayed unplugged and cool, and I included the accessories in the box. I have the pickup receipt.",
+        "gate": {
+          "after_step": "s08"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录客户已交件，不把交件或承运商扫描视作仓库验收"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s10",
+        "after_hours": 75.3,
+        "kind": "return_update",
+        "actor": "carrier",
+        "text": "退件运单新增承运商揽收扫描，尚未到仓。",
+        "gate": {
+          "after_step": "s09",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "Reported smoke and burning smell; unit unplugged and referred for safety review.",
+          "status": "in_transit",
+          "received": false,
+          "inspection": null,
+          "instructions": {
+            "label_reference": "$return_parcel",
+            "tracking_number": "$return_tracking",
+            "fee_payer": "merchant",
+            "quantity": 1,
+            "packing": "The safety team has reviewed the reported condition and approved collection of the unplugged unit after it has cooled. Keep it unplugged and do not test or dismantle it. If heat or smoke returns, do not pack or hand it over; contact support for revised collection instructions.",
+            "handoff": "Use the collection arranged in this return record; do not send the parcel to the original sender address.",
+            "deadline": "Please have the parcel ready within 7 calendar days after this label is issued. Contact support before that date if you need more time."
+          },
+          "return_address": "After-Sales Returns, 2400 Commerce Drive, Suite 12, Columbus, OH 43219, United States",
+          "recipient": "After-Sales Returns",
+          "postage_payer": "merchant",
+          "postage_arranged_by": "merchant",
+          "carrier": "USPS",
+          "label_status": "issued"
+        },
+        "expected_actions": [
+          "保持退款待验收，查询退件进度时引用此记录"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s11",
+        "after_hours": 170.3,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库签收一箱退件，订单与数量1匹配，尚待检查。",
+        "gate": {
+          "after_step": "s10",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "Reported smoke and burning smell; unit unplugged and referred for safety review.",
+          "status": "received",
+          "received": true,
+          "inspection": null,
+          "instructions": {
+            "label_reference": "$return_parcel",
+            "tracking_number": "$return_tracking",
+            "fee_payer": "merchant",
+            "quantity": 1,
+            "packing": "The safety team has reviewed the reported condition and approved collection of the unplugged unit after it has cooled. Keep it unplugged and do not test or dismantle it. If heat or smoke returns, do not pack or hand it over; contact support for revised collection instructions.",
+            "handoff": "Use the collection arranged in this return record; do not send the parcel to the original sender address.",
+            "deadline": "Please have the parcel ready within 7 calendar days after this label is issued. Contact support before that date if you need more time."
+          },
+          "return_address": "After-Sales Returns, 2400 Commerce Drive, Suite 12, Columbus, OH 43219, United States",
+          "recipient": "After-Sales Returns",
+          "postage_payer": "merchant",
+          "postage_arranged_by": "merchant",
+          "carrier": "USPS",
+          "label_status": "issued"
+        },
+        "expected_actions": [
+          "区分仓库收货与验收通过，不提前宣称退款已完成"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s12",
+        "after_hours": 194.3,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库完成退件核对：商品与订单一致，数量1及随箱配件齐全；缺陷退货验收通过。",
+        "gate": {
+          "after_step": "s11",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "Reported smoke and burning smell; unit unplugged and referred for safety review.",
+          "status": "inspected",
+          "received": true,
+          "inspection": "passed",
+          "instructions": {
+            "label_reference": "$return_parcel",
+            "tracking_number": "$return_tracking",
+            "fee_payer": "merchant",
+            "quantity": 1,
+            "packing": "The safety team has reviewed the reported condition and approved collection of the unplugged unit after it has cooled. Keep it unplugged and do not test or dismantle it. If heat or smoke returns, do not pack or hand it over; contact support for revised collection instructions.",
+            "handoff": "Use the collection arranged in this return record; do not send the parcel to the original sender address.",
+            "deadline": "Please have the parcel ready within 7 calendar days after this label is issued. Contact support before that date if you need more time."
+          },
+          "return_address": "After-Sales Returns, 2400 Commerce Drive, Suite 12, Columbus, OH 43219, United States",
+          "recipient": "After-Sales Returns",
+          "postage_payer": "merchant",
+          "postage_arranged_by": "merchant",
+          "carrier": "USPS",
+          "label_status": "issued"
+        },
+        "expected_actions": [
+          "依据收货与验收记录才允许继续退款",
+          "安全问题不要求重新通电验证"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s13",
+        "after_hours": 195.3,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "退件验收完成，核对实付与既有退款余额。",
+        "gate": {
+          "after_step": "s12"
+        },
+        "record": {},
+        "expected_actions": [
+          "以原订单行实付$price_text核对可退余额",
+          "查询同一问题所有待办与执行，避免重复赔付",
+          "建立原支付渠道全额退款内部待办"
+        ],
+        "forbidden_actions": [
+          "不得把退货待办当退款待办",
+          "不得把退款申请当作到账"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s14",
+        "after_hours": 218.3,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付同事已受理全额退款，原支付渠道处理中。",
+        "gate": {
+          "after_step": "s13",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "JRN-11-REFUND-EXECUTION",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "refund",
+          "amount_minor": "$amount",
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "匹配Agent实际退款待办",
+          "仅说明处理中，不保证到账时间"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s15",
+        "after_hours": 266.3,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付渠道返回全额退款成功回执，金额与原订单行实付一致。",
+        "gate": {
+          "after_step": "s14",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "JRN-11-REFUND-EXECUTION",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "succeeded",
+          "kind": "refund",
+          "amount_minor": "$amount",
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "可依据成功回执说明已完成退款处理",
+          "不要求客户再提供银行卡信息"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s16",
+        "after_hours": 290.3,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I can see the full refund of $price_text on the original payment account. Thank you for arranging collection so I did not have to use the lamp again.",
+        "gate": {
+          "after_step": "s15"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录客户确认退款及问题处理结果"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s17",
+        "after_hours": 296.3,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "客户选择退回退款，仓库收货并验收通过，原支付渠道全额退款成功且客户确认，客服核对后结案。",
+        "gate": {
+          "after_step": "s16"
+        },
+        "record": {},
+        "expected_actions": [
+          "客服核对客户确认及相关记录后人工标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      }
+    ],
+    "outcome": "客户选择退回退款，仓库收货并验收通过，原支付渠道全额退款成功且客户确认，客服核对后结案。",
+    "knowledge_note": "依据对应SKU生产商品记录、适用SOP及项目售后政策；客户来信和业务记录为隔离资料创作，不编写厂家未确认的维修步骤。"
+  },
+  {
+    "journey_id": "JRN-12",
+    "title": "显示签收但未收到查明误投后重新送达",
+    "business": "BIZ-03",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-009",
+    "tags": [
+      "显示签收未收到",
+      "核对原包裹",
+      "内部查件",
+      "承运商误投",
+      "重新送达"
+    ],
+    "initial_message": "Hello, the BELEEV scooter on order $order_number is marked delivered, but there is no parcel here. I checked both entrances, the side gate and with our immediate neighbours. The delivery photo is of a dark front door; ours is white. Could you investigate this please?\nThank you, Chloe",
+    "initial_state_patch": {
+      "orders": [
+        {
+          "order_id": "$order",
+          "customer_id": "$customer",
+          "brand": "BELEEV",
+          "market": "US",
+          "channel": "amazon",
+          "currency": "$currency",
+          "paid_minor": "$amount",
+          "refunded_minor": 0,
+          "pending_refund_minor": 0,
+          "purchase_at": "2026-09-10T09:00:00+08:00",
+          "delivered_at": "2026-10-07T18:20:00+08:00",
+          "snapshot_at": "2026-10-08T09:00:00+08:00",
+          "source_kind": "synthetic",
+          "lines": [
+            {
+              "line_id": "$line",
+              "sku": "SP-XLLHBC02-PP",
+              "quantity": 1,
+              "paid_minor": "$amount",
+              "hardware_revision": "SIM-V1"
+            }
+          ],
+          "display_order_number": "$order_number",
+          "display_order_number_source": "synthetic_not_a_real_customer_order",
+          "pricing_source": "production_observed_unit_price_same_sku_currency",
+          "tax_and_discount_semantics": "fixture amount uses observed item amount as proxy; not a reconstructed real transaction"
+        }
+      ],
+      "shipments": [
+        {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "original",
+          "execution_id": null,
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "delivered",
+          "updated_at": "2026-10-07T18:20:00+08:00"
+        }
+      ],
+      "delivery_disputed": true
+    },
+    "steps": [
+      {
+        "id": "s01",
+        "after_hours": 0.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "将客户未收到与物流显示已投递并存记录。",
+        "gate": {
+          "after_step": "initial_message"
+        },
+        "record": {},
+        "expected_actions": [
+          "核对原订单包裹、运单及投递位置",
+          "复用客户已检查周边的事实，不让其重复同样检查",
+          "询问地址与投递照片差异所需信息，准备查件"
+        ],
+        "forbidden_actions": [
+          "不得用已签收状态认定客户已收到",
+          "不得在未查件前直接补发或退款"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s02",
+        "after_hours": 4,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The order address is Chloe Bennett, 114 Cedar Road, Dayton, OH 45402, United States. That is correct. No one in our household accepted a parcel, and the photo does not show our house number. Please ask the carrier to check where it was left.",
+        "gate": {
+          "after_step": "s01"
+        },
+        "record": {},
+        "expected_actions": [
+          "确认正确地址及查件选择，不虚构已查看照片的结果"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s03",
+        "after_hours": 4.1,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "录入客户确认地址，供承运商核查投递点。",
+        "gate": {
+          "after_step": "s02"
+        },
+        "record": {
+          "version": 1,
+          "confirmed": true,
+          "address": {
+            "name": "Chloe Bennett",
+            "line1": "114 Cedar Road",
+            "line2": "",
+            "city": "Dayton",
+            "region": "OH",
+            "postal_code": "45402",
+            "country": "US"
+          },
+          "source_step": "s02",
+          "customer_id": "$customer"
+        },
+        "expected_actions": [
+          "关联上一封客户确认，不扩展为补寄授权"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s04",
+        "after_hours": 4.3,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "依据客户确认建立查件内部待办。",
+        "gate": {
+          "after_step": "s03"
+        },
+        "record": {},
+        "expected_actions": [
+          "创建绑定原订单行和原包裹的查件待办",
+          "回复等待承运商核对，不承诺结果"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s05",
+        "after_hours": 22,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "物流同事受理查件并向承运商提交正确门牌与照片差异描述。",
+        "gate": {
+          "after_step": "s04",
+          "operation_required": {
+            "kind": "investigation",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "JRN-12-INVESTIGATION",
+          "operation_selector": {
+            "kind": "investigation",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "investigation",
+          "amount_minor": null,
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "必须匹配Agent实际查件申请"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s06",
+        "after_hours": 50,
+        "kind": "service_note",
+        "actor": "carrier",
+        "text": "承运商核对司机路线与投递记录，确认包裹误投至相邻街道；司机已回收未拆封包裹，将按原运单重新送往正确地址。",
+        "gate": {
+          "after_step": "s05",
+          "operation_required": {
+            "kind": "investigation",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {},
+        "expected_actions": [
+          "将误投结论标记为承运商调查结果",
+          "向客户说明重新投递安排，不要求客户自行到陌生地址取件"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s07",
+        "after_hours": 53,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "承运商更新原包裹为重新运输中，原运单继续使用。",
+        "gate": {
+          "after_step": "s06"
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "original",
+          "execution_id": null,
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "in_transit"
+        },
+        "expected_actions": [
+          "解释此前投递扫描已被误投调查纠正",
+          "不创建第二个订单或补发包裹"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s08",
+        "after_hours": 77,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "承运商完成正确地址的第二次投递，交给住户。",
+        "gate": {
+          "after_step": "s07"
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "original",
+          "execution_id": null,
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "delivered"
+        },
+        "expected_actions": [
+          "物流成功仍需客户确认，不自动结案"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s09",
+        "after_hours": 81,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The driver brought the scooter to our house this afternoon and explained the mix-up. We have the unopened box now and the contents are complete. You can stop the delivery investigation. Thank you for following it through.",
+        "gate": {
+          "after_step": "s08"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录客户确认收到且同意停止查件"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s10",
+        "after_hours": 82,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "查件记录以误投找回并送达结案，客户已确认收货。",
+        "gate": {
+          "after_step": "s09",
+          "operation_required": {
+            "kind": "investigation",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "JRN-12-INVESTIGATION",
+          "operation_selector": {
+            "kind": "investigation",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "succeeded",
+          "kind": "investigation",
+          "amount_minor": null,
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "完结同一查件申请，无补发或赔付"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s11",
+        "after_hours": 84,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "承运商确认误投、回收并重新送达，客户确认收到完整商品，客服结案。",
+        "gate": {
+          "after_step": "s10"
+        },
+        "record": {},
+        "expected_actions": [
+          "客服核对客户确认及相关记录后人工标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      }
+    ],
+    "outcome": "承运商确认误投、回收并重新送达，客户确认收到完整商品，客服结案。",
+    "knowledge_note": "依据对应SKU生产商品记录、适用SOP及项目售后政策；客户来信和业务记录为隔离资料创作，不编写厂家未确认的维修步骤。"
+  },
+  {
+    "journey_id": "JRN-13",
+    "title": "原包裹签收与补件物流混淆后澄清并收到",
+    "business": "BIZ-03",
+    "variant": "branch",
+    "seed_scenario_id": "BASE-OUTON-07",
+    "tags": [
+      "区分原件与补件",
+      "按执行记录查物流",
+      "旧运单误读",
+      "补件收到确认"
+    ],
+    "initial_message": "Hi, my OUTON floor lamp on order $order_number was delivered, but the remote was missing. I have looked through the packing material and cannot find it. Could you send just the remote rather than the whole lamp?\nThank you, Megan",
+    "initial_state_patch": {
+      "shipments": [
+        {
+          "parcel_id": "JRN-13-ORIGINAL-PARCEL",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "original",
+          "execution_id": null,
+          "tracking_number": "9200550130000000000001",
+          "carrier": "USPS",
+          "status": "delivered",
+          "updated_at": "2026-09-20T12:00:00+08:00"
+        }
+      ]
+    },
+    "steps": [
+      {
+        "id": "s01",
+        "after_hours": 0.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "识别灯具原包裹已收到，缺一只遥控器。",
+        "gate": {
+          "after_step": "initial_message"
+        },
+        "record": {},
+        "expected_actions": [
+          "核对原包裹用途和客户实际缺件",
+          "查询精确适配与库存，确认补寄方案和地址"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s02",
+        "after_hours": 5,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, I only need one matching remote. Please send it to Megan Cole, 236 Birch Street, Lincoln, NE 68508, United States. The lamp itself is fine.",
+        "gate": {
+          "after_step": "s01"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录明确补件选择及完整地址"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s03",
+        "after_hours": 5.1,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "记录客户确认地址，供遥控器补件使用。",
+        "gate": {
+          "after_step": "s02"
+        },
+        "record": {
+          "version": 1,
+          "confirmed": true,
+          "address": {
+            "name": "Megan Cole",
+            "line1": "236 Birch Street",
+            "line2": "",
+            "city": "Lincoln",
+            "region": "NE",
+            "postal_code": "68508",
+            "country": "US"
+          },
+          "source_step": "s02",
+          "customer_id": "$customer"
+        },
+        "expected_actions": [
+          "由本次客户来信建立确认"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s04",
+        "after_hours": 5.3,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "等待Agent提交补件内部待办。",
+        "gate": {
+          "after_step": "s03"
+        },
+        "record": {},
+        "expected_actions": [
+          "核对适配、库存和地址后仅创建一份补件申请",
+          "说明将由同事安排补发，尚未发货"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s05",
+        "after_hours": 24,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "履约同事已建立遥控器补发单。",
+        "gate": {
+          "after_step": "s04",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "spare_part",
+          "amount_minor": null,
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "关联实际补件待办，保留与原包裹不同的执行记录"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s06",
+        "after_hours": 26,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "遥控器补件包裹已创建面单，等待揽收。",
+        "gate": {
+          "after_step": "s05",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "label_created"
+        },
+        "expected_actions": [
+          "按purpose与execution_id关联补件包裹"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s07",
+        "after_hours": 45,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I clicked the tracking in my Amazon order and it says delivered on 20 September. Does that mean the remote has already been delivered too? We have only received the box containing the lamp.",
+        "gate": {
+          "after_step": "s06"
+        },
+        "record": {},
+        "expected_actions": [
+          "识别客户看到的是原灯具运单，不把其当补件妥投"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s08",
+        "after_hours": 45.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "并列核对原灯具包裹和当前补件包裹。",
+        "gate": {
+          "after_step": "s07"
+        },
+        "record": {},
+        "expected_actions": [
+          "说明9月20日签收属于原灯具包裹",
+          "补件目前只有面单，暂无揽收",
+          "查询实际补发单关联包裹，不按订单最新物流猜测"
+        ],
+        "forbidden_actions": [
+          "不得将原包裹签收作为遥控器已送达证据",
+          "不得因此重复补发遥控器"
+        ],
+        "reference_reply": "The delivery dated 20 September is for the original lamp box. The remote is a separate parcel linked to the replacement arrangement. Its label has been created, but there is no carrier pickup scan yet. I will follow the remote parcel separately."
+      },
+      {
+        "id": "s09",
+        "after_hours": 51,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "遥控器补件完成承运商揽收。",
+        "gate": {
+          "after_step": "s08",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "in_transit"
+        },
+        "expected_actions": [
+          "可告知补件专用运单及运输状态"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s10",
+        "after_hours": 123,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "补件遥控器包裹显示投递完成。",
+        "gate": {
+          "after_step": "s09",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "delivered"
+        },
+        "expected_actions": [
+          "仅说明补件物流显示送达，并等客户确认"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s11",
+        "after_hours": 128,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The small parcel arrived today. It contains the remote, and I have checked that it turns the lamp on and adjusts the light. I understand now why the old tracking showed the lamp delivery. All sorted, thank you.",
+        "gate": {
+          "after_step": "s10"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录正确补件收到且可用，物流混淆已澄清"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s12",
+        "after_hours": 132,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "明确区分原灯具与遥控器包裹后，客户收到并确认补件有效，客服结案。",
+        "gate": {
+          "after_step": "s11"
+        },
+        "record": {},
+        "expected_actions": [
+          "客服核对客户确认及相关记录后人工标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      }
+    ],
+    "outcome": "明确区分原灯具与遥控器包裹后，客户收到并确认补件有效，客服结案。",
+    "knowledge_note": "依据OUTON-01 SOP、精确SKU适配清单和项目售后政策；客户及外部履约记录为隔离资料创作，不模拟Agent已发送的答复或已提交的申请。"
+  },
+  {
+    "journey_id": "JRN-20",
+    "title": "补件未出库前改为退款并撤销旧待办",
+    "business": "BIZ-07",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-023",
+    "tags": [
+      "补件申请后改退款",
+      "查询已有执行",
+      "撤销待办",
+      "确认无出库",
+      "退回验收后退款"
+    ],
+    "initial_message": "Hello, my OUTON lamp from order $order_number arrived without the remote. I have checked all the packaging and the lamp works from its own buttons. Could you send the missing remote, please?\nRegards, Simon",
+    "initial_state_patch": {},
+    "steps": [
+      {
+        "id": "s01",
+        "after_hours": 0.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "核对缺遥控问题及可用补件方案。",
+        "gate": {
+          "after_step": "initial_message"
+        },
+        "record": {},
+        "expected_actions": [
+          "复用订单、核对缺一只遥控器、精确适配及库存",
+          "确认补件选择与收件地址"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s02",
+        "after_hours": 4,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, please send one matching remote to Simon Reed, 315 Oak Lane, Boise, ID 83702, United States. That is the address for the lamp order.",
+        "gate": {
+          "after_step": "s01"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录补件选择与地址"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s03",
+        "after_hours": 4.1,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "录入客户确认的补件地址。",
+        "gate": {
+          "after_step": "s02"
+        },
+        "record": {
+          "version": 1,
+          "confirmed": true,
+          "address": {
+            "name": "Simon Reed",
+            "line1": "315 Oak Lane",
+            "line2": "",
+            "city": "Boise",
+            "region": "ID",
+            "postal_code": "83702",
+            "country": "US"
+          },
+          "source_step": "s02",
+          "customer_id": "$customer"
+        },
+        "expected_actions": [
+          "保留地址版本与客户来信依据"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s04",
+        "after_hours": 4.3,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "补件条件齐备，等待Agent创建内部申请。",
+        "gate": {
+          "after_step": "s03"
+        },
+        "record": {},
+        "expected_actions": [
+          "精确适配、库存、客户选择与地址确认后提交补件待办",
+          "不得提前宣称发货"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s05",
+        "after_hours": 18,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "履约同事建立遥控器补发单，尚未拣货，未创建面单。",
+        "gate": {
+          "after_step": "s04",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "spare_part",
+          "amount_minor": null,
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "关联实际补件申请，仅记录建单状态"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s06",
+        "after_hours": 23,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I am sorry to change the plan, but I would now rather return the lamp for a full refund. If the remote has not left the warehouse, please cancel it. The lamp and the original packing are here. I do not want both a remote and a refund.",
+        "gate": {
+          "after_step": "s05"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录客户改变选择，保留旧申请和执行历史",
+          "先确认能否取消，不立即并行退款"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s07",
+        "after_hours": 23.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "查旧补件申请及最新出库、面单和揽收状态。",
+        "gate": {
+          "after_step": "s06"
+        },
+        "record": {},
+        "expected_actions": [
+          "识别同一问题方案变更",
+          "请求人工履约同事暂停并核对取消；在取消回执前不创建新的补件或退款",
+          "确认退回数量1、原缺件原因，说明先退回验收"
+        ],
+        "forbidden_actions": [
+          "不得只凭客户改主意就宣布撤销成功",
+          "不得同时推进补件与全额退款"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s08",
+        "after_hours": 27,
+        "kind": "execution_record",
+        "actor": "warehouse",
+        "text": "仓库与履约同事核对无拣货、无面单、无出库、无承运商交接；补发执行单已取消，释放预留的一只遥控器，原补件待办同步关闭为取消。",
+        "gate": {
+          "after_step": "s07",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "cancelled",
+          "kind": "spare_part",
+          "amount_minor": null,
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "将取消结果关联原补件申请与原执行号",
+          "保留取消审计记录，不删除历史",
+          "旧补件停止后才允许切换退货退款"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s09",
+        "after_hours": 27.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "旧补件取消已确认，告知可转退货退款。",
+        "gate": {
+          "after_step": "s08"
+        },
+        "record": {},
+        "expected_actions": [
+          "明确退回灯具1件及实际收到的配件，缺少的遥控器不要求补齐",
+          "给出全额$price_text及原支付渠道、验收前提",
+          "取得客户对完整方案的确认"
+        ],
+        "forbidden_actions": [
+          "不得要求客户归还从未收到的遥控器"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s10",
+        "after_hours": 32,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Thank you for confirming the remote was cancelled. I agree to return the lamp with the accessories I received for a refund of $price_text after it is checked. There is no remote in the box because it was missing from the delivery. Please send the prepaid return instructions.",
+        "gate": {
+          "after_step": "s09"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录客户接受金额、数量和退件清单，缺件事实延续"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s11",
+        "after_hours": 32.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "创建退货内部待办，继续同一问题。",
+        "gate": {
+          "after_step": "s10"
+        },
+        "record": {},
+        "expected_actions": [
+          "确认旧补件为取消且无出库",
+          "复用客户确认地址，创建缺件原因的退货待办",
+          "待实际标签出具后才提供寄回资料"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s12",
+        "after_hours": 50,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "退货同事出具预付标签并安排上门取件，清单已注明原包装缺遥控器；本单请于标签发出后7个自然日内备妥，无法按时可联系调整。",
+        "gate": {
+          "after_step": "s11",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "Missing remote; customer chose return after the unshipped spare-part order was cancelled.",
+          "status": "authorized",
+          "received": false,
+          "inspection": null,
+          "instructions": {
+            "label_reference": "$return_parcel",
+            "tracking_number": "$return_tracking",
+            "fee_payer": "merchant",
+            "packing": "Pack the lamp and all accessories you originally received in the carton. The missing remote is not required. Remove or cover old shipping labels and use the issued return label.",
+            "handoff": "Use the prepaid collection arranged for this return.",
+            "deadline": "Have the parcel ready within 7 calendar days of the label issue date. Contact support if you need a different collection date."
+          },
+          "return_address": "After-Sales Returns, 2400 Commerce Drive, Suite 12, Columbus, OH 43219, United States",
+          "recipient": "After-Sales Returns",
+          "postage_payer": "merchant",
+          "postage_arranged_by": "merchant",
+          "carrier": "USPS",
+          "label_status": "issued"
+        },
+        "expected_actions": [
+          "必须关联Agent实际退货待办",
+          "只提供本单已出具的退件资料"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s13",
+        "after_hours": 76,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The courier collected the lamp today. I included the accessories that came with it and the return paperwork, and I kept the collection receipt. Please let me know once it has been checked.",
+        "gate": {
+          "after_step": "s12"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录客户交件，等待仓库验收"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s14",
+        "after_hours": 77,
+        "kind": "return_update",
+        "actor": "carrier",
+        "text": "退件已有承运商揽收扫描，正在运回仓库。",
+        "gate": {
+          "after_step": "s13",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "Missing remote; customer chose return after the unshipped spare-part order was cancelled.",
+          "status": "in_transit",
+          "received": false,
+          "inspection": null,
+          "instructions": {
+            "label_reference": "$return_parcel",
+            "tracking_number": "$return_tracking",
+            "fee_payer": "merchant",
+            "packing": "Pack the lamp and all accessories you originally received in the carton. The missing remote is not required. Remove or cover old shipping labels and use the issued return label.",
+            "handoff": "Use the prepaid collection arranged for this return.",
+            "deadline": "Have the parcel ready within 7 calendar days of the label issue date. Contact support if you need a different collection date."
+          },
+          "return_address": "After-Sales Returns, 2400 Commerce Drive, Suite 12, Columbus, OH 43219, United States",
+          "recipient": "After-Sales Returns",
+          "postage_payer": "merchant",
+          "postage_arranged_by": "merchant",
+          "carrier": "USPS",
+          "label_status": "issued"
+        },
+        "expected_actions": [
+          "不把揽收当作仓库收货"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s15",
+        "after_hours": 172,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库收到一件灯具退货，待核对内容。",
+        "gate": {
+          "after_step": "s14",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "Missing remote; customer chose return after the unshipped spare-part order was cancelled.",
+          "status": "received",
+          "received": true,
+          "inspection": null,
+          "instructions": {
+            "label_reference": "$return_parcel",
+            "tracking_number": "$return_tracking",
+            "fee_payer": "merchant",
+            "packing": "Pack the lamp and all accessories you originally received in the carton. The missing remote is not required. Remove or cover old shipping labels and use the issued return label.",
+            "handoff": "Use the prepaid collection arranged for this return.",
+            "deadline": "Have the parcel ready within 7 calendar days of the label issue date. Contact support if you need a different collection date."
+          },
+          "return_address": "After-Sales Returns, 2400 Commerce Drive, Suite 12, Columbus, OH 43219, United States",
+          "recipient": "After-Sales Returns",
+          "postage_payer": "merchant",
+          "postage_arranged_by": "merchant",
+          "carrier": "USPS",
+          "label_status": "issued"
+        },
+        "expected_actions": [
+          "仅记录收货，仍未满足验收条件"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s16",
+        "after_hours": 196,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库完成验收：灯具1件及实际随箱配件一致，原缺遥控记录已核实；退货通过，无补件外寄。",
+        "gate": {
+          "after_step": "s15",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "Missing remote; customer chose return after the unshipped spare-part order was cancelled.",
+          "status": "inspected",
+          "received": true,
+          "inspection": "passed",
+          "instructions": {
+            "label_reference": "$return_parcel",
+            "tracking_number": "$return_tracking",
+            "fee_payer": "merchant",
+            "packing": "Pack the lamp and all accessories you originally received in the carton. The missing remote is not required. Remove or cover old shipping labels and use the issued return label.",
+            "handoff": "Use the prepaid collection arranged for this return.",
+            "deadline": "Have the parcel ready within 7 calendar days of the label issue date. Contact support if you need a different collection date."
+          },
+          "return_address": "After-Sales Returns, 2400 Commerce Drive, Suite 12, Columbus, OH 43219, United States",
+          "recipient": "After-Sales Returns",
+          "postage_payer": "merchant",
+          "postage_arranged_by": "merchant",
+          "carrier": "USPS",
+          "label_status": "issued"
+        },
+        "expected_actions": [
+          "原缺件不构成退货缺配件扣款",
+          "再次确认取消补件未产生出库"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s17",
+        "after_hours": 196.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "退款条件齐备。",
+        "gate": {
+          "after_step": "s16"
+        },
+        "record": {},
+        "expected_actions": [
+          "复查旧补件取消、退件通过、可退金额$price_text",
+          "只建立一份全额退款待办，不恢复补件"
+        ],
+        "forbidden_actions": [
+          "不得同时保留待执行补件和退款",
+          "不得直接宣称到账"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s18",
+        "after_hours": 216,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付同事受理原支付渠道全额退款。",
+        "gate": {
+          "after_step": "s17",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "JRN-20-REFUND-EXECUTION",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "refund",
+          "amount_minor": "$amount",
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "查询真实退款申请，记录处理中"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s19",
+        "after_hours": 264,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付渠道返回退款成功回执，金额等于原订单行实付。",
+        "gate": {
+          "after_step": "s18",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "JRN-20-REFUND-EXECUTION",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "succeeded",
+          "kind": "refund",
+          "amount_minor": "$amount",
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "可说明退款处理已成功"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s20",
+        "after_hours": 289,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The refund of $price_text has appeared on my original payment account. I have not received a remote separately. Thank you for stopping that shipment and arranging the return.",
+        "gate": {
+          "after_step": "s19"
+        },
+        "record": {},
+        "expected_actions": [
+          "确认客户已收到退款且未出现补件双赔"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s21",
+        "after_hours": 294,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "补件待办与执行在出库前取消，退件验收通过后完成全额退款；客户确认到账且无另寄遥控器，客服结案。",
+        "gate": {
+          "after_step": "s20"
+        },
+        "record": {},
+        "expected_actions": [
+          "客服核对客户确认及相关记录后人工标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      }
+    ],
+    "outcome": "补件待办与执行在出库前取消，退件验收通过后完成全额退款；客户确认到账且无另寄遥控器，客服结案。",
+    "knowledge_note": "依据OUTON-01 SOP、精确SKU适配清单和项目售后政策；客户及外部履约记录为隔离资料创作，不模拟Agent已发送的答复或已提交的申请。"
+  },
+  {
+    "journey_id": "JRN-21",
+    "title": "补寄错版遥控器后人工核对并纠正送达",
+    "business": "BIZ-07",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-021",
+    "tags": [
+      "补件错发",
+      "禁止跨SKU猜兼容",
+      "人工核对",
+      "原申请纠正执行",
+      "正确配件到达解决"
+    ],
+    "initial_message": "Hello, the remote was missing from the OUTON lamp on order $order_number. I have the black lamp with controls on the pole, and it works from those controls. Please could you send the remote that belongs with this version? I have already checked the packaging.\nThank you, Hannah",
+    "initial_state_patch": {},
+    "steps": [
+      {
+        "id": "s01",
+        "after_hours": 0.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "先核对原订单黑色灯具和对应遥控器。",
+        "gate": {
+          "after_step": "initial_message"
+        },
+        "record": {},
+        "expected_actions": [
+          "使用精确SKU适配关系确认目标配件",
+          "核对库存，确认客户补一只遥控器的选择与完整地址"
+        ],
+        "forbidden_actions": [
+          "不得沿用错误种子配件或按商品族猜兼容"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s02",
+        "after_hours": 5,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, please send one matching remote to Hannah Moore, 84 Pine Street, Albany, NY 12207, United States. I would like to keep the lamp as long as I can use the remote with it.",
+        "gate": {
+          "after_step": "s01"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录一只遥控器的选择和地址"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s03",
+        "after_hours": 5.1,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "录入本次确认收件地址。",
+        "gate": {
+          "after_step": "s02"
+        },
+        "record": {
+          "version": 1,
+          "confirmed": true,
+          "address": {
+            "name": "Hannah Moore",
+            "line1": "84 Pine Street",
+            "line2": "",
+            "city": "Albany",
+            "region": "NY",
+            "postal_code": "12207",
+            "country": "US"
+          },
+          "source_step": "s02",
+          "customer_id": "$customer"
+        },
+        "expected_actions": [
+          "地址证据来自客户本封来信"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s04",
+        "after_hours": 5.3,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "按正确适配配件建立补件内部待办。",
+        "gate": {
+          "after_step": "s03"
+        },
+        "record": {},
+        "expected_actions": [
+          "选择SIM-OUTON-01-REMOTE-01与H-CTD16-US-BK精确适配",
+          "确认库存和地址后仅创建一份申请",
+          "不预知后续仓库错发"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s05",
+        "after_hours": 24,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "履约同事依补件申请建单并安排仓库拣货。",
+        "gate": {
+          "after_step": "s04",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "spare_part",
+          "amount_minor": null,
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "关联Agent实际补件申请"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s06",
+        "after_hours": 26,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "第一件补件包裹面单已创建。",
+        "gate": {
+          "after_step": "s05",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "label_created"
+        },
+        "expected_actions": [
+          "面单不等于揽收"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s07",
+        "after_hours": 48,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "第一件补件包裹已被承运商揽收。",
+        "gate": {
+          "after_step": "s06",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "in_transit"
+        },
+        "expected_actions": [
+          "跟进原申请对应包裹"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s08",
+        "after_hours": 120,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "第一件补件包裹显示投递。",
+        "gate": {
+          "after_step": "s07",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "delivered"
+        },
+        "expected_actions": [
+          "等客户确认内容和适用情况"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s09",
+        "after_hours": 127,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The remote arrived, but it looks different from the one shown for my lamp. The sticker on its bag mentions the grey version rather than the black version I ordered, and it does not operate the lamp. I have not tried opening anything or changing the lamp. Could you check whether the wrong part was packed?",
+        "gate": {
+          "after_step": "s08"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录疑似错件，不让客户反复配对",
+          "核对申请目标配件与外部实际拣货"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s10",
+        "after_hours": 127.2,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "补件疑似不适配，转人工核对。",
+        "gate": {
+          "after_step": "s09"
+        },
+        "record": {},
+        "expected_actions": [
+          "对整个会话触发人工接管",
+          "保留原申请及包裹证据，避免再次盲目建相同申请",
+          "不提供未经核实的通用配对方法"
+        ],
+        "forbidden_actions": [
+          "不得仅因名称相同认定两个遥控器通用",
+          "不得直接判定灯体损坏"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s11",
+        "after_hours": 145,
+        "kind": "service_note",
+        "actor": "warehouse",
+        "text": "仓库复核拣货记录：申请要求黑色款适配件SIM-OUTON-01-REMOTE-01，实际错取灰色款SIM-OUTON-01-REMOTE-02。差错由仓库确认；正确件可用8只。纠正发货关联原补件申请，不新增第二项赔付。",
+        "gate": {
+          "after_step": "s10",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "item_id": "SIM-OUTON-01-REMOTE-01",
+          "on_hand": 8,
+          "reserved": 0
+        },
+        "expected_actions": [
+          "记录仓库确认的错件原因与正确配件",
+          "人工接管期间仅入库，不自动发送客户回复"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s12",
+        "after_hours": 150,
+        "kind": "human_reply",
+        "actor": "staff",
+        "text": "Hello Hannah, our warehouse has confirmed that the wrong version of remote was packed. We are sorry about that. We can correct the original replacement arrangement and send the version matched to your black lamp at no charge. You do not need to test the incorrect remote again. Please keep it aside; we are not asking you to post it back. May we use the same delivery address for the correct one?",
+        "gate": {
+          "after_step": "s11"
+        },
+        "record": {},
+        "expected_actions": [
+          "人工已明确错件处理和纠正方案",
+          "人工回复后等待客户来信恢复，不直接安排Agent自动跟进"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s13",
+        "after_hours": 170,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, please send the correct remote to the same address: Hannah Moore, 84 Pine Street, Albany, NY 12207, United States. I have put the incorrect one aside and will not use it. Thank you for checking what happened.",
+        "gate": {
+          "after_step": "s12"
+        },
+        "record": {},
+        "expected_actions": [
+          "恢复Agent，记录客户接受纠正发货与地址再确认"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s14",
+        "after_hours": 170.1,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "客户再次确认地址未变，保留版本1并刷新本次确认依据。",
+        "gate": {
+          "after_step": "s13"
+        },
+        "record": {
+          "version": 1,
+          "confirmed": true,
+          "address": {
+            "name": "Hannah Moore",
+            "line1": "84 Pine Street",
+            "line2": "",
+            "city": "Albany",
+            "region": "NY",
+            "postal_code": "12207",
+            "country": "US"
+          },
+          "source_step": "s13",
+          "customer_id": "$customer"
+        },
+        "expected_actions": [
+          "只据最新来信确认纠正发货地址"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s15",
+        "after_hours": 170.3,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "将人工确认的纠正动作提交为原补件待办的跟进。",
+        "gate": {
+          "after_step": "s14"
+        },
+        "record": {},
+        "expected_actions": [
+          "查询原申请及错发执行后复用原申请，登记需纠正的工作项",
+          "重新核对正确件精确适配、库存与地址",
+          "保持原错误执行可查，不以删除历史制造首次发货"
+        ],
+        "forbidden_actions": [
+          "不得再建独立全额赔付或整机补发",
+          "不得复用第一包裹号掩盖纠正包裹"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s16",
+        "after_hours": 192,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "履约同事复核正确件后在原申请下建立纠正补发执行单，并标注替代先前错发。",
+        "gate": {
+          "after_step": "s15",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "execution_id": "JRN-21-CORRECTION-EXECUTION",
+          "operation_selector": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "spare_part",
+          "amount_minor": null,
+          "currency": "$currency"
+        },
+        "expected_actions": [
+          "使用不同执行号但关联同一个真实补件申请",
+          "原错件不增加退款金额或另立赔付"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s17",
+        "after_hours": 194,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "正确遥控器包裹已创建独立面单。",
+        "gate": {
+          "after_step": "s16",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "JRN-21-CORRECTION-PARCEL",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "JRN-21-CORRECTION-EXECUTION",
+          "tracking_number": "9200550210000000000002",
+          "carrier": "USPS",
+          "status": "label_created"
+        },
+        "expected_actions": [
+          "清楚区分首次错发与此次纠正包裹"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s18",
+        "after_hours": 216,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "承运商揽收纠正补件包裹。",
+        "gate": {
+          "after_step": "s17",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "JRN-21-CORRECTION-PARCEL",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "JRN-21-CORRECTION-EXECUTION",
+          "tracking_number": "9200550210000000000002",
+          "carrier": "USPS",
+          "status": "in_transit"
+        },
+        "expected_actions": [
+          "回复此次正确补件的运输状态"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s19",
+        "after_hours": 288,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "纠正补件包裹显示投递完成。",
+        "gate": {
+          "after_step": "s18",
+          "operation_required": {
+            "kind": "spare_part",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        },
+        "record": {
+          "parcel_id": "JRN-21-CORRECTION-PARCEL",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "spare_part",
+          "execution_id": "JRN-21-CORRECTION-EXECUTION",
+          "tracking_number": "9200550210000000000002",
+          "carrier": "USPS",
+          "status": "delivered"
+        },
+        "expected_actions": [
+          "等待客户确认遥控实际可用"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s20",
+        "after_hours": 296,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The second parcel has arrived. This remote works with the lamp: I can switch it on and change the brightness. I have kept the incorrect one separate as you asked. The problem is resolved now. Thanks for putting it right.",
+        "gate": {
+          "after_step": "s19"
+        },
+        "record": {},
+        "expected_actions": [
+          "记录正确件收到并有效，错件处理已获客户确认"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      },
+      {
+        "id": "s21",
+        "after_hours": 302,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "仓库确认首次错取配件后，在原申请下补发正确件；客户确认遥控可用及错件保留安排，客服结案。",
+        "gate": {
+          "after_step": "s20"
+        },
+        "record": {},
+        "expected_actions": [
+          "客服核对客户确认及相关记录后人工标记已解决"
+        ],
+        "forbidden_actions": [
+          "不得由Agent自动结案"
+        ],
+        "reference_reply": ""
+      }
+    ],
+    "outcome": "仓库确认首次错取配件后，在原申请下补发正确件；客户确认遥控可用及错件保留安排，客服结案。",
+    "knowledge_note": "依据OUTON-01 SOP、精确SKU适配清单和项目售后政策；客户及外部履约记录为隔离资料创作，不模拟Agent已发送的答复或已提交的申请。"
+  }
+]

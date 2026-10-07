@@ -1,0 +1,122 @@
+{
+  "policy_id": "SIM-AFTERSALES-2026-10-V1",
+  "version": "1.0.1",
+  "source_kind": "synthetic_project_policy",
+  "status": "active_simulation_only",
+  "available_at": "2026-10-07T00:00:00+08:00",
+  "effective_from": "2026-10-07T00:00:00+08:00",
+  "effective_to": null,
+  "allowed_modes": [
+    "simulation"
+  ],
+  "brands": [
+    "OUTON",
+    "OUTONLIFE",
+    "BELEEV"
+  ],
+  "markets": [
+    "US",
+    "GB",
+    "DE",
+    "CA",
+    "AU"
+  ],
+  "channels": [
+    "amazon",
+    "brand_store"
+  ],
+  "currencies": [
+    "USD",
+    "GBP",
+    "EUR",
+    "CAD",
+    "AUD"
+  ],
+  "notice": "隔离模拟环境的项目规则，不是品牌承诺、销售平台现行政策或地区法律结论。超出声明范围返回 policy_not_covered；不得自动换算货币。",
+  "identity": {
+    "order_required": true,
+    "order_line_required_for_action": true,
+    "customer_choice_required": true,
+    "unknown_fields": "ask_or_review"
+  },
+  "return": {
+    "window_days_after_delivery": 30,
+    "window_inclusive": true,
+    "reason_required": true,
+    "quantity_required": true,
+    "unwanted_condition": "unused_complete",
+    "defect_label_fee_payer": "merchant",
+    "unwanted_label_fee_payer": "customer",
+    "unwanted_label_fee_minor": 0,
+    "unwanted_label_fee_semantics": "customer_arranges_postage_no_merchant_fee_quote",
+    "outside_window": "human_review",
+    "return_document_required_before_instructions": true,
+    "prepaid_label_required_when_merchant_pays": true,
+    "customer_paid_return_requires": [
+      "authorized_return_reference",
+      "return_address",
+      "packing_instructions",
+      "postage_responsibility"
+    ],
+    "receipt_required_for_refund": true,
+    "inspection_required_for_refund": true
+  },
+  "refund": {
+    "basis": "order_line_paid_minor_minus_succeeded_refunds_minus_pending_reservations",
+    "full_refund_needs_return": true,
+    "exceptions": "human_review_only",
+    "partial_offer_max_basis_points": 2000,
+    "partial_requires_explicit_amount_currency_acceptance": true,
+    "destination": "original_payment_channel",
+    "agent_creates": "internal_request",
+    "executor": "scenario_console_human",
+    "success_evidence": "execution_record_succeeded",
+    "promised_processing_days": null
+  },
+  "replacement": {
+    "defect_window_days_after_delivery": 365,
+    "same_sku_default": true,
+    "stock_required": true,
+    "address_confirmation_required": true,
+    "return_required": true,
+    "inspection_required": true,
+    "ship_before_return": false,
+    "alternative_sku": "explicit_customer_choice_and_compatibility_then_human_review",
+    "executor": "scenario_console_human"
+  },
+  "spare_part": {
+    "defect_window_days_after_delivery": 365,
+    "exact_compatibility_required": true,
+    "stock_required": true,
+    "address_confirmation_required": true,
+    "customer_choice_required": true,
+    "safety_critical_part": "human_review",
+    "purchase_request_is_free_entitlement": false,
+    "executor": "scenario_console_human"
+  },
+  "logistics": {
+    "stale_tracking_days": 7,
+    "delivered_not_received": "verify_parcel_then_investigation_request",
+    "guaranteed_arrival_date": false,
+    "label_created_is_shipped": false,
+    "unknown_result": "query_failed_or_not_available_distinct_from_not_found"
+  },
+  "conflicts": {
+    "same_issue_multiple_compensations": "clarify_or_human_review",
+    "already_executed_action": "query_and_reconcile_before_new_action",
+    "repeat_request": "reuse_original_operation",
+    "unknown_write_result": "query_original_operation"
+  },
+  "human_review": {
+    "triggers": [
+      "safety_report",
+      "policy_conflict",
+      "unknown_compatibility",
+      "repeated_failed_steps",
+      "exception_requested"
+    ],
+    "event_during_takeover": "record_only",
+    "resume": "next_customer_message_after_human_reply",
+    "case_closed_by": "human"
+  }
+}

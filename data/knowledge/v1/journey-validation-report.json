@@ -1,0 +1,188 @@
+{
+  "validation_kind": "offline_prepared_data_consistency_not_runtime",
+  "passed": true,
+  "checks": [
+    {
+      "name": "21 unique continuous journeys",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "seven primary journeys and fourteen branches",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "three journeys for every business",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "three brands represented",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all inputs explicitly fictional isolated development data",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all steps have separately stored evaluation entries",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reference replies and expected actions absent from inputs and controller events",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reference replies not preloaded as outbound history",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "journey order display numbers unique",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "opening order numbers refer to current journey",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "evaluation explicitly not run and not indexable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "chronological dependent events",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all journeys end with human closure",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all journeys include customer follow-up",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "record order and execution references resolve",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "initial order amounts balanced",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "customer product scope exact",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "initial parts match SKU",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "external execution waits for actual internal request",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "refund amount currency and total consistent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "shipment observations have parcel carrier tracking and status",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "stock quantities valid",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "closure has customer follow-up and human reason",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no automatic resume immediately after human reply",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "customer facing correspondence contains no test vocabulary",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "name": "no unresolved authoring symbols",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "return instruction files exist and match hashes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all controller events are external only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "full refunds and replacement follow warehouse inspection",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "partial refunds follow explicit amount acceptance within policy cap",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "dispatch uses confirmed current address with customer evidence",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "fulfilment stock available in authored facts",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reissued return document versions remain distinct and attachment resolves",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "counts": {
+    "journeys": 21,
+    "main_journeys": 7,
+    "branch_journeys": 14,
+    "timeline_steps": 287,
+    "customer_messages": 88,
+    "reference_replies": 50,
+    "return_documents": 11,
+    "original_step_scenarios": 51,
+    "total_scenario_inputs": 72
+  },
+  "not_run": [
+    "Agent execution",
+    "RAG retrieval",
+    "business state machine execution",
+    "production actions"
+  ]
+}

@@ -1,0 +1,3862 @@
+[
+  {
+    "journey_id": "JRN-04",
+    "title": "轻微外观划痕保留商品并完成部分退款",
+    "business": "BIZ-04",
+    "variant": "main",
+    "seed_scenario_id": "BASE-OUTON-04",
+    "tags": [
+      "轻微外观瑕疵",
+      "20%上限",
+      "明确金额币种同意",
+      "退款受理与成功区分",
+      "人工结案"
+    ],
+    "initial_message": "Hello, my black OUTON floor lamp from order $order_number has a small scuff on the back of the base. It is hardly visible where the lamp stands, and the lamp seems to work normally. I paid $price_text and would rather keep it than pack everything up. Is there a reasonable adjustment you can offer?",
+    "initial_state_patch": {
+      "service_notes": [],
+      "refund_proposal": null
+    },
+    "steps": [
+      {
+        "after_hours": 1,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "核对订单、实付及问题范围，确认是否仅为外观瑕疵。",
+        "record": {},
+        "expected_actions": [
+          "查询绑定订单和灯具型号；询问划痕范围及是否还有异常，确认客户保留意向。"
+        ],
+        "forbidden_actions": [
+          "不得未获客户同意便创建退款；不得把外观划痕解释成无依据的安全结论。"
+        ],
+        "reference_reply": "I can look at a partial refund if you would prefer to keep the lamp. Is the scuff the only issue, and have you noticed any other damage or problems with normal use?",
+        "id": "s01",
+        "gate": {
+          "after_step": "initial_message"
+        }
+      },
+      {
+        "after_hours": 4,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, it is just a short mark on the paint at the back of the base. The box was fine and nothing else looks damaged. The light and controls have worked normally. I would keep it if you could tell me the exact refund amount first.",
+        "record": {},
+        "expected_actions": [
+          "将客户补充限制为外观问题；金额尚未同意。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s02",
+        "gate": {
+          "after_step": "s01"
+        }
+      },
+      {
+        "after_hours": 5,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "按实付计算不超过20%的保留商品部分退款选项。",
+        "record": {},
+        "expected_actions": [
+          "提出 $partial_text 的部分退款，说明保留商品、原支付渠道退款，并等待客户明确金额币种接受。"
+        ],
+        "forbidden_actions": [
+          "不得超过20%上限；不得将询问金额当成接受。"
+        ],
+        "reference_reply": "We can offer a partial refund of $partial_text to your original payment method, and you would keep the lamp. Please confirm whether you accept that amount.",
+        "id": "s03",
+        "gate": {
+          "after_step": "s02"
+        }
+      },
+      {
+        "after_hours": 8,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I accept the partial refund of $partial_text to my original payment method and will keep the lamp. I do not need a replacement or a return. Thank you for spelling that out.",
+        "record": {},
+        "expected_actions": [
+          "记录客户对具体金额、币种和保留商品的明确接受。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s04",
+        "gate": {
+          "after_step": "s03"
+        },
+        "evaluation_facts": {
+          "customer_acceptance": {
+            "kind": "refund",
+            "amount_minor": "$partial",
+            "currency": "$currency",
+            "disposition": "keep_item",
+            "evidence": "explicit_customer_message"
+          }
+        }
+      },
+      {
+        "after_hours": 9,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "客户接受后创建唯一部分退款内部申请。",
+        "record": {},
+        "expected_actions": [
+          "复核累计退款和待处理金额，按 $partial 创建本问题的退款内部待办。",
+          "回复仅说明已提交处理，保留对结果的查询。"
+        ],
+        "forbidden_actions": [
+          "Agent 不得直接执行支付；不得同时建立换货或全额退款申请。"
+        ],
+        "reference_reply": "Thank you. I have submitted the $partial_text partial refund for processing. I will check the payment result before confirming completion.",
+        "id": "s05",
+        "gate": {
+          "after_step": "s04"
+        }
+      },
+      {
+        "after_hours": 12,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付渠道已受理这笔部分退款，尚无成功回执。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "refund",
+          "amount_minor": "$partial",
+          "currency": "$currency",
+          "source_kind": "synthetic_business_record",
+          "refund_type": "partial"
+        },
+        "expected_actions": [
+          "查询实际申请关联的执行回执，以回执状态更新进度。"
+        ],
+        "forbidden_actions": [
+          "不得将受理或失败描述成到账。"
+        ],
+        "reference_reply": null,
+        "id": "s06",
+        "gate": {
+          "after_step": "s05",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 32,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I can still only see the original charge. Has the $partial_text refund gone through yet, or is it still being processed?",
+        "record": {},
+        "expected_actions": [
+          "查原申请及支付回执，不新建申请。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s07",
+        "gate": {
+          "after_step": "s06"
+        }
+      },
+      {
+        "after_hours": 33,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "解释受理与退款成功的区别并继续跟进。",
+        "record": {},
+        "expected_actions": [
+          "当前仅受理，准确告知尚待支付确认；保留原申请。"
+        ],
+        "forbidden_actions": [
+          "不得承诺固定到账天数或把accepted说成succeeded。"
+        ],
+        "reference_reply": "The refund has been accepted for processing, but I do not yet have a completed payment confirmation. There is no need to submit it again; I am following the existing refund.",
+        "id": "s08",
+        "gate": {
+          "after_step": "s07"
+        }
+      },
+      {
+        "after_hours": 48,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付回执确认原申请的部分退款成功。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "succeeded",
+          "kind": "refund",
+          "amount_minor": "$partial",
+          "currency": "$currency",
+          "source_kind": "synthetic_business_record",
+          "refund_type": "partial",
+          "destination": "original_payment_channel"
+        },
+        "expected_actions": [
+          "查询实际申请关联的执行回执，以回执状态更新进度。"
+        ],
+        "forbidden_actions": [
+          "不得将受理或失败描述成到账。"
+        ],
+        "reference_reply": null,
+        "id": "s09",
+        "gate": {
+          "after_step": "s08",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 49,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "确认已获得支付成功回执。",
+        "record": {},
+        "expected_actions": [
+          "告知已向原支付渠道完成 $partial_text 的部分退款；等客户核对。"
+        ],
+        "forbidden_actions": [
+          "不得把支付成功进一步推断为客户已看到账。"
+        ],
+        "reference_reply": "The payment confirmation now shows that the $partial_text partial refund has completed to your original payment method. Please check the refund entry when convenient.",
+        "id": "s10",
+        "gate": {
+          "after_step": "s09"
+        }
+      },
+      {
+        "after_hours": 80,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The $partial_text credit is showing now. I am keeping the lamp, and that resolves the mark on the base for me. Thanks for following up.",
+        "record": {},
+        "expected_actions": [
+          "客户已确认款项和保留商品的处理结果，可建议人工结案。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s11",
+        "gate": {
+          "after_step": "s10"
+        }
+      },
+      {
+        "after_hours": 81,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "客服核对部分退款成功回执及客户到账确认，确认无其他补偿待办，人工结案。",
+        "record": {
+          "status": "resolved",
+          "closed_by": "staff",
+          "resolution_basis": "customer_confirmation_and_business_records"
+        },
+        "expected_actions": [
+          "由人工核对客户确认、业务回执及未结待办后标记已解决。"
+        ],
+        "forbidden_actions": [
+          "Agent 不得自动结案。"
+        ],
+        "reference_reply": null,
+        "id": "s12",
+        "gate": {
+          "after_step": "s11"
+        }
+      }
+    ],
+    "outcome": "客户保留原灯具并确认收到不超过实付20%的部分退款，人工结案。",
+    "knowledge_note": "依据原订单金额、项目部分退款政策及客户明确接受；仅外观事实由客户描述，无技术安全认证结论。 客户、地址、单号、仓库和支付记录均为内部演练编写，不是真实客户资料或实际履约；参考回复只供评测。"
+  },
+  {
+    "journey_id": "JRN-05",
+    "title": "未使用灯具退回验收后全额退款",
+    "business": "BIZ-05",
+    "variant": "main",
+    "seed_scenario_id": "BASE-OUTON-05",
+    "tags": [
+      "不再需要",
+      "数量与完整性",
+      "客户承担寄回邮费",
+      "具体寄回资料",
+      "先收货验收后全额退款"
+    ],
+    "initial_message": "Hi, I would like to return the black OUTON floor lamp from order $order_number. We changed the furniture layout and no longer need it. It arrived recently and has stayed in the box. Could you explain the return cost and what needs to go back?",
+    "initial_state_patch": {
+      "return_request_details": null
+    },
+    "steps": [
+      {
+        "after_hours": 1,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "补齐非质量退货的数量、未使用状态、配件和退款选择。",
+        "record": {},
+        "expected_actions": [
+          "核对签收日期在30天内；说明非质量退货由客户安排并承担寄回邮资。",
+          "确认一件商品完整未使用，并说明仓库验收后可申请原商品实付 $price_text 全退。"
+        ],
+        "forbidden_actions": [
+          "不得承诺免费标签或编造商家固定邮费；不得提前退款。"
+        ],
+        "reference_reply": "For a change-of-mind return, you would arrange and pay for tracked return postage. Please confirm that you are returning one lamp, unused, with all its included parts and accessories. After the complete return is received and inspected, we can arrange the item refund of $price_text.",
+        "id": "s01",
+        "gate": {
+          "after_step": "initial_message"
+        }
+      },
+      {
+        "after_hours": 4,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, it is one lamp. I opened the top of the box but did not take the parts out or assemble anything. Everything is still there, including the remote and packing. I agree to pay the return postage and would like the full $price_text item refund after you check it.",
+        "record": {},
+        "expected_actions": [
+          "客户明确数量、未使用完整、邮费承担和全退选择。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s02",
+        "gate": {
+          "after_step": "s01"
+        }
+      },
+      {
+        "after_hours": 5,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "创建退货内部申请并等待具体授权资料。",
+        "record": {},
+        "expected_actions": [
+          "只创建本订单行的退货内部待办，原因不再需要、数量1、未使用完整。"
+        ],
+        "forbidden_actions": [
+          "不得预填退件已收货；不得给未经提供的仓库地址。"
+        ],
+        "reference_reply": "I have submitted the return request. Please wait for the return reference and receiving address before posting the parcel.",
+        "id": "s03",
+        "gate": {
+          "after_step": "s02"
+        }
+      },
+      {
+        "after_hours": 8,
+        "kind": "return_update",
+        "actor": "staff",
+        "text": "客服完成退货授权并提供客户自付邮资的完整寄回指引。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "unwanted",
+          "status": "authorized",
+          "received": false,
+          "inspection": "not_started",
+          "source_kind": "synthetic_return_instructions",
+          "recipient": "Returns Receiving Team",
+          "address": {
+            "line1": "470 Fulfillment Grove",
+            "line2": "Dock 4",
+            "city": "Bellford",
+            "region": "OH",
+            "postal_code": "43000",
+            "country": "US",
+            "source_kind": "synthetic_return_address"
+          },
+          "return_reference": "RT-10405",
+          "postage_payer": "customer",
+          "label_required": false,
+          "label_status": "not_required_customer_arranges_postage",
+          "instructions": "Return reference RT-10405. Pack the lamp and all included accessories in the original inserts and a sealed outer box. Put a note with the return reference and order number inside; remove or cover old shipping labels. Arrange and pay for tracked USPS postage at a staffed USPS Post Office counter, addressed to Returns Receiving Team, 470 Fulfillment Grove, Dock 4, Bellford, OH 43000, United States. No home pickup or merchant prepaid postage is arranged. Ask for and keep the dated drop-off receipt and tracking number until the refund is confirmed. Send us the tracking details after posting. The item refund can be requested once the warehouse has received and inspected the complete return. If you cannot post it this week, reply before sending so we can check the return arrangements.",
+          "carrier": "USPS",
+          "postage_arranged_by": "customer",
+          "handover_method": "staffed_carrier_counter",
+          "handover_location_type": "staffed_USPS_Post_Office_counter",
+          "pickup_booked": false,
+          "tracking_number": "$return_tracking",
+          "proof_to_keep": [
+            "dated_acceptance_receipt",
+            "tracking_number"
+          ]
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。",
+          "授权资料到达后，向客户交代本记录的退货编号、收件人及完整地址、邮资承担、包装和寄件凭据保留要求；引用实际存在的附件，不编造链接。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。",
+          "不得把本地演练退回文档当成真实可扫描承运商面单；实际寄件能力不在本资料范围。"
+        ],
+        "reference_reply": null,
+        "id": "s04",
+        "gate": {
+          "after_step": "s03",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 9,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "向客户提供已授权的具体寄回指引。",
+        "record": {},
+        "expected_actions": [
+          "转述 RT-10405、收件人和地址；说明全部配件、包装、覆盖旧标签及保留寄件凭据。",
+          "说明没有预付标签，由客户自行购买可追踪邮资；无固定退货截止日期可擅自承诺。"
+        ],
+        "forbidden_actions": [
+          "不得把退货授权当作已收货或退款成功。"
+        ],
+        "reference_reply": "Your return reference is RT-10405. Please send the complete lamp to Returns Receiving Team, 470 Fulfillment Grove, Dock 4, Bellford, OH 43000, United States. Use the original inserts and a sealed outer box, include the return reference and order number inside, and cover old shipping labels. Please buy tracked USPS postage at a staffed USPS Post Office counter and keep the dated acceptance receipt. No prepaid postage or home pickup is arranged. If you cannot post it this week, let us know before sending.",
+        "id": "s05",
+        "gate": {
+          "after_step": "s04"
+        }
+      },
+      {
+        "after_hours": 28,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I posted the complete box this morning using tracked postage. The counter gave me a receipt, which I have kept. Please let me know once your warehouse has checked it; I realise it may take a little time to unpack the return.",
+        "record": {},
+        "expected_actions": [
+          "客户来信仅建立寄出陈述，等待承运商及仓库记录。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s06",
+        "gate": {
+          "after_step": "s05"
+        }
+      },
+      {
+        "after_hours": 30,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "承运商返回当前包裹物流状态。",
+        "record": {
+          "parcel_id": "$return_parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "return",
+          "execution_id": null,
+          "tracking_number": "$return_tracking",
+          "carrier": "USPS",
+          "status": "in_transit",
+          "source_kind": "synthetic_carrier_record"
+        },
+        "expected_actions": [
+          "根据关联包裹及承运商状态回复；客户确认收货前保持会话开放。"
+        ],
+        "forbidden_actions": [
+          "创建标签不等于已寄出；物流签收不等于客户问题已解决。"
+        ],
+        "reference_reply": null,
+        "id": "s07",
+        "gate": {
+          "after_step": "s06",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 100,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库扫描收到对应退件一箱，数量待开箱复核，尚未验收。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "unwanted",
+          "status": "received",
+          "received": true,
+          "inspection": "pending",
+          "source_kind": "synthetic_business_record"
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。"
+        ],
+        "reference_reply": null,
+        "id": "s08",
+        "gate": {
+          "after_step": "s07",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 108,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库开箱验收通过，退回数量和完整性符合申请。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "unwanted",
+          "status": "inspected",
+          "received": true,
+          "inspection": "passed",
+          "source_kind": "synthetic_business_record",
+          "inspection_details": "已核对一件灯具、遥控器及订单所含配件，未使用，完整无新增损伤。"
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。"
+        ],
+        "reference_reply": null,
+        "id": "s09",
+        "gate": {
+          "after_step": "s08",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 109,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "基于已收货且验收通过创建全额退款内部待办。",
+        "record": {},
+        "expected_actions": [
+          "复核原商品实付 $amount 和无已成功/待处理退款；沿本问题创建全额退款申请。"
+        ],
+        "forbidden_actions": [
+          "不得把客户自付寄回邮资加进商品退款或擅自扣费；不得重复申请。"
+        ],
+        "reference_reply": "The warehouse has received and checked the complete return. I have submitted the full item refund of $price_text to your original payment method.",
+        "id": "s10",
+        "gate": {
+          "after_step": "s09"
+        }
+      },
+      {
+        "after_hours": 120,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付渠道确认已验收退件对应的全額商品退款成功。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "succeeded",
+          "kind": "refund",
+          "amount_minor": "$amount",
+          "currency": "$currency",
+          "source_kind": "synthetic_business_record",
+          "refund_type": "full",
+          "return_id": "$return",
+          "destination": "original_payment_channel"
+        },
+        "expected_actions": [
+          "查询实际申请关联的执行回执，以回执状态更新进度。"
+        ],
+        "forbidden_actions": [
+          "不得将受理或失败描述成到账。"
+        ],
+        "reference_reply": null,
+        "id": "s11",
+        "gate": {
+          "after_step": "s10",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 121,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "将支付成功结果告知客户并等客户核对。",
+        "record": {},
+        "expected_actions": [
+          "清楚区分商品全退与客户自行支付的寄回运费；告知原支付渠道成功回执。"
+        ],
+        "forbidden_actions": [
+          "不得自动结案；不得保证银行显示时间。"
+        ],
+        "reference_reply": "The full item refund of $price_text has completed to your original payment method. This is the item amount; it does not include the return postage you paid separately.",
+        "id": "s12",
+        "gate": {
+          "after_step": "s11"
+        }
+      },
+      {
+        "after_hours": 168,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I have checked my payment account and the full $price_text refund is there. The amount is right, and I do not need anything else for this return.",
+        "record": {},
+        "expected_actions": [
+          "依据客户确认进入人工结案检查。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s13",
+        "gate": {
+          "after_step": "s12"
+        }
+      },
+      {
+        "after_hours": 170,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "客服核对退件验收、全額商品退款成功及客户确认，人工标记已解决。",
+        "record": {
+          "status": "resolved",
+          "closed_by": "staff",
+          "resolution_basis": "customer_confirmation_and_business_records"
+        },
+        "expected_actions": [
+          "由人工核对客户确认、业务回执及未结待办后标记已解决。"
+        ],
+        "forbidden_actions": [
+          "Agent 不得自动结案。"
+        ],
+        "reference_reply": null,
+        "id": "s14",
+        "gate": {
+          "after_step": "s13"
+        }
+      }
+    ],
+    "outcome": "未使用完整灯具按客户自付邮资退回，仓库验收后原商品实付全退，客户核对后人工结案。",
+    "knowledge_note": "依据30天退货规则、unused_complete及客户承担非质量退货邮资；不新增商家运费扣款或平台期限。 客户、地址、单号、仓库和支付记录均为内部演练编写，不是真实客户资料或实际履约；参考回复只供评测。"
+  },
+  {
+    "journey_id": "JRN-06",
+    "title": "BELEEV已诊断故障先退回验收再同款换出",
+    "business": "BIZ-06",
+    "variant": "main",
+    "seed_scenario_id": "BASE-BELEEV-06",
+    "tags": [
+      "人工诊断记录",
+      "停止使用",
+      "同型号同颜色",
+      "确认地址",
+      "先退回验收后换货"
+    ],
+    "initial_message": "Hello, I am following up on the blue BELEEV A2 scooter from order $order_number. Your colleague reviewed the loose handlebar problem and said it should be replaced. We have stopped using it. I would like the same blue model, not a refund. What do you need from me before I send this one back?",
+    "initial_state_patch": {
+      "defect_confirmed_in_simulation": true,
+      "service_notes": [
+        {
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "issue_id": "$issue",
+          "author": "staff",
+          "status": "diagnosis_complete",
+          "result": "defect_confirmed",
+          "detail": "人工已审查订单所对应蓝色 A2 滑板车的客户故障资料，确认连接部位异常并要求停用；本次按同型号退回换货处理，不提供拧紧力矩或维修教程。",
+          "source_kind": "synthetic_prior_service_record",
+          "technical_instructions_provided": false
+        }
+      ]
+    },
+    "steps": [
+      {
+        "after_hours": 1,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "复用人工诊断，确认同款库存、换货选择与收货地址。",
+        "record": {},
+        "expected_actions": [
+          "核对既有人工作业记录、型号及库存；解释先退回验收再换出。",
+          "请客户明确同款蓝色选择及完整收货地址。"
+        ],
+        "forbidden_actions": [
+          "不得重复指导客户骑行测试或拆修；不得先行寄出。"
+        ],
+        "reference_reply": "I can continue with the same blue A2 model. Please keep the current scooter out of use. We need to receive and inspect it before sending the replacement. Please confirm the full delivery address and that you would like this same model and colour.",
+        "id": "s01",
+        "gate": {
+          "after_step": "initial_message"
+        }
+      },
+      {
+        "after_hours": 4,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, I want one blue A2, the same as the original. Please send the replacement to Casey Rowan, 814 Copperleaf Lane, Unit 3, Bellford, OH 43000, United States. That is the correct current address. I agree to return the faulty scooter first.",
+        "record": {},
+        "expected_actions": [
+          "客户确认同型号同颜色、退回先行及完整本版收货地址。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s02",
+        "gate": {
+          "after_step": "s01"
+        }
+      },
+      {
+        "after_hours": 5,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "依据客户明确确认保存本版收货地址。",
+        "record": {
+          "version": 1,
+          "confirmed": true,
+          "address": {
+            "recipient": "Casey Rowan",
+            "line1": "814 Copperleaf Lane",
+            "line2": "Unit 3",
+            "city": "Bellford",
+            "region": "OH",
+            "postal_code": "43000",
+            "country": "US"
+          },
+          "customer_id": "$customer",
+          "source_kind": "synthetic_contact_details",
+          "source_step": "s02"
+        },
+        "expected_actions": [
+          "地址确认绑定具体版本；发货前须核对最新版本。"
+        ],
+        "forbidden_actions": [
+          "不得沿用失效确认或把更新地址自动视为已确认。"
+        ],
+        "reference_reply": null,
+        "id": "s03",
+        "gate": {
+          "after_step": "s02"
+        }
+      },
+      {
+        "after_hours": 6,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "提交故障退货内部申请，等待退回资料。",
+        "record": {},
+        "expected_actions": [
+          "创建数量1的故障退货待办；记录同SKU换货意向但不提前执行换出。"
+        ],
+        "forbidden_actions": [
+          "不得用换出订单代替退货授权。"
+        ],
+        "reference_reply": "I have requested the return arrangements. Return postage is covered for this faulty item. Once the return document is ready, I will send the packing and handover details.",
+        "id": "s04",
+        "gate": {
+          "after_step": "s03"
+        }
+      },
+      {
+        "after_hours": 10,
+        "kind": "return_update",
+        "actor": "staff",
+        "text": "客服提供故障退货资料，邮资由商家承担。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "authorized",
+          "received": false,
+          "inspection": "not_started",
+          "source_kind": "synthetic_return_instructions",
+          "recipient": "Returns Receiving Team",
+          "address": {
+            "line1": "470 Fulfillment Grove",
+            "line2": "Dock 4",
+            "city": "Bellford",
+            "region": "OH",
+            "postal_code": "43000",
+            "country": "US",
+            "source_kind": "synthetic_return_address"
+          },
+          "return_reference": "RT-10406",
+          "postage_payer": "merchant",
+          "label_artifact_id": "return-label",
+          "label_status": "valid",
+          "label_version": 1,
+          "label_source_kind": "synthetic_local_review_artifact",
+          "instructions": "Return reference RT-10406. Please use the attached return document for this return; return postage is covered. Pack the complete item and its accessories securely using the original inserts where available, add a note with your order number and return reference inside, and cover old shipping labels. The return recipient is Returns Receiving Team, 470 Fulfillment Grove, Dock 4, Bellford, OH 43000, United States. Take the sealed parcel and the enclosed prepaid return document to a staffed USPS Post Office counter. This is a prepaid return, so you do not need to buy postage. No home pickup is booked. Ask the counter for a dated acceptance receipt showing the tracking number. If the counter cannot accept the return document, contact us before paying for another service. Keep your drop-off receipt and tracking number until the return is resolved. Reply if the return document will not open or you cannot hand the parcel over within the next seven days so we can check the return arrangements. Refund or replacement processing follows warehouse receipt and inspection.",
+          "carrier": "USPS",
+          "postage_arranged_by": "merchant",
+          "handover_method": "staffed_carrier_counter",
+          "handover_location_type": "staffed_USPS_Post_Office_counter",
+          "pickup_booked": false,
+          "tracking_number": "$return_tracking",
+          "proof_to_keep": [
+            "dated_acceptance_receipt",
+            "tracking_number"
+          ],
+          "prepaid_postage_record": {
+            "status": "paid_for_isolated_scenario",
+            "payer": "merchant",
+            "carrier": "USPS",
+            "reference": "RT-10406-P1",
+            "artifact_id": "return-label",
+            "source_kind": "synthetic_prepaid_return_evidence",
+            "valid_for_live_shipping": false
+          }
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。",
+          "授权资料到达后，向客户交代本记录的退货编号、收件人及完整地址、邮资承担、包装和寄件凭据保留要求；引用实际存在的附件，不编造链接。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。",
+          "不得把本地演练退回文档当成真实可扫描承运商面单；实际寄件能力不在本资料范围。"
+        ],
+        "reference_reply": null,
+        "id": "s05",
+        "gate": {
+          "after_step": "s04",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 11,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "交付具体故障退件资料。",
+        "record": {},
+        "expected_actions": [
+          "提供已有效的附件退回资料、RT-10406、完整收件信息、包装及凭据要求。"
+        ],
+        "forbidden_actions": [
+          "不得要求客户先自付故障退货邮费；不得说换货已经发出。"
+        ],
+        "reference_reply": "Please use the attached return document for RT-10406; return postage is covered. Pack the complete scooter and its included accessories securely, put the return reference and order number inside, and cover old shipping labels. The recipient is Returns Receiving Team, 470 Fulfillment Grove, Dock 4, Bellford, OH 43000, United States. Keep the handover receipt and tracking details. If the document will not open or you cannot send the parcel within the next seven days, please reply so we can check the arrangements. Hand the sealed parcel and prepaid return document to a staffed USPS Post Office counter; no home pickup is booked. Ask for a dated receipt showing the tracking number. If it cannot be accepted, contact us before buying postage.",
+        "id": "s06",
+        "gate": {
+          "after_step": "s05"
+        }
+      },
+      {
+        "after_hours": 28,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The return document opened and I handed the parcel over this morning. The whole scooter and the accessories are inside, and I kept the receipt. We will wait for you to check it before the replacement is sent.",
+        "record": {},
+        "expected_actions": [
+          "记录客户寄回说明，不把它当作仓库收货。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s07",
+        "gate": {
+          "after_step": "s06"
+        }
+      },
+      {
+        "after_hours": 100,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库收到退回包裹，尚待验收。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "received",
+          "received": true,
+          "inspection": "pending",
+          "source_kind": "synthetic_business_record"
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。"
+        ],
+        "reference_reply": null,
+        "id": "s08",
+        "gate": {
+          "after_step": "s07",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 108,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库完成故障原件验收。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "inspected",
+          "received": true,
+          "inspection": "passed",
+          "source_kind": "synthetic_business_record",
+          "inspection_details": "收到同一订单蓝色 A2 一件，配件齐全；人工确认的故障与退回品一致，换货验收通过。"
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。"
+        ],
+        "reference_reply": null,
+        "id": "s09",
+        "gate": {
+          "after_step": "s08",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 109,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "复核退回验收、同SKU库存和地址版本后提交换货内部待办。",
+        "record": {},
+        "expected_actions": [
+          "依据s09验收通过、同款库存及s03地址1已确认，创建本问题唯一换货申请。"
+        ],
+        "forbidden_actions": [
+          "不得换成别型号或别颜色；不得同时退款。"
+        ],
+        "reference_reply": "The return has passed inspection. I have submitted the replacement request for the same blue A2 to the address you confirmed. I will share the shipping update after carrier collection.",
+        "id": "s10",
+        "gate": {
+          "after_step": "s09"
+        }
+      },
+      {
+        "after_hours": 112,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "人工确认原件验收通过、同一商品有库存、客户本版地址已确认后建立换出履约单。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "replacement",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "replacement",
+          "item_id": "$sku",
+          "quantity": 1,
+          "address_version": 1,
+          "return_id": "$return",
+          "source_kind": "synthetic_business_record"
+        },
+        "expected_actions": [
+          "仅在真实换货内部待办存在后关联人工履约记录。",
+          "保持与原问题唯一补偿关系；此时尚未发货。"
+        ],
+        "forbidden_actions": [
+          "不得新建退款或其他重复补偿；不得声称已经送达。"
+        ],
+        "reference_reply": null,
+        "id": "s11",
+        "gate": {
+          "after_step": "s10",
+          "operation_required": {
+            "kind": "replacement",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 116,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "承运商返回当前包裹物流状态。",
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "replacement",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "label_created",
+          "source_kind": "synthetic_carrier_record"
+        },
+        "expected_actions": [
+          "根据关联包裹及承运商状态回复；客户确认收货前保持会话开放。"
+        ],
+        "forbidden_actions": [
+          "创建标签不等于已寄出；物流签收不等于客户问题已解决。"
+        ],
+        "reference_reply": null,
+        "id": "s12",
+        "gate": {
+          "after_step": "s11",
+          "operation_required": {
+            "kind": "replacement",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 124,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "承运商返回当前包裹物流状态。",
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "replacement",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "in_transit",
+          "source_kind": "synthetic_carrier_record"
+        },
+        "expected_actions": [
+          "根据关联包裹及承运商状态回复；客户确认收货前保持会话开放。"
+        ],
+        "forbidden_actions": [
+          "创建标签不等于已寄出；物流签收不等于客户问题已解决。"
+        ],
+        "reference_reply": null,
+        "id": "s13",
+        "gate": {
+          "after_step": "s12",
+          "operation_required": {
+            "kind": "replacement",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 180,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "承运商返回当前包裹物流状态。",
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "replacement",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "delivered",
+          "source_kind": "synthetic_carrier_record"
+        },
+        "expected_actions": [
+          "根据关联包裹及承运商状态回复；客户确认收货前保持会话开放。"
+        ],
+        "forbidden_actions": [
+          "创建标签不等于已寄出；物流签收不等于客户问题已解决。"
+        ],
+        "reference_reply": null,
+        "id": "s14",
+        "gate": {
+          "after_step": "s13",
+          "operation_required": {
+            "kind": "replacement",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 184,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The blue A2 replacement arrived today. It is the correct model and colour, the box has everything in it, and the handlebar no longer has the looseness we reported. We are happy with this replacement. Thank you.",
+        "record": {},
+        "expected_actions": [
+          "客户确认实际收到且原问题已解决；可建议人工结案。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s15",
+        "gate": {
+          "after_step": "s14"
+        }
+      },
+      {
+        "after_hours": 186,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "客服核对原件验收、同SKU换出记录及客户正常使用反馈，确认无退款补偿，人工结案。",
+        "record": {
+          "status": "resolved",
+          "closed_by": "staff",
+          "resolution_basis": "customer_confirmation_and_business_records"
+        },
+        "expected_actions": [
+          "由人工核对客户确认、业务回执及未结待办后标记已解决。"
+        ],
+        "forbidden_actions": [
+          "Agent 不得自动结案。"
+        ],
+        "reference_reply": null,
+        "id": "s16",
+        "gate": {
+          "after_step": "s15"
+        }
+      }
+    ],
+    "outcome": "BELEEV蓝色A2故障原件完成退回验收，同型号换出后客户确认原问题消除，人工结案。",
+    "knowledge_note": "故障认定来自人工已有服务记录；未编造厂家维修步骤、力矩或安全认证。质量退货附件为隔离分支本地审阅资料，不能用于真实承运商寄件。 客户、地址、单号、仓库和支付记录均为内部演练编写，不是真实客户资料或实际履约；参考回复只供评测。"
+  },
+  {
+    "journey_id": "JRN-14",
+    "title": "拒绝部分退款后选择退回全额退款",
+    "business": "BIZ-04",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-011",
+    "tags": [
+      "拒绝部分退款",
+      "保留未接受报价",
+      "改选退货全退",
+      "质量退货邮资",
+      "无双重补偿"
+    ],
+    "initial_message": "Hello, the OUTONLIFE tree bookshelf with light from order $order_number has a scratch across the front of one shelf. The shelf is otherwise intact, but the mark is noticeable in the room. I paid $price_text. Could you let me know whether a partial refund or a return is possible?",
+    "initial_state_patch": {
+      "refund_proposal": null,
+      "service_notes": [
+        {
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "issue_id": "$issue",
+          "author": "staff",
+          "status": "reviewed",
+          "result": "cosmetic_damage_confirmed",
+          "detail": "人工核对客户提供的外观照片，确认层板正面表面划痕；未认定结构缺陷或安全问题。",
+          "source_kind": "synthetic_prior_service_record"
+        }
+      ]
+    },
+    "steps": [
+      {
+        "after_hours": 1,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "提出两种互斥处理选项并等待选择。",
+        "record": {},
+        "expected_actions": [
+          "最多提出 $partial_text 部分退款并保留商品；同时说明完整退回并验收后可申请 $price_text 全退。",
+          "本次已有人工外观损伤记录，质量退货邮资由商家承担。"
+        ],
+        "forbidden_actions": [
+          "不得将报价写成已批准支付或默认接受；不得同时创建两种补偿。"
+        ],
+        "reference_reply": "You can keep the bookshelf with a partial refund of $partial_text, or return the complete item for the full item refund of $price_text after receipt and inspection. Return postage is covered for the reported damage. Please tell me which option you prefer.",
+        "id": "s01",
+        "gate": {
+          "after_step": "initial_message"
+        }
+      },
+      {
+        "after_hours": 4,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Thank you, but I do not accept the $partial_text partial refund. The scratch will bother me every time I see it. I want to return the whole bookshelf for the full $price_text refund. All the included pieces are here, and I can pack them back in the original box.",
+        "record": {},
+        "expected_actions": [
+          "将部分退款标记为明确拒绝；记录退回全退选择、完整数量1。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s02",
+        "gate": {
+          "after_step": "s01"
+        }
+      },
+      {
+        "after_hours": 5,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "改为退货全退路线，先创建退货待办。",
+        "record": {},
+        "expected_actions": [
+          "保留客户拒绝证据，不创建部分退款；创建一件外观损伤商品退货申请。",
+          "说明需要完整退回及验收；全退申请后置。"
+        ],
+        "forbidden_actions": [
+          "不得先付部分退款再补差额；不得丢失同一问题补偿互斥关系。"
+        ],
+        "reference_reply": "Understood. I will arrange the return route, and no partial refund will be submitted. Please wait for the return document before handing over the complete parcel.",
+        "id": "s03",
+        "gate": {
+          "after_step": "s02"
+        }
+      },
+      {
+        "after_hours": 8,
+        "kind": "return_update",
+        "actor": "staff",
+        "text": "人工退货授权已提供完整寄回资料与商家承担邮资的凭据。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "authorized",
+          "received": false,
+          "inspection": "not_started",
+          "source_kind": "synthetic_return_instructions",
+          "recipient": "Returns Receiving Team",
+          "address": {
+            "line1": "470 Fulfillment Grove",
+            "line2": "Dock 4",
+            "city": "Bellford",
+            "region": "OH",
+            "postal_code": "43000",
+            "country": "US",
+            "source_kind": "synthetic_return_address"
+          },
+          "return_reference": "RT-10414",
+          "postage_payer": "merchant",
+          "label_artifact_id": "return-label",
+          "label_status": "valid",
+          "label_version": 1,
+          "label_source_kind": "synthetic_local_review_artifact",
+          "instructions": "Return reference RT-10414. Please use the attached return document for this return; return postage is covered. Pack the complete item and its accessories securely using the original inserts where available, add a note with your order number and return reference inside, and cover old shipping labels. The return recipient is Returns Receiving Team, 470 Fulfillment Grove, Dock 4, Bellford, OH 43000, United States. Take the sealed parcel and the enclosed prepaid return document to a staffed USPS Post Office counter. This is a prepaid return, so you do not need to buy postage. No home pickup is booked. Ask the counter for a dated acceptance receipt showing the tracking number. If the counter cannot accept the return document, contact us before paying for another service. Keep your drop-off receipt and tracking number until the return is resolved. Reply if the return document will not open or you cannot hand the parcel over within the next seven days so we can check the return arrangements. Refund or replacement processing follows warehouse receipt and inspection.",
+          "defect_type": "cosmetic",
+          "carrier": "USPS",
+          "postage_arranged_by": "merchant",
+          "handover_method": "staffed_carrier_counter",
+          "handover_location_type": "staffed_USPS_Post_Office_counter",
+          "pickup_booked": false,
+          "tracking_number": "$return_tracking",
+          "proof_to_keep": [
+            "dated_acceptance_receipt",
+            "tracking_number"
+          ],
+          "prepaid_postage_record": {
+            "status": "paid_for_isolated_scenario",
+            "payer": "merchant",
+            "carrier": "USPS",
+            "reference": "RT-10414-P1",
+            "artifact_id": "return-label",
+            "source_kind": "synthetic_prepaid_return_evidence",
+            "valid_for_live_shipping": false
+          }
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。",
+          "授权资料到达后，向客户交代本记录的退货编号、收件人及完整地址、邮资承担、包装和寄件凭据保留要求；引用实际存在的附件，不编造链接。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。",
+          "不得把本地演练退回文档当成真实可扫描承运商面单；实际寄件能力不在本资料范围。"
+        ],
+        "reference_reply": null,
+        "id": "s04",
+        "gate": {
+          "after_step": "s03",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 9,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "发送退件材料及明确包装要求。",
+        "record": {},
+        "expected_actions": [
+          "提供RT-10414、完整收件地址、商家承担邮资及保留凭据说明。"
+        ],
+        "forbidden_actions": [
+          "不得编造可下载链接或退货逾期平台规则。"
+        ],
+        "reference_reply": "Please use the attached return document for RT-10414. Return postage is covered. Send the complete bookshelf with light and all included parts to Returns Receiving Team, 470 Fulfillment Grove, Dock 4, Bellford, OH 43000, United States. Protect the shelf surfaces with the original inserts, put the return reference and order number inside, and cover old labels. Keep the handover receipt. If you cannot send it this week, reply before posting so we can check the arrangements. Hand the sealed parcel and prepaid return document to a staffed USPS Post Office counter; no home pickup is booked. Ask for a dated receipt showing the tracking number. If it cannot be accepted, contact us before buying postage.",
+        "id": "s05",
+        "gate": {
+          "after_step": "s04"
+        }
+      },
+      {
+        "after_hours": 30,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I have handed over the box and kept the receipt. I put the light, shelves and the sealed hardware packet back inside. Please continue with the full refund once your team checks the return.",
+        "record": {},
+        "expected_actions": [
+          "客户寄出说明与仓库确认分开。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s06",
+        "gate": {
+          "after_step": "s05"
+        }
+      },
+      {
+        "after_hours": 100,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库收到完整一箱，等待开箱检查。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "received",
+          "received": true,
+          "inspection": "pending",
+          "source_kind": "synthetic_business_record",
+          "defect_type": "cosmetic"
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。"
+        ],
+        "reference_reply": null,
+        "id": "s07",
+        "gate": {
+          "after_step": "s06",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 108,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库完成验收并批准进入商品退款环节。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "inspected",
+          "received": true,
+          "inspection": "passed",
+          "source_kind": "synthetic_business_record",
+          "inspection_details": "一套树形书架带灯及所含配件齐全，退件与订单一致；确认原报告划痕。",
+          "defect_type": "cosmetic"
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。"
+        ],
+        "reference_reply": null,
+        "id": "s08",
+        "gate": {
+          "after_step": "s07",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 109,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "基于验收结果创建唯一全額退款申请。",
+        "record": {},
+        "expected_actions": [
+          "按 $amount、$currency 创建退款内部待办；再次核对没有部分退款已成功或占款。"
+        ],
+        "forbidden_actions": [
+          "不得同时补寄层板或另建部分退款。"
+        ],
+        "reference_reply": "The warehouse has checked the complete return. I have submitted the full item refund of $price_text to your original payment method.",
+        "id": "s09",
+        "gate": {
+          "after_step": "s08"
+        }
+      },
+      {
+        "after_hours": 112,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付渠道受理全额退款，尚未返回成功。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "refund",
+          "amount_minor": "$amount",
+          "currency": "$currency",
+          "source_kind": "synthetic_business_record",
+          "refund_type": "full",
+          "return_id": "$return"
+        },
+        "expected_actions": [
+          "查询实际申请关联的执行回执，以回执状态更新进度。"
+        ],
+        "forbidden_actions": [
+          "不得将受理或失败描述成到账。"
+        ],
+        "reference_reply": null,
+        "id": "s10",
+        "gate": {
+          "after_step": "s09",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 138,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I received the return confirmation, but my payment account does not show the credit yet. Could you check whether the full refund is still being processed?",
+        "record": {},
+        "expected_actions": [
+          "继续查询同一退款申请及回执。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s11",
+        "gate": {
+          "after_step": "s10"
+        }
+      },
+      {
+        "after_hours": 139,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "按当前回执解释等待，不重复退款。",
+        "record": {},
+        "expected_actions": [
+          "明确已受理尚无成功回执，跟进原申请。"
+        ],
+        "forbidden_actions": [
+          "不得承诺具体到账日或为催问新建退款。"
+        ],
+        "reference_reply": "The full refund is still being processed. I have the acceptance record, but the completed payment confirmation has not arrived yet. I am checking the existing refund.",
+        "id": "s12",
+        "gate": {
+          "after_step": "s11"
+        }
+      },
+      {
+        "after_hours": 150,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "同一退款申请返回支付成功。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "succeeded",
+          "kind": "refund",
+          "amount_minor": "$amount",
+          "currency": "$currency",
+          "source_kind": "synthetic_business_record",
+          "refund_type": "full",
+          "return_id": "$return",
+          "destination": "original_payment_channel"
+        },
+        "expected_actions": [
+          "查询实际申请关联的执行回执，以回执状态更新进度。"
+        ],
+        "forbidden_actions": [
+          "不得将受理或失败描述成到账。"
+        ],
+        "reference_reply": null,
+        "id": "s13",
+        "gate": {
+          "after_step": "s12",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 151,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "报告原渠道全額退款成功。",
+        "record": {},
+        "expected_actions": [
+          "告知 $price_text 全额商品款的支付成功记录；等待客户核对。"
+        ],
+        "forbidden_actions": [
+          "不得自动结案。"
+        ],
+        "reference_reply": "The payment result now confirms that the full $price_text item refund has completed to your original payment method.",
+        "id": "s14",
+        "gate": {
+          "after_step": "s13"
+        }
+      },
+      {
+        "after_hours": 190,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The full $price_text credit is showing now. That is the outcome I wanted, and I do not need a replacement or any further refund. Thank you.",
+        "record": {},
+        "expected_actions": [],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s15",
+        "gate": {
+          "after_step": "s14"
+        }
+      },
+      {
+        "after_hours": 192,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "人工核对部分退款从未执行、全退成功及客户确认后结案。",
+        "record": {
+          "status": "resolved",
+          "closed_by": "staff",
+          "resolution_basis": "customer_confirmation_and_business_records"
+        },
+        "expected_actions": [
+          "由人工核对客户确认、业务回执及未结待办后标记已解决。"
+        ],
+        "forbidden_actions": [
+          "Agent 不得自动结案。"
+        ],
+        "reference_reply": null,
+        "id": "s16",
+        "gate": {
+          "after_step": "s15"
+        }
+      }
+    ],
+    "outcome": "客户拒绝部分退款后完整退回商品，全额退款成功且没有重复补偿，人工结案。",
+    "knowledge_note": "保留原种子OUTONLIFE树形书架商品身份与实付；部分退款未获接受绝不执行。质量退货本地附件仅用于隔离审阅。 客户、地址、单号、仓库和支付记录均为内部演练编写，不是真实客户资料或实际履约；参考回复只供评测。"
+  },
+  {
+    "journey_id": "JRN-15",
+    "title": "退款失败后对账并在同一申请下重试成功",
+    "business": "BIZ-04",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-011",
+    "tags": [
+      "退款处理失败",
+      "失败不占用成功金额",
+      "先对账后重试",
+      "同一业务申请",
+      "客户催问不重复创建"
+    ],
+    "initial_message": "Hi, the OUTONLIFE tree bookshelf with light from order $order_number has a small paint chip on the rear edge. Everything else is fine, and I would like to keep it. You can hardly see it against the wall. Can you offer a small refund instead of arranging a return?",
+    "initial_state_patch": {
+      "refund_proposal": null,
+      "service_notes": []
+    },
+    "steps": [
+      {
+        "after_hours": 1,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "提出保留商品的具体部分退款金额并等待接受。",
+        "record": {},
+        "expected_actions": [
+          "核对实付为 $price_text，提出不超过20%的 $partial_text；请客户明确接受。"
+        ],
+        "forbidden_actions": [
+          "不得先提交退款；不得承诺固定到账时间。"
+        ],
+        "reference_reply": "We can offer a partial refund of $partial_text to your original payment method while you keep the bookshelf. Please confirm whether you accept this amount.",
+        "id": "s01",
+        "gate": {
+          "after_step": "initial_message"
+        }
+      },
+      {
+        "after_hours": 4,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I accept the $partial_text partial refund and will keep the bookshelf. Please return it to the original payment method. I am not asking for a replacement or another allowance.",
+        "record": {},
+        "expected_actions": [],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s02",
+        "gate": {
+          "after_step": "s01"
+        },
+        "evaluation_facts": {
+          "customer_acceptance": {
+            "kind": "refund",
+            "amount_minor": "$partial",
+            "currency": "$currency",
+            "disposition": "keep_item",
+            "evidence": "explicit_customer_message"
+          }
+        }
+      },
+      {
+        "after_hours": 5,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "根据明确接受创建一笔退款内部待办。",
+        "record": {},
+        "expected_actions": [
+          "创建唯一部分退款申请；记录具体金额币种及客户选择。"
+        ],
+        "forbidden_actions": [
+          "不得直接付款或建立第二笔申请。"
+        ],
+        "reference_reply": "I have submitted the $partial_text refund for processing and will check the result.",
+        "id": "s03",
+        "gate": {
+          "after_step": "s02"
+        }
+      },
+      {
+        "after_hours": 8,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付渠道受理首次处理尝试。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "refund",
+          "amount_minor": "$partial",
+          "currency": "$currency",
+          "source_kind": "synthetic_business_record",
+          "refund_type": "partial",
+          "attempt_number": 1
+        },
+        "expected_actions": [
+          "查询实际申请关联的执行回执，以回执状态更新进度。"
+        ],
+        "forbidden_actions": [
+          "不得将受理或失败描述成到账。"
+        ],
+        "reference_reply": null,
+        "id": "s04",
+        "gate": {
+          "after_step": "s03",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 12,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "首次尝试明确失败：无款项划出，成功退款金额为0，待处理占款已释放；仍须核对原渠道状态再重试。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "failed",
+          "kind": "refund",
+          "amount_minor": "$partial",
+          "currency": "$currency",
+          "source_kind": "synthetic_business_record",
+          "refund_type": "partial",
+          "attempt_number": 1,
+          "failure_code": "processor_temporarily_unavailable",
+          "funds_transferred": false,
+          "succeeded_amount_minor": 0,
+          "pending_reservation_minor": 0,
+          "reservation_released": true,
+          "retry_allowed_only_after_reconciliation": true
+        },
+        "expected_actions": [
+          "查询实际申请关联的执行回执，以回执状态更新进度。"
+        ],
+        "forbidden_actions": [
+          "不得将受理或失败描述成到账。"
+        ],
+        "reference_reply": null,
+        "id": "s05",
+        "gate": {
+          "after_step": "s04",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 13,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "告知失败并转业务对账，保留原申请。",
+        "record": {},
+        "expected_actions": [
+          "查询原申请及失败回执，说明尚未退款成功；提交同一待办的人工对账任务。",
+          "识别失败不累计成功退款额、占款已释放但仍先对账。"
+        ],
+        "forbidden_actions": [
+          "不得称退款已完成；不得改用新申请绕过失败或扩大金额。"
+        ],
+        "reference_reply": "The payment service could not complete the refund. The failed attempt did not transfer any money. Our payment team is checking that attempt before retrying the same refund request. I will keep you updated.",
+        "id": "s06",
+        "gate": {
+          "after_step": "s05"
+        }
+      },
+      {
+        "after_hours": 28,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Thanks for letting me know. I still want the agreed $partial_text refund. Please go ahead once your payment team confirms it is safe to try again; I do not want two refunds raised by mistake.",
+        "record": {},
+        "expected_actions": [
+          "维持原金额、币种和唯一申请，客户催问不构成新申请。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s07",
+        "gate": {
+          "after_step": "s06"
+        }
+      },
+      {
+        "after_hours": 32,
+        "kind": "service_note",
+        "actor": "staff",
+        "text": "支付人员按原业务申请和首次尝试编号对账，确认渠道无成功交易、无在途退款且无待处理占款，可以在原申请下重试。",
+        "record": {
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "execution_id": "$execution",
+          "attempt_number": 1,
+          "reconciliation_status": "no_success_no_pending",
+          "succeeded_amount_minor": 0,
+          "pending_reservation_minor": 0,
+          "retry_same_operation": true,
+          "source_kind": "synthetic_payment_reconciliation"
+        },
+        "expected_actions": [
+          "查询并保留对账证据；后续处理复用原operation，不复制业务申请。"
+        ],
+        "forbidden_actions": [
+          "不得只凭客户未见入账就认定首笔失败。"
+        ],
+        "reference_reply": null,
+        "id": "s08",
+        "gate": {
+          "after_step": "s07",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 33,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "根据对账结果安排同一申请再次处理。",
+        "record": {},
+        "expected_actions": [
+          "由人工执行同一operation的第二次尝试，金额仍为 $partial；Agent只跟进原待办。"
+        ],
+        "forbidden_actions": [
+          "不得创建新operation；不得把失败金额加到成功累计或误扣两次额度。"
+        ],
+        "reference_reply": "The payment team has confirmed there is no completed or pending refund from the failed attempt. They are retrying the same $partial_text refund request, with no additional refund being created.",
+        "id": "s09",
+        "gate": {
+          "after_step": "s08"
+        }
+      },
+      {
+        "after_hours": 36,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "原业务申请第二次尝试已受理。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "refund",
+          "amount_minor": "$partial",
+          "currency": "$currency",
+          "source_kind": "synthetic_business_record",
+          "refund_type": "partial",
+          "attempt_number": 2,
+          "reuses_original_operation": true,
+          "reconciled_before_retry": true
+        },
+        "expected_actions": [
+          "查询实际申请关联的执行回执，以回执状态更新进度。"
+        ],
+        "forbidden_actions": [
+          "不得将受理或失败描述成到账。"
+        ],
+        "reference_reply": null,
+        "id": "s10",
+        "gate": {
+          "after_step": "s09",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 48,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "第二次尝试成功；整个问题仅有这一笔成功退款金额。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "succeeded",
+          "kind": "refund",
+          "amount_minor": "$partial",
+          "currency": "$currency",
+          "source_kind": "synthetic_business_record",
+          "refund_type": "partial",
+          "attempt_number": 2,
+          "reuses_original_operation": true,
+          "succeeded_amount_minor": "$partial",
+          "destination": "original_payment_channel"
+        },
+        "expected_actions": [
+          "查询实际申请关联的执行回执，以回执状态更新进度。"
+        ],
+        "forbidden_actions": [
+          "不得将受理或失败描述成到账。"
+        ],
+        "reference_reply": null,
+        "id": "s11",
+        "gate": {
+          "after_step": "s10",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 49,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "用成功回执报告最终结果。",
+        "record": {},
+        "expected_actions": [
+          "告知原渠道完成 $partial_text，保留首次失败与对账历史。"
+        ],
+        "forbidden_actions": [
+          "不得报两笔成功或以重试为由追加补偿。"
+        ],
+        "reference_reply": "The retry has completed successfully. The refund is $partial_text to your original payment method, and there is only one completed refund for this request.",
+        "id": "s12",
+        "gate": {
+          "after_step": "s11"
+        }
+      },
+      {
+        "after_hours": 80,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I can see one credit for $partial_text now. There is no duplicate, and that settles the paint chip issue. Thank you for checking before trying again.",
+        "record": {},
+        "expected_actions": [],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s13",
+        "gate": {
+          "after_step": "s12"
+        }
+      },
+      {
+        "after_hours": 82,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "人工核对同一申请两次尝试、首次零成功金额、第二次唯一成功回执及客户确认后结案。",
+        "record": {
+          "status": "resolved",
+          "closed_by": "staff",
+          "resolution_basis": "customer_confirmation_and_business_records"
+        },
+        "expected_actions": [
+          "由人工核对客户确认、业务回执及未结待办后标记已解决。"
+        ],
+        "forbidden_actions": [
+          "Agent 不得自动结案。"
+        ],
+        "reference_reply": null,
+        "id": "s14",
+        "gate": {
+          "after_step": "s13"
+        }
+      }
+    ],
+    "outcome": "支付首试失败并释放占款，人工对账后在同一申请下重试成功，客户确认只有一笔退款。",
+    "knowledge_note": "失败和成功来自不同时间的外部回执，累计成功金额仅计算s11；对账是重试前置条件，不以客户催问推断付款状态。 客户、地址、单号、仓库和支付记录均为内部演练编写，不是真实客户资料或实际履约；参考回复只供评测。"
+  },
+  {
+    "journey_id": "JRN-16",
+    "title": "仓库漏记配件引起验收争议后核对解除并退款",
+    "business": "BIZ-05",
+    "variant": "branch",
+    "seed_scenario_id": "BASE-OUTONLIFE-05",
+    "tags": [
+      "退货完整性争议",
+      "人工接管",
+      "客户提供包装位置",
+      "仓库更正收件记录",
+      "下一封来信恢复"
+    ],
+    "initial_message": "Hello, I would like to return the OUTONLIFE tree bookshelf with light from order $order_number. It will not fit the space we planned to use. We opened the box to look at the parts but did not assemble it. What needs to be included so the return is not delayed?",
+    "initial_state_patch": {
+      "return_request_details": null,
+      "service_notes": []
+    },
+    "steps": [
+      {
+        "after_hours": 1,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "确认未使用完整并说明自付邮资的退货条件。",
+        "record": {},
+        "expected_actions": [
+          "核对签收未超过30天；确认数量1、灯具和所有零件完整未使用。",
+          "说明客户承担邮资，仓库确认完整后可申请 $price_text 全退。"
+        ],
+        "forbidden_actions": [
+          "不得提前保证已验收或退款。"
+        ],
+        "reference_reply": "Please return the complete bookshelf with its light, fittings and all included hardware. As this is a change-of-mind return, you would pay the tracked return postage. Can you confirm that it is one complete, unused item and that you would like the $price_text item refund after inspection?",
+        "id": "s01",
+        "gate": {
+          "after_step": "initial_message"
+        }
+      },
+      {
+        "after_hours": 4,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, one complete unused bookshelf, including the light and all the hardware. I want the $price_text refund after inspection and understand that I pay the postage. The small hardware bag is still sealed inside one of the cardboard inserts.",
+        "record": {},
+        "expected_actions": [
+          "保留小配件位于纸托内的原始描述，作为后续争议核对线索。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s02",
+        "gate": {
+          "after_step": "s01"
+        }
+      },
+      {
+        "after_hours": 5,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "创建完整未使用商品退货待办。",
+        "record": {},
+        "expected_actions": [
+          "记录原因不适合空间、数量1、完整未使用及硬件包位置。"
+        ],
+        "forbidden_actions": [
+          "不得建立未验收的退款。"
+        ],
+        "reference_reply": "I have submitted the return request and noted where the sealed hardware bag is packed. Please wait for the return details before posting.",
+        "id": "s03",
+        "gate": {
+          "after_step": "s02"
+        }
+      },
+      {
+        "after_hours": 8,
+        "kind": "return_update",
+        "actor": "staff",
+        "text": "客服授权退货并提供具体自付邮资寄回资料。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "unwanted",
+          "status": "authorized",
+          "received": false,
+          "inspection": "not_started",
+          "source_kind": "synthetic_return_instructions",
+          "recipient": "Returns Receiving Team",
+          "address": {
+            "line1": "470 Fulfillment Grove",
+            "line2": "Dock 4",
+            "city": "Bellford",
+            "region": "OH",
+            "postal_code": "43000",
+            "country": "US",
+            "source_kind": "synthetic_return_address"
+          },
+          "return_reference": "RT-10416",
+          "postage_payer": "customer",
+          "label_required": false,
+          "label_status": "not_required_customer_arranges_postage",
+          "instructions": "Return reference RT-10416. Pack the bookshelf with its light and all included hardware and all included accessories in the original inserts and a sealed outer box. Put a note with the return reference and order number inside; remove or cover old shipping labels. Arrange and pay for tracked USPS postage at a staffed USPS Post Office counter, addressed to Returns Receiving Team, 470 Fulfillment Grove, Dock 4, Bellford, OH 43000, United States. No home pickup or merchant prepaid postage is arranged. Ask for and keep the dated drop-off receipt and tracking number until the refund is confirmed. Send us the tracking details after posting. The item refund can be requested once the warehouse has received and inspected the complete return. If you cannot post it this week, reply before sending so we can check the return arrangements.",
+          "carrier": "USPS",
+          "postage_arranged_by": "customer",
+          "handover_method": "staffed_carrier_counter",
+          "handover_location_type": "staffed_USPS_Post_Office_counter",
+          "pickup_booked": false,
+          "tracking_number": "$return_tracking",
+          "proof_to_keep": [
+            "dated_acceptance_receipt",
+            "tracking_number"
+          ]
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。",
+          "授权资料到达后，向客户交代本记录的退货编号、收件人及完整地址、邮资承担、包装和寄件凭据保留要求；引用实际存在的附件，不编造链接。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。",
+          "不得把本地演练退回文档当成真实可扫描承运商面单；实际寄件能力不在本资料范围。"
+        ],
+        "reference_reply": null,
+        "id": "s04",
+        "gate": {
+          "after_step": "s03",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 30,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I posted the box this morning and kept the receipt. The sealed hardware bag is still tucked inside the narrow cardboard insert beside the long boards. I included the return reference RT-10416 on a note in the box.",
+        "record": {},
+        "expected_actions": [
+          "仅记录客户寄出及包装位置说明，不确认仓库收到。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s05",
+        "gate": {
+          "after_step": "s04"
+        }
+      },
+      {
+        "after_hours": 105,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库记录缺少硬件包，验收存在争议，暂停退款。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "unwanted",
+          "status": "received",
+          "received": true,
+          "inspection": "disputed",
+          "source_kind": "synthetic_business_record",
+          "inspection_details": "开箱收到主体和灯具，首轮登记未见硬件包；验收暂挂，不扣费、不批准退款。",
+          "dispute_status": "missing_hardware_under_review"
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。"
+        ],
+        "reference_reply": null,
+        "id": "s06",
+        "gate": {
+          "after_step": "s05",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 106,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "识别客户与仓库记录冲突并转人工核对。",
+        "record": {},
+        "expected_actions": [
+          "保留客户两次说明；人工接管核对开箱记录和包装位置，暂停退款，不擅自判责或扣款。"
+        ],
+        "forbidden_actions": [
+          "不得称客户遗漏或自动扣费；不得把仓库签收当验收通过。"
+        ],
+        "reference_reply": "The warehouse has received the box, but the initial check did not list the hardware bag. Your earlier message says it was inside the cardboard insert. I have asked a colleague to review those packing details with the warehouse before any decision is made.",
+        "id": "s07",
+        "gate": {
+          "after_step": "s06"
+        }
+      },
+      {
+        "after_hours": 110,
+        "kind": "human_reply",
+        "actor": "staff",
+        "text": "I am reviewing the return with the warehouse. We have the bookshelf and light, but the first count did not include the hardware bag. Could you confirm which insert held it and whether it was taped inside? We will check the original packing material before deciding the return outcome.",
+        "record": {
+          "processing_owner": "waiting_customer_after_human",
+          "human_reply_sent": true,
+          "resume_on_next_customer_message": true
+        },
+        "expected_actions": [
+          "人工回复后进入等待客户状态；下一封客户来信才恢复Agent。"
+        ],
+        "forbidden_actions": [
+          "人工回复后不得由业务事件直接恢复自动对客回复。"
+        ],
+        "reference_reply": null,
+        "id": "s08",
+        "gate": {
+          "after_step": "s07"
+        }
+      },
+      {
+        "after_hours": 115,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "It was inside the narrow folded cardboard sleeve beside the two long boards. I did not tape the bag separately because it was already held in that sleeve when it arrived. Please ask them to open both ends of that sleeve; I put it back exactly as it came.",
+        "record": {},
+        "expected_actions": [
+          "客户新来信恢复Agent；引用具体包装位置继续原争议，等待仓库实证。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s09",
+        "gate": {
+          "after_step": "s08"
+        }
+      },
+      {
+        "after_hours": 118,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库查找原包装后确认记录遗漏，解除完整性争议。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "unwanted",
+          "status": "inspected",
+          "received": true,
+          "inspection": "passed",
+          "source_kind": "synthetic_business_record",
+          "inspection_details": "仓库复查首轮保留的纸托，在客户指明的窄纸套内找到原封硬件包；更正收件清单，数量完整，未使用，验收通过。",
+          "dispute_status": "resolved_warehouse_record_omission",
+          "correction_reason": "硬件包随纸托保留，首轮开箱登记漏记。",
+          "previous_inspection": "disputed"
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。"
+        ],
+        "reference_reply": null,
+        "id": "s10",
+        "gate": {
+          "after_step": "s09",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 119,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "恢复正常跟进并按完整退件申请全额退款。",
+        "record": {},
+        "expected_actions": [
+          "说明仓库已找到硬件包、更正记录且验收通过，创建 $amount 全额退款内部待办。"
+        ],
+        "forbidden_actions": [
+          "不得保留缺件扣款或同时补寄硬件；不得把更正记录说成客户补寄。"
+        ],
+        "reference_reply": "The warehouse found the sealed hardware bag inside the sleeve you described. The receiving record has been corrected and the complete return has passed inspection. I have submitted the full $price_text item refund.",
+        "id": "s11",
+        "gate": {
+          "after_step": "s10"
+        }
+      },
+      {
+        "after_hours": 132,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付渠道确认完整退件的全额商品退款成功。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "succeeded",
+          "kind": "refund",
+          "amount_minor": "$amount",
+          "currency": "$currency",
+          "source_kind": "synthetic_business_record",
+          "refund_type": "full",
+          "return_id": "$return",
+          "destination": "original_payment_channel"
+        },
+        "expected_actions": [
+          "查询实际申请关联的执行回执，以回执状态更新进度。"
+        ],
+        "forbidden_actions": [
+          "不得将受理或失败描述成到账。"
+        ],
+        "reference_reply": null,
+        "id": "s12",
+        "gate": {
+          "after_step": "s11",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 133,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "通知全额退款成功并等待客户确认。",
+        "record": {},
+        "expected_actions": [
+          "按成功回执告知 $price_text，无缺件扣减。"
+        ],
+        "forbidden_actions": [
+          "不得自动结案。"
+        ],
+        "reference_reply": "The full $price_text item refund has completed to your original payment method. There was no deduction for the hardware bag.",
+        "id": "s13",
+        "gate": {
+          "after_step": "s12"
+        }
+      },
+      {
+        "after_hours": 170,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I have received the full $price_text refund. I am glad the hardware was found, and there is nothing else outstanding on this return. Thank you.",
+        "record": {},
+        "expected_actions": [],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s14",
+        "gate": {
+          "after_step": "s13"
+        }
+      },
+      {
+        "after_hours": 172,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "客服核对验收争议已解除、收件清单已更正、全額退款成功与客户确认后人工结案。",
+        "record": {
+          "status": "resolved",
+          "closed_by": "staff",
+          "resolution_basis": "customer_confirmation_and_business_records"
+        },
+        "expected_actions": [
+          "由人工核对客户确认、业务回执及未结待办后标记已解决。"
+        ],
+        "forbidden_actions": [
+          "Agent 不得自动结案。"
+        ],
+        "reference_reply": null,
+        "id": "s15",
+        "gate": {
+          "after_step": "s14"
+        }
+      }
+    ],
+    "outcome": "仓库首轮漏记硬件包，人工核对客户包装说明后找回并更正；完整验收后全额退款，人工结案。",
+    "knowledge_note": "不把争议推定为客户责任，不自行拟定缺件扣费；人工回复后的客户新来信明确恢复Agent。 客户、地址、单号、仓库和支付记录均为内部演练编写，不是真实客户资料或实际履约；参考回复只供评测。"
+  },
+  {
+    "journey_id": "JRN-17",
+    "title": "退货资料打不开后人工补发有效资料并退款",
+    "business": "BIZ-05",
+    "variant": "branch",
+    "seed_scenario_id": "BASE-OUTON-05",
+    "tags": [
+      "附件打不开",
+      "暂停寄回等待有效资料",
+      "人工补发",
+      "原退货编号复用",
+      "验收后退款"
+    ],
+    "initial_message": "Hi, I would like to return the black OUTON floor lamp from order $order_number. There is a visible paint scrape on the front of the base, and your colleague has already checked the photos. I would prefer a refund rather than a replacement. I still have the box and all the parts.",
+    "initial_state_patch": {
+      "defect_confirmed_in_simulation": true,
+      "service_notes": [
+        {
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "issue_id": "$issue",
+          "author": "staff",
+          "status": "diagnosis_complete",
+          "result": "defect_confirmed",
+          "detail": "人工核对客户照片，确认底座正面表面漆划伤，按外观质量退货处理；未记录电气故障，不要求客户进行带电检查。",
+          "source_kind": "synthetic_prior_service_record",
+          "technical_instructions_provided": false
+        }
+      ],
+      "return_request_details": null
+    },
+    "steps": [
+      {
+        "after_hours": 1,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "核对已有外观损伤记录，补齐数量及退回退款选择。",
+        "record": {},
+        "expected_actions": [
+          "确认一件商品及所有附件均可完整退回；说明质量退货邮费承担和验收后 $price_text 全退。"
+        ],
+        "forbidden_actions": [
+          "不得凭照片预填仓库验收通过。"
+        ],
+        "reference_reply": "I can arrange the return route. Please confirm that you are returning one complete lamp, including the remote and other included parts, for the $price_text item refund after inspection. Return postage is covered for this damage.",
+        "id": "s01",
+        "gate": {
+          "after_step": "initial_message"
+        }
+      },
+      {
+        "after_hours": 4,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, one lamp with the remote and all the other included parts. I want the full $price_text refund after you receive and inspect it. Please send the return paperwork, and I will pack it back in the original inserts.",
+        "record": {},
+        "expected_actions": [],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s02",
+        "gate": {
+          "after_step": "s01"
+        }
+      },
+      {
+        "after_hours": 5,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "创建退货待办并等待有效资料。",
+        "record": {},
+        "expected_actions": [
+          "创建本问题唯一退货内部申请；原商品全额退款须后置。"
+        ],
+        "forbidden_actions": [
+          "不得直接退款或给尚未存在的附件。"
+        ],
+        "reference_reply": "I have submitted the return request. I will send the receiving and packing details once the return document is available.",
+        "id": "s03",
+        "gate": {
+          "after_step": "s02"
+        }
+      },
+      {
+        "after_hours": 8,
+        "kind": "return_update",
+        "actor": "staff",
+        "text": "客服提供第一版退回资料，包含授权编号、商家承担邮资、收件地址与包装要求。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "authorized",
+          "received": false,
+          "inspection": "not_started",
+          "source_kind": "synthetic_return_instructions",
+          "recipient": "Returns Receiving Team",
+          "address": {
+            "line1": "470 Fulfillment Grove",
+            "line2": "Dock 4",
+            "city": "Bellford",
+            "region": "OH",
+            "postal_code": "43000",
+            "country": "US",
+            "source_kind": "synthetic_return_address"
+          },
+          "return_reference": "RT-10417",
+          "postage_payer": "merchant",
+          "label_artifact_id": "return-label",
+          "label_status": "valid",
+          "label_version": 1,
+          "label_source_kind": "synthetic_local_review_artifact",
+          "instructions": "Return reference RT-10417. Please use the attached return document for this return; return postage is covered. Pack the complete item and its accessories securely using the original inserts where available, add a note with your order number and return reference inside, and cover old shipping labels. The return recipient is Returns Receiving Team, 470 Fulfillment Grove, Dock 4, Bellford, OH 43000, United States. Take the sealed parcel and the enclosed prepaid return document to a staffed USPS Post Office counter. This is a prepaid return, so you do not need to buy postage. No home pickup is booked. Ask the counter for a dated acceptance receipt showing the tracking number. If the counter cannot accept the return document, contact us before paying for another service. Keep your drop-off receipt and tracking number until the return is resolved. Reply if the return document will not open or you cannot hand the parcel over within the next seven days so we can check the return arrangements. Refund or replacement processing follows warehouse receipt and inspection.",
+          "document_delivery_status": "sent",
+          "document_version": 1,
+          "defect_type": "cosmetic",
+          "carrier": "USPS",
+          "postage_arranged_by": "merchant",
+          "handover_method": "staffed_carrier_counter",
+          "handover_location_type": "staffed_USPS_Post_Office_counter",
+          "pickup_booked": false,
+          "tracking_number": "$return_tracking",
+          "proof_to_keep": [
+            "dated_acceptance_receipt",
+            "tracking_number"
+          ],
+          "prepaid_postage_record": {
+            "status": "paid_for_isolated_scenario",
+            "payer": "merchant",
+            "carrier": "USPS",
+            "reference": "RT-10417-P1",
+            "artifact_id": "return-label",
+            "source_kind": "synthetic_prepaid_return_evidence",
+            "valid_for_live_shipping": false
+          }
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。",
+          "授权资料到达后，向客户交代本记录的退货编号、收件人及完整地址、邮资承担、包装和寄件凭据保留要求；引用实际存在的附件，不编造链接。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。",
+          "不得把本地演练退回文档当成真实可扫描承运商面单；实际寄件能力不在本资料范围。"
+        ],
+        "reference_reply": null,
+        "id": "s04",
+        "gate": {
+          "after_step": "s03",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 12,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I tried opening the attachment on my phone and laptop, but it shows an expired-document message and no page I can print. I have not sent the lamp. Could you resend the paperwork as a fresh attachment rather than asking me to use the same one?",
+        "record": {},
+        "expected_actions": [
+          "客户未寄出且报告资料不可访问，不能当作已有可用标签或客户拖延。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s05",
+        "gate": {
+          "after_step": "s04"
+        }
+      },
+      {
+        "after_hours": 13,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "暂停寄回，转人工核对并补发可访问资料。",
+        "record": {},
+        "expected_actions": [
+          "保存资料访问失败信息，人工处理附件；复用RT-10417和原退货申请。",
+          "未补发前不要求客户自费寄出，不推进退件收货。",
+          "将当前会话转人工核对资料；业务记录更新期间只入库提示，待人工回复后的客户新来信恢复。"
+        ],
+        "forbidden_actions": [
+          "不得声称已经验证客户可以下载；不得重复授权第二笔退货。"
+        ],
+        "reference_reply": "Please do not post the parcel using the document that will not open. I have asked a colleague to replace the attachment under the same return reference. You will not need to pay postage because of this problem.",
+        "id": "s06",
+        "gate": {
+          "after_step": "s05"
+        }
+      },
+      {
+        "after_hours": 16,
+        "kind": "return_update",
+        "actor": "staff",
+        "text": "人工查明首版资料会话链接失效，在同一退货申请下准备第二版附件；只核对本地审阅文件可读，不冒充客户设备下载验证。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "authorized",
+          "received": false,
+          "inspection": "not_started",
+          "source_kind": "synthetic_return_instructions",
+          "recipient": "Returns Receiving Team",
+          "address": {
+            "line1": "470 Fulfillment Grove",
+            "line2": "Dock 4",
+            "city": "Bellford",
+            "region": "OH",
+            "postal_code": "43000",
+            "country": "US",
+            "source_kind": "synthetic_return_address"
+          },
+          "return_reference": "RT-10417",
+          "postage_payer": "merchant",
+          "label_artifact_id": "return-label",
+          "label_status": "valid",
+          "label_version": 2,
+          "label_source_kind": "synthetic_local_review_artifact",
+          "instructions": "Return reference RT-10417. Please use the attached return document for this return; return postage is covered. Pack the complete item and its accessories securely using the original inserts where available, add a note with your order number and return reference inside, and cover old shipping labels. The return recipient is Returns Receiving Team, 470 Fulfillment Grove, Dock 4, Bellford, OH 43000, United States. Take the sealed parcel and the enclosed prepaid return document to a staffed USPS Post Office counter. This is a prepaid return, so you do not need to buy postage. No home pickup is booked. Ask the counter for a dated acceptance receipt showing the tracking number. If the counter cannot accept the return document, contact us before paying for another service. Keep your drop-off receipt and tracking number until the return is resolved. Reply if the return document will not open or you cannot hand the parcel over within the next seven days so we can check the return arrangements. Refund or replacement processing follows warehouse receipt and inspection.",
+          "document_version": 2,
+          "supersedes_document_version": 1,
+          "previous_document_status": "expired",
+          "document_delivery_status": "ready_for_human_reply",
+          "local_review_status": "readable",
+          "defect_type": "cosmetic",
+          "carrier": "USPS",
+          "postage_arranged_by": "merchant",
+          "handover_method": "staffed_carrier_counter",
+          "handover_location_type": "staffed_USPS_Post_Office_counter",
+          "pickup_booked": false,
+          "tracking_number": "$return_tracking",
+          "proof_to_keep": [
+            "dated_acceptance_receipt",
+            "tracking_number"
+          ],
+          "prepaid_postage_record": {
+            "status": "paid_for_isolated_scenario",
+            "payer": "merchant",
+            "carrier": "USPS",
+            "reference": "RT-10417-P2",
+            "artifact_id": "return-label",
+            "source_kind": "synthetic_prepaid_return_evidence",
+            "valid_for_live_shipping": false
+          }
+        },
+        "expected_actions": [
+          "人工在原退货申请下准备新版资料，记录首版过期与本地文件可读证据。",
+          "当前会话人工处理中；本次资料更新只入库提示，由下一步人工回复发送。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。",
+          "不得把本地演练退回文档当成真实可扫描承运商面单；实际寄件能力不在本资料范围。",
+          "不得由本次业务资料更新唤醒Agent自动对客回复。"
+        ],
+        "reference_reply": null,
+        "id": "s07",
+        "gate": {
+          "after_step": "s06",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "record_only_during_human_wait": true
+        }
+      },
+      {
+        "after_hours": 17,
+        "kind": "human_reply",
+        "actor": "staff",
+        "text": "I have attached a fresh return document for RT-10417. Please discard the first copy. Return postage is covered, and the recipient remains Returns Receiving Team, 470 Fulfillment Grove, Dock 4, Bellford, OH 43000, United States. Pack the complete lamp and accessories securely, include the order number and return reference inside, and cover old shipping labels. Keep the handover receipt and tracking number. Please reply to confirm that this attachment opens; if you cannot send the parcel within the next seven days, let us know before posting so we can check the arrangements. Please take the sealed parcel and prepaid return document to a staffed USPS Post Office counter. No home pickup is booked. Ask for a dated acceptance receipt with the tracking number; if the return cannot be accepted, contact us before buying postage.",
+        "record": {
+          "processing_owner": "waiting_customer_after_human",
+          "human_reply_sent": true,
+          "resume_on_next_customer_message": true,
+          "attachment_artifact_id": "return-label",
+          "document_version": 2
+        },
+        "expected_actions": [
+          "人工发出新版资料后等待客户下一封来信恢复Agent。"
+        ],
+        "forbidden_actions": [
+          "不得因为补发资料事件自动恢复Agent；不得声称客户已经打开。"
+        ],
+        "reference_reply": null,
+        "id": "s08",
+        "gate": {
+          "after_step": "s07"
+        }
+      },
+      {
+        "after_hours": 22,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The new attachment opens correctly, thank you. I packed the complete lamp as instructed and handed it over this afternoon. I have the receipt and will keep it until the refund is settled.",
+        "record": {},
+        "expected_actions": [
+          "新客户来信恢复Agent；有客户对新版资料可读和已寄回的确认，仍须等待仓库。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s09",
+        "gate": {
+          "after_step": "s08"
+        }
+      },
+      {
+        "after_hours": 100,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库收到原退货编号对应的一箱灯具，等待检查。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "received",
+          "received": true,
+          "inspection": "pending",
+          "source_kind": "synthetic_business_record",
+          "defect_type": "cosmetic"
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。"
+        ],
+        "reference_reply": null,
+        "id": "s10",
+        "gate": {
+          "after_step": "s09",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 108,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库完整验收通过。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "inspected",
+          "received": true,
+          "inspection": "passed",
+          "source_kind": "synthetic_business_record",
+          "inspection_details": "灯具、遥控器及随箱配件完整，商品与订单一致，原报告外观划痕得到确认。",
+          "defect_type": "cosmetic"
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。"
+        ],
+        "reference_reply": null,
+        "id": "s11",
+        "gate": {
+          "after_step": "s10",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 109,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "验收通过后申请全额退款。",
+        "record": {},
+        "expected_actions": [
+          "在原问题下创建 $amount 的全额商品退款内部待办；无第二笔退货或补偿。"
+        ],
+        "forbidden_actions": [
+          "不得因资料补发额外扣费或追加未经批准补偿。"
+        ],
+        "reference_reply": "The complete return has now passed inspection. I have submitted the full item refund of $price_text to your original payment method.",
+        "id": "s12",
+        "gate": {
+          "after_step": "s11"
+        }
+      },
+      {
+        "after_hours": 120,
+        "kind": "execution_record",
+        "actor": "payment",
+        "text": "支付渠道确认本次全额商品退款成功。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "succeeded",
+          "kind": "refund",
+          "amount_minor": "$amount",
+          "currency": "$currency",
+          "source_kind": "synthetic_business_record",
+          "refund_type": "full",
+          "return_id": "$return",
+          "destination": "original_payment_channel"
+        },
+        "expected_actions": [
+          "查询实际申请关联的执行回执，以回执状态更新进度。"
+        ],
+        "forbidden_actions": [
+          "不得将受理或失败描述成到账。"
+        ],
+        "reference_reply": null,
+        "id": "s13",
+        "gate": {
+          "after_step": "s12",
+          "operation_required": {
+            "kind": "refund",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 121,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "告知成功回执并等待客户核对。",
+        "record": {},
+        "expected_actions": [
+          "告知 $price_text 全额退款完成，保留资料补发历史。"
+        ],
+        "forbidden_actions": [
+          "不得自动结案。"
+        ],
+        "reference_reply": "The payment result confirms that the full $price_text item refund has completed to your original payment method.",
+        "id": "s14",
+        "gate": {
+          "after_step": "s13"
+        }
+      },
+      {
+        "after_hours": 160,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The full $price_text credit has appeared in my account. The replacement paperwork solved the return problem, and I do not need anything else. Thank you.",
+        "record": {},
+        "expected_actions": [],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s15",
+        "gate": {
+          "after_step": "s14"
+        }
+      },
+      {
+        "after_hours": 162,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "客服确认新版资料可读由客户证实、原退件验收和全额退款成功，人工结案。",
+        "record": {
+          "status": "resolved",
+          "closed_by": "staff",
+          "resolution_basis": "customer_confirmation_and_business_records"
+        },
+        "expected_actions": [
+          "由人工核对客户确认、业务回执及未结待办后标记已解决。"
+        ],
+        "forbidden_actions": [
+          "Agent 不得自动结案。"
+        ],
+        "reference_reply": null,
+        "id": "s16",
+        "gate": {
+          "after_step": "s15"
+        }
+      }
+    ],
+    "outcome": "客户因首版附件失效未寄回，人工同申请补发新版资料，客户确认可读后完成退回退款并人工结案。",
+    "knowledge_note": "资料有效性仅指隔离分支；本地退回文档是审阅样本，不是真实承运商面单，不编造可下载真实链接。 客户、地址、单号、仓库和支付记录均为内部演练编写，不是真实客户资料或实际履约；参考回复只供评测。"
+  },
+  {
+    "journey_id": "JRN-18",
+    "title": "换货缺货且拒绝其他颜色后等待同款补库存",
+    "business": "BIZ-06",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-018",
+    "tags": [
+      "同SKU缺货",
+      "拒绝其他颜色",
+      "等待补库存",
+      "重新核对库存",
+      "先退回验收"
+    ],
+    "initial_message": "Hello, this is about the purple BELEEV A9 scooter on order $order_number. Your colleague confirmed the faulty folding catch and told us to stop using it. I want the same purple model as a replacement. Could you check that exact one is available before we send this one back?",
+    "initial_state_patch": {
+      "defect_confirmed_in_simulation": true,
+      "service_notes": [
+        {
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "issue_id": "$issue",
+          "author": "staff",
+          "status": "diagnosis_complete",
+          "result": "defect_confirmed",
+          "detail": "人工已确认紫色 A9 折叠扣异常，要求停止使用；已选择以整车退回换货方式处理，不向客户提供锁扣拆修或载荷测试。",
+          "source_kind": "synthetic_prior_service_record",
+          "technical_instructions_provided": false
+        }
+      ],
+      "inventory": [
+        {
+          "item_id": "$sku",
+          "on_hand": 0,
+          "reserved": 0
+        }
+      ]
+    },
+    "steps": [
+      {
+        "after_hours": 1,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "核对同SKU缺货，说明可等待并征询客户选择。",
+        "record": {},
+        "expected_actions": [
+          "查询相同紫色A9库存为0，不建立可执行换出申请；说明补库时间未知。",
+          "提出等待同款或讨论退回退款，由客户选择，不能替换颜色。"
+        ],
+        "forbidden_actions": [
+          "不得把其它颜色自动当等价商品；不得保证补库或到货日。"
+        ],
+        "reference_reply": "The same purple A9 is currently out of stock. I do not have a confirmed replenishment date. You can wait for that exact model and colour, or we can discuss returning it for a refund. I will not change the colour without your agreement.",
+        "id": "s01",
+        "gate": {
+          "after_step": "initial_message"
+        }
+      },
+      {
+        "after_hours": 4,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Please do not send black, pink or any other colour. We would like to wait for the same purple A9 for now. I do not want a refund at this stage. Please let me know when that exact model is back in stock so we can arrange the return.",
+        "record": {},
+        "expected_actions": [
+          "记录明确拒绝其他颜色、等待同款及暂不退款；保持问题开放。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s02",
+        "gate": {
+          "after_step": "s01"
+        }
+      },
+      {
+        "after_hours": 48,
+        "kind": "inventory_update",
+        "actor": "warehouse",
+        "text": "仓库确认紫色A9同SKU新到货2件，未占用。",
+        "record": {
+          "item_id": "$sku",
+          "on_hand": 2,
+          "reserved": 0,
+          "source_kind": "synthetic_inventory_record"
+        },
+        "expected_actions": [
+          "查询最新同SKU可用库存，并向客户确认仍按同款退回换货。"
+        ],
+        "forbidden_actions": [
+          "不得仅凭早前缺货状态继续拒绝；不得以补库存等同已发货。"
+        ],
+        "reference_reply": null,
+        "id": "s03",
+        "gate": {
+          "after_step": "s02"
+        }
+      },
+      {
+        "after_hours": 49,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "补库后再确认换货选择和完整收货地址。",
+        "record": {},
+        "expected_actions": [
+          "告知同款可用，请客户确认仍同意先退回验收再换出及完整收货地址。"
+        ],
+        "forbidden_actions": [
+          "不得沿用默认地址确认或跳过退回验收。"
+        ],
+        "reference_reply": "The same purple A9 is now available. If you still want to proceed, please confirm that you will return the faulty scooter first and provide the full address for the replacement.",
+        "id": "s04",
+        "gate": {
+          "after_step": "s03"
+        }
+      },
+      {
+        "after_hours": 52,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, please continue with one purple A9, and I agree to return the faulty one first. The replacement address is Alex Morgan, 936 Alder Quay, Apartment 6, Bellford, OH 43000, United States. I have checked it and confirm that this is the correct address.",
+        "record": {},
+        "expected_actions": [
+          "明确同SKU选择、先退回及完整地址。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s05",
+        "gate": {
+          "after_step": "s04"
+        }
+      },
+      {
+        "after_hours": 53,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "依据客户明确确认保存本版收货地址。",
+        "record": {
+          "version": 1,
+          "confirmed": true,
+          "address": {
+            "recipient": "Alex Morgan",
+            "line1": "936 Alder Quay",
+            "line2": "Apartment 6",
+            "city": "Bellford",
+            "region": "OH",
+            "postal_code": "43000",
+            "country": "US"
+          },
+          "customer_id": "$customer",
+          "source_kind": "synthetic_contact_details",
+          "source_step": "s05"
+        },
+        "expected_actions": [
+          "地址确认绑定具体版本；发货前须核对最新版本。"
+        ],
+        "forbidden_actions": [
+          "不得沿用失效确认或把更新地址自动视为已确认。"
+        ],
+        "reference_reply": null,
+        "id": "s06",
+        "gate": {
+          "after_step": "s05"
+        }
+      },
+      {
+        "after_hours": 54,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "创建故障退货待办，暂不执行换出。",
+        "record": {},
+        "expected_actions": [
+          "创建一件故障原车的退货申请；同款库存应在实际换出前再次校验。"
+        ],
+        "forbidden_actions": [
+          "不得预先标记原车已返回或先行出库。"
+        ],
+        "reference_reply": "I have requested the return arrangements for the faulty scooter. Please keep it out of use while we complete the exchange.",
+        "id": "s07",
+        "gate": {
+          "after_step": "s06"
+        }
+      },
+      {
+        "after_hours": 58,
+        "kind": "return_update",
+        "actor": "staff",
+        "text": "客服提供RT-10418完整寄回资料，说明商家承担邮资及包装、收件、保留凭据事项。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "authorized",
+          "received": false,
+          "inspection": "not_started",
+          "source_kind": "synthetic_return_instructions",
+          "recipient": "Returns Receiving Team",
+          "address": {
+            "line1": "470 Fulfillment Grove",
+            "line2": "Dock 4",
+            "city": "Bellford",
+            "region": "OH",
+            "postal_code": "43000",
+            "country": "US",
+            "source_kind": "synthetic_return_address"
+          },
+          "return_reference": "RT-10418",
+          "postage_payer": "merchant",
+          "label_artifact_id": "return-label",
+          "label_status": "valid",
+          "label_version": 1,
+          "label_source_kind": "synthetic_local_review_artifact",
+          "instructions": "Return reference RT-10418. Please use the attached return document for this return; return postage is covered. Pack the complete item and its accessories securely using the original inserts where available, add a note with your order number and return reference inside, and cover old shipping labels. The return recipient is Returns Receiving Team, 470 Fulfillment Grove, Dock 4, Bellford, OH 43000, United States. Take the sealed parcel and the enclosed prepaid return document to a staffed USPS Post Office counter. This is a prepaid return, so you do not need to buy postage. No home pickup is booked. Ask the counter for a dated acceptance receipt showing the tracking number. If the counter cannot accept the return document, contact us before paying for another service. Keep your drop-off receipt and tracking number until the return is resolved. Reply if the return document will not open or you cannot hand the parcel over within the next seven days so we can check the return arrangements. Refund or replacement processing follows warehouse receipt and inspection.",
+          "carrier": "USPS",
+          "postage_arranged_by": "merchant",
+          "handover_method": "staffed_carrier_counter",
+          "handover_location_type": "staffed_USPS_Post_Office_counter",
+          "pickup_booked": false,
+          "tracking_number": "$return_tracking",
+          "proof_to_keep": [
+            "dated_acceptance_receipt",
+            "tracking_number"
+          ],
+          "prepaid_postage_record": {
+            "status": "paid_for_isolated_scenario",
+            "payer": "merchant",
+            "carrier": "USPS",
+            "reference": "RT-10418-P1",
+            "artifact_id": "return-label",
+            "source_kind": "synthetic_prepaid_return_evidence",
+            "valid_for_live_shipping": false
+          }
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。",
+          "授权资料到达后，向客户交代本记录的退货编号、收件人及完整地址、邮资承担、包装和寄件凭据保留要求；引用实际存在的附件，不编造链接。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。",
+          "不得把本地演练退回文档当成真实可扫描承运商面单；实际寄件能力不在本资料范围。"
+        ],
+        "reference_reply": null,
+        "id": "s08",
+        "gate": {
+          "after_step": "s07",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 76,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I have sent the whole scooter back using the return document for RT-10418. I kept the receipt. Please remember that I am waiting for the purple A9 only, at the address I confirmed.",
+        "record": {},
+        "expected_actions": [
+          "客户寄回陈述不替代仓库收货；再次维持原SKU和地址。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s09",
+        "gate": {
+          "after_step": "s08"
+        }
+      },
+      {
+        "after_hours": 148,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库对同一退件完成实物收货与开箱验收，记录两项事实均成立。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "inspected",
+          "received": true,
+          "inspection": "passed",
+          "source_kind": "synthetic_business_record",
+          "inspection_details": "仓库于本次事件收件并开箱：紫色A9原车一件、配件齐全，故障记录与退回品一致，验收通过。",
+          "warehouse_receipt_recorded": true
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。"
+        ],
+        "reference_reply": null,
+        "id": "s10",
+        "gate": {
+          "after_step": "s09",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 149,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "复查库存后创建同SKU换货内部待办。",
+        "record": {},
+        "expected_actions": [
+          "核对原车验收通过、紫色A9剩余可用库存与地址1确认，创建唯一同SKU换货申请。"
+        ],
+        "forbidden_actions": [
+          "不得改颜色、追加退款或把库存到货当出库成功。"
+        ],
+        "reference_reply": "The returned scooter has passed inspection, and the same purple A9 is still available. I have submitted the replacement request to the address you confirmed.",
+        "id": "s11",
+        "gate": {
+          "after_step": "s10"
+        }
+      },
+      {
+        "after_hours": 152,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "人工确认原件验收通过、同一商品有库存、客户本版地址已确认后建立换出履约单。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "replacement",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "replacement",
+          "item_id": "$sku",
+          "quantity": 1,
+          "address_version": 1,
+          "return_id": "$return",
+          "source_kind": "synthetic_business_record"
+        },
+        "expected_actions": [
+          "仅在真实换货内部待办存在后关联人工履约记录。",
+          "保持与原问题唯一补偿关系；此时尚未发货。"
+        ],
+        "forbidden_actions": [
+          "不得新建退款或其他重复补偿；不得声称已经送达。"
+        ],
+        "reference_reply": null,
+        "id": "s12",
+        "gate": {
+          "after_step": "s11",
+          "operation_required": {
+            "kind": "replacement",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 162,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "承运商返回当前包裹物流状态。",
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "replacement",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "in_transit",
+          "source_kind": "synthetic_carrier_record"
+        },
+        "expected_actions": [
+          "根据关联包裹及承运商状态回复；客户确认收货前保持会话开放。"
+        ],
+        "forbidden_actions": [
+          "创建标签不等于已寄出；物流签收不等于客户问题已解决。"
+        ],
+        "reference_reply": null,
+        "id": "s13",
+        "gate": {
+          "after_step": "s12",
+          "operation_required": {
+            "kind": "replacement",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 220,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "承运商返回当前包裹物流状态。",
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "replacement",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "USPS",
+          "status": "delivered",
+          "source_kind": "synthetic_carrier_record"
+        },
+        "expected_actions": [
+          "根据关联包裹及承运商状态回复；客户确认收货前保持会话开放。"
+        ],
+        "forbidden_actions": [
+          "创建标签不等于已寄出；物流签收不等于客户问题已解决。"
+        ],
+        "reference_reply": null,
+        "id": "s14",
+        "gate": {
+          "after_step": "s13",
+          "operation_required": {
+            "kind": "replacement",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 224,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The purple A9 arrived today. It is the same model and colour we asked for, and the folding catch no longer has the problem we reported. Everything was in the box. We are happy to keep this one, thank you.",
+        "record": {},
+        "expected_actions": [],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s15",
+        "gate": {
+          "after_step": "s14"
+        }
+      },
+      {
+        "after_hours": 226,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "人工核对客户拒绝其他颜色的选择一直被尊重、原件验收通过且同SKU换出，客户确认问题解决后结案。",
+        "record": {
+          "status": "resolved",
+          "closed_by": "staff",
+          "resolution_basis": "customer_confirmation_and_business_records"
+        },
+        "expected_actions": [
+          "由人工核对客户确认、业务回执及未结待办后标记已解决。"
+        ],
+        "forbidden_actions": [
+          "Agent 不得自动结案。"
+        ],
+        "reference_reply": null,
+        "id": "s16",
+        "gate": {
+          "after_step": "s15"
+        }
+      }
+    ],
+    "outcome": "同款缺货期间客户选择等待并拒绝其他颜色；补库后完成原件退回验收、同SKU换出及人工结案。",
+    "knowledge_note": "同SKU库存变化为外部仓库记录；已有故障服务记录避免编造危险维修步骤。质量退回附件仅供隔离审阅，不能在真实物流使用。 客户、地址、单号、仓库和支付记录均为内部演练编写，不是真实客户资料或实际履约；参考回复只供评测。"
+  },
+  {
+    "journey_id": "JRN-19",
+    "title": "客户搬家使旧地址确认失效并确认新地址后换出",
+    "business": "BIZ-06",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-017",
+    "tags": [
+      "客户搬家",
+      "旧地址确认失效",
+      "新地址二次明确确认",
+      "发货绑定新版本",
+      "同SKU换货"
+    ],
+    "initial_message": "Hello, I would like to proceed with a replacement for the natural wood OUTON tripod floor lamp on order $order_number. Your colleague has already confirmed the faulty lamp and recommended a return. Please keep the same model and finish. I can send the complete lamp back this week.",
+    "initial_state_patch": {
+      "defect_confirmed_in_simulation": true,
+      "service_notes": [
+        {
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "issue_id": "$issue",
+          "author": "staff",
+          "status": "diagnosis_complete",
+          "result": "defect_confirmed",
+          "detail": "人工已核对该订单原木色三脚架灯具的故障资料，确认需整灯退回换货；未向客户提供电气拆修步骤。",
+          "source_kind": "synthetic_prior_service_record",
+          "technical_instructions_provided": false
+        }
+      ]
+    },
+    "steps": [
+      {
+        "after_hours": 1,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "确认同SKU库存、先退回规则及当前完整地址。",
+        "record": {},
+        "expected_actions": [
+          "查询原木色欧规同SKU有库存，询问完整收货地址并明确先退回验收。"
+        ],
+        "forbidden_actions": [
+          "不得从历史订单地址直接推断客户已确认；不得先换出。"
+        ],
+        "reference_reply": "We can continue with the same model and natural wood finish. The original lamp must be returned and inspected before the replacement is sent. Please confirm the full delivery address for the replacement.",
+        "id": "s01",
+        "gate": {
+          "after_step": "initial_message"
+        }
+      },
+      {
+        "after_hours": 4,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I agree to return the complete lamp first. Please send the replacement to Robin Keller, Lindenbogen 16, Apartment 2, 04999 Lindenhafen, Germany. I have checked that address and confirm it is correct at the moment.",
+        "record": {},
+        "expected_actions": [
+          "客户明确确认地址版本1及退回先行。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s02",
+        "gate": {
+          "after_step": "s01"
+        }
+      },
+      {
+        "after_hours": 5,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "依据客户明确确认保存本版收货地址。",
+        "record": {
+          "version": 1,
+          "confirmed": true,
+          "address": {
+            "recipient": "Robin Keller",
+            "line1": "Lindenbogen 16",
+            "line2": "Apartment 2",
+            "city": "Lindenhafen",
+            "postal_code": "04999",
+            "country": "DE"
+          },
+          "customer_id": "$customer",
+          "source_kind": "synthetic_contact_details",
+          "source_step": "s02"
+        },
+        "expected_actions": [
+          "地址确认绑定具体版本；发货前须核对最新版本。"
+        ],
+        "forbidden_actions": [
+          "不得沿用失效确认或把更新地址自动视为已确认。"
+        ],
+        "reference_reply": null,
+        "id": "s03",
+        "gate": {
+          "after_step": "s02"
+        }
+      },
+      {
+        "after_hours": 6,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "提交故障退货内部待办。",
+        "record": {},
+        "expected_actions": [
+          "记录同型号同外观及地址1，先建立退货申请等资料。"
+        ],
+        "forbidden_actions": [
+          "不得在原件未验收时安排发出替换品。"
+        ],
+        "reference_reply": "I have requested the return arrangements. Return postage is covered. Please wait for the return document before handing over the parcel.",
+        "id": "s04",
+        "gate": {
+          "after_step": "s03"
+        }
+      },
+      {
+        "after_hours": 10,
+        "kind": "return_update",
+        "actor": "staff",
+        "text": "客服提供德国退回资料：RT-10419、完整收件人和地址、商家邮资、包装与保留凭据要求。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "authorized",
+          "received": false,
+          "inspection": "not_started",
+          "source_kind": "synthetic_return_instructions",
+          "recipient": "Returns Receiving Team",
+          "address": {
+            "line1": "Lagerbogen 28",
+            "line2": "Tor 4",
+            "city": "Lindenhafen",
+            "postal_code": "04999",
+            "country": "DE",
+            "source_kind": "synthetic_return_address"
+          },
+          "return_reference": "RT-10419",
+          "postage_payer": "merchant",
+          "label_artifact_id": "return-label",
+          "label_status": "valid",
+          "label_version": 1,
+          "label_source_kind": "synthetic_local_review_artifact",
+          "instructions": "Return reference RT-10419. Please use the attached return document for this return; return postage is covered. Pack the complete item and its accessories securely using the original inserts where available, add a note with your order number and return reference inside, and cover old shipping labels. The return recipient is Returns Receiving Team, Lagerbogen 28, Tor 4, 04999 Lindenhafen, Germany. Take the sealed parcel and the enclosed prepaid return document to a staffed DHL Parcelshop. This is a prepaid return, so you do not need to buy postage. No home pickup is booked. Ask the counter for a dated acceptance receipt showing the tracking number. If the counter cannot accept the return document, contact us before paying for another service. Keep your drop-off receipt and tracking number until the return is resolved. Reply if the return document will not open or you cannot hand the parcel over within the next seven days so we can check the return arrangements. Refund or replacement processing follows warehouse receipt and inspection.",
+          "carrier": "DHL",
+          "postage_arranged_by": "merchant",
+          "handover_method": "staffed_carrier_counter",
+          "handover_location_type": "staffed_DHL_Parcelshop",
+          "pickup_booked": false,
+          "tracking_number": "$return_tracking",
+          "proof_to_keep": [
+            "dated_acceptance_receipt",
+            "tracking_number"
+          ],
+          "prepaid_postage_record": {
+            "status": "paid_for_isolated_scenario",
+            "payer": "merchant",
+            "carrier": "DHL",
+            "reference": "RT-10419-P1",
+            "artifact_id": "return-label",
+            "source_kind": "synthetic_prepaid_return_evidence",
+            "valid_for_live_shipping": false
+          }
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。",
+          "授权资料到达后，向客户交代本记录的退货编号、收件人及完整地址、邮资承担、包装和寄件凭据保留要求；引用实际存在的附件，不编造链接。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。",
+          "不得把本地演练退回文档当成真实可扫描承运商面单；实际寄件能力不在本资料范围。"
+        ],
+        "reference_reply": null,
+        "id": "s05",
+        "gate": {
+          "after_step": "s04",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 28,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "I handed the original lamp over today and kept the receipt. One important change: our move has been brought forward, so please do not send the replacement to Lindenbogen 16. The new address is Robin Keller, Eichenbogen 72, Apartment 5, 04999 Lindenhafen, Germany. Please update it and let me check the saved details before anything is dispatched.",
+        "record": {},
+        "expected_actions": [
+          "记录搬家指令并立即阻止旧地址出库；客户要求核对保存详情，尚非本版最终确认。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s06",
+        "gate": {
+          "after_step": "s05"
+        }
+      },
+      {
+        "after_hours": 29,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "客户提出搬家地址，本版尚未确认；先前地址确认失效。",
+        "record": {
+          "version": 2,
+          "confirmed": false,
+          "address": {
+            "recipient": "Robin Keller",
+            "line1": "Eichenbogen 72",
+            "line2": "Apartment 5",
+            "city": "Lindenhafen",
+            "postal_code": "04999",
+            "country": "DE"
+          },
+          "customer_id": "$customer",
+          "source_kind": "synthetic_contact_details",
+          "source_step": "s06",
+          "invalidates_version": 1,
+          "previous_address_confirmed": false,
+          "shipment_hold_reason": "address_changed_awaiting_explicit_confirmation"
+        },
+        "expected_actions": [
+          "地址确认绑定具体版本；发货前须核对最新版本。"
+        ],
+        "forbidden_actions": [
+          "不得沿用失效确认或把更新地址自动视为已确认。"
+        ],
+        "reference_reply": null,
+        "id": "s07",
+        "gate": {
+          "after_step": "s06"
+        }
+      },
+      {
+        "after_hours": 30,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "展示新地址并要求明确确认，保持出库暂停。",
+        "record": {},
+        "expected_actions": [
+          "明确旧地址确认失效、地址2未确认；重述保存的新地址并征求确认。"
+        ],
+        "forbidden_actions": [
+          "不得把修改地址消息自动当作最终确认；不得沿用版本1出库。"
+        ],
+        "reference_reply": "The replacement is on hold, and the old address will not be used. I have saved: Robin Keller, Eichenbogen 72, Apartment 5, 04999 Lindenhafen, Germany. Please confirm that these exact details are correct for delivery.",
+        "id": "s08",
+        "gate": {
+          "after_step": "s07"
+        }
+      },
+      {
+        "after_hours": 34,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "Yes, the delivery details in your reply are correct: Robin Keller, Eichenbogen 72, Apartment 5, 04999 Lindenhafen, Germany. The postcode and apartment number are right. Please send the replacement to this new address and not Lindenbogen 16.",
+        "record": {},
+        "expected_actions": [
+          "客户明确确认地址版本2，保留禁止使用旧址的指令。"
+        ],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s09",
+        "gate": {
+          "after_step": "s08"
+        }
+      },
+      {
+        "after_hours": 35,
+        "kind": "address_update",
+        "actor": "staff",
+        "text": "依据客户明确确认保存本版收货地址。",
+        "record": {
+          "version": 2,
+          "confirmed": true,
+          "address": {
+            "recipient": "Robin Keller",
+            "line1": "Eichenbogen 72",
+            "line2": "Apartment 5",
+            "city": "Lindenhafen",
+            "postal_code": "04999",
+            "country": "DE"
+          },
+          "customer_id": "$customer",
+          "source_kind": "synthetic_contact_details",
+          "source_step": "s09",
+          "invalidates_version": 1
+        },
+        "expected_actions": [
+          "地址确认绑定具体版本；发货前须核对最新版本。"
+        ],
+        "forbidden_actions": [
+          "不得沿用失效确认或把更新地址自动视为已确认。"
+        ],
+        "reference_reply": null,
+        "id": "s10",
+        "gate": {
+          "after_step": "s09"
+        }
+      },
+      {
+        "after_hours": 105,
+        "kind": "return_update",
+        "actor": "warehouse",
+        "text": "仓库完成故障原件实物收货和验收，换出前置条件成立。",
+        "record": {
+          "return_id": "$return",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "quantity": 1,
+          "reason": "defect",
+          "status": "inspected",
+          "received": true,
+          "inspection": "passed",
+          "source_kind": "synthetic_business_record",
+          "inspection_details": "仓库实物收到并开箱验收：原木色三脚架灯具一套及配件完整，订单一致，换货验收通过。",
+          "warehouse_receipt_recorded": true
+        },
+        "expected_actions": [
+          "查询对应退货申请及当前仓库记录；客户寄回或承运商签收不代替验收。"
+        ],
+        "forbidden_actions": [
+          "不得在验收通过前提交全额退款或安排换出。"
+        ],
+        "reference_reply": null,
+        "id": "s11",
+        "gate": {
+          "after_step": "s10",
+          "operation_required": {
+            "kind": "return",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 106,
+        "kind": "checkpoint",
+        "actor": "agent_checkpoint",
+        "text": "复核同SKU库存、原件验收及新地址确认后提交换货申请。",
+        "record": {},
+        "expected_actions": [
+          "使用版本2地址创建唯一同SKU换货内部待办；核对旧地址没有已出库包裹。"
+        ],
+        "forbidden_actions": [
+          "不得沿用旧申请内的版本1快照发货；不得另行退款。"
+        ],
+        "reference_reply": "The return has passed inspection. I have submitted the same-model replacement using the new address you confirmed on Eichenbogen 72, Apartment 5.",
+        "id": "s12",
+        "gate": {
+          "after_step": "s11"
+        }
+      },
+      {
+        "after_hours": 110,
+        "kind": "execution_record",
+        "actor": "staff",
+        "text": "人工确认原件验收通过、同一商品有库存、客户本版地址已确认后建立换出履约单。",
+        "record": {
+          "execution_id": "$execution",
+          "operation_selector": {
+            "kind": "replacement",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          },
+          "status": "accepted",
+          "kind": "replacement",
+          "item_id": "$sku",
+          "quantity": 1,
+          "address_version": 2,
+          "return_id": "$return",
+          "source_kind": "synthetic_business_record"
+        },
+        "expected_actions": [
+          "仅在真实换货内部待办存在后关联人工履约记录。",
+          "保持与原问题唯一补偿关系；此时尚未发货。"
+        ],
+        "forbidden_actions": [
+          "不得新建退款或其他重复补偿；不得声称已经送达。"
+        ],
+        "reference_reply": null,
+        "id": "s13",
+        "gate": {
+          "after_step": "s12",
+          "operation_required": {
+            "kind": "replacement",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 120,
+        "kind": "shipment_update",
+        "actor": "carrier",
+        "text": "承运商返回当前包裹物流状态。",
+        "record": {
+          "parcel_id": "$parcel",
+          "order_id": "$order",
+          "order_line_id": "$line",
+          "purpose": "replacement",
+          "execution_id": "$execution",
+          "tracking_number": "$tracking",
+          "carrier": "DHL",
+          "status": "in_transit",
+          "source_kind": "synthetic_carrier_record",
+          "address_version": 2,
+          "destination_address": {
+            "recipient": "Robin Keller",
+            "line1": "Eichenbogen 72",
+            "line2": "Apartment 5",
+            "city": "Lindenhafen",
+            "postal_code": "04999",
+            "country": "DE"
+          }
+        },
+        "expected_actions": [
+          "根据关联包裹及承运商状态回复；客户确认收货前保持会话开放。"
+        ],
+        "forbidden_actions": [
+          "创建标签不等于已寄出；物流签收不等于客户问题已解决。"
+        ],
+        "reference_reply": null,
+        "id": "s14",
+        "gate": {
+          "after_step": "s13",
+          "operation_required": {
+            "kind": "replacement",
+            "order_id": "$order",
+            "order_line_id": "$line",
+            "issue_id": "$issue"
+          }
+        }
+      },
+      {
+        "after_hours": 180,
+        "kind": "customer_message",
+        "actor": "customer",
+        "text": "The replacement reached our new apartment today. It is the correct natural wood lamp, everything was included, and it now works as expected. Nothing went to the old address. Thank you for catching the change before dispatch.",
+        "record": {},
+        "expected_actions": [],
+        "forbidden_actions": [],
+        "reference_reply": null,
+        "id": "s15",
+        "gate": {
+          "after_step": "s14"
+        }
+      },
+      {
+        "after_hours": 182,
+        "kind": "human_close",
+        "actor": "staff",
+        "text": "人工核对地址版本2明确确认、出库地址快照及客户新址收货反馈，确认原故障解决后结案。",
+        "record": {
+          "status": "resolved",
+          "closed_by": "staff",
+          "resolution_basis": "customer_confirmation_and_business_records"
+        },
+        "expected_actions": [
+          "由人工核对客户确认、业务回执及未结待办后标记已解决。"
+        ],
+        "forbidden_actions": [
+          "Agent 不得自动结案。"
+        ],
+        "reference_reply": null,
+        "id": "s16",
+        "gate": {
+          "after_step": "s15"
+        }
+      }
+    ],
+    "outcome": "客户搬家使旧确认失效；新地址经明确核对后绑定换出记录，客户在新址收到正确商品，人工结案。",
+    "knowledge_note": "德国市场、欧规原木色商品及EUR实付沿用SCN-017；地址均为编写内容，未使用真实客户隐私。故障退回资料仅供隔离审阅。 客户、地址、单号、仓库和支付记录均为内部演练编写，不是真实客户资料或实际履约；参考回复只供评测。"
+  }
+]

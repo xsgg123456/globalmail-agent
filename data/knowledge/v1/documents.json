@@ -1,0 +1,446 @@
+[
+  {
+    "document_id": "MAN-OUTON-01",
+    "version": "1.0.0",
+    "title": "四按键朝天灯产品与售后参考",
+    "document_type": "manual_pdf",
+    "path": "../../../output/pdf/product-manuals-v1.pdf",
+    "brand": "OUTON",
+    "family_id": "OUTON-01",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+    "page_range": [
+      2,
+      3
+    ],
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "SOP-OUTON-01",
+    "version": "1.0.0",
+    "title": "四按键朝天灯排障 SOP",
+    "document_type": "troubleshooting_md",
+    "path": "sop/OUTON-01.md",
+    "brand": "OUTON",
+    "family_id": "OUTON-01",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "543cd121be53c138969f47d4fe59f621202de5d4a2d108d1298ecb9fb439952c",
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "MAN-OUTON-02",
+    "version": "1.0.0",
+    "title": "带托盘三脚架灯产品与售后参考",
+    "document_type": "manual_pdf",
+    "path": "../../../output/pdf/product-manuals-v1.pdf",
+    "brand": "OUTON",
+    "family_id": "OUTON-02",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+    "page_range": [
+      4,
+      5
+    ],
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "SOP-OUTON-02",
+    "version": "1.0.0",
+    "title": "带托盘三脚架灯排障 SOP",
+    "document_type": "troubleshooting_md",
+    "path": "sop/OUTON-02.md",
+    "brand": "OUTON",
+    "family_id": "OUTON-02",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "1fc62ecfeca48a344f796a4c90e3da1b64ef0a2170f0b06934c731ef90a4c561",
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "MAN-OUTON-03",
+    "version": "1.0.0",
+    "title": "滑条遥控喇叭子母灯产品与售后参考",
+    "document_type": "manual_pdf",
+    "path": "../../../output/pdf/product-manuals-v1.pdf",
+    "brand": "OUTON",
+    "family_id": "OUTON-03",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+    "page_range": [
+      6,
+      7
+    ],
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "SOP-OUTON-03",
+    "version": "1.0.0",
+    "title": "滑条遥控喇叭子母灯排障 SOP",
+    "document_type": "troubleshooting_md",
+    "path": "sop/OUTON-03.md",
+    "brand": "OUTON",
+    "family_id": "OUTON-03",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "de242f11fa12ca77972039becd0bc8d0313185e4c2781a563aa62fbe0deae39c",
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "MAN-OUTONLIFE-01",
+    "version": "1.0.0",
+    "title": "树形带灯书架产品与售后参考",
+    "document_type": "manual_pdf",
+    "path": "../../../output/pdf/product-manuals-v1.pdf",
+    "brand": "OUTONLIFE",
+    "family_id": "OUTONLIFE-01",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+    "page_range": [
+      8,
+      9
+    ],
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "SOP-OUTONLIFE-01",
+    "version": "1.0.0",
+    "title": "树形带灯书架排障 SOP",
+    "document_type": "troubleshooting_md",
+    "path": "sop/OUTONLIFE-01.md",
+    "brand": "OUTONLIFE",
+    "family_id": "OUTONLIFE-01",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "75cd9360c83ad3c3fcc7df02106ec7138b4652e1cd9e23ef295aaedecd009aab",
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "MAN-OUTONLIFE-02",
+    "version": "1.0.0",
+    "title": "ZZZ-02 杂志桌灯产品与售后参考",
+    "document_type": "manual_pdf",
+    "path": "../../../output/pdf/product-manuals-v1.pdf",
+    "brand": "OUTONLIFE",
+    "family_id": "OUTONLIFE-02",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+    "page_range": [
+      10,
+      11
+    ],
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "SOP-OUTONLIFE-02",
+    "version": "1.0.0",
+    "title": "ZZZ-02 杂志桌灯排障 SOP",
+    "document_type": "troubleshooting_md",
+    "path": "sop/OUTONLIFE-02.md",
+    "brand": "OUTONLIFE",
+    "family_id": "OUTONLIFE-02",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "669d7a7907db13521458c80fbfed5041b7a51b8f5bd814e55419a9b8d4591222",
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "MAN-BELEEV-01",
+    "version": "1.0.0",
+    "title": "A2 三轮滑板车产品与售后参考",
+    "document_type": "manual_pdf",
+    "path": "../../../output/pdf/product-manuals-v1.pdf",
+    "brand": "BELEEV",
+    "family_id": "BELEEV-01",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+    "page_range": [
+      12,
+      13
+    ],
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "SOP-BELEEV-01",
+    "version": "1.0.0",
+    "title": "A2 三轮滑板车排障 SOP",
+    "document_type": "troubleshooting_md",
+    "path": "sop/BELEEV-01.md",
+    "brand": "BELEEV",
+    "family_id": "BELEEV-01",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "b86f39d29c8f561c12b9c02bed0868b741406e42db9a69a87a03aac28b6db414",
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "MAN-BELEEV-02",
+    "version": "1.0.0",
+    "title": "V2 带灯小两轮滑板车产品与售后参考",
+    "document_type": "manual_pdf",
+    "path": "../../../output/pdf/product-manuals-v1.pdf",
+    "brand": "BELEEV",
+    "family_id": "BELEEV-02",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+    "page_range": [
+      14,
+      15
+    ],
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "SOP-BELEEV-02",
+    "version": "1.0.0",
+    "title": "V2 带灯小两轮滑板车排障 SOP",
+    "document_type": "troubleshooting_md",
+    "path": "sop/BELEEV-02.md",
+    "brand": "BELEEV",
+    "family_id": "BELEEV-02",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "a8cbcc5e97ef21e304fce772a4c54e2b0296e520e3769d38b5b97a54ee0b241e",
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "MAN-BELEEV-03",
+    "version": "1.0.0",
+    "title": "A9 带灯折叠三轮滑板车产品与售后参考",
+    "document_type": "manual_pdf",
+    "path": "../../../output/pdf/product-manuals-v1.pdf",
+    "brand": "BELEEV",
+    "family_id": "BELEEV-03",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+    "page_range": [
+      16,
+      17
+    ],
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "SOP-BELEEV-03",
+    "version": "1.0.0",
+    "title": "A9 带灯折叠三轮滑板车排障 SOP",
+    "document_type": "troubleshooting_md",
+    "path": "sop/BELEEV-03.md",
+    "brand": "BELEEV",
+    "family_id": "BELEEV-03",
+    "source_kind": "curated_production_support_reference",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "35ebc8a2bde34582537082e80f6d0f1f27e967ee81a8e5e44d3e1ae7b891465b",
+    "content_basis": "production product listing/photo plus curated correspondence; no manufacturer certification"
+  },
+  {
+    "document_id": "POL-SIM-V1",
+    "version": "1.0.1",
+    "title": "模拟售后政策说明",
+    "document_type": "policy_md",
+    "path": "policies/policy-profile.md",
+    "brand": null,
+    "family_id": null,
+    "source_kind": "synthetic_project_knowledge",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "a84086855cb9f9a6be667c19476e8a45873187c222eaf76cd971ccaa24b7bd6b"
+  },
+  {
+    "document_id": "CASE-001",
+    "version": "1.0.0",
+    "title": "三脚架灯固定环损坏：承诺补件不等于已发货",
+    "document_type": "case_md",
+    "path": "cases/CASE-001.md",
+    "brand": "OUTON",
+    "family_id": null,
+    "source_kind": "production_derived_paraphrase",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "65816c226195c1e779c106063919af8c9d4b221461ddd2cbf293ccd13674ff84"
+  },
+  {
+    "document_id": "CASE-002",
+    "version": "1.0.0",
+    "title": "机身正常而遥控无效：复用已尝试步骤，区分原订单与配件订单",
+    "document_type": "case_md",
+    "path": "cases/CASE-002.md",
+    "brand": "OUTON",
+    "family_id": null,
+    "source_kind": "production_derived_paraphrase",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "8c5ff69a304f2f5b4e147d8e7fac8455d381acc7eb9cd9c112bf8d892ac476d3"
+  },
+  {
+    "document_id": "CASE-003",
+    "version": "1.0.0",
+    "title": "礼物来源的书架灯：缺订单、付费配件诉求及品牌更正",
+    "document_type": "case_md",
+    "path": "cases/CASE-003.md",
+    "brand": "OUTONLIFE",
+    "family_id": null,
+    "source_kind": "production_derived_paraphrase",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "c2abf33463405799405e036c94ab24eb3ad0d884530a898a26e610ffef320779"
+  },
+  {
+    "document_id": "CASE-004",
+    "version": "1.0.0",
+    "title": "西语遥控排障：客户明确反馈已恢复",
+    "document_type": "case_md",
+    "path": "cases/CASE-004.md",
+    "brand": "OUTONLIFE",
+    "family_id": null,
+    "source_kind": "production_derived_paraphrase",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "d8b6460bdbbc6de338e6e72de0cbd7c5c0344621689a685f099dd434e79150a2"
+  },
+  {
+    "document_id": "CASE-005",
+    "version": "1.0.0",
+    "title": "V2 滑板车转向反复松动：保留失败步骤并转人工",
+    "document_type": "case_md",
+    "path": "cases/CASE-005.md",
+    "brand": "BELEEV",
+    "family_id": null,
+    "source_kind": "production_derived_paraphrase",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "usage_split": "rag",
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "prepared_not_indexed",
+    "language": "zh-CN",
+    "source_hash": "5ae3064dc5358a3f3e54163a87c595038c35a3f9a6346ccbc020b154a5ec1a9e"
+  }
+]

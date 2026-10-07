@@ -1,0 +1,376 @@
+[
+  {
+    "scenario_id": "JRN-01",
+    "title": "已知订单的灯具控制方式咨询并确认理解",
+    "business": "BIZ-01",
+    "variant": "main",
+    "seed_scenario_id": "BASE-OUTON-01",
+    "tags": [
+      "已知订单复用",
+      "控制方式资料",
+      "无虚构参数",
+      "人工结案"
+    ],
+    "step_count": 6,
+    "outcome": "客户确认机身控制可用、疑问已解决且暂不购买备用件，客服核对后结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-02",
+    "title": "遥控器无反应经低风险电池检查恢复",
+    "business": "BIZ-02",
+    "variant": "main",
+    "seed_scenario_id": "BASE-OUTON-02",
+    "tags": [
+      "区分机身与遥控故障",
+      "电池低风险检查",
+      "保留已做操作",
+      "客户确认恢复"
+    ],
+    "step_count": 6,
+    "outcome": "客户确认更换电池后遥控器持续恢复正常，客服核对后结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-03",
+    "title": "原包裹长时间无更新经查件恢复运输并收货",
+    "business": "BIZ-03",
+    "variant": "main",
+    "seed_scenario_id": "BASE-OUTON-03",
+    "tags": [
+      "原包裹",
+      "物流停滞",
+      "内部查件待办",
+      "承运商新扫描",
+      "客户收货确认"
+    ],
+    "step_count": 9,
+    "outcome": "承运商找回滞留包裹，客户确认完整收到，查件完成后由客服结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-04",
+    "title": "轻微外观划痕保留商品并完成部分退款",
+    "business": "BIZ-04",
+    "variant": "main",
+    "seed_scenario_id": "BASE-OUTON-04",
+    "tags": [
+      "轻微外观瑕疵",
+      "20%上限",
+      "明确金额币种同意",
+      "退款受理与成功区分",
+      "人工结案"
+    ],
+    "step_count": 12,
+    "outcome": "客户保留原灯具并确认收到不超过实付20%的部分退款，人工结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-05",
+    "title": "未使用灯具退回验收后全额退款",
+    "business": "BIZ-05",
+    "variant": "main",
+    "seed_scenario_id": "BASE-OUTON-05",
+    "tags": [
+      "不再需要",
+      "数量与完整性",
+      "客户承担寄回邮费",
+      "具体寄回资料",
+      "先收货验收后全额退款"
+    ],
+    "step_count": 14,
+    "outcome": "未使用完整灯具按客户自付邮资退回，仓库验收后原商品实付全退，客户核对后人工结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-06",
+    "title": "BELEEV已诊断故障先退回验收再同款换出",
+    "business": "BIZ-06",
+    "variant": "main",
+    "seed_scenario_id": "BASE-BELEEV-06",
+    "tags": [
+      "人工诊断记录",
+      "停止使用",
+      "同型号同颜色",
+      "确认地址",
+      "先退回验收后换货"
+    ],
+    "step_count": 16,
+    "outcome": "BELEEV蓝色A2故障原件完成退回验收，同型号换出后客户确认原问题消除，人工结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-07",
+    "title": "缺少遥控器核对后补寄并确认有效",
+    "business": "BIZ-07",
+    "variant": "main",
+    "seed_scenario_id": "BASE-OUTON-07",
+    "tags": [
+      "缺件识别",
+      "客户明确选择",
+      "地址确认",
+      "内部申请与发货区分",
+      "补件到货有效"
+    ],
+    "step_count": 12,
+    "outcome": "补件经历建单、面单、揽收与投递，客户确认遥控可用，客服核对后结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-08",
+    "title": "礼物咨询缺订单后补充并延续原问题",
+    "business": "BIZ-01",
+    "variant": "branch",
+    "seed_scenario_id": "BASE-OUTONLIFE-01",
+    "tags": [
+      "缺订单补问",
+      "礼物收件人",
+      "订单补充后继续",
+      "资料范围核对"
+    ],
+    "step_count": 6,
+    "outcome": "礼物收件人补充订单后收到对应版本的咨询答复，确认物品齐全且无需寄件，客服结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-09",
+    "title": "购买备用装饰套适配待核实并报价后暂不购买",
+    "business": "BIZ-01",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-003",
+    "tags": [
+      "付费备用件",
+      "适配未知转人工",
+      "报价非免费权益",
+      "人工回复后等待客户",
+      "客户暂不购买"
+    ],
+    "step_count": 7,
+    "outcome": "人工确认正确装饰套并给出单次报价后，客户明确暂不购买；无收费、无寄件，客服结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-10",
+    "title": "排障多次失败补遥控仍无效后退回退款",
+    "business": "BIZ-02",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-005",
+    "tags": [
+      "重复失败不重发步骤",
+      "人工确认补件",
+      "补件无效再人工处理",
+      "退件验收后退款"
+    ],
+    "step_count": 24,
+    "outcome": "客户选择退回退款，仓库收货并验收通过，原支付渠道全额退款成功且客户确认，客服核对后结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-11",
+    "title": "灯具冒烟停止使用后人工安排退回并完成退款",
+    "business": "BIZ-02",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-006",
+    "tags": [
+      "安全报告",
+      "停止使用",
+      "整段人工接管",
+      "事件仅入库",
+      "下一来信恢复",
+      "退回验收退款"
+    ],
+    "step_count": 17,
+    "outcome": "客户选择退回退款，仓库收货并验收通过，原支付渠道全额退款成功且客户确认，客服核对后结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-12",
+    "title": "显示签收但未收到查明误投后重新送达",
+    "business": "BIZ-03",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-009",
+    "tags": [
+      "显示签收未收到",
+      "核对原包裹",
+      "内部查件",
+      "承运商误投",
+      "重新送达"
+    ],
+    "step_count": 11,
+    "outcome": "承运商确认误投、回收并重新送达，客户确认收到完整商品，客服结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-13",
+    "title": "原包裹签收与补件物流混淆后澄清并收到",
+    "business": "BIZ-03",
+    "variant": "branch",
+    "seed_scenario_id": "BASE-OUTON-07",
+    "tags": [
+      "区分原件与补件",
+      "按执行记录查物流",
+      "旧运单误读",
+      "补件收到确认"
+    ],
+    "step_count": 12,
+    "outcome": "明确区分原灯具与遥控器包裹后，客户收到并确认补件有效，客服结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-14",
+    "title": "拒绝部分退款后选择退回全额退款",
+    "business": "BIZ-04",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-011",
+    "tags": [
+      "拒绝部分退款",
+      "保留未接受报价",
+      "改选退货全退",
+      "质量退货邮资",
+      "无双重补偿"
+    ],
+    "step_count": 16,
+    "outcome": "客户拒绝部分退款后完整退回商品，全额退款成功且没有重复补偿，人工结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-15",
+    "title": "退款失败后对账并在同一申请下重试成功",
+    "business": "BIZ-04",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-011",
+    "tags": [
+      "退款处理失败",
+      "失败不占用成功金额",
+      "先对账后重试",
+      "同一业务申请",
+      "客户催问不重复创建"
+    ],
+    "step_count": 14,
+    "outcome": "支付首试失败并释放占款，人工对账后在同一申请下重试成功，客户确认只有一笔退款。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-16",
+    "title": "仓库漏记配件引起验收争议后核对解除并退款",
+    "business": "BIZ-05",
+    "variant": "branch",
+    "seed_scenario_id": "BASE-OUTONLIFE-05",
+    "tags": [
+      "退货完整性争议",
+      "人工接管",
+      "客户提供包装位置",
+      "仓库更正收件记录",
+      "下一封来信恢复"
+    ],
+    "step_count": 15,
+    "outcome": "仓库首轮漏记硬件包，人工核对客户包装说明后找回并更正；完整验收后全额退款，人工结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-17",
+    "title": "退货资料打不开后人工补发有效资料并退款",
+    "business": "BIZ-05",
+    "variant": "branch",
+    "seed_scenario_id": "BASE-OUTON-05",
+    "tags": [
+      "附件打不开",
+      "暂停寄回等待有效资料",
+      "人工补发",
+      "原退货编号复用",
+      "验收后退款"
+    ],
+    "step_count": 16,
+    "outcome": "客户因首版附件失效未寄回，人工同申请补发新版资料，客户确认可读后完成退回退款并人工结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-18",
+    "title": "换货缺货且拒绝其他颜色后等待同款补库存",
+    "business": "BIZ-06",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-018",
+    "tags": [
+      "同SKU缺货",
+      "拒绝其他颜色",
+      "等待补库存",
+      "重新核对库存",
+      "先退回验收"
+    ],
+    "step_count": 16,
+    "outcome": "同款缺货期间客户选择等待并拒绝其他颜色；补库后完成原件退回验收、同SKU换出及人工结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-19",
+    "title": "客户搬家使旧地址确认失效并确认新地址后换出",
+    "business": "BIZ-06",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-017",
+    "tags": [
+      "客户搬家",
+      "旧地址确认失效",
+      "新地址二次明确确认",
+      "发货绑定新版本",
+      "同SKU换货"
+    ],
+    "step_count": 16,
+    "outcome": "客户搬家使旧确认失效；新地址经明确核对后绑定换出记录，客户在新址收到正确商品，人工结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-20",
+    "title": "补件未出库前改为退款并撤销旧待办",
+    "business": "BIZ-07",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-023",
+    "tags": [
+      "补件申请后改退款",
+      "查询已有执行",
+      "撤销待办",
+      "确认无出库",
+      "退回验收后退款"
+    ],
+    "step_count": 21,
+    "outcome": "补件待办与执行在出库前取消，退件验收通过后完成全额退款；客户确认到账且无另寄遥控器，客服结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  },
+  {
+    "scenario_id": "JRN-21",
+    "title": "补寄错版遥控器后人工核对并纠正送达",
+    "business": "BIZ-07",
+    "variant": "branch",
+    "seed_scenario_id": "SCN-021",
+    "tags": [
+      "补件错发",
+      "禁止跨SKU猜兼容",
+      "人工核对",
+      "原申请纠正执行",
+      "正确配件到达解决"
+    ],
+    "step_count": 21,
+    "outcome": "仓库确认首次错取配件后，在原申请下补发正确件；客户确认遥控可用及错件保留安排，客服结案。",
+    "indexable": false,
+    "execution_status": "not_run"
+  }
+]

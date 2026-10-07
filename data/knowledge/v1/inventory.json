@@ -1,0 +1,785 @@
+[
+  {
+    "inventory_id": "INV-H-CTD16-US-BK",
+    "item_id": "H-CTD16-US-BK",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-REMOTE-01",
+    "item_id": "SIM-OUTON-01-REMOTE-01",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-POWER-01",
+    "item_id": "SIM-OUTON-01-POWER-01",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-CTD16-US-SGY",
+    "item_id": "H-CTD16-US-SGY",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-REMOTE-02",
+    "item_id": "SIM-OUTON-01-REMOTE-02",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-POWER-02",
+    "item_id": "SIM-OUTON-01-POWER-02",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-CTD16-UK-BK",
+    "item_id": "H-CTD16-UK-BK",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-REMOTE-03",
+    "item_id": "SIM-OUTON-01-REMOTE-03",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-POWER-03",
+    "item_id": "SIM-OUTON-01-POWER-03",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-CTD16-EU-SGY",
+    "item_id": "H-CTD16-EU-SGY",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-REMOTE-04",
+    "item_id": "SIM-OUTON-01-REMOTE-04",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-POWER-04",
+    "item_id": "SIM-OUTON-01-POWER-04",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-CTD16-EU-W",
+    "item_id": "H-CTD16-EU-W",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-REMOTE-05",
+    "item_id": "SIM-OUTON-01-REMOTE-05",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-POWER-05",
+    "item_id": "SIM-OUTON-01-POWER-05",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-CTD16-UK-SGY",
+    "item_id": "H-CTD16-UK-SGY",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-REMOTE-06",
+    "item_id": "SIM-OUTON-01-REMOTE-06",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-POWER-06",
+    "item_id": "SIM-OUTON-01-POWER-06",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-CTD16-US-W",
+    "item_id": "H-CTD16-US-W",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-REMOTE-07",
+    "item_id": "SIM-OUTON-01-REMOTE-07",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-01-POWER-07",
+    "item_id": "SIM-OUTON-01-POWER-07",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-SJJ0001-EU-WD",
+    "item_id": "H-SJJ0001-EU-WD",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-FASTENER-01",
+    "item_id": "SIM-OUTON-02-FASTENER-01",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-SHADE-01",
+    "item_id": "SIM-OUTON-02-SHADE-01",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-SJJ0001-UK-WT",
+    "item_id": "H-SJJ0001-UK-WT",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-FASTENER-02",
+    "item_id": "SIM-OUTON-02-FASTENER-02",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-SHADE-02",
+    "item_id": "SIM-OUTON-02-SHADE-02",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-SJJ0001-EU-WT",
+    "item_id": "H-SJJ0001-EU-WT",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-FASTENER-03",
+    "item_id": "SIM-OUTON-02-FASTENER-03",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-SHADE-03",
+    "item_id": "SIM-OUTON-02-SHADE-03",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-SJJ0001-US-WD",
+    "item_id": "H-SJJ0001-US-WD",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-FASTENER-04",
+    "item_id": "SIM-OUTON-02-FASTENER-04",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-SHADE-04",
+    "item_id": "SIM-OUTON-02-SHADE-04",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-SJJ0001-US-WT",
+    "item_id": "H-SJJ0001-US-WT",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-FASTENER-05",
+    "item_id": "SIM-OUTON-02-FASTENER-05",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-SHADE-05",
+    "item_id": "SIM-OUTON-02-SHADE-05",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-SJJ0001-AU-WT",
+    "item_id": "H-SJJ0001-AU-WT",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-FASTENER-06",
+    "item_id": "SIM-OUTON-02-FASTENER-06",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-SHADE-06",
+    "item_id": "SIM-OUTON-02-SHADE-06",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-SJJ0001-EU-WTG",
+    "item_id": "H-SJJ0001-EU-WTG",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-FASTENER-07",
+    "item_id": "SIM-OUTON-02-FASTENER-07",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-SHADE-07",
+    "item_id": "SIM-OUTON-02-SHADE-07",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-SJJ0001-UK-BG",
+    "item_id": "H-SJJ0001-UK-BG",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-FASTENER-08",
+    "item_id": "SIM-OUTON-02-FASTENER-08",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-SHADE-08",
+    "item_id": "SIM-OUTON-02-SHADE-08",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-SJJ0001-UK-WD",
+    "item_id": "H-SJJ0001-UK-WD",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-FASTENER-09",
+    "item_id": "SIM-OUTON-02-FASTENER-09",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-SHADE-09",
+    "item_id": "SIM-OUTON-02-SHADE-09",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-SJJ0001-US-BG",
+    "item_id": "H-SJJ0001-US-BG",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-FASTENER-10",
+    "item_id": "SIM-OUTON-02-FASTENER-10",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-02-SHADE-10",
+    "item_id": "SIM-OUTON-02-SHADE-10",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-H-LBD05-UK-BK",
+    "item_id": "H-LBD05-UK-BK",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTON-03-REMOTE-01",
+    "item_id": "SIM-OUTON-03-REMOTE-01",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-F-SJ001-US-BBR",
+    "item_id": "F-SJ001-US-BBR",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTONLIFE-01-FASTENER-01",
+    "item_id": "SIM-OUTONLIFE-01-FASTENER-01",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-F-SJ001-EU-BBR",
+    "item_id": "F-SJ001-EU-BBR",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTONLIFE-01-FASTENER-02",
+    "item_id": "SIM-OUTONLIFE-01-FASTENER-02",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-F-SJ001-EU-W",
+    "item_id": "F-SJ001-EU-W",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTONLIFE-01-FASTENER-03",
+    "item_id": "SIM-OUTONLIFE-01-FASTENER-03",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-F-SJ001-US-BK",
+    "item_id": "F-SJ001-US-BK",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTONLIFE-01-FASTENER-04",
+    "item_id": "SIM-OUTONLIFE-01-FASTENER-04",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-F-ZZZ0002-UK-BK",
+    "item_id": "F-ZZZ0002-UK-BK",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTONLIFE-02-STORAGE-01",
+    "item_id": "SIM-OUTONLIFE-02-STORAGE-01",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-F-ZZZ0002-UK-GY",
+    "item_id": "F-ZZZ0002-UK-GY",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTONLIFE-02-STORAGE-02",
+    "item_id": "SIM-OUTONLIFE-02-STORAGE-02",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-F-ZZZ0002-US-BBR-2PCS",
+    "item_id": "F-ZZZ0002-US-BBR-2PCS",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTONLIFE-02-STORAGE-03",
+    "item_id": "SIM-OUTONLIFE-02-STORAGE-03",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-F-ZZZ0002-US-BK",
+    "item_id": "F-ZZZ0002-US-BK",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTONLIFE-02-STORAGE-04",
+    "item_id": "SIM-OUTONLIFE-02-STORAGE-04",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-F-ZZZ0002-US-BTB",
+    "item_id": "F-ZZZ0002-US-BTB",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-OUTONLIFE-02-STORAGE-05",
+    "item_id": "SIM-OUTONLIFE-02-STORAGE-05",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SP-SLHBC01-BK",
+    "item_id": "SP-SLHBC01-BK",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-BELEEV-01-GRIP-01",
+    "item_id": "SIM-BELEEV-01-GRIP-01",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-BELEEV-01-LOCK-01",
+    "item_id": "SIM-BELEEV-01-LOCK-01",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SP-SLHBC01-BL",
+    "item_id": "SP-SLHBC01-BL",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-BELEEV-01-GRIP-02",
+    "item_id": "SIM-BELEEV-01-GRIP-02",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-BELEEV-01-LOCK-02",
+    "item_id": "SIM-BELEEV-01-LOCK-02",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SP-XLLHBC02-PP",
+    "item_id": "SP-XLLHBC02-PP",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-BELEEV-02-WHEEL-01",
+    "item_id": "SIM-BELEEV-02-WHEEL-01",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SP-XLLHBC02-P",
+    "item_id": "SP-XLLHBC02-P",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-BELEEV-02-WHEEL-02",
+    "item_id": "SIM-BELEEV-02-WHEEL-02",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SP-SLHBC12-PU",
+    "item_id": "SP-SLHBC12-PU",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-BELEEV-03-LOCK-01",
+    "item_id": "SIM-BELEEV-03-LOCK-01",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SP-SLHBC12-B",
+    "item_id": "SP-SLHBC12-B",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-BELEEV-03-LOCK-02",
+    "item_id": "SIM-BELEEV-03-LOCK-02",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SP-SLHBC12-LP",
+    "item_id": "SP-SLHBC12-LP",
+    "on_hand": 5,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  },
+  {
+    "inventory_id": "INV-SIM-BELEEV-03-LOCK-03",
+    "item_id": "SIM-BELEEV-03-LOCK-03",
+    "on_hand": 8,
+    "reserved": 0,
+    "warehouse_id": "SIM-WH-01",
+    "source_kind": "synthetic",
+    "snapshot_at": "2026-10-08T09:00:00+08:00"
+  }
+]

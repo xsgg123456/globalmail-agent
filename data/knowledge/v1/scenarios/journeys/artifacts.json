@@ -1,0 +1,123 @@
+[
+  {
+    "path": "scenarios/journeys/return-documents/JRN-05-s04.html",
+    "artifact_id": "JRN-05-return-document-v1-s04",
+    "document_version": 1,
+    "sha256": "9704354d9d37539033376074759b88b7f43fa82a18d3274e2bb80cc39b255788",
+    "scenario_id": "JRN-05",
+    "available_after_step": "s04",
+    "purpose": "customer_return_instructions",
+    "indexable": false,
+    "live_shipping_valid": false
+  },
+  {
+    "path": "scenarios/journeys/return-documents/JRN-06-s05.html",
+    "artifact_id": "JRN-06-return-document-v1-s05",
+    "document_version": 1,
+    "sha256": "a81d2e726a5fd085a89bf67fb981ccc929670566fd9bac3e9e788cc6bce2154b",
+    "scenario_id": "JRN-06",
+    "available_after_step": "s05",
+    "purpose": "customer_return_instructions",
+    "indexable": false,
+    "live_shipping_valid": false
+  },
+  {
+    "path": "scenarios/journeys/return-documents/JRN-10-s15.html",
+    "artifact_id": "JRN-10-return-document-v1-s15",
+    "document_version": 1,
+    "sha256": "33bda7f522610dfcef47f157f38f257da66abe95a783b7ce99eae08681c94786",
+    "scenario_id": "JRN-10",
+    "available_after_step": "s15",
+    "purpose": "customer_return_instructions",
+    "indexable": false,
+    "live_shipping_valid": false
+  },
+  {
+    "path": "scenarios/journeys/return-documents/JRN-11-s08.html",
+    "artifact_id": "JRN-11-return-document-v1-s08",
+    "document_version": 1,
+    "sha256": "2f8ba7dc352475d218938c4addbd35850e6527e6df64695baee5c7882a9869b8",
+    "scenario_id": "JRN-11",
+    "available_after_step": "s08",
+    "purpose": "customer_return_instructions",
+    "indexable": false,
+    "live_shipping_valid": false
+  },
+  {
+    "path": "scenarios/journeys/return-documents/JRN-14-s04.html",
+    "artifact_id": "JRN-14-return-document-v1-s04",
+    "document_version": 1,
+    "sha256": "54ce5af6236fe79ae7d8f3c5d7344beb9fe629a0dd3a33f78086c1fef71980f3",
+    "scenario_id": "JRN-14",
+    "available_after_step": "s04",
+    "purpose": "customer_return_instructions",
+    "indexable": false,
+    "live_shipping_valid": false
+  },
+  {
+    "path": "scenarios/journeys/return-documents/JRN-16-s04.html",
+    "artifact_id": "JRN-16-return-document-v1-s04",
+    "document_version": 1,
+    "sha256": "458a40e786be4ec8f75bdbf6837c0eb9351a88ee8f2798607e74190ea7c5efe6",
+    "scenario_id": "JRN-16",
+    "available_after_step": "s04",
+    "purpose": "customer_return_instructions",
+    "indexable": false,
+    "live_shipping_valid": false
+  },
+  {
+    "path": "scenarios/journeys/return-documents/JRN-17-s04.html",
+    "artifact_id": "JRN-17-return-document-v1-s04",
+    "document_version": 1,
+    "sha256": "ab0fa8c7bc9177080b0ae59e8dfcd357c60cc5bd85a63dc720ddf9aaf62c7158",
+    "scenario_id": "JRN-17",
+    "available_after_step": "s04",
+    "purpose": "customer_return_instructions",
+    "indexable": false,
+    "live_shipping_valid": false
+  },
+  {
+    "path": "scenarios/journeys/return-documents/JRN-17-s07.html",
+    "artifact_id": "JRN-17-return-document-v2-s07",
+    "document_version": 2,
+    "sha256": "d83a8f13ed962b9a886e54e2466b9e8a8ef7126ba2e651ec1186a38b7405d59d",
+    "scenario_id": "JRN-17",
+    "available_after_step": "s07",
+    "purpose": "customer_return_instructions",
+    "indexable": false,
+    "live_shipping_valid": false
+  },
+  {
+    "path": "scenarios/journeys/return-documents/JRN-18-s08.html",
+    "artifact_id": "JRN-18-return-document-v1-s08",
+    "document_version": 1,
+    "sha256": "1974309625c76dfc9d506ad9df3767d84811e753d5c4e951f3ad10420eb1384a",
+    "scenario_id": "JRN-18",
+    "available_after_step": "s08",
+    "purpose": "customer_return_instructions",
+    "indexable": false,
+    "live_shipping_valid": false
+  },
+  {
+    "path": "scenarios/journeys/return-documents/JRN-19-s05.html",
+    "artifact_id": "JRN-19-return-document-v1-s05",
+    "document_version": 1,
+    "sha256": "e32298a63d17a4376321e8713e9a72694c55237d9c5cb17b5e1aaa867effdd30",
+    "scenario_id": "JRN-19",
+    "available_after_step": "s05",
+    "purpose": "customer_return_instructions",
+    "indexable": false,
+    "live_shipping_valid": false
+  },
+  {
+    "path": "scenarios/journeys/return-documents/JRN-20-s12.html",
+    "artifact_id": "JRN-20-return-document-v1-s12",
+    "document_version": 1,
+    "sha256": "dd7d7bf21086c16a52c939781ec21e8ea7dda671c907ba14da9eafb16eecc3af",
+    "scenario_id": "JRN-20",
+    "available_after_step": "s12",
+    "purpose": "customer_return_instructions",
+    "indexable": false,
+    "live_shipping_valid": false
+  }
+]

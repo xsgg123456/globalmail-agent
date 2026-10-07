@@ -1,0 +1,426 @@
+[
+  {
+    "binding_id": "BIND-001",
+    "document_id": "MAN-OUTON-01",
+    "document_version": "1.0.0",
+    "section_id": "OUTON-01",
+    "skus": [
+      "H-CTD16-US-BK",
+      "H-CTD16-US-SGY",
+      "H-CTD16-UK-BK",
+      "H-CTD16-EU-SGY",
+      "H-CTD16-EU-W",
+      "H-CTD16-UK-SGY",
+      "H-CTD16-US-W"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-002",
+    "document_id": "SOP-OUTON-01",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "H-CTD16-US-BK",
+      "H-CTD16-US-SGY",
+      "H-CTD16-UK-BK",
+      "H-CTD16-EU-SGY",
+      "H-CTD16-EU-W",
+      "H-CTD16-UK-SGY",
+      "H-CTD16-US-W"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-003",
+    "document_id": "MAN-OUTON-02",
+    "document_version": "1.0.0",
+    "section_id": "OUTON-02",
+    "skus": [
+      "H-SJJ0001-EU-WD",
+      "H-SJJ0001-UK-WT",
+      "H-SJJ0001-EU-WT",
+      "H-SJJ0001-US-WD",
+      "H-SJJ0001-US-WT",
+      "H-SJJ0001-AU-WT",
+      "H-SJJ0001-EU-WTG",
+      "H-SJJ0001-UK-BG",
+      "H-SJJ0001-UK-WD",
+      "H-SJJ0001-US-BG"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-004",
+    "document_id": "SOP-OUTON-02",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "H-SJJ0001-EU-WD",
+      "H-SJJ0001-UK-WT",
+      "H-SJJ0001-EU-WT",
+      "H-SJJ0001-US-WD",
+      "H-SJJ0001-US-WT",
+      "H-SJJ0001-AU-WT",
+      "H-SJJ0001-EU-WTG",
+      "H-SJJ0001-UK-BG",
+      "H-SJJ0001-UK-WD",
+      "H-SJJ0001-US-BG"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-005",
+    "document_id": "MAN-OUTON-03",
+    "document_version": "1.0.0",
+    "section_id": "OUTON-03",
+    "skus": [
+      "H-LBD05-UK-BK"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-006",
+    "document_id": "SOP-OUTON-03",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "H-LBD05-UK-BK"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-007",
+    "document_id": "MAN-OUTONLIFE-01",
+    "document_version": "1.0.0",
+    "section_id": "OUTONLIFE-01",
+    "skus": [
+      "F-SJ001-US-BBR",
+      "F-SJ001-EU-BBR",
+      "F-SJ001-EU-W",
+      "F-SJ001-US-BK"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-008",
+    "document_id": "SOP-OUTONLIFE-01",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "F-SJ001-US-BBR",
+      "F-SJ001-EU-BBR",
+      "F-SJ001-EU-W",
+      "F-SJ001-US-BK"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-009",
+    "document_id": "MAN-OUTONLIFE-02",
+    "document_version": "1.0.0",
+    "section_id": "OUTONLIFE-02",
+    "skus": [
+      "F-ZZZ0002-UK-BK",
+      "F-ZZZ0002-UK-GY",
+      "F-ZZZ0002-US-BBR-2PCS",
+      "F-ZZZ0002-US-BK",
+      "F-ZZZ0002-US-BTB"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-010",
+    "document_id": "SOP-OUTONLIFE-02",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "F-ZZZ0002-UK-BK",
+      "F-ZZZ0002-UK-GY",
+      "F-ZZZ0002-US-BBR-2PCS",
+      "F-ZZZ0002-US-BK",
+      "F-ZZZ0002-US-BTB"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-011",
+    "document_id": "MAN-BELEEV-01",
+    "document_version": "1.0.0",
+    "section_id": "BELEEV-01",
+    "skus": [
+      "SP-SLHBC01-BK",
+      "SP-SLHBC01-BL"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-012",
+    "document_id": "SOP-BELEEV-01",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "SP-SLHBC01-BK",
+      "SP-SLHBC01-BL"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-013",
+    "document_id": "MAN-BELEEV-02",
+    "document_version": "1.0.0",
+    "section_id": "BELEEV-02",
+    "skus": [
+      "SP-XLLHBC02-PP",
+      "SP-XLLHBC02-P"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-014",
+    "document_id": "SOP-BELEEV-02",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "SP-XLLHBC02-PP",
+      "SP-XLLHBC02-P"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-015",
+    "document_id": "MAN-BELEEV-03",
+    "document_version": "1.0.0",
+    "section_id": "BELEEV-03",
+    "skus": [
+      "SP-SLHBC12-PU",
+      "SP-SLHBC12-B",
+      "SP-SLHBC12-LP"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-016",
+    "document_id": "SOP-BELEEV-03",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "SP-SLHBC12-PU",
+      "SP-SLHBC12-B",
+      "SP-SLHBC12-LP"
+    ],
+    "basis": "explicit_project_simulation_assignment",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": "SIM-V1",
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-POL",
+    "document_id": "POL-SIM-V1",
+    "document_version": "1.0.1",
+    "section_id": "all",
+    "brands": [
+      "OUTON",
+      "OUTONLIFE",
+      "BELEEV"
+    ],
+    "markets": [
+      "US",
+      "GB",
+      "DE",
+      "CA",
+      "AU"
+    ],
+    "channels": [
+      "amazon",
+      "brand_store"
+    ],
+    "currencies": [
+      "USD",
+      "GBP",
+      "EUR",
+      "CAD",
+      "AUD"
+    ],
+    "sku_scope": "all_products_within_explicit_policy_scope",
+    "basis": "explicit_project_policy",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "available_at": "2026-10-07T03:00:38.507102+00:00",
+    "status": "active_simulation_only"
+  },
+  {
+    "binding_id": "BIND-018",
+    "document_id": "CASE-001",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "H-SJJ0001-UK-WT"
+    ],
+    "basis": "observed_registration_scope_only_not_universal_procedure",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": null,
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-019",
+    "document_id": "CASE-002",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "H-CTD16-US-BK"
+    ],
+    "basis": "observed_registration_scope_only_not_universal_procedure",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": null,
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-020",
+    "document_id": "CASE-003",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "F-SJ001-US-BBR"
+    ],
+    "basis": "observed_registration_scope_only_not_universal_procedure",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": null,
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-021",
+    "document_id": "CASE-004",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "F-SJ001-EU-W"
+    ],
+    "basis": "observed_registration_scope_only_not_universal_procedure",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": null,
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  },
+  {
+    "binding_id": "BIND-022",
+    "document_id": "CASE-005",
+    "document_version": "1.0.0",
+    "section_id": "all",
+    "skus": [
+      "SP-XLLHBC02-P"
+    ],
+    "basis": "observed_registration_scope_only_not_universal_procedure",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "hardware_revision": null,
+    "status": "active_simulation_only",
+    "available_at": "2026-10-07T03:00:38.507102+00:00"
+  }
+]

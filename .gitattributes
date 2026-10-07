@@ -1,0 +1,16 @@
+# 资料哈希及前端副本按原始字节校验，避免跨平台检出转换换行。
+/data/** -text
+/globalmail-agent/frontend/** -text
+/output/** -text
+
+# PDF 可能使用纯 ASCII 编码，也必须按二进制保存。
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary

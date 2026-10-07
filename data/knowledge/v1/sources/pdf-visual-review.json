@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "pdf_sha256": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+  "reviewer": "assistant_visual_review",
+  "pages_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "render_dpi": 90,
+  "method": "Poppler renders; reviewed all 17 revised pages plus eight production photos",
+  "findings": "Real product photos preserve aspect ratio; no clipping, overlap or missing Chinese glyphs observed."
+}

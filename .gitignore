@@ -1,0 +1,9 @@
+# 本地密钥与环境配置
+.env
+.env.*
+!.env.example
+
+# 受控原始邮件、去标识密钥与文档检查中间件
+.local-data/
+tmp/
+__pycache__/

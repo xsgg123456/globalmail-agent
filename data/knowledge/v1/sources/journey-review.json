@@ -1,0 +1,33 @@
+{
+  "scope": "continuous_business_data_preparation",
+  "reviewer": "independent_code_review_agent",
+  "stage_1": "passed",
+  "stage_2": "passed_in_data_script_scope",
+  "remaining_high_medium": 0,
+  "reviewed_journeys": 21,
+  "static_checks_passed": 33,
+  "regression_tests_passed": 8,
+  "artifact_references_checked": 13,
+  "resolved_findings": [
+    "opening_order_number_mismatch",
+    "return_handover_details",
+    "record_only_during_human_takeover",
+    "reissued_artifact_version_identity",
+    "single_public_return_reference",
+    "inspection_precondition_negative_check"
+  ],
+  "not_validated": [
+    "Agent runtime",
+    "RAG retrieval",
+    "business state machine execution",
+    "production actions"
+  ],
+  "reviewed_file_sha256": {
+    "authoring/support-journeys.json": "7ac857aa93fa8cb9a3ecef37e1f8eb7a313307d3e83de7180e772bfbc9ef9314",
+    "authoring/commerce-journeys.json": "4fc7b5b716f406e95cd0f7b543714d157998f82f59f7ab4468482d49f5e5250e",
+    "scenarios/journeys/inputs.jsonl": "1f95f4cf3c01629d60c4f9d8d5e626ba212814ebf7b2ec0346eaf38f687e1b5b",
+    "scenarios/journeys/controller-events.jsonl": "22387f2c344a4092998b36ef8c1581e23acd7401f3d0386b1ffbe5fc97ab135b",
+    "evaluation/journey-assertions.jsonl": "52b3b34c72a3fd192ec139e230e5ab46d9d5765bb252d904bde9b84288a02b3d",
+    "scenarios/journeys/artifacts.json": "9c6991e67f458e3b8b4461fe59857ef511557bd82a642c5fc4256935726574d9"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "product_count": 34,
+  "family_count": 8,
+  "document_count": 22,
+  "pdf_pages": 17,
+  "case_cards": 5,
+  "parts_count": 53,
+  "vectorized": false,
+  "policy_executed": false,
+  "source_catalog_observed_at": "2026-10-07T03:00:26.554737+00:00",
+  "source_catalog_hash": "ad08966fa4c73f18207bc97db54b920b25e629c4da501080e3c808b42c6b64ef",
+  "pdf_hash": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+  "real_product_photos": 8,
+  "synthetic_diagrams_used": 0,
+  "business_revision": "realistic_v2"
+}

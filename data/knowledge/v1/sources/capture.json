@@ -1,0 +1,25 @@
+{
+  "captured_at": "2026-10-07T03:00:38.507102+00:00",
+  "read_only": "on",
+  "case_count": 44,
+  "message_count": 285,
+  "raw_sha256": "e4b0455f379ff49ba41e6a251d4a60b3830264ccacd338bd75985d85908dd39e",
+  "catalog_keys": [
+    "counts",
+    "source",
+    "videos",
+    "coverage",
+    "products",
+    "limitations",
+    "observed_at",
+    "schema_version",
+    "case_candidates",
+    "observed_at_beijing",
+    "quick_reply_catalog",
+    "transaction_isolation",
+    "transaction_read_only"
+  ],
+  "grouping": "customer + registered order + first-inbound 5-word shingle Jaccard >=0.85; remaining near-duplicate review pending",
+  "raw_storage": ".local-data/knowledge-v1 (gitignored)",
+  "available_for_historical_eval": false
+}

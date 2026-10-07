@@ -1,0 +1,585 @@
+[
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-01",
+    "sku": "H-CTD16-US-BK",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-01",
+    "sku": "H-CTD16-US-BK",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-02",
+    "sku": "H-CTD16-US-SGY",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-02",
+    "sku": "H-CTD16-US-SGY",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-03",
+    "sku": "H-CTD16-UK-BK",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-03",
+    "sku": "H-CTD16-UK-BK",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-04",
+    "sku": "H-CTD16-EU-SGY",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-04",
+    "sku": "H-CTD16-EU-SGY",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-05",
+    "sku": "H-CTD16-EU-W",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-05",
+    "sku": "H-CTD16-EU-W",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-06",
+    "sku": "H-CTD16-UK-SGY",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-06",
+    "sku": "H-CTD16-UK-SGY",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-07",
+    "sku": "H-CTD16-US-W",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-07",
+    "sku": "H-CTD16-US-W",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-01",
+    "sku": "H-SJJ0001-EU-WD",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-01",
+    "sku": "H-SJJ0001-EU-WD",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-02",
+    "sku": "H-SJJ0001-UK-WT",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-02",
+    "sku": "H-SJJ0001-UK-WT",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-03",
+    "sku": "H-SJJ0001-EU-WT",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-03",
+    "sku": "H-SJJ0001-EU-WT",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-04",
+    "sku": "H-SJJ0001-US-WD",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-04",
+    "sku": "H-SJJ0001-US-WD",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-05",
+    "sku": "H-SJJ0001-US-WT",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-05",
+    "sku": "H-SJJ0001-US-WT",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-06",
+    "sku": "H-SJJ0001-AU-WT",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-06",
+    "sku": "H-SJJ0001-AU-WT",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-07",
+    "sku": "H-SJJ0001-EU-WTG",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-07",
+    "sku": "H-SJJ0001-EU-WTG",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-08",
+    "sku": "H-SJJ0001-UK-BG",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-08",
+    "sku": "H-SJJ0001-UK-BG",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-09",
+    "sku": "H-SJJ0001-UK-WD",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-09",
+    "sku": "H-SJJ0001-UK-WD",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-10",
+    "sku": "H-SJJ0001-US-BG",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-10",
+    "sku": "H-SJJ0001-US-BG",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTON-03-REMOTE-01",
+    "sku": "H-LBD05-UK-BK",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-01-FASTENER-01",
+    "sku": "F-SJ001-US-BBR",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-01-FASTENER-02",
+    "sku": "F-SJ001-EU-BBR",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-01-FASTENER-03",
+    "sku": "F-SJ001-EU-W",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-01-FASTENER-04",
+    "sku": "F-SJ001-US-BK",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-02-STORAGE-01",
+    "sku": "F-ZZZ0002-UK-BK",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-02-STORAGE-02",
+    "sku": "F-ZZZ0002-UK-GY",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-02-STORAGE-03",
+    "sku": "F-ZZZ0002-US-BBR-2PCS",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-02-STORAGE-04",
+    "sku": "F-ZZZ0002-US-BK",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-02-STORAGE-05",
+    "sku": "F-ZZZ0002-US-BTB",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-BELEEV-01-GRIP-01",
+    "sku": "SP-SLHBC01-BK",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-BELEEV-01-LOCK-01",
+    "sku": "SP-SLHBC01-BK",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-BELEEV-01-GRIP-02",
+    "sku": "SP-SLHBC01-BL",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-BELEEV-01-LOCK-02",
+    "sku": "SP-SLHBC01-BL",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-BELEEV-02-WHEEL-01",
+    "sku": "SP-XLLHBC02-PP",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-BELEEV-02-WHEEL-02",
+    "sku": "SP-XLLHBC02-P",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-BELEEV-03-LOCK-01",
+    "sku": "SP-SLHBC12-PU",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-BELEEV-03-LOCK-02",
+    "sku": "SP-SLHBC12-B",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  },
+  {
+    "part_id": "SIM-BELEEV-03-LOCK-03",
+    "sku": "SP-SLHBC12-LP",
+    "hardware_revision": "SIM-V1",
+    "source_kind": "synthetic_project_compatibility",
+    "allowed_modes": [
+      "simulation"
+    ],
+    "status": "compatible_in_simulation",
+    "cross_sku_substitution": false
+  }
+]

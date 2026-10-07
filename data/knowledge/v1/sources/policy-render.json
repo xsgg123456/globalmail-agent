@@ -1,0 +1,6 @@
+{
+  "canonical_sha256": "d67556c8dbc43685be834626127d266abcfa610ad055b7159ada2099bf263f95",
+  "readable_sha256": "a84086855cb9f9a6be667c19476e8a45873187c222eaf76cd971ccaa24b7bd6b",
+  "generated_by": "tools/complete_step_fixtures.py",
+  "rule_version": "1.0.1"
+}

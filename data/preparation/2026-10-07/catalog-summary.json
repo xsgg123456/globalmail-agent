@@ -1,0 +1,22 @@
+{
+  "observed_at_beijing": "2026-10-07 09:25:45",
+  "source_sha256": "cf26fc98e923269ea95417c5a982f8cb261bfe7d564da90b062d41efa279c0f0",
+  "selected_families": 8,
+  "selected_skus": 34,
+  "selected_family_registrations": 77,
+  "candidate_cases": 53,
+  "case_scope_counts": {
+    "target_product_candidate": 44,
+    "needs_product_identity_review": 7,
+    "excluded_non_scooter_product": 2
+  },
+  "first_contact_multiturn_candidates": 39,
+  "selected_family_case_candidates": 28,
+  "video_counts": {
+    "BELEEV": 31,
+    "OUTON": 14
+  },
+  "knowledge_bodies_created": 0,
+  "case_bodies_exported": 0,
+  "rag_index_created": false
+}

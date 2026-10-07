@@ -1,0 +1,108 @@
+[
+  {
+    "family_id": "OUTON-01",
+    "brand": "OUTON",
+    "name": "四按键朝天灯",
+    "category_id": "lighting.floor.uplight",
+    "grouping_basis": "production_names_and_project_selection_not_compatibility",
+    "skus": [
+      "H-CTD16-US-BK",
+      "H-CTD16-US-SGY",
+      "H-CTD16-UK-BK",
+      "H-CTD16-EU-SGY",
+      "H-CTD16-EU-W",
+      "H-CTD16-UK-SGY",
+      "H-CTD16-US-W"
+    ]
+  },
+  {
+    "family_id": "OUTON-02",
+    "brand": "OUTON",
+    "name": "带托盘三脚架灯",
+    "category_id": "lighting.floor.tripod",
+    "grouping_basis": "production_names_and_project_selection_not_compatibility",
+    "skus": [
+      "H-SJJ0001-EU-WD",
+      "H-SJJ0001-UK-WT",
+      "H-SJJ0001-EU-WT",
+      "H-SJJ0001-US-WD",
+      "H-SJJ0001-US-WT",
+      "H-SJJ0001-AU-WT",
+      "H-SJJ0001-EU-WTG",
+      "H-SJJ0001-UK-BG",
+      "H-SJJ0001-UK-WD",
+      "H-SJJ0001-US-BG"
+    ]
+  },
+  {
+    "family_id": "OUTON-03",
+    "brand": "OUTON",
+    "name": "滑条遥控喇叭子母灯",
+    "category_id": "lighting.floor.dual",
+    "grouping_basis": "production_names_and_project_selection_not_compatibility",
+    "skus": [
+      "H-LBD05-UK-BK"
+    ]
+  },
+  {
+    "family_id": "OUTONLIFE-01",
+    "brand": "OUTONLIFE",
+    "name": "树形带灯书架",
+    "category_id": "lighting.furniture.bookshelf",
+    "grouping_basis": "production_names_and_project_selection_not_compatibility",
+    "skus": [
+      "F-SJ001-US-BBR",
+      "F-SJ001-EU-BBR",
+      "F-SJ001-EU-W",
+      "F-SJ001-US-BK"
+    ]
+  },
+  {
+    "family_id": "OUTONLIFE-02",
+    "brand": "OUTONLIFE",
+    "name": "ZZZ-02 杂志桌灯",
+    "category_id": "lighting.furniture.side_table",
+    "grouping_basis": "production_names_and_project_selection_not_compatibility",
+    "skus": [
+      "F-ZZZ0002-UK-BK",
+      "F-ZZZ0002-UK-GY",
+      "F-ZZZ0002-US-BBR-2PCS",
+      "F-ZZZ0002-US-BK",
+      "F-ZZZ0002-US-BTB"
+    ]
+  },
+  {
+    "family_id": "BELEEV-01",
+    "brand": "BELEEV",
+    "name": "A2 三轮滑板车",
+    "category_id": "scooter.three_wheel",
+    "grouping_basis": "production_names_and_project_selection_not_compatibility",
+    "skus": [
+      "SP-SLHBC01-BK",
+      "SP-SLHBC01-BL"
+    ]
+  },
+  {
+    "family_id": "BELEEV-02",
+    "brand": "BELEEV",
+    "name": "V2 带灯小两轮滑板车",
+    "category_id": "scooter.two_wheel",
+    "grouping_basis": "production_names_and_project_selection_not_compatibility",
+    "skus": [
+      "SP-XLLHBC02-PP",
+      "SP-XLLHBC02-P"
+    ]
+  },
+  {
+    "family_id": "BELEEV-03",
+    "brand": "BELEEV",
+    "name": "A9 带灯折叠三轮滑板车",
+    "category_id": "scooter.three_wheel.folding",
+    "grouping_basis": "production_names_and_project_selection_not_compatibility",
+    "skus": [
+      "SP-SLHBC12-PU",
+      "SP-SLHBC12-B",
+      "SP-SLHBC12-LP"
+    ]
+  }
+]

@@ -1,0 +1,426 @@
+[
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-01",
+    "name": "模拟遥控器",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-01",
+    "name": "模拟电源组件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-02",
+    "name": "模拟遥控器",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-02",
+    "name": "模拟电源组件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-03",
+    "name": "模拟遥控器",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-03",
+    "name": "模拟电源组件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-04",
+    "name": "模拟遥控器",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-04",
+    "name": "模拟电源组件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-05",
+    "name": "模拟遥控器",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-05",
+    "name": "模拟电源组件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-06",
+    "name": "模拟遥控器",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-06",
+    "name": "模拟电源组件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-REMOTE-07",
+    "name": "模拟遥控器",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-01-POWER-07",
+    "name": "模拟电源组件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-01",
+    "name": "模拟托盘紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-01",
+    "name": "模拟灯罩",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-02",
+    "name": "模拟托盘紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-02",
+    "name": "模拟灯罩",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-03",
+    "name": "模拟托盘紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-03",
+    "name": "模拟灯罩",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-04",
+    "name": "模拟托盘紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-04",
+    "name": "模拟灯罩",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-05",
+    "name": "模拟托盘紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-05",
+    "name": "模拟灯罩",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-06",
+    "name": "模拟托盘紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-06",
+    "name": "模拟灯罩",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-07",
+    "name": "模拟托盘紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-07",
+    "name": "模拟灯罩",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-08",
+    "name": "模拟托盘紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-08",
+    "name": "模拟灯罩",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-09",
+    "name": "模拟托盘紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-09",
+    "name": "模拟灯罩",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-FASTENER-10",
+    "name": "模拟托盘紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-02-SHADE-10",
+    "name": "模拟灯罩",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTON-03-REMOTE-01",
+    "name": "模拟双灯滑条遥控器",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTON"
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-01-FASTENER-01",
+    "name": "模拟书架紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTONLIFE"
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-01-FASTENER-02",
+    "name": "模拟书架紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTONLIFE"
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-01-FASTENER-03",
+    "name": "模拟书架紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTONLIFE"
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-01-FASTENER-04",
+    "name": "模拟书架紧固件包",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTONLIFE"
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-02-STORAGE-01",
+    "name": "模拟收纳部件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTONLIFE"
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-02-STORAGE-02",
+    "name": "模拟收纳部件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTONLIFE"
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-02-STORAGE-03",
+    "name": "模拟收纳部件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTONLIFE"
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-02-STORAGE-04",
+    "name": "模拟收纳部件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTONLIFE"
+  },
+  {
+    "part_id": "SIM-OUTONLIFE-02-STORAGE-05",
+    "name": "模拟收纳部件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "OUTONLIFE"
+  },
+  {
+    "part_id": "SIM-BELEEV-01-GRIP-01",
+    "name": "模拟把手装饰套",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "BELEEV"
+  },
+  {
+    "part_id": "SIM-BELEEV-01-LOCK-01",
+    "name": "模拟立杆锁止组件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "BELEEV"
+  },
+  {
+    "part_id": "SIM-BELEEV-01-GRIP-02",
+    "name": "模拟把手装饰套",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": true,
+    "safety_critical": false,
+    "brand": "BELEEV"
+  },
+  {
+    "part_id": "SIM-BELEEV-01-LOCK-02",
+    "name": "模拟立杆锁止组件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "BELEEV"
+  },
+  {
+    "part_id": "SIM-BELEEV-02-WHEEL-01",
+    "name": "模拟发光轮组",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "BELEEV"
+  },
+  {
+    "part_id": "SIM-BELEEV-02-WHEEL-02",
+    "name": "模拟发光轮组",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "BELEEV"
+  },
+  {
+    "part_id": "SIM-BELEEV-03-LOCK-01",
+    "name": "模拟折叠锁止组件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "BELEEV"
+  },
+  {
+    "part_id": "SIM-BELEEV-03-LOCK-02",
+    "name": "模拟折叠锁止组件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "BELEEV"
+  },
+  {
+    "part_id": "SIM-BELEEV-03-LOCK-03",
+    "name": "模拟折叠锁止组件",
+    "source_kind": "synthetic_project_part",
+    "customer_replaceable": false,
+    "safety_critical": true,
+    "brand": "BELEEV"
+  }
+]

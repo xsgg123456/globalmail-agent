@@ -1,0 +1,461 @@
+[
+  {
+    "scenario_id": "BASE-OUTON-01",
+    "order_id": "SIM-O-BASE-OUTON-01",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "BASE-OUTON-02",
+    "order_id": "SIM-O-BASE-OUTON-02",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "BASE-OUTON-03",
+    "order_id": "SIM-O-BASE-OUTON-03",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "BASE-OUTON-04",
+    "order_id": "SIM-O-BASE-OUTON-04",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "BASE-OUTON-05",
+    "order_id": "SIM-O-BASE-OUTON-05",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "BASE-OUTON-06",
+    "order_id": "SIM-O-BASE-OUTON-06",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "BASE-OUTON-07",
+    "order_id": "SIM-O-BASE-OUTON-07",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "BASE-OUTONLIFE-01",
+    "order_id": "SIM-O-BASE-OUTONLIFE-01",
+    "sku": "F-SJ001-US-BBR",
+    "currency": "USD",
+    "unit_price_minor": 4749,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0DC3TM3ZT"
+  },
+  {
+    "scenario_id": "BASE-OUTONLIFE-02",
+    "order_id": "SIM-O-BASE-OUTONLIFE-02",
+    "sku": "F-SJ001-US-BBR",
+    "currency": "USD",
+    "unit_price_minor": 4749,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0DC3TM3ZT"
+  },
+  {
+    "scenario_id": "BASE-OUTONLIFE-03",
+    "order_id": "SIM-O-BASE-OUTONLIFE-03",
+    "sku": "F-SJ001-US-BBR",
+    "currency": "USD",
+    "unit_price_minor": 4749,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0DC3TM3ZT"
+  },
+  {
+    "scenario_id": "BASE-OUTONLIFE-04",
+    "order_id": "SIM-O-BASE-OUTONLIFE-04",
+    "sku": "F-SJ001-US-BBR",
+    "currency": "USD",
+    "unit_price_minor": 4749,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0DC3TM3ZT"
+  },
+  {
+    "scenario_id": "BASE-OUTONLIFE-05",
+    "order_id": "SIM-O-BASE-OUTONLIFE-05",
+    "sku": "F-SJ001-US-BBR",
+    "currency": "USD",
+    "unit_price_minor": 4749,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0DC3TM3ZT"
+  },
+  {
+    "scenario_id": "BASE-OUTONLIFE-06",
+    "order_id": "SIM-O-BASE-OUTONLIFE-06",
+    "sku": "F-SJ001-US-BBR",
+    "currency": "USD",
+    "unit_price_minor": 4749,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0DC3TM3ZT"
+  },
+  {
+    "scenario_id": "BASE-OUTONLIFE-07",
+    "order_id": "SIM-O-BASE-OUTONLIFE-07",
+    "sku": "F-SJ001-US-BBR",
+    "currency": "USD",
+    "unit_price_minor": 4749,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0DC3TM3ZT"
+  },
+  {
+    "scenario_id": "BASE-BELEEV-01",
+    "order_id": "SIM-O-BASE-BELEEV-01",
+    "sku": "SP-SLHBC01-BL",
+    "currency": "USD",
+    "unit_price_minor": 3599,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B07WRRL18Z"
+  },
+  {
+    "scenario_id": "BASE-BELEEV-02",
+    "order_id": "SIM-O-BASE-BELEEV-02",
+    "sku": "SP-XLLHBC02-PP",
+    "currency": "USD",
+    "unit_price_minor": 5984,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0C4XPT3PH"
+  },
+  {
+    "scenario_id": "BASE-BELEEV-03",
+    "order_id": "SIM-O-BASE-BELEEV-03",
+    "sku": "SP-SLHBC01-BL",
+    "currency": "USD",
+    "unit_price_minor": 3599,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B07WRRL18Z"
+  },
+  {
+    "scenario_id": "BASE-BELEEV-04",
+    "order_id": "SIM-O-BASE-BELEEV-04",
+    "sku": "SP-SLHBC01-BL",
+    "currency": "USD",
+    "unit_price_minor": 3599,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B07WRRL18Z"
+  },
+  {
+    "scenario_id": "BASE-BELEEV-05",
+    "order_id": "SIM-O-BASE-BELEEV-05",
+    "sku": "SP-SLHBC01-BL",
+    "currency": "USD",
+    "unit_price_minor": 3599,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B07WRRL18Z"
+  },
+  {
+    "scenario_id": "BASE-BELEEV-06",
+    "order_id": "SIM-O-BASE-BELEEV-06",
+    "sku": "SP-SLHBC01-BL",
+    "currency": "USD",
+    "unit_price_minor": 3599,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B07WRRL18Z"
+  },
+  {
+    "scenario_id": "BASE-BELEEV-07",
+    "order_id": "SIM-O-BASE-BELEEV-07",
+    "sku": "SP-SLHBC01-BL",
+    "currency": "USD",
+    "unit_price_minor": 3599,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B07WRRL18Z"
+  },
+  {
+    "scenario_id": "SCN-001",
+    "order_id": "SIM-O-SCN-001",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-003",
+    "order_id": "SIM-O-SCN-003",
+    "sku": "SP-SLHBC01-BL",
+    "currency": "USD",
+    "unit_price_minor": 3599,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B07WRRL18Z"
+  },
+  {
+    "scenario_id": "SCN-004",
+    "order_id": "SIM-O-SCN-004",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-005",
+    "order_id": "SIM-O-SCN-005",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-006",
+    "order_id": "SIM-O-SCN-006",
+    "sku": "F-ZZZ0002-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5609,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0FCYHZYSJ"
+  },
+  {
+    "scenario_id": "SCN-007",
+    "order_id": "SIM-O-SCN-007",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-008",
+    "order_id": "SIM-O-SCN-008",
+    "sku": "H-SJJ0001-EU-WD",
+    "currency": "EUR",
+    "unit_price_minor": 5966,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0BZ8FLF83"
+  },
+  {
+    "scenario_id": "SCN-009",
+    "order_id": "SIM-O-SCN-009",
+    "sku": "SP-XLLHBC02-PP",
+    "currency": "USD",
+    "unit_price_minor": 5984,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0C4XPT3PH"
+  },
+  {
+    "scenario_id": "SCN-010",
+    "order_id": "SIM-O-SCN-010",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-011",
+    "order_id": "SIM-O-SCN-011",
+    "sku": "F-SJ001-US-BBR",
+    "currency": "USD",
+    "unit_price_minor": 4749,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0DC3TM3ZT"
+  },
+  {
+    "scenario_id": "SCN-012",
+    "order_id": "SIM-O-SCN-012",
+    "sku": "SP-SLHBC01-BL",
+    "currency": "USD",
+    "unit_price_minor": 3599,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B07WRRL18Z"
+  },
+  {
+    "scenario_id": "SCN-013",
+    "order_id": "SIM-O-SCN-013",
+    "sku": "H-SJJ0001-EU-WD",
+    "currency": "EUR",
+    "unit_price_minor": 5966,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0BZ8FLF83"
+  },
+  {
+    "scenario_id": "SCN-014",
+    "order_id": "SIM-O-SCN-014",
+    "sku": "F-ZZZ0002-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5609,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0FCYHZYSJ"
+  },
+  {
+    "scenario_id": "SCN-015",
+    "order_id": "SIM-O-SCN-015",
+    "sku": "SP-XLLHBC02-PP",
+    "currency": "USD",
+    "unit_price_minor": 5984,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0C4XPT3PH"
+  },
+  {
+    "scenario_id": "SCN-016",
+    "order_id": "SIM-O-SCN-016",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-017",
+    "order_id": "SIM-O-SCN-017",
+    "sku": "H-SJJ0001-EU-WD",
+    "currency": "EUR",
+    "unit_price_minor": 5966,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0BZ8FLF83"
+  },
+  {
+    "scenario_id": "SCN-018",
+    "order_id": "SIM-O-SCN-018",
+    "sku": "SP-SLHBC12-PU",
+    "currency": "USD",
+    "unit_price_minor": 6999,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D48BPKRH"
+  },
+  {
+    "scenario_id": "SCN-019",
+    "order_id": "SIM-O-SCN-019",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-020",
+    "order_id": "SIM-O-SCN-020",
+    "sku": "F-ZZZ0002-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5609,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0FCYHZYSJ"
+  },
+  {
+    "scenario_id": "SCN-021",
+    "order_id": "SIM-O-SCN-021",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-022",
+    "order_id": "SIM-O-SCN-022",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-022",
+    "order_id": "SIM-O-SCN-022-B",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-023",
+    "order_id": "SIM-O-SCN-023",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-024",
+    "order_id": "SIM-O-SCN-024",
+    "sku": "F-SJ001-US-BBR",
+    "currency": "USD",
+    "unit_price_minor": 4749,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0DC3TM3ZT"
+  },
+  {
+    "scenario_id": "SCN-025",
+    "order_id": "SIM-O-SCN-025",
+    "sku": "SP-SLHBC01-BL",
+    "currency": "USD",
+    "unit_price_minor": 3599,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B07WRRL18Z"
+  },
+  {
+    "scenario_id": "SCN-026",
+    "order_id": "SIM-O-SCN-026",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-027",
+    "order_id": "SIM-O-SCN-027",
+    "sku": "F-SJ001-US-BBR",
+    "currency": "USD",
+    "unit_price_minor": 4749,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0DC3TM3ZT"
+  },
+  {
+    "scenario_id": "SCN-028",
+    "order_id": "SIM-O-SCN-028",
+    "sku": "SP-SLHBC01-BL",
+    "currency": "USD",
+    "unit_price_minor": 3599,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B07WRRL18Z"
+  },
+  {
+    "scenario_id": "SCN-029",
+    "order_id": "SIM-O-SCN-029",
+    "sku": "H-CTD16-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5499,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0D59QC53Q"
+  },
+  {
+    "scenario_id": "SCN-030",
+    "order_id": "SIM-O-SCN-030",
+    "sku": "F-ZZZ0002-US-BK",
+    "currency": "USD",
+    "unit_price_minor": 5609,
+    "basis": "production_observed_unit_price_same_sku_currency",
+    "source_asin": "B0FCYHZYSJ"
+  }
+]

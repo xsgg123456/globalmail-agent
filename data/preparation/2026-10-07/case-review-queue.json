@@ -1,0 +1,2400 @@
+[
+  {
+    "brand": "BELEEV",
+    "order_skus": [
+      "SP-HBC0009-D"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 5,
+    "order_country": "英国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "GBP",
+    "outbound_count": 4,
+    "conversation_id": "14430a69-eb81-49d8-a220-5837909903a0",
+    "last_visible_at": "2026-09-09T07:34:43.91653+00:00",
+    "workflow_status": "RESOLVED",
+    "first_visible_at": "2026-09-02T13:09:50+00:00",
+    "order_binding_id": "52cab2ae-2366-40ef-8d6e-8a83f8593566",
+    "registration_ids": [
+      "d99cdc9d-f8e7-4805-8c87-ad5dc2feec3e"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "SP-HBC0009-D"
+    ],
+    "current_reply_count": 4,
+    "fallback_text_count": 5,
+    "customer_language_code": null,
+    "attachment_message_count": 3,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "A1-三轮滑板车-快拆锁扣拆装款-恐龙"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "BELEEV",
+    "order_skus": [
+      "SP-SLHBC01-BL"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 1,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 1,
+    "conversation_id": "545fed4d-5728-427d-9287-3def45379351",
+    "last_visible_at": "2026-10-06T06:18:37.471898+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-10-05T01:03:48+00:00",
+    "order_binding_id": "9822c0b0-65ca-4e8e-b762-66feb39b7d06",
+    "registration_ids": [
+      "6afa5964-cdc5-4702-8df3-100ddf261959"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "SP-SLHBC01-BL"
+    ],
+    "current_reply_count": 0,
+    "fallback_text_count": 2,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-06"
+    ],
+    "registered_product_names": [
+      "A2彩杆 三轮滑板车(蓝色)"
+    ],
+    "selected_family_ids": [
+      "BELEEV-01"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "BELEEV",
+    "order_skus": [],
+    "brand_source": "mailbox_hint",
+    "first_status": "FOLLOW_UP_SEEN",
+    "inbound_count": 1,
+    "order_country": null,
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": null,
+    "outbound_count": 0,
+    "conversation_id": "6092bac5-ddb9-4cb3-81f0-9a6435c54206",
+    "last_visible_at": "2026-09-21T22:34:09+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-21T22:34:09+00:00",
+    "order_binding_id": null,
+    "registration_ids": null,
+    "has_order_details": false,
+    "registration_skus": null,
+    "current_reply_count": 0,
+    "fallback_text_count": 1,
+    "customer_language_code": "nl",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 0,
+    "keyword_candidate_categories": [
+      "BIZ-05",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [],
+    "selected_family_ids": [],
+    "scope_status": "needs_product_identity_review",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "BELEEV",
+    "order_skus": [
+      "SP-SLHBC08-P"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 4,
+    "order_country": "德国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 3,
+    "conversation_id": "700bd5c7-fefd-44aa-86c3-4917d5d1b502",
+    "last_visible_at": "2026-09-29T09:35:54.750041+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-27T18:21:50+00:00",
+    "order_binding_id": "da8157f6-4ffe-4a6e-aa9a-6e1361a5c0a3",
+    "registration_ids": [
+      "2fabacf2-062f-49f8-9b42-70eaaf7aa299"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "SP-SLHBC08-P"
+    ],
+    "current_reply_count": 3,
+    "fallback_text_count": 4,
+    "customer_language_code": "en",
+    "attachment_message_count": 2,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-03",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "A1小款三轮滑板车（玫红色）"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "BELEEV",
+    "order_skus": [
+      "SP-SLHBC12-PU"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 3,
+    "order_country": "德国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 3,
+    "conversation_id": "74bd7e8f-3c1f-4a5f-826b-8d345a46aab3",
+    "last_visible_at": "2026-09-30T07:49:10.431994+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-28T09:12:45+00:00",
+    "order_binding_id": "ed5e6b39-07e9-42f7-9ff4-aebab6756811",
+    "registration_ids": [
+      "11042164-dbab-4e7e-b445-dcc9283e61b1"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "SP-SLHBC12-PU"
+    ],
+    "current_reply_count": 2,
+    "fallback_text_count": 4,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-06"
+    ],
+    "registered_product_names": [
+      "滑板车-儿童三轮滑板车-A9 带灯折叠款-紫色"
+    ],
+    "selected_family_ids": [
+      "BELEEV-03"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "BELEEV",
+    "order_skus": [],
+    "brand_source": "mailbox_hint",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 10,
+    "order_country": null,
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": null,
+    "outbound_count": 6,
+    "conversation_id": "91d92b13-47a6-4961-9cfa-d6b17706dcf9",
+    "last_visible_at": "2026-09-08T08:07:42.508538+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-08-25T19:12:11+00:00",
+    "order_binding_id": null,
+    "registration_ids": null,
+    "has_order_details": false,
+    "registration_skus": null,
+    "current_reply_count": 8,
+    "fallback_text_count": 8,
+    "customer_language_code": null,
+    "attachment_message_count": 1,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 0,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-03",
+      "BIZ-05",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [],
+    "selected_family_ids": [],
+    "scope_status": "needs_product_identity_review",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "BELEEV",
+    "order_skus": [
+      "SP-PT000202-MM",
+      "SP-PT000201-MTL"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 4,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 1,
+    "conversation_id": "9546d0db-acc7-46c8-a59f-e8c2aba92931",
+    "last_visible_at": "2026-08-30T17:44:02+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-08-28T23:29:58+00:00",
+    "order_binding_id": "1a0af848-2caa-4355-a332-5b9450754363",
+    "registration_ids": [
+      "1a863e96-7603-40ab-a3fe-987388866a98"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "SP-PT000201-MTL"
+    ],
+    "current_reply_count": 2,
+    "fallback_text_count": 3,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-03",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "PT-01旋转摩天轮-不带灯"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "excluded_non_scooter_product",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "BELEEV",
+    "order_skus": [
+      "SP-XLLHBC02-P"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 2,
+    "order_country": "英国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "GBP",
+    "outbound_count": 1,
+    "conversation_id": "a544adac-fc0a-4a45-8c07-d82de8b20f78",
+    "last_visible_at": "2026-09-02T09:37:01+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-01T16:02:51+00:00",
+    "order_binding_id": "b79985ab-b86d-463d-9d25-74accbcc2f88",
+    "registration_ids": [
+      "3c4902bd-9631-408d-a278-b8e65cd6e995"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "SP-XLLHBC02-P"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 2,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "V2-带灯小两轮滑板车（彩粉色）"
+    ],
+    "selected_family_ids": [
+      "BELEEV-02"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "BELEEV",
+    "order_skus": [
+      "SP-SLHBC12-LP"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 3,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 2,
+    "conversation_id": "d4d8f713-26a9-491b-a37c-57680b9bc058",
+    "last_visible_at": "2026-10-06T20:41:00+00:00",
+    "workflow_status": "PENDING",
+    "first_visible_at": "2026-10-02T22:16:51+00:00",
+    "order_binding_id": "ca2a7bcb-38c9-4d64-bbac-bcf2065eb3c2",
+    "registration_ids": [
+      "fb98dbdb-a069-4533-a566-3745af319028"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "SP-SLHBC12-LP"
+    ],
+    "current_reply_count": 2,
+    "fallback_text_count": 3,
+    "customer_language_code": "en",
+    "attachment_message_count": 1,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "滑板车-儿童三轮滑板车-A9 带灯折叠款-粉色"
+    ],
+    "selected_family_ids": [
+      "BELEEV-03"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "BELEEV",
+    "order_skus": [],
+    "brand_source": "mailbox_hint",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 1,
+    "order_country": null,
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": null,
+    "outbound_count": 1,
+    "conversation_id": "ded393c8-4969-4087-af8f-1d133e38abd8",
+    "last_visible_at": "2026-09-27T07:00:45.367202+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-25T16:32:52+00:00",
+    "order_binding_id": null,
+    "registration_ids": null,
+    "has_order_details": false,
+    "registration_skus": null,
+    "current_reply_count": 0,
+    "fallback_text_count": 2,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 0,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-05",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [],
+    "selected_family_ids": [],
+    "scope_status": "needs_product_identity_review",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "BELEEV",
+    "order_skus": [
+      "SP-LYC0003-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 4,
+    "order_country": "荷兰",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 6,
+    "conversation_id": "ea5f01b4-4b5f-463a-b587-6cd2bf7cc291",
+    "last_visible_at": "2026-09-23T09:17:17.118841+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-19T05:09:15+00:00",
+    "order_binding_id": "f54840b1-455a-4066-a1d1-3a8c8f92b9ed",
+    "registration_ids": [
+      "5bf8dcf4-2f95-4900-a950-9420a8f2ef62"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "SP-LYC0003-BK"
+    ],
+    "current_reply_count": 3,
+    "fallback_text_count": 7,
+    "customer_language_code": "en",
+    "attachment_message_count": 2,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-03",
+      "BIZ-04",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "露营车-180L聚拢款-黑色"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "excluded_non_scooter_product",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "BELEEV",
+    "order_skus": [
+      "SP-DLLHBC04-P"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 1,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 1,
+    "conversation_id": "eb5b0c4d-55a6-4950-8d8e-96d756519ced",
+    "last_visible_at": "2026-09-23T10:00:44.37011+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-22T17:06:51+00:00",
+    "order_binding_id": "16634655-d884-4734-a473-48454ab33b32",
+    "registration_ids": [
+      "5ccab8bb-12e1-4d40-8426-0c92fee6c301"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "SP-DLLHBC04-P"
+    ],
+    "current_reply_count": 0,
+    "fallback_text_count": 2,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-04",
+      "BIZ-06"
+    ],
+    "registered_product_names": [
+      "V7 大两轮 滑板车 200mm 全铝（粉色）"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "BELEEV",
+    "order_skus": [
+      "SP-DLLHBC04-PP"
+    ],
+    "brand_source": "mailbox_hint",
+    "first_status": "FOLLOW_UP_SEEN",
+    "inbound_count": 5,
+    "order_country": "英国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "GBP",
+    "outbound_count": 5,
+    "conversation_id": "f8d957d5-f485-4a7b-9f63-ffb60c52ec37",
+    "last_visible_at": "2026-09-23T01:20:15.956542+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-14T12:37:11+00:00",
+    "order_binding_id": "6a379150-e997-4681-89c2-b626f8745809",
+    "registration_ids": null,
+    "has_order_details": true,
+    "registration_skus": null,
+    "current_reply_count": 4,
+    "fallback_text_count": 6,
+    "customer_language_code": "en",
+    "attachment_message_count": 1,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 0,
+    "keyword_candidate_categories": [
+      "BIZ-04"
+    ],
+    "registered_product_names": [],
+    "selected_family_ids": [],
+    "scope_status": "needs_product_identity_review",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 2,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 2,
+    "conversation_id": "071fc798-f50c-4d19-8767-3c75cb9fffea",
+    "last_visible_at": "2026-09-17T07:14:25.436367+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-16T03:49:41+00:00",
+    "order_binding_id": "434d368b-0efb-48a0-b770-f257d1b3b57a",
+    "registration_ids": [
+      "d5fba450-dc57-40bf-b60a-cc4737459520"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 3,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "朝天灯-四按键-美规-黑色"
+    ],
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-SJJ0001-UK-BG"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 3,
+    "order_country": "阿联酋",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "AED",
+    "outbound_count": 4,
+    "conversation_id": "1856790c-0a2d-42e1-a768-d538be965004",
+    "last_visible_at": "2026-09-24T08:18:05.813964+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-02T19:10:45+00:00",
+    "order_binding_id": "13c40585-27c8-4a12-af24-b64a9e25e8e9",
+    "registration_ids": [
+      "3b2fd266-7938-444b-8d40-38985c37e729"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-SJJ0001-UK-BG"
+    ],
+    "current_reply_count": 2,
+    "fallback_text_count": 5,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "三脚架-带托盘-英规-黑金色-荞麦色灯罩"
+    ],
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 1,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 1,
+    "conversation_id": "26304f3a-3c6b-4141-b191-d0e9f62cba7c",
+    "last_visible_at": "2026-09-18T03:17:43.825625+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-18T00:12:59+00:00",
+    "order_binding_id": "1f9afc4a-aee5-4f2f-a553-65a8547ae657",
+    "registration_ids": [
+      "a40979a0-99eb-4065-b546-aeac58dabbe1"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "current_reply_count": 0,
+    "fallback_text_count": 2,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "朝天灯-四按键-美规-黑色"
+    ],
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-BZD05-UK-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 7,
+    "order_country": "英国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "GBP",
+    "outbound_count": 6,
+    "conversation_id": "2aae2926-80ea-47b1-aef9-1f2814381ff7",
+    "last_visible_at": "2026-10-06T07:50:20.536871+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-25T12:22:00+00:00",
+    "order_binding_id": "7ee5ca43-9a13-424c-a4e7-fad93353505d",
+    "registration_ids": [
+      "1ef0af1f-75be-4035-9dce-f653efb0ff32"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-BZD05-UK-BK"
+    ],
+    "current_reply_count": 6,
+    "fallback_text_count": 7,
+    "customer_language_code": "en",
+    "attachment_message_count": 2,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-02",
+      "BIZ-03",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "布罩灯-滑条遥控款-英规-黑色-荞麦色灯罩-低压遥控灯泡"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-LBD05-UK-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 3,
+    "order_country": "英国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "GBP",
+    "outbound_count": 3,
+    "conversation_id": "2b5b268c-6135-41ac-96c8-d8d1432dc504",
+    "last_visible_at": "2026-09-30T09:05:38.128822+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-29T19:33:50+00:00",
+    "order_binding_id": "a6c6542d-c2a7-4876-a49e-35aaea337293",
+    "registration_ids": [
+      "59dd8d5f-a984-47b3-8639-71977fec66a9"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-LBD05-UK-BK"
+    ],
+    "current_reply_count": 0,
+    "fallback_text_count": 6,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "喇叭子母灯-滑条遥控款-英规-黑色-低压遥控灯泡"
+    ],
+    "selected_family_ids": [
+      "OUTON-03"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-SJJ0001-EU-WD"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 2,
+    "order_country": "德国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 2,
+    "conversation_id": "3a2e1381-3311-4e55-89c5-00d231e4852e",
+    "last_visible_at": "2026-09-08T08:34:22.378463+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-06T21:14:37+00:00",
+    "order_binding_id": "2e89d299-f5ad-4e49-b968-7003330cd007",
+    "registration_ids": [
+      "a388c179-499b-4b54-bf18-8fae29151a8c"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-SJJ0001-EU-WD"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 3,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "三脚架-带托盘-欧规-原木色-荞麦色灯罩"
+    ],
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-SJJ0001-EU-WD"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 2,
+    "order_country": "法国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 2,
+    "conversation_id": "3d9f9666-bb37-4f24-bca3-ebe6ca9eb979",
+    "last_visible_at": "2026-10-02T06:35:55.57912+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-29T12:42:53+00:00",
+    "order_binding_id": "8bc5d583-2d04-4670-88bd-22ebe14cb3ed",
+    "registration_ids": [
+      "2975477d-e8fe-4546-a5eb-f6b9935592ec"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-SJJ0001-EU-WD"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 3,
+    "customer_language_code": "fr",
+    "attachment_message_count": 1,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-05"
+    ],
+    "registered_product_names": [
+      "三脚架-带托盘-欧规-原木色-荞麦色灯罩"
+    ],
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-SJJ0001-EU-WTG"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 4,
+    "order_country": "德国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 4,
+    "conversation_id": "50f8650d-5168-4569-9ac4-74caf30caeb5",
+    "last_visible_at": "2026-09-29T07:38:58.140669+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-11T08:15:24+00:00",
+    "order_binding_id": "6a7ef072-3899-4473-bcee-8d67aed9b44c",
+    "registration_ids": [
+      "f0353237-4ec7-45cc-a5c0-276cfc67afde"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-SJJ0001-EU-WTG"
+    ],
+    "current_reply_count": 3,
+    "fallback_text_count": 5,
+    "customer_language_code": "en",
+    "attachment_message_count": 1,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-03",
+      "BIZ-04",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "三脚架-带托盘-欧规-胡桃木拼金色-荞麦色灯罩"
+    ],
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-SJJ0001-EU-WT"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 2,
+    "order_country": "德国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 2,
+    "conversation_id": "512b103f-f934-4136-8965-a57e83a50c3f",
+    "last_visible_at": "2026-10-02T09:22:08.957096+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-30T19:51:03+00:00",
+    "order_binding_id": "59c66619-1f6f-45ed-b83c-5892cd793dcf",
+    "registration_ids": [
+      "f3b5b3f3-2168-4860-80f9-c9df9f214134"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-SJJ0001-EU-WT"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 3,
+    "customer_language_code": "en",
+    "attachment_message_count": 1,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-02",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "三脚架-带托盘-欧规-胡桃木色-荞麦色灯罩"
+    ],
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-CTD05-US-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 6,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 6,
+    "conversation_id": "56b8dc78-7c8e-45b3-aeec-026c0c2afe7b",
+    "last_visible_at": "2026-09-24T03:18:25+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-16T02:32:26+00:00",
+    "order_binding_id": "a5bb01a4-acdb-42c6-a5e4-3ea68a020ef2",
+    "registration_ids": [
+      "fbccabb9-fa89-4d4d-b865-01ab3b993c07"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-CTD05-US-BK"
+    ],
+    "current_reply_count": 5,
+    "fallback_text_count": 7,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-02",
+      "BIZ-04",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "朝天灯灯杆RGB款-美规-磨砂黑"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-SJJ0001-US-WD"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 3,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 3,
+    "conversation_id": "6a4fe374-9621-42bc-b2b2-b01f2567e672",
+    "last_visible_at": "2026-09-29T03:38:24.38113+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-22T23:14:35+00:00",
+    "order_binding_id": "eb080069-4e34-4582-a87d-686d950ae76c",
+    "registration_ids": [
+      "85dfebae-810f-4b4c-a8a6-0904cf16bb01"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-SJJ0001-US-WD"
+    ],
+    "current_reply_count": 2,
+    "fallback_text_count": 4,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "三脚架-带托盘-美规-原木色-荞麦色灯罩"
+    ],
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-SJJ0001-US-WT"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 1,
+    "order_country": "加拿大",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "CAD",
+    "outbound_count": 0,
+    "conversation_id": "6bfa040f-5293-46c3-83d4-312300f33db8",
+    "last_visible_at": "2026-09-15T22:57:25+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-15T22:57:25+00:00",
+    "order_binding_id": "ce1e5a03-2adc-4f89-92b5-9e4cd7d84964",
+    "registration_ids": [
+      "90c913f2-1179-40cd-bd6a-abad0842a312"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-SJJ0001-US-WT"
+    ],
+    "current_reply_count": 0,
+    "fallback_text_count": 1,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02"
+    ],
+    "registered_product_names": [
+      "三脚架-带托盘-美规-胡桃木色-荞麦色灯罩"
+    ],
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 1,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 1,
+    "conversation_id": "73dc79d7-0c4d-4ba5-81c2-46a4bf075d8f",
+    "last_visible_at": "2026-09-21T09:40:58.43729+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-18T14:23:10+00:00",
+    "order_binding_id": "bd9ffa37-3493-468e-887e-086677c77126",
+    "registration_ids": [
+      "1aa68126-3a96-42f5-bb5b-51b3747b26d0"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "current_reply_count": 0,
+    "fallback_text_count": 2,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-04",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "朝天灯-四按键-美规-黑色"
+    ],
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-SFD0004-UK-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 6,
+    "order_country": "英国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "GBP",
+    "outbound_count": 6,
+    "conversation_id": "7517119c-fd27-4d97-8033-6d94ab5c7c5a",
+    "last_visible_at": "2026-10-03T06:26:18.014656+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-15T14:31:59+00:00",
+    "order_binding_id": "f652e0eb-d89c-4af7-a784-edb70cc77a47",
+    "registration_ids": [
+      "b1b93527-0a02-49c8-929a-dc441c2f3eee"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-SFD0004-UK-BK"
+    ],
+    "current_reply_count": 5,
+    "fallback_text_count": 7,
+    "customer_language_code": "en",
+    "attachment_message_count": 1,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-02",
+      "BIZ-03",
+      "BIZ-05",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "沙发灯-长方椭圆-15W-四键-英规-黑色"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-BD000802-W-1PCS"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 7,
+    "order_country": "阿联酋",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "AED",
+    "outbound_count": 5,
+    "conversation_id": "8edf2079-a4f1-4cf8-8d06-6b5bf4cb0131",
+    "last_visible_at": "2026-10-02T09:06:17.430382+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-28T14:15:39+00:00",
+    "order_binding_id": "624735b8-971d-460c-b8ba-93869dfc63a1",
+    "registration_ids": [
+      "eca60cac-4f7d-4bca-abae-dd474770f889"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-BD000802-W-1PCS"
+    ],
+    "current_reply_count": 6,
+    "fallback_text_count": 6,
+    "customer_language_code": "en",
+    "attachment_message_count": 1,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-06"
+    ],
+    "registered_product_names": [
+      "壁灯-百褶玻璃款8000毫安-双头三色温-白色-单支装"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-SJJ0001-UK-WT"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 5,
+    "order_country": "英国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "GBP",
+    "outbound_count": 5,
+    "conversation_id": "8ff51b6e-46ac-4386-b8ad-7065866f5168",
+    "last_visible_at": "2026-09-16T06:59:35.698242+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-10T20:59:54+00:00",
+    "order_binding_id": "d6d1d088-a1fc-46dd-bcde-e2d1d45afafb",
+    "registration_ids": [
+      "923f8c68-23b6-4eb7-9929-ab06d790e0c9"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-SJJ0001-UK-WT"
+    ],
+    "current_reply_count": 2,
+    "fallback_text_count": 8,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-02",
+      "BIZ-03",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "三脚架-带托盘-英规-胡桃木色-荞麦色灯罩"
+    ],
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-CTD16-EU-W"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 3,
+    "order_country": "法国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 2,
+    "conversation_id": "978cdd4c-2b26-4f02-a351-6a104d08e3a8",
+    "last_visible_at": "2026-10-03T09:40:34.575683+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-10-02T20:30:54+00:00",
+    "order_binding_id": "796a1912-b75c-4556-904b-6c3c12022107",
+    "registration_ids": [
+      "fd84431f-7698-4964-8be1-5e276c18ddde"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-CTD16-EU-W"
+    ],
+    "current_reply_count": 2,
+    "fallback_text_count": 3,
+    "customer_language_code": "fr",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02"
+    ],
+    "registered_product_names": [
+      "朝天灯-四按键-欧规-白色"
+    ],
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-ZWD000102-EU-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 6,
+    "order_country": "德国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 5,
+    "conversation_id": "98aae5ac-caaf-466e-b109-9b7f452ff45d",
+    "last_visible_at": "2026-10-06T08:45:30.857085+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-09T02:36:15+00:00",
+    "order_binding_id": "b35a7411-ea9e-450b-8c70-ab2b0aadc81d",
+    "registration_ids": [
+      "0f129b70-5f9f-4987-8466-ba18742c97b5"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-ZWD000102-EU-BK"
+    ],
+    "current_reply_count": 5,
+    "fallback_text_count": 6,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-03",
+      "BIZ-04",
+      "BIZ-05",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "植物生长灯-圆盘底座基础款-单模式-4节-欧规-黑色"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 1,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 0,
+    "conversation_id": "a08f9a8d-73a2-4aed-bf8b-d91c47dd05a2",
+    "last_visible_at": "2026-09-15T23:47:31+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-15T23:47:31+00:00",
+    "order_binding_id": "f9b8fdf4-2564-4dfc-a948-7939e2c4eea1",
+    "registration_ids": [
+      "39aaa5b6-5c04-45e2-acc9-16c2a4b6dbae"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "current_reply_count": 0,
+    "fallback_text_count": 1,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-06"
+    ],
+    "registered_product_names": [
+      "朝天灯-四按键-美规-黑色"
+    ],
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-LBD05-UK-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 2,
+    "order_country": "英国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "GBP",
+    "outbound_count": 0,
+    "conversation_id": "a3c28bd1-635c-42a5-9f31-3424d66e484f",
+    "last_visible_at": "2026-09-03T13:11:30+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-02T12:21:56+00:00",
+    "order_binding_id": "35e61e74-aaf8-430f-8ae2-51e7cc960c11",
+    "registration_ids": [
+      "723da5b2-cc2d-4f53-94f1-fe9d2ab0b08c"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-LBD05-UK-BK"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 1,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-03",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "喇叭子母灯-滑条遥控款-英规-黑色-低压遥控灯泡"
+    ],
+    "selected_family_ids": [
+      "OUTON-03"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-BD001002-BK-2PCS"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 12,
+    "order_country": "英国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "GBP",
+    "outbound_count": 9,
+    "conversation_id": "a7559067-981d-460d-a0b4-e783048ceab6",
+    "last_visible_at": "2026-10-06T14:13:50+00:00",
+    "workflow_status": "PENDING",
+    "first_visible_at": "2026-09-21T18:52:23+00:00",
+    "order_binding_id": "6311f5c8-b511-4ede-88d6-845cec21fab3",
+    "registration_ids": [
+      "1463749c-d7f5-424c-9143-6e628a8bf2b9"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-BD001002-BK-2PCS"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 20,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-03",
+      "BIZ-04",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "壁灯-玻璃单头长款8000毫安-三色温-黑色-双支装"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 1,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 1,
+    "conversation_id": "b8507ae7-a579-4934-b9be-7f922e3c3b9a",
+    "last_visible_at": "2026-09-21T09:54:48.67645+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-21T09:03:54+00:00",
+    "order_binding_id": "21570128-89f3-4cde-98a4-7409556f4b84",
+    "registration_ids": [
+      "b2e8f5fa-13fb-4815-a665-5474fa12d9b4"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "current_reply_count": 0,
+    "fallback_text_count": 2,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-03",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "朝天灯-四按键-美规-黑色"
+    ],
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-FSD0004-US-WD"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 8,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 7,
+    "conversation_id": "d7895ad4-5474-4f71-a26c-2e3d7d733538",
+    "last_visible_at": "2026-09-29T03:23:22.056043+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-08T02:09:16+00:00",
+    "order_binding_id": "d7571bc8-38a1-46ef-bd8d-1cc1c4fff92d",
+    "registration_ids": [
+      "0443316a-3fdf-4900-ad5c-6bc06b1af156"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-FSD0004-US-WD"
+    ],
+    "current_reply_count": 7,
+    "fallback_text_count": 8,
+    "customer_language_code": null,
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-02",
+      "BIZ-03",
+      "BIZ-06"
+    ],
+    "registered_product_names": [
+      "开叶风扇灯-F4-52英寸-美规-原木色"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-SJJ0001-EU-WD"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 2,
+    "order_country": "德国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 2,
+    "conversation_id": "e2f55263-2e9c-46d5-ac85-d409c7fbcab0",
+    "last_visible_at": "2026-09-18T11:24:23.4175+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-16T16:00:19+00:00",
+    "order_binding_id": "b0994e86-6641-4efb-8940-e936f071cbf8",
+    "registration_ids": [
+      "f811c070-fe89-443f-8a4d-dd9f69e6f100"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-SJJ0001-EU-WD"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 3,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01"
+    ],
+    "registered_product_names": [
+      "三脚架-带托盘-欧规-原木色-荞麦色灯罩"
+    ],
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 4,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 4,
+    "conversation_id": "e90e7800-e64c-4d4b-af78-d34e3a201016",
+    "last_visible_at": "2026-09-10T09:45:43.397873+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-09T21:52:28+00:00",
+    "order_binding_id": "a6e93ecb-e5b3-4fc6-a779-38beb27c4723",
+    "registration_ids": [
+      "f6e93c8d-a10b-45be-83b4-1a538d94d98d"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 7,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-02",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "朝天灯-四按键-美规-黑色"
+    ],
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-SJJ0001-UK-WD"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 2,
+    "order_country": "英国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "GBP",
+    "outbound_count": 2,
+    "conversation_id": "f95f9f72-45db-4446-ae66-a38f332db595",
+    "last_visible_at": "2026-10-06T03:58:18.705085+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-10-02T20:05:19+00:00",
+    "order_binding_id": "9cd58634-a78a-49e3-a661-4ecbefa583f4",
+    "registration_ids": [
+      "927604c6-5137-4f80-9809-db0682f35a6d"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-SJJ0001-UK-WD"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 3,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-03",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "三脚架-带托盘-英规-原木色-荞麦色灯罩"
+    ],
+    "selected_family_ids": [
+      "OUTON-02"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 1,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 1,
+    "conversation_id": "f9bf235d-e4ff-4ed0-bb1a-5ff4ad4141fd",
+    "last_visible_at": "2026-10-06T06:12:07.74084+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-10-05T06:27:09+00:00",
+    "order_binding_id": "b6e46879-340a-4373-9741-6b8a0923df4f",
+    "registration_ids": [
+      "1f60baba-d93f-4aa2-afef-83d64bd16caf"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-CTD16-US-BK"
+    ],
+    "current_reply_count": 0,
+    "fallback_text_count": 2,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "朝天灯-四按键-美规-黑色"
+    ],
+    "selected_family_ids": [
+      "OUTON-01"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTON",
+    "order_skus": [
+      "H-FWD0002-UK-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 5,
+    "order_country": "英国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "GBP",
+    "outbound_count": 7,
+    "conversation_id": "f9fa13d9-9e60-4b24-aea1-8e5ad4d6ee01",
+    "last_visible_at": "2026-09-28T09:18:21.183765+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-19T22:58:54+00:00",
+    "order_binding_id": "334d604c-6d3b-48d9-b4d0-346306e3656d",
+    "registration_ids": [
+      "ac0de7ef-9321-4384-ab60-164855c7eee2"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "H-FWD0002-UK-BK"
+    ],
+    "current_reply_count": 4,
+    "fallback_text_count": 8,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-02",
+      "BIZ-04",
+      "BIZ-05",
+      "BIZ-06"
+    ],
+    "registered_product_names": [
+      "角落氛围灯-圆盘底座-RGBCW蓝牙款-快拆款-1.45米-英规-黑色-单支装"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTONLIFE",
+    "order_skus": [
+      "F-SJ001-US-BBR"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 4,
+    "order_country": "加拿大",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "CAD",
+    "outbound_count": 2,
+    "conversation_id": "0958d92d-cb34-47f8-9c72-588b4a0cccca",
+    "last_visible_at": "2026-09-02T14:49:49+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-08-28T22:28:33+00:00",
+    "order_binding_id": "29730850-7eca-4985-b2be-c5afeeebdd8d",
+    "registration_ids": [
+      "43ce8f6d-ceaf-4437-9659-42243e8ae648"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "F-SJ001-US-BBR"
+    ],
+    "current_reply_count": 3,
+    "fallback_text_count": 3,
+    "customer_language_code": "en",
+    "attachment_message_count": 3,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-02",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "书架-树形书架带灯-美规-复古黄"
+    ],
+    "selected_family_ids": [
+      "OUTONLIFE-01"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTONLIFE",
+    "order_skus": [
+      "F-ZZZ000901-US-BBR"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 5,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 5,
+    "conversation_id": "21ec3026-9d5c-4066-b2d6-dc4c29ae9644",
+    "last_visible_at": "2026-10-02T06:21:28.315168+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-26T13:22:13+00:00",
+    "order_binding_id": "7cff9278-c882-4c6a-b205-e67e9cfec601",
+    "registration_ids": [
+      "75225afa-0b0d-4e8d-b3d7-424e16f1b38a"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "F-ZZZ000901-US-BBR"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 9,
+    "customer_language_code": "en",
+    "attachment_message_count": 1,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-03",
+      "BIZ-06"
+    ],
+    "registered_product_names": [
+      "ZZZ-09圆形杂志桌灯-直杆支架-12W遥控灯泡-白色灯罩-美规-复古黄"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTONLIFE",
+    "order_skus": [
+      "F-SJ001-EU-W"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 3,
+    "order_country": "西班牙",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 3,
+    "conversation_id": "33ab152a-5103-4f65-80e7-58ec0b827374",
+    "last_visible_at": "2026-09-18T07:26:30.546228+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-17T18:36:49+00:00",
+    "order_binding_id": "e7da9495-f3b6-423f-9e35-a3d15690b22b",
+    "registration_ids": [
+      "19ccd9f4-079d-4adc-847a-e374112ce361"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "F-SJ001-EU-W"
+    ],
+    "current_reply_count": 2,
+    "fallback_text_count": 4,
+    "customer_language_code": "es",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [],
+    "registered_product_names": [
+      "书架-树形书架带灯-欧规-白色"
+    ],
+    "selected_family_ids": [
+      "OUTONLIFE-01"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTONLIFE",
+    "order_skus": [
+      "F-YMJ000201-US-BBR"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 2,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 2,
+    "conversation_id": "41392391-01a9-441b-ab57-fbde9bce4d1d",
+    "last_visible_at": "2026-09-27T08:18:43.89861+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-24T01:13:27+00:00",
+    "order_binding_id": "7f7ca165-b8f9-433b-805f-a1765460f21e",
+    "registration_ids": [
+      "5432b4aa-4eaa-4ddf-b3a1-c99117c3dbbf"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "F-YMJ000201-US-BBR"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 3,
+    "customer_language_code": "en",
+    "attachment_message_count": 1,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "柱形衣帽架灯-3层木板款-白色灯罩-12W遥控灯泡-美规-复古黄"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTONLIFE",
+    "order_skus": [
+      "F-SJ0008-US-W"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 7,
+    "order_country": "加拿大",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "CAD",
+    "outbound_count": 6,
+    "conversation_id": "46a88293-8f66-4a07-886c-7c59c1a84ab6",
+    "last_visible_at": "2026-09-23T06:48:37.61812+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-12T03:04:38+00:00",
+    "order_binding_id": "0228bd80-4237-4c45-a279-18f74a5e54ab",
+    "registration_ids": [
+      "0e34102d-9a16-41c0-a448-fca3f26bf724"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "F-SJ0008-US-W"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 12,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-03",
+      "BIZ-04",
+      "BIZ-05",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "扇形书架-板发光-五层带灯-美规-白色"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTONLIFE",
+    "order_skus": [
+      "F-ZZZ000701-US-BBR"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 2,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 2,
+    "conversation_id": "4c1434f1-0afa-4f50-bfcd-e6d0fc8c0c12",
+    "last_visible_at": "2026-09-17T07:09:54.461311+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-15T16:43:14+00:00",
+    "order_binding_id": "ce79d2f3-5f5b-4a05-906f-63401a9b1316",
+    "registration_ids": [
+      "0be6a04a-ae2a-4d6c-99ec-a35ef9f5a49e"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "F-ZZZ000701-US-BBR"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 3,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-05"
+    ],
+    "registered_product_names": [
+      "ZZZ-07方形杂志桌台灯-12W三色温灯泡-白色灯罩-美规-复古黄"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTONLIFE",
+    "order_skus": [
+      "F-ZZZ0002-US-BK"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 2,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 2,
+    "conversation_id": "6f6c7fd9-a3a4-4c25-82c1-ec2aa207b6e3",
+    "last_visible_at": "2026-09-11T09:10:23.805644+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-08T17:22:37+00:00",
+    "order_binding_id": "4a6b1dc4-ffde-481f-8b30-50fd8fab4100",
+    "registration_ids": [
+      "0397d683-bce2-448e-b448-dc4a0d73d844"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "F-ZZZ0002-US-BK"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 3,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-06"
+    ],
+    "registered_product_names": [
+      "ZZZ-02方形杂志桌灯-充电款-遥控灯泡-美规-黑色"
+    ],
+    "selected_family_ids": [
+      "OUTONLIFE-02"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTONLIFE",
+    "order_skus": [
+      "F-SJ001-US-BBR"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 2,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 2,
+    "conversation_id": "6f8476c4-1404-4db6-a7aa-0a866744bf31",
+    "last_visible_at": "2026-09-10T06:38:02.350239+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-09T01:01:43+00:00",
+    "order_binding_id": "145006b9-b5bf-49f0-838a-25ae041b36d9",
+    "registration_ids": [
+      "2d3c72b7-de92-424f-a242-bd8090522761"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "F-SJ001-US-BBR"
+    ],
+    "current_reply_count": 1,
+    "fallback_text_count": 3,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "书架-树形书架带灯-美规-复古黄"
+    ],
+    "selected_family_ids": [
+      "OUTONLIFE-01"
+    ],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTONLIFE",
+    "order_skus": [
+      "F-SJ0008-UK-BBR"
+    ],
+    "brand_source": "mailbox_hint",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 4,
+    "order_country": "英国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "GBP",
+    "outbound_count": 3,
+    "conversation_id": "9b840c00-2ffc-4151-b130-68e212a29e86",
+    "last_visible_at": "2026-09-22T08:29:31.669517+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-20T12:40:21+00:00",
+    "order_binding_id": "8638680d-2fc8-4925-b106-ed9adc4cecbb",
+    "registration_ids": null,
+    "has_order_details": true,
+    "registration_skus": null,
+    "current_reply_count": 2,
+    "fallback_text_count": 5,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 0,
+    "keyword_candidate_categories": [
+      "BIZ-03"
+    ],
+    "registered_product_names": [],
+    "selected_family_ids": [],
+    "scope_status": "needs_product_identity_review",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTONLIFE",
+    "order_skus": [
+      "F-SJ0007-EU-W"
+    ],
+    "brand_source": "mailbox_hint",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 1,
+    "order_country": "西班牙",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 0,
+    "conversation_id": "a7972fb4-a1d7-452c-99f7-1604b556fd19",
+    "last_visible_at": "2026-09-04T03:03:40+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-04T03:03:40+00:00",
+    "order_binding_id": "99ffa0b2-7241-4ea8-b970-fddba3f4d6e4",
+    "registration_ids": null,
+    "has_order_details": true,
+    "registration_skus": null,
+    "current_reply_count": 0,
+    "fallback_text_count": 1,
+    "customer_language_code": null,
+    "attachment_message_count": 1,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 0,
+    "keyword_candidate_categories": [
+      "BIZ-01",
+      "BIZ-02",
+      "BIZ-03",
+      "BIZ-04",
+      "BIZ-05",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [],
+    "selected_family_ids": [],
+    "scope_status": "needs_product_identity_review",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTONLIFE",
+    "order_skus": [
+      "F-SJ0004-US-BBR"
+    ],
+    "brand_source": "registration",
+    "first_status": "FIRST_CONFIRMED",
+    "inbound_count": 3,
+    "order_country": "美国",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "USD",
+    "outbound_count": 3,
+    "conversation_id": "e7273d35-79e1-4036-a881-388cf25e4227",
+    "last_visible_at": "2026-09-24T06:44:32.287181+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-09-21T13:26:08+00:00",
+    "order_binding_id": "d6cff702-614e-4199-8a2b-37574a2c9dcc",
+    "registration_ids": [
+      "bc2b5303-23cd-422f-8d7d-42125d5055dd"
+    ],
+    "has_order_details": true,
+    "registration_skus": [
+      "F-SJ0004-US-BBR"
+    ],
+    "current_reply_count": 2,
+    "fallback_text_count": 4,
+    "customer_language_code": "en",
+    "attachment_message_count": 0,
+    "multi_brand_registration": false,
+    "complete_history_candidate": true,
+    "reviewed_registration_count": 1,
+    "keyword_candidate_categories": [
+      "BIZ-02",
+      "BIZ-06",
+      "BIZ-07"
+    ],
+    "registered_product_names": [
+      "书架-树形书架带灯-底部双层-白色灯罩-美规-复古黄"
+    ],
+    "selected_family_ids": [],
+    "scope_status": "target_product_candidate",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  },
+  {
+    "brand": "OUTONLIFE",
+    "order_skus": [
+      "F-SJ0011-EU-BBR-S"
+    ],
+    "brand_source": "mailbox_hint",
+    "first_status": "FOLLOW_UP_SEEN",
+    "inbound_count": 2,
+    "order_country": "西班牙",
+    "review_status": "keyword_candidate_not_semantically_reviewed",
+    "order_currency": "EUR",
+    "outbound_count": 1,
+    "conversation_id": "edb3c627-d2f8-4b08-9346-76119d4caa1d",
+    "last_visible_at": "2026-09-01T20:51:08+00:00",
+    "workflow_status": "FOLLOWING",
+    "first_visible_at": "2026-08-31T08:10:19+00:00",
+    "order_binding_id": "80eff65e-56ac-4e47-8877-883053b98dd3",
+    "registration_ids": null,
+    "has_order_details": true,
+    "registration_skus": null,
+    "current_reply_count": 2,
+    "fallback_text_count": 1,
+    "customer_language_code": null,
+    "attachment_message_count": 1,
+    "multi_brand_registration": false,
+    "complete_history_candidate": false,
+    "reviewed_registration_count": 0,
+    "keyword_candidate_categories": [
+      "BIZ-04"
+    ],
+    "registered_product_names": [],
+    "selected_family_ids": [],
+    "scope_status": "needs_product_identity_review",
+    "usage_split": "unassigned_do_not_index",
+    "body_reviewed": false,
+    "outcome_verified": false
+  }
+]
