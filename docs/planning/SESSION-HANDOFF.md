@@ -2,7 +2,21 @@
 
 文档位置：根目录保留 AGENTS、Product-Spec、变更记录、AGENT-ARCHITECTURE 及已创建的 [DEV-PLAN](../../DEV-PLAN.md)；其余专题由 [文档索引](../README.md) 导航。本文件位于 docs/planning；新任务按 AGENTS 中的目录约定存放产物，不恢复旧根目录副本。
 
-更新：2026-10-07。当前阶段：文档一致性已检查，DEV-PLAN v1.0已制定，13个阶段均未开始。产品/架构版本保持Product-Spec v1.13、AGENT-ARCHITECTURE v1.1、AGENT-ACCEPTANCE v1.1、BUSINESS-SCENARIOS v1.4、BACKEND-ARCHITECTURE v1.5、KNOWLEDGE-DESIGN v1.3、TECH-SELECTION v1.3；82项AC均未执行。下一步从Phase 1客户图片样本与真实图文风险实验开始；正式应用未实现。
+更新：2026-10-07。当前阶段：DEV-PLAN v1.0的Phase 1已实施、验收未通过；Phase 2–13未开始。产品/架构版本保持Product-Spec v1.13、AGENT-ARCHITECTURE v1.1、AGENT-ACCEPTANCE v1.1、BUSINESS-SCENARIOS v1.4、BACKEND-ARCHITECTURE v1.5、KNOWLEDGE-DESIGN v1.3、TECH-SELECTION v1.3；82项产品AC未验收。正式应用未实现。
+
+## 最新用户决定
+
+2026-10-07：用户要求先提交Git，再开始Phase 2。Phase 1本轮探索结束，不再为合成集反复调用付费模型；54次目标字段提取均匹配，业务分流错误不等于OCR/VLM能力失败。原验收失败及人工pending作为历史证据保留，继续Phase 2不需要再次确认。以下Phase 1“未提交/下一步修正”等为当时记录，以本条决定为准。
+
+## Phase 1 当前交接（优先于下方历史记录）
+
+- 已读规则/需求/架构/计划并用dev-builder实施。`data/visual/v1`冻结35个AI合成案例及VIS-001–018分支；标签与模型输入隔离，人审pending。不是生产客户数据，也未证明照片真实SKU身份。
+- `globalmail-agent/vision-spike`包括制作、预处理、真实请求、校验、离线评分、中文报告和证据归档；锁定tech-spike环境，模型/预算未更换。最终final-v5共108次：104结构成功、4拒绝、300,520已知tokens；规则初筛88次通过不代表业务通过。
+- 独立语义审阅发现9次关键失败：不合资格仍申请3、政策缺证据仍申请3、额外插电指导1、无SOP紧固维修1、虚构订单核验并混用型号1。保留原始输出，不以Schema失败遮掩越权。详情见[专项报告](../verification/VISUAL-VALIDATION.md)。
+- 用户明确反馈此前“标签核对”表述看不懂，已解释为看图判断参考处理答案是否符合业务，并制作[中文逐例页](../../data/visual/v1/review.html)。用户没有确认标签，不要自动标已验收或重复要求看JSON。bent和补角度案例有标签争议，需先人工核对，再新版本重测，不能改旧答案刷分。
+- 28项离线测试通过；编译、freeze校验及真实CLI已跑。初审/复审历史报告保留；最终代码审查见模块review-close.md，语义审阅另有v4/v5 JSON与Markdown。实验代码可用与Phase业务验收是两项结论。
+- 下一步修资格/证据、SOP边界和图商品核验后在原模型预算复测；不能关闭Phase 8/13。DEV-PLAN允许独立Phase 2工程准备，本轮没有开始。不要继续反复付费仅为追求全绿；先处理已定位问题和参考答案争议。
+- 真实回复、manifest/labels/freeze快照留在本地忽略目录`tmp/vision-spike`，模块内已保存摘要/哈希用于追溯。审查尚未通过，本轮未写clean、未提交Git。full-v2中断时在途消费未知、final-v4有1次usage未知，不能把已知tokens说成完整账单。
 
 ## Git 提交前检查与新窗口入口
 

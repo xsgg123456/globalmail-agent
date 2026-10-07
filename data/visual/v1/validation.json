@@ -1,0 +1,428 @@
+{
+  "fixture_checks": "passed",
+  "cases": 35,
+  "human_review": "pending",
+  "product_acceptance": "not_run",
+  "checks": [
+    {
+      "id": "VIS-001-label",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-001-jpeg-only",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-001-png-only",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-001-webp-only",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-001-verified-followup",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-002-ambiguous",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-002-body-conflict",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-002-multiple-orders",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-002-lookup-empty",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-003-broken",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-003-bent",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-003-reflection",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-003-normal-shadow",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-004-functional-failure",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-004-partial-missing",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-004-supplemental-angle",
+      "views": 2,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        },
+        {
+          "attachment_id": "a2",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-005-guide",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-005-unknown-model",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-005-eligible-internal",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-005-ineligible",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-005-missing-source-map",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-006-risk-no-order",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-006-risk-guidance",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-006-text-risk-normal-photo",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-007-receipt-unexecuted",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-007-receipt-failed",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-007-receipt-amount-conflict",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-008-blurred",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-009-cid",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-011-image-injection",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-012-dense",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-015-two-products",
+      "views": 2,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        },
+        {
+          "attachment_id": "a2",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-015-one-missing",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        },
+        {
+          "attachment_id": "missing-part",
+          "status": "missing",
+          "reason": "no_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-015-four-images",
+      "views": 4,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        },
+        {
+          "attachment_id": "a2",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        },
+        {
+          "attachment_id": "a3",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        },
+        {
+          "attachment_id": "a4",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        }
+      ]
+    },
+    {
+      "id": "VIS-015-one-corrupt",
+      "views": 1,
+      "coverage": [
+        {
+          "attachment_id": "a1",
+          "status": "ready",
+          "reason": "authorized_controlled_bytes"
+        },
+        {
+          "attachment_id": "a2",
+          "status": "unreadable",
+          "reason": "decode_failed_or_unsupported"
+        }
+      ]
+    }
+  ]
+}

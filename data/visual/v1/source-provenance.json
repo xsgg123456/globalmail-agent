@@ -1,0 +1,60 @@
+{
+  "source_kind": "synthetic_development_only",
+  "permission_basis": "user-authorized Phase 1 synthetic fixtures; no third-party/customer photos",
+  "license_note": "project-generated assets; no claim of manufacturer endorsement",
+  "sheet": {
+    "path": "images/synthetic-sheet.png",
+    "sha256": "e94ea4e14ce6b5ad1c95f7b0374d461a52328c6b32d1d492968c521b18493653",
+    "generator": "built-in imagegen",
+    "panel_names": [
+      "broken",
+      "reflection",
+      "scorch",
+      "normal",
+      "bent",
+      "partial"
+    ],
+    "crop_boxes": [
+      [
+        0,
+        0,
+        505,
+        487
+      ],
+      [
+        517,
+        0,
+        1024,
+        487
+      ],
+      [
+        0,
+        497,
+        505,
+        957
+      ],
+      [
+        517,
+        497,
+        1024,
+        957
+      ],
+      [
+        0,
+        968,
+        505,
+        1536
+      ],
+      [
+        517,
+        968,
+        1024,
+        1536
+      ]
+    ]
+  },
+  "prompt_summary": "2x3 photorealistic simulated support photos: broken lampshade, black lamp reflection, scorched connector, intact white lamp, bent scooter fork, partial intact scooter; no text/people/brand marks",
+  "screenshots": "deterministically drawn fictional 999-prefix order data; never query production",
+  "agent_visual_review": "sheet inspected 2026-10-07; visible tear, reflection, browning/deformation, intact lamp, scuffed angled fork, partial deck/wheel; causes unknown",
+  "human_review": "pending"
+}

@@ -3,7 +3,7 @@
 版本：v1.13（客户图片理解与售后分流）
 
 日期：2026-10-07（北京时间）  
-阶段：首批资料、技术选型、知识专项及Agent架构已有证据，文档一致性已检查；[DEV-PLAN v1.0](DEV-PLAN.md) 已制定，下一步从Phase 1客户图片专项开始。图片样本与实测、正式应用与RAG接入尚未实现，82项产品AC仍未验收。
+阶段：首批资料、技术选型、知识专项及Agent架构已有证据，文档一致性已检查；[DEV-PLAN v1.0](DEV-PLAN.md) Phase 1图片样本与真实模型实验已实施，但[验收未通过](docs/verification/VISUAL-VALIDATION.md)，人工标签待核对。正式应用与RAG接入尚未实现，82项产品AC仍未验收。
 
 项目：`D:\Work_Project\globalmail-agent`
 

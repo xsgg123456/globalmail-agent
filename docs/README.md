@@ -1,6 +1,6 @@
 # 项目文档索引
 
-本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口，DEV-PLAN v1.0已制定、各开发阶段尚未开始。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
+本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口，DEV-PLAN v1.0的Phase 1已实施、验收未通过；其余阶段未开始。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
 
 ## 根目录入口
 
@@ -16,7 +16,7 @@
 
 | 分类 | 文档 | 用途 |
 |---|---|---|
-| business | [BUSINESS-SCENARIOS.md](business/BUSINESS-SCENARIOS.md) | 七类业务、连续场景及待制作图片专项 |
+| business | [BUSINESS-SCENARIOS.md](business/BUSINESS-SCENARIOS.md) | 七类业务、连续场景及图片专项分支 |
 | architecture | [BACKEND-ARCHITECTURE.md](architecture/BACKEND-ARCHITECTURE.md) | 后端总览与取舍；具体运行契约以根目录主架构为准 |
 | architecture | [TECH-SELECTION.md](architecture/TECH-SELECTION.md) | 技术选择、依赖版本、已有验证及能力边界 |
 | architecture | [KNOWLEDGE-DESIGN.md](architecture/KNOWLEDGE-DESIGN.md) | 知识维护、解析、切分、向量化及版本生命周期 |
@@ -25,6 +25,7 @@
 | data | [DATA-BUILD-PLAN.md](data/DATA-BUILD-PLAN.md) | 首批资料制作计划、调整及离线验收记录 |
 | verification | [AGENT-ACCEPTANCE.md](verification/AGENT-ACCEPTANCE.md) | 产品验收映射与故障时序设计，区别于已通过测试 |
 | verification | [KNOWLEDGE-VALIDATION.md](verification/KNOWLEDGE-VALIDATION.md) | 知识专项实验结果及尚未验证部分 |
+| verification | [VISUAL-VALIDATION.md](verification/VISUAL-VALIDATION.md) | Phase 1真实图片实验、关键失败、用量和人工核对边界 |
 | verification | [AGENT-ARCHITECTURE-REVIEW.md](verification/AGENT-ARCHITECTURE-REVIEW.md) | 原架构设计审查，结论限于报告指定版本 |
 | verification | [AGENT-VISUAL-REVIEW.md](verification/AGENT-VISUAL-REVIEW.md) | 客户图片能力增量设计审查 |
 | verification | [DOCUMENT-CONSISTENCY-REVIEW.md](verification/DOCUMENT-CONSISTENCY-REVIEW.md) | 本轮文档偏差、修订依据及开发计划覆盖自检 |
@@ -37,4 +38,4 @@
 3. 可选设计规范 `Design-Brief.md` 后续放 `docs/architecture/`；`DEV-PLAN.md` 始终保留根目录。技能中只写文件名时按 AGENTS.md 的定位约定处理。
 4. Markdown 链接相对所在文件；正文代码片段中的项目路径默认相对仓库根目录，另有明确运行目录说明时从其说明。搬迁须同步链接和生成脚本输出路径，禁止留下根目录重复副本。
 
-当前图片专项仍待制作和实测；本轮一致性修订与计划编制未改变业务范围、需求/架构版本或既有验证结论。数据盘点/制作记录保留批次时间，项目当前进度以DEV-PLAN及交接顶部为准。
+当前图片专项已制作35个合成场景并完成108次最终真实请求，存在关键业务失败，人工标签未确认。未改变业务范围、需求/架构版本或既有历史验证结论。数据盘点/制作记录保留批次时间，项目当前进度以DEV-PLAN及交接顶部为准。

@@ -1,0 +1,8 @@
+{
+  "manifest_sha256": "87ec3f2abfc41682053e62fa71b35eb9817adf4dff3e55fc9f8c13a446b706de",
+  "labels_sha256": "a954d305c6c0de96d35611d9f6c3166540e0e220c181b9958e31165b73da6303",
+  "branch_matrix_sha256": "aca367ba25ee108653deb0a8dece498118bdd9f110cac203a3c4f14a27d7b14a",
+  "provenance_sha256": "baa1e131b81083e8650464a4cb3867604ad0bb3543b6eca8c98e00fea9463418",
+  "human_review": "pending",
+  "cases": 35
+}
