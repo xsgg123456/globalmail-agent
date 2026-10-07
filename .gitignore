@@ -7,3 +7,6 @@
 .local-data/
 tmp/
 __pycache__/
+
+# 本机审查门禁状态，不作为项目交付物提交
+.codex/.needs-review

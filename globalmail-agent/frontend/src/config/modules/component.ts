@@ -15,7 +15,7 @@
  * @author Art Design Pro Team
  */
 
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, type Component } from 'vue'
 
 /**
  * 全局组件配置列表
@@ -43,7 +43,7 @@ export const globalComponentsConfig: GlobalComponentConfig[] = [
     component: defineAsyncComponent(
       () => import('@/components/core/layouts/art-screen-lock/index.vue')
     ),
-    enabled: true
+    enabled: false
   },
   {
     name: '聊天窗口',
@@ -51,7 +51,7 @@ export const globalComponentsConfig: GlobalComponentConfig[] = [
     component: defineAsyncComponent(
       () => import('@/components/core/layouts/art-chat-window/index.vue')
     ),
-    enabled: true
+    enabled: false
   },
   {
     name: '礼花效果',
@@ -59,7 +59,7 @@ export const globalComponentsConfig: GlobalComponentConfig[] = [
     component: defineAsyncComponent(
       () => import('@/components/core/layouts/art-fireworks-effect/index.vue')
     ),
-    enabled: true
+    enabled: false
   },
   {
     name: '水印效果',
@@ -67,7 +67,7 @@ export const globalComponentsConfig: GlobalComponentConfig[] = [
     component: defineAsyncComponent(
       () => import('@/components/core/others/art-watermark/index.vue')
     ),
-    enabled: true
+    enabled: false
   }
 ]
 
@@ -80,7 +80,7 @@ export interface GlobalComponentConfig {
   /** 组件标识 */
   key: string
   /** 组件 */
-  component: any
+  component: Component
   /** 是否启用 */
   enabled?: boolean
   /** 组件描述 */

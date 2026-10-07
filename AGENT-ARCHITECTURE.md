@@ -4,7 +4,7 @@
 
 版本：v1.1；日期：2026-10-07。依据：Product-Spec v1.13、BUSINESS-SCENARIOS v1.4、TECH-SELECTION v1.3、KNOWLEDGE-DESIGN v1.3 及知识专项实测。
 
-本文是后续开发的设计基线，尚无正式实现或业务验收结果。技术取舍见 [后端总览](docs/architecture/BACKEND-ARCHITECTURE.md)，逐项验证设计见 [验收映射](docs/verification/AGENT-ACCEPTANCE.md)。所有具体数据库表、API 路由和任务参数均为工程设计；不改变 Spec 的业务授权与预算。
+本文是开发设计基线；[Phase 2](docs/verification/PHASE-2-VALIDATION.md)已实现本机系统API、PG/对象依赖基础及前端外壳，其他业务契约尚待分阶段实现验收。技术取舍见 [后端总览](docs/architecture/BACKEND-ARCHITECTURE.md)，逐项验证设计见 [验收映射](docs/verification/AGENT-ACCEPTANCE.md)。具体已实现范围以DEV-PLAN和验证报告为准，其余数据库表、API路由和任务参数仍为工程设计；不改变Spec的业务授权与预算。
 
 v1.0 的独立设计审查已通过，范围见 [原架构审查报告](docs/verification/AGENT-ARCHITECTURE-REVIEW.md)；该报告不涵盖本次客户图片增量。v1.1 补充第4.4节及对应输入、提交、清理和 API 契约，已通过 [图片增量独立设计审查](docs/verification/AGENT-VISUAL-REVIEW.md)：危险分流优先级与旧计数两项发现均已修订复核关闭；正式实现及图片质量仍待验证。
 
@@ -415,6 +415,6 @@ globalmail-agent/frontend/        既有Art Design Pro独立副本，复用布�
 
 必须验证的跨事务窗口：业务commit后checkpoint前崩溃；知识guard后下架竞争；人审回复与新来信竞争；退款unknown后改方案；租约失效但模型仍返回；新事件与待处理任务合并；删除与导出/备份恢复。详细输入、断言、负责模块见AGENT-ACCEPTANCE，设计推演不替代真实故障注入。
 
-开发依赖现已拆入 [DEV-PLAN v1.0](DEV-PLAN.md)：图片风险实验前置，运行基础、会话/业务查询和知识发布先于Agent闭环，随后接入正式图片、售后执行与连续跟进、实际观测、完整清理恢复及总验收。页面随对应服务交付；具体阶段、文件和验收归属以开发计划为准。当前计划已制定，应用实现尚未开始。
+开发依赖现已拆入 [DEV-PLAN v1.0](DEV-PLAN.md)：图片风险实验前置，运行基础、会话/业务查询和知识发布先于Agent闭环，随后接入正式图片、售后执行与连续跟进、实际观测、完整清理恢复及总验收。页面随对应服务交付；具体阶段、文件和验收归属以开发计划为准。Phase 2运行基础已实现并通过技术验证；会话及后续业务阶段尚未开始。
 
 现有探针只证明组件、开发样本和最小契约可行；正式数据库迁移、API/worker、同事务回复/撤销、业务并发、客户图片专项、完整隐私清理、观测部署与前端操作仍需实现。七类业务及原64个AC保留，新增18个图片AC后共82个，当前不勾选任何产品验收。

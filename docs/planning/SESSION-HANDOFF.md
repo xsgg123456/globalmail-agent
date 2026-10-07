@@ -2,7 +2,18 @@
 
 文档位置：根目录保留 AGENTS、Product-Spec、变更记录、AGENT-ARCHITECTURE 及已创建的 [DEV-PLAN](../../DEV-PLAN.md)；其余专题由 [文档索引](../README.md) 导航。本文件位于 docs/planning；新任务按 AGENTS 中的目录约定存放产物，不恢复旧根目录副本。
 
-更新：2026-10-07。当前阶段：DEV-PLAN v1.0的Phase 1已实施、验收未通过；Phase 2–13未开始。产品/架构版本保持Product-Spec v1.13、AGENT-ARCHITECTURE v1.1、AGENT-ACCEPTANCE v1.1、BUSINESS-SCENARIOS v1.4、BACKEND-ARCHITECTURE v1.5、KNOWLEDGE-DESIGN v1.3、TECH-SELECTION v1.3；82项产品AC未验收。正式应用未实现。
+更新：2026-10-07。当前阶段：Phase 1本轮探索结束并提交68de83f；Phase 2本机运行基础已实现，四步技术验证及独立两阶段审查通过，待用户查看。Phase 3–13未开始，82项产品AC未作整体验收。
+
+## Phase 2 当前交接
+
+- 代码在globalmail-agent/backend、frontend、infra、scripts。沿用锁依赖与Art Design Pro副本，未动原模板项目；Phase1和Phase2分开提交，Phase2提交号以git log为准。
+- 当前页面 http://127.0.0.1:15173/#/workbench，API http://127.0.0.1:18080/api/v1/health/ready，PG仅127.0.0.1:15432。本项目独立Compose名globalmail-agent、卷globalmail-agent_postgres_data；既有其他项目容器未修改。
+- 启动`pwsh -File globalmail-agent/scripts/start-local.ps1`；已装依赖可加-SkipInstall。停止`stop-local.ps1`，加-StopDatabase同时停本项目PG，均保留数据。密码只在忽略的.local-data/runtime；不要把配置/日志公开。后台服务当前保留给用户查看。
+- API统一HTTP/envelope成功码200；live/ready/runtime-config无密钥或连接串。ready检查真实PG、迁移表和对象目录。工作台/知识库为真实未开放状态，无模板登录/假token/假业务成功。
+- 四张基础表、scope复合外键、UUID对象/摘要/原子落盘与来源依赖已实现；删除journal仅基础。未实现附件上传、删除工作流、会话、业务查单、知识发布、模型运行。
+- 已验证12后端测试（6真实PG）、4前端测试、3脚本测试；Python编译、vue-tsc+Vite构建成功。实际容器重启后正文/元数据仍可读；DB停机/API断开时页面显示真实错误并能恢复。独立复审两阶段PASS，详见[Phase2记录](../verification/PHASE-2-VALIDATION.md)及[复审](../verification/PHASE-2-REVIEW-FINAL.md)。
+- 初审envelope成功码不一致已修；PowerShell7.5 JSON日期自动转换导致漏停进程已改UTC ticks比较并覆盖登记往返测试。历史报告不改成PASS。
+- 下一步按DEV-PLAN进入Phase3（会话/消息/回放/人审/持久任务），先阅读其原文与相关架构，不能提前声称Phase2已有这些能力。不再反复运行Phase1合成图探索。
 
 ## 最新用户决定
 

@@ -1,2 +1,5 @@
 *.html linguist-detectable=false
 *.vue linguist-detectable=true
+
+# 保留副本原有CRLF字节，同时检查真实行尾空格。
+* whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

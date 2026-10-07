@@ -2,7 +2,7 @@ import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import vueDevTools from 'vite-plugin-vue-devtools'
+import { localAccess } from './scripts/local-access'
 import viteCompression from 'vite-plugin-compression'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -14,7 +14,14 @@ import tailwindcss from '@tailwindcss/vite'
 export default ({ mode }: { mode: string }) => {
   const root = process.cwd()
   const env = loadEnv(mode, root)
-  const { VITE_VERSION, VITE_PORT, VITE_BASE_URL, VITE_API_URL, VITE_API_PROXY_URL } = env
+  const {
+    VITE_VERSION = '0.2.0',
+    VITE_PORT = '15173',
+    VITE_BASE_URL = '/',
+    VITE_API_URL = '/api/v1',
+    VITE_API_PROXY_URL = 'http://127.0.0.1:18080'
+  } = env
+  const port = Number(VITE_PORT)
 
   console.log(`🚀 API_URL = ${VITE_API_URL}`)
   console.log(`🚀 VERSION = ${VITE_VERSION}`)
@@ -25,15 +32,18 @@ export default ({ mode }: { mode: string }) => {
     },
     base: VITE_BASE_URL,
     server: {
-      port: Number(VITE_PORT),
+      port,
+      strictPort: true,
+      cors: false,
       proxy: {
         '/api': {
           target: VITE_API_PROXY_URL,
           changeOrigin: true
         }
       },
-      host: true
+      host: '127.0.0.1'
     },
+    preview: { host: '127.0.0.1', port, strictPort: true, cors: false },
     // 路径别名
     resolve: {
       alias: {
@@ -66,6 +76,7 @@ export default ({ mode }: { mode: string }) => {
       }
     },
     plugins: [
+      localAccess(port),
       vue(),
       tailwindcss(),
       // 自动按需导入 API
@@ -96,8 +107,8 @@ export default ({ mode }: { mode: string }) => {
         ext: '.gz', // 压缩后的文件名后缀
         threshold: 10240, // 只有大小大于该值的资源会被处理 10240B = 10KB
         deleteOriginFile: false // 压缩后是否删除原文件
-      }),
-      vueDevTools()
+      })
+
       // 打包分析
       // visualizer({
       //   open: true,

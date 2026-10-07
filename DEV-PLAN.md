@@ -1,6 +1,6 @@
 # Development Plan — GlobalMail Agent
 
-版本：v1.0；日期：2026-10-07。状态：Phase 1本轮探索结束，保留未通过项；用户已授权提交并开始Phase 2，Phase 3–13未开始。
+版本：v1.0；日期：2026-10-07。状态：Phase 1本轮探索结束，保留未通过项；Phase 2已实现且四步技术验证通过，待用户查看；Phase 3–13未开始。
 
 本文件记录开发顺序、交付物、关键文件与验收归属。它不改变业务范围，不将已有数据、组件实验或设计审查折算为正式应用完成。Phase 1 结果见 [图片实验报告](docs/verification/VISUAL-VALIDATION.md)：35场景108次真实请求，仍有关键业务失败，标签人工核对待完成。
 
@@ -9,7 +9,7 @@
 - 产品依据：[Product-Spec v1.13](Product-Spec.md)，包括全部14项REQ、20项P0 SCOPE、82项AC及17项DEMO。
 - 运行契约：[AGENT-ARCHITECTURE v1.1](AGENT-ARCHITECTURE.md)；专题见 [技术选型](docs/architecture/TECH-SELECTION.md)、[知识设计](docs/architecture/KNOWLEDGE-DESIGN.md)。主架构决定状态、权限、事务和发布行为，计划只分配实现工作。
 - 场景依据：[业务场景](docs/business/BUSINESS-SCENARIOS.md)、[验收映射及18类故障时序](docs/verification/AGENT-ACCEPTANCE.md)、[数据契约](data/knowledge/v1/DATA-CONTRACT.md)。本轮对齐记录见 [文档一致性检查](docs/verification/DOCUMENT-CONSISTENCY-REVIEW.md)。
-- 已有：三品牌/8产品族/34 SKU、22份逻辑知识、51个环节输入和21条连续流程；前端副本、tech-spike与knowledge-spike已有证据。客户图片专项已实施且验收未通过；尚无正式后端、应用知识索引或已通过的业务验收。
+- 已有：三品牌/8产品族/34 SKU、22份逻辑知识、51个环节输入和21条连续流程；前端副本、tech-spike与knowledge-spike已有证据。客户图片专项已实施且验收未通过；已有Phase 2后端与前端运行基础；应用知识索引和业务闭环尚未实现。
 - UI依据：已复制的 Art Design Pro，来源与哈希见 [前端基线](globalmail-agent/frontend/FRONTEND-BASELINE.md)。没有独立 Design-Brief/设计稿，按已确认的ASM-008继承现成组件和主题，不新增视觉设计阶段、不重搭前端。
 - 本期只交付单用户、本机隔离运行；七类业务、图片三项能力、长期知识维护均为首版。真实邮箱/生产ERP/真实退款与履约、客户PDF/视频/音频、多租户及HA不在本计划内。P1的扩型号、扩语言和手机端精细适配不挤入首版门槛。
 - 每阶段完成一个可启动并可检查的功能单元；界面随其服务交付。尚未实现的动作不得显示成功、返回编造结果或用预填参考回复冒充Agent。中间阶段的局部闭环不能宣称七类业务已交付。
@@ -19,7 +19,7 @@
 | Phase | 可观察交付 | 前置 | 状态 |
 |---|---|---|---|
 | 1 | 冻结客户图片样本并运行真实图文能力实验 | 当前资料及模型配置 | 本轮探索结束；原业务失败及人工核对项保留 |
-| 2 | 启动本机API、持久数据库和Art Design Pro业务外壳 | 1；纯工程准备可独立推进 | 已授权启动 |
+| 2 | 启动本机API、持久数据库和Art Design Pro业务外壳 | 1；纯工程准备可独立推进 | 四步技术验证通过，待用户查看 |
 | 3 | 导入/创建会话、逐封回放、人审和持久任务可操作 | 2 | 未开始 |
 | 4 | 查询准确订单、商品、库存、物流与政策条件 | 3 | 未开始 |
 | 5 | 上传/修订知识、解析并人工核对 | 2、4的商品范围 | 未开始 |
@@ -82,6 +82,8 @@ flowchart LR
 - 修改`globalmail-agent/frontend/src/router/modules/index.ts`、`globalmail-agent/frontend/src/router/guards/beforeEach.ts`、`globalmail-agent/frontend/src/utils/http/index.ts`；新增`globalmail-agent/frontend/src/router/modules/mail-agent.ts`、`globalmail-agent/frontend/src/views/mail-agent/index.vue`、`globalmail-agent/frontend/src/views/knowledge/index.vue` — 接入现有路由/请求方式，未接功能显示真实空状态。
 
 **验收标准**：前端构建、后端导入检查和迁移均通过；启动后页面可访问并显示API/数据库实际状态，重启后持久数据保留。默认仅127.0.0.1，非法Host/Origin拒绝，浏览器响应无Key/连接串。端口冲突明确报错；不修改其他项目容器/数据或Art Design Pro源目录，不安装或升级整套前端替代锁文件。
+
+Phase 2结果：[验证记录](docs/verification/PHASE-2-VALIDATION.md)、[独立两阶段审查](docs/verification/PHASE-2-REVIEW-FINAL.md)。12后端测试、4前端测试、3脚本测试通过，构建/真实PG重启持久/HTTP安全/浏览器故障恢复通过；业务能力留后续阶段。
 
 ## Phase 3: 会话、历史回放、人审与持久任务
 

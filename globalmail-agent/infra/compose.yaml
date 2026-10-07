@@ -1,0 +1,20 @@
+name: globalmail-agent
+services:
+  postgres:
+    image: pgvector/pgvector@sha256:78bf48b801e792f99e3ac62b5036fd3876e9be48afda16c1e331af1c75ceb2ff
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: globalmail
+      POSTGRES_DB: globalmail
+      POSTGRES_PASSWORD: ${GLOBALMAIL_POSTGRES_PASSWORD:?Run init-local.ps1 first}
+    ports:
+      - "127.0.0.1:${GLOBALMAIL_POSTGRES_PORT:-15432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U globalmail -d globalmail"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  postgres_data:

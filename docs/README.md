@@ -1,6 +1,6 @@
 # 项目文档索引
 
-本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口，DEV-PLAN v1.0的Phase 1已实施、验收未通过；其余阶段未开始。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
+本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口，Phase 1本轮探索已结束、保留原失败项；Phase 2运行基础已实现，进度以DEV-PLAN和验证报告为准。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
 
 ## 根目录入口
 
@@ -26,6 +26,9 @@
 | verification | [AGENT-ACCEPTANCE.md](verification/AGENT-ACCEPTANCE.md) | 产品验收映射与故障时序设计，区别于已通过测试 |
 | verification | [KNOWLEDGE-VALIDATION.md](verification/KNOWLEDGE-VALIDATION.md) | 知识专项实验结果及尚未验证部分 |
 | verification | [VISUAL-VALIDATION.md](verification/VISUAL-VALIDATION.md) | Phase 1真实图片实验、关键失败、用量和人工核对边界 |
+| verification | [PHASE-2-VALIDATION.md](verification/PHASE-2-VALIDATION.md) | 本机API、PG持久化、前端外壳与启停实测 |
+| verification | [PHASE-2-REVIEW-FINAL.md](verification/PHASE-2-REVIEW-FINAL.md) | Phase 2独立两阶段复审与修复验证 |
+| verification | [PHASE-2-REVIEW.md](verification/PHASE-2-REVIEW.md) | Phase 2初审原始问题与证据 |
 | verification | [AGENT-ARCHITECTURE-REVIEW.md](verification/AGENT-ARCHITECTURE-REVIEW.md) | 原架构设计审查，结论限于报告指定版本 |
 | verification | [AGENT-VISUAL-REVIEW.md](verification/AGENT-VISUAL-REVIEW.md) | 客户图片能力增量设计审查 |
 | verification | [DOCUMENT-CONSISTENCY-REVIEW.md](verification/DOCUMENT-CONSISTENCY-REVIEW.md) | 本轮文档偏差、修订依据及开发计划覆盖自检 |

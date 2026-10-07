@@ -1,0 +1,2 @@
+"""GlobalMail local application."""
+

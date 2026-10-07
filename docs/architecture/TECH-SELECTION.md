@@ -4,6 +4,8 @@
 
 知识专项实测见 [KNOWLEDGE-VALIDATION.md](../verification/KNOWLEDGE-VALIDATION.md)：补充 MinerU 解析对照、60 条双模型开发查询和隔离 PG 生命周期契约。下面“实测结果”保留第一轮 tech-spike 原始证据，新选择不会改写旧模型的成绩。
 
+最新运行基础实现见[Phase 2验证](../verification/PHASE-2-VALIDATION.md)：API、PG迁移/持久化及前端外壳已跑通；下方组件实验保留历史结果，不据此声称业务闭环完成。
+
 ## 本轮规划与完成标准
 
 1. 核对已有决策和官方能力。完成标准：保留 Art Design Pro、Qwen3.7-Plus、PostgreSQL + pgvector；记录新增选择的依据与版本。
