@@ -1,0 +1,469 @@
+{
+  "changed_source_count": 65,
+  "new_sources_over_300": [],
+  "all_changed_sources_over_300": [],
+  "files": [
+    {
+      "path": "globalmail-agent/backend/migrations/versions/0005_knowledge_index.py",
+      "lines": 159,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/adapters/conversation_schema.py",
+      "lines": 188,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/adapters/database.py",
+      "lines": 41,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/adapters/knowledge_index_schema.py",
+      "lines": 90,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/adapters/knowledge_schema.py",
+      "lines": 118,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/api/knowledge_documents.py",
+      "lines": 114,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/api/knowledge_releases.py",
+      "lines": 44,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/api/knowledge_search.py",
+      "lines": 23,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/api/system.py",
+      "lines": 34,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/build_checks.py",
+      "lines": 109,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/builds.py",
+      "lines": 82,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/chunking.py",
+      "lines": 145,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/embedding.py",
+      "lines": 76,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/embedding_child.py",
+      "lines": 54,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/embedding_process.py",
+      "lines": 71,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/index_commands.py",
+      "lines": 54,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/index_profiles.py",
+      "lines": 56,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/index_worker.py",
+      "lines": 103,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/jobs.py",
+      "lines": 201,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/policy_bundle.py",
+      "lines": 142,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/queries.py",
+      "lines": 173,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/queue.py",
+      "lines": 151,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/references.py",
+      "lines": 66,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/release_queries.py",
+      "lines": 59,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/releases.py",
+      "lines": 152,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/retrieval.py",
+      "lines": 129,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/main.py",
+      "lines": 83,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/settings.py",
+      "lines": 48,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/worker/knowledge_runner.py",
+      "lines": 88,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/tests/index_helpers.py",
+      "lines": 92,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_api.py",
+      "lines": 76,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_embedding_process.py",
+      "lines": 110,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_knowledge_index_api.py",
+      "lines": 117,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_knowledge_index_faults.py",
+      "lines": 108,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_knowledge_index_migration.py",
+      "lines": 57,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_knowledge_index_prepared.py",
+      "lines": 39,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_knowledge_index_structure.py",
+      "lines": 136,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_knowledge_releases.py",
+      "lines": 114,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_parser_process.py",
+      "lines": 85,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_policy_generation.py",
+      "lines": 92,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/scripts/knowledge-index.test.ts",
+      "lines": 235,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/scripts/runtime-contract.test.ts",
+      "lines": 63,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/api/knowledge-contract.ts",
+      "lines": 139,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/api/knowledge-index-api.ts",
+      "lines": 30,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/api/knowledge-index-contract.ts",
+      "lines": 137,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/api/runtime-contract.ts",
+      "lines": 50,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/components/knowledge/KnowledgeDetails.vue",
+      "lines": 286,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/components/knowledge/ReleaseActions.vue",
+      "lines": 222,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/components/knowledge/ReleaseManager.vue",
+      "lines": 238,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/components/knowledge/SearchPreview.vue",
+      "lines": 133,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/components/knowledge/knowledge-labels.ts",
+      "lines": 95,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/composables/knowledge-index-preferences.ts",
+      "lines": 10,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/composables/useKnowledgeIndex.ts",
+      "lines": 106,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/composables/useKnowledgeSearch.ts",
+      "lines": 50,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/composables/useKnowledgeWorkbench.ts",
+      "lines": 182,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/composables/useReleaseManager.ts",
+      "lines": 61,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/hooks/core/useRuntimeStatus.ts",
+      "lines": 54,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/frontend/src/views/knowledge/index.vue",
+      "lines": 265,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/knowledge-eval/evaluate_retrieval.py",
+      "lines": 160,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/knowledge-eval/probe_provider.py",
+      "lines": 28,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/knowledge-eval/provider_config.py",
+      "lines": 31,
+      "new": true,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/scripts/local-common.ps1",
+      "lines": 61,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/scripts/phase3-test-server.py",
+      "lines": 135,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/scripts/start-local.ps1",
+      "lines": 69,
+      "new": false,
+      "over_300": false
+    },
+    {
+      "path": "globalmail-agent/scripts/verify-preservation.py",
+      "lines": 79,
+      "new": true,
+      "over_300": false
+    }
+  ],
+  "findings": [
+    {
+      "path": "globalmail-agent/backend/migrations/versions/0005_knowledge_index.py",
+      "line": 133,
+      "category": "sql_text_interpolation"
+    },
+    {
+      "path": "globalmail-agent/backend/migrations/versions/0005_knowledge_index.py",
+      "line": 134,
+      "category": "sql_text_interpolation"
+    },
+    {
+      "path": "globalmail-agent/backend/migrations/versions/0005_knowledge_index.py",
+      "line": 154,
+      "category": "sql_text_interpolation"
+    },
+    {
+      "path": "globalmail-agent/backend/migrations/versions/0005_knowledge_index.py",
+      "line": 155,
+      "category": "sql_text_interpolation"
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_api.py",
+      "line": 15,
+      "category": "key_like_literal"
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_embedding_process.py",
+      "line": 19,
+      "category": "key_like_literal"
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_embedding_process.py",
+      "line": 61,
+      "category": "frontend_secret_env"
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_embedding_process.py",
+      "line": 66,
+      "category": "frontend_secret_env"
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_knowledge_index_migration.py",
+      "line": 18,
+      "category": "sql_text_interpolation"
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_knowledge_index_migration.py",
+      "line": 21,
+      "category": "sql_text_interpolation"
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_parser_process.py",
+      "line": 18,
+      "category": "frontend_secret_env"
+    },
+    {
+      "path": "globalmail-agent/backend/tests/test_parser_process.py",
+      "line": 20,
+      "category": "frontend_secret_env"
+    },
+    {
+      "path": "globalmail-agent/scripts/phase3-test-server.py",
+      "line": 58,
+      "category": "sql_text_interpolation"
+    },
+    {
+      "path": "globalmail-agent/scripts/phase3-test-server.py",
+      "line": 127,
+      "category": "sql_text_interpolation"
+    }
+  ]
+}

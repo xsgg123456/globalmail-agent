@@ -6,7 +6,8 @@ $frontendDir = Join-Path $projectDir 'frontend'
 $owned = @()
 $savedEnv = @{}
 $envNames = @('GLOBALMAIL_DATABASE_URL','GLOBALMAIL_OBJECT_ROOT','GLOBALMAIL_ALLOWED_ORIGINS',
-    'LLM_API_KEY','LLM_MODEL','LLM_BASE_URL','VITE_PORT','VITE_API_PROXY_URL')
+    'LLM_API_KEY','LLM_MODEL','LLM_BASE_URL','GLOBALMAIL_EMBEDDING_API_KEY',
+    'GLOBALMAIL_EMBEDDING_BASE_URL','VITE_PORT','VITE_API_PROXY_URL')
 foreach ($name in $envNames) { $savedEnv[$name] = [Environment]::GetEnvironmentVariable($name, 'Process') }
 try {
     foreach ($tool in @('docker','uv','node','pnpm')) { Get-Command $tool -ErrorAction Stop | Out-Null }
@@ -36,7 +37,8 @@ try {
     $owned += Start-LocalProcess 'api' $python @('-m','uvicorn','--app-dir','src','globalmail_agent.main:app',
         '--host','127.0.0.1','--port',"$($settings.api_port)",'--no-access-log') $backendDir
     # The frontend child must not inherit backend/model credentials.
-    foreach ($name in @('GLOBALMAIL_DATABASE_URL','LLM_API_KEY','LLM_MODEL','LLM_BASE_URL')) {
+    foreach ($name in @('GLOBALMAIL_DATABASE_URL','LLM_API_KEY','LLM_MODEL','LLM_BASE_URL',
+        'GLOBALMAIL_EMBEDDING_API_KEY','GLOBALMAIL_EMBEDDING_BASE_URL')) {
         [Environment]::SetEnvironmentVariable($name, $null, 'Process')
     }
     $env:VITE_PORT = "$($settings.frontend_port)"

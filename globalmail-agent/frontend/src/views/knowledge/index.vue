@@ -7,18 +7,32 @@
           ><h1 class="text-base font-medium">知识库</h1
           ><div class="flex flex-wrap gap-2"
             ><ElButton :disabled="busy" @click="refreshList">刷新列表</ElButton
+            ><ElButton @click="searchDrawer = true">检索试查</ElButton
+            ><ElButton @click="releaseDrawer = true">发布记录与模型切换</ElButton
             ><ElButton :loading="busy" @click="importPrepared">导入准备资料</ElButton
             ><ElButton type="primary" :disabled="busy" @click="create">新建资料</ElButton></div
           ></div
         ></template
       >
       <ElAlert
-        title="这里维护知识原件、版本和人工核对。当前资料仅用于模拟，未发布，暂不供 Agent 使用。"
+        title="资料核对完成后，先构建索引，再显式发布。检索试查只使用当前合格的发布资料。正式 Agent 回复将在下一阶段接入。"
         type="info"
         :closable="false"
         class="mb-4"
       />
       <div class="flex flex-wrap gap-3 mb-4">
+        <ElSelect
+          v-model="filters.publication"
+          clearable
+          placeholder="全部发布状态"
+          aria-label="筛选发布状态"
+          class="!w-[180px]"
+          @change="filter"
+        >
+          <ElOption label="有生效版本" value="published" />
+          <ElOption label="未发布" value="unpublished" />
+          <ElOption label="已下架" value="withdrawn" />
+        </ElSelect>
         <ElSelect
           v-model="filters.type"
           clearable
@@ -114,7 +128,10 @@
           ></ElTableColumn
         >
         <ElTableColumn label="用途" min-width="170"
-          ><template #default>仅供模拟 · 未发布</template></ElTableColumn
+          ><template #default="{ row }"
+            >仅供模拟 ·
+            {{ row.withdrawn ? '已下架' : row.published ? '有生效版本' : '未发布' }}</template
+          ></ElTableColumn
         >
         <ElTableColumn label="操作" width="100"
           ><template #default="{ row }"
@@ -149,11 +166,22 @@
         :profiles="catalog.parser_profiles"
         :busy="busy"
         :execute="execute"
-        @refresh="refreshDetail"
+        @refresh="refreshSelected"
         @version="select(document.document.id, $event)"
         @edit="edit"
       />
       <ElEmpty v-else-if="!detailLoading" description="资料读取失败，请关闭后刷新重试" />
+    </ElDrawer>
+    <ElDrawer v-model="searchDrawer" title="检索试查" size="min(860px, 100vw)" destroy-on-close>
+      <SearchPreview v-if="searchDrawer" :products="catalog.products" @source="openSource" />
+    </ElDrawer>
+    <ElDrawer
+      v-model="releaseDrawer"
+      title="发布记录与模型切换"
+      size="min(900px, 100vw)"
+      destroy-on-close
+    >
+      <ReleaseManager v-if="releaseDrawer" @changed="refreshSelected" />
     </ElDrawer>
     <KnowledgeEditor
       v-if="editor"
@@ -171,6 +199,8 @@
   import RuntimeStatus from '@/components/business/runtime-status.vue'
   import KnowledgeDetails from '@/components/knowledge/KnowledgeDetails.vue'
   import KnowledgeEditor from '@/components/knowledge/KnowledgeEditor.vue'
+  import SearchPreview from '@/components/knowledge/SearchPreview.vue'
+  import ReleaseManager from '@/components/knowledge/ReleaseManager.vue'
   import { typeLabels, labelState } from '@/components/knowledge/knowledge-labels'
   import { useKnowledgeWorkbench } from '@/composables/useKnowledgeWorkbench'
   import type { KnowledgeDocument } from '@/api/knowledge-contract'
@@ -203,6 +233,16 @@
   const drawer = ref(false),
     editor = ref(false),
     editing = ref(false)
+  const searchDrawer = ref(false),
+    releaseDrawer = ref(false)
+  async function refreshSelected() {
+    await Promise.all([refreshList(), refreshDetail()])
+  }
+  async function openSource(did: string, vid: string) {
+    searchDrawer.value = false
+    drawer.value = true
+    await select(did, vid)
+  }
   async function open(row: KnowledgeDocument) {
     drawer.value = true
     await select(row.id, row.current_version_id)

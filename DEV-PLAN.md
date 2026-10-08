@@ -1,6 +1,6 @@
 # Development Plan — GlobalMail Agent
 
-版本：v1.0；进度更新：2026-10-08。状态：Phase 1本轮探索结束，保留未通过项；Phase 2运行基础已实现；Phase 3四步技术验证及最终独立两阶段审查通过，用户已要求继续；Phase 4四步技术验证和最终独立两阶段审查通过，用户已要求继续；Phase 5四步技术验证及最终独立两阶段审查通过，待用户查看；Phase 6–13未开始。
+版本：v1.0；进度更新：2026-10-08。状态：Phase 1本轮探索结束，保留未通过项；Phase 2运行基础已实现；Phase 3四步技术验证及最终独立两阶段审查通过，用户已要求继续；Phase 4四步技术验证和最终独立两阶段审查通过，用户已要求继续；Phase 5四步技术验证及最终独立两阶段审查通过，用户已要求继续；Phase 6四步技术验证及独立两阶段审查通过，待用户查看；Phase 7–13未开始。
 
 本文件记录开发顺序、交付物、关键文件与验收归属。它不改变业务范围，不将已有数据、组件实验或设计审查折算为正式应用完成。Phase 1 结果见 [图片实验报告](docs/verification/VISUAL-VALIDATION.md)：35场景108次真实请求，仍有关键业务失败，标签人工核对待完成。
 
@@ -9,7 +9,7 @@
 - 产品依据：[Product-Spec v1.13](Product-Spec.md)，包括全部14项REQ、20项P0 SCOPE、82项AC及17项DEMO。
 - 运行契约：[AGENT-ARCHITECTURE v1.1](AGENT-ARCHITECTURE.md)；专题见 [技术选型](docs/architecture/TECH-SELECTION.md)、[知识设计](docs/architecture/KNOWLEDGE-DESIGN.md)。主架构决定状态、权限、事务和发布行为，计划只分配实现工作。
 - 场景依据：[业务场景](docs/business/BUSINESS-SCENARIOS.md)、[验收映射及18类故障时序](docs/verification/AGENT-ACCEPTANCE.md)、[数据契约](data/knowledge/v1/DATA-CONTRACT.md)。本轮对齐记录见 [文档一致性检查](docs/verification/DOCUMENT-CONSISTENCY-REVIEW.md)。
-- 已有：三品牌/8产品族/34 SKU、22份逻辑知识、51个环节输入和21条连续流程；前端副本、tech-spike与knowledge-spike已有证据。客户图片专项已实施且验收未通过；已有Phase 2后端与前端运行基础；应用知识索引和业务闭环尚未实现。
+- 已有：三品牌/8产品族/34 SKU、22份逻辑知识、51个环节输入和21条连续流程；前端副本、tech-spike与knowledge-spike已有证据。客户图片专项已实施且验收未通过；已有运行基础、会话/人审、业务查询及知识解析/发布检索。正式Agent与七类业务闭环按后续阶段交付。
 - UI依据：已复制的 Art Design Pro，来源与哈希见 [前端基线](globalmail-agent/frontend/FRONTEND-BASELINE.md)。没有独立 Design-Brief/设计稿，按已确认的ASM-008继承现成组件和主题，不新增视觉设计阶段、不重搭前端。
 - 本期只交付单用户、本机隔离运行；七类业务、图片三项能力、长期知识维护均为首版。真实邮箱/生产ERP/真实退款与履约、客户PDF/视频/音频、多租户及HA不在本计划内。P1的扩型号、扩语言和手机端精细适配不挤入首版门槛。
 - 每阶段完成一个可启动并可检查的功能单元；界面随其服务交付。尚未实现的动作不得显示成功、返回编造结果或用预填参考回复冒充Agent。中间阶段的局部闭环不能宣称七类业务已交付。
@@ -23,7 +23,7 @@
 | 3 | 导入/创建会话、逐封回放、人审和持久任务可操作 | 2 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-3-VALIDATION.md) |
 | 4 | 查询准确订单、商品、库存、物流与政策条件 | 3 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-4-VALIDATION.md) |
 | 5 | 上传/修订知识、解析并人工核对 | 2、4的商品范围 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-5-VALIDATION.md) |
-| 6 | 构建向量、发布/回滚、检索试查及下架 | 5 | 未开始 |
+| 6 | 构建向量、发布/回滚、检索试查及下架 | 5 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-6-VALIDATION.md) |
 | 7 | 在工作台完成文本Agent查单、检索、回复与人审闭环 | 3、4、6 | 未开始 |
 | 8 | 在正式工作台接收图片、核验字段并分流 | 1、7 | 未开始 |
 | 9 | 提交售后申请、模拟人工执行并查询回执 | 4、6、7；图片动作依赖8 | 未开始 |
@@ -150,6 +150,8 @@ Phase 2结果：[验证记录](docs/verification/PHASE-2-VALIDATION.md)、[独�
 - `globalmail-agent/frontend/src/components/knowledge/ReleaseActions.vue`、`globalmail-agent/frontend/src/components/knowledge/SearchPreview.vue` — 发布差异、下架确认及命中来源。
 
 **验收标准**：真实模型向量进入本项目正式PG；草稿/失败/撤销/错误SKU/模式/时间均不命中，政策说明与规则同版。检索最多20候选、5份证据及约4500知识上下文，补父块再核对范围/摘要。60条开发查询重跑并另建未调参查询，正例关键证据Recall@5项目目标≥90%、越界命中0，不能用候选少的top5成绩宣称生产精度。FT-09/10的发布、下架、同维换模型与失败保旧通过；运行中回复的提交竞争在Phase 7接入后补验。彻底删除在Phase 12开放，此阶段只提供准确的下架状态。
+
+2026-10-08实施结果：构建/发布/回滚/精确检索/引用核验/下架及实际页面已实现。后端158项、前端40项、parser4项、启停3项、编译及第五轮独立Stage1/2通过；实际72条冻结查询单项44/44、多项5/6完整、边界16/16空，正例合计49/50完整达到开发集目标，保留KQ-058政策片段漏项及四份历史FAIL。真实组件清空/已提交丢响应/关闭重开后同body/key重试已验证，不误发布被清空资料。正式本机升级0004→0005，旧42业务表行摘要、设置与160原件SHA一致，原22资料/22版本保留，正式索引/发布仍空。详见[实测记录](docs/verification/PHASE-6-VALIDATION.md)；本期经用户批准复用审查实例，不称fresh。待用户查看，未启动Phase7。
 
 ## Phase 7: 文本Agent与首个工作台闭环
 
@@ -383,4 +385,4 @@ PyPI固定版本元数据已核验FastAPI、LangGraph、checkpoint-postgres、la
 - 每阶段报告更新`docs/verification/ACCEPTANCE-RESULTS.md`的对应部分或模块实验报告，维护本文件阶段状态及`docs/planning/SESSION-HANDOFF.md`。AC满足全部条件后才勾选；历史设计审查和实验原始结果保持原结论。
 - 运行产生的含正文/图像/模型请求原始证据放Git忽略的`.local-data/`或`tmp/`；仓库只保留复核后的合成样本、去敏汇总与证据摘要。新增专题文档归`docs/`，模块README随源码，根目录保留约定五份Markdown。
 
-当前入口：查看Phase 4业务查询与只读条件核对，下一开发阶段是Phase 5“知识原件、解析核对与维护页面”。首个正式应用文字闭环在Phase 7交付，图片售后完整闭环在Phase 8–10交付，全部首版范围以Phase 13总验收为完成门槛。
+当前入口：查看Phase 6知识索引构建、发布、检索试查与下架；四步技术验证和独立两阶段审查已通过，待用户查看。下一开发阶段是Phase 7“文本Agent与首个工作台闭环”；图片售后完整闭环在Phase 8–10交付，全部首版范围以Phase 13总验收为完成门槛。

@@ -1,0 +1,4 @@
+compileall_exit=0
+Checked 32 packages in 1ms
+All installed packages are compatible
+dependencies_exit=0

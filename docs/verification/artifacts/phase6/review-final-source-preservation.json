@@ -1,0 +1,7 @@
+{
+  "action": "independent_read_only_source_byte_comparison",
+  "baseline": "formal-before.json",
+  "files": 160,
+  "preserved": true,
+  "differences": []
+}

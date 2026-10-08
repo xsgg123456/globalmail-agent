@@ -1,0 +1,4540 @@
+[
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/documents",
+    "method": "POST",
+    "key": "f261e6b5-0743-4f79-ad6f-603831d9c939",
+    "request": {
+      "expected_version": 0,
+      "title": "独立审查4 A 连接排障",
+      "parser_profile_id": "markdown",
+      "applicabilities": [
+        {
+          "section_id": "document",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "自编A只覆盖该精确型号，完整安全与操作整篇绑定"
+        }
+      ],
+      "content": "# 安全\n先断电，焦味立即停止转人工。\n\n# 操作\n检查外部连接，不拆封闭控制器。\n独立A仅适用于 H-CTD16-US-BK；断电后检查插头是否松动，仍不亮交人工。",
+      "document_type": "troubleshooting_md",
+      "brand": "OUTON",
+      "source_reference": "项目自编模拟资料，独立页面核验A，不是厂家说明",
+      "available_at": "2026-10-08T02:00:00.000Z"
+    },
+    "status": 202,
+    "body": {
+      "code": 202,
+      "msg": "ok",
+      "data": {
+        "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+        "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+        "version": 1
+      },
+      "request_id": "577ac43d-3c5a-4b8e-9882-ccc9a72f5258"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "7d0c7148-a9cd-4967-a497-5c45c7453eb3"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": null,
+          "epoch": 0,
+          "embedding_profile_id": null
+        },
+        "items": []
+      },
+      "request_id": "2e30971a-30bc-45e4-b344-def279832e10"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "cab14a14-3093-4cd3-963d-c5229f40d866"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/parse",
+    "method": "POST",
+    "key": "f978ad4e-6dab-48af-a5a7-f679c659f0a8",
+    "request": {
+      "expected_version": 1,
+      "parser_profile_id": "markdown"
+    },
+    "status": 202,
+    "body": {
+      "code": 202,
+      "msg": "ok",
+      "data": {
+        "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+        "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+        "job_id": "063de8c7-42a1-41cc-b23b-45479467c3aa",
+        "version": 2
+      },
+      "request_id": "5b76914b-d565-4b90-b573-631b0b7ae8c5"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "08a81740-94b8-4fc1-819d-f91e522f9af0"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": null,
+          "epoch": 0,
+          "embedding_profile_id": null
+        },
+        "items": []
+      },
+      "request_id": "9f1b0b44-8b85-4289-8a82-bbab28e9574b"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "b82f2c16-a96c-45bc-a821-2b8ed17c1c10"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/review",
+    "method": "POST",
+    "key": "2548a83e-ba01-4a66-9fe0-7607f38c84f9",
+    "request": {
+      "expected_version": 3,
+      "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+      "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+      "applicability_sha256": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45",
+      "note": "本轮核对自编A原文，断电、焦味停用、外部连接和不拆控制器四项均保留，整篇只绑定H-CTD16-US-BK。",
+      "excluded_block_ids": [],
+      "exclusion_reason": null
+    },
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+        "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+        "version": 4,
+        "status": "reviewed",
+        "published": false
+      },
+      "request_id": "a32e5c1a-25e2-4adb-80ef-240812182fb1"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "cd95a71e-1571-4a0c-a36c-57ae7a93df27"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": null,
+          "epoch": 0,
+          "embedding_profile_id": null
+        },
+        "items": []
+      },
+      "request_id": "22a5c6bc-3d8a-4ed9-b198-29e88ced7e20"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "1c99f5af-a076-42a7-aac5-bb6cdb1903c3"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/build",
+    "method": "POST",
+    "key": "79a0a064-a0e6-4e30-8583-fbe947053d63",
+    "request": {
+      "expected_version": 4,
+      "embedding_profile_key": "qwen3.7-text-embedding",
+      "chunking_profile_key": "structure_v1_500"
+    },
+    "status": 202,
+    "body": {
+      "code": 202,
+      "msg": "ok",
+      "data": {
+        "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+        "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+        "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+        "job_id": "3d8444b8-5b02-4736-8758-12d69ec529aa",
+        "version": 4
+      },
+      "request_id": "0a726fbf-8969-46fd-b9f1-f543f544e604"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "a4241887-b15c-4cad-9ca2-de39e40c6fd5"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": null,
+          "epoch": 0,
+          "embedding_profile_id": null
+        },
+        "items": []
+      },
+      "request_id": "a6c3a436-9f69-4721-8fae-eb3974f721ca"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "queued",
+            "stage": "queued",
+            "row_version": 1,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 0,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": null,
+            "job_id": "3d8444b8-5b02-4736-8758-12d69ec529aa",
+            "eligible": false
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "200a42c7-094b-4215-9910-d78234547e5b"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "2d1a9c9e-d4e4-4f98-a46f-87ec66ea225e"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": null,
+          "epoch": 0,
+          "embedding_profile_id": null
+        },
+        "items": []
+      },
+      "request_id": "7bc09b29-9262-4b09-85b0-d79edc68a7bb"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "indexing",
+            "stage": "indexing",
+            "row_version": 2,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 0,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": null,
+            "job_id": "3d8444b8-5b02-4736-8758-12d69ec529aa",
+            "eligible": false
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "8e9aa8da-8e30-456d-b2b4-43e6e0755a4b"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "77417949-b6d9-4a8b-bc66-2fed6da13964"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": null,
+          "epoch": 0,
+          "embedding_profile_id": null
+        },
+        "items": []
+      },
+      "request_id": "06cfdafe-5765-4b39-a3a9-af2b4b3fcb5a"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "indexing",
+            "stage": "indexing",
+            "row_version": 2,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 0,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": null,
+            "job_id": "3d8444b8-5b02-4736-8758-12d69ec529aa",
+            "eligible": false
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "1a8bec49-f5b2-4768-a383-1736eba0761a"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "2ce545d4-3560-46fb-9a1b-86d12672bff9"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": null,
+          "epoch": 0,
+          "embedding_profile_id": null
+        },
+        "items": []
+      },
+      "request_id": "8c5f21ba-57cc-42c9-a077-d0a1edbcebe0"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 4,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 1,
+            "cache_hits": 0,
+            "usage": [
+              {
+                "usage": {
+                  "total_tokens": 135,
+                  "prompt_tokens": 135
+                },
+                "seconds": 1.906,
+                "request_id": "cfd8f8f0-530f-904d-a25c-a6f2568c163e"
+              }
+            ],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+            "job_id": "3d8444b8-5b02-4736-8758-12d69ec529aa",
+            "eligible": true
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "0a716e2b-db08-43a8-90d5-33387a7134b0"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/build",
+    "method": "POST",
+    "key": "f775e1c3-47c6-437e-8fea-10606a4bd6e0",
+    "request": {
+      "expected_version": 4,
+      "embedding_profile_key": "qwen3.7-text-embedding",
+      "chunking_profile_key": "structure_v1_300"
+    },
+    "status": 202,
+    "body": {
+      "code": 202,
+      "msg": "ok",
+      "data": {
+        "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+        "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+        "build_id": "60758557-6dcc-4195-a0c1-5ce6d970b389",
+        "job_id": "7719be11-c21d-4051-a452-3df363dbee15",
+        "version": 4
+      },
+      "request_id": "c33b1b17-52f2-420a-89c2-594916e8654c"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "9cb6b3d4-b2d1-49e9-b2f2-50255e0b5fd0"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": null,
+          "epoch": 0,
+          "embedding_profile_id": null
+        },
+        "items": []
+      },
+      "request_id": "82534d7c-96e6-4aec-a71a-c8c9b09225ef"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "60758557-6dcc-4195-a0c1-5ce6d970b389",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "queued",
+            "stage": "queued",
+            "row_version": 1,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_300",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 0,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": null,
+            "job_id": "7719be11-c21d-4051-a452-3df363dbee15",
+            "eligible": false
+          },
+          {
+            "id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 4,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 1,
+            "cache_hits": 0,
+            "usage": [
+              {
+                "usage": {
+                  "total_tokens": 135,
+                  "prompt_tokens": 135
+                },
+                "seconds": 1.906,
+                "request_id": "cfd8f8f0-530f-904d-a25c-a6f2568c163e"
+              }
+            ],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+            "job_id": "3d8444b8-5b02-4736-8758-12d69ec529aa",
+            "eligible": true
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "d3d35e1b-5f61-4b5e-bbcb-1a8b482bdc5e"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "6d8e5dcc-4391-424f-955c-44439aaffdb2"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": null,
+          "epoch": 0,
+          "embedding_profile_id": null
+        },
+        "items": []
+      },
+      "request_id": "1339bdfe-51bf-4e8d-93d7-58b0eb3088bb"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "60758557-6dcc-4195-a0c1-5ce6d970b389",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 3,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_300",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 1,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "eed7d4fa73c2dd63af9c99110cb18ecec4d42773f02f6f88b4d815c11c572f89",
+            "job_id": "7719be11-c21d-4051-a452-3df363dbee15",
+            "eligible": true
+          },
+          {
+            "id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 4,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 1,
+            "cache_hits": 0,
+            "usage": [
+              {
+                "usage": {
+                  "total_tokens": 135,
+                  "prompt_tokens": 135
+                },
+                "seconds": 1.906,
+                "request_id": "cfd8f8f0-530f-904d-a25c-a6f2568c163e"
+              }
+            ],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+            "job_id": "3d8444b8-5b02-4736-8758-12d69ec529aa",
+            "eligible": true
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "1e6867bb-946d-4867-8ee2-f4b0166e8abc"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "POST",
+    "key": "4c817951-b566-4256-921f-525051665949",
+    "request": {
+      "expected_release_epoch": 0,
+      "build_ids": [
+        "cc468f18-d7a1-4f6d-bb65-c949d3b87e51"
+      ],
+      "replace_all": false
+    },
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "release": {
+          "id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "operation": "publish",
+          "profile": {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "region": "cn-beijing",
+            "probe_id": "power_remote_multilingual_v1",
+            "provider": "dashscope",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "dimensions": 1024,
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "normalization": "unit_l2_float32_v1",
+            "probe_min_cosine": 0.9995,
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "provider_weight_revision": null
+          },
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+          "entries": [
+            {
+              "brand": "OUTON",
+              "title": "独立审查4 A 连接排障",
+              "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+              "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+              "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+              "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+              "source_kind": "user_provided_simulation_knowledge",
+              "usage_split": "rag",
+              "available_at": "2026-10-08T02:00:00+00:00",
+              "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+              "allowed_modes": [
+                "simulation"
+              ],
+              "document_type": "troubleshooting_md",
+              "policy_bundle": null,
+              "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+              "version_number": 1,
+              "revocation_epoch": 0,
+              "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+              "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+            }
+          ],
+          "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+          "effective_at": "2026-10-08T07:16:59.886146+00:00",
+          "created_at": "2026-10-08T07:16:59.829833+00:00",
+          "actor": "local_operator"
+        }
+      },
+      "request_id": "d3cfdfce-1abf-49b6-b7ab-b6a8adc38d85"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "6b3a5f0b-6065-433b-8251-4016f97ba70d"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "2c591f6d-a7f3-4840-a6fd-d080eba9bc7e"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "60758557-6dcc-4195-a0c1-5ce6d970b389",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 3,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_300",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 1,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "eed7d4fa73c2dd63af9c99110cb18ecec4d42773f02f6f88b4d815c11c572f89",
+            "job_id": "7719be11-c21d-4051-a452-3df363dbee15",
+            "eligible": true
+          },
+          {
+            "id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 4,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 1,
+            "cache_hits": 0,
+            "usage": [
+              {
+                "usage": {
+                  "total_tokens": 135,
+                  "prompt_tokens": 135
+                },
+                "seconds": 1.906,
+                "request_id": "cfd8f8f0-530f-904d-a25c-a6f2568c163e"
+              }
+            ],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+            "job_id": "3d8444b8-5b02-4736-8758-12d69ec529aa",
+            "eligible": true
+          }
+        ],
+        "publication": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "release_epoch": 1,
+          "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+          "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "eb51e721-c338-4b53-b082-a282b3b959c4"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/documents",
+    "method": "POST",
+    "key": "40e604fd-925b-43dc-920c-b47f5e8769c0",
+    "request": {
+      "expected_version": 0,
+      "title": "独立审查4 B 书架灯检查",
+      "parser_profile_id": "markdown",
+      "applicabilities": [
+        {
+          "section_id": "document",
+          "sku": "F-SJ001-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "自编B只覆盖OUTONLIFE书架灯F-SJ001-US-BK整篇"
+        }
+      ],
+      "content": "# 安全\n先断电，焦味立即停止转人工。\n\n# 操作\n检查外部连接，不拆封闭控制器。\n独立B仅适用于 F-SJ001-US-BK；书架灯接头松动时检查外部插头，反复失败停止操作交人工。",
+      "document_type": "troubleshooting_md",
+      "brand": "OUTONLIFE",
+      "source_reference": "项目自编模拟资料，独立页面核验B，不是厂家说明",
+      "available_at": "2026-10-08T02:00:00.000Z"
+    },
+    "status": 202,
+    "body": {
+      "code": 202,
+      "msg": "ok",
+      "data": {
+        "document_id": "4cdda2e0-83a7-4cce-838a-fdb15a10575a",
+        "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+        "version": 1
+      },
+      "request_id": "aa11b899-9597-4729-a002-08a44f7a38f7"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "2b49a586-c016-4d20-b7d3-ffc0de0e4b64"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "4114d2db-81e9-494e-8bb0-38c3ab1c0fb7"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "fad2d557-d9c5-41f0-93ea-d487b4582707"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "447d2e69-e521-401b-9300-c55488835d30"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "bb74bbf9-1263-424d-8f3d-52226aff461b"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "caa94605-289a-45ca-af37-54be50f6f4b4"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/parse",
+    "method": "POST",
+    "key": "ed7c3516-e898-495d-aa4a-446a3d59a279",
+    "request": {
+      "expected_version": 1,
+      "parser_profile_id": "markdown"
+    },
+    "status": 202,
+    "body": {
+      "code": 202,
+      "msg": "ok",
+      "data": {
+        "document_id": "4cdda2e0-83a7-4cce-838a-fdb15a10575a",
+        "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+        "job_id": "3f2e2749-a288-4d29-a979-5da9c90e4560",
+        "version": 2
+      },
+      "request_id": "35e45f1f-afab-4f08-8d27-1fb673cedcf7"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "3174f453-677d-4614-b5f5-04fee02cd536"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "7849c526-2cdf-42bb-bfb8-13a39a2eb497"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "e3ea6897-a4b1-4996-abf3-470fde93541b"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/review",
+    "method": "POST",
+    "key": "56ba471d-3c5d-4fbf-b2cb-102136f8af69",
+    "request": {
+      "expected_version": 3,
+      "source_sha256": "f8cb5f5db3f1d56eb74462ab3886b655dfc47866592c66cd82a58784e60c3cb0",
+      "parse_sha256": "779bcd9c66476c89d64c536a18004c09174e1b69f864d9583676abc151536263",
+      "applicability_sha256": "10e5fb5f2d981af47aa8d763072f5a232e09b510a97fa1b6348aeb411578da2e",
+      "note": "核对自编B原件全文，停止条件、外部接头及反复失败转人工均保留；仅OUTONLIFE精确型号。",
+      "excluded_block_ids": [],
+      "exclusion_reason": null
+    },
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "document_id": "4cdda2e0-83a7-4cce-838a-fdb15a10575a",
+        "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+        "version": 4,
+        "status": "reviewed",
+        "published": false
+      },
+      "request_id": "e443507f-5a0e-41ae-a18a-c80b2fd8ba2e"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "755ddb71-e1a8-45c3-b257-7e05161d7336"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "4c4f2d3b-bef5-4127-8548-f9a57dd6ab02"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "1160a3a2-5bc5-4cdc-a6a4-d4ba625c0dc2"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/build",
+    "method": "POST",
+    "key": "4ecb9005-b57a-42d2-ba45-df4fb468d340",
+    "request": {
+      "expected_version": 4,
+      "embedding_profile_key": "qwen3.7-text-embedding",
+      "chunking_profile_key": "structure_v1_500"
+    },
+    "status": 202,
+    "body": {
+      "code": 202,
+      "msg": "ok",
+      "data": {
+        "document_id": "4cdda2e0-83a7-4cce-838a-fdb15a10575a",
+        "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+        "build_id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+        "job_id": "aca194d4-e0af-4735-bd14-6fa00554be92",
+        "version": 4
+      },
+      "request_id": "21b7e7c7-6734-44b6-84b4-d3a81e3a4897"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "56986dbb-9d17-4429-88f4-42ec1584c505"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "f35e6ff4-efcb-4beb-adf3-570a6bb3a492"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+            "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+            "status": "queued",
+            "stage": "queued",
+            "row_version": 1,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 0,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": null,
+            "job_id": "aca194d4-e0af-4735-bd14-6fa00554be92",
+            "eligible": false
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "cab37272-85e5-4cc1-b8ee-967e347df7fe"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "719149f9-6aec-44e0-a0f4-067ce38d51ca"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "2c2b90f1-1435-4110-96d3-64556abca5bb"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+            "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+            "status": "indexing",
+            "stage": "indexing",
+            "row_version": 2,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 0,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": null,
+            "job_id": "aca194d4-e0af-4735-bd14-6fa00554be92",
+            "eligible": false
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "7a111f1f-8929-433c-8eac-768c3fe6e6fd"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "6527846a-fc48-4c3f-a737-2f1d38a44d2a"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "e5abde3d-9de8-4dc5-b355-9fb49164fa86"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+            "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+            "status": "indexing",
+            "stage": "indexing",
+            "row_version": 2,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 0,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": null,
+            "job_id": "aca194d4-e0af-4735-bd14-6fa00554be92",
+            "eligible": false
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "eb13f16f-9585-4b94-bbe8-052d4151c412"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "ea6de645-742d-4442-a8cc-6b2b1ffd27d6"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "aad87bcd-15cb-4358-b2ba-26345ab2798f"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+            "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+            "status": "indexing",
+            "stage": "indexing",
+            "row_version": 2,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 0,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": null,
+            "job_id": "aca194d4-e0af-4735-bd14-6fa00554be92",
+            "eligible": false
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "abb20c94-1320-48c0-9043-71cdd98fbea8"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "6f67eaf5-e037-4cab-a096-c84ef31fbb63"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "6ea78454-94d3-4f1e-ad78-6bdd493e28a6"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+            "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 4,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 1,
+            "cache_hits": 0,
+            "usage": [
+              {
+                "usage": {
+                  "total_tokens": 138,
+                  "prompt_tokens": 138
+                },
+                "seconds": 3.703,
+                "request_id": "20ecb173-fe69-99e8-875a-de48420b140e"
+              }
+            ],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "13337bc944826e567bfdc66aff40b7b7430212cb89062a2a78f49c88534428f9",
+            "job_id": "aca194d4-e0af-4735-bd14-6fa00554be92",
+            "eligible": true
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "e31ecfba-6240-4222-b5bc-5638cfa140c8"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "50d4d9f4-b353-44a6-a5ba-928d74c1979d"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "epoch": 1,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "3a6f492a-7119-465f-8166-5ee7362868cc"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+            "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 4,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 1,
+            "cache_hits": 0,
+            "usage": [
+              {
+                "usage": {
+                  "total_tokens": 138,
+                  "prompt_tokens": 138
+                },
+                "seconds": 3.703,
+                "request_id": "20ecb173-fe69-99e8-875a-de48420b140e"
+              }
+            ],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "13337bc944826e567bfdc66aff40b7b7430212cb89062a2a78f49c88534428f9",
+            "job_id": "aca194d4-e0af-4735-bd14-6fa00554be92",
+            "eligible": true
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "1d3cac78-c158-4ba3-a954-182c02f53981"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "60758557-6dcc-4195-a0c1-5ce6d970b389",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 3,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_300",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 1,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "eed7d4fa73c2dd63af9c99110cb18ecec4d42773f02f6f88b4d815c11c572f89",
+            "job_id": "7719be11-c21d-4051-a452-3df363dbee15",
+            "eligible": true
+          },
+          {
+            "id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 4,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 1,
+            "cache_hits": 0,
+            "usage": [
+              {
+                "usage": {
+                  "total_tokens": 135,
+                  "prompt_tokens": 135
+                },
+                "seconds": 1.906,
+                "request_id": "cfd8f8f0-530f-904d-a25c-a6f2568c163e"
+              }
+            ],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+            "job_id": "3d8444b8-5b02-4736-8758-12d69ec529aa",
+            "eligible": true
+          }
+        ],
+        "publication": {
+          "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+          "release_epoch": 1,
+          "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+          "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "92b4e904-0667-4820-8f5e-80d36959ac05"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "69e61cf7-9e39-474f-a9ff-de496afb0569"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "3ae5f70a-431b-440c-974b-53522990dad8",
+          "epoch": 2,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "3ae5f70a-431b-440c-974b-53522990dad8",
+            "epoch": 2,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "cf4e8cdd4f42b556d18b63e039e3388fd5eafaec9303be830b77e41d50b4cc9f",
+            "effective_at": "2026-10-08T07:20:18.831114+00:00",
+            "created_at": "2026-10-08T07:20:18.799447+00:00",
+            "actor": "local_operator"
+          },
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "c0658bfa-972f-4cb0-a20c-dfe45c97099f"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "e761c850-f5d1-4e55-848d-0b6783f802df"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "3ae5f70a-431b-440c-974b-53522990dad8",
+          "epoch": 2,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "3ae5f70a-431b-440c-974b-53522990dad8",
+            "epoch": 2,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "cf4e8cdd4f42b556d18b63e039e3388fd5eafaec9303be830b77e41d50b4cc9f",
+            "effective_at": "2026-10-08T07:20:18.831114+00:00",
+            "created_at": "2026-10-08T07:20:18.799447+00:00",
+            "actor": "local_operator"
+          },
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "e4755f6e-7c12-4967-8480-2293f4fe06a9"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+            "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 4,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 1,
+            "cache_hits": 0,
+            "usage": [
+              {
+                "usage": {
+                  "total_tokens": 138,
+                  "prompt_tokens": 138
+                },
+                "seconds": 3.703,
+                "request_id": "20ecb173-fe69-99e8-875a-de48420b140e"
+              }
+            ],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "13337bc944826e567bfdc66aff40b7b7430212cb89062a2a78f49c88534428f9",
+            "job_id": "aca194d4-e0af-4735-bd14-6fa00554be92",
+            "eligible": true
+          }
+        ],
+        "publication": null,
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "eefca459-4250-45ff-aa7e-9c883a067570"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "60758557-6dcc-4195-a0c1-5ce6d970b389",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 3,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_300",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 1,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "eed7d4fa73c2dd63af9c99110cb18ecec4d42773f02f6f88b4d815c11c572f89",
+            "job_id": "7719be11-c21d-4051-a452-3df363dbee15",
+            "eligible": true
+          },
+          {
+            "id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 4,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 1,
+            "cache_hits": 0,
+            "usage": [
+              {
+                "usage": {
+                  "total_tokens": 135,
+                  "prompt_tokens": 135
+                },
+                "seconds": 1.906,
+                "request_id": "cfd8f8f0-530f-904d-a25c-a6f2568c163e"
+              }
+            ],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+            "job_id": "3d8444b8-5b02-4736-8758-12d69ec529aa",
+            "eligible": true
+          }
+        ],
+        "publication": {
+          "release_id": "3ae5f70a-431b-440c-974b-53522990dad8",
+          "release_epoch": 2,
+          "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+          "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "d456431b-c484-4a7d-8c70-f439c378b9ed"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "POST",
+    "key": "d6d81d8d-ccd2-43a1-854f-f1cb43a322aa",
+    "request": {
+      "expected_release_epoch": 2,
+      "build_ids": [
+        "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+        "cc468f18-d7a1-4f6d-bb65-c949d3b87e51"
+      ],
+      "replace_all": true
+    },
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "be327032-7633-4887-b85c-25f19280b6a1",
+          "epoch": 3,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "release": {
+          "id": "be327032-7633-4887-b85c-25f19280b6a1",
+          "epoch": 3,
+          "operation": "publish",
+          "profile": {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "region": "cn-beijing",
+            "probe_id": "power_remote_multilingual_v1",
+            "provider": "dashscope",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "dimensions": 1024,
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "normalization": "unit_l2_float32_v1",
+            "probe_min_cosine": 0.9995,
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "provider_weight_revision": null
+          },
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+          "entries": [
+            {
+              "brand": "OUTONLIFE",
+              "title": "独立审查4 B 书架灯检查",
+              "build_id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+              "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+              "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+              "document_id": "4cdda2e0-83a7-4cce-838a-fdb15a10575a",
+              "source_kind": "user_provided_simulation_knowledge",
+              "usage_split": "rag",
+              "available_at": "2026-10-08T02:00:00+00:00",
+              "parse_sha256": "779bcd9c66476c89d64c536a18004c09174e1b69f864d9583676abc151536263",
+              "allowed_modes": [
+                "simulation"
+              ],
+              "document_type": "troubleshooting_md",
+              "policy_bundle": null,
+              "source_sha256": "f8cb5f5db3f1d56eb74462ab3886b655dfc47866592c66cd82a58784e60c3cb0",
+              "version_number": 1,
+              "revocation_epoch": 0,
+              "index_manifest_sha256": "13337bc944826e567bfdc66aff40b7b7430212cb89062a2a78f49c88534428f9",
+              "applicability_revision": "10e5fb5f2d981af47aa8d763072f5a232e09b510a97fa1b6348aeb411578da2e"
+            },
+            {
+              "brand": "OUTON",
+              "title": "独立审查4 A 连接排障",
+              "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+              "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+              "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+              "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+              "source_kind": "user_provided_simulation_knowledge",
+              "usage_split": "rag",
+              "available_at": "2026-10-08T02:00:00+00:00",
+              "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+              "allowed_modes": [
+                "simulation"
+              ],
+              "document_type": "troubleshooting_md",
+              "policy_bundle": null,
+              "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+              "version_number": 1,
+              "revocation_epoch": 0,
+              "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+              "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+            }
+          ],
+          "manifest_sha256": "90308a7116fe69ea83f9c96ec00debf30cfaba857f23a2ef08ba210fda4d8881",
+          "effective_at": "2026-10-08T07:21:03.106564+00:00",
+          "created_at": "2026-10-08T07:21:03.051347+00:00",
+          "actor": "local_operator"
+        }
+      },
+      "request_id": "c750dec6-0172-47d5-b9d2-d8aa8ef48e71"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/index-profiles",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          },
+          {
+            "key": "text-embedding-v4",
+            "label": "V4 · 1024维",
+            "model": "text-embedding-v4",
+            "dimensions": 1024,
+            "provider": "dashscope",
+            "region": "cn-beijing",
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "normalization": "unit_l2_float32_v1",
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "provider_weight_revision": null,
+            "probe_id": "power_remote_multilingual_v1",
+            "probe_min_cosine": 0.9995,
+            "available": true
+          }
+        ],
+        "chunkers": [
+          {
+            "key": "structure_v1_500",
+            "label": "结构切分 500 代理tokens",
+            "target_tokens": 500,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          },
+          {
+            "key": "structure_v1_300",
+            "label": "结构切分 300 代理tokens",
+            "target_tokens": 300,
+            "max_tokens": 1000,
+            "parent_tokens": 2000,
+            "short_input_max_tokens": 2500,
+            "estimator": "ascii1_nonascii2/1",
+            "revision": "structure/4"
+          }
+        ]
+      },
+      "request_id": "408d4e3e-ee57-473c-9006-fa8e1a5cd496"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "be327032-7633-4887-b85c-25f19280b6a1",
+          "epoch": 3,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "items": [
+          {
+            "id": "be327032-7633-4887-b85c-25f19280b6a1",
+            "epoch": 3,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTONLIFE",
+                "title": "独立审查4 B 书架灯检查",
+                "build_id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+                "document_id": "4cdda2e0-83a7-4cce-838a-fdb15a10575a",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "779bcd9c66476c89d64c536a18004c09174e1b69f864d9583676abc151536263",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "f8cb5f5db3f1d56eb74462ab3886b655dfc47866592c66cd82a58784e60c3cb0",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "13337bc944826e567bfdc66aff40b7b7430212cb89062a2a78f49c88534428f9",
+                "applicability_revision": "10e5fb5f2d981af47aa8d763072f5a232e09b510a97fa1b6348aeb411578da2e"
+              },
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "90308a7116fe69ea83f9c96ec00debf30cfaba857f23a2ef08ba210fda4d8881",
+            "effective_at": "2026-10-08T07:21:03.106564+00:00",
+            "created_at": "2026-10-08T07:21:03.051347+00:00",
+            "actor": "local_operator"
+          },
+          {
+            "id": "3ae5f70a-431b-440c-974b-53522990dad8",
+            "epoch": 2,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "cf4e8cdd4f42b556d18b63e039e3388fd5eafaec9303be830b77e41d50b4cc9f",
+            "effective_at": "2026-10-08T07:20:18.831114+00:00",
+            "created_at": "2026-10-08T07:20:18.799447+00:00",
+            "actor": "local_operator"
+          },
+          {
+            "id": "d80a83df-9638-44ee-9068-0dba04614069",
+            "epoch": 1,
+            "operation": "publish",
+            "profile": {
+              "key": "qwen3.7-text-embedding",
+              "label": "Qwen3.7 · 1024维",
+              "model": "qwen3.7-text-embedding",
+              "region": "cn-beijing",
+              "probe_id": "power_remote_multilingual_v1",
+              "provider": "dashscope",
+              "tokenizer": "proxy_ascii1_unicode2_v1",
+              "dimensions": 1024,
+              "input_format": "title_path_prerequisite_body_v1",
+              "query_format": "plain_query_v1",
+              "normalization": "unit_l2_float32_v1",
+              "probe_min_cosine": 0.9995,
+              "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+              "provider_weight_revision": null
+            },
+            "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "entries": [
+              {
+                "brand": "OUTON",
+                "title": "独立审查4 A 连接排障",
+                "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+                "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+                "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+                "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+                "source_kind": "user_provided_simulation_knowledge",
+                "usage_split": "rag",
+                "available_at": "2026-10-08T02:00:00+00:00",
+                "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+                "allowed_modes": [
+                  "simulation"
+                ],
+                "document_type": "troubleshooting_md",
+                "policy_bundle": null,
+                "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+                "version_number": 1,
+                "revocation_epoch": 0,
+                "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+                "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+              }
+            ],
+            "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+            "effective_at": "2026-10-08T07:16:59.886146+00:00",
+            "created_at": "2026-10-08T07:16:59.829833+00:00",
+            "actor": "local_operator"
+          }
+        ]
+      },
+      "request_id": "e7035b33-91cd-4aa3-b065-1e0f9ecbb744"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+            "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 4,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 1,
+            "cache_hits": 0,
+            "usage": [
+              {
+                "usage": {
+                  "total_tokens": 138,
+                  "prompt_tokens": 138
+                },
+                "seconds": 3.703,
+                "request_id": "20ecb173-fe69-99e8-875a-de48420b140e"
+              }
+            ],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "13337bc944826e567bfdc66aff40b7b7430212cb89062a2a78f49c88534428f9",
+            "job_id": "aca194d4-e0af-4735-bd14-6fa00554be92",
+            "eligible": true
+          }
+        ],
+        "publication": {
+          "release_id": "be327032-7633-4887-b85c-25f19280b6a1",
+          "release_epoch": 3,
+          "build_id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+          "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "f7ff1147-7601-4dc9-bdd8-5e905415b6a1"
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/index",
+    "method": "GET",
+    "key": null,
+    "request": null,
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "builds": [
+          {
+            "id": "60758557-6dcc-4195-a0c1-5ce6d970b389",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 3,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_300",
+            "chunk_count": 1,
+            "embedded_count": 0,
+            "cache_hits": 1,
+            "usage": [],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "eed7d4fa73c2dd63af9c99110cb18ecec4d42773f02f6f88b4d815c11c572f89",
+            "job_id": "7719be11-c21d-4051-a452-3df363dbee15",
+            "eligible": true
+          },
+          {
+            "id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "status": "ready",
+            "stage": "ready",
+            "row_version": 4,
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "profile_key": "qwen3.7-text-embedding",
+            "chunker_key": "structure_v1_500",
+            "chunk_count": 1,
+            "embedded_count": 1,
+            "cache_hits": 0,
+            "usage": [
+              {
+                "usage": {
+                  "total_tokens": 135,
+                  "prompt_tokens": 135
+                },
+                "seconds": 1.906,
+                "request_id": "cfd8f8f0-530f-904d-a25c-a6f2568c163e"
+              }
+            ],
+            "error_code": null,
+            "retryable": false,
+            "manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+            "job_id": "3d8444b8-5b02-4736-8758-12d69ec529aa",
+            "eligible": true
+          }
+        ],
+        "publication": {
+          "release_id": "be327032-7633-4887-b85c-25f19280b6a1",
+          "release_epoch": 3,
+          "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+          "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "document_row_version": 1,
+        "revocation_epoch": 0,
+        "withdrawn": false
+      },
+      "request_id": "a2bea0ba-3e6e-4f19-bc13-06cbf1ec3617"
+    }
+  }
+]

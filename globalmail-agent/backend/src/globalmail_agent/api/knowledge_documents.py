@@ -1,5 +1,6 @@
 """Knowledge maintenance HTTP boundary; no publication/retrieval/model endpoint."""
 from uuid import UUID
+from typing import Literal
 from fastapi import APIRouter, Request, Header, Query
 from fastapi.responses import Response
 from sqlalchemy.exc import SQLAlchemyError
@@ -40,8 +41,9 @@ def knowledge_router(database, store):
 
     @router.get("/knowledge/documents")
     def listing(request: Request, type: str | None = None, brand: str | None = None, sku: str | None = None,
-                status: str | None = None, cursor: UUID | None = None, limit: int = Query(50, ge=1, le=100)):
-        return safe_call(request, lambda: queries.listing(type, brand, sku, status, cursor, limit))
+                status: str | None = None, cursor: UUID | None = None, limit: int = Query(50, ge=1, le=100),
+                publication: Literal["published", "unpublished", "withdrawn"] | None = None):
+        return safe_call(request, lambda: queries.listing(type, brand, sku, status, cursor, limit, publication))
 
     @router.post("/knowledge/documents")
     def create(request: Request, command: CreateDocument, idempotency_key: str = Header(default="")):

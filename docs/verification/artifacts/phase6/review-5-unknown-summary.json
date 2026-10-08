@@ -1,0 +1,28 @@
+{
+  "same_key": true,
+  "same_body": true,
+  "statuses": [
+    200,
+    200
+  ],
+  "epochs": [
+    2,
+    2
+  ],
+  "entries_per_response": [
+    1,
+    1
+  ],
+  "documents_per_response": [
+    {
+      "document_id": "0e197861-9472-4d8a-b786-9a50adef4660",
+      "title": "独立审查5 A 连接排障"
+    },
+    {
+      "document_id": "0e197861-9472-4d8a-b786-9a50adef4660",
+      "title": "独立审查5 A 连接排障"
+    }
+  ],
+  "first_request": "{\"expected_release_epoch\":1,\"build_ids\":[\"4320aa51-bbb1-4248-a093-c79c8a7a102d\"],\"replace_all\":true}",
+  "second_request": "{\"expected_release_epoch\":1,\"build_ids\":[\"4320aa51-bbb1-4248-a093-c79c8a7a102d\"],\"replace_all\":true}"
+}

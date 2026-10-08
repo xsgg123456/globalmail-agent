@@ -1,0 +1,321 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e6]:
+        - generic [ref=e7] [cursor=pointer]:
+          - img "logo" [ref=e9]
+          - paragraph [ref=e10]: GlobalMail Agent
+        - menubar [ref=e14]:
+          - menuitem "GlobalMail Agent" [expanded] [ref=e15]:
+            - menu [ref=e24]:
+              - menuitem "邮件工作台" [ref=e25] [cursor=pointer]
+              - menuitem "知识库" [ref=e30] [cursor=pointer]
+              - menuitem "系统状态" [ref=e35] [cursor=pointer]
+    - main [ref=e40]:
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45] [cursor=pointer]
+            - generic [ref=e48] [cursor=pointer]
+            - navigation "breadcrumb" [ref=e51]:
+              - list [ref=e52]:
+                - listitem [ref=e53]:
+                  - generic [ref=e54] [cursor=pointer]: GlobalMail Agent
+                  - generic [aria-hidden] [ref=e56]: /
+                - listitem [ref=e57]:
+                  - generic [ref=e58]: 知识库
+          - generic [ref=e60]:
+            - generic [ref=e61] [cursor=pointer]:
+              - generic [ref=e62]: 搜索
+              - generic [ref=e66]: k
+            - generic [ref=e70] [cursor=pointer]
+            - generic [ref=e75] [cursor=pointer]
+            - generic [ref=e78] [cursor=pointer]
+            - generic [ref=e81]: 本机单用户
+        - generic [ref=e83]:
+          - list [ref=e85]:
+            - listitem [ref=e86] [cursor=pointer]: 知识库
+          - generic [ref=e90] [cursor=pointer]
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e98]:
+            - generic [ref=e99]: 本机运行状态
+            - button "刷新状态" [ref=e100] [cursor=pointer]
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - generic [ref=e104]: API：可访问
+              - generic [ref=e106]: 数据库：就绪
+              - generic [ref=e108]: 数据结构：就绪
+              - generic [ref=e110]: 对象存储：就绪
+              - generic [ref=e112]: 模型：已配置，未验证连接
+            - paragraph [ref=e114]: 本机单用户 · Phase 5 知识维护与人工核对 · 资料尚未发布，Agent 暂未接入
+        - generic [ref=e115]:
+          - generic [ref=e117]:
+            - heading "知识库" [level=1] [ref=e118]
+            - generic [ref=e119]:
+              - button "刷新列表" [ref=e120] [cursor=pointer]
+              - button "检索试查" [ref=e122] [cursor=pointer]
+              - button "发布记录与模型切换" [ref=e124] [cursor=pointer]
+              - button "导入准备资料" [ref=e126] [cursor=pointer]
+              - button "新建资料" [ref=e128] [cursor=pointer]
+          - generic [ref=e130]:
+            - alert [ref=e131]:
+              - generic [ref=e132]: 资料核对完成后，先构建索引，再显式发布。检索试查只使用当前合格的发布资料。正式 Agent 回复将在下一阶段接入。
+            - generic [ref=e134]:
+              - generic [ref=e136] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选发布状态" [ref=e138]
+                  - generic [ref=e139]: 全部发布状态
+              - generic [ref=e145] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选资料类型" [ref=e147]
+                  - generic [ref=e148]: 全部类型
+              - generic [ref=e154] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选品牌" [ref=e156]
+                  - generic [ref=e157]: 全部品牌
+              - generic [ref=e163]:
+                - generic [ref=e164]:
+                  - combobox "筛选精确型号" [ref=e166]
+                  - generic [ref=e167]: 全部型号
+                - generic [ref=e169] [cursor=pointer]
+              - generic [ref=e173] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选状态" [ref=e175]
+                  - generic [ref=e176]: 全部状态
+            - generic [ref=e182]:
+              - table [ref=e184]:
+                - rowgroup [ref=e191]:
+                  - row [ref=e192]:
+                    - columnheader "资料" [ref=e193]
+                    - columnheader "版本" [ref=e195]
+                    - columnheader "状态" [ref=e197]
+                    - columnheader "用途" [ref=e199]
+                    - columnheader "操作" [ref=e201]
+              - table [ref=e207]:
+                - rowgroup [ref=e214]:
+                  - row [ref=e215]:
+                    - cell [ref=e216]:
+                      - generic [ref=e217]:
+                        - button "模拟售后政策说明" [ref=e218] [cursor=pointer]
+                        - paragraph [ref=e220]: 按具体范围绑定 · 售后政策
+                    - cell "第 1 版" [ref=e221]
+                    - cell "解析中" [ref=e223]
+                    - cell "仅供模拟 · 未发布" [ref=e227]
+                    - cell [ref=e229]:
+                      - button "查看核对" [ref=e231] [cursor=pointer]
+                  - row [ref=e233]:
+                    - cell [ref=e234]:
+                      - generic [ref=e235]:
+                        - button "A2 三轮滑板车产品与售后参考" [ref=e236] [cursor=pointer]
+                        - paragraph [ref=e238]: BELEEV · 产品说明 PDF
+                    - cell "第 1 版" [ref=e239]
+                    - cell "解析中" [ref=e241]
+                    - cell "仅供模拟 · 未发布" [ref=e245]
+                    - cell [ref=e247]:
+                      - button "查看核对" [ref=e249] [cursor=pointer]
+                  - row [ref=e251]:
+                    - cell [ref=e252]:
+                      - generic [ref=e253]:
+                        - button "A2 三轮滑板车排障 SOP" [ref=e254] [cursor=pointer]
+                        - paragraph [ref=e256]: BELEEV · 排障 SOP
+                    - cell "第 1 版" [ref=e257]
+                    - cell "解析中" [ref=e259]
+                    - cell "仅供模拟 · 未发布" [ref=e263]
+                    - cell [ref=e265]:
+                      - button "查看核对" [ref=e267] [cursor=pointer]
+                  - row [ref=e269]:
+                    - cell [ref=e270]:
+                      - generic [ref=e271]:
+                        - button "西语遥控排障：客户明确反馈已恢复" [ref=e272] [cursor=pointer]
+                        - paragraph [ref=e274]: OUTONLIFE · 案例卡
+                    - cell "第 1 版" [ref=e275]
+                    - cell "解析中" [ref=e277]
+                    - cell "仅供模拟 · 未发布" [ref=e281]
+                    - cell [ref=e283]:
+                      - button "查看核对" [ref=e285] [cursor=pointer]
+                  - row [ref=e287]:
+                    - cell [ref=e288]:
+                      - generic [ref=e289]:
+                        - button "V2 带灯小两轮滑板车产品与售后参考" [ref=e290] [cursor=pointer]
+                        - paragraph [ref=e292]: BELEEV · 产品说明 PDF
+                    - cell "第 1 版" [ref=e293]
+                    - cell "解析中" [ref=e295]
+                    - cell "仅供模拟 · 未发布" [ref=e299]
+                    - cell [ref=e301]:
+                      - button "查看核对" [ref=e303] [cursor=pointer]
+                  - row [ref=e305]:
+                    - cell [ref=e306]:
+                      - generic [ref=e307]:
+                        - button "V2 带灯小两轮滑板车排障 SOP" [ref=e308] [cursor=pointer]
+                        - paragraph [ref=e310]: BELEEV · 排障 SOP
+                    - cell "第 1 版" [ref=e311]
+                    - cell "解析中" [ref=e313]
+                    - cell "仅供模拟 · 未发布" [ref=e317]
+                    - cell [ref=e319]:
+                      - button "查看核对" [ref=e321] [cursor=pointer]
+                  - row [ref=e323]:
+                    - cell [ref=e324]:
+                      - generic [ref=e325]:
+                        - button "树形带灯书架产品与售后参考" [ref=e326] [cursor=pointer]
+                        - paragraph [ref=e328]: OUTONLIFE · 产品说明 PDF
+                    - cell "第 1 版" [ref=e329]
+                    - cell "解析中" [ref=e331]
+                    - cell "仅供模拟 · 未发布" [ref=e335]
+                    - cell [ref=e337]:
+                      - button "查看核对" [ref=e339] [cursor=pointer]
+                  - row [ref=e341]:
+                    - cell [ref=e342]:
+                      - generic [ref=e343]:
+                        - button "带托盘三脚架灯产品与售后参考" [ref=e344] [cursor=pointer]
+                        - paragraph [ref=e346]: OUTON · 产品说明 PDF
+                    - cell "第 1 版" [ref=e347]
+                    - cell "待人工核对" [ref=e349]
+                    - cell "仅供模拟 · 未发布" [ref=e353]
+                    - cell [ref=e355]:
+                      - button "查看核对" [ref=e357] [cursor=pointer]
+                  - row [ref=e359]:
+                    - cell [ref=e360]:
+                      - generic [ref=e361]:
+                        - button "三脚架灯固定环损坏：承诺补件不等于已发货" [ref=e362] [cursor=pointer]
+                        - paragraph [ref=e364]: OUTON · 案例卡
+                    - cell "第 1 版" [ref=e365]
+                    - cell "解析中" [ref=e367]
+                    - cell "仅供模拟 · 未发布" [ref=e371]
+                    - cell [ref=e373]:
+                      - button "查看核对" [ref=e375] [cursor=pointer]
+                  - row [ref=e377]:
+                    - cell [ref=e378]:
+                      - generic [ref=e379]:
+                        - button "ZZZ-02 杂志桌灯排障 SOP" [ref=e380] [cursor=pointer]
+                        - paragraph [ref=e382]: OUTONLIFE · 排障 SOP
+                    - cell "第 1 版" [ref=e383]
+                    - cell "解析中" [ref=e385]
+                    - cell "仅供模拟 · 未发布" [ref=e389]
+                    - cell [ref=e391]:
+                      - button "查看核对" [ref=e393] [cursor=pointer]
+                  - row [ref=e395]:
+                    - cell [ref=e396]:
+                      - generic [ref=e397]:
+                        - button "V2 滑板车转向反复松动：保留失败步骤并转人工" [ref=e398] [cursor=pointer]
+                        - paragraph [ref=e400]: BELEEV · 案例卡
+                    - cell "第 1 版" [ref=e401]
+                    - cell "解析中" [ref=e403]
+                    - cell "仅供模拟 · 未发布" [ref=e407]
+                    - cell [ref=e409]:
+                      - button "查看核对" [ref=e411] [cursor=pointer]
+                  - row [ref=e413]:
+                    - cell [ref=e414]:
+                      - generic [ref=e415]:
+                        - button "滑条遥控喇叭子母灯排障 SOP" [ref=e416] [cursor=pointer]
+                        - paragraph [ref=e418]: OUTON · 排障 SOP
+                    - cell "第 1 版" [ref=e419]
+                    - cell "解析中" [ref=e421]
+                    - cell "仅供模拟 · 未发布" [ref=e425]
+                    - cell [ref=e427]:
+                      - button "查看核对" [ref=e429] [cursor=pointer]
+                  - row [ref=e431]:
+                    - cell [ref=e432]:
+                      - generic [ref=e433]:
+                        - button "机身正常而遥控无效：复用已尝试步骤，区分原订单与配件订单" [ref=e434] [cursor=pointer]
+                        - paragraph [ref=e436]: OUTON · 案例卡
+                    - cell "第 1 版" [ref=e437]
+                    - cell "解析中" [ref=e439]
+                    - cell "仅供模拟 · 未发布" [ref=e443]
+                    - cell [ref=e445]:
+                      - button "查看核对" [ref=e447] [cursor=pointer]
+                  - row [ref=e449]:
+                    - cell [ref=e450]:
+                      - generic [ref=e451]:
+                        - button "四按键朝天灯产品与售后参考" [ref=e452] [cursor=pointer]
+                        - paragraph [ref=e454]: OUTON · 产品说明 PDF
+                    - cell "第 1 版" [ref=e455]
+                    - cell "解析中" [ref=e457]
+                    - cell "仅供模拟 · 未发布" [ref=e461]
+                    - cell [ref=e463]:
+                      - button "查看核对" [ref=e465] [cursor=pointer]
+                  - row [ref=e467]:
+                    - cell [ref=e468]:
+                      - generic [ref=e469]:
+                        - button "A9 带灯折叠三轮滑板车排障 SOP" [ref=e470] [cursor=pointer]
+                        - paragraph [ref=e472]: BELEEV · 排障 SOP
+                    - cell "第 1 版" [ref=e473]
+                    - cell "解析中" [ref=e475]
+                    - cell "仅供模拟 · 未发布" [ref=e479]
+                    - cell [ref=e481]:
+                      - button "查看核对" [ref=e483] [cursor=pointer]
+                  - row [ref=e485]:
+                    - cell [ref=e486]:
+                      - generic [ref=e487]:
+                        - button "树形带灯书架排障 SOP" [ref=e488] [cursor=pointer]
+                        - paragraph [ref=e490]: OUTONLIFE · 排障 SOP
+                    - cell "第 1 版" [ref=e491]
+                    - cell "解析中" [ref=e493]
+                    - cell "仅供模拟 · 未发布" [ref=e497]
+                    - cell [ref=e499]:
+                      - button "查看核对" [ref=e501] [cursor=pointer]
+                  - row [ref=e503]:
+                    - cell [ref=e504]:
+                      - generic [ref=e505]:
+                        - button "带托盘三脚架灯排障 SOP" [ref=e506] [cursor=pointer]
+                        - paragraph [ref=e508]: OUTON · 排障 SOP
+                    - cell "第 1 版" [ref=e509]
+                    - cell "解析中" [ref=e511]
+                    - cell "仅供模拟 · 未发布" [ref=e515]
+                    - cell [ref=e517]:
+                      - button "查看核对" [ref=e519] [cursor=pointer]
+                  - row [ref=e521]:
+                    - cell [ref=e522]:
+                      - generic [ref=e523]:
+                        - button "四按键朝天灯排障 SOP" [ref=e524] [cursor=pointer]
+                        - paragraph [ref=e526]: OUTON · 排障 SOP
+                    - cell "第 1 版" [ref=e527]
+                    - cell "解析中" [ref=e529]
+                    - cell "仅供模拟 · 未发布" [ref=e533]
+                    - cell [ref=e535]:
+                      - button "查看核对" [ref=e537] [cursor=pointer]
+                  - row [ref=e539]:
+                    - cell [ref=e540]:
+                      - generic [ref=e541]:
+                        - button "ZZZ-02 杂志桌灯产品与售后参考" [ref=e542] [cursor=pointer]
+                        - paragraph [ref=e544]: OUTONLIFE · 产品说明 PDF
+                    - cell "第 1 版" [ref=e545]
+                    - cell "解析中" [ref=e547]
+                    - cell "仅供模拟 · 未发布" [ref=e551]
+                    - cell [ref=e553]:
+                      - button "查看核对" [ref=e555] [cursor=pointer]
+                  - row [ref=e557]:
+                    - cell [ref=e558]:
+                      - generic [ref=e559]:
+                        - button "礼物来源的书架灯：缺订单、付费配件诉求及品牌更正" [ref=e560] [cursor=pointer]
+                        - paragraph [ref=e562]: OUTONLIFE · 案例卡
+                    - cell "第 1 版" [ref=e563]
+                    - cell "待人工核对" [ref=e565]
+                    - cell "仅供模拟 · 未发布" [ref=e569]
+                    - cell [ref=e571]:
+                      - button "查看核对" [ref=e573] [cursor=pointer]
+                  - row [ref=e575]:
+                    - cell [ref=e576]:
+                      - generic [ref=e577]:
+                        - button "A9 带灯折叠三轮滑板车产品与售后参考" [ref=e578] [cursor=pointer]
+                        - paragraph [ref=e580]: BELEEV · 产品说明 PDF
+                    - cell "第 1 版" [ref=e581]
+                    - cell "解析中" [ref=e583]
+                    - cell "仅供模拟 · 未发布" [ref=e587]
+                    - cell [ref=e589]:
+                      - button "查看核对" [ref=e591] [cursor=pointer]
+                  - row [ref=e593]:
+                    - cell [ref=e594]:
+                      - generic [ref=e595]:
+                        - button "滑条遥控喇叭子母灯产品与售后参考" [ref=e596] [cursor=pointer]
+                        - paragraph [ref=e598]: OUTON · 产品说明 PDF
+                    - cell "第 1 版" [ref=e599]
+                    - cell "解析中" [ref=e601]
+                    - cell "仅供模拟 · 未发布" [ref=e605]
+                    - cell [ref=e607]:
+                      - button "查看核对" [ref=e609] [cursor=pointer]
+            - generic [ref=e611]:
+              - button "上一页" [disabled] [ref=e612]
+              - button "下一页" [disabled] [ref=e614]
+  - tooltip "点击这里查看主题风格、 开启顶栏菜单等更多配置" [ref=e616]:
+    - paragraph [ref=e617]: 点击这里查看主题风格、 开启顶栏菜单等更多配置

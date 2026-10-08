@@ -1,0 +1,21 @@
+2026-10-08 Phase 6 最终代码检查（GUI期间仅前端状态条文案补正）
+
+backend/.venv/Scripts/python.exe -m compileall -q backend/src backend/migrations backend/tests scripts knowledge-eval
+exit 0
+
+uv pip check --python globalmail-agent/backend/.venv/Scripts/python.exe
+Checked 32 packages; All installed packages are compatible; exit 0
+
+初次本期已改/新建 .py/.ts/.vue/.ps1（含独立审查脚本）扫描：81文件，超过300行0。
+修复真实清空交互后的最终产品源码扫描（不含审查脚本）：66文件，超过300行0。
+秘密值模式扫描唯一匹配：backend/.env.example 的 USER:PASSWORD 占位URL，人工核验为占位，无实际凭据。
+本期已改/新建Markdown本地链接：177个，缺失0（最终文档回写后再核对）。
+
+2026-10-08 最终文档回写后：321个本地链接全部存在；git diff --check（原已跟踪文件）exit0。
+完整扫描包括变更源码、测试、启动/评测脚本及审查证据；实际配置秘密值和私钥未进入变更文件。
+66份产品源码SHA与第五轮独立审查一致，未在通过后改代码。
+暂存全量diff --check首先标出原始日志尾空白与审查脚本末尾空行；原证据保持原样。
+源码及项目文档（排除原始artifacts）git diff --cached --check exit0；仅原始artifacts按命令级core.whitespace豁免末尾空白/空行后检查exit0。
+
+正式数据库只读隔离核验：revision0004，43旧表记录及设置、160源文件摘要一致。
+首窗口由用户点过导入准备资料，第二空窗口用于独立GUI；详见验证记录和隔离证据。

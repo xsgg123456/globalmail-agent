@@ -1,0 +1,13 @@
+test_actual_child_invalid_or_oversized_output (test_embedding_process.EmbeddingTests.test_actual_child_invalid_or_oversized_output) ... ok
+test_actual_child_lease_revocation_and_late_output (test_embedding_process.EmbeddingTests.test_actual_child_lease_revocation_and_late_output) ... ok
+test_actual_child_success_and_redacted_failure (test_embedding_process.EmbeddingTests.test_actual_child_success_and_redacted_failure) ... ok
+test_actual_child_timeout_stops_owned_process (test_embedding_process.EmbeddingTests.test_actual_child_timeout_stops_owned_process) ... ok
+test_child_has_only_provider_secrets (test_embedding_process.EmbeddingTests.test_child_has_only_provider_secrets) ... ok
+test_finite_dimensions_normalization_and_probe (test_embedding_process.EmbeddingTests.test_finite_dimensions_normalization_and_probe) ... ok
+test_input_and_drift_never_silently_pass (test_embedding_process.EmbeddingTests.test_input_and_drift_never_silently_pass) ... ok
+test_safe_profiles_and_exact_endpoint (test_embedding_process.EmbeddingTests.test_safe_profiles_and_exact_endpoint) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.677s
+
+OK

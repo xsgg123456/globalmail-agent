@@ -7,6 +7,8 @@ from globalmail_agent.adapters.knowledge_schema import document_versions, docume
 from globalmail_agent.application.conversation_lock import DEFAULT_WORKSPACE_ID, ServiceError
 from globalmail_agent.knowledge.base import scoped_where, document, version, KnowledgeFiles, ensure_slot, audit
 from globalmail_agent.knowledge.queue import KnowledgeQueue
+from globalmail_agent.adapters.knowledge_index_schema import index_builds
+from globalmail_agent.knowledge.build_checks import reviewed
 from globalmail_agent.knowledge.cache import find_cache, save_cache, project
 from globalmail_agent.worker.leases import slot_for_update, valid_lease, release_slot, db_now
 
@@ -27,6 +29,15 @@ class KnowledgeJobService(KnowledgeQueue):
             *scoped_where(document_versions, self.workspace_id)).with_for_update()).mappings().one()
         valid = (doc is not None and doc["lifecycle"] == "active" and doc["current_version_id"] == v["id"] and doc["document_fence"] == job["document_fence"]
             and v["parse_generation"] == job["parse_generation"] and v["parser_profile_id"] == job["parser_profile_id"])
+        if job["knowledge_operation"] == "index":
+            build = conn.execute(sa.select(index_builds).where(index_builds.c.id == job["index_build_id"],
+                *scoped_where(index_builds, self.workspace_id))).mappings().first()
+            try:
+                reviewed(conn, self.workspace_id, v)
+            except ServiceError:
+                valid = False
+            valid = valid and build is not None and build["revocation_epoch"] == doc["revocation_epoch"] and all(
+                build[k] == v[k] for k in ("source_sha256", "parse_sha256", "applicability_sha256"))
         return valid, v, doc
 
     def claim(self, owner):
@@ -56,13 +67,19 @@ class KnowledgeJobService(KnowledgeQueue):
             if not valid or job["status"] != "queued":
                 conn.execute(jobs.update().where(jobs.c.id == job["id"]).values(status="cancelled", stage="superseded", retryable=False,
                     error_code="version_superseded", row_version=job["row_version"] + 1))
+                if job["index_build_id"]:
+                    conn.execute(index_builds.update().where(index_builds.c.id == job["index_build_id"]).values(status="cancelled",
+                        stage="superseded", error_code="version_superseded", retryable=False, row_version=index_builds.c.row_version + 1))
                 return None
             fence, expiry = slot["fence"] + 1, now + timedelta(seconds=90)
             conn.execute(agent_slots.update().where(agent_slots.c.id == slot["id"]).values(job_id=job["id"], lease_owner=owner,
                 lease_expires_at=expiry, fence=fence))
-            changes = {"status": "running", "stage": "parsing", "lease_owner": owner, "lease_expires_at": expiry,
+            changes = {"status": "running", "stage": "indexing" if job["knowledge_operation"] == "index" else "parsing", "lease_owner": owner, "lease_expires_at": expiry,
                 "slot_fence": fence, "row_version": job["row_version"] + 1}
             conn.execute(jobs.update().where(jobs.c.id == job["id"]).values(**changes))
+            if job["knowledge_operation"] == "index":
+                conn.execute(index_builds.update().where(index_builds.c.id == job["index_build_id"]).values(status="indexing",
+                    stage="indexing", row_version=index_builds.c.row_version + 1, error_code=None))
             return {**job, **changes, "version_id": v["id"], "source_sha256": v["source_sha256"], "object_id": v["object_id"],
                 "format": v["format"], "parser_fingerprint": v["parser_fingerprint"]}
 
@@ -136,6 +153,14 @@ class KnowledgeJobService(KnowledgeQueue):
             release_slot(conn, slot)
             return True
 
+    def _guard_ready(self, conn, job):
+        slot = slot_for_update(conn, self.workspace_id, "knowledge")
+        if not valid_lease(slot, job["id"], job["lease_owner"], job["slot_fence"], db_now(conn)):
+            return False
+        current = self._job(conn, job["id"])
+        valid, _, _ = self._current(conn, current)
+        return valid and current["status"] == "completed"
+
     def cached_result(self, job):
         with self.engine.connect() as conn:
             v = version(conn, self.workspace_id, job["knowledge_version_id"])
@@ -153,7 +178,12 @@ class KnowledgeJobService(KnowledgeQueue):
             changes.update(attempt_no=job["attempt_no"] + 1,
                 not_before=now + timedelta(seconds=(2, 10, 30)[job["attempt_no"] - 1]))
         conn.execute(jobs.update().where(jobs.c.id == job["id"]).values(**changes))
-        if valid:
+        if job["knowledge_operation"] == "index":
+            conn.execute(index_builds.update().where(index_builds.c.id == job["index_build_id"]).values(status=status,
+                stage=changes["stage"], error_code=error_code, retryable=changes["retryable"], row_version=index_builds.c.row_version + 1))
+            if valid:
+                audit(conn, self.workspace_id, doc["id"], v["id"], "index.failed", {"job_id": str(job["id"]), "error_code": error_code})
+        elif valid:
             conn.execute(document_versions.update().where(document_versions.c.id == v["id"])
                 .values(status="parsing" if auto else "failed", row_version=v["row_version"] + 1))
             audit(conn, self.workspace_id, doc["id"], v["id"], "parse.failed", {"job_id": str(job["id"]), "error_code": error_code})

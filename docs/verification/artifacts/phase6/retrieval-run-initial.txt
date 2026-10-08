@@ -1,0 +1,101 @@
+{"stage": "worker", "operation": "parse", "version_id": "f3fecf1c-00e7-46a7-a5b1-fc9ab0fa4085"}
+{"stage": "worker", "operation": "parse", "version_id": "88cf87a0-634e-46da-b679-50eabf02445a"}
+{"stage": "worker", "operation": "parse", "version_id": "f03fbd94-15bd-40e1-b337-85a48e78e111"}
+{"stage": "worker", "operation": "parse", "version_id": "9403253c-6bfe-47f3-8c3e-f88cae1582bc"}
+{"stage": "worker", "operation": "parse", "version_id": "f3002865-5fac-47b6-8eb3-c977db6304d6"}
+{"stage": "worker", "operation": "parse", "version_id": "232c20fb-88ed-41a1-b6c2-e1bb929ebef2"}
+{"stage": "worker", "operation": "parse", "version_id": "fa6dbc07-15c4-4442-9fb2-c3db066836c1"}
+{"stage": "worker", "operation": "parse", "version_id": "094b8eea-4a2b-4df6-8be3-ac3f4c604715"}
+{"stage": "worker", "operation": "parse", "version_id": "539bb9c9-12a2-4cb8-b0ec-a92f083e9a68"}
+{"stage": "worker", "operation": "parse", "version_id": "dbab4c2f-9572-45d5-8a15-e2bcf5fd3dd2"}
+{"stage": "worker", "operation": "parse", "version_id": "667bdeaf-6302-4582-a480-042791bd77d6"}
+{"stage": "worker", "operation": "parse", "version_id": "502a2fe7-4610-4a72-93b5-3967605a0a3d"}
+{"stage": "worker", "operation": "parse", "version_id": "e25cac2e-38de-44f9-b338-9e0ca59f6ec7"}
+{"stage": "worker", "operation": "parse", "version_id": "c7c82ebc-60cb-43d5-b58f-42ac7f9cf56e"}
+{"stage": "worker", "operation": "parse", "version_id": "a6473bd5-a5c9-400b-8917-ff2c63219da5"}
+{"stage": "worker", "operation": "parse", "version_id": "1ea02428-e56f-474d-8882-f9c7c55a1581"}
+{"stage": "worker", "operation": "parse", "version_id": "a4444e7d-fa02-4df4-a4e9-d45672cafd0a"}
+{"stage": "worker", "operation": "parse", "version_id": "e0750228-ce30-4488-8ed3-f9d0ee18da3d"}
+{"stage": "worker", "operation": "parse", "version_id": "5ae48189-a04a-4fc3-b2dd-f8e5620068fc"}
+{"stage": "worker", "operation": "parse", "version_id": "29381478-3aeb-489c-8439-2a45e3bc823f"}
+{"stage": "worker", "operation": "parse", "version_id": "6a3be8de-007b-4151-9457-550eed2c4942"}
+{"stage": "worker", "operation": "parse", "version_id": "2afff5ab-9447-427e-8574-4e46de339251"}
+{"stage": "worker", "operation": "index", "version_id": "e0750228-ce30-4488-8ed3-f9d0ee18da3d"}
+{"stage": "worker", "operation": "index", "version_id": "a4444e7d-fa02-4df4-a4e9-d45672cafd0a"}
+{"stage": "worker", "operation": "index", "version_id": "c7c82ebc-60cb-43d5-b58f-42ac7f9cf56e"}
+{"stage": "worker", "operation": "index", "version_id": "667bdeaf-6302-4582-a480-042791bd77d6"}
+{"stage": "worker", "operation": "index", "version_id": "502a2fe7-4610-4a72-93b5-3967605a0a3d"}
+{"stage": "worker", "operation": "index", "version_id": "a6473bd5-a5c9-400b-8917-ff2c63219da5"}
+{"stage": "worker", "operation": "index", "version_id": "f03fbd94-15bd-40e1-b337-85a48e78e111"}
+{"stage": "worker", "operation": "index", "version_id": "2afff5ab-9447-427e-8574-4e46de339251"}
+{"stage": "worker", "operation": "index", "version_id": "f3fecf1c-00e7-46a7-a5b1-fc9ab0fa4085"}
+{"stage": "worker", "operation": "index", "version_id": "1ea02428-e56f-474d-8882-f9c7c55a1581"}
+{"stage": "worker", "operation": "index", "version_id": "dbab4c2f-9572-45d5-8a15-e2bcf5fd3dd2"}
+{"stage": "worker", "operation": "index", "version_id": "e25cac2e-38de-44f9-b338-9e0ca59f6ec7"}
+{"stage": "worker", "operation": "index", "version_id": "5ae48189-a04a-4fc3-b2dd-f8e5620068fc"}
+{"stage": "worker", "operation": "index", "version_id": "29381478-3aeb-489c-8439-2a45e3bc823f"}
+{"stage": "worker", "operation": "index", "version_id": "094b8eea-4a2b-4df6-8be3-ac3f4c604715"}
+{"stage": "worker", "operation": "index", "version_id": "fa6dbc07-15c4-4442-9fb2-c3db066836c1"}
+{"stage": "worker", "operation": "index", "version_id": "539bb9c9-12a2-4cb8-b0ec-a92f083e9a68"}
+{"stage": "worker", "operation": "index", "version_id": "88cf87a0-634e-46da-b679-50eabf02445a"}
+{"stage": "worker", "operation": "index", "version_id": "f3002865-5fac-47b6-8eb3-c977db6304d6"}
+{"stage": "worker", "operation": "index", "version_id": "9403253c-6bfe-47f3-8c3e-f88cae1582bc"}
+{"stage": "worker", "operation": "index", "version_id": "6a3be8de-007b-4151-9457-550eed2c4942"}
+{"stage": "worker", "operation": "index", "version_id": "232c20fb-88ed-41a1-b6c2-e1bb929ebef2"}
+{"query": "KQ-001", "reason": "ok", "hits": [true]}
+{"query": "KQ-002", "reason": "ok", "hits": [true]}
+{"query": "KQ-003", "reason": "ok", "hits": [true]}
+{"query": "KQ-004", "reason": "ok", "hits": [true]}
+{"query": "KQ-005", "reason": "ok", "hits": [true]}
+{"query": "KQ-006", "reason": "ok", "hits": [true]}
+{"query": "KQ-007", "reason": "ok", "hits": [true]}
+{"query": "KQ-008", "reason": "ok", "hits": [true]}
+{"query": "KQ-009", "reason": "ok", "hits": [true]}
+{"query": "KQ-010", "reason": "ok", "hits": [true]}
+{"query": "KQ-011", "reason": "ok", "hits": [true]}
+{"query": "KQ-012", "reason": "ok", "hits": [true]}
+{"query": "KQ-013", "reason": "ok", "hits": [true]}
+{"query": "KQ-014", "reason": "ok", "hits": [true]}
+{"query": "KQ-015", "reason": "ok", "hits": [true]}
+{"query": "KQ-016", "reason": "ok", "hits": [true]}
+{"query": "KQ-017", "reason": "ok", "hits": [true]}
+{"query": "KQ-018", "reason": "ok", "hits": [true]}
+{"query": "KQ-019", "reason": "ok", "hits": [true]}
+{"query": "KQ-020", "reason": "ok", "hits": [true]}
+{"query": "KQ-021", "reason": "ok", "hits": [true]}
+{"query": "KQ-022", "reason": "ok", "hits": [true]}
+{"query": "KQ-023", "reason": "ok", "hits": [true]}
+{"query": "KQ-024", "reason": "ok", "hits": [true]}
+{"query": "KQ-025", "reason": "ok", "hits": [true]}
+{"query": "KQ-026", "reason": "ok", "hits": [true]}
+{"query": "KQ-027", "reason": "ok", "hits": [true]}
+{"query": "KQ-028", "reason": "ok", "hits": [true]}
+{"query": "KQ-029", "reason": "ok", "hits": [true]}
+{"query": "KQ-030", "reason": "ok", "hits": [false]}
+{"query": "KQ-031", "reason": "ok", "hits": [false]}
+{"query": "KQ-032", "reason": "ok", "hits": [false]}
+{"query": "KQ-033", "reason": "ok", "hits": [false]}
+{"query": "KQ-034", "reason": "ok", "hits": [false]}
+{"query": "KQ-035", "reason": "ok", "hits": [false]}
+{"query": "KQ-036", "reason": "ok", "hits": [false]}
+{"query": "KQ-037", "reason": "empty", "hits": []}
+{"query": "KQ-038", "reason": "empty", "hits": []}
+{"query": "KQ-039", "reason": "empty", "hits": []}
+{"query": "KQ-040", "reason": "empty", "hits": []}
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\knowledge-eval\evaluate_retrieval.py", line 149, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\knowledge-eval\evaluate_retrieval.py", line 142, in main
+    result = evaluate(fixture, runner, gateway)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\knowledge-eval\evaluate_retrieval.py", line 108, in evaluate
+    output = search.search(SearchCommand.model_validate({k: query[k] for k in ('query', 'sku', 'mode', 'as_of')}))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\pydantic\main.py", line 732, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for SearchCommand
+mode
+  Input should be 'simulation' or 'history_replay' [type=literal_error, input_value='historical_eval', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/literal_error

@@ -32,7 +32,7 @@ function Import-BackendEnvironment($Settings) {
     $envFile = Join-Path $repoRoot '.env'
     if (Test-Path -LiteralPath $envFile) {
         foreach ($line in Get-Content -LiteralPath $envFile) {
-            if ($line -match '^(LLM_MODEL|LLM_BASE_URL|LLM_API_KEY)=(.*)$') {
+            if ($line -match '^(LLM_MODEL|LLM_BASE_URL|LLM_API_KEY|GLOBALMAIL_EMBEDDING_API_KEY|GLOBALMAIL_EMBEDDING_BASE_URL)=(.*)$') {
                 [Environment]::SetEnvironmentVariable($Matches[1], $Matches[2].Trim().Trim('"').Trim("'"), 'Process')
             }
         }

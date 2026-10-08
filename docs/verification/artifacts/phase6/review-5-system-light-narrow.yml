@@ -1,0 +1,46 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e6]:
+        - generic [ref=e7] [cursor=pointer]:
+          - img "logo" [ref=e9]
+          - paragraph [ref=e10]: GlobalMail Agent
+        - menubar [ref=e1348]:
+          - menuitem [ref=e1349]:
+            - generic [ref=e1350] [cursor=pointer]
+    - main [ref=e20]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e24]:
+            - generic [ref=e25] [cursor=pointer]
+            - generic [ref=e28] [cursor=pointer]
+          - generic [ref=e31]:
+            - generic [ref=e32] [cursor=pointer]:
+              - generic [ref=e33]: 搜索
+              - generic [ref=e37]: k
+            - generic [ref=e41] [cursor=pointer]
+            - generic [ref=e46] [cursor=pointer]
+            - generic [ref=e49] [cursor=pointer]
+            - generic [ref=e52]: 本机单用户
+        - generic [ref=e54]:
+          - list [ref=e56]:
+            - listitem [ref=e1261] [cursor=pointer]: 邮件工作台
+            - listitem [ref=e57] [cursor=pointer]: 知识库
+            - listitem [ref=e1267] [cursor=pointer]: 系统状态
+          - generic [ref=e61] [cursor=pointer]
+      - generic [ref=e1354]:
+        - generic [ref=e1356]:
+          - generic [ref=e1357]: 本机运行状态
+          - button "刷新状态" [ref=e1358] [cursor=pointer]
+        - generic [ref=e1360]:
+          - generic [ref=e1361]:
+            - generic [ref=e1362]: API：可访问
+            - generic [ref=e1364]: 数据库：就绪
+            - generic [ref=e1366]: 数据结构：就绪
+            - generic [ref=e1368]: 对象存储：就绪
+            - generic [ref=e1370]: 模型：已配置，未验证连接
+          - paragraph [ref=e1372]: 本机单用户 · Phase 6 知识发布与检索 · 正式 Agent 暂未接入
+          - paragraph [ref=e1373]: 检查时间：15:50:29
+          - paragraph [ref=e1374]: 请求标识：3078da3d-60fc-4959-a0cf-f52f89aceb34 / 6421aea0-3036-4705-8bb2-e355781f7acc / 5aeb7f0d-1171-426d-87ae-e771ce3241be
+  - tooltip "点击这里查看主题风格、 开启顶栏菜单等更多配置" [ref=e177]:
+    - paragraph [ref=e178]: 点击这里查看主题风格、 开启顶栏菜单等更多配置

@@ -7,12 +7,13 @@ from globalmail_agent.adapters.conversation_schema import jobs
 from globalmail_agent.application.conversation_lock import DEFAULT_WORKSPACE_ID, ServiceError
 from globalmail_agent.knowledge.base import KnowledgeFiles, document, version, scoped_where
 from globalmail_agent.knowledge.queue import job_view
+from globalmail_agent.knowledge.release_queries import publication, published_condition
 
 
-def version_view(row):
+def version_view(row, published=False):
     keys = ("id", "document_id", "number", "title", "object_id", "format", "page_count", "row_version", "status", "source_sha256", "source_manifest_sha256",
         "parser_profile_id", "parser_fingerprint", "parse_generation", "parse_sha256", "applicability_sha256", "page_range", "available_at")
-    return {**{k: row[k] for k in keys}, "published": False}
+    return {**{k: row[k] for k in keys}, "published": published}
 
 
 def binding_view(row):
@@ -29,11 +30,13 @@ class KnowledgeQueries:
 
     def _document_view(self, conn, doc):
         current = version(conn, self.workspace_id, doc["current_version_id"])
+        active = publication(conn, self.workspace_id, doc["id"])
         return {**{k: doc[k] for k in ("id", "title", "document_type", "brand", "source_kind", "source_reference",
             "allowed_modes", "usage_split", "row_version", "current_version_id")}, "current_version_number": current["number"],
-            "status": current["status"], "published": False}
+            "status": current["status"], "published": active is not None, "publication": active,
+            "withdrawn": doc["withdrawn"], "revocation_epoch": doc["revocation_epoch"]}
 
-    def listing(self, document_type=None, brand=None, sku=None, status=None, cursor=None, limit=50):
+    def listing(self, document_type=None, brand=None, sku=None, status=None, cursor=None, limit=50, publication_filter=None):
         self._available()
         with self.engine.connect() as conn:
             query = sa.select(documents).where(*scoped_where(documents, self.workspace_id), documents.c.lifecycle == "active")
@@ -42,6 +45,14 @@ class KnowledgeQueries:
                     query = query.where(col == value)
             if status:
                 query = query.where(documents.c.current_version_id.in_(sa.select(document_versions.c.id).where(document_versions.c.status == status)))
+            if publication_filter == "published":
+                query = query.where(published_condition(self.workspace_id))
+            elif publication_filter == "unpublished":
+                query = query.where(documents.c.withdrawn.is_(False), ~published_condition(self.workspace_id))
+            elif publication_filter == "withdrawn":
+                query = query.where(documents.c.withdrawn.is_(True))
+            elif publication_filter:
+                raise ServiceError("invalid_publication_filter", 422)
             if sku:
                 query = query.where(documents.c.current_version_id.in_(sa.select(applicabilities.c.version_id).where(applicabilities.c.sku == sku)))
             if cursor:
@@ -58,7 +69,8 @@ class KnowledgeQueries:
                 *scoped_where(document_versions, self.workspace_id)).order_by(document_versions.c.number.desc())).mappings().all()
             audits = conn.execute(sa.select(knowledge_audits).where(knowledge_audits.c.document_id == identity,
                 *scoped_where(knowledge_audits, self.workspace_id)).order_by(knowledge_audits.c.created_at)).mappings().all()
-            return {"document": self._document_view(conn, doc), "versions": [version_view(v) for v in versions],
+            active = publication(conn, self.workspace_id, doc["id"])
+            return {"document": self._document_view(conn, doc), "versions": [version_view(v, bool(active and active["version_id"] == v["id"])) for v in versions],
                 "audits": [{k: row[k] for k in ("id", "version_id", "action", "actor", "details", "created_at")} for row in audits]}
 
     def _blocks(self, conn, v):
@@ -128,7 +140,8 @@ class KnowledgeQueries:
                     "applicability_changed": prior["applicability_sha256"] != v["applicability_sha256"],
                     "before_applicabilities": self._bindings(conn, prior), "after_applicabilities": self._bindings(conn, v),
                     "text_diff": "\n".join(difflib.unified_diff(before.splitlines(), after.splitlines(), lineterm="")) if not prior_error and not source_error and (text is not None or before and after) else None}
-            return {"version": version_view(v), "blocks": parsed, "diagnostics": diagnostics,
+            active = publication(conn, self.workspace_id, v["document_id"])
+            return {"version": version_view(v, bool(active and active["version_id"] == v["id"])), "blocks": parsed, "diagnostics": diagnostics,
                 "assets": [{"id": str(a["object_id"]), "asset_key": a["asset_key"], "media_type": a["media_type"],
                     "kind": a["kind"], "page": a["page"], "url": f"/api/v1/knowledge/assets/{a['object_id']}"} for a in assets],
                 "applicabilities": self._bindings(conn, v),

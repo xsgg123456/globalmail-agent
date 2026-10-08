@@ -16,6 +16,8 @@ class Settings(BaseModel):
     model_api_key: SecretStr = Field(default=SecretStr(""), repr=False)
     model_name: str = ""
     model_base_url: str = ""
+    embedding_api_key: SecretStr = Field(default=SecretStr(""), repr=False)
+    embedding_base_url: str = ""
 
     @field_validator("allowed_origins")
     @classmethod
@@ -37,6 +39,8 @@ class Settings(BaseModel):
             "model_api_key": os.getenv("LLM_API_KEY", ""),
             "model_name": os.getenv("LLM_MODEL", ""),
             "model_base_url": os.getenv("LLM_BASE_URL", ""),
+            "embedding_api_key": os.getenv("GLOBALMAIL_EMBEDDING_API_KEY", ""),
+            "embedding_base_url": os.getenv("GLOBALMAIL_EMBEDDING_BASE_URL", ""),
         }
         if origins is not None:
             values["allowed_origins"] = tuple(x.strip() for x in origins.split(",") if x.strip())

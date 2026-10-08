@@ -20,7 +20,9 @@
           :value="version.id"
       /></ElSelect>
       <ElTag>{{ labelState(detail.version.status) }}</ElTag
-      ><ElTag type="info">未发布</ElTag>
+      ><ElTag :type="detail.version.published ? 'success' : 'info'">{{
+        detail.version.published ? '当前生效' : '此版本未发布'
+      }}</ElTag>
       <ElButton :disabled="busy" @click="emit('refresh')">刷新资料</ElButton>
       <ElButton :disabled="busy || !current" @click="emit('edit')">修订正文 / 适用范围</ElButton>
       <a :href="detail.source_url" target="_blank" rel="noopener" class="text-theme">下载原件</a>
@@ -48,16 +50,27 @@
           :disabled="!item.available"
       /></ElSelect>
       <ElButton
-        :disabled="busy || !current || !profiles.some((p) => p.id === profile && p.available)"
+        :disabled="
+          busy ||
+          !current ||
+          detail.version.published ||
+          !profiles.some((p) => p.id === profile && p.available)
+        "
         :loading="busy"
         @click="parse"
         >{{ detail.version.parse_generation ? '重新解析，撤销旧核对' : '开始解析' }}</ElButton
       >
     </div>
+    <p v-if="detail.version.published" class="text-sm text-g-700"
+      >这是当前生效版本。需要重新解析时，请先修订并保存新版本，保留旧发布可用。</p
+    >
     <div v-for="job in detail.jobs" :key="job.id" class="border-d rounded p-3">
       <div class="flex flex-wrap gap-2 items-center"
         ><ElTag>{{ labelState(job.status) }}</ElTag
-        ><span>{{ labelStage(job.stage) }} · 第 {{ job.attempt_no }} 次</span>
+        ><span
+          >{{ job.knowledge_operation === 'index' ? '索引构建' : labelStage(job.stage) }} · 第
+          {{ job.attempt_no }} 次</span
+        >
         <ElButton
           v-if="['queued', 'running'].includes(job.status)"
           :disabled="busy || !current"
@@ -68,11 +81,19 @@
           v-if="['failed', 'cancelled'].includes(job.status) && job.retryable"
           :disabled="busy || !current"
           @click="control(job.id, 'retry', job.row_version)"
-          >重试解析</ElButton
+          >{{ job.knowledge_operation === 'index' ? '重试构建' : '重试解析' }}</ElButton
         > </div
       ><p v-if="job.error_code" class="mt-2 text-sm">{{ jobError(job.error_code) }}</p>
     </div>
     <ElTabs v-model="tab">
+      <ElTabPane label="索引与发布" name="index">
+        <ReleaseActions
+          :document="document"
+          :detail="detail"
+          :current="current"
+          @changed="emit('refresh')"
+        />
+      </ElTabPane>
       <ElTabPane label="原件与解析对照" name="compare">
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 items-start">
           <section class="border-d rounded p-3 min-w-0"
@@ -168,6 +189,7 @@
     VersionDetail
   } from '@/api/knowledge-contract'
   import KnowledgeReview from './KnowledgeReview.vue'
+  import ReleaseActions from './ReleaseActions.vue'
   import { labelState, labelStage, jobError } from './knowledge-labels'
   const props = defineProps<{
     document: DocumentDetail

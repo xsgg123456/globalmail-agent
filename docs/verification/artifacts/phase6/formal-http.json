@@ -1,0 +1,58 @@
+{
+  "health/live": {
+    "http": 200,
+    "status": "ok"
+  },
+  "health/ready": {
+    "http": 200,
+    "status": "ready",
+    "database": "ready",
+    "schema": "ready",
+    "object_store": "ready"
+  },
+  "runtime-config": {
+    "http": 200,
+    "mode": "local_single_user",
+    "phase": 6,
+    "features": {
+      "conversations": true,
+      "business_queries": true,
+      "knowledge": true,
+      "agent": false
+    },
+    "model_configured": true
+  },
+  "knowledge/index-profiles": {
+    "http": 200,
+    "profiles": [
+      {
+        "key": "qwen3.7-text-embedding",
+        "available": true
+      },
+      {
+        "key": "text-embedding-v4",
+        "available": true
+      }
+    ]
+  },
+  "knowledge/releases": {
+    "http": 200,
+    "head": {
+      "release_id": null,
+      "epoch": 0,
+      "embedding_profile_id": null
+    },
+    "release_count": 0
+  },
+  "knowledge/documents": {
+    "http": 200,
+    "document_count": 22
+  },
+  "frontend": {
+    "http": 200
+  },
+  "frontend_proxy": {
+    "http": 200,
+    "phase": 6
+  }
+}

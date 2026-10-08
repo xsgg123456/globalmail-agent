@@ -29,7 +29,7 @@ class ApiTests(unittest.TestCase):
             self.assertEqual(result.headers["x-request-id"], result.json()["request_id"])
             self.assertNotIn("SECRET_MARKER", result.text)
         self.assertTrue(result.json()["data"]["model_configured"])
-        self.assertEqual(result.json()["data"]["phase"], 5)
+        self.assertEqual(result.json()["data"]["phase"], 6)
         self.assertEqual(result.json()["data"]["features"],
                          {"conversations": True, "business_queries": True,
                           "knowledge": True, "agent": False})

@@ -1,0 +1,212 @@
+[
+  {
+    "name": "review-5-empty.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-filter-published.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-filter-unpublished.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-filter-withdrawn.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-historical-build.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-knowledge-dark-1440.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-knowledge-dark-900.png",
+    "width": 900,
+    "height": 1000
+  },
+  {
+    "name": "review-5-knowledge-light-1440.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-knowledge-light-900.png",
+    "width": 900,
+    "height": 1000
+  },
+  {
+    "name": "review-5-old-reference-disabled.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-old-rollback-rejected.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-qwen-search-a.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-release-dark-1440.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-release-dark-900.png",
+    "width": 900,
+    "height": 1000
+  },
+  {
+    "name": "review-5-release-light-900.png",
+    "width": 900,
+    "height": 1000
+  },
+  {
+    "name": "review-5-release-selection.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-rollback-qwen.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-search-dark-1440.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-search-dark-900.png",
+    "width": 900,
+    "height": 1000
+  },
+  {
+    "name": "review-5-search-error.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-search-history.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-search-loading.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-source-compare.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-source-dark-900.png",
+    "width": 900,
+    "height": 1000
+  },
+  {
+    "name": "review-5-source-light-900.png",
+    "width": 900,
+    "height": 1000
+  },
+  {
+    "name": "review-5-system-status-dark-1440.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-system-status-dark-900.png",
+    "width": 900,
+    "height": 1000
+  },
+  {
+    "name": "review-5-system-status-light-1440.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-system-status-light-900.png",
+    "width": 900,
+    "height": 1000
+  },
+  {
+    "name": "review-5-unknown-first.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-unknown-reopened.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-unknown-retry.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-v2-draft-v1-evidence.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-v4-missing-b.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-v4-search-b.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-v4-switch.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-withdraw-search-empty.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-withdraw.png",
+    "width": 1920,
+    "height": 945
+  },
+  {
+    "name": "review-5-workbench-dark-1440.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-workbench-dark-900.png",
+    "width": 900,
+    "height": 1000
+  },
+  {
+    "name": "review-5-workbench-light-1440.png",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "name": "review-5-workbench-light-900.png",
+    "width": 900,
+    "height": 1000
+  }
+]

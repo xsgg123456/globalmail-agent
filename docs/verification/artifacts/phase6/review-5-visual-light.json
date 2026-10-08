@@ -1,0 +1,50 @@
+[
+  {
+    "path": "knowledge",
+    "width": 1440,
+    "theme": "",
+    "bodyWidth": 1440,
+    "viewport": 1440,
+    "font": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+  },
+  {
+    "path": "workbench",
+    "width": 1440,
+    "theme": "",
+    "bodyWidth": 1440,
+    "viewport": 1440,
+    "font": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+  },
+  {
+    "path": "system-status",
+    "width": 1440,
+    "theme": "",
+    "bodyWidth": 1440,
+    "viewport": 1440,
+    "font": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+  },
+  {
+    "path": "knowledge",
+    "width": 900,
+    "theme": "",
+    "bodyWidth": 900,
+    "viewport": 900,
+    "font": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+  },
+  {
+    "path": "workbench",
+    "width": 900,
+    "theme": "",
+    "bodyWidth": 900,
+    "viewport": 900,
+    "font": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+  },
+  {
+    "path": "system-status",
+    "width": 900,
+    "theme": "",
+    "bodyWidth": 900,
+    "viewport": 900,
+    "font": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "label": "已下架",
+    "key": "withdrawn",
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "id": "0e197861-9472-4d8a-b786-9a50adef4660",
+            "title": "独立审查5 A 连接排障",
+            "document_type": "troubleshooting_md",
+            "brand": "OUTON",
+            "source_kind": "user_provided_simulation_knowledge",
+            "source_reference": "项目自编模拟资料，独立页面核验A，不是厂家说明",
+            "allowed_modes": [
+              "simulation"
+            ],
+            "usage_split": "rag",
+            "row_version": 3,
+            "current_version_id": "6e8ed371-01a1-457a-9f12-e5b3ddd56401",
+            "current_version_number": 2,
+            "status": "draft",
+            "published": false,
+            "publication": null,
+            "withdrawn": true,
+            "revocation_epoch": 1
+          }
+        ],
+        "next_cursor": null
+      },
+      "request_id": "508c6bf0-d6c8-41b1-9e28-ec6708516e96"
+    }
+  },
+  {
+    "label": "有生效版本",
+    "key": "published",
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "id": "abf1efd9-8079-4a89-8b83-3a46bbc7000c",
+            "title": "独立审查5 B 书架灯检查",
+            "document_type": "troubleshooting_md",
+            "brand": "OUTONLIFE",
+            "source_kind": "user_provided_simulation_knowledge",
+            "source_reference": "项目自编模拟资料，独立页面核验B，不是厂家说明",
+            "allowed_modes": [
+              "simulation"
+            ],
+            "usage_split": "rag",
+            "row_version": 1,
+            "current_version_id": "102a20ff-c6c1-4a7d-b5df-87f53bbd2bff",
+            "current_version_number": 1,
+            "status": "reviewed",
+            "published": true,
+            "publication": {
+              "release_id": "b0d1c316-eeef-4179-aad6-cc14144f0fd1",
+              "release_epoch": 6,
+              "build_id": "aae2abf2-2099-435c-bf89-0a78f25b5dbf",
+              "version_id": "102a20ff-c6c1-4a7d-b5df-87f53bbd2bff",
+              "embedding_profile_id": "53aa7bb3-6809-4744-b94b-2db74b5b5a99"
+            },
+            "withdrawn": false,
+            "revocation_epoch": 0
+          }
+        ],
+        "next_cursor": null
+      },
+      "request_id": "108e499a-144d-474d-a16e-d5c8557a08f1"
+    }
+  },
+  {
+    "label": "未发布",
+    "key": "unpublished",
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [],
+        "next_cursor": null
+      },
+      "request_id": "df4a54a7-a6c0-4858-9833-288ccee0ec9d"
+    }
+  }
+]

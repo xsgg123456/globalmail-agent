@@ -1,0 +1,35 @@
+{
+  "scope": "developer_probe_not_model_accuracy",
+  "profile": {
+    "key": "qwen3.7-text-embedding",
+    "label": "Qwen3.7 · 1024维",
+    "model": "qwen3.7-text-embedding",
+    "dimensions": 1024,
+    "provider": "dashscope",
+    "region": "cn-beijing",
+    "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+    "normalization": "unit_l2_float32_v1",
+    "input_format": "title_path_prerequisite_body_v1",
+    "query_format": "plain_query_v1",
+    "tokenizer": "proxy_ascii1_unicode2_v1",
+    "provider_weight_revision": null,
+    "probe_id": "power_remote_multilingual_v1",
+    "probe_min_cosine": 0.9995,
+    "available": true
+  },
+  "status": "passed",
+  "dimensions": [
+    1024,
+    1024
+  ],
+  "unit_norms": [
+    1.0,
+    1.0
+  ],
+  "probe_sha256": "a1e2a3db2faa0e1e70306ca6bdc0371e90b50af1d859fc948e19f008438657c1",
+  "usage": {
+    "prompt_tokens": 86,
+    "total_tokens": 86
+  },
+  "seconds": 2.266
+}

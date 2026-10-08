@@ -1,0 +1,14 @@
+{
+  "frozen_at": "2026-10-08T05:59:44.736882+00:00",
+  "snapshot": {
+    "retrieval-queries.jsonl": {
+      "sha256": "6621dd696c3c7a89bd32044cd479c17dfc0a90a2dcf99a22ded2faae4fd5dad3",
+      "count": 60
+    },
+    "extra-queries.jsonl": {
+      "sha256": "5006d918ee99ca261766057f1df1c9f419a70823eddeb66a2e150ced6dd1df73",
+      "count": 12
+    }
+  },
+  "scope": "12 new developer-authored queries frozen before actual evaluation; source labels not modified; not business holdout"
+}

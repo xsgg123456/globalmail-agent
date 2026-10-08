@@ -1,0 +1,17 @@
+knowledge_worker_dependency_unavailable
+protocol_worker_dependency_unavailable
+======================================================================
+ERROR: test_configuration_change_never_uses_old_parser_cache (test_parser_process.ParserProcessTests.test_configuration_change_never_uses_old_parser_cache)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_parser_process.py", line 68, in test_configuration_change_never_uses_old_parser_cache
+    runner.execute({"parser_fingerprint": "obsolete", "parser_profile_id": "markdown"})
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\worker\knowledge_runner.py", line 37, in execute
+    if job["knowledge_operation"] == "index":
+       ~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'knowledge_operation'
+
+----------------------------------------------------------------------
+Ran 151 tests in 320.589s
+
+FAILED (errors=1)

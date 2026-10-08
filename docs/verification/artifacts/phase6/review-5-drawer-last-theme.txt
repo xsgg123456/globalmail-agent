@@ -1,0 +1,13 @@
+### Ran Playwright code
+```js
+await page.locator('div:nth-child(4)').first().click();
+```
+### Open tabs
+- 0: (current) [知识库 - GlobalMail Agent](http://127.0.0.1:15177/#/knowledge)
+- 1: [知识库 - GlobalMail Agent](http://127.0.0.1:15177/#/knowledge)
+### Page
+- Page URL: http://127.0.0.1:15177/#/knowledge
+- Page Title: 知识库 - GlobalMail Agent
+- Console: 7 errors, 0 warnings
+### Snapshot
+- [Snapshot](.playwright-cli\page-2026-10-08T07-59-14-807Z.yml)

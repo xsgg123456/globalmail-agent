@@ -1,0 +1,180 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e6]:
+        - generic [ref=e7] [cursor=pointer]:
+          - img "logo" [ref=e9]
+          - paragraph [ref=e10]: GlobalMail Agent
+        - menubar [ref=e180]:
+          - menuitem "GlobalMail Agent" [expanded] [ref=e181]:
+            - menu [ref=e190]:
+              - menuitem "邮件工作台" [ref=e191] [cursor=pointer]
+              - menuitem "知识库" [ref=e196] [cursor=pointer]
+              - menuitem "系统状态" [ref=e201] [cursor=pointer]
+    - main [ref=e20]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e24]:
+            - generic [ref=e25] [cursor=pointer]
+            - generic [ref=e28] [cursor=pointer]
+            - navigation "breadcrumb" [ref=e206]:
+              - list [ref=e207]:
+                - listitem [ref=e208]:
+                  - generic [ref=e209] [cursor=pointer]: GlobalMail Agent
+                  - generic [aria-hidden] [ref=e211]: /
+                - listitem [ref=e212]:
+                  - generic [ref=e213]: 知识库
+          - generic [ref=e31]:
+            - generic [ref=e32] [cursor=pointer]:
+              - generic [ref=e33]: 搜索
+              - generic [ref=e37]: k
+            - generic [ref=e41] [cursor=pointer]
+            - generic [ref=e46] [cursor=pointer]
+            - generic [ref=e49] [cursor=pointer]
+            - generic [ref=e52]: 本机单用户
+        - generic [ref=e54]:
+          - list [ref=e56]:
+            - listitem [ref=e57] [cursor=pointer]: 知识库
+          - generic [ref=e61] [cursor=pointer]
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - generic [ref=e69]:
+            - generic [ref=e70]: 本机运行状态
+            - button "刷新状态" [ref=e71] [cursor=pointer]
+          - generic [ref=e73]:
+            - generic [ref=e74]:
+              - generic [ref=e75]: API：可访问
+              - generic [ref=e77]: 数据库：就绪
+              - generic [ref=e79]: 数据结构：就绪
+              - generic [ref=e81]: 对象存储：就绪
+              - generic [ref=e83]: 模型：已配置，未验证连接
+            - paragraph [ref=e85]: 本机单用户 · Phase 6 知识发布与检索 · 正式 Agent 暂未接入
+        - generic [ref=e86]:
+          - generic [ref=e88]:
+            - heading "知识库" [level=1] [ref=e89]
+            - generic [ref=e90]:
+              - button "刷新列表" [ref=e91] [cursor=pointer]
+              - button "检索试查" [ref=e93] [cursor=pointer]
+              - button "发布记录与模型切换" [ref=e95] [cursor=pointer]
+              - button "导入准备资料" [ref=e97] [cursor=pointer]
+              - button "新建资料" [ref=e99] [cursor=pointer]
+          - generic [ref=e101]:
+            - alert [ref=e102]:
+              - generic [ref=e103]: 资料核对完成后，先构建索引，再显式发布。检索试查只使用当前合格的发布资料。正式 Agent 回复将在下一阶段接入。
+            - generic [ref=e105]:
+              - generic [ref=e107] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选发布状态" [ref=e109]
+                  - generic [ref=e110]: 全部发布状态
+              - generic [ref=e116] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选资料类型" [ref=e118]
+                  - generic [ref=e119]: 全部类型
+              - generic [ref=e125] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选品牌" [ref=e127]
+                  - generic [ref=e128]: 全部品牌
+              - generic [ref=e134]:
+                - generic [ref=e135]:
+                  - combobox "筛选精确型号" [ref=e137]
+                  - generic [ref=e138]: 全部型号
+                - generic [ref=e140] [cursor=pointer]
+              - generic [ref=e144] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选状态" [ref=e146]
+                  - generic [ref=e147]: 全部状态
+            - generic [ref=e342]:
+              - table [ref=e344]:
+                - rowgroup [ref=e351]:
+                  - row [ref=e352]:
+                    - columnheader "资料" [ref=e353]
+                    - columnheader "版本" [ref=e355]
+                    - columnheader "状态" [ref=e357]
+                    - columnheader "用途" [ref=e359]
+                    - columnheader "操作" [ref=e361]
+              - table [ref=e367]:
+                - rowgroup [ref=e374]:
+                  - row [ref=e1005]:
+                    - cell [ref=e376]:
+                      - generic [ref=e377]:
+                        - button "独立审查5 A 连接排障" [ref=e378] [cursor=pointer]
+                        - paragraph [ref=e380]: OUTON · 排障 SOP
+                    - cell "第 2 版" [ref=e1006]
+                    - cell "草稿" [ref=e1007]
+                    - cell "仅供模拟 · 有生效版本" [ref=e500]
+                    - cell [ref=e389]:
+                      - button "查看核对" [ref=e391] [cursor=pointer]
+                  - row [ref=e784]:
+                    - cell [ref=e625]:
+                      - generic [ref=e626]:
+                        - button "独立审查5 B 书架灯检查" [ref=e627] [cursor=pointer]
+                        - paragraph [ref=e629]: OUTONLIFE · 排障 SOP
+                    - cell "第 1 版" [ref=e630]
+                    - cell "已核对" [ref=e632]
+                    - cell "仅供模拟 · 有生效版本" [ref=e785]
+                    - cell [ref=e638]:
+                      - button "查看核对" [ref=e640] [cursor=pointer]
+            - generic [ref=e172]:
+              - button "上一页" [disabled] [ref=e173]
+              - button "下一页" [disabled] [ref=e175]
+        - dialog "发布记录与模型切换" [ref=e643]:
+          - generic [ref=e644]:
+            - heading "发布记录与模型切换" [level=2] [ref=e645]
+            - button "关闭此对话框" [ref=e646] [cursor=pointer]
+          - generic [ref=e1110]:
+            - alert [ref=e1111]:
+              - generic [ref=e1112]: 构建已失去发布资格，请检查原件、核对版本和下架记录后重新构建。
+            - paragraph [ref=e1114]: 当前发布记录 6 · 1 份生效资料
+            - paragraph [ref=e1115]: Qwen3.7 · 1024维。回滚会重新检查全部资料的资格，并新增发布记录。
+            - button "刷新记录与候选构建" [ref=e1116] [cursor=pointer]
+            - button "整批发布 / 切换向量模型" [ref=e1120] [cursor=pointer]
+            - article [ref=e1125]:
+              - generic [ref=e1126]:
+                - generic [ref=e1127]: 下架
+                - generic [ref=e1129]: 记录 6 · 2026/10/8 15:44:31 · 1 份资料
+                - generic [ref=e1130]: 当前生效
+              - paragraph [ref=e1132]: Qwen3.7 · 1024维
+              - group [ref=e1133]:
+                - generic "完整发布清单" [ref=e1134]
+            - article [ref=e1135]:
+              - generic [ref=e1136]:
+                - generic [ref=e1137]: 回滚
+                - generic [ref=e1139]: 记录 5 · 2026/10/8 15:42:36 · 2 份资料
+              - paragraph [ref=e1140]: Qwen3.7 · 1024维
+              - group [ref=e1141]:
+                - generic "完整发布清单" [ref=e1142]
+              - button "恢复这个发布清单" [ref=e1143] [cursor=pointer]
+            - article [ref=e1145]:
+              - generic [ref=e1146]:
+                - generic [ref=e1147]: 发布
+                - generic [ref=e1149]: 记录 4 · 2026/10/8 15:41:30 · 2 份资料
+              - paragraph [ref=e1150]: V4 · 1024维
+              - group [ref=e1151]:
+                - generic "完整发布清单" [ref=e1152]
+              - button "恢复这个发布清单" [ref=e1153] [cursor=pointer]
+            - article [ref=e1155]:
+              - generic [ref=e1156]:
+                - generic [ref=e1157]: 发布
+                - generic [ref=e1159]: 记录 3 · 2026/10/8 15:39:15 · 2 份资料
+              - paragraph [ref=e1160]: Qwen3.7 · 1024维
+              - group [ref=e1161]:
+                - generic "完整发布清单" [ref=e1162]
+              - button "恢复这个发布清单" [ref=e1163] [cursor=pointer]
+            - article [ref=e1165]:
+              - generic [ref=e1166]:
+                - generic [ref=e1167]: 发布
+                - generic [ref=e1169]: 记录 2 · 2026/10/8 15:37:29 · 1 份资料
+              - paragraph [ref=e1170]: Qwen3.7 · 1024维
+              - group [ref=e1171]:
+                - generic "完整发布清单" [ref=e1172]
+              - button "恢复这个发布清单" [ref=e1173] [cursor=pointer]
+            - article [ref=e1175]:
+              - generic [ref=e1176]:
+                - generic [ref=e1177]: 发布
+                - generic [ref=e1179]: 记录 1 · 2026/10/8 15:35:14 · 1 份资料
+              - paragraph [ref=e1180]: Qwen3.7 · 1024维
+              - group [ref=e1181]:
+                - generic "完整发布清单" [ref=e1182]
+              - button "恢复这个发布清单" [ref=e1183] [cursor=pointer]
+  - tooltip "点击这里查看主题风格、 开启顶栏菜单等更多配置" [ref=e177]:
+    - paragraph [ref=e178]: 点击这里查看主题风格、 开启顶栏菜单等更多配置

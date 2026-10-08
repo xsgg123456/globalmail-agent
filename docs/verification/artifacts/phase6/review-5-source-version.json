@@ -1,0 +1,13 @@
+{
+  "changes_since_review4": [
+    {
+      "path": "globalmail-agent/backend/tests/test_knowledge_index_structure.py"
+    },
+    {
+      "path": "globalmail-agent/frontend/src/components/knowledge/ReleaseManager.vue"
+    }
+  ],
+  "new_over300": [],
+  "all_over300": [],
+  "count": 66
+}

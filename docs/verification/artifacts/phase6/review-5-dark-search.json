@@ -1,0 +1,109 @@
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "reason": "ok",
+    "head": {
+      "release_id": "b0d1c316-eeef-4179-aad6-cc14144f0fd1",
+      "epoch": 6,
+      "embedding_profile_id": "53aa7bb3-6809-4744-b94b-2db74b5b5a99"
+    },
+    "candidate_count": 1,
+    "evidence": [
+      {
+        "page": [],
+        "text": "# 安全\n\n先断电，焦味立即停止转人工。\n\n# 操作\n\n检查外部连接，不拆封闭控制器。\n独立B仅适用于 F-SJ001-US-BK；书架灯接头松动时检查外部插头，反复失败停止操作交人工。",
+        "score": 0.7347438554389437,
+        "title": "独立审查5 B 书架灯检查",
+        "figure": [],
+        "section": "document",
+        "build_id": "aae2abf2-2099-435c-bf89-0a78f25b5dbf",
+        "chunk_id": "d2da0ab9-cd41-494b-b17d-46e1e5dbb801",
+        "locations": [
+          {
+            "bbox": null,
+            "page": null,
+            "section": "section-0001",
+            "block_id": "md-0001",
+            "asset_ids": [],
+            "figure_id": null,
+            "table_rows": []
+          },
+          {
+            "bbox": null,
+            "page": null,
+            "section": "section-0001",
+            "block_id": "md-0002",
+            "asset_ids": [],
+            "figure_id": null,
+            "table_rows": []
+          },
+          {
+            "bbox": null,
+            "page": null,
+            "section": "section-0002",
+            "block_id": "md-0003",
+            "asset_ids": [],
+            "figure_id": null,
+            "table_rows": []
+          },
+          {
+            "bbox": null,
+            "page": null,
+            "section": "section-0002",
+            "block_id": "md-0004",
+            "asset_ids": [],
+            "figure_id": null,
+            "table_rows": []
+          }
+        ],
+        "parent_id": "33d84a71-f162-4e44-bf92-a9295b40babb",
+        "release_id": "b0d1c316-eeef-4179-aad6-cc14144f0fd1",
+        "version_id": "102a20ff-c6c1-4a7d-b5df-87f53bbd2bff",
+        "document_id": "abf1efd9-8079-4a89-8b83-3a46bbc7000c",
+        "evidence_id": "4a459dc3-2517-56ca-bb1c-101e04f2f901",
+        "observed_at": "2026-10-08T07:52:38.623661+00:00",
+        "source_kind": "user_provided_simulation_knowledge",
+        "available_at": "2026-10-08T02:00:00+00:00",
+        "completeness": "reviewed_complete",
+        "content_hash": "01020e4d6393e3b004d4a0963ca009a4c5c7f54c87d0d24a7080126fc5a9aef9",
+        "allowed_modes": [
+          "simulation"
+        ],
+        "allowed_scope": {
+          "mode": "simulation",
+          "purpose": "knowledge",
+          "branch_id": "cdd66604-f8cf-574e-a5b7-eead5726ae8f",
+          "customer_id": "07fbad5c-7538-5884-bc32-eb769cad9f1d",
+          "workspace_id": "00000000-0000-0000-0000-000000000001"
+        },
+        "applicability": [
+          {
+            "sku": "F-SJ001-US-BK",
+            "basis": "项目自编模拟B，仅限OUTONLIFE精确登记型号，用于独立页面核验",
+            "page_end": null,
+            "page_start": null,
+            "section_id": "document"
+          }
+        ],
+        "release_epoch": 6,
+        "source_sha256": "f8cb5f5db3f1d56eb74462ab3886b655dfc47866592c66cd82a58784e60c3cb0",
+        "version_number": 1,
+        "revocation_epoch": 0,
+        "embedding_profile_id": "53aa7bb3-6809-4744-b94b-2db74b5b5a99",
+        "applicability_revision": "01184ec0381c7582219310a0789ea2dd7f00edd1741736701ba44d6251edbeaf"
+      }
+    ],
+    "usage": {
+      "provider": {
+        "prompt_tokens": 63,
+        "total_tokens": 63
+      },
+      "request_id": "32311987-2bcb-9cfe-98d8-d44661345648",
+      "context_proxy_tokens": 160,
+      "estimator": "ascii1_nonascii2/1"
+    },
+    "diagnostics": []
+  },
+  "request_id": "6d89cffa-ff93-4887-9001-1293ed7f6f66"
+}

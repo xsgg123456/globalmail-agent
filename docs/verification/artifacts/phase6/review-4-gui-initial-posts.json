@@ -1,0 +1,242 @@
+[
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/documents",
+    "status": 202,
+    "request": {
+      "expected_version": 0,
+      "title": "独立审查4 A 连接排障",
+      "parser_profile_id": "markdown",
+      "applicabilities": [
+        {
+          "section_id": "document",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "自编A只覆盖该精确型号，完整安全与操作整篇绑定"
+        }
+      ],
+      "content": "# 安全\n先断电，焦味立即停止转人工。\n\n# 操作\n检查外部连接，不拆封闭控制器。\n独立A仅适用于 H-CTD16-US-BK；断电后检查插头是否松动，仍不亮交人工。",
+      "document_type": "troubleshooting_md",
+      "brand": "OUTON",
+      "source_reference": "项目自编模拟资料，独立页面核验A，不是厂家说明",
+      "available_at": "2026-10-08T02:00:00.000Z"
+    },
+    "data": {
+      "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+      "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+      "version": 1
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/parse",
+    "status": 202,
+    "request": {
+      "expected_version": 1,
+      "parser_profile_id": "markdown"
+    },
+    "data": {
+      "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+      "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+      "job_id": "063de8c7-42a1-41cc-b23b-45479467c3aa",
+      "version": 2
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/review",
+    "status": 200,
+    "request": {
+      "expected_version": 3,
+      "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+      "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+      "applicability_sha256": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45",
+      "note": "本轮核对自编A原文，断电、焦味停用、外部连接和不拆控制器四项均保留，整篇只绑定H-CTD16-US-BK。",
+      "excluded_block_ids": [],
+      "exclusion_reason": null
+    },
+    "data": {
+      "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+      "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+      "version": 4,
+      "status": "reviewed",
+      "published": false
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/build",
+    "status": 202,
+    "request": {
+      "expected_version": 4,
+      "embedding_profile_key": "qwen3.7-text-embedding",
+      "chunking_profile_key": "structure_v1_500"
+    },
+    "data": {
+      "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+      "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+      "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+      "job_id": "3d8444b8-5b02-4736-8758-12d69ec529aa",
+      "version": 4
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/build",
+    "status": 202,
+    "request": {
+      "expected_version": 4,
+      "embedding_profile_key": "qwen3.7-text-embedding",
+      "chunking_profile_key": "structure_v1_300"
+    },
+    "data": {
+      "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+      "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+      "build_id": "60758557-6dcc-4195-a0c1-5ce6d970b389",
+      "job_id": "7719be11-c21d-4051-a452-3df363dbee15",
+      "version": 4
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/releases",
+    "status": 200,
+    "request": {
+      "expected_release_epoch": 0,
+      "build_ids": [
+        "cc468f18-d7a1-4f6d-bb65-c949d3b87e51"
+      ],
+      "replace_all": false
+    },
+    "data": {
+      "head": {
+        "release_id": "d80a83df-9638-44ee-9068-0dba04614069",
+        "epoch": 1,
+        "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+      },
+      "release": {
+        "id": "d80a83df-9638-44ee-9068-0dba04614069",
+        "epoch": 1,
+        "operation": "publish",
+        "profile": {
+          "key": "qwen3.7-text-embedding",
+          "label": "Qwen3.7 · 1024维",
+          "model": "qwen3.7-text-embedding",
+          "region": "cn-beijing",
+          "probe_id": "power_remote_multilingual_v1",
+          "provider": "dashscope",
+          "tokenizer": "proxy_ascii1_unicode2_v1",
+          "dimensions": 1024,
+          "input_format": "title_path_prerequisite_body_v1",
+          "query_format": "plain_query_v1",
+          "normalization": "unit_l2_float32_v1",
+          "probe_min_cosine": 0.9995,
+          "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+          "provider_weight_revision": null
+        },
+        "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+        "entries": [
+          {
+            "brand": "OUTON",
+            "title": "独立审查4 A 连接排障",
+            "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+            "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+            "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+            "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+            "source_kind": "user_provided_simulation_knowledge",
+            "usage_split": "rag",
+            "available_at": "2026-10-08T02:00:00+00:00",
+            "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+            "allowed_modes": [
+              "simulation"
+            ],
+            "document_type": "troubleshooting_md",
+            "policy_bundle": null,
+            "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+            "version_number": 1,
+            "revocation_epoch": 0,
+            "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+            "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+          }
+        ],
+        "manifest_sha256": "97e0c69ea3b757bfeafdd35cacd86c0bdd7bc83c0e24c70fa2405ce25a8aad01",
+        "effective_at": "2026-10-08T07:16:59.886146+00:00",
+        "created_at": "2026-10-08T07:16:59.829833+00:00",
+        "actor": "local_operator"
+      }
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/documents",
+    "status": 202,
+    "request": {
+      "expected_version": 0,
+      "title": "独立审查4 B 书架灯检查",
+      "parser_profile_id": "markdown",
+      "applicabilities": [
+        {
+          "section_id": "document",
+          "sku": "F-SJ001-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "自编B只覆盖OUTONLIFE书架灯F-SJ001-US-BK整篇"
+        }
+      ],
+      "content": "# 安全\n先断电，焦味立即停止转人工。\n\n# 操作\n检查外部连接，不拆封闭控制器。\n独立B仅适用于 F-SJ001-US-BK；书架灯接头松动时检查外部插头，反复失败停止操作交人工。",
+      "document_type": "troubleshooting_md",
+      "brand": "OUTONLIFE",
+      "source_reference": "项目自编模拟资料，独立页面核验B，不是厂家说明",
+      "available_at": "2026-10-08T02:00:00.000Z"
+    },
+    "data": {
+      "document_id": "4cdda2e0-83a7-4cce-838a-fdb15a10575a",
+      "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+      "version": 1
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/parse",
+    "status": 202,
+    "request": {
+      "expected_version": 1,
+      "parser_profile_id": "markdown"
+    },
+    "data": {
+      "document_id": "4cdda2e0-83a7-4cce-838a-fdb15a10575a",
+      "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+      "job_id": "3f2e2749-a288-4d29-a979-5da9c90e4560",
+      "version": 2
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/review",
+    "status": 200,
+    "request": {
+      "expected_version": 3,
+      "source_sha256": "f8cb5f5db3f1d56eb74462ab3886b655dfc47866592c66cd82a58784e60c3cb0",
+      "parse_sha256": "779bcd9c66476c89d64c536a18004c09174e1b69f864d9583676abc151536263",
+      "applicability_sha256": "10e5fb5f2d981af47aa8d763072f5a232e09b510a97fa1b6348aeb411578da2e",
+      "note": "核对自编B原件全文，停止条件、外部接头及反复失败转人工均保留；仅OUTONLIFE精确型号。",
+      "excluded_block_ids": [],
+      "exclusion_reason": null
+    },
+    "data": {
+      "document_id": "4cdda2e0-83a7-4cce-838a-fdb15a10575a",
+      "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+      "version": 4,
+      "status": "reviewed",
+      "published": false
+    }
+  },
+  {
+    "url": "http://127.0.0.1:15176/api/v1/knowledge/versions/2962e11a-8690-47a1-8ad8-3063d75a3525/build",
+    "status": 202,
+    "request": {
+      "expected_version": 4,
+      "embedding_profile_key": "qwen3.7-text-embedding",
+      "chunking_profile_key": "structure_v1_500"
+    },
+    "data": {
+      "document_id": "4cdda2e0-83a7-4cce-838a-fdb15a10575a",
+      "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+      "build_id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+      "job_id": "aca194d4-e0af-4735-bd14-6fa00554be92",
+      "version": 4
+    }
+  }
+]

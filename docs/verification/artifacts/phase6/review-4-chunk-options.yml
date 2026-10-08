@@ -1,0 +1,178 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e6]:
+        - generic [ref=e7] [cursor=pointer]:
+          - img "logo" [ref=e9]
+          - paragraph [ref=e10]: GlobalMail Agent
+        - menubar [ref=e14]:
+          - menuitem "GlobalMail Agent" [expanded] [ref=e15]:
+            - menu [ref=e24]:
+              - menuitem "邮件工作台" [ref=e25] [cursor=pointer]
+              - menuitem "知识库" [ref=e30] [cursor=pointer]
+              - menuitem "系统状态" [ref=e35] [cursor=pointer]
+    - main [ref=e40]:
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45] [cursor=pointer]
+            - generic [ref=e48] [cursor=pointer]
+            - navigation "breadcrumb" [ref=e51]:
+              - list [ref=e52]:
+                - listitem [ref=e53]:
+                  - generic [ref=e54] [cursor=pointer]: GlobalMail Agent
+                  - generic [aria-hidden] [ref=e56]: /
+                - listitem [ref=e57]:
+                  - generic [ref=e58]: 知识库
+          - generic [ref=e60]:
+            - generic [ref=e61] [cursor=pointer]:
+              - generic [ref=e62]: 搜索
+              - generic [ref=e66]: k
+            - generic [ref=e70] [cursor=pointer]
+            - generic [ref=e75] [cursor=pointer]
+            - generic [ref=e78] [cursor=pointer]
+            - generic [ref=e81]: 本机单用户
+        - generic [ref=e83]:
+          - list [ref=e85]:
+            - listitem [ref=e86] [cursor=pointer]: 知识库
+          - generic [ref=e90] [cursor=pointer]
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e98]:
+            - generic [ref=e99]: 本机运行状态
+            - button "刷新状态" [ref=e100] [cursor=pointer]
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - generic [ref=e104]: API：可访问
+              - generic [ref=e106]: 数据库：就绪
+              - generic [ref=e108]: 数据结构：就绪
+              - generic [ref=e110]: 对象存储：就绪
+              - generic [ref=e112]: 模型：已配置，未验证连接
+            - paragraph [ref=e114]: 本机单用户 · Phase 6 知识发布与检索 · 正式 Agent 暂未接入
+        - generic [ref=e115]:
+          - generic [ref=e117]:
+            - heading "知识库" [level=1] [ref=e118]
+            - generic [ref=e119]:
+              - button "刷新列表" [ref=e120] [cursor=pointer]
+              - button "检索试查" [ref=e122] [cursor=pointer]
+              - button "发布记录与模型切换" [ref=e124] [cursor=pointer]
+              - button "导入准备资料" [ref=e126] [cursor=pointer]
+              - button "新建资料" [ref=e128] [cursor=pointer]
+          - generic [ref=e130]:
+            - alert [ref=e131]:
+              - generic [ref=e132]: 资料核对完成后，先构建索引，再显式发布。检索试查只使用当前合格的发布资料。正式 Agent 回复将在下一阶段接入。
+            - generic [ref=e134]:
+              - generic [ref=e136] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选发布状态" [ref=e138]
+                  - generic [ref=e139]: 全部发布状态
+              - generic [ref=e145] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选资料类型" [ref=e147]
+                  - generic [ref=e148]: 全部类型
+              - generic [ref=e154] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选品牌" [ref=e156]
+                  - generic [ref=e157]: 全部品牌
+              - generic [ref=e163]:
+                - generic [ref=e164]:
+                  - combobox "筛选精确型号" [ref=e166]
+                  - generic [ref=e167]: 全部型号
+                - generic [ref=e169] [cursor=pointer]
+              - generic [ref=e173] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选状态" [ref=e175]
+                  - generic [ref=e176]: 全部状态
+            - generic [ref=e359]:
+              - table [ref=e361]:
+                - rowgroup [ref=e368]:
+                  - row [ref=e369]:
+                    - columnheader "资料" [ref=e370]
+                    - columnheader "版本" [ref=e372]
+                    - columnheader "状态" [ref=e374]
+                    - columnheader "用途" [ref=e376]
+                    - columnheader "操作" [ref=e378]
+              - table [ref=e384]:
+                - rowgroup [ref=e391]:
+                  - row [ref=e661]:
+                    - cell [ref=e393]:
+                      - generic [ref=e394]:
+                        - button "独立审查4 A 连接排障" [ref=e395] [cursor=pointer]
+                        - paragraph [ref=e397]: OUTON · 排障 SOP
+                    - cell "第 1 版" [ref=e398]
+                    - cell "已核对" [ref=e662]
+                    - cell "仅供模拟 · 未发布" [ref=e404]
+                    - cell [ref=e406]:
+                      - button "查看核对" [ref=e408] [cursor=pointer]
+            - generic [ref=e201]:
+              - button "上一页" [disabled] [ref=e202]
+              - button "下一页" [disabled] [ref=e204]
+        - dialog "独立审查4 A 连接排障" [ref=e411]:
+          - generic [ref=e412]:
+            - heading "独立审查4 A 连接排障" [level=2] [ref=e413]
+            - button "关闭此对话框" [ref=e414] [cursor=pointer]
+          - generic [ref=e663]:
+            - generic [ref=e664]:
+              - generic [ref=e666] [cursor=pointer]:
+                - generic:
+                  - combobox "资料版本" [ref=e668]
+                  - generic [ref=e669]: 版本 1 · 已核对
+              - generic [ref=e674]: 已核对
+              - generic [ref=e676]: 此版本未发布
+              - button "刷新资料" [ref=e678] [cursor=pointer]
+              - button "修订正文 / 适用范围" [ref=e680] [cursor=pointer]
+              - link "下载原件" [ref=e682] [cursor=pointer]:
+                - /url: /api/v1/knowledge/versions/ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c/source
+            - paragraph [ref=e683]: 项目自编模拟资料，独立页面核验A，不是厂家说明 · OUTON · 仅供模拟 · 资料可用时间 2026/10/8 10:00:00
+            - generic [ref=e684]:
+              - generic [ref=e686] [cursor=pointer]:
+                - generic:
+                  - combobox "解析档位" [ref=e688]
+                  - generic [ref=e689]: Markdown结构读取
+              - button "重新解析，撤销旧核对" [ref=e694] [cursor=pointer]
+            - generic [ref=e807]:
+              - generic [ref=e808]: 任务完成
+              - generic [ref=e810]: 索引构建 · 第 1 次
+            - generic [ref=e697]:
+              - generic [ref=e698]: 任务完成
+              - generic [ref=e700]: 等待人工核对 · 第 1 次
+            - generic [ref=e701]:
+              - tablist [ref=e705]:
+                - tab "索引与发布" [selected] [ref=e707]
+                - tab "原件与解析对照" [ref=e708]
+                - tab "适用型号" [ref=e709]
+                - tab "版本差异" [ref=e710]
+                - tab "操作记录" [ref=e711]
+              - tabpanel "索引与发布" [ref=e754]:
+                - generic [ref=e755]:
+                  - alert [ref=e813]:
+                    - generic [ref=e814]: 操作已保存。
+                  - generic [ref=e756]:
+                    - paragraph [ref=e757]: 这份资料还未发布。
+                    - paragraph [ref=e758]: 核对完成后先构建，再显式发布。新构建失败时，原先生效的版本继续可用。
+                    - button "刷新构建与发布状态" [ref=e759] [cursor=pointer]
+                  - generic [ref=e761]:
+                    - generic [ref=e763] [cursor=pointer]:
+                      - generic:
+                        - combobox "向量模型" [ref=e765]
+                        - generic [ref=e766]: Qwen3.7 · 1024维
+                    - generic [ref=e772] [cursor=pointer]:
+                      - generic:
+                        - combobox "切分方案" [expanded] [active] [ref=e774]
+                        - generic [ref=e775]: 结构切分 500 代理tokens
+                    - button "构建索引" [ref=e780] [cursor=pointer]
+                  - article [ref=e816]:
+                    - generic [ref=e817]:
+                      - generic [ref=e818]: 构建完成
+                      - generic [ref=e820]: qwen3.7-text-embedding · 1/1 个片段 · 复用 0 个向量
+                    - button "发布这个构建" [ref=e821] [cursor=pointer]
+                  - generic [ref=e802]:
+                    - paragraph [ref=e803]: 下架会立即停用这份资料和旧引用，并取消未完成任务。原件与记录仍可维护。
+                    - button "下架这份资料" [ref=e804] [cursor=pointer]
+  - generic:
+    - tooltip "点击这里查看主题风格、 开启顶栏菜单等更多配置" [ref=e206]:
+      - paragraph [ref=e207]: 点击这里查看主题风格、 开启顶栏菜单等更多配置
+    - tooltip [ref=e823]:
+      - listbox "切分方案" [ref=e827]:
+        - option "结构切分 500 代理tokens" [selected] [ref=e828] [cursor=pointer]
+        - option "结构切分 300 代理tokens" [ref=e829] [cursor=pointer]

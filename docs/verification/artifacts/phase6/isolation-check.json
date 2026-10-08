@@ -1,0 +1,10 @@
+{
+  "revision": "0004_knowledge_content",
+  "old_tables_unchanged": true,
+  "settings_unchanged": true,
+  "source_files_unchanged": true,
+  "knowledge_counts": {
+    "documents": 22,
+    "document_versions": 22
+  }
+}

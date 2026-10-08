@@ -45,7 +45,7 @@
         show-icon
       />
       <p class="mt-3 text-sm text-g-700"
-        >本机单用户 · Phase 5 知识维护与人工核对 · 资料尚未发布，Agent 暂未接入</p
+        >本机单用户 · Phase 6 知识发布与检索 · 正式 Agent 暂未接入</p
       >
       <p v-if="detailed && checkedAt" class="mt-3 text-sm text-g-600">检查时间：{{ checkedAt }}</p>
       <p v-if="detailed && requestIds.length" class="mt-2 text-xs text-g-600 break-all"

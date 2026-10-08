@@ -13,7 +13,7 @@ export function useKnowledgeWorkbench(api: KnowledgeApi = knowledgeApi) {
     catalog = ref<Catalog>({ products: [], parser_profiles: [] })
   const document = ref<DocumentDetail | null>(null),
     detail = ref<VersionDetail | null>(null)
-  const filters = ref({ type: '', brand: '', sku: '', status: '', cursor: '' })
+  const filters = ref({ type: '', brand: '', sku: '', status: '', publication: '', cursor: '' })
   const nextCursor = ref<string | null>(null),
     cursors = ref<string[]>([''])
   const loading = ref(false),
@@ -113,7 +113,7 @@ export function useKnowledgeWorkbench(api: KnowledgeApi = knowledgeApi) {
     notice.value = ''
     try {
       const result = await commands.command(path, payload)
-      notice.value = '操作已保存。资料仍未发布，暂不供 Agent 使用。'
+      notice.value = '操作已保存。新版本核对、构建并发布后才会生效。'
       await refreshList()
       if (result.document_id && result.version_id)
         await select(result.document_id, result.version_id)

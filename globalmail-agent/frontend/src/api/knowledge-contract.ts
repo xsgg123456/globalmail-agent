@@ -12,7 +12,8 @@ export interface KnowledgeDocument {
   current_version_id: string
   current_version_number: number
   status: string
-  published: false
+  published: boolean
+  withdrawn?: boolean
 }
 export interface KnowledgeVersion {
   id: string
@@ -30,7 +31,7 @@ export interface KnowledgeVersion {
   applicability_sha256: string
   page_range: [number, number] | null
   available_at: string
-  published: false
+  published: boolean
 }
 export interface Binding {
   section_id: string
@@ -59,6 +60,7 @@ export interface KnowledgeAsset {
   url: string
 }
 export interface KnowledgeJob {
+  knowledge_operation?: 'parse' | 'index'
   id: string
   kind: 'knowledge'
   version_id: string

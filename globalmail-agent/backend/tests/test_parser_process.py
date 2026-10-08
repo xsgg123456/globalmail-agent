@@ -65,7 +65,7 @@ class ParserProcessTests(unittest.TestCase):
         runner = KnowledgeRunner(Mock(), Mock(), "workspace")
         runner.jobs = Mock()
         with self.assertRaises(ParserFailure) as error:
-            runner.execute({"parser_fingerprint": "obsolete", "parser_profile_id": "markdown"})
+            runner.execute({"knowledge_operation": "parse", "parser_fingerprint": "obsolete", "parser_profile_id": "markdown"})
         self.assertEqual(error.exception.code, "parser_configuration_changed")
         runner.jobs.cached_result.assert_not_called()
 

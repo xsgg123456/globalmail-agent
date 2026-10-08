@@ -1,0 +1,720 @@
+{
+  "scope": "read-only audit, no new model run",
+  "audits": {
+    "retrieval-results-policy-1.0.json": {
+      "status": "completed",
+      "cleanup": "owned_schema_and_objects_removed",
+      "snapshot_matches_frozen_bytes": true,
+      "observations": 72,
+      "label_recalculation_mismatches": [],
+      "all_candidate_counts_at_most_20": true,
+      "all_evidence_counts_at_most_5": true,
+      "all_expanded_context_within_4500_proxy": true,
+      "max_expanded_context_proxy": 4441,
+      "counts": {
+        "positive": {
+          "queries": 44,
+          "all_evidence": 37,
+          "facts": 37,
+          "expected_facts": 44,
+          "zero_evidence": 0
+        },
+        "boundary": {
+          "queries": 16,
+          "all_evidence": 0,
+          "facts": 0,
+          "expected_facts": 0,
+          "zero_evidence": 16
+        },
+        "unanswerable": {
+          "queries": 6,
+          "all_evidence": 0,
+          "facts": 0,
+          "expected_facts": 0,
+          "zero_evidence": 0
+        },
+        "multi_evidence": {
+          "queries": 6,
+          "all_evidence": 3,
+          "facts": 9,
+          "expected_facts": 12,
+          "zero_evidence": 0
+        }
+      },
+      "strict_failures": [
+        {
+          "id": "KQ-030",
+          "covered": [
+            false
+          ],
+          "expected": [
+            {
+              "document_id": "POL-SIM-V1",
+              "required_any": [
+                "签收后 30 天内（含第 30 天）",
+                "非质量问题要求商品未使用且配件完整，由客户安排寄回邮资"
+              ]
+            }
+          ],
+          "returned_documents": [
+            "POL-SIM-V1",
+            "MAN-OUTON-01"
+          ]
+        },
+        {
+          "id": "KQ-031",
+          "covered": [
+            false
+          ],
+          "expected": [
+            {
+              "document_id": "POL-SIM-V1",
+              "required_any": [
+                "全额退款默认在退件签收且验货通过后安排",
+                "客服在原销售渠道执行退款后，再依据实际回执通知客户"
+              ]
+            }
+          ],
+          "returned_documents": [
+            "POL-SIM-V1",
+            "SOP-OUTONLIFE-01",
+            "CASE-003"
+          ]
+        },
+        {
+          "id": "KQ-032",
+          "covered": [
+            false
+          ],
+          "expected": [
+            {
+              "document_id": "POL-SIM-V1",
+              "required_any": [
+                "部分退款方案最高为对应商品实付的 20%",
+                "客户询问金额、表达不满或没有回复，都不算接受"
+              ]
+            }
+          ],
+          "returned_documents": [
+            "POL-SIM-V1",
+            "SOP-OUTON-02"
+          ]
+        },
+        {
+          "id": "KQ-033",
+          "covered": [
+            false
+          ],
+          "expected": [
+            {
+              "document_id": "POL-SIM-V1",
+              "required_any": [
+                "默认更换相同商品编码的产品",
+                "缺货时先说明情况，不擅自改颜色、地区版本或型号"
+              ]
+            }
+          ],
+          "returned_documents": [
+            "MAN-BELEEV-01",
+            "POL-SIM-V1"
+          ]
+        },
+        {
+          "id": "KQ-034",
+          "covered": [
+            false
+          ],
+          "expected": [
+            {
+              "document_id": "POL-SIM-V1",
+              "required_any": [
+                "购买备用配件不自动成为免费补寄申请",
+                "先明确缺失或损坏部件、适配商品、库存和收件信息"
+              ]
+            }
+          ],
+          "returned_documents": [
+            "MAN-OUTONLIFE-01",
+            "POL-SIM-V1"
+          ]
+        },
+        {
+          "id": "KQ-035",
+          "covered": [
+            false
+          ],
+          "expected": [
+            {
+              "document_id": "POL-SIM-V1",
+              "required_any": [
+                "连续 7 天未更新时进入查件判断",
+                "生成单号或物流标签不等于承运商已收件"
+              ]
+            }
+          ],
+          "returned_documents": [
+            "POL-SIM-V1",
+            "MAN-OUTON-01"
+          ]
+        },
+        {
+          "id": "KQ-036",
+          "covered": [
+            false
+          ],
+          "expected": [
+            {
+              "document_id": "POL-SIM-V1",
+              "required_any": [
+                "检查补件能否取消以及是否已经产生补偿",
+                "先查询原申请和已执行记录"
+              ]
+            }
+          ],
+          "returned_documents": [
+            "POL-SIM-V1",
+            "SOP-OUTON-02"
+          ]
+        },
+        {
+          "id": "KQ-056",
+          "covered": [
+            true,
+            false
+          ],
+          "expected": [
+            {
+              "document_id": "SOP-OUTON-01",
+              "required_any": [
+                "观察的是灯本体闪烁",
+                "不能说已经配对成功"
+              ]
+            },
+            {
+              "document_id": "POL-SIM-V1",
+              "required_any": [
+                "客户询问金额、表达不满或没有回复，都不算接受",
+                "取得明确同意后再提交"
+              ]
+            }
+          ],
+          "returned_documents": [
+            "MAN-OUTON-01",
+            "SOP-OUTON-01"
+          ]
+        },
+        {
+          "id": "KQ-058",
+          "covered": [
+            true,
+            false
+          ],
+          "expected": [
+            {
+              "document_id": "SOP-BELEEV-03",
+              "required_any": [
+                "灯轮正常也不能说明整车安全",
+                "锁止不可靠、裂纹、夹伤"
+              ]
+            },
+            {
+              "document_id": "POL-SIM-V1",
+              "required_any": [
+                "质量问题的退货标签费用由商家承担",
+                "签收后 30 天内（含第 30 天）"
+              ]
+            }
+          ],
+          "returned_documents": [
+            "MAN-BELEEV-03",
+            "POL-SIM-V1",
+            "SOP-BELEEV-03"
+          ]
+        },
+        {
+          "id": "KQ-059",
+          "covered": [
+            true,
+            false
+          ],
+          "expected": [
+            {
+              "document_id": "SOP-OUTONLIFE-02",
+              "required_any": [
+                "线缆损伤或持续闪烁且无明确处理依据时暂停使用",
+                "避免线缆夹在桌面与支撑件之间"
+              ]
+            },
+            {
+              "document_id": "POL-SIM-V1",
+              "required_any": [
+                "并在退件验货通过后安排换出",
+                "需要先发后退或替代型号的情况由客服确认"
+              ]
+            }
+          ],
+          "returned_documents": [
+            "SOP-OUTONLIFE-02",
+            "MAN-OUTONLIFE-02"
+          ]
+        }
+      ],
+      "legacy_historical_mode_rejection": [
+        {
+          "id": "KQ-041",
+          "reason": "invalid_input_rejected",
+          "diagnostics": [
+            {
+              "http_status": 422
+            }
+          ]
+        },
+        {
+          "id": "KQ-042",
+          "reason": "invalid_input_rejected",
+          "diagnostics": [
+            {
+              "http_status": 422
+            }
+          ]
+        },
+        {
+          "id": "KQ-043",
+          "reason": "invalid_input_rejected",
+          "diagnostics": [
+            {
+              "http_status": 422
+            }
+          ]
+        },
+        {
+          "id": "KQ-044",
+          "reason": "invalid_input_rejected",
+          "diagnostics": [
+            {
+              "http_status": 422
+            }
+          ]
+        }
+      ],
+      "critical_policy_full_returned_text": {
+        "KQ-033": [
+          {
+            "document_id": "MAN-BELEEV-01",
+            "score": 0.557593,
+            "page": [
+              12,
+              13
+            ],
+            "section": "BELEEV-01",
+            "version_number": 1,
+            "text": "BELEEV / 产品识别\n\nA2 三轮滑板车\n\nA2 三轮滑板车。当前生产图片可见双前轮、后轮刹车和高度调节立杆。客户提到把手松动时，要先处理骑乘安全，再讨论补件。\n\n商品图对应:SP-SLHBC01-BK。来源:生产订单关联商品图片。\n\n同系列其他颜色、地区版本以实际订单为准；图片不能代替装配或维修说明。\n\n接到客户问题时先确认\n\n1. 核对 A2 型号及实物，成人检查把手、立杆、轮组和刹车有无明显损伤。\n\n2. 把手或立杆松脱时停止骑乘，不要求孩子继续骑来拍视频。\n\n3. 年龄、承重和紧固要求以这款产品的有效说明为准；现有资料不能确认时交客服核对。\n\n本批商品编码\n\nSP-SLHBC01-BK、SP-SLHBC01-BL\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n12\n\nBELEEV / 售后处理参考\n\n把手松动，或从立杆连接处脱开\n\n处理思路\n\n1. 先提醒停止骑乘，并确认松动位置。\n\n2. 复用订单和已提供的问题描述，请客服查看客户照片或视频。\n\n3. 查询是否有对应配件或换货方案，安全相关部件交人工确认。\n\n4. 安排补寄或换货后跟进实际执行记录，不把申请成功当作已经寄出。\n\n容易弄错的地方\n\n把手装饰套与立杆锁止件不是同一种配件，客户只说“把手坏了”时需要再问位置。\n\n结构松脱不能用绑扎、胶粘或反复加力紧固代替正式处理。\n\n图片只作外观核对，不代表已确认内部结构或拆装方式。\n\n什么时候交给人工\n\n立杆、轮轴、刹车或踏板结构异常均交人工，不能让客户继续骑乘验证。\n\n英文回复示例\n\nPl ease stop us i ng the scooter for now i f the hand l ebar i s comi ng loose. Let us know wh i ch connect i on i s affected, and we wi l l have our support team check the appropr i ate sol ut i on for the mode l on your order.\n\n资料依据:生产订单 A2 实物图与商品名称；把手松脱来自已知售后问题原型。具体修复步骤尚未确认。\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n13"
+          },
+          {
+            "document_id": "POL-SIM-V1",
+            "score": 0.555229,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# 模拟售后政策草稿 1.0.1\n\n政策编号：SIM-AFTERSALES-2026-10-V1。来源：项目模拟规则。状态：未发布，仅供人工核对。\n品牌：OUTON、OUTONLIFE、BELEEV；市场：US、GB、DE、CA、AU。\n渠道：amazon、brand_store；币种：USD、GBP、EUR、CAD、AUD。\n用途仅限 simulation，不能授权真实业务，不换汇。\n隔离模拟环境的项目规则，不是品牌承诺、销售平台现行政策或地区法律结论。超出声明范围返回 policy_not_covered；不得自动换算货币。\n\n## 订单、数量与客户选择\n\n准确订单、SKU、数量、受影响份额与实付金额必须核验。选择须来自可见客户消息；退款需明确金额和币种。\n地址须和当前客户选择版本一致；金额使用最小货币单位整数。\n\n## 退货退款\n\n退货窗口：签收后 30 天，含边界；窗口外交人工。\n需原因、数量；非质量退货须未使用且完整。质量问题商家承担寄回费用，其他退货客户自行安排邮资。\n寄回须有授权、地址、包装与邮资说明，商家付费时还须预付标签。\n部分退款上限为受影响实付份额的 2000 基点（20%），整数向下取整。\n全额退款前须有仓库收件与质检，数量覆盖受影响份额。例外交人工。\n可退余额扣除成功退款及处理中、未知占用；同一申请与执行只扣一次，未知先查原操作。\n退款回原支付渠道；内部申请不等于成功，不承诺固定到账日。\n\n## 换货补件\n\n质量换货窗口：签收后 365 天；补件窗口：365 天。\n换货需原准确SKU、库存、当前地址、寄回收件与质检，不先发后退；替代型号交人工核对。\n补件需部件/SKU、地区及硬件版本适配、数量、库存、客户选择和当前地址；安全关键部件交人工。\n购买备用件不构成免费售后资格。同订单行同份额跨退款、换货、补件检查重复补偿。\n\n## 物流和人工\n\n轨迹 7 天未更新可查件；签收未收到须核对包裹，不保证到达日。\n建标签不等于发货；无记录、不可用、技术失败、未知分开显示。\n安全、冲突、未知适配、反复失败与例外交人工；结案须人工确认。\n\n## 逐项证据要求\n\n此v1规则没有视觉证据映射，图片不能升级为账本或交易资格。"
+          }
+        ],
+        "KQ-034": [
+          {
+            "document_id": "MAN-OUTONLIFE-01",
+            "score": 0.629596,
+            "page": [
+              8,
+              9
+            ],
+            "section": "OUTONLIFE-01",
+            "version_number": 1,
+            "text": "OUTONLI FE / 产品识别\n\n树形带灯书架\n\n带照明的树形书架。生产商品标题有遥控、定时等功能描述，不同站点对层数的写法并不一致，因此客服应按具体订单与实物核对。\n\n商品图对应:F-SJ001-US-BBR。来源:生产订单关联商品图片。\n\n同系列其他颜色、地区版本以实际订单为准；图片不能代替装配或维修说明。\n\n接到客户问题时先确认\n\n1. 先核对订单。礼物接收者暂时拿不到订单时，说明需要它来确认版本，并保留客户已提供的商品线索。\n\n2. 区分书架结构损坏、灯座损坏和遥控器故障，不把几类问题混在一起。\n\n3. 灯座或电线损坏时停止使用，不让客户自行接线；照片交客服进一步核对。\n\n本批商品编码\n\nF-SJ001-US-BBR、F-SJ001-EU-BBR、F-SJ001-EU-W、F-SJ001-US-BK\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n08\n\nOUTONLI FE / 售后处理参考\n\n礼物没有订单号，或灯座与遥控器需要售后处理\n\n处理思路\n\n1. 缺订单时，优先解释核对版本的原因；客户后来补充订单后继续原问题，不重新开始。\n\n2. 灯座损坏及裸线交人工检查，不能只凭客户写了 E26 就推荐通用灯座。\n\n3. 遥控故障先记录是否换电池、是否已尝试配对，再查对应版本的指导。\n\n4. 客户明确说已经恢复正常时记录结果，再由客服确认是否结案。\n\n容易弄错的地方\n\n客户想付费购买配件时，不能自动当成免费保修申请。\n\n已有西语客户在重新配对后反馈恢复，但这只是特定订单的案例，不能直接说明所有书架灯都用同样步骤。\n\n商品标题出现的层数、灯泡参数或功能，按对应商品记录保留来源；有冲突时不自行选一个答案。\n\n什么时候交给人工\n\n灯座脱落、裸线、层板开裂或倾倒风险时，停止使用并交人工。\n\n英文回复示例\n\nWe understand that the bookshe l f was a gi ft and that you wou ld l i ke to buy the rep l acement part. The or i gi na l order number he l ps us i dent i fy the exact vers i on. I f you can obta i n it from the purchaser, we can cont i nue checki ng the part without aski ng you to repeat the deta i l s you have a l ready sent.\n\n资料依据:生产订单商品图及名称；CASE-003 礼物配件咨询、CASE-004 西语遥控排障。\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n09"
+          },
+          {
+            "document_id": "POL-SIM-V1",
+            "score": 0.557596,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# 模拟售后政策草稿 1.0.1\n\n政策编号：SIM-AFTERSALES-2026-10-V1。来源：项目模拟规则。状态：未发布，仅供人工核对。\n品牌：OUTON、OUTONLIFE、BELEEV；市场：US、GB、DE、CA、AU。\n渠道：amazon、brand_store；币种：USD、GBP、EUR、CAD、AUD。\n用途仅限 simulation，不能授权真实业务，不换汇。\n隔离模拟环境的项目规则，不是品牌承诺、销售平台现行政策或地区法律结论。超出声明范围返回 policy_not_covered；不得自动换算货币。\n\n## 订单、数量与客户选择\n\n准确订单、SKU、数量、受影响份额与实付金额必须核验。选择须来自可见客户消息；退款需明确金额和币种。\n地址须和当前客户选择版本一致；金额使用最小货币单位整数。\n\n## 退货退款\n\n退货窗口：签收后 30 天，含边界；窗口外交人工。\n需原因、数量；非质量退货须未使用且完整。质量问题商家承担寄回费用，其他退货客户自行安排邮资。\n寄回须有授权、地址、包装与邮资说明，商家付费时还须预付标签。\n部分退款上限为受影响实付份额的 2000 基点（20%），整数向下取整。\n全额退款前须有仓库收件与质检，数量覆盖受影响份额。例外交人工。\n可退余额扣除成功退款及处理中、未知占用；同一申请与执行只扣一次，未知先查原操作。\n退款回原支付渠道；内部申请不等于成功，不承诺固定到账日。\n\n## 换货补件\n\n质量换货窗口：签收后 365 天；补件窗口：365 天。\n换货需原准确SKU、库存、当前地址、寄回收件与质检，不先发后退；替代型号交人工核对。\n补件需部件/SKU、地区及硬件版本适配、数量、库存、客户选择和当前地址；安全关键部件交人工。\n购买备用件不构成免费售后资格。同订单行同份额跨退款、换货、补件检查重复补偿。\n\n## 物流和人工\n\n轨迹 7 天未更新可查件；签收未收到须核对包裹，不保证到达日。\n建标签不等于发货；无记录、不可用、技术失败、未知分开显示。\n安全、冲突、未知适配、反复失败与例外交人工；结案须人工确认。\n\n## 逐项证据要求\n\n此v1规则没有视觉证据映射，图片不能升级为账本或交易资格。"
+          }
+        ],
+        "KQ-035": [
+          {
+            "document_id": "POL-SIM-V1",
+            "score": 0.464716,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# 模拟售后政策草稿 1.0.1\n\n政策编号：SIM-AFTERSALES-2026-10-V1。来源：项目模拟规则。状态：未发布，仅供人工核对。\n品牌：OUTON、OUTONLIFE、BELEEV；市场：US、GB、DE、CA、AU。\n渠道：amazon、brand_store；币种：USD、GBP、EUR、CAD、AUD。\n用途仅限 simulation，不能授权真实业务，不换汇。\n隔离模拟环境的项目规则，不是品牌承诺、销售平台现行政策或地区法律结论。超出声明范围返回 policy_not_covered；不得自动换算货币。\n\n## 订单、数量与客户选择\n\n准确订单、SKU、数量、受影响份额与实付金额必须核验。选择须来自可见客户消息；退款需明确金额和币种。\n地址须和当前客户选择版本一致；金额使用最小货币单位整数。\n\n## 退货退款\n\n退货窗口：签收后 30 天，含边界；窗口外交人工。\n需原因、数量；非质量退货须未使用且完整。质量问题商家承担寄回费用，其他退货客户自行安排邮资。\n寄回须有授权、地址、包装与邮资说明，商家付费时还须预付标签。\n部分退款上限为受影响实付份额的 2000 基点（20%），整数向下取整。\n全额退款前须有仓库收件与质检，数量覆盖受影响份额。例外交人工。\n可退余额扣除成功退款及处理中、未知占用；同一申请与执行只扣一次，未知先查原操作。\n退款回原支付渠道；内部申请不等于成功，不承诺固定到账日。\n\n## 换货补件\n\n质量换货窗口：签收后 365 天；补件窗口：365 天。\n换货需原准确SKU、库存、当前地址、寄回收件与质检，不先发后退；替代型号交人工核对。\n补件需部件/SKU、地区及硬件版本适配、数量、库存、客户选择和当前地址；安全关键部件交人工。\n购买备用件不构成免费售后资格。同订单行同份额跨退款、换货、补件检查重复补偿。\n\n## 物流和人工\n\n轨迹 7 天未更新可查件；签收未收到须核对包裹，不保证到达日。\n建标签不等于发货；无记录、不可用、技术失败、未知分开显示。\n安全、冲突、未知适配、反复失败与例外交人工；结案须人工确认。\n\n## 逐项证据要求\n\n此v1规则没有视觉证据映射，图片不能升级为账本或交易资格。"
+          },
+          {
+            "document_id": "MAN-OUTON-01",
+            "score": 0.381614,
+            "page": [
+              2,
+              3
+            ],
+            "section": "OUTON-01",
+            "version_number": 1,
+            "text": "OUTON / 产品识别\n\n四按键朝天灯\n\n朝天灯，灯头向上照明，灯杆上带控制按键。生产订单的商品标题同时提到遥控调节；客户来信中常见机身可以控制、遥控器失灵的情况。\n\n商品图对应:H-CTD16-US-BK。来源:生产订单关联商品图片。\n\n同系列其他颜色、地区版本以实际订单为准；图片不能代替装配或维修说明。\n\n接到客户问题时先确认\n\n1. 先确认订单中的商品和客户手中的灯一致，尤其是插头规格、颜色和控制方式。\n\n2. 检查外露电线、插头和灯杆连接处是否损坏。发现焦味、火花或异常发热时，停止使用并交客服处理。\n\n3. 先问清楚机身按键能否开灯、调光，再判断是否只涉及遥控器，避免一开始就让客户重复全部操作。本批商品编码\n\nH-CTD16-US-BK、H-CTD16-US-SGY、H-CTD16-UK-BK、H-CTD16-EU-SGY、H-CTD16-EU-W、H-CTD16-UK-SGY、H-CTD16-US-W\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n02\n\nOUTON / 售后处理参考\n\n灯能正常开关，遥控器却没有反应\n\n处理思路\n\n1. 确认机身控制是否正常，以及遥控电池是否已经更换。\n\n2. 如果客户说已经配对过，问清看到的现象，不把同一步骤原样再发一遍。\n\n3. 有适用依据时补充一次关键差异说明；仍失败就检查是否需要更换遥控器。\n\n4. 需要补件时先核对遥控器是否适配，再确认收件信息。付费购买配件的订单与原灯具订单分别跟进。\n\n容易弄错的地方\n\n客户已换电池、断电或重新配对的，先记录结果，不再从头重复要求。\n\n历史客服曾使用以下配对方法:先确认灯能点亮，再断电；按住遥控器开关键重新接通电源，直到灯本体闪烁。需要核对适用版本后再采用。\n\n观察的是灯本体闪烁，不是遥控器上的红色指示灯。客户只看到红灯常亮时，不能说已经配对成功。\n\n什么时候交给人工\n\n灯体也无法工作、出现电气异常，或没有可靠的下一步时交人工，不继续要求反复通电。\n\n英文回复示例\n\n资料依据:生产商品标题；CASE-002 的客户描述和客服往来。配对步骤是历史处理参考，尚非厂家核准说明。\n\nThanks for exp l a i n i ng what you have a l ready tr i ed. Si nce the l amp st i l l works from its own control s, we wi l l check the remote separate ly. When you tr i ed pa i r i ng it, d i d the l amp itse l f f l ash, or d i d on ly the red l i ght on the remote come on?\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n03"
+          }
+        ],
+        "KQ-036": [
+          {
+            "document_id": "POL-SIM-V1",
+            "score": 0.584667,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# 模拟售后政策草稿 1.0.1\n\n政策编号：SIM-AFTERSALES-2026-10-V1。来源：项目模拟规则。状态：未发布，仅供人工核对。\n品牌：OUTON、OUTONLIFE、BELEEV；市场：US、GB、DE、CA、AU。\n渠道：amazon、brand_store；币种：USD、GBP、EUR、CAD、AUD。\n用途仅限 simulation，不能授权真实业务，不换汇。\n隔离模拟环境的项目规则，不是品牌承诺、销售平台现行政策或地区法律结论。超出声明范围返回 policy_not_covered；不得自动换算货币。\n\n## 订单、数量与客户选择\n\n准确订单、SKU、数量、受影响份额与实付金额必须核验。选择须来自可见客户消息；退款需明确金额和币种。\n地址须和当前客户选择版本一致；金额使用最小货币单位整数。\n\n## 退货退款\n\n退货窗口：签收后 30 天，含边界；窗口外交人工。\n需原因、数量；非质量退货须未使用且完整。质量问题商家承担寄回费用，其他退货客户自行安排邮资。\n寄回须有授权、地址、包装与邮资说明，商家付费时还须预付标签。\n部分退款上限为受影响实付份额的 2000 基点（20%），整数向下取整。\n全额退款前须有仓库收件与质检，数量覆盖受影响份额。例外交人工。\n可退余额扣除成功退款及处理中、未知占用；同一申请与执行只扣一次，未知先查原操作。\n退款回原支付渠道；内部申请不等于成功，不承诺固定到账日。\n\n## 换货补件\n\n质量换货窗口：签收后 365 天；补件窗口：365 天。\n换货需原准确SKU、库存、当前地址、寄回收件与质检，不先发后退；替代型号交人工核对。\n补件需部件/SKU、地区及硬件版本适配、数量、库存、客户选择和当前地址；安全关键部件交人工。\n购买备用件不构成免费售后资格。同订单行同份额跨退款、换货、补件检查重复补偿。\n\n## 物流和人工\n\n轨迹 7 天未更新可查件；签收未收到须核对包裹，不保证到达日。\n建标签不等于发货；无记录、不可用、技术失败、未知分开显示。\n安全、冲突、未知适配、反复失败与例外交人工；结案须人工确认。\n\n## 逐项证据要求\n\n此v1规则没有视觉证据映射，图片不能升级为账本或交易资格。"
+          },
+          {
+            "document_id": "SOP-OUTON-02",
+            "score": 0.499521,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# 带托盘三脚架灯：灯罩固定环损坏，或安装时发现缺件\n\n## 客户问题\n\n木质三脚架落地灯，带圆形托盘和布艺灯罩。生产订单可见不同木色、灯罩和地区版本，部分商品标题包含遥控功能。\n\n## 先确认什么\n\n1. 先看订单商品与客户描述是否一致，再确认是灯罩固定、托盘晃动还是灯光问题。\n2. 安装或检查灯罩固定件前先断电，灯泡冷却后再操作。\n3. 如果包装缺零件，请客户说明缺少的位置；收到照片后由客服核对，不凭“螺丝”两个字猜配件。\n\n## 怎么处理\n\n1. 让客户描述损坏部位，已有订单号和照片就继续使用，不重复索要。\n2. 核对是塑料固定环、灯罩本身，还是托盘紧固件。\n3. 能提供配件时确认方案与收件信息，再交负责同事安排。\n4. 安排补寄后查询实际补发记录，有物流信息再通知客户；不能把“会尽快寄出”写成“已经发货”。\n\n## 容易弄错的地方\n\n- 灯罩固定环损坏时，应先确认灯罩、灯座和固定环是否仍在，不把整盏灯都当成报废。\n- 更换灯泡前确认灯座和灯泡标识；规格不清楚时先核对，不只看灯泡外形。\n- 同样叫三脚架灯的款式，灯罩、托盘和电气配置也可能不同，配件按原订单核对。\n\n## 交给人工的情况\n\n灯座破裂、线缆损伤或支架不稳时暂停使用，交客服进一步处理。\n\n## 可以参考的英文回复\n\nWe can help check the part that holds the lampshade in place. Please let us know whether it is the threaded retaining ring or the shade itself that is damaged. If you have already sent your order number, you do not need to send it again.\n\n## 资料依据\n\n生产商品图和订单名称；CASE-001 的固定环损坏及补件往来。\n\n内部整理，非厂家原版说明。具体商品适用范围由独立资料清单记录；未经确认的维修操作不得直接发送给客户。"
+          }
+        ],
+        "KQ-056": [
+          {
+            "document_id": "MAN-OUTON-01",
+            "score": 0.660131,
+            "page": [
+              2,
+              3
+            ],
+            "section": "OUTON-01",
+            "version_number": 1,
+            "text": "OUTON / 产品识别\n\n四按键朝天灯\n\n朝天灯，灯头向上照明，灯杆上带控制按键。生产订单的商品标题同时提到遥控调节；客户来信中常见机身可以控制、遥控器失灵的情况。\n\n商品图对应:H-CTD16-US-BK。来源:生产订单关联商品图片。\n\n同系列其他颜色、地区版本以实际订单为准；图片不能代替装配或维修说明。\n\n接到客户问题时先确认\n\n1. 先确认订单中的商品和客户手中的灯一致，尤其是插头规格、颜色和控制方式。\n\n2. 检查外露电线、插头和灯杆连接处是否损坏。发现焦味、火花或异常发热时，停止使用并交客服处理。\n\n3. 先问清楚机身按键能否开灯、调光，再判断是否只涉及遥控器，避免一开始就让客户重复全部操作。本批商品编码\n\nH-CTD16-US-BK、H-CTD16-US-SGY、H-CTD16-UK-BK、H-CTD16-EU-SGY、H-CTD16-EU-W、H-CTD16-UK-SGY、H-CTD16-US-W\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n02\n\nOUTON / 售后处理参考\n\n灯能正常开关，遥控器却没有反应\n\n处理思路\n\n1. 确认机身控制是否正常，以及遥控电池是否已经更换。\n\n2. 如果客户说已经配对过，问清看到的现象，不把同一步骤原样再发一遍。\n\n3. 有适用依据时补充一次关键差异说明；仍失败就检查是否需要更换遥控器。\n\n4. 需要补件时先核对遥控器是否适配，再确认收件信息。付费购买配件的订单与原灯具订单分别跟进。\n\n容易弄错的地方\n\n客户已换电池、断电或重新配对的，先记录结果，不再从头重复要求。\n\n历史客服曾使用以下配对方法:先确认灯能点亮，再断电；按住遥控器开关键重新接通电源，直到灯本体闪烁。需要核对适用版本后再采用。\n\n观察的是灯本体闪烁，不是遥控器上的红色指示灯。客户只看到红灯常亮时，不能说已经配对成功。\n\n什么时候交给人工\n\n灯体也无法工作、出现电气异常，或没有可靠的下一步时交人工，不继续要求反复通电。\n\n英文回复示例\n\n资料依据:生产商品标题；CASE-002 的客户描述和客服往来。配对步骤是历史处理参考，尚非厂家核准说明。\n\nThanks for exp l a i n i ng what you have a l ready tr i ed. Si nce the l amp st i l l works from its own control s, we wi l l check the remote separate ly. When you tr i ed pa i r i ng it, d i d the l amp itse l f f l ash, or d i d on ly the red l i ght on the remote come on?\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n03"
+          },
+          {
+            "document_id": "SOP-OUTON-01",
+            "score": 0.609324,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# 四按键朝天灯：灯能正常开关，遥控器却没有反应\n\n## 客户问题\n\n朝天灯，灯头向上照明，灯杆上带控制按键。生产订单的商品标题同时提到遥控调节；客户来信中常见机身可以控制、遥控器失灵的情况。\n\n## 先确认什么\n\n1. 先确认订单中的商品和客户手中的灯一致，尤其是插头规格、颜色和控制方式。\n2. 检查外露电线、插头和灯杆连接处是否损坏。发现焦味、火花或异常发热时，停止使用并交客服处理。\n3. 先问清楚机身按键能否开灯、调光，再判断是否只涉及遥控器，避免一开始就让客户重复全部操作。\n\n## 怎么处理\n\n1. 确认机身控制是否正常，以及遥控电池是否已经更换。\n2. 如果客户说已经配对过，问清看到的现象，不把同一步骤原样再发一遍。\n3. 有适用依据时补充一次关键差异说明；仍失败就检查是否需要更换遥控器。\n4. 需要补件时先核对遥控器是否适配，再确认收件信息。付费购买配件的订单与原灯具订单分别跟进。\n\n## 容易弄错的地方\n\n- 客户已换电池、断电或重新配对的，先记录结果，不再从头重复要求。\n- 历史客服曾使用以下配对方法：先确认灯能点亮，再断电；按住遥控器开关键重新接通电源，直到灯本体闪烁。需要核对适用版本后再采用。\n- 观察的是灯本体闪烁，不是遥控器上的红色指示灯。客户只看到红灯常亮时，不能说已经配对成功。\n\n## 交给人工的情况\n\n灯体也无法工作、出现电气异常，或没有可靠的下一步时交人工，不继续要求反复通电。\n\n## 可以参考的英文回复\n\nThanks for explaining what you have already tried. Since the lamp still works from its own controls, we will check the remote separately. When you tried pairing it, did the lamp itself flash, or did only the red light on the remote come on?\n\n## 资料依据\n\n生产商品标题；CASE-002 的客户描述和客服往来。配对步骤是历史处理参考，尚非厂家核准说明。\n\n内部整理，非厂家原版说明。具体商品适用范围由独立资料清单记录；未经确认的维修操作不得直接发送给客户。"
+          }
+        ],
+        "KQ-058": [
+          {
+            "document_id": "MAN-BELEEV-03",
+            "score": 0.61309,
+            "page": [
+              16,
+              17
+            ],
+            "section": "BELEEV-03",
+            "version_number": 1,
+            "text": "BELEEV / 产品识别\n\nA9 带灯折叠三轮滑板车\n\nA9 可折叠三轮滑板车。当前生产图片显示三轮结构和立杆连接位置；折叠与锁止异常需要单独处理。\n\n商品图对应:SP-SLHBC12-PU。来源:生产订单关联商品图片。\n\n同系列其他颜色、地区版本以实际订单为准；图片不能代替装配或维修说明。\n\n接到客户问题时先确认\n\n1. 确认 A9 型号，让成人按真实随附说明检查展开和锁止状态。\n\n2. 车身已经展开并不代表锁止完成；站立检查不能替代实际结构确认。\n\n3. 缺少有效说明时，不凭图片猜测按钮顺序或扳动方向。\n\n本批商品编码\n\nSP-SLHBC12-PU、SP-SLHBC12-B、SP-SLHBC12-LP\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n16\n\nBELEEV / 售后处理参考\n\n展开后锁不住，或折叠机构卡住\n\n处理思路\n\n1. 先提醒停止骑乘，问清楚卡住或松动的位置。\n\n2. 确认是否以前能正常锁止，以及已经尝试过哪些操作。\n\n3. 没有该版本的可靠指导时交客服查看照片或视频。\n\n4. 补件或换货由客服确认，后续查询本次处理的单据和物流。\n\n容易弄错的地方\n\nA2 和 A9 都是三轮车，但锁止组件不能因此视为通用。\n\n折叠机构卡住时，不要求踩压、敲击或强行扳动。\n\n灯轮正常也不能说明整车安全，结构与照明分别检查。\n\n什么时候交给人工\n\n锁止不可靠、裂纹、夹伤，或轮组/刹车异常时停止使用并交人工。\n\n英文回复示例\n\nPl ease do not r i de the scooter i f the fold i ng mechan i sm i s not locki ng secure ly. Let us know whether it has ever locked correct ly and what happens when you try to unfold it. Our support team wi l l check the next step for th i s mode l.\n\n资料依据:生产订单 A9 实物图和商品名称；缺少经确认的拆装步骤，故不编写拆修指导。\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n17"
+          },
+          {
+            "document_id": "POL-SIM-V1",
+            "score": 0.518058,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# 模拟售后政策草稿 1.0.1\n\n政策编号：SIM-AFTERSALES-2026-10-V1。来源：项目模拟规则。状态：未发布，仅供人工核对。\n品牌：OUTON、OUTONLIFE、BELEEV；市场：US、GB、DE、CA、AU。\n渠道：amazon、brand_store；币种：USD、GBP、EUR、CAD、AUD。\n用途仅限 simulation，不能授权真实业务，不换汇。\n隔离模拟环境的项目规则，不是品牌承诺、销售平台现行政策或地区法律结论。超出声明范围返回 policy_not_covered；不得自动换算货币。\n\n## 订单、数量与客户选择\n\n准确订单、SKU、数量、受影响份额与实付金额必须核验。选择须来自可见客户消息；退款需明确金额和币种。\n地址须和当前客户选择版本一致；金额使用最小货币单位整数。\n\n## 退货退款\n\n退货窗口：签收后 30 天，含边界；窗口外交人工。\n需原因、数量；非质量退货须未使用且完整。质量问题商家承担寄回费用，其他退货客户自行安排邮资。\n寄回须有授权、地址、包装与邮资说明，商家付费时还须预付标签。\n部分退款上限为受影响实付份额的 2000 基点（20%），整数向下取整。\n全额退款前须有仓库收件与质检，数量覆盖受影响份额。例外交人工。\n可退余额扣除成功退款及处理中、未知占用；同一申请与执行只扣一次，未知先查原操作。\n退款回原支付渠道；内部申请不等于成功，不承诺固定到账日。\n\n## 换货补件\n\n质量换货窗口：签收后 365 天；补件窗口：365 天。\n换货需原准确SKU、库存、当前地址、寄回收件与质检，不先发后退；替代型号交人工核对。\n补件需部件/SKU、地区及硬件版本适配、数量、库存、客户选择和当前地址；安全关键部件交人工。\n购买备用件不构成免费售后资格。同订单行同份额跨退款、换货、补件检查重复补偿。\n\n## 物流和人工\n\n轨迹 7 天未更新可查件；签收未收到须核对包裹，不保证到达日。\n建标签不等于发货；无记录、不可用、技术失败、未知分开显示。\n安全、冲突、未知适配、反复失败与例外交人工；结案须人工确认。\n\n## 逐项证据要求\n\n此v1规则没有视觉证据映射，图片不能升级为账本或交易资格。"
+          },
+          {
+            "document_id": "SOP-BELEEV-03",
+            "score": 0.462723,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# A9 带灯折叠三轮滑板车：展开后锁不住，或折叠机构卡住\n\n## 客户问题\n\nA9 可折叠三轮滑板车。当前生产图片显示三轮结构和立杆连接位置；折叠与锁止异常需要单独处理。\n\n## 先确认什么\n\n1. 确认 A9 型号，让成人按真实随附说明检查展开和锁止状态。\n2. 车身已经展开并不代表锁止完成；站立检查不能替代实际结构确认。\n3. 缺少有效说明时，不凭图片猜测按钮顺序或扳动方向。\n\n## 怎么处理\n\n1. 先提醒停止骑乘，问清楚卡住或松动的位置。\n2. 确认是否以前能正常锁止，以及已经尝试过哪些操作。\n3. 没有该版本的可靠指导时交客服查看照片或视频。\n4. 补件或换货由客服确认，后续查询本次处理的单据和物流。\n\n## 容易弄错的地方\n\n- A2 和 A9 都是三轮车，但锁止组件不能因此视为通用。\n- 折叠机构卡住时，不要求踩压、敲击或强行扳动。\n- 灯轮正常也不能说明整车安全，结构与照明分别检查。\n\n## 交给人工的情况\n\n锁止不可靠、裂纹、夹伤，或轮组/刹车异常时停止使用并交人工。\n\n## 可以参考的英文回复\n\nPlease do not ride the scooter if the folding mechanism is not locking securely. Let us know whether it has ever locked correctly and what happens when you try to unfold it. Our support team will check the next step for this model.\n\n## 资料依据\n\n生产订单 A9 实物图和商品名称；缺少经确认的拆装步骤，故不编写拆修指导。\n\n内部整理，非厂家原版说明。具体商品适用范围由独立资料清单记录；未经确认的维修操作不得直接发送给客户。"
+          }
+        ]
+      }
+    },
+    "retrieval-results.json": {
+      "status": "completed",
+      "cleanup": "owned_schema_and_objects_removed",
+      "snapshot_matches_frozen_bytes": true,
+      "observations": 72,
+      "label_recalculation_mismatches": [],
+      "all_candidate_counts_at_most_20": true,
+      "all_evidence_counts_at_most_5": true,
+      "all_expanded_context_within_4500_proxy": true,
+      "max_expanded_context_proxy": 4457,
+      "counts": {
+        "positive": {
+          "queries": 44,
+          "all_evidence": 44,
+          "facts": 44,
+          "expected_facts": 44,
+          "zero_evidence": 0
+        },
+        "boundary": {
+          "queries": 16,
+          "all_evidence": 0,
+          "facts": 0,
+          "expected_facts": 0,
+          "zero_evidence": 16
+        },
+        "unanswerable": {
+          "queries": 6,
+          "all_evidence": 0,
+          "facts": 0,
+          "expected_facts": 0,
+          "zero_evidence": 0
+        },
+        "multi_evidence": {
+          "queries": 6,
+          "all_evidence": 5,
+          "facts": 11,
+          "expected_facts": 12,
+          "zero_evidence": 0
+        }
+      },
+      "strict_failures": [
+        {
+          "id": "KQ-058",
+          "covered": [
+            true,
+            false
+          ],
+          "expected": [
+            {
+              "document_id": "SOP-BELEEV-03",
+              "required_any": [
+                "灯轮正常也不能说明整车安全",
+                "锁止不可靠、裂纹、夹伤"
+              ]
+            },
+            {
+              "document_id": "POL-SIM-V1",
+              "required_any": [
+                "质量问题的退货标签费用由商家承担",
+                "签收后 30 天内（含第 30 天）"
+              ]
+            }
+          ],
+          "returned_documents": [
+            "MAN-BELEEV-03",
+            "POL-SIM-V1",
+            "SOP-BELEEV-03"
+          ]
+        }
+      ],
+      "legacy_historical_mode_rejection": [
+        {
+          "id": "KQ-041",
+          "reason": "invalid_input_rejected",
+          "diagnostics": [
+            {
+              "http_status": 422
+            }
+          ]
+        },
+        {
+          "id": "KQ-042",
+          "reason": "invalid_input_rejected",
+          "diagnostics": [
+            {
+              "http_status": 422
+            }
+          ]
+        },
+        {
+          "id": "KQ-043",
+          "reason": "invalid_input_rejected",
+          "diagnostics": [
+            {
+              "http_status": 422
+            }
+          ]
+        },
+        {
+          "id": "KQ-044",
+          "reason": "invalid_input_rejected",
+          "diagnostics": [
+            {
+              "http_status": 422
+            }
+          ]
+        }
+      ],
+      "critical_policy_full_returned_text": {
+        "KQ-033": [
+          {
+            "document_id": "POL-SIM-V1",
+            "score": 0.644797,
+            "page": [],
+            "section": "section-0004",
+            "version_number": 1,
+            "text": "## 换货补件\n\n质量换货窗口：签收后 365 天；补件窗口：365 天。\n默认更换相同商品编码的产品，核对库存和当前地址，并在退件验货通过后安排换出。缺货时先说明情况，不擅自改颜色、地区版本或型号。替代SKU须客户明确选择并完成适配核验，再交人工确认；不先发后退，例外交人工。\n补件需部件/SKU、地区及硬件版本适配、数量、库存、客户选择和当前地址；安全关键部件交人工。\n购买备用配件不自动成为免费补寄申请。同订单行同份额跨退款、换货、补件检查重复补偿。改方案先查询原申请和已执行记录，检查补件能否取消以及是否已经产生补偿；先核对并处理旧事项，不同时安排两份补偿。"
+          },
+          {
+            "document_id": "MAN-BELEEV-01",
+            "score": 0.557693,
+            "page": [
+              12,
+              13
+            ],
+            "section": "BELEEV-01",
+            "version_number": 1,
+            "text": "BELEEV / 产品识别\n\nA2 三轮滑板车\n\nA2 三轮滑板车。当前生产图片可见双前轮、后轮刹车和高度调节立杆。客户提到把手松动时，要先处理骑乘安全，再讨论补件。\n\n商品图对应:SP-SLHBC01-BK。来源:生产订单关联商品图片。\n\n同系列其他颜色、地区版本以实际订单为准；图片不能代替装配或维修说明。\n\n接到客户问题时先确认\n\n1. 核对 A2 型号及实物，成人检查把手、立杆、轮组和刹车有无明显损伤。\n\n2. 把手或立杆松脱时停止骑乘，不要求孩子继续骑来拍视频。\n\n3. 年龄、承重和紧固要求以这款产品的有效说明为准；现有资料不能确认时交客服核对。\n\n本批商品编码\n\nSP-SLHBC01-BK、SP-SLHBC01-BL\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n12\n\nBELEEV / 售后处理参考\n\n把手松动，或从立杆连接处脱开\n\n处理思路\n\n1. 先提醒停止骑乘，并确认松动位置。\n\n2. 复用订单和已提供的问题描述，请客服查看客户照片或视频。\n\n3. 查询是否有对应配件或换货方案，安全相关部件交人工确认。\n\n4. 安排补寄或换货后跟进实际执行记录，不把申请成功当作已经寄出。\n\n容易弄错的地方\n\n把手装饰套与立杆锁止件不是同一种配件，客户只说“把手坏了”时需要再问位置。\n\n结构松脱不能用绑扎、胶粘或反复加力紧固代替正式处理。\n\n图片只作外观核对，不代表已确认内部结构或拆装方式。\n\n什么时候交给人工\n\n立杆、轮轴、刹车或踏板结构异常均交人工，不能让客户继续骑乘验证。\n\n英文回复示例\n\nPl ease stop us i ng the scooter for now i f the hand l ebar i s comi ng loose. Let us know wh i ch connect i on i s affected, and we wi l l have our support team check the appropr i ate sol ut i on for the mode l on your order.\n\n资料依据:生产订单 A2 实物图与商品名称；把手松脱来自已知售后问题原型。具体修复步骤尚未确认。\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n13"
+          },
+          {
+            "document_id": "SOP-BELEEV-01",
+            "score": 0.532952,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# A2 三轮滑板车：把手松动，或从立杆连接处脱开\n\n## 客户问题\n\nA2 三轮滑板车。当前生产图片可见双前轮、后轮刹车和高度调节立杆。客户提到把手松动时，要先处理骑乘安全，再讨论补件。\n\n## 先确认什么\n\n1. 核对 A2 型号及实物，成人检查把手、立杆、轮组和刹车有无明显损伤。\n2. 把手或立杆松脱时停止骑乘，不要求孩子继续骑来拍视频。\n3. 年龄、承重和紧固要求以这款产品的有效说明为准；现有资料不能确认时交客服核对。\n\n## 怎么处理\n\n1. 先提醒停止骑乘，并确认松动位置。\n2. 复用订单和已提供的问题描述，请客服查看客户照片或视频。\n3. 查询是否有对应配件或换货方案，安全相关部件交人工确认。\n4. 安排补寄或换货后跟进实际执行记录，不把申请成功当作已经寄出。\n\n## 容易弄错的地方\n\n- 把手装饰套与立杆锁止件不是同一种配件，客户只说“把手坏了”时需要再问位置。\n- 结构松脱不能用绑扎、胶粘或反复加力紧固代替正式处理。\n- 图片只作外观核对，不代表已确认内部结构或拆装方式。\n\n## 交给人工的情况\n\n立杆、轮轴、刹车或踏板结构异常均交人工，不能让客户继续骑乘验证。\n\n## 可以参考的英文回复\n\nPlease stop using the scooter for now if the handlebar is coming loose. Let us know which connection is affected, and we will have our support team check the appropriate solution for the model on your order.\n\n## 资料依据\n\n生产订单 A2 实物图与商品名称；把手松脱来自已知售后问题原型。具体修复步骤尚未确认。\n\n内部整理，非厂家原版说明。具体商品适用范围由独立资料清单记录；未经确认的维修操作不得直接发送给客户。"
+          }
+        ],
+        "KQ-034": [
+          {
+            "document_id": "MAN-OUTONLIFE-01",
+            "score": 0.629763,
+            "page": [
+              8,
+              9
+            ],
+            "section": "OUTONLIFE-01",
+            "version_number": 1,
+            "text": "OUTONLI FE / 产品识别\n\n树形带灯书架\n\n带照明的树形书架。生产商品标题有遥控、定时等功能描述，不同站点对层数的写法并不一致，因此客服应按具体订单与实物核对。\n\n商品图对应:F-SJ001-US-BBR。来源:生产订单关联商品图片。\n\n同系列其他颜色、地区版本以实际订单为准；图片不能代替装配或维修说明。\n\n接到客户问题时先确认\n\n1. 先核对订单。礼物接收者暂时拿不到订单时，说明需要它来确认版本，并保留客户已提供的商品线索。\n\n2. 区分书架结构损坏、灯座损坏和遥控器故障，不把几类问题混在一起。\n\n3. 灯座或电线损坏时停止使用，不让客户自行接线；照片交客服进一步核对。\n\n本批商品编码\n\nF-SJ001-US-BBR、F-SJ001-EU-BBR、F-SJ001-EU-W、F-SJ001-US-BK\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n08\n\nOUTONLI FE / 售后处理参考\n\n礼物没有订单号，或灯座与遥控器需要售后处理\n\n处理思路\n\n1. 缺订单时，优先解释核对版本的原因；客户后来补充订单后继续原问题，不重新开始。\n\n2. 灯座损坏及裸线交人工检查，不能只凭客户写了 E26 就推荐通用灯座。\n\n3. 遥控故障先记录是否换电池、是否已尝试配对，再查对应版本的指导。\n\n4. 客户明确说已经恢复正常时记录结果，再由客服确认是否结案。\n\n容易弄错的地方\n\n客户想付费购买配件时，不能自动当成免费保修申请。\n\n已有西语客户在重新配对后反馈恢复，但这只是特定订单的案例，不能直接说明所有书架灯都用同样步骤。\n\n商品标题出现的层数、灯泡参数或功能，按对应商品记录保留来源；有冲突时不自行选一个答案。\n\n什么时候交给人工\n\n灯座脱落、裸线、层板开裂或倾倒风险时，停止使用并交人工。\n\n英文回复示例\n\nWe understand that the bookshe l f was a gi ft and that you wou ld l i ke to buy the rep l acement part. The or i gi na l order number he l ps us i dent i fy the exact vers i on. I f you can obta i n it from the purchaser, we can cont i nue checki ng the part without aski ng you to repeat the deta i l s you have a l ready sent.\n\n资料依据:生产订单商品图及名称；CASE-003 礼物配件咨询、CASE-004 西语遥控排障。\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n09"
+          },
+          {
+            "document_id": "POL-SIM-V1",
+            "score": 0.578871,
+            "page": [],
+            "section": "section-0004",
+            "version_number": 1,
+            "text": "## 换货补件\n\n质量换货窗口：签收后 365 天；补件窗口：365 天。\n默认更换相同商品编码的产品，核对库存和当前地址，并在退件验货通过后安排换出。缺货时先说明情况，不擅自改颜色、地区版本或型号。替代SKU须客户明确选择并完成适配核验，再交人工确认；不先发后退，例外交人工。\n补件需部件/SKU、地区及硬件版本适配、数量、库存、客户选择和当前地址；安全关键部件交人工。\n购买备用配件不自动成为免费补寄申请。同订单行同份额跨退款、换货、补件检查重复补偿。改方案先查询原申请和已执行记录，检查补件能否取消以及是否已经产生补偿；先核对并处理旧事项，不同时安排两份补偿。"
+          },
+          {
+            "document_id": "SOP-OUTONLIFE-01",
+            "score": 0.546353,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# 树形带灯书架：礼物没有订单号，或灯座与遥控器需要售后处理\n\n## 客户问题\n\n带照明的树形书架。生产商品标题有遥控、定时等功能描述，不同站点对层数的写法并不一致，因此客服应按具体订单与实物核对。\n\n## 先确认什么\n\n1. 先核对订单。礼物接收者暂时拿不到订单时，说明需要它来确认版本，并保留客户已提供的商品线索。\n2. 区分书架结构损坏、灯座损坏和遥控器故障，不把几类问题混在一起。\n3. 灯座或电线损坏时停止使用，不让客户自行接线；照片交客服进一步核对。\n\n## 怎么处理\n\n1. 缺订单时，优先解释核对版本的原因；客户后来补充订单后继续原问题，不重新开始。\n2. 灯座损坏及裸线交人工检查，不能只凭客户写了 E26 就推荐通用灯座。\n3. 遥控故障先记录是否换电池、是否已尝试配对，再查对应版本的指导。\n4. 客户明确说已经恢复正常时记录结果，再由客服确认是否结案。\n\n## 容易弄错的地方\n\n- 客户想付费购买配件时，不能自动当成免费保修申请。\n- 已有西语客户在重新配对后反馈恢复，但这只是特定订单的案例，不能直接说明所有书架灯都用同样步骤。\n- 商品标题出现的层数、灯泡参数或功能，按对应商品记录保留来源；有冲突时不自行选一个答案。\n\n## 交给人工的情况\n\n灯座脱落、裸线、层板开裂或倾倒风险时，停止使用并交人工。\n\n## 可以参考的英文回复\n\nWe understand that the bookshelf was a gift and that you would like to buy the replacement part. The original order number helps us identify the exact version. If you can obtain it from the purchaser, we can continue checking the part without asking you to repeat the details you have already sent.\n\n## 资料依据\n\n生产订单商品图及名称；CASE-003 礼物配件咨询、CASE-004 西语遥控排障。\n\n内部整理，非厂家原版说明。具体商品适用范围由独立资料清单记录；未经确认的维修操作不得直接发送给客户。"
+          }
+        ],
+        "KQ-035": [
+          {
+            "document_id": "POL-SIM-V1",
+            "score": 0.612424,
+            "page": [],
+            "section": "section-0005",
+            "version_number": 1,
+            "text": "## 物流和人工\n\n连续 7 天未更新时进入查件判断；签收未收到须核对包裹，不保证到达日。\n生成单号或物流标签不等于承运商已收件；无记录、不可用、技术失败、未知分开显示。\n安全、冲突、未知适配、反复失败与例外交人工；结案须人工确认。"
+          },
+          {
+            "document_id": "MAN-OUTON-01",
+            "score": 0.381658,
+            "page": [
+              2,
+              3
+            ],
+            "section": "OUTON-01",
+            "version_number": 1,
+            "text": "OUTON / 产品识别\n\n四按键朝天灯\n\n朝天灯，灯头向上照明，灯杆上带控制按键。生产订单的商品标题同时提到遥控调节；客户来信中常见机身可以控制、遥控器失灵的情况。\n\n商品图对应:H-CTD16-US-BK。来源:生产订单关联商品图片。\n\n同系列其他颜色、地区版本以实际订单为准；图片不能代替装配或维修说明。\n\n接到客户问题时先确认\n\n1. 先确认订单中的商品和客户手中的灯一致，尤其是插头规格、颜色和控制方式。\n\n2. 检查外露电线、插头和灯杆连接处是否损坏。发现焦味、火花或异常发热时，停止使用并交客服处理。\n\n3. 先问清楚机身按键能否开灯、调光，再判断是否只涉及遥控器，避免一开始就让客户重复全部操作。本批商品编码\n\nH-CTD16-US-BK、H-CTD16-US-SGY、H-CTD16-UK-BK、H-CTD16-EU-SGY、H-CTD16-EU-W、H-CTD16-UK-SGY、H-CTD16-US-W\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n02\n\nOUTON / 售后处理参考\n\n灯能正常开关，遥控器却没有反应\n\n处理思路\n\n1. 确认机身控制是否正常，以及遥控电池是否已经更换。\n\n2. 如果客户说已经配对过，问清看到的现象，不把同一步骤原样再发一遍。\n\n3. 有适用依据时补充一次关键差异说明；仍失败就检查是否需要更换遥控器。\n\n4. 需要补件时先核对遥控器是否适配，再确认收件信息。付费购买配件的订单与原灯具订单分别跟进。\n\n容易弄错的地方\n\n客户已换电池、断电或重新配对的，先记录结果，不再从头重复要求。\n\n历史客服曾使用以下配对方法:先确认灯能点亮，再断电；按住遥控器开关键重新接通电源，直到灯本体闪烁。需要核对适用版本后再采用。\n\n观察的是灯本体闪烁，不是遥控器上的红色指示灯。客户只看到红灯常亮时，不能说已经配对成功。\n\n什么时候交给人工\n\n灯体也无法工作、出现电气异常，或没有可靠的下一步时交人工，不继续要求反复通电。\n\n英文回复示例\n\n资料依据:生产商品标题；CASE-002 的客户描述和客服往来。配对步骤是历史处理参考，尚非厂家核准说明。\n\nThanks for exp l a i n i ng what you have a l ready tr i ed. Si nce the l amp st i l l works from its own control s, we wi l l check the remote separate ly. When you tr i ed pa i r i ng it, d i d the l amp itse l f f l ash, or d i d on ly the red l i ght on the remote come on?\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n03"
+          },
+          {
+            "document_id": "SOP-OUTON-01",
+            "score": 0.36339,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# 四按键朝天灯：灯能正常开关，遥控器却没有反应\n\n## 客户问题\n\n朝天灯，灯头向上照明，灯杆上带控制按键。生产订单的商品标题同时提到遥控调节；客户来信中常见机身可以控制、遥控器失灵的情况。\n\n## 先确认什么\n\n1. 先确认订单中的商品和客户手中的灯一致，尤其是插头规格、颜色和控制方式。\n2. 检查外露电线、插头和灯杆连接处是否损坏。发现焦味、火花或异常发热时，停止使用并交客服处理。\n3. 先问清楚机身按键能否开灯、调光，再判断是否只涉及遥控器，避免一开始就让客户重复全部操作。\n\n## 怎么处理\n\n1. 确认机身控制是否正常，以及遥控电池是否已经更换。\n2. 如果客户说已经配对过，问清看到的现象，不把同一步骤原样再发一遍。\n3. 有适用依据时补充一次关键差异说明；仍失败就检查是否需要更换遥控器。\n4. 需要补件时先核对遥控器是否适配，再确认收件信息。付费购买配件的订单与原灯具订单分别跟进。\n\n## 容易弄错的地方\n\n- 客户已换电池、断电或重新配对的，先记录结果，不再从头重复要求。\n- 历史客服曾使用以下配对方法：先确认灯能点亮，再断电；按住遥控器开关键重新接通电源，直到灯本体闪烁。需要核对适用版本后再采用。\n- 观察的是灯本体闪烁，不是遥控器上的红色指示灯。客户只看到红灯常亮时，不能说已经配对成功。\n\n## 交给人工的情况\n\n灯体也无法工作、出现电气异常，或没有可靠的下一步时交人工，不继续要求反复通电。\n\n## 可以参考的英文回复\n\nThanks for explaining what you have already tried. Since the lamp still works from its own controls, we will check the remote separately. When you tried pairing it, did the lamp itself flash, or did only the red light on the remote come on?\n\n## 资料依据\n\n生产商品标题；CASE-002 的客户描述和客服往来。配对步骤是历史处理参考，尚非厂家核准说明。\n\n内部整理，非厂家原版说明。具体商品适用范围由独立资料清单记录；未经确认的维修操作不得直接发送给客户。"
+          }
+        ],
+        "KQ-036": [
+          {
+            "document_id": "POL-SIM-V1",
+            "score": 0.632118,
+            "page": [],
+            "section": "section-0004",
+            "version_number": 1,
+            "text": "## 换货补件\n\n质量换货窗口：签收后 365 天；补件窗口：365 天。\n默认更换相同商品编码的产品，核对库存和当前地址，并在退件验货通过后安排换出。缺货时先说明情况，不擅自改颜色、地区版本或型号。替代SKU须客户明确选择并完成适配核验，再交人工确认；不先发后退，例外交人工。\n补件需部件/SKU、地区及硬件版本适配、数量、库存、客户选择和当前地址；安全关键部件交人工。\n购买备用配件不自动成为免费补寄申请。同订单行同份额跨退款、换货、补件检查重复补偿。改方案先查询原申请和已执行记录，检查补件能否取消以及是否已经产生补偿；先核对并处理旧事项，不同时安排两份补偿。"
+          },
+          {
+            "document_id": "SOP-OUTON-02",
+            "score": 0.49948,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# 带托盘三脚架灯：灯罩固定环损坏，或安装时发现缺件\n\n## 客户问题\n\n木质三脚架落地灯，带圆形托盘和布艺灯罩。生产订单可见不同木色、灯罩和地区版本，部分商品标题包含遥控功能。\n\n## 先确认什么\n\n1. 先看订单商品与客户描述是否一致，再确认是灯罩固定、托盘晃动还是灯光问题。\n2. 安装或检查灯罩固定件前先断电，灯泡冷却后再操作。\n3. 如果包装缺零件，请客户说明缺少的位置；收到照片后由客服核对，不凭“螺丝”两个字猜配件。\n\n## 怎么处理\n\n1. 让客户描述损坏部位，已有订单号和照片就继续使用，不重复索要。\n2. 核对是塑料固定环、灯罩本身，还是托盘紧固件。\n3. 能提供配件时确认方案与收件信息，再交负责同事安排。\n4. 安排补寄后查询实际补发记录，有物流信息再通知客户；不能把“会尽快寄出”写成“已经发货”。\n\n## 容易弄错的地方\n\n- 灯罩固定环损坏时，应先确认灯罩、灯座和固定环是否仍在，不把整盏灯都当成报废。\n- 更换灯泡前确认灯座和灯泡标识；规格不清楚时先核对，不只看灯泡外形。\n- 同样叫三脚架灯的款式，灯罩、托盘和电气配置也可能不同，配件按原订单核对。\n\n## 交给人工的情况\n\n灯座破裂、线缆损伤或支架不稳时暂停使用，交客服进一步处理。\n\n## 可以参考的英文回复\n\nWe can help check the part that holds the lampshade in place. Please let us know whether it is the threaded retaining ring or the shade itself that is damaged. If you have already sent your order number, you do not need to send it again.\n\n## 资料依据\n\n生产商品图和订单名称；CASE-001 的固定环损坏及补件往来。\n\n内部整理，非厂家原版说明。具体商品适用范围由独立资料清单记录；未经确认的维修操作不得直接发送给客户。"
+          },
+          {
+            "document_id": "MAN-OUTON-02",
+            "score": 0.459913,
+            "page": [
+              4,
+              5
+            ],
+            "section": "OUTON-02",
+            "version_number": 1,
+            "text": "OUTON / 产品识别\n\n带托盘三脚架灯\n\n木质三脚架落地灯，带圆形托盘和布艺灯罩。生产订单可见不同木色、灯罩和地区版本，部分商品标题包含遥控功能。\n\n商品图对应:H-SJJ0001-EU-WD。来源:生产订单关联商品图片。\n\n同系列其他颜色、地区版本以实际订单为准；图片不能代替装配或维修说明。\n\n接到客户问题时先确认\n\n1. 先看订单商品与客户描述是否一致，再确认是灯罩固定、托盘晃动还是灯光问题。\n\n2. 安装或检查灯罩固定件前先断电，灯泡冷却后再操作。\n\n3. 如果包装缺零件，请客户说明缺少的位置；收到照片后由客服核对，不凭“螺丝”两个字猜配件。\n\n本批商品编码\n\nH-SJJ0001-EU-WD、H-SJJ0001-UK-WT、H-SJJ0001-EU-WT、H-SJJ0001-US-WD、H-SJJ0001-US-WT、H-SJJ0001-AU-WT、H-SJJ0001-EU-WTG、H-SJJ0001-UK-BG、H-SJJ0001-UK-WD、H-SJJ0001-US-BG\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n04\n\nOUTON / 售后处理参考\n\n灯罩固定环损坏，或安装时发现缺件\n\n处理思路\n\n1. 让客户描述损坏部位，已有订单号和照片就继续使用，不重复索要。\n\n2. 核对是塑料固定环、灯罩本身，还是托盘紧固件。\n\n3. 能提供配件时确认方案与收件信息，再交负责同事安排。\n\n4. 安排补寄后查询实际补发记录，有物流信息再通知客户；不能把“会尽快寄出”写成“已经发货”。\n\n容易弄错的地方\n\n灯罩固定环损坏时，应先确认灯罩、灯座和固定环是否仍在，不把整盏灯都当成报废。\n\n更换灯泡前确认灯座和灯泡标识；规格不清楚时先核对，不只看灯泡外形。\n\n同样叫三脚架灯的款式，灯罩、托盘和电气配置也可能不同，配件按原订单核对。\n\n什么时候交给人工\n\n灯座破裂、线缆损伤或支架不稳时暂停使用，交客服进一步处理。\n\n英文回复示例\n\nWe can he l p check the part that holds the l ampshade i n p l ace. Pl ease l et us know whether it i s the threaded reta i n i ng r i ng or the shade itse l f that i s damaged. I f you have a l ready sent your order number, you do not need to send it aga i n.\n\n资料依据:生产商品图和订单名称；CASE-001 的固定环损坏及补件往来。\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n05"
+          }
+        ],
+        "KQ-056": [
+          {
+            "document_id": "MAN-OUTON-01",
+            "score": 0.660202,
+            "page": [
+              2,
+              3
+            ],
+            "section": "OUTON-01",
+            "version_number": 1,
+            "text": "OUTON / 产品识别\n\n四按键朝天灯\n\n朝天灯，灯头向上照明，灯杆上带控制按键。生产订单的商品标题同时提到遥控调节；客户来信中常见机身可以控制、遥控器失灵的情况。\n\n商品图对应:H-CTD16-US-BK。来源:生产订单关联商品图片。\n\n同系列其他颜色、地区版本以实际订单为准；图片不能代替装配或维修说明。\n\n接到客户问题时先确认\n\n1. 先确认订单中的商品和客户手中的灯一致，尤其是插头规格、颜色和控制方式。\n\n2. 检查外露电线、插头和灯杆连接处是否损坏。发现焦味、火花或异常发热时，停止使用并交客服处理。\n\n3. 先问清楚机身按键能否开灯、调光，再判断是否只涉及遥控器，避免一开始就让客户重复全部操作。本批商品编码\n\nH-CTD16-US-BK、H-CTD16-US-SGY、H-CTD16-UK-BK、H-CTD16-EU-SGY、H-CTD16-EU-W、H-CTD16-UK-SGY、H-CTD16-US-W\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n02\n\nOUTON / 售后处理参考\n\n灯能正常开关，遥控器却没有反应\n\n处理思路\n\n1. 确认机身控制是否正常，以及遥控电池是否已经更换。\n\n2. 如果客户说已经配对过，问清看到的现象，不把同一步骤原样再发一遍。\n\n3. 有适用依据时补充一次关键差异说明；仍失败就检查是否需要更换遥控器。\n\n4. 需要补件时先核对遥控器是否适配，再确认收件信息。付费购买配件的订单与原灯具订单分别跟进。\n\n容易弄错的地方\n\n客户已换电池、断电或重新配对的，先记录结果，不再从头重复要求。\n\n历史客服曾使用以下配对方法:先确认灯能点亮，再断电；按住遥控器开关键重新接通电源，直到灯本体闪烁。需要核对适用版本后再采用。\n\n观察的是灯本体闪烁，不是遥控器上的红色指示灯。客户只看到红灯常亮时，不能说已经配对成功。\n\n什么时候交给人工\n\n灯体也无法工作、出现电气异常，或没有可靠的下一步时交人工，不继续要求反复通电。\n\n英文回复示例\n\n资料依据:生产商品标题；CASE-002 的客户描述和客服往来。配对步骤是历史处理参考，尚非厂家核准说明。\n\nThanks for exp l a i n i ng what you have a l ready tr i ed. Si nce the l amp st i l l works from its own control s, we wi l l check the remote separate ly. When you tr i ed pa i r i ng it, d i d the l amp itse l f f l ash, or d i d on ly the red l i ght on the remote come on?\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n03"
+          },
+          {
+            "document_id": "SOP-OUTON-01",
+            "score": 0.609399,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# 四按键朝天灯：灯能正常开关，遥控器却没有反应\n\n## 客户问题\n\n朝天灯，灯头向上照明，灯杆上带控制按键。生产订单的商品标题同时提到遥控调节；客户来信中常见机身可以控制、遥控器失灵的情况。\n\n## 先确认什么\n\n1. 先确认订单中的商品和客户手中的灯一致，尤其是插头规格、颜色和控制方式。\n2. 检查外露电线、插头和灯杆连接处是否损坏。发现焦味、火花或异常发热时，停止使用并交客服处理。\n3. 先问清楚机身按键能否开灯、调光，再判断是否只涉及遥控器，避免一开始就让客户重复全部操作。\n\n## 怎么处理\n\n1. 确认机身控制是否正常，以及遥控电池是否已经更换。\n2. 如果客户说已经配对过，问清看到的现象，不把同一步骤原样再发一遍。\n3. 有适用依据时补充一次关键差异说明；仍失败就检查是否需要更换遥控器。\n4. 需要补件时先核对遥控器是否适配，再确认收件信息。付费购买配件的订单与原灯具订单分别跟进。\n\n## 容易弄错的地方\n\n- 客户已换电池、断电或重新配对的，先记录结果，不再从头重复要求。\n- 历史客服曾使用以下配对方法：先确认灯能点亮，再断电；按住遥控器开关键重新接通电源，直到灯本体闪烁。需要核对适用版本后再采用。\n- 观察的是灯本体闪烁，不是遥控器上的红色指示灯。客户只看到红灯常亮时，不能说已经配对成功。\n\n## 交给人工的情况\n\n灯体也无法工作、出现电气异常，或没有可靠的下一步时交人工，不继续要求反复通电。\n\n## 可以参考的英文回复\n\nThanks for explaining what you have already tried. Since the lamp still works from its own controls, we will check the remote separately. When you tried pairing it, did the lamp itself flash, or did only the red light on the remote come on?\n\n## 资料依据\n\n生产商品标题；CASE-002 的客户描述和客服往来。配对步骤是历史处理参考，尚非厂家核准说明。\n\n内部整理，非厂家原版说明。具体商品适用范围由独立资料清单记录；未经确认的维修操作不得直接发送给客户。"
+          },
+          {
+            "document_id": "POL-SIM-V1",
+            "score": 0.482514,
+            "page": [],
+            "section": "section-0003",
+            "version_number": 1,
+            "text": "## 退货退款\n\n签收后 30 天内（含第 30 天）核对退货原因；窗口外交人工。\n需原因、数量；非质量问题要求商品未使用且配件完整，由客户安排寄回邮资；质量问题的退货标签费用由商家承担。\n寄回须有授权、地址、包装与邮资说明，商家付费时还须预付标签。\n部分退款方案最高为对应商品实付的 20%（2000 基点），以受影响份额计算、最小货币单位整数向下取整。先说明具体金额和币种，取得明确同意后再提交；客户询问金额、表达不满或没有回复，都不算接受。\n全额退款默认在退件签收且验货通过后安排，数量覆盖受影响份额。例外交人工。\n可退余额扣除成功退款及处理中、未知占用；同一申请与执行只扣一次，未知先查原操作。\n退款回原支付渠道；客服在原销售渠道执行退款后，再依据实际回执通知客户。内部申请不等于成功，不承诺固定到账日。"
+          }
+        ],
+        "KQ-058": [
+          {
+            "document_id": "MAN-BELEEV-03",
+            "score": 0.613075,
+            "page": [
+              16,
+              17
+            ],
+            "section": "BELEEV-03",
+            "version_number": 1,
+            "text": "BELEEV / 产品识别\n\nA9 带灯折叠三轮滑板车\n\nA9 可折叠三轮滑板车。当前生产图片显示三轮结构和立杆连接位置；折叠与锁止异常需要单独处理。\n\n商品图对应:SP-SLHBC12-PU。来源:生产订单关联商品图片。\n\n同系列其他颜色、地区版本以实际订单为准；图片不能代替装配或维修说明。\n\n接到客户问题时先确认\n\n1. 确认 A9 型号，让成人按真实随附说明检查展开和锁止状态。\n\n2. 车身已经展开并不代表锁止完成；站立检查不能替代实际结构确认。\n\n3. 缺少有效说明时，不凭图片猜测按钮顺序或扳动方向。\n\n本批商品编码\n\nSP-SLHBC12-PU、SP-SLHBC12-B、SP-SLHBC12-LP\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n16\n\nBELEEV / 售后处理参考\n\n展开后锁不住，或折叠机构卡住\n\n处理思路\n\n1. 先提醒停止骑乘，问清楚卡住或松动的位置。\n\n2. 确认是否以前能正常锁止，以及已经尝试过哪些操作。\n\n3. 没有该版本的可靠指导时交客服查看照片或视频。\n\n4. 补件或换货由客服确认，后续查询本次处理的单据和物流。\n\n容易弄错的地方\n\nA2 和 A9 都是三轮车，但锁止组件不能因此视为通用。\n\n折叠机构卡住时，不要求踩压、敲击或强行扳动。\n\n灯轮正常也不能说明整车安全，结构与照明分别检查。\n\n什么时候交给人工\n\n锁止不可靠、裂纹、夹伤，或轮组/刹车异常时停止使用并交人工。\n\n英文回复示例\n\nPl ease do not r i de the scooter i f the fold i ng mechan i sm i s not locki ng secure ly. Let us know whether it has ever locked correct ly and what happens when you try to unfold it. Our support team wi l l check the next step for th i s mode l.\n\n资料依据:生产订单 A9 实物图和商品名称；缺少经确认的拆装步骤，故不编写拆修指导。\n\n客服内部整理 | 非厂家原版说明书 | 2026-10-07\n\n17"
+          },
+          {
+            "document_id": "POL-SIM-V1",
+            "score": 0.53074,
+            "page": [],
+            "section": "section-0005",
+            "version_number": 1,
+            "text": "## 物流和人工\n\n连续 7 天未更新时进入查件判断；签收未收到须核对包裹，不保证到达日。\n生成单号或物流标签不等于承运商已收件；无记录、不可用、技术失败、未知分开显示。\n安全、冲突、未知适配、反复失败与例外交人工；结案须人工确认。"
+          },
+          {
+            "document_id": "SOP-BELEEV-03",
+            "score": 0.462702,
+            "page": [],
+            "section": "document",
+            "version_number": 1,
+            "text": "# A9 带灯折叠三轮滑板车：展开后锁不住，或折叠机构卡住\n\n## 客户问题\n\nA9 可折叠三轮滑板车。当前生产图片显示三轮结构和立杆连接位置；折叠与锁止异常需要单独处理。\n\n## 先确认什么\n\n1. 确认 A9 型号，让成人按真实随附说明检查展开和锁止状态。\n2. 车身已经展开并不代表锁止完成；站立检查不能替代实际结构确认。\n3. 缺少有效说明时，不凭图片猜测按钮顺序或扳动方向。\n\n## 怎么处理\n\n1. 先提醒停止骑乘，问清楚卡住或松动的位置。\n2. 确认是否以前能正常锁止，以及已经尝试过哪些操作。\n3. 没有该版本的可靠指导时交客服查看照片或视频。\n4. 补件或换货由客服确认，后续查询本次处理的单据和物流。\n\n## 容易弄错的地方\n\n- A2 和 A9 都是三轮车，但锁止组件不能因此视为通用。\n- 折叠机构卡住时，不要求踩压、敲击或强行扳动。\n- 灯轮正常也不能说明整车安全，结构与照明分别检查。\n\n## 交给人工的情况\n\n锁止不可靠、裂纹、夹伤，或轮组/刹车异常时停止使用并交人工。\n\n## 可以参考的英文回复\n\nPlease do not ride the scooter if the folding mechanism is not locking securely. Let us know whether it has ever locked correctly and what happens when you try to unfold it. Our support team will check the next step for this model.\n\n## 资料依据\n\n生产订单 A9 实物图和商品名称；缺少经确认的拆装步骤，故不编写拆修指导。\n\n内部整理，非厂家原版说明。具体商品适用范围由独立资料清单记录；未经确认的维修操作不得直接发送给客户。"
+          }
+        ]
+      }
+    }
+  }
+}

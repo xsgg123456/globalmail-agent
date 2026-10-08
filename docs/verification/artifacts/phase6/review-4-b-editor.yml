@@ -1,0 +1,190 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e6]:
+        - generic [ref=e7] [cursor=pointer]:
+          - img "logo" [ref=e9]
+          - paragraph [ref=e10]: GlobalMail Agent
+        - menubar [ref=e14]:
+          - menuitem "GlobalMail Agent" [expanded] [ref=e15]:
+            - menu [ref=e24]:
+              - menuitem "邮件工作台" [ref=e25] [cursor=pointer]
+              - menuitem "知识库" [ref=e30] [cursor=pointer]
+              - menuitem "系统状态" [ref=e35] [cursor=pointer]
+    - main [ref=e40]:
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45] [cursor=pointer]
+            - generic [ref=e48] [cursor=pointer]
+            - navigation "breadcrumb" [ref=e51]:
+              - list [ref=e52]:
+                - listitem [ref=e53]:
+                  - generic [ref=e54] [cursor=pointer]: GlobalMail Agent
+                  - generic [aria-hidden] [ref=e56]: /
+                - listitem [ref=e57]:
+                  - generic [ref=e58]: 知识库
+          - generic [ref=e60]:
+            - generic [ref=e61] [cursor=pointer]:
+              - generic [ref=e62]: 搜索
+              - generic [ref=e66]: k
+            - generic [ref=e70] [cursor=pointer]
+            - generic [ref=e75] [cursor=pointer]
+            - generic [ref=e78] [cursor=pointer]
+            - generic [ref=e81]: 本机单用户
+        - generic [ref=e83]:
+          - list [ref=e85]:
+            - listitem [ref=e86] [cursor=pointer]: 知识库
+          - generic [ref=e90] [cursor=pointer]
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e98]:
+            - generic [ref=e99]: 本机运行状态
+            - button "刷新状态" [ref=e100] [cursor=pointer]
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - generic [ref=e104]: API：可访问
+              - generic [ref=e106]: 数据库：就绪
+              - generic [ref=e108]: 数据结构：就绪
+              - generic [ref=e110]: 对象存储：就绪
+              - generic [ref=e112]: 模型：已配置，未验证连接
+            - paragraph [ref=e114]: 本机单用户 · Phase 6 知识发布与检索 · 正式 Agent 暂未接入
+        - generic [ref=e115]:
+          - generic [ref=e117]:
+            - heading "知识库" [level=1] [ref=e118]
+            - generic [ref=e119]:
+              - button "刷新列表" [ref=e120] [cursor=pointer]
+              - button "检索试查" [ref=e122] [cursor=pointer]
+              - button "发布记录与模型切换" [ref=e124] [cursor=pointer]
+              - button "导入准备资料" [ref=e126] [cursor=pointer]
+              - button "新建资料" [ref=e128] [cursor=pointer]
+          - generic [ref=e130]:
+            - alert [ref=e131]:
+              - generic [ref=e132]: 资料核对完成后，先构建索引，再显式发布。检索试查只使用当前合格的发布资料。正式 Agent 回复将在下一阶段接入。
+            - generic [ref=e134]:
+              - generic [ref=e136] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选发布状态" [ref=e138]
+                  - generic [ref=e139]: 全部发布状态
+              - generic [ref=e145] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选资料类型" [ref=e147]
+                  - generic [ref=e148]: 全部类型
+              - generic [ref=e154] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选品牌" [ref=e156]
+                  - generic [ref=e157]: 全部品牌
+              - generic [ref=e163]:
+                - generic [ref=e164]:
+                  - combobox "筛选精确型号" [ref=e166]
+                  - generic [ref=e167]: 全部型号
+                - generic [ref=e169] [cursor=pointer]
+              - generic [ref=e173] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选状态" [ref=e175]
+                  - generic [ref=e176]: 全部状态
+            - generic [ref=e359]:
+              - table [ref=e361]:
+                - rowgroup [ref=e368]:
+                  - row [ref=e369]:
+                    - columnheader "资料" [ref=e370]
+                    - columnheader "版本" [ref=e372]
+                    - columnheader "状态" [ref=e374]
+                    - columnheader "用途" [ref=e376]
+                    - columnheader "操作" [ref=e378]
+              - table [ref=e384]:
+                - rowgroup [ref=e391]:
+                  - row [ref=e866]:
+                    - cell [ref=e393]:
+                      - generic [ref=e394]:
+                        - button "独立审查4 A 连接排障" [ref=e395] [cursor=pointer]
+                        - paragraph [ref=e397]: OUTON · 排障 SOP
+                    - cell "第 1 版" [ref=e398]
+                    - cell "已核对" [ref=e662]
+                    - cell "仅供模拟 · 有生效版本" [ref=e867]
+                    - cell [ref=e406]:
+                      - button "查看核对" [ref=e408] [cursor=pointer]
+            - generic [ref=e201]:
+              - button "上一页" [disabled] [ref=e202]
+              - button "下一页" [disabled] [ref=e204]
+        - dialog "新建知识资料" [ref=e869]:
+          - generic [ref=e870]:
+            - generic [ref=e871]:
+              - heading "新建知识资料" [level=2] [ref=e872]
+              - button "关闭此对话框" [ref=e873] [cursor=pointer]
+            - generic [ref=e877]:
+              - alert [ref=e878]:
+                - generic [ref=e879]: 当前导入仅作为模拟知识。保存后还需解析、人工核对；资料保持未发布。
+              - generic [ref=e881]:
+                - generic [ref=e882]:
+                  - generic [ref=e883]: 资料标题（必填）
+                  - textbox "资料标题（必填）" [ref=e887]: 独立审查4 B 书架灯检查
+                - generic [ref=e888]:
+                  - generic [ref=e889]: 资料类型
+                  - generic [ref=e892] [cursor=pointer]:
+                    - generic:
+                      - combobox "资料类型" [ref=e894]
+                      - generic [ref=e895]: 排障 SOP
+                - generic [ref=e900]:
+                  - generic [ref=e901]: 品牌
+                  - generic [ref=e904] [cursor=pointer]:
+                    - generic:
+                      - combobox "品牌" [ref=e906]
+                      - generic [ref=e907]: OUTONLIFE
+                - generic [ref=e912]:
+                  - generic [ref=e913]: 资料来源（必填）
+                  - textbox "资料来源（必填）" [ref=e917]:
+                    - /placeholder: 例如：项目自编模拟安装说明，不要填内部测试字段
+                    - text: 项目自编模拟资料，独立页面核验B，不是厂家说明
+                - generic [ref=e918]:
+                  - generic [ref=e919]: 资料原本可用时间（必填）
+                  - combobox "资料原本可用时间（必填）" [ref=e929]: 2026-10-08 10:00:00
+                - group "导入 Markdown 或受控知识 JSON / JSONL（可选）" [ref=e930]:
+                  - button "选择文本知识原件" [ref=e933]
+                - generic [ref=e934]:
+                  - generic [ref=e935]: Markdown 正文（必填）
+                  - textbox "Markdown 正文（必填）" [ref=e938]:
+                    - /placeholder: 填写完整正文、前提、步骤和警告
+                    - text: "# 安全 先断电，焦味立即停止转人工。 # 操作 检查外部连接，不拆封闭控制器。 独立B仅适用于 F-SJ001-US-BK；书架灯接头松动时检查外部插头，反复失败停止操作交人工。"
+                - generic [ref=e939]:
+                  - generic [ref=e940]: 解析档位
+                  - generic [ref=e943] [cursor=pointer]:
+                    - generic:
+                      - combobox "解析档位" [ref=e945]
+                      - generic [ref=e946]: Markdown结构读取
+                - group "型号适用范围（保存核对前必须明确）" [ref=e951]:
+                  - generic [ref=e954]:
+                    - paragraph [ref=e955]: 明确选择适用型号和章节。选择整份资料，表示你确认整份都适用于该型号。
+                    - generic [ref=e956]:
+                      - generic [ref=e957]:
+                        - generic [ref=e959]:
+                          - generic [ref=e960]:
+                            - combobox "适用章节" [ref=e962]
+                            - generic [ref=e963]: 整份资料（明确绑定）
+                          - generic [ref=e965] [cursor=pointer]
+                        - generic [ref=e969]:
+                          - generic [ref=e970]:
+                            - combobox "精确型号" [expanded] [active] [ref=e972]
+                            - generic [ref=e973]: 请选择
+                          - generic [ref=e975] [cursor=pointer]
+                        - button "移除这条范围" [ref=e978] [cursor=pointer]
+                      - textbox "适用依据" [ref=e982]:
+                        - /placeholder: 填写判断依据，例如：原件第 3 页明确列出这个型号
+                    - button "添加型号适用范围" [ref=e983] [cursor=pointer]
+            - generic [ref=e986]:
+              - button "取消" [ref=e987] [cursor=pointer]
+              - button "保存为新版本" [ref=e989] [cursor=pointer]
+  - generic:
+    - tooltip "点击这里查看主题风格、 开启顶栏菜单等更多配置" [ref=e206]:
+      - paragraph [ref=e207]: 点击这里查看主题风格、 开启顶栏菜单等更多配置
+    - tooltip [ref=e991]:
+      - listbox "精确型号" [ref=e995]:
+        - option "F-SJ001-US-BBR · 书架-树形书架带灯-美规-复古黄" [ref=e996] [cursor=pointer]
+        - option "F-SJ001-EU-BBR · 书架-树形书架带灯-欧规-复古黄" [ref=e997] [cursor=pointer]
+        - option "F-SJ001-EU-W · 书架-树形书架带灯-欧规-白色" [ref=e998] [cursor=pointer]
+        - option "F-SJ001-US-BK · 书架-树形书架带灯-美规-黑色" [ref=e999] [cursor=pointer]
+        - option "F-ZZZ0002-UK-BK · ZZZ-02方形杂志桌灯-充电款-遥控灯泡-英规-黑色" [ref=e1000] [cursor=pointer]
+        - option "F-ZZZ0002-UK-GY · ZZZ-02方形杂志桌灯-充电款-遥控灯泡-英规-灰色" [ref=e1001] [cursor=pointer]
+        - option "F-ZZZ0002-US-BBR-2PCS · ZZZ-02方形杂志桌灯-充电2个布抽款-遥控灯泡-美规-复古黄" [ref=e1002] [cursor=pointer]
+        - option "F-ZZZ0002-US-BK · ZZZ-02方形杂志桌灯-充电款-遥控灯泡-美规-黑色" [ref=e1003] [cursor=pointer]
+        - option "F-ZZZ0002-US-BTB · ZZZ-02方形杂志桌灯-藤编双罩-充电款-遥控灯泡-美规-黑色" [ref=e1004] [cursor=pointer]

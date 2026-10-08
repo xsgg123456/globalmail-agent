@@ -1,0 +1,23 @@
+async page => {
+  const results=[];
+  for(const width of [1440,900]) {
+    await page.setViewportSize({width,height:1000});
+    for(const [name,path] of [['知识库','knowledge'],['邮件工作台','workbench'],['系统状态','system-status']]) {
+      await page.goto('http://127.0.0.1:15177/#/'+path);
+      await page.waitForURL('**/#/'+path);
+      if(path==='knowledge') await page.getByRole('heading',{name:'知识库',exact:true}).waitFor();
+      else if(path==='workbench') await page.getByText('客户会话',{exact:true}).waitFor();
+      else await page.getByText(/^检查时间：/).waitFor();
+      await page.waitForFunction(()=>!document.querySelector('[class*="-enter-active"], [class*="-leave-active"]'));
+      await page.getByText('API：可访问',{exact:true}).waitFor();
+      await page.waitForFunction(()=>!document.querySelector('.el-skeleton'));
+      await page.evaluate(()=>document.fonts.ready);
+      await page.screenshot({path:'docs/verification/artifacts/phase6/review-5-'+path+'-dark-'+width+'.png',fullPage:true});
+      results.push(await page.evaluate(({path,width})=>({path,width,theme:document.documentElement.className,bodyWidth:document.body.scrollWidth,viewport:innerWidth,font:getComputedStyle(document.body).fontFamily}),{path,width}));
+    }
+  }
+  await page.evaluate(v=>window.review5VisualDark=v,results);
+}
+
+
+

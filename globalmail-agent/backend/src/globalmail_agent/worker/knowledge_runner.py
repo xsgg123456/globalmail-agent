@@ -9,14 +9,16 @@ from globalmail_agent.application.conversation_lock import ServiceError
 from globalmail_agent.knowledge.jobs import KnowledgeJobService
 from globalmail_agent.knowledge.parser_process import parse_bytes, ParserFailure, ParserStopped
 from globalmail_agent.knowledge.parser_profiles import fingerprint
+from globalmail_agent.knowledge.index_worker import execute_index
 
 logger = logging.getLogger(__name__)
 
 
 class KnowledgeRunner:
-    def __init__(self, engine, store, workspace_id):
+    def __init__(self, engine, store, workspace_id, embedding_gateway=None):
         self.store = store
         self.jobs = KnowledgeJobService(engine, store, workspace_id)
+        self.embedding_gateway = embedding_gateway
         self.owner = uuid4().hex
         self.stopping = Event()
         self.thread = Thread(target=self.run, name="globalmail-knowledge", daemon=True)
@@ -30,10 +32,12 @@ class KnowledgeRunner:
         self.thread.join(timeout=20)
 
     def execute(self, job):
-        if job["parser_fingerprint"] != fingerprint(job["parser_profile_id"]):
-            raise ParserFailure("parser_configuration_changed")
         def current():
             return not self.stopping.is_set() and self.jobs.heartbeat(job, self.owner, job["slot_fence"])
+        if job["knowledge_operation"] == "index":
+            return execute_index(self.jobs, self.embedding_gateway, job, current, self.stopping.is_set)
+        if job["parser_fingerprint"] != fingerprint(job["parser_profile_id"]):
+            raise ParserFailure("parser_configuration_changed")
         source = self.jobs.source(job)
         cached = self.jobs.cached_result(job)
         if cached:
@@ -66,7 +70,9 @@ class KnowledgeRunner:
                     self.safe_fail(job, error.code, error.retryable)
             except ServiceError as error:
                 if job:
-                    self.safe_fail(job, error.code, error.status == 503)
+                    retryable = error.status == 503 and error.code not in {
+                        "embedding_model_drift", "embedding_configuration_changed", "embedding_profile_mismatch", "profile_integrity_error"}
+                    self.safe_fail(job, error.code, retryable)
             except Exception:
                 if not degraded:
                     logger.warning("knowledge_worker_dependency_unavailable")

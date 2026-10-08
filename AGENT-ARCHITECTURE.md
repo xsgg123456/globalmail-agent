@@ -322,7 +322,7 @@ Markdown直接读结构；政策JSON通过schema及语义校验生成只读说�
 
 默认新profile为已实测qwen3.7-text-embedding 1024维，v4保留已构建可用配置才能回退；模型失败不临时用v4查询新模型索引。Profile含端点配置ID、模型别名、可获得的修订、维度、输入格式、归一化、tokenizer/解析/切分版本；供应商未提供权重修订时明确未知。固定探针检测漂移，不宣称已冻结远端权重。
 
-短SOP/案例在适用范围一致且预算允许时保留完整；长文按章节/完整步骤切分，步骤携带必要前提/停止条件；检索最多20个候选，按父文档去重选最多5份证据，短父全文上限约1200代理tokens，总知识上下文约4500。长文300–600目标、800–1000上限继续为开发初值，300/500在现有样本相同不能称最优。父/邻块重新核验身份、正文摘要、版本与范围，不扩大章节适用性。
+短SOP/案例在适用范围一致且预算允许时保留完整；长文按章节/完整步骤切分，步骤携带必要前提/停止条件；检索最多20个候选，按父文档去重选最多5份证据，总知识上下文约4500。Phase6按ASCII1/非ASCII2代理估算实测固定SOP为1255–1627、案例726–1171，短父全文上限取2000、完整短文嵌入输入上限2500，以保留整篇而非按原1200初值拆碎；实际数量受总预算约束，不保证每次返回5份。长文300–600目标、800–1000上限继续为开发初值，300/500在现有样本相同不能称最优。父/邻块重新核验身份、正文摘要、版本与范围，不扩大章节适用性。
 
 `EvidenceRef` 必须含 `evidence_id / release_id / release_epoch / document_id / version_id / applicability_revision / build_id / embedding_profile_id / chunk_id / parent_id / source_sha256 / content_hash / page / section / figure / source_kind / allowed_scope / available_at / observed_at / completeness`。工具返回原文片段，Draft引用ID，存储可追溯引用和衍生依赖。返回empty、scope_unavailable、incomplete_source、stale_release、provider_error等原因；相似分数不决定能否回答。
 

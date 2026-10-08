@@ -1,0 +1,56 @@
+✔ 货币最小单位保留精度，五种演练币种与日元采用正确位数 (27.2334ms)
+✔ 同订单同SKU的两行物流严格分开，无关联记录不凭型号猜归属 (1.3733ms)
+✔ 已取得的客户选择保留明确拒绝、零金额与未绑定商品，不用候选表单补齐 (1.2659ms)
+✔ 资格输入转精确整数，拒绝负数/小数量/指数/超大金额，保留原输入 (4.4025ms)
+✔ 状态有可读区分，创建单据不声明履约成功，订单关联不混入其他单据 (1.4623ms)
+✔ 多商品不自动选首行；精确订单号查询不产生写命令，模拟格式原样传递 (11.7532ms)
+✔ 会话切换及版本变化立即清除旧业务，忽略晚到结果 (5.0628ms)
+✔ 业务网络失败保留精确订单输入；空结果、历史不可用和未知不伪造订单 (2.1416ms)
+✔ 只读资格请求使用规范字段，晚到资格与库存不能串到新会话 (1.4393ms)
+✔ 场景创建未知结果重试使用同键和固定expected_version，成功后新建独立命令 (1.4695ms)
+✔ 事件只接受本会话作用域并按序去重 (1.4988ms)
+✔ 连接带after_seq；断线保持同连接让原生EventSource补读；切会话取消旧连接与晚到事件 (1.5072ms)
+✔ 跨作用域或畸形事件关闭流，给出明确刷新恢复路径 (0.3359ms)
+[Vue warn]: onUnmounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+[Vue warn]: onUnmounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+✔ 索引与发布未知响应重试固定body/key和CAS；明确409后新键重提 (6.0823ms)
+✔ 同版本刷新和资料切换晚到不覆盖；关闭后不再写入 (1.8369ms)
+✔ 整批切换收集全部分页，不漏当前生效资料；错误不伪装候选完成 (2.3825ms)
+[Vue warn]: onUnmounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+[Vue warn]: onUnmounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+✔ 整批候选加载结束后关闭，迟到结果不会更新抽屉 (6.4515ms)
+✔ 试查保留实际请求条件，后续编辑不把旧结果说成新条件；关闭后丢弃迟到结果 (1.6813ms)
+✔ 向量服务报错和来源不完整分开显示；错误后原问题仍可重试 (0.5863ms)
+✔ 当前是新草稿时，整批发布仍展示历史生效版本的合格构建 (0.5934ms)
+✔ 知识写入接受202；丢失响应后重试保留原body/key，409后允许明确刷新版本 (4.8521ms)
+[Vue warn]: onMounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+[Vue warn]: onUnmounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+[Vue warn]: onMounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+[Vue warn]: onUnmounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+✔ 上传响应未知保留原key，成功后复用上传结果，不重复生成原件 (13.2475ms)
+✔ 详情读取只GET；快速切换资料/同版刷新时晚到响应不能覆盖当前资料 (3.4329ms)
+✔ 筛选和分页真实传参；命令失败保留错误，GET恢复不清空操作错误 (2.3272ms)
+✔ 任务轮询在组件卸载后停止，晚到详情不再写界面 (1658.7254ms)
+✔ 清理已持久化的模板页签，保留业务页签和其参数 (2.0105ms)
+✔ 接受真实200/202资源，拒绝HTTP和envelope不一致以及空资源 (2.3025ms)
+✔ 未知结果重试沿用key和原payload版本，只有新参数或已完成才另建命令 (0.4381ms)
+✔ 响应式导入对象按HTTP JSON编码快照，编辑后不改变未知结果重试内容 (1.0206ms)
+✔ 表单校验覆盖空白、长度、邮箱及保留换行 (0.5045ms)
+✔ 受控文件输入读取JSON，拒绝错误扩展、非法JSON和超限文件 (3.4968ms)
+✔ 选择/刷新只GET，不生成任务；输入按会话保存；服务错误有真实状态 (4.3225ms)
+✔ 人工提交409保留文本并刷新；新来信不能静默重绑定草稿，明确核对后才使用新输入版本 (4.3145ms)
+✔ 网络结果未知后即使快照更新，重试仍是同key和同payload；成功才清空来信 (2.6027ms)
+✔ 快速切换会话时忽略前一会话晚到快照 (0.5583ms)
+✔ 列表分页和模式/状态过滤传给服务端，过滤变化重置页码 (1.5152ms)
+✔ 人审草稿PATCH使用review版本，完成人工回复另带会话和输入版本 (2.2152ms)
+✔ 接受实际HTTP200存活与503依赖故障 (2.0317ms)
+✔ 拒绝假成功、失配状态及非法配置 (0.5846ms)
+✔ 运行配置仅接受当前阶段实际能力标志 (0.3357ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2581.3481

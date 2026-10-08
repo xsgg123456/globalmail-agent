@@ -1,0 +1,160 @@
+[
+  {
+    "number": 1,
+    "request": "{\"expected_release_epoch\":1,\"build_ids\":[\"cc468f18-d7a1-4f6d-bb65-c949d3b87e51\"],\"replace_all\":true}",
+    "key": "0891be71-10ad-4e92-9777-d5d3451a8c98",
+    "status": 200,
+    "response": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "3ae5f70a-431b-440c-974b-53522990dad8",
+          "epoch": 2,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "release": {
+          "id": "3ae5f70a-431b-440c-974b-53522990dad8",
+          "epoch": 2,
+          "operation": "publish",
+          "profile": {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "region": "cn-beijing",
+            "probe_id": "power_remote_multilingual_v1",
+            "provider": "dashscope",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "dimensions": 1024,
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "normalization": "unit_l2_float32_v1",
+            "probe_min_cosine": 0.9995,
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "provider_weight_revision": null
+          },
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+          "entries": [
+            {
+              "brand": "OUTON",
+              "title": "独立审查4 A 连接排障",
+              "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+              "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+              "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+              "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+              "source_kind": "user_provided_simulation_knowledge",
+              "usage_split": "rag",
+              "available_at": "2026-10-08T02:00:00+00:00",
+              "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+              "allowed_modes": [
+                "simulation"
+              ],
+              "document_type": "troubleshooting_md",
+              "policy_bundle": null,
+              "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+              "version_number": 1,
+              "revocation_epoch": 0,
+              "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+              "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+            }
+          ],
+          "manifest_sha256": "cf4e8cdd4f42b556d18b63e039e3388fd5eafaec9303be830b77e41d50b4cc9f",
+          "effective_at": "2026-10-08T07:20:18.831114+00:00",
+          "created_at": "2026-10-08T07:20:18.799447+00:00",
+          "actor": "local_operator"
+        }
+      },
+      "request_id": "7fc348db-6102-4d7d-bf64-000f33551675"
+    }
+  },
+  {
+    "number": 2,
+    "request": "{\"expected_release_epoch\":2,\"build_ids\":[\"d62f3ac3-2d7b-49a2-9e56-732b28972497\",\"cc468f18-d7a1-4f6d-bb65-c949d3b87e51\"],\"replace_all\":true}",
+    "key": "d6d81d8d-ccd2-43a1-854f-f1cb43a322aa",
+    "status": 200,
+    "response": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "head": {
+          "release_id": "be327032-7633-4887-b85c-25f19280b6a1",
+          "epoch": 3,
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1"
+        },
+        "release": {
+          "id": "be327032-7633-4887-b85c-25f19280b6a1",
+          "epoch": 3,
+          "operation": "publish",
+          "profile": {
+            "key": "qwen3.7-text-embedding",
+            "label": "Qwen3.7 · 1024维",
+            "model": "qwen3.7-text-embedding",
+            "region": "cn-beijing",
+            "probe_id": "power_remote_multilingual_v1",
+            "provider": "dashscope",
+            "tokenizer": "proxy_ascii1_unicode2_v1",
+            "dimensions": 1024,
+            "input_format": "title_path_prerequisite_body_v1",
+            "query_format": "plain_query_v1",
+            "normalization": "unit_l2_float32_v1",
+            "probe_min_cosine": 0.9995,
+            "endpoint_config_id": "dashscope_beijing_5891aed827c4e67b",
+            "provider_weight_revision": null
+          },
+          "embedding_profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+          "entries": [
+            {
+              "brand": "OUTONLIFE",
+              "title": "独立审查4 B 书架灯检查",
+              "build_id": "d62f3ac3-2d7b-49a2-9e56-732b28972497",
+              "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+              "version_id": "2962e11a-8690-47a1-8ad8-3063d75a3525",
+              "document_id": "4cdda2e0-83a7-4cce-838a-fdb15a10575a",
+              "source_kind": "user_provided_simulation_knowledge",
+              "usage_split": "rag",
+              "available_at": "2026-10-08T02:00:00+00:00",
+              "parse_sha256": "779bcd9c66476c89d64c536a18004c09174e1b69f864d9583676abc151536263",
+              "allowed_modes": [
+                "simulation"
+              ],
+              "document_type": "troubleshooting_md",
+              "policy_bundle": null,
+              "source_sha256": "f8cb5f5db3f1d56eb74462ab3886b655dfc47866592c66cd82a58784e60c3cb0",
+              "version_number": 1,
+              "revocation_epoch": 0,
+              "index_manifest_sha256": "13337bc944826e567bfdc66aff40b7b7430212cb89062a2a78f49c88534428f9",
+              "applicability_revision": "10e5fb5f2d981af47aa8d763072f5a232e09b510a97fa1b6348aeb411578da2e"
+            },
+            {
+              "brand": "OUTON",
+              "title": "独立审查4 A 连接排障",
+              "build_id": "cc468f18-d7a1-4f6d-bb65-c949d3b87e51",
+              "profile_id": "30f31cd0-9e43-4e3e-986d-5b172be91ce1",
+              "version_id": "ec7bcc17-ca83-44bb-9ad6-cbb3133f4b3c",
+              "document_id": "ba339189-7ad8-482a-b67b-309a717fe820",
+              "source_kind": "user_provided_simulation_knowledge",
+              "usage_split": "rag",
+              "available_at": "2026-10-08T02:00:00+00:00",
+              "parse_sha256": "32a0fd9f51ce5b20baf83da3d908dc51b277c5d4d64a8bdb5c2b2bc65175a722",
+              "allowed_modes": [
+                "simulation"
+              ],
+              "document_type": "troubleshooting_md",
+              "policy_bundle": null,
+              "source_sha256": "55dddcd1470619178e1f64cfef8e7c213fa5662922f67169bbbfd94ecf378aa2",
+              "version_number": 1,
+              "revocation_epoch": 0,
+              "index_manifest_sha256": "1d9cad7b0d92da552afa69e86aaeeefb93da533a0a69bf884c150ab1171d5985",
+              "applicability_revision": "866e7152081d140df72f7497fd3c1e42cdc03ead39db584cd29c54cc6c0d4f45"
+            }
+          ],
+          "manifest_sha256": "90308a7116fe69ea83f9c96ec00debf30cfaba857f23a2ef08ba210fda4d8881",
+          "effective_at": "2026-10-08T07:21:03.106564+00:00",
+          "created_at": "2026-10-08T07:21:03.051347+00:00",
+          "actor": "local_operator"
+        }
+      },
+      "request_id": "c750dec6-0172-47d5-b9d2-d8aa8ef48e71"
+    }
+  }
+]

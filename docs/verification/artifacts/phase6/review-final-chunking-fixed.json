@@ -1,0 +1,238 @@
+{
+  "validated_content": true,
+  "validated_bindings": true,
+  "parent_count": 3,
+  "operation_parents": 2,
+  "operation_warning_present": [
+    true,
+    true
+  ],
+  "operation_embedding_warning_present": [
+    [
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true
+    ]
+  ],
+  "parents": [
+    {
+      "section_id": "safety",
+      "text": "Warning: unplug power before performing any following operation. Stop if damaged.",
+      "content_sha256": "6bcba4aa4f18ec17b42587bedae78cb3b7f56a15b0a8c7b53add18c2f724ec50",
+      "applicability": [
+        {
+          "section_id": "safety",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "A�ͺŹ�ͬ��ȫǰ��"
+        }
+      ],
+      "locations": [
+        {
+          "block_id": "json-0001",
+          "page": null,
+          "section": "safety",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        }
+      ],
+      "proxy_tokens": 81,
+      "children": [
+        {
+          "input_text": "A�ͺ�����\n�½ڣ�safety\n��Ҫǰ����ֹͣ������\nWarning: unplug power before performing any following operation. Stop if damaged.\n���ģ�\nWarning: unplug power before performing any following operation. Stop if damaged.",
+          "input_sha256": "5a59b03599bdf671db76eb2f6d6c269c298f44dc679ee1b20084419d289acd4d"
+        }
+      ]
+    },
+    {
+      "section_id": "operation",
+      "text": "Warning: unplug power before performing any following operation. Stop if damaged.\n\nStep 0: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\nStep 1: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\nStep 2: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\nStep 3: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\nStep 4: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "content_sha256": "d8b7ca66adc70721804bf73a17aeb068b1419e303c73084b32d9c44954b33e24",
+      "applicability": [
+        {
+          "section_id": "operation",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "A�ͺŲ�������"
+        },
+        {
+          "section_id": "safety",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "A�ͺŹ�ͬ��ȫǰ��"
+        }
+      ],
+      "locations": [
+        {
+          "block_id": "json-0002",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0003",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0004",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0005",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0006",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0001",
+          "page": null,
+          "section": "safety",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        }
+      ],
+      "proxy_tokens": 1881,
+      "children": [
+        {
+          "input_text": "A�ͺ�����\n�½ڣ�operation\n��Ҫǰ����ֹͣ������\nWarning: unplug power before performing any following operation. Stop if damaged.\n���ģ�\nStep 0: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\nStep 1: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "input_sha256": "01da22d0210603113b3cbada8f8a50c84eda26ff545c21717d0c3362d96a505b"
+        },
+        {
+          "input_text": "A�ͺ�����\n�½ڣ�operation\n��Ҫǰ����ֹͣ������\nWarning: unplug power before performing any following operation. Stop if damaged.\n���ģ�\nStep 2: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\nStep 3: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "input_sha256": "65caf76038437e0803c1606755e3b6cc20e9ab010ed86c670a1ba9bcbf9b3ab2"
+        },
+        {
+          "input_text": "A�ͺ�����\n�½ڣ�operation\n��Ҫǰ����ֹͣ������\nWarning: unplug power before performing any following operation. Stop if damaged.\n���ģ�\nStep 4: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "input_sha256": "07c95b5d2fa11cc634dbd049d77893ec7acac8848923e8bea8954d8d4f25cebe"
+        }
+      ]
+    },
+    {
+      "section_id": "operation",
+      "text": "Warning: unplug power before performing any following operation. Stop if damaged.\n\nStep 5: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\nStep 6: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\nStep 7: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\nStep 8: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "content_sha256": "77f1ff1ffda09b6c9deccfdc51cf90c07a416b2ce82e0a5635d41587b94aacb8",
+      "applicability": [
+        {
+          "section_id": "operation",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "A�ͺŲ�������"
+        },
+        {
+          "section_id": "safety",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "A�ͺŹ�ͬ��ȫǰ��"
+        }
+      ],
+      "locations": [
+        {
+          "block_id": "json-0007",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0008",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0009",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0010",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0001",
+          "page": null,
+          "section": "safety",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        }
+      ],
+      "proxy_tokens": 1521,
+      "children": [
+        {
+          "input_text": "A�ͺ�����\n�½ڣ�operation\n��Ҫǰ����ֹͣ������\nWarning: unplug power before performing any following operation. Stop if damaged.\n���ģ�\nStep 5: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\nStep 6: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "input_sha256": "ca8d7121f1571956b96be8689e99ca47c95764bc5c7ab4a606a0fcb55ef350a9"
+        },
+        {
+          "input_text": "A�ͺ�����\n�½ڣ�operation\n��Ҫǰ����ֹͣ������\nWarning: unplug power before performing any following operation. Stop if damaged.\n���ģ�\nStep 7: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\nStep 8: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "input_sha256": "03d6a0e04772d2a4560c75b800685fadd3e6e671a2766be5c2ee700b0a4d7d73"
+        }
+      ]
+    }
+  ]
+}

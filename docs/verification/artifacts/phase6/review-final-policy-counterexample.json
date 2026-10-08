@@ -1,0 +1,29 @@
+{
+  "scope": "read_only_production_validated_policy_evidence",
+  "observations": [
+    {
+      "source": "data/knowledge/v1/policies/policy-profile.json",
+      "source_sha256": "bfee43f2bc9636d90a343940fb40e072d649ecaae818e0705afed6047077e305",
+      "policy_version": "1.0.1",
+      "generator_version": "knowledge-policy/1.0",
+      "partial_requires_explicit_amount_currency_acceptance": true,
+      "description_explicit_consent_present": false,
+      "description_question_is_not_consent_present": false,
+      "alternative_sku_rule": "explicit_customer_choice_and_compatibility_then_human_review",
+      "description_sha256": "e874d434e8b8c0a2533b9842280f50f0c727120414c344fdd04bf907cad0f919",
+      "full_production_generated_description": "# 模拟售后政策草稿 1.0.1\n\n政策编号：SIM-AFTERSALES-2026-10-V1。来源：项目模拟规则。状态：未发布，仅供人工核对。\n品牌：OUTON、OUTONLIFE、BELEEV；市场：US、GB、DE、CA、AU。\n渠道：amazon、brand_store；币种：USD、GBP、EUR、CAD、AUD。\n用途仅限 simulation，不能授权真实业务，不换汇。\n隔离模拟环境的项目规则，不是品牌承诺、销售平台现行政策或地区法律结论。超出声明范围返回 policy_not_covered；不得自动换算货币。\n\n## 订单、数量与客户选择\n\n准确订单、SKU、数量、受影响份额与实付金额必须核验。选择须来自可见客户消息；退款需明确金额和币种。\n地址须和当前客户选择版本一致；金额使用最小货币单位整数。\n\n## 退货退款\n\n退货窗口：签收后 30 天，含边界；窗口外交人工。\n需原因、数量；非质量退货须未使用且完整。质量问题商家承担寄回费用，其他退货客户自行安排邮资。\n寄回须有授权、地址、包装与邮资说明，商家付费时还须预付标签。\n部分退款上限为受影响实付份额的 2000 基点（20%），整数向下取整。\n全额退款前须有仓库收件与质检，数量覆盖受影响份额。例外交人工。\n可退余额扣除成功退款及处理中、未知占用；同一申请与执行只扣一次，未知先查原操作。\n退款回原支付渠道；内部申请不等于成功，不承诺固定到账日。\n\n## 换货补件\n\n质量换货窗口：签收后 365 天；补件窗口：365 天。\n换货需原准确SKU、库存、当前地址、寄回收件与质检，不先发后退；替代型号交人工核对。\n补件需部件/SKU、地区及硬件版本适配、数量、库存、客户选择和当前地址；安全关键部件交人工。\n购买备用件不构成免费售后资格。同订单行同份额跨退款、换货、补件检查重复补偿。\n\n## 物流和人工\n\n轨迹 7 天未更新可查件；签收未收到须核对包裹，不保证到达日。\n建标签不等于发货；无记录、不可用、技术失败、未知分开显示。\n安全、冲突、未知适配、反复失败与例外交人工；结案须人工确认。\n\n## 逐项证据要求\n\n此v1规则没有视觉证据映射，图片不能升级为账本或交易资格。\n"
+    },
+    {
+      "source": "data/knowledge/v2/policies/policy-profile.json",
+      "source_sha256": "cf355a4031415ccccc6be439a24703b80aa7d6de9270591cc3dca34fe86bac19",
+      "policy_version": "2.0.0",
+      "generator_version": "knowledge-policy/1.0",
+      "partial_requires_explicit_amount_currency_acceptance": true,
+      "description_explicit_consent_present": true,
+      "description_question_is_not_consent_present": false,
+      "alternative_sku_rule": "explicit_customer_choice_and_compatibility_then_human_review",
+      "description_sha256": "dff2201008c8e5d39dc404f16582bfcc5f63423c19452b2631e0c65f86691d55",
+      "full_production_generated_description": "# 模拟售后政策草稿 2.0.0\n\n政策编号：SIM-AFTERSALES-2026-10-V2。来源：项目模拟规则。状态：未发布，仅供人工核对。\n品牌：OUTON、OUTONLIFE、BELEEV；市场：US、GB、DE、CA、AU。\n渠道：amazon、brand_store；币种：USD、GBP、EUR、CAD、AUD。\n用途仅限 simulation，不能授权真实业务，不换汇。\n隔离模拟环境的项目规则，不是品牌承诺、销售平台现行政策或地区法律结论。超出声明范围返回 policy_not_covered；不得自动换算货币。\n\n## 订单、数量与客户选择\n\n准确订单、SKU、数量、受影响份额与实付金额必须核验。选择须来自可见客户消息；退款需明确金额和币种。\n地址须和当前客户选择版本一致；金额使用最小货币单位整数。\n\n## 退货退款\n\n退货窗口：签收后 30 天，含边界；窗口外交人工。\n需原因、数量；非质量退货须未使用且完整。质量问题商家承担寄回费用，其他退货客户自行安排邮资。\n寄回须有授权、地址、包装与邮资说明，商家付费时还须预付标签。\n部分退款上限为受影响实付份额的 2000 基点（20%），整数向下取整。\n全额退款前须有仓库收件与质检，数量覆盖受影响份额。例外交人工。\n可退余额扣除成功退款及处理中、未知占用；同一申请与执行只扣一次，未知先查原操作。\n退款回原支付渠道；内部申请不等于成功，不承诺固定到账日。\n\n## 换货补件\n\n质量换货窗口：签收后 365 天；补件窗口：365 天。\n换货需原准确SKU、库存、当前地址、寄回收件与质检，不先发后退；替代型号交人工核对。\n补件需部件/SKU、地区及硬件版本适配、数量、库存、客户选择和当前地址；安全关键部件交人工。\n购买备用件不构成免费售后资格。同订单行同份额跨退款、换货、补件检查重复补偿。\n\n## 物流和人工\n\n轨迹 7 天未更新可查件；签收未收到须核对包裹，不保证到达日。\n建标签不等于发货；无记录、不可用、技术失败、未知分开显示。\n安全、冲突、未知适配、反复失败与例外交人工；结案须人工确认。\n\n## 逐项证据要求\n\n- 准确订单商品（order_identity）：允许 tool_fact, verified_fixture, human_decision；业务工具核验客户范围、准确订单行和SKU；缺失：needs_input。\n- 受影响数量与份额（quantity）：允许 tool_fact, verified_fixture, human_decision；正整数；部分数量必须有明确单位份额及金额分摊；缺失：needs_input。\n- 实付金额（paid_amount）：允许 tool_fact, verified_fixture, human_decision；订单行实付最小货币单位整数与币种；不得换汇；缺失：needs_input。\n- 客户明确选择（customer_choice）：允许 customer_statement, verified_fixture, human_decision；可见客户消息明确接受动作、数量；退款还须金额和币种；缺失：needs_input。\n- 当前地址确认（address）：允许 customer_statement, verified_fixture, human_decision；可见选择的地址版本必须等于当前已确认版本；缺失：needs_input。\n- 客户问题申报（reported_problem）：允许 customer_statement, visual_observation, verified_fixture, human_decision；准确商品已核验；视觉仅支持可见外观，不确定或未拍到不得确认为缺件或根因；缺失：needs_input。\n- 未使用且完整（return_condition）：允许 customer_statement, verified_fixture, human_decision；明确客户申报或人工核对；图片未拍到不证明完整或缺件；缺失：needs_input。\n- 仓库已收件（warehouse_receipt）：允许 tool_fact, verified_fixture, human_decision；仓库回执关联订单行，收件数量覆盖受影响份额；客户声明不替代；缺失：needs_input。\n- 仓库质检通过（warehouse_inspection）：允许 tool_fact, verified_fixture, human_decision；仓库质检回执关联收件记录，合格数量覆盖受影响份额；缺失：requires_review。\n- 准确适配（compatibility）：允许 tool_fact, verified_fixture, human_decision；准确部件/SKU、硬件版本、地区规格适配记录；无记录不猜兼容；缺失：requires_review。\n- 可用库存（inventory）：允许 tool_fact, verified_fixture, human_decision；当前范围库存以on_hand减reserved；当前有货不保证未来履约；缺失：needs_input。\n- 已有补偿与占用（compensation_ledger）：允许 tool_fact, verified_fixture, human_decision；跨事项查同订单行同份额；成功退款与处理中/未知按同一operation只扣一次；缺失：requires_review。\n- 签收与政策窗口（delivery_date）：允许 tool_fact, verified_fixture, human_decision；可信签收时间与当前截点比较，未知不使用购买日代替；缺失：needs_input。\n- 安全风险（safety）：允许 customer_statement, visual_observation, verified_fixture, human_decision；有效安全风险交人工，不凭未看清或技术失败伪造风险；缺失：requires_review。\n"
+    }
+  ]
+}

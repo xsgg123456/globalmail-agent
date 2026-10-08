@@ -1,0 +1,661 @@
+{
+  "result": "PASS",
+  "shared_operation_parent_count": 4,
+  "a_only_warning_all_inputs": true,
+  "b_no_a_warning_all_inputs": true,
+  "full_warning_paragraph_preserved": true,
+  "heading_scope_text_preserved": true,
+  "short_same_sku_different_bindings_complete": true,
+  "all_limits_verified": true,
+  "shared_parents": [
+    {
+      "section_id": "safety",
+      "text": "Warning:\nKeep hands dry.\nDisconnect the supply before these steps.",
+      "content_sha256": "90a29c4ee131a101f75f4ca7055487c312f18dea410a7a48e4b921a9aa28d433",
+      "applicability": [
+        {
+          "section_id": "safety",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "A独有前提"
+        }
+      ],
+      "locations": [
+        {
+          "block_id": "json-0001",
+          "page": null,
+          "section": "safety",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        }
+      ],
+      "proxy_tokens": 66,
+      "children": [
+        {
+          "input_text": "独立排障核对\n章节：safety\n必要前提与停止条件：\nWarning:\nKeep hands dry.\nDisconnect the supply before these steps.\n正文：\nWarning:\nKeep hands dry.\nDisconnect the supply before these steps.",
+          "input_sha256": "794fe3e5ee0817a9e92e073410e6bcefba2beb841b500aaece64f288665c6d49"
+        }
+      ]
+    },
+    {
+      "section_id": "operation",
+      "text": "Warning:\nKeep hands dry.\nDisconnect the supply before these steps.\n\nStep 0: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 1: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 2: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 3: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 4: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "content_sha256": "84a84ae81af2c332148aa6a185b37e4dc23a858f1da16e26f00cef723ccd134a",
+      "applicability": [
+        {
+          "section_id": "operation",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "A明确操作"
+        },
+        {
+          "section_id": "safety",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "A独有前提"
+        }
+      ],
+      "locations": [
+        {
+          "block_id": "json-0002",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0003",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0004",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0005",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0006",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0001",
+          "page": null,
+          "section": "safety",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        }
+      ],
+      "proxy_tokens": 1866,
+      "children": [
+        {
+          "input_text": "独立排障核对\n章节：operation\n必要前提与停止条件：\nWarning:\nKeep hands dry.\nDisconnect the supply before these steps.\n正文：\nStep 0: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 1: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "input_sha256": "d059d682fb458e8b8393bdc3602e91135e39acd691269ecdd42b05f52cd59c1c"
+        },
+        {
+          "input_text": "独立排障核对\n章节：operation\n必要前提与停止条件：\nWarning:\nKeep hands dry.\nDisconnect the supply before these steps.\n正文：\nStep 2: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 3: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "input_sha256": "bed18014cff35e05d98f22b76ab123b21d4bf5ed5184e925b0aaf50bed4ccabc"
+        },
+        {
+          "input_text": "独立排障核对\n章节：operation\n必要前提与停止条件：\nWarning:\nKeep hands dry.\nDisconnect the supply before these steps.\n正文：\nStep 4: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "input_sha256": "ad8d274e2e70d94791d4c26d71de8f2ba7b27f5f8cbbe3404675b80cb4e74fad"
+        }
+      ]
+    },
+    {
+      "section_id": "operation",
+      "text": "Warning:\nKeep hands dry.\nDisconnect the supply before these steps.\n\nStep 5: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 6: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 7: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "content_sha256": "fdeb023df0c31ef55037eac00e62e4148cc697add14cb5d559f3684642cdf825",
+      "applicability": [
+        {
+          "section_id": "operation",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "A明确操作"
+        },
+        {
+          "section_id": "safety",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "A独有前提"
+        }
+      ],
+      "locations": [
+        {
+          "block_id": "json-0007",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0008",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0009",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0001",
+          "page": null,
+          "section": "safety",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        }
+      ],
+      "proxy_tokens": 1146,
+      "children": [
+        {
+          "input_text": "独立排障核对\n章节：operation\n必要前提与停止条件：\nWarning:\nKeep hands dry.\nDisconnect the supply before these steps.\n正文：\nStep 5: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 6: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "input_sha256": "85af0c41df074cdc5062a6d8ccd065b25ccf2d1f47b8b39919e7b77bea8d31bf"
+        },
+        {
+          "input_text": "独立排障核对\n章节：operation\n必要前提与停止条件：\nWarning:\nKeep hands dry.\nDisconnect the supply before these steps.\n正文：\nStep 7: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "input_sha256": "66be461fe854bc880230ea83ad8abdb8c388530a0b8885c65bfca2f9c221bf48"
+        }
+      ]
+    },
+    {
+      "section_id": "operation",
+      "text": "Step 0: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 1: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 2: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 3: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 4: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "content_sha256": "1dff25a50f8973edbde48de1ab298e7b69f410a002165bd165b674336fc95d9e",
+      "applicability": [
+        {
+          "section_id": "operation",
+          "sku": "H-CTD16-US-SGY",
+          "page_start": null,
+          "page_end": null,
+          "basis": "B共享操作"
+        }
+      ],
+      "locations": [
+        {
+          "block_id": "json-0002",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0003",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0004",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0005",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0006",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        }
+      ],
+      "proxy_tokens": 1798,
+      "children": [
+        {
+          "input_text": "独立排障核对\n章节：operation\n正文：\nStep 0: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 1: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "input_sha256": "6c5cec6c0100ac5d48243ae64daac8bc886ed2a8cd0363fa31b1fd24d276e9b5"
+        },
+        {
+          "input_text": "独立排障核对\n章节：operation\n正文：\nStep 2: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 3: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "input_sha256": "c32830bb02ac2d07d101e7b628c18ac5f48af3827f5d09763e441a85d01a9688"
+        },
+        {
+          "input_text": "独立排障核对\n章节：operation\n正文：\nStep 4: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "input_sha256": "a9402907d39943aef0340f43d407924c77bcef3f0f592cd96a9c3624c1be7c61"
+        }
+      ]
+    },
+    {
+      "section_id": "operation",
+      "text": "Step 5: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 6: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 7: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "content_sha256": "b926e357f0cbdfa43690ea531f0636e95c242ea6c64b18d5861c897aa0a8d8fb",
+      "applicability": [
+        {
+          "section_id": "operation",
+          "sku": "H-CTD16-US-SGY",
+          "page_start": null,
+          "page_end": null,
+          "basis": "B共享操作"
+        }
+      ],
+      "locations": [
+        {
+          "block_id": "json-0007",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0008",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0009",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        }
+      ],
+      "proxy_tokens": 1078,
+      "children": [
+        {
+          "input_text": "独立排障核对\n章节：operation\n正文：\nStep 5: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n\nStep 6: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "input_sha256": "9926c5b34917a86140bac362129bc6a9885375d8d31e59d8f4023854d76b9e9e"
+        },
+        {
+          "input_text": "独立排障核对\n章节：operation\n正文：\nStep 7: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "input_sha256": "9f2df04a662988d7f0291739ac3b287c1f66611809923a879988354cb51050bc"
+        }
+      ]
+    }
+  ],
+  "heading_parents": [
+    {
+      "section_id": "precautions",
+      "text": "安全前提\n\nKeep hands dry. Wear protective gloves.",
+      "content_sha256": "7a908a86dc4ade5f26692a780b32eeda70e295169af8e865db3debc12665d96f",
+      "applicability": [
+        {
+          "section_id": "precautions",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "标题涵盖的安全前提"
+        }
+      ],
+      "locations": [
+        {
+          "block_id": "json-0001",
+          "page": null,
+          "section": "precautions",
+          "type": "heading",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0002",
+          "page": null,
+          "section": "precautions",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        }
+      ],
+      "proxy_tokens": 49,
+      "children": [
+        {
+          "input_text": "独立排障核对\n章节：precautions\n必要前提与停止条件：\n安全前提\n\nKeep hands dry. Wear protective gloves.\n正文：\n安全前提\n\nKeep hands dry. Wear protective gloves.",
+          "input_sha256": "56843e3a53abe609330257096e2ff32d56297d4a4edc02de8c1411b3b57475c6"
+        }
+      ]
+    },
+    {
+      "section_id": "operation",
+      "text": "安全前提\n\nKeep hands dry. Wear protective gloves.\n\nStep 0: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nStep 1: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nStep 2: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nStep 3: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nStep 4: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "content_sha256": "a309aa5d19ddfc313c35ca17392c9501b42605667ff607ac63b4eec3e8d32ccc",
+      "applicability": [
+        {
+          "section_id": "operation",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "独立操作依据"
+        },
+        {
+          "section_id": "precautions",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "标题涵盖的安全前提"
+        }
+      ],
+      "locations": [
+        {
+          "block_id": "json-0003",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0004",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0005",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0006",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0007",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0001",
+          "page": null,
+          "section": "precautions",
+          "type": "heading",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0002",
+          "page": null,
+          "section": "precautions",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        }
+      ],
+      "proxy_tokens": 1849,
+      "children": [
+        {
+          "input_text": "独立排障核对\n章节：operation\n必要前提与停止条件：\n安全前提\n\nKeep hands dry. Wear protective gloves.\n正文：\nStep 0: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nStep 1: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "input_sha256": "a38800154a18b708fcc24faf8e4082876be9ad4f34f02a4a611a6629155972e8"
+        },
+        {
+          "input_text": "独立排障核对\n章节：operation\n必要前提与停止条件：\n安全前提\n\nKeep hands dry. Wear protective gloves.\n正文：\nStep 2: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nStep 3: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "input_sha256": "2442753f1a73145b1cb2bf0da6ab737496f250da13866eede5cef7a6fa303261"
+        },
+        {
+          "input_text": "独立排障核对\n章节：operation\n必要前提与停止条件：\n安全前提\n\nKeep hands dry. Wear protective gloves.\n正文：\nStep 4: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "input_sha256": "da821fdb9616d92b2f22948211e9a9cb033602a5fd7fb777ebd881c7f056773a"
+        }
+      ]
+    },
+    {
+      "section_id": "operation",
+      "text": "安全前提\n\nKeep hands dry. Wear protective gloves.\n\nStep 5: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nStep 6: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nStep 7: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "content_sha256": "760ea594cef113ebb5c5b667b4861e73b51f4674fe43b749e8075102fdcbcc4e",
+      "applicability": [
+        {
+          "section_id": "operation",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "独立操作依据"
+        },
+        {
+          "section_id": "precautions",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "标题涵盖的安全前提"
+        }
+      ],
+      "locations": [
+        {
+          "block_id": "json-0008",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0009",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0010",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0001",
+          "page": null,
+          "section": "precautions",
+          "type": "heading",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0002",
+          "page": null,
+          "section": "precautions",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        }
+      ],
+      "proxy_tokens": 1129,
+      "children": [
+        {
+          "input_text": "独立排障核对\n章节：operation\n必要前提与停止条件：\n安全前提\n\nKeep hands dry. Wear protective gloves.\n正文：\nStep 5: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n\nStep 6: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "input_sha256": "9e0a33c45e4967edad5b5be4f0478eba16ca8a8ea40bb1adb717153fa86683d3"
+        },
+        {
+          "input_text": "独立排障核对\n章节：operation\n必要前提与停止条件：\n安全前提\n\nKeep hands dry. Wear protective gloves.\n正文：\nStep 7: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "input_sha256": "6bbfbf6b330a38018f295b4b997a526d9b54c31a9af76c109ce708c57a294314"
+        }
+      ]
+    }
+  ],
+  "short_parents": [
+    {
+      "section_id": "document",
+      "text": "Warning:\nKeep hands dry.\nDisconnect the supply before these steps.\n\n1. Inspect the controller.\n2. Replace only the declared battery.\n\nStop if damaged. Escalate to review.",
+      "content_sha256": "10896088dd59510db99aa86c43d9658a7540d2421a6f33ac0bca1fac055ad4a9",
+      "applicability": [
+        {
+          "section_id": "operation",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "依据operation"
+        },
+        {
+          "section_id": "prerequisites",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "依据prerequisites"
+        },
+        {
+          "section_id": "stops",
+          "sku": "H-CTD16-US-BK",
+          "page_start": null,
+          "page_end": null,
+          "basis": "依据stops"
+        }
+      ],
+      "locations": [
+        {
+          "block_id": "json-0001",
+          "page": null,
+          "section": "prerequisites",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0002",
+          "page": null,
+          "section": "operation",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        },
+        {
+          "block_id": "json-0003",
+          "page": null,
+          "section": "stops",
+          "type": "paragraph",
+          "bbox": null,
+          "figure_id": null,
+          "table_rows": [],
+          "asset_ids": []
+        }
+      ],
+      "proxy_tokens": 170,
+      "children": [
+        {
+          "input_text": "独立排障核对\n章节：prerequisites / operation / stops\n正文：\nWarning:\nKeep hands dry.\nDisconnect the supply before these steps.\n\n1. Inspect the controller.\n2. Replace only the declared battery.\n\nStop if damaged. Escalate to review.",
+          "input_sha256": "185d5539ca8be8b17e77d9e1cd186a9ee3b115180a06155ce18d3ae35f110f34"
+        }
+      ]
+    }
+  ]
+}

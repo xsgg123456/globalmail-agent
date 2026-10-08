@@ -18,12 +18,17 @@ from globalmail_agent.application.conversation_lock import DEFAULT_WORKSPACE_ID
 from globalmail_agent.worker.runner import ProtocolRunner
 from globalmail_agent.worker.knowledge_runner import KnowledgeRunner
 from globalmail_agent.api.knowledge_documents import knowledge_router
+from globalmail_agent.api.knowledge_releases import knowledge_releases_router
+from globalmail_agent.api.knowledge_search import knowledge_search_router
+from globalmail_agent.knowledge.embedding import EmbeddingGateway
 
 
-def create_app(settings: Settings | None = None, *, engine=None, start_worker=True) -> FastAPI:
+def create_app(settings: Settings | None = None, *, engine=None, start_worker=True,
+               embedding_gateway=None) -> FastAPI:
     settings = settings or Settings.from_env()
     database = engine if engine is not None else make_engine(settings)
     store = ObjectStore(settings.object_root, database)
+    gateway = embedding_gateway if embedding_gateway is not None else EmbeddingGateway(settings)
 
     @asynccontextmanager
     async def lifespan(app):
@@ -31,7 +36,7 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
         if start_worker and database is not None:
             runner = ProtocolRunner(database, DEFAULT_WORKSPACE_ID)
             runner.start()
-            knowledge = KnowledgeRunner(database, store, DEFAULT_WORKSPACE_ID)
+            knowledge = KnowledgeRunner(database, store, DEFAULT_WORKSPACE_ID, gateway)
             knowledge.start()
         try:
             yield
@@ -67,6 +72,8 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
     app.include_router(runs_router(database))
     app.include_router(business_router(database, store))
     app.include_router(knowledge_router(database, store))
+    app.include_router(knowledge_releases_router(database, store, gateway))
+    app.include_router(knowledge_search_router(database, store, gateway))
 
     return app
 

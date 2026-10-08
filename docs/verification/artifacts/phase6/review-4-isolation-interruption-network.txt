@@ -1,0 +1,12 @@
+### Result
+294. [GET] http://127.0.0.1:15174/api/v1/health/live => [200] OK
+295. [GET] http://127.0.0.1:15174/api/v1/health/ready => [200] OK
+296. [GET] http://127.0.0.1:15174/api/v1/runtime-config => [200] OK
+297. [GET] http://127.0.0.1:15174/api/v1/knowledge/catalog => [200] OK
+305. [GET] http://127.0.0.1:15174/api/v1/knowledge/documents => [200] OK
+320. [GET] https://api.iconify.design/ri.json?icons=arrow-left-s-line%2Carrow-right-s-line%2Cbook-open-line%2Cclose-circle-line%2Cclose-fill%2Cfullscreen-fill%2Cheart-3-line%2Cmail-line%2Cmenu-2-fill%2Cmoon-line%2Cnotification-3-line%2Cpushpin-2-line%2Crefresh-line%2Csearch-line%2Cserver-line%2Csettings-line%2Cvolume-down-line => [200] 
+321. [GET] https://api.iconify.design/vaadin.json?icons=ctrl-a => [200] 
+322. [GET] https://api.iconify.design/iconamoon.json?icons=arrow-down-2-thin => [200] 
+323. [GET] https://api.iconify.design/system-uicons.json?icons=inbox => [200] 
+
+Note: 322 static requests not shown, run with --static option to see them.

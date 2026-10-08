@@ -10,7 +10,7 @@ interface Readiness {
 }
 interface RuntimeConfig {
   mode: 'local_single_user'
-  phase: 5
+  phase: 6
   features: { conversations: true; business_queries: true; knowledge: true; agent: false }
   model_configured: boolean
 }

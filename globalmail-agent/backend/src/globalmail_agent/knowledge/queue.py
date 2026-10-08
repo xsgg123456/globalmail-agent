@@ -3,6 +3,7 @@ from uuid import uuid4
 import sqlalchemy as sa
 from globalmail_agent.adapters.conversation_schema import jobs
 from globalmail_agent.adapters.knowledge_schema import documents, document_versions
+from globalmail_agent.adapters.knowledge_index_schema import index_builds
 from globalmail_agent.application.conversation_lock import DEFAULT_WORKSPACE_ID, ServiceError
 from globalmail_agent.application.idempotency import prior, remember
 from globalmail_agent.knowledge.base import scope, scoped_where, document, version, audit, ensure_slot
@@ -12,7 +13,8 @@ from globalmail_agent.worker.leases import slot_for_update, release_slot
 
 def job_view(job):
     return {"id": str(job["id"]), "kind": job["kind"], "version_id": str(job["knowledge_version_id"]),
-        **{key: job[key] for key in ("status", "stage", "row_version", "attempt_no", "error_code", "retryable", "parser_profile_id")}}
+        **{key: job[key] for key in ("status", "stage", "row_version", "attempt_no", "error_code", "retryable", "parser_profile_id", "knowledge_operation")},
+        "build_id": str(job["index_build_id"]) if job["index_build_id"] else None}
 
 
 def invalidate_document_jobs(conn, workspace, doc):
@@ -24,8 +26,12 @@ def invalidate_document_jobs(conn, workspace, doc):
     for job in active:
         conn.execute(jobs.update().where(jobs.c.id == job["id"]).values(status="cancelled", stage="superseded",
             retryable=False, error_code="new_version", lease_expires_at=None, row_version=jobs.c.row_version + 1))
-        conn.execute(document_versions.update().where(document_versions.c.id == job["knowledge_version_id"])
-            .values(status="cancelled", row_version=document_versions.c.row_version + 1))
+        if job["knowledge_operation"] == "index":
+            conn.execute(index_builds.update().where(index_builds.c.id == job["index_build_id"]).values(status="cancelled", stage="superseded",
+                retryable=False, error_code="new_version", row_version=index_builds.c.row_version + 1))
+        else:
+            conn.execute(document_versions.update().where(document_versions.c.id == job["knowledge_version_id"])
+                .values(status="cancelled", row_version=document_versions.c.row_version + 1))
         if slot and slot["job_id"] == job["id"]:
             release_slot(conn, slot)
 
@@ -67,6 +73,10 @@ class KnowledgeQueue:
             v = version(conn, self.workspace_id, identity, command.expected_version, True)
             if doc["current_version_id"] != identity:
                 raise ServiceError("version_superseded")
+            from globalmail_agent.knowledge.release_queries import publication
+            active = publication(conn, self.workspace_id, doc["id"])
+            if active and active["version_id"] == identity:
+                raise ServiceError("published_version_requires_revision")
             profile = command.parser_profile_id
             match = "mineru_" if v["format"] == "pdf" else "policy" if doc["document_type"] == "policy_json" else "markdown"
             if not (profile.startswith(match) if match == "mineru_" else profile == match):
@@ -125,8 +135,16 @@ class KnowledgeQueue:
                 state = "parsing"
             changes.update(row_version=job["row_version"] + 1, lease_owner=None, lease_expires_at=None)
             conn.execute(jobs.update().where(jobs.c.id == identity).values(**changes))
-            conn.execute(document_versions.update().where(document_versions.c.id == v["id"])
-                .values(status=state, row_version=v["row_version"] + 1, parse_sha256=None))
+            if job["knowledge_operation"] == "index":
+                build = conn.execute(sa.select(index_builds).where(index_builds.c.id == job["index_build_id"],
+                    *scoped_where(index_builds, self.workspace_id))).mappings().one()
+                if build["revocation_epoch"] != doc["revocation_epoch"]:
+                    raise ServiceError("build_not_eligible")
+                conn.execute(index_builds.update().where(index_builds.c.id == build["id"]).values(status=changes["status"],
+                    stage=changes["stage"], error_code=changes["error_code"], retryable=changes["retryable"], row_version=index_builds.c.row_version + 1))
+            else:
+                conn.execute(document_versions.update().where(document_versions.c.id == v["id"])
+                    .values(status=state, row_version=v["row_version"] + 1, parse_sha256=None))
             audit(conn, self.workspace_id, doc["id"], v["id"], "job." + action, {"job_id": str(identity)})
             result = {"job": job_view({**job, **changes})}
             remember(conn, self.workspace_id, key, operation, digest, result)
