@@ -1,6 +1,6 @@
 # 项目文档索引
 
-本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口，Phase 1本轮探索已结束、保留原失败项；Phase 2运行基础、Phase 3会话/人审及Phase 4业务查询/只读政策核对已实现，进度以DEV-PLAN和验证报告为准。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
+本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口，Phase 1本轮探索已结束、保留原失败项；Phase 2运行基础、Phase 3会话/人审、Phase 4业务查询/只读政策核对及Phase 5知识维护/解析/人工核对已实现，进度以DEV-PLAN和验证报告为准。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
 
 ## 根目录入口
 
@@ -35,12 +35,16 @@
 | verification | [PHASE-4-VALIDATION.md](verification/PHASE-4-VALIDATION.md) | 业务账本、精确查询、证据/选择/库存条件、数据库到HTTP反例和实际GUI结果 |
 | verification | [PHASE-4-REVIEW-CLOSED.md](verification/PHASE-4-REVIEW-CLOSED.md) | Phase 4最终fresh两阶段PASS、独立测试与82项AC归属及未完成限制 |
 | verification | [PHASE-4-REVIEW.md](verification/PHASE-4-REVIEW.md)、[第二轮](verification/PHASE-4-REVIEW-FINAL.md)、[第三轮](verification/PHASE-4-REVIEW-PASS.md) | Phase 4历次FAIL原始证据；第三轮文件名含PASS，正文实际FAIL |
+| verification | [PHASE-5-VALIDATION.md](verification/PHASE-5-VALIDATION.md) | 知识原件/版本/适用范围、独立解析、持久任务、人工核对及真实页面/故障实测 |
+| verification | [PHASE-5-REVIEW-CLOSED.md](verification/PHASE-5-REVIEW-CLOSED.md) | Phase 5第三轮fresh两阶段PASS、历史问题关闭及实际验证范围 |
+| verification | [PHASE-5-REVIEW.md](verification/PHASE-5-REVIEW.md)、[第二轮](verification/PHASE-5-REVIEW-FINAL.md) | 两轮FAIL原始证据：PDF替换/结构化资料修订及队首坏原件阻塞 |
 | verification | [AGENT-ARCHITECTURE-REVIEW.md](verification/AGENT-ARCHITECTURE-REVIEW.md) | 原架构设计审查，结论限于报告指定版本 |
 | verification | [AGENT-VISUAL-REVIEW.md](verification/AGENT-VISUAL-REVIEW.md) | 客户图片能力增量设计审查 |
 | verification | [DOCUMENT-CONSISTENCY-REVIEW.md](verification/DOCUMENT-CONSISTENCY-REVIEW.md) | 本轮文档偏差、修订依据及开发计划覆盖自检 |
 | planning | [SESSION-HANDOFF.md](planning/SESSION-HANDOFF.md) | 当前进度、已有产出、未完成项和下一步 |
 | planning | [PHASE-3-IMPLEMENTATION.md](planning/PHASE-3-IMPLEMENTATION.md)、[PHASE-3-CONTRACT.md](planning/PHASE-3-CONTRACT.md) | Phase 3实施步骤、表/API及集成细节；主架构仍为契约主入口 |
 | planning | [PHASE-4-IMPLEMENTATION.md](planning/PHASE-4-IMPLEMENTATION.md) | Phase 4资料/账本、查询、政策预览和工作台集成步骤及接口 |
+| planning | [PHASE-5-IMPLEMENTATION.md](planning/PHASE-5-IMPLEMENTATION.md) | Phase 5原件/版本、解析、核对与知识维护页面；包含受控JSON/JSONL契约 |
 
 ## 任务阅读与新增文档
 

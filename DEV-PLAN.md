@@ -1,6 +1,6 @@
 # Development Plan — GlobalMail Agent
 
-版本：v1.0；进度更新：2026-10-08。状态：Phase 1本轮探索结束，保留未通过项；Phase 2运行基础已实现；Phase 3四步技术验证及最终独立两阶段审查通过，用户已要求继续；Phase 4四步技术验证和最终独立两阶段审查通过，待用户查看，Phase 5–13未开始。
+版本：v1.0；进度更新：2026-10-08。状态：Phase 1本轮探索结束，保留未通过项；Phase 2运行基础已实现；Phase 3四步技术验证及最终独立两阶段审查通过，用户已要求继续；Phase 4四步技术验证和最终独立两阶段审查通过，用户已要求继续；Phase 5四步技术验证及最终独立两阶段审查通过，待用户查看；Phase 6–13未开始。
 
 本文件记录开发顺序、交付物、关键文件与验收归属。它不改变业务范围，不将已有数据、组件实验或设计审查折算为正式应用完成。Phase 1 结果见 [图片实验报告](docs/verification/VISUAL-VALIDATION.md)：35场景108次真实请求，仍有关键业务失败，标签人工核对待完成。
 
@@ -22,7 +22,7 @@
 | 2 | 启动本机API、持久数据库和Art Design Pro业务外壳 | 1；纯工程准备可独立推进 | 四步技术验证通过，待用户查看 |
 | 3 | 导入/创建会话、逐封回放、人审和持久任务可操作 | 2 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-3-VALIDATION.md) |
 | 4 | 查询准确订单、商品、库存、物流与政策条件 | 3 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-4-VALIDATION.md) |
-| 5 | 上传/修订知识、解析并人工核对 | 2、4的商品范围 | 未开始 |
+| 5 | 上传/修订知识、解析并人工核对 | 2、4的商品范围 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-5-VALIDATION.md) |
 | 6 | 构建向量、发布/回滚、检索试查及下架 | 5 | 未开始 |
 | 7 | 在工作台完成文本Agent查单、检索、回复与人审闭环 | 3、4、6 | 未开始 |
 | 8 | 在正式工作台接收图片、核验字段并分流 | 1、7 | 未开始 |
@@ -130,9 +130,11 @@ Phase 2结果：[验证记录](docs/verification/PHASE-2-VALIDATION.md)、[独�
 - `globalmail-agent/backend/src/globalmail_agent/worker/knowledge_runner.py`、`globalmail-agent/backend/src/globalmail_agent/api/knowledge_documents.py` — 独立任务与维护入口。
 - `globalmail-agent/parser-worker/pyproject.toml`、`globalmail-agent/parser-worker/uv.lock`、`globalmail-agent/parser-worker/parse_document.py` — MinerU 4.0.10独立环境；根据已有requirements锁重建兼容依赖，不合入主SDK环境。
 - `globalmail-agent/backend/migrations/versions/0004_knowledge_content.py` — 文档/版本、适用关系、规范块、核对及知识审计。
-- `globalmail-agent/frontend/src/components/knowledge/DocumentEditor.vue`、`globalmail-agent/frontend/src/components/knowledge/ParseReview.vue`、`globalmail-agent/frontend/src/components/knowledge/VersionTasks.vue`；修改`globalmail-agent/frontend/src/views/knowledge/index.vue` — 复用表单/抽屉。
+- `globalmail-agent/frontend/src/components/knowledge/KnowledgeEditor.vue`、`KnowledgeDetails.vue`、`KnowledgeReview.vue`、`KnowledgeBindings.vue`、`KnowledgePolicyEditor.vue`；修改`globalmail-agent/frontend/src/views/knowledge/index.vue` — 复用表单/抽屉，任务随版本详情显示。
 
 **验收标准**：页面上传→解析→原件对照→核对可完成，失败显示真实阶段，修改正文/解析/范围使旧核对失效。PDF关键条件、单位、SKU/页图范围逐项核验，不用编辑源代替解析；超过50MiB/300页拒绝，解析超过15分钟终止本任务进程树。知识任务不占Agent槽位；原件按依赖登记，未发布内容不可被Agent检索。
+
+2026-10-08实施结果：本期原件、版本、范围、独立解析、持久任务与核对页面已实现；后端123、前端33、独立parser4项测试、编译及真实隔离页面通过，[第三轮fresh审查](docs/verification/PHASE-5-REVIEW-CLOSED.md)Stage 1/2 PASS。正式本机升级0003→0004，原有32表数据摘要及配置一致，知识资料仍为空。详见[验证记录](docs/verification/PHASE-5-VALIDATION.md)及[实施步骤](docs/planning/PHASE-5-IMPLEMENTATION.md)。用户查看前保留技术验证状态；生产资料核对、切分、发布及Agent能力按后续阶段验收。
 
 ## Phase 6: 向量构建、发布检索与下架
 

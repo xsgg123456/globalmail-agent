@@ -1,0 +1,68 @@
+### Result
+{"create":202,"review":200,"unknown_response_retry":202,"same_key":true,"same_body":true,"input_retained":true,"versions":2,"old_review_preserved":true,"current_status":"draft","published":false,"document_id":"07e297bd-697a-48a2-b485-43e77f3bf679"}
+### Ran Playwright code
+```js
+await (async (page) => {
+  await page.reload();
+  await page.getByRole('button',{name:'导入准备资料',exact:true}).click();
+  await page.getByRole('button',{name:'新建资料',exact:true}).click();
+  const editor=page.getByRole('dialog',{name:'新建知识资料'});
+  await editor.getByRole('textbox',{name:'资料标题（必填）'}).fill('页面验收模拟排障复核');
+  await editor.getByRole('textbox',{name:'资料来源（必填）'}).fill('开发者自编模拟材料，仅用于页面验收');
+  await editor.getByRole('combobox',{name:'资料原本可用时间（必填）'}).fill('2026-10-08 10:00:00');
+  await editor.getByRole('combobox',{name:'资料原本可用时间（必填）'}).press('Enter');
+  await editor.getByRole('textbox',{name:'Markdown 正文（必填）'}).fill('# 模拟安装排障\n\n仅用于页面验收。先断开电源，发现焦味立即停止并转人工。\n\n| 参数 | 数值 |\n| --- | --- |\n| 输入电压 | 24 V |\n\n1. 检查外部连接。\n2. 不拆封闭控制器。');
+  await editor.getByRole('button',{name:'添加型号适用范围'}).click();
+  await editor.getByRole('combobox',{name:'精确型号'}).click();
+  await page.getByRole('option',{name:'H-CTD16-US-BK · 朝天灯-四按键-美规-黑色',exact:true}).click();
+  await editor.getByRole('textbox',{name:'适用依据'}).fill('模拟验收明确绑定；真实材料使用前须重新核对。');
+  const created=page.waitForResponse(r=>r.url().endsWith('/knowledge/documents')&&r.request().method()==='POST');
+  await editor.getByRole('button',{name:'保存为新版本'}).click();
+  const c=await created;
+  const first=(await c.json()).data;
+  await editor.waitFor({state:'hidden'});
+  await page.getByRole('button',{name:'页面验收模拟排障复核',exact:true}).click();
+  await page.getByRole('button',{name:'开始解析',exact:true}).click();
+  const drawer=page.getByRole('dialog',{name:'页面验收模拟排障复核'});
+  await drawer.getByText('等待人工核对 · 第 1 次',{exact:true}).waitFor({state:'visible',timeout:50000});
+  await drawer.getByRole('textbox',{name:'人工核对备注（必填）'}).fill('已核对断电前提、焦味停止、24 V单位、外部检查和不拆封闭控制器；仅为模拟页面验收。');
+  await drawer.getByText('我已对照原件核对保留内容，确认型号范围；已明确排除不能作为完整依据的内容',{exact:true}).click();
+  const reviewed=page.waitForResponse(r=>r.url().endsWith('/review')&&r.request().method()==='POST');
+  await drawer.getByRole('button',{name:'保存人工核对',exact:true}).click();
+  const review=await reviewed;
+  await drawer.getByText('已核对：已核对断电前提',{exact:false}).waitFor({state:'visible'});
+  await page.screenshot({path:'output/playwright/phase5-md-review.png'});
+  await drawer.getByRole('button',{name:'修订正文 / 适用范围'}).click();
+  const revision=page.getByRole('dialog',{name:'创建资料新版本'});
+  const body=await revision.getByRole('textbox',{name:'Markdown 正文（必填）'}).inputValue();
+  await revision.getByRole('textbox',{name:'Markdown 正文（必填）'}).fill(body+'\n\n修订说明：保留停止条件，再次核对适用型号。');
+  const sent=[]; let lost=true;
+  const pattern=`**/knowledge/documents/${first.document_id}/versions`;
+  await page.route(pattern,async route=>{
+    sent.push({key:route.request().headers()['idempotency-key'],body:route.request().postData()});
+    if(lost){lost=false;await route.fetch();await route.abort('failed');}else await route.continue();
+  });
+  await revision.getByRole('button',{name:'保存为新版本'}).click();
+  await revision.getByText('请求结果还未确认，请重试同一操作。输入已保留。',{exact:true}).waitFor({state:'visible'});
+  const retained=await revision.getByRole('textbox',{name:'Markdown 正文（必填）'}).inputValue();
+  const retried=page.waitForResponse(r=>r.url().endsWith(`/documents/${first.document_id}/versions`)&&r.request().method()==='POST');
+  await revision.getByRole('button',{name:'保存为新版本'}).click();
+  const retriedResponse=await retried;
+  await revision.waitFor({state:'hidden'});
+  await page.unroute(pattern);
+  await drawer.getByRole('tab',{name:'版本差异'}).click();
+  await drawer.getByText('原件内容已变',{exact:true}).waitFor({state:'visible'});
+  await page.screenshot({path:'output/playwright/phase5-version-diff.png'});
+  const current=(await (await page.request.get(`http://127.0.0.1:15174/api/v1/knowledge/documents/${first.document_id}`)).json()).data;
+  const old=(await (await page.request.get(`http://127.0.0.1:15174/api/v1/knowledge/versions/${first.version_id}`)).json()).data;
+  return {create:c.status(),review:review.status(),unknown_response_retry:retriedResponse.status(),same_key:sent.length===2&&sent[0].key===sent[1].key,same_body:sent.length===2&&sent[0].body===sent[1].body,input_retained:retained.endsWith('再次核对适用型号。'),versions:current.versions.length,old_review_preserved:old.review!==null,current_status:current.document.status,published:current.document.published,document_id:first.document_id};
+}
+
+)(page);
+```
+### Page
+- Page URL: http://127.0.0.1:15174/#/knowledge
+- Page Title: 知识库 - GlobalMail Agent
+- Console: 2 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-10-08T04-04-40-312Z.log#L70-L103

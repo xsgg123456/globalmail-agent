@@ -2,7 +2,16 @@
 
 文档位置：根目录保留 AGENTS、Product-Spec、变更记录、AGENT-ARCHITECTURE 及已创建的 [DEV-PLAN](../../DEV-PLAN.md)；其余专题由 [文档索引](../README.md) 导航。本文件位于 docs/planning；新任务按 AGENTS 中的目录约定存放产物，不恢复旧根目录副本。
 
-更新：2026-10-08。当前阶段：Phase 1本轮探索结束并提交68de83f，原失败保留；Phase 2本机运行基础已实现；Phase 3会话/回放/人审/持久任务已提交cc884fe，用户要求继续Phase 4。Phase 4四步技术验证和最终独立两阶段审查通过，待用户查看；Phase 5–13未开始，82项产品AC未作整体验收。
+更新：2026-10-08。当前阶段：Phase 1本轮探索结束并提交68de83f，原失败保留；Phase 2本机运行基础已实现；Phase 3会话/回放/人审/持久任务已提交cc884fe；Phase 4业务查询及未发布政策预览已提交4eefbb9。用户要求继续Phase 5，本期四步技术验证和最终独立两阶段审查通过，待用户查看；Phase 6–13未开始，82项产品AC未作整体验收。
+
+## Phase 5 当前交接（优先于下方历史记录）
+
+- 按dev-builder及[实施步骤](PHASE-5-IMPLEMENTATION.md)交付：原件上传、不可变版本、Markdown修订/PDF替换/受控JSON与JSONL、同源政策编辑、精确SKU/章节/页区间、独立解析、持久任务、原件对照/人工核对、版本差异及操作记录。仅simulation/rag，保存核对到reviewed仍未发布；没有向量、检索、Agent或彻底删除。
+- PDF使用独立parser-worker固定MinerU4.0.10/DocVortex0.5.9，115包独立于API25包，15个权重逐SHA核验。模型保留`tmp/knowledge-spike/mineru-home`，独立`.venv`已安装；默认不下载或静默换档。完整17页原件实际274块/26资产，8逻辑范围共用1缓存，最终适配指纹与实际子进程一致。困难样本21/21关键项、16/16行是既有开发样本产物核验，不是生产/未见资料精度，也不是售后判断证据。
+- 真实后端123项（PG全部启用、无skip）、前端33项、独立parser4项、3项启停脚本检查及编译/依赖/vue-tsc/Vite通过；最后前端构建26.36秒。实际隔离GUI覆盖新建/核对、响应丢失同key/body重试、政策规则与说明一致、PDF取消/重试/2页换1页、JSON/JSONL只改范围、坏原件详情和恢复重试；独立对照明暗1440/900px邻居页面及PDF详情。见[验证记录](../verification/PHASE-5-VALIDATION.md)、[第三轮fresh审查](../verification/PHASE-5-REVIEW-CLOSED.md)：Stage 1/2本期PASS，无HIGH/MEDIUM阻塞。
+- 两轮FAIL原样保留：PDF替换沿用旧页范围、结构化资料改范围被迫填Markdown、原件异常在claim事务内使队首无限回滚。修复后补真实PG→HTTP/runner反例；worker先持久领取租约，再读原件并记录有限重试，坏任务释放槽、健康资料完成。详情原件缺失仍200，下载503，核对提交重新验原件；真实页面attempt4失败，恢复后attempt5完成。缓存不能跳过原件核验，提交途中租约失效会回滚产物。
+- 正式入口http://127.0.0.1:15173/#/knowledge，API18080/PG15432。启停脚本升级0003→0004，32旧表行数/行摘要及设置SHA一致，新增10知识表仍无正式资料；API/代理六项HTTP200和非法Host/Origin拒绝通过。正式页面已只读查看空库、34 SKU与Basic/Standard可用，没有导入测试包。本期提交号以`git log -1`为准；正式服务保留给用户。
+- 隔离浏览器、15174/18181服务、随机schema及私有临时对象目录已清理；`tmp/phase5-*`辅助文件和`tmp/phase5-parser`解析产物删除被自动审批拒绝（仅返回`blocked by policy`），仍保留，不重试绕过。安全证据保存在`docs/verification/artifacts/phase5`及`output/playwright/phase5-*.png`，安装环境和本地模型保留。下一期Phase6是切分、向量构建、发布/回滚、检索试查与下架，先读Spec/主架构/DEV-PLAN原文；不要把本期局部核对门关闭为82项产品验收。
 
 ## Phase 4 当前交接（优先于下方历史记录）
 

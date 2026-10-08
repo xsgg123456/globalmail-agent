@@ -40,7 +40,7 @@ class LeaseService:
                 return None
             candidate = connection.execute(sa.select(jobs).where(
                 jobs.c.workspace_id == self.workspace_id, jobs.c.kind == slot_key,
-                jobs.c.status == "queued",
+                jobs.c.status == "queued", jobs.c.conversation_id.is_not(None),
             ).order_by(jobs.c.created_at, jobs.c.id).limit(1)).mappings().first()
             if candidate is None:
                 return None
@@ -106,6 +106,9 @@ class LeaseService:
                     continue
                 job = connection.execute(sa.select(jobs).where(jobs.c.id == slot["job_id"]))
                 job = job.mappings().one()
+                # Knowledge versions use their own worker and recovery contract.
+                if job["conversation_id"] is None:
+                    continue
                 conversation = connection.execute(sa.select(conversations).where(
                     conversations.c.id == job["conversation_id"]
                 ).with_for_update()).mappings().one()

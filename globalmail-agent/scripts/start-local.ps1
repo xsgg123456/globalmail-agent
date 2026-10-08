@@ -20,6 +20,9 @@ try {
         Push-Location $backendDir
         try { & uv sync --frozen; if ($LASTEXITCODE -ne 0) { throw '后端锁文件安装失败。' } }
         finally { Pop-Location }
+        Push-Location (Join-Path $projectDir 'parser-worker')
+        try { & uv sync --frozen; if ($LASTEXITCODE -ne 0) { throw '独立解析锁文件安装失败。' } }
+        finally { Pop-Location }
         Push-Location $frontendDir
         try { & pnpm install --frozen-lockfile --ignore-scripts; if ($LASTEXITCODE -ne 0) { throw '前端锁文件安装失败。' } }
         finally { Pop-Location }

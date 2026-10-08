@@ -3,9 +3,9 @@ from sqlalchemy.engine import Engine
 
 from globalmail_agent.settings import Settings
 from globalmail_agent.adapters.schema import metadata
-from globalmail_agent.adapters import conversation_schema, business_schema  # Register scoped metadata.
+from globalmail_agent.adapters import conversation_schema, business_schema, knowledge_schema  # Register scoped metadata.
 
-SCHEMA_REVISION = "0003_business_catalog"
+SCHEMA_REVISION = "0004_knowledge_content"
 
 
 def make_engine(settings: Settings) -> Engine | None:

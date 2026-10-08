@@ -37,7 +37,8 @@ class LocalAccessMiddleware:
         elif scope["method"] not in {"GET", "HEAD", "OPTIONS"}:
             if not origins:
                 status, message = 403, "origin_required"
-            elif headers.get("content-type", "").split(";")[0].strip() != "application/json":
+            elif headers.get("content-type", "").split(";")[0].strip() != (
+                    "application/octet-stream" if scope["path"] == "/api/v1/knowledge/uploads" else "application/json"):
                 status, message = 415, "json_required"
         if status:
             return await response(request_id, status=status, msg=message)(scope, receive, send)

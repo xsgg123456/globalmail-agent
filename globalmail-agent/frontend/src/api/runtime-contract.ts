@@ -37,12 +37,12 @@ export function validateSystemEnvelope<T>(
     valid =
       status === 200 &&
       data.mode === 'local_single_user' &&
-      data.phase === 4 &&
+      data.phase === 5 &&
       typeof data.model_configured === 'boolean' &&
       record(features) &&
       features.conversations === true &&
       features.business_queries === true &&
-      features.knowledge === false &&
+      features.knowledge === true &&
       features.agent === false
   }
   if (!valid) throw new Error('状态接口数据不符合运行契约')

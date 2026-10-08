@@ -1,0 +1,9 @@
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+{"claim_check": 1, "error_code": "source_unavailable"}
+{"claim_check": 2, "error_code": "source_unavailable"}
+{"claim_check": 3, "error_code": "source_unavailable"}
+{"broken_detail_http": 503, "error_code": "source_unavailable"}
+{"document": "broken", "job_status": "queued", "stage": "queued", "error_code": null, "attempt_no": 1, "retryable": false, "version_status": "parsing"}
+{"document": "healthy", "job_status": "queued", "stage": "queued", "error_code": null, "attempt_no": 1, "retryable": false, "version_status": "parsing"}
+{"after_manual_cancel": "completed", "stage": "needs_review"}

@@ -1,13 +1,225 @@
 <template>
-  <div class="page-content">
-    <h1 class="text-base font-medium">知识库</h1>
-    <ElEmpty description="知识管理尚未接入">
-      <p class="text-sm text-g-600"
-        >上传、修订和发布将在知识阶段开放；当前不查询或展示业务资料列表。</p
+  <div>
+    <RuntimeStatus />
+    <ElCard>
+      <template #header
+        ><div class="flex flex-wrap justify-between gap-3"
+          ><h1 class="text-base font-medium">知识库</h1
+          ><div class="flex flex-wrap gap-2"
+            ><ElButton :disabled="busy" @click="refreshList">刷新列表</ElButton
+            ><ElButton :loading="busy" @click="importPrepared">导入准备资料</ElButton
+            ><ElButton type="primary" :disabled="busy" @click="create">新建资料</ElButton></div
+          ></div
+        ></template
       >
-    </ElEmpty>
+      <ElAlert
+        title="这里维护知识原件、版本和人工核对。当前资料仅用于模拟，未发布，暂不供 Agent 使用。"
+        type="info"
+        :closable="false"
+        class="mb-4"
+      />
+      <div class="flex flex-wrap gap-3 mb-4">
+        <ElSelect
+          v-model="filters.type"
+          clearable
+          placeholder="全部类型"
+          aria-label="筛选资料类型"
+          class="!w-[180px]"
+          @change="filter"
+          ><ElOption v-for="(label, key) in typeLabels" :key="key" :label="label" :value="key"
+        /></ElSelect>
+        <ElSelect
+          v-model="filters.brand"
+          clearable
+          placeholder="全部品牌"
+          aria-label="筛选品牌"
+          class="!w-[160px]"
+          @change="filter"
+          ><ElOption
+            v-for="brand in ['OUTON', 'OUTONLIFE', 'BELEEV']"
+            :key="brand"
+            :label="brand"
+            :value="brand"
+        /></ElSelect>
+        <ElSelect
+          v-model="filters.sku"
+          clearable
+          filterable
+          placeholder="全部型号"
+          aria-label="筛选精确型号"
+          class="!w-[240px] max-w-full"
+          @change="filter"
+          ><ElOption
+            v-for="product in catalog.products"
+            :key="product.sku"
+            :label="product.sku"
+            :value="product.sku"
+        /></ElSelect>
+        <ElSelect
+          v-model="filters.status"
+          clearable
+          placeholder="全部状态"
+          aria-label="筛选状态"
+          class="!w-[180px]"
+          @change="filter"
+          ><ElOption
+            v-for="status in [
+              'draft',
+              'parsing',
+              'needs_review',
+              'reviewed',
+              'failed',
+              'cancelled'
+            ]"
+            :key="status"
+            :label="labelState(status)"
+            :value="status"
+        /></ElSelect>
+      </div>
+      <ElAlert
+        v-if="error || actionError || catalogError"
+        :title="error || actionError || catalogError"
+        type="error"
+        :closable="false"
+        class="mb-3"
+      />
+      <ElAlert v-if="notice" :title="notice" type="success" :closable="false" class="mb-3" />
+      <ElSkeleton v-if="loading && !items.length" :rows="5" animated />
+      <ElEmpty
+        v-else-if="!items.length"
+        :description="error ? '读取失败，请刷新重试' : '暂无符合条件的资料，可以新建或导入准备资料'"
+      />
+      <ElTable v-else :data="items" v-loading="loading">
+        <ElTableColumn label="资料" min-width="240"
+          ><template #default="{ row }"
+            ><ElButton
+              link
+              type="primary"
+              class="!whitespace-normal text-left"
+              @click="open(row)"
+              >{{ row.title }}</ElButton
+            ><p class="text-xs text-g-700"
+              >{{ row.brand || '按具体范围绑定' }} · {{ typeLabels[row.document_type] }}</p
+            ></template
+          ></ElTableColumn
+        >
+        <ElTableColumn label="版本" width="90"
+          ><template #default="{ row }"
+            >第 {{ row.current_version_number }} 版</template
+          ></ElTableColumn
+        >
+        <ElTableColumn label="状态" min-width="150"
+          ><template #default="{ row }"
+            ><ElTag>{{ labelState(row.status) }}</ElTag></template
+          ></ElTableColumn
+        >
+        <ElTableColumn label="用途" min-width="170"
+          ><template #default>仅供模拟 · 未发布</template></ElTableColumn
+        >
+        <ElTableColumn label="操作" width="100"
+          ><template #default="{ row }"
+            ><ElButton link type="primary" @click="open(row)">查看核对</ElButton></template
+          ></ElTableColumn
+        >
+      </ElTable>
+      <div class="flex flex-wrap justify-end gap-2 mt-4"
+        ><ElButton :disabled="loading || cursors.length < 2" @click="paginate(false)"
+          >上一页</ElButton
+        ><ElButton :disabled="loading || !nextCursor" @click="paginate(true)">下一页</ElButton></div
+      >
+    </ElCard>
+    <ElDrawer
+      v-model="drawer"
+      :title="document?.document.title || '知识资料'"
+      size="min(1150px, 100vw)"
+      @closed="closeDetail"
+    >
+      <ElSkeleton v-if="detailLoading" :rows="8" animated />
+      <ElAlert
+        v-if="actionError || detailError"
+        :title="actionError || detailError"
+        type="error"
+        :closable="false"
+        class="mb-3"
+      />
+      <KnowledgeDetails
+        v-if="document && detail"
+        :document="document"
+        :detail="detail"
+        :profiles="catalog.parser_profiles"
+        :busy="busy"
+        :execute="execute"
+        @refresh="refreshDetail"
+        @version="select(document.document.id, $event)"
+        @edit="edit"
+      />
+      <ElEmpty v-else-if="!detailLoading" description="资料读取失败，请关闭后刷新重试" />
+    </ElDrawer>
+    <KnowledgeEditor
+      v-if="editor"
+      :document="editing ? document?.document || null : null"
+      :detail="editing ? detail : null"
+      :catalog="catalog"
+      :execute="execute"
+      :upload="upload"
+      @close="editor = false"
+    />
   </div>
 </template>
 <script setup lang="ts">
+  import { ref } from 'vue'
+  import RuntimeStatus from '@/components/business/runtime-status.vue'
+  import KnowledgeDetails from '@/components/knowledge/KnowledgeDetails.vue'
+  import KnowledgeEditor from '@/components/knowledge/KnowledgeEditor.vue'
+  import { typeLabels, labelState } from '@/components/knowledge/knowledge-labels'
+  import { useKnowledgeWorkbench } from '@/composables/useKnowledgeWorkbench'
+  import type { KnowledgeDocument } from '@/api/knowledge-contract'
   defineOptions({ name: 'Knowledge' })
+  const {
+    items,
+    catalog,
+    document,
+    detail,
+    filters,
+    nextCursor,
+    cursors,
+    loading,
+    detailLoading,
+    busy,
+    error,
+    actionError,
+    detailError,
+    catalogError,
+    notice,
+    refreshList,
+    refreshDetail,
+    select,
+    closeDetail,
+    execute,
+    filter,
+    paginate,
+    upload
+  } = useKnowledgeWorkbench()
+  const drawer = ref(false),
+    editor = ref(false),
+    editing = ref(false)
+  async function open(row: KnowledgeDocument) {
+    drawer.value = true
+    await select(row.id, row.current_version_id)
+  }
+  function create() {
+    editor.value = true
+    editing.value = false
+  }
+  function edit() {
+    editor.value = true
+    editing.value = true
+  }
+  async function importPrepared() {
+    try {
+      await execute('/knowledge/prepared-import', { expected_version: 0 })
+    } catch {
+      /* 保留错误供用户重试。 */
+    }
+  }
 </script>

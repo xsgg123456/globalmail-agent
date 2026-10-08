@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "http_checks": [
+    {
+      "target": "api",
+      "endpoint": "health/live",
+      "status": 200
+    },
+    {
+      "target": "api",
+      "endpoint": "health/ready",
+      "status": 200
+    },
+    {
+      "target": "api",
+      "endpoint": "runtime-config",
+      "status": 200
+    },
+    {
+      "target": "frontend_proxy",
+      "endpoint": "health/live",
+      "status": 200
+    },
+    {
+      "target": "frontend_proxy",
+      "endpoint": "health/ready",
+      "status": 200
+    },
+    {
+      "target": "frontend_proxy",
+      "endpoint": "runtime-config",
+      "status": 200
+    }
+  ],
+  "invalid_host_origin": "rejected",
+  "database_restart_persistence": "not_run",
+  "test_data": "isolated schema and temporary objects cleaned"
+}

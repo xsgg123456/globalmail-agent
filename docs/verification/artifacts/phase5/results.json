@@ -1,0 +1,277 @@
+{
+  "phase": 5,
+  "date": "2026-10-08",
+  "scope": "isolated_developer_fixtures_not_production_accuracy",
+  "final_physical_pdf": {
+    "physical_cache_count": 1,
+    "logical_pdfs": 8,
+    "source_sha256": "d91001bbf34a5a0d217c4943cec3495b6352bd71ec81ba89a26c5f4e2b370265",
+    "full_document": true,
+    "pages": 17,
+    "blocks": 274,
+    "assets": 26,
+    "diagnostics": 8,
+    "final_configuration_matched": true,
+    "ranges": [
+      {
+        "page_range": [
+          2,
+          3
+        ],
+        "parsed_pages": [
+          2,
+          3
+        ]
+      },
+      {
+        "page_range": [
+          4,
+          5
+        ],
+        "parsed_pages": [
+          4,
+          5
+        ]
+      },
+      {
+        "page_range": [
+          6,
+          7
+        ],
+        "parsed_pages": [
+          6,
+          7
+        ]
+      },
+      {
+        "page_range": [
+          8,
+          9
+        ],
+        "parsed_pages": [
+          8,
+          9
+        ]
+      },
+      {
+        "page_range": [
+          10,
+          11
+        ],
+        "parsed_pages": [
+          10,
+          11
+        ]
+      },
+      {
+        "page_range": [
+          12,
+          13
+        ],
+        "parsed_pages": [
+          12,
+          13
+        ]
+      },
+      {
+        "page_range": [
+          14,
+          15
+        ],
+        "parsed_pages": [
+          14,
+          15
+        ]
+      },
+      {
+        "page_range": [
+          16,
+          17
+        ],
+        "parsed_pages": [
+          16,
+          17
+        ]
+      }
+    ],
+    "parser_versions": {
+      "adapter_fingerprint": "0ebd10a96c34942f8d4b0a9e56d7d181f718dd492588c90d977b475f6f9b7de7",
+      "docvortex": "0.5.9",
+      "mineru": "4.0.10",
+      "pypdf": "6.19.0",
+      "pypdfium2": "5.14.0"
+    },
+    "model_versions": {
+      "manifest_sha256": "939f20cc1647462a63f018faffd9844d1f9e82733e3123b84a5de04c1e5cbe1d"
+    }
+  },
+  "difficult_parser_runs": [
+    {
+      "source": "difficult-native.pdf",
+      "profile": "mineru_basic",
+      "pages": 4,
+      "full": true,
+      "blocks": 36,
+      "tables": 2,
+      "figures": 0,
+      "seconds": 10.0
+    },
+    {
+      "source": "difficult-scanned.pdf",
+      "profile": "mineru_basic",
+      "pages": 4,
+      "full": true,
+      "blocks": 36,
+      "tables": 2,
+      "figures": 0,
+      "seconds": 13.7
+    },
+    {
+      "source": "difficult-scanned.pdf",
+      "profile": "mineru_standard",
+      "pages": 4,
+      "full": true,
+      "blocks": 36,
+      "tables": 2,
+      "figures": 0,
+      "seconds": 18.59
+    }
+  ],
+  "difficult_content_checks": [
+    {
+      "profile": "mineru_basic",
+      "source": "difficult-native.pdf",
+      "source_sha256": "a3cc085edabed7f46bd32f721b74cbf323b896f265ad32ccdbc2a92d60172cfc",
+      "pages": 4,
+      "full_document": true,
+      "markers": 21,
+      "markers_total": 21,
+      "table_rows": 16,
+      "table_rows_total": 16,
+      "missing_markers": [],
+      "missing_rows": []
+    },
+    {
+      "profile": "mineru_basic",
+      "source": "difficult-scanned.pdf",
+      "source_sha256": "0eda966ce458cb333f94fdef91103b9aeb527c81964043f1873bd348b5e724e5",
+      "pages": 4,
+      "full_document": true,
+      "markers": 21,
+      "markers_total": 21,
+      "table_rows": 16,
+      "table_rows_total": 16,
+      "missing_markers": [],
+      "missing_rows": []
+    },
+    {
+      "profile": "mineru_standard",
+      "source": "difficult-scanned.pdf",
+      "source_sha256": "0eda966ce458cb333f94fdef91103b9aeb527c81964043f1873bd348b5e724e5",
+      "pages": 4,
+      "full_document": true,
+      "markers": 21,
+      "markers_total": 21,
+      "table_rows": 16,
+      "table_rows_total": 16,
+      "missing_markers": [],
+      "missing_rows": []
+    }
+  ],
+  "gui": {
+    "markdown_and_unknown_response": {
+      "create": 202,
+      "review": 200,
+      "unknown_response_retry": 202,
+      "same_key": true,
+      "same_body": true,
+      "input_retained": true,
+      "versions": 2,
+      "old_review_preserved": true,
+      "current_status": "draft",
+      "published": false,
+      "document_id": "07e297bd-697a-48a2-b485-43e77f3bf679"
+    },
+    "policy_revision": {
+      "status": 202,
+      "window_days": 45,
+      "refund_basis_points": 1250,
+      "description_matches": true,
+      "version": 2,
+      "state": "draft",
+      "published": false
+    },
+    "pdf_compare": {
+      "pages": [
+        8,
+        9
+      ],
+      "blocks": 32,
+      "assets": 3,
+      "pages_in_blocks": [
+        8,
+        9
+      ],
+      "status": "needs_review",
+      "source_available": true,
+      "published": false
+    },
+    "pdf_cancel_retry_replace": {
+      "cancel_status": 202,
+      "retry_status": 202,
+      "retried_job": "completed",
+      "old_page_range": [
+        1,
+        2
+      ],
+      "replacement_status": 202,
+      "new_page_range": [
+        1,
+        1
+      ],
+      "source_changed": true,
+      "old_original_preserved": true,
+      "unreviewed": true,
+      "published": false
+    },
+    "missing_source": {
+      "detail_http": 200,
+      "source_available": false,
+      "job_status": "failed",
+      "error_code": "source_unavailable",
+      "attempt": 4,
+      "retry_visible": true,
+      "review_enabled": false
+    },
+    "restored_source": {
+      "restored": true,
+      "status": "needs_review",
+      "job": "completed",
+      "attempt": 5,
+      "pages": [
+        1,
+        1
+      ],
+      "published": false
+    }
+  },
+  "formal_upgrade": {
+    "revision_before": "0003_business_catalog",
+    "revision_after": "0004_knowledge_content",
+    "old_tables_unchanged": 32,
+    "new_tables": [
+      "applicabilities",
+      "blocks",
+      "document_versions",
+      "documents",
+      "knowledge_assets",
+      "knowledge_audits",
+      "knowledge_parse_caches",
+      "knowledge_reviews",
+      "knowledge_uploads",
+      "policy_bundles"
+    ],
+    "knowledge_documents": 0,
+    "settings_unchanged": true
+  }
+}

@@ -32,7 +32,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--api-port", type=int, default=18181)
     parser.add_argument("--web-port", type=int, default=15174)
-    parser.add_argument("--phase", type=int, choices=(3, 4), default=3)
+    parser.add_argument("--phase", type=int, choices=(3, 4, 5), default=3)
     args = parser.parse_args()
     temporary_root = ROOT / "tmp"
     temporary_root.mkdir(exist_ok=True)

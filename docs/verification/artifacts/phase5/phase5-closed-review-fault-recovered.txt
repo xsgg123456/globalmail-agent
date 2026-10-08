@@ -1,0 +1,25 @@
+{
+  "review": {
+    "actor": "local_operator",
+    "note": "已核对受控 JSONL 原件、24 V 单位及 safe 章节的准确 SKU 范围",
+    "excluded_block_ids": [],
+    "exclusion_reason": null,
+    "created_at": "2026-10-08T12:35:57.764+08:00"
+  },
+  "source_sha256": "50a201f48303979d88fd27579ce469edac884dbe96e084cbe1ed86884d13e8dd",
+  "status": "reviewed",
+  "job": {
+    "id": "30e66258-2286-439b-88a5-20edbd55379a",
+    "kind": "knowledge",
+    "version_id": "832a2fe7-03b2-4a4f-bf4e-f08a7d8b56d9",
+    "status": "completed",
+    "stage": "needs_review",
+    "row_version": 12,
+    "attempt_no": 5,
+    "error_code": null,
+    "retryable": false,
+    "parser_profile_id": "markdown"
+  },
+  "published": false,
+  "source_available": true
+}

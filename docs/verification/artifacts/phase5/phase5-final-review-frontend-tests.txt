@@ -1,0 +1,45 @@
+✔ 货币最小单位保留精度，五种演练币种与日元采用正确位数 (19.8458ms)
+✔ 同订单同SKU的两行物流严格分开，无关联记录不凭型号猜归属 (1.2868ms)
+✔ 已取得的客户选择保留明确拒绝、零金额与未绑定商品，不用候选表单补齐 (1.0866ms)
+✔ 资格输入转精确整数，拒绝负数/小数量/指数/超大金额，保留原输入 (1.6571ms)
+✔ 状态有可读区分，创建单据不声明履约成功，订单关联不混入其他单据 (1.0146ms)
+✔ 多商品不自动选首行；精确订单号查询不产生写命令，模拟格式原样传递 (6.6465ms)
+✔ 会话切换及版本变化立即清除旧业务，忽略晚到结果 (1.7402ms)
+✔ 业务网络失败保留精确订单输入；空结果、历史不可用和未知不伪造订单 (1.4255ms)
+✔ 只读资格请求使用规范字段，晚到资格与库存不能串到新会话 (1.0298ms)
+✔ 场景创建未知结果重试使用同键和固定expected_version，成功后新建独立命令 (1.0253ms)
+✔ 事件只接受本会话作用域并按序去重 (1.4566ms)
+✔ 连接带after_seq；断线保持同连接让原生EventSource补读；切会话取消旧连接与晚到事件 (1.5261ms)
+✔ 跨作用域或畸形事件关闭流，给出明确刷新恢复路径 (0.3124ms)
+✔ 知识写入接受202；丢失响应后重试保留原body/key，409后允许明确刷新版本 (1.7701ms)
+[Vue warn]: onMounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+[Vue warn]: onUnmounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+[Vue warn]: onMounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+[Vue warn]: onUnmounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+✔ 上传响应未知保留原key，成功后复用上传结果，不重复生成原件 (7.067ms)
+✔ 详情读取只GET；快速切换资料/同版刷新时晚到响应不能覆盖当前资料 (2.6615ms)
+✔ 筛选和分页真实传参；命令失败保留错误，GET恢复不清空操作错误 (1.6269ms)
+✔ 任务轮询在组件卸载后停止，晚到详情不再写界面 (1668.1874ms)
+✔ 清理已持久化的模板页签，保留业务页签和其参数 (1.3342ms)
+✔ 接受真实200/202资源，拒绝HTTP和envelope不一致以及空资源 (2.311ms)
+✔ 未知结果重试沿用key和原payload版本，只有新参数或已完成才另建命令 (0.3766ms)
+✔ 响应式导入对象按HTTP JSON编码快照，编辑后不改变未知结果重试内容 (0.8479ms)
+✔ 表单校验覆盖空白、长度、邮箱及保留换行 (0.4345ms)
+✔ 受控文件输入读取JSON，拒绝错误扩展、非法JSON和超限文件 (2.8525ms)
+✔ 选择/刷新只GET，不生成任务；输入按会话保存；服务错误有真实状态 (2.3437ms)
+✔ 人工提交409保留文本并刷新；新来信不能静默重绑定草稿，明确核对后才使用新输入版本 (1.2583ms)
+✔ 网络结果未知后即使快照更新，重试仍是同key和同payload；成功才清空来信 (0.7508ms)
+✔ 快速切换会话时忽略前一会话晚到快照 (0.2548ms)
+✔ 列表分页和模式/状态过滤传给服务端，过滤变化重置页码 (0.6742ms)
+✔ 人审草稿PATCH使用review版本，完成人工回复另带会话和输入版本 (0.3325ms)
+✔ 接受实际HTTP200存活与503依赖故障 (1.3351ms)
+✔ 拒绝假成功、失配状态及非法配置 (0.3104ms)
+✔ 运行配置仅接受当前阶段实际能力标志 (0.1754ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2383.5641

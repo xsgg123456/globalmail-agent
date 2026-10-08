@@ -16,6 +16,8 @@ from globalmail_agent.api.runs import runs_router
 from globalmail_agent.api.business import business_router
 from globalmail_agent.application.conversation_lock import DEFAULT_WORKSPACE_ID
 from globalmail_agent.worker.runner import ProtocolRunner
+from globalmail_agent.worker.knowledge_runner import KnowledgeRunner
+from globalmail_agent.api.knowledge_documents import knowledge_router
 
 
 def create_app(settings: Settings | None = None, *, engine=None, start_worker=True) -> FastAPI:
@@ -25,15 +27,19 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
 
     @asynccontextmanager
     async def lifespan(app):
-        runner = None
+        runner = knowledge = None
         if start_worker and database is not None:
             runner = ProtocolRunner(database, DEFAULT_WORKSPACE_ID)
             runner.start()
+            knowledge = KnowledgeRunner(database, store, DEFAULT_WORKSPACE_ID)
+            knowledge.start()
         try:
             yield
         finally:
             if runner is not None:
                 runner.close()
+            if knowledge is not None:
+                knowledge.close()
             if database is not None:
                 database.dispose()
 
@@ -60,6 +66,7 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
     app.include_router(events_router(database))
     app.include_router(runs_router(database))
     app.include_router(business_router(database, store))
+    app.include_router(knowledge_router(database, store))
 
     return app
 

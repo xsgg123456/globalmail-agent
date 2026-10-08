@@ -1,0 +1,9 @@
+{
+  "published": false,
+  "sha_unchanged": true,
+  "format": "json",
+  "number": 2,
+  "versions": 2,
+  "basis": "第三轮真实界面核对，仅改范围，沿用受控 JSON",
+  "object_unchanged": true
+}

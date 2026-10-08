@@ -1,0 +1,13 @@
+{
+  "phase5_test_schemas": [],
+  "owned_object_directory_exists": false,
+  "formal_services_ports": [
+    15173,
+    18080
+  ],
+  "temporary_parse_files": "retained: automated approval rejected deletion (blocked by policy)",
+  "isolated_ports_closed": [
+    15174,
+    18181
+  ]
+}

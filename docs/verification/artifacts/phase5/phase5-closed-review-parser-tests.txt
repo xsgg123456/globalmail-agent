@@ -1,0 +1,9 @@
+test_figure_crop_is_the_original_pdf_region_and_invalid_geometry_blocks_review (test_structure.StructureTests.test_figure_crop_is_the_original_pdf_region_and_invalid_geometry_blocks_review) ... ok
+test_missing_pages_and_unknown_schema_do_not_become_complete (test_structure.StructureTests.test_missing_pages_and_unknown_schema_do_not_become_complete) ... ok
+test_model_mismatch_is_detected_before_sdk_can_download (test_structure.StructureTests.test_model_mismatch_is_detected_before_sdk_can_download) ... ok
+test_pages_figures_tables_keep_unit_headers_caption_and_location (test_structure.StructureTests.test_pages_figures_tables_keep_unit_headers_caption_and_location) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.102s
+
+OK

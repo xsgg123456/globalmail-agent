@@ -96,11 +96,25 @@ agent_runs = child("agent_runs", sa.Column("processing_cycle_id", sa.Uuid, nulla
         ["processing_cycles.id", *[f"processing_cycles.{k}" for k in SCOPE_KEYS]]),
     sa.UniqueConstraint("processing_cycle_id", "attempt_no"))
 
-jobs = child("jobs", sa.Column("run_id", sa.Uuid, nullable=False),
-    sa.Column("cycle_id", sa.Uuid, nullable=False), sa.Column("kind", sa.String(24), nullable=False),
+jobs = scoped("jobs", sa.Column("conversation_id", sa.Uuid), sa.Column("run_id", sa.Uuid),
+    sa.Column("cycle_id", sa.Uuid), sa.Column("kind", sa.String(24), nullable=False),
     sa.Column("status", sa.String(24), nullable=False), sa.Column("lease_owner", sa.String(160)),
     sa.Column("lease_expires_at", sa.DateTime(timezone=True)), sa.Column("slot_fence", sa.BigInteger),
     sa.Column("attempt_no", sa.Integer, nullable=False),
+    sa.Column("knowledge_version_id", sa.Uuid), sa.Column("parse_generation", sa.BigInteger),
+    sa.Column("parser_profile_id", sa.String(40)), sa.Column("document_fence", sa.BigInteger),
+    sa.Column("row_version", sa.BigInteger, nullable=False, server_default="1"),
+    sa.Column("stage", sa.String(40), nullable=False, server_default="queued"),
+    sa.Column("error_code", sa.String(80)),
+    sa.Column("retryable", sa.Boolean, nullable=False, server_default=sa.false()),
+    sa.Column("not_before", sa.DateTime(timezone=True)), conv_fk(),
+    sa.UniqueConstraint("id", *SCOPE_KEYS),
+    sa.ForeignKeyConstraint(["knowledge_version_id", *SCOPE_KEYS],
+        ["document_versions.id", *[f"document_versions.{k}" for k in SCOPE_KEYS]]),
+    sa.CheckConstraint("(knowledge_version_id IS NULL AND conversation_id IS NOT NULL AND run_id IS NOT NULL AND cycle_id IS NOT NULL) OR "
+        "(kind = 'knowledge' AND knowledge_version_id IS NOT NULL AND conversation_id IS NULL AND run_id IS NULL AND cycle_id IS NULL "
+        "AND parse_generation IS NOT NULL AND parse_generation > 0 AND parser_profile_id IS NOT NULL "
+        "AND document_fence IS NOT NULL AND document_fence > 0)", name="jobs_target"),
     sa.ForeignKeyConstraint(["run_id", *SCOPE_KEYS],
         ["agent_runs.id", *[f"agent_runs.{k}" for k in SCOPE_KEYS]]),
     sa.ForeignKeyConstraint(["cycle_id", *SCOPE_KEYS],

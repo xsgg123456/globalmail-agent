@@ -1,0 +1,9 @@
+{
+  "number": 2,
+  "published": false,
+  "format": "jsonl",
+  "object_unchanged": true,
+  "sha_unchanged": true,
+  "basis": "真实界面修订 JSONL 范围，保留原文件",
+  "versions": 2
+}

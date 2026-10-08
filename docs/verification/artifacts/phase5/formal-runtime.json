@@ -1,0 +1,33 @@
+{
+  "phase": 5,
+  "features": {
+    "conversations": true,
+    "business_queries": true,
+    "knowledge": true,
+    "agent": false
+  },
+  "knowledge_items": 0,
+  "product_count": 34,
+  "parser_profiles": [
+    {
+      "id": "markdown",
+      "label": "Markdown结构读取",
+      "available": true
+    },
+    {
+      "id": "policy",
+      "label": "政策规则生成说明",
+      "available": true
+    },
+    {
+      "id": "mineru_basic",
+      "label": "MinerU Basic",
+      "available": true
+    },
+    {
+      "id": "mineru_standard",
+      "label": "MinerU Standard",
+      "available": true
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+25:    if not path.resolve().is_relative_to(base) or any(p.is_symlink() for p in (path, *path.parents) if p.is_relative_to(base)):
+96:        if diagnostic.get("blocks_review") and any(term in diagnostic["code"] for term in ("asset", "image", "figure")):
+17:        if not self.text.strip() and not any(cell.strip() for row in self.table_rows for cell in row):
+59:        if any(block.page and block.page > self.page_count for block in self.blocks):
+61:        if any(asset.page and asset.page > self.page_count for asset in self.assets):
+63:        if any(not set(block.asset_ids) <= set(asset_ids) for block in self.blocks):
+33:                    or any(type(kind) is not str or kind not in KINDS for kind in value)
+158:            if not any(not v["page_range"] or row["page"] and v["page_range"][0] <= row["page"] <= v["page_range"][1] for v in refs):
+31:            if any(getattr(command, k) != v[k] for k in ("source_sha256", "parse_sha256", "applicability_sha256")):
+40:    if not filename or len(filename) > 240 or Path(filename).name != filename or any(c in filename for c in ("/", "\\", ":")):
+57:            self.assertTrue(any(d.code == "figure_geometry_missing" and d.blocks_review for d in diagnostics))
+97:                if any(process.poll() is not None for process in processes):
