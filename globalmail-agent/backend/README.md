@@ -1,6 +1,8 @@
-# 正式后端（Phase 3）
+# 正式后端（Phase 4）
 
 仅本机单用户运行。会话、受控JSON历史导入、逐封回放、人审、结案/重开、停止/重试及SSE均持久化到PostgreSQL。自动任务当前只完成调度协议验证，准确记录 `protocol_verified_model_not_connected`，不生成模型回复、不投递真实邮件。模型、图片上传和完整删除在后续阶段接入。
+
+Phase 4新增白名单初始场景、scoped订单行/申请/执行/包裹/退件账本、精确适配/库存查询和只读政策预览。`0003_business_catalog`从0002增量建表，保留既有会话与对象。场景只能创建独立开发分支；查单不会创建任务或售后申请。未发布政策始终`authorized:false`，原v1场景不自动升级v2。公开接口及当前范围见[Phase4实施约定](../../docs/planning/PHASE-4-IMPLEMENTATION.md)。
 
 表、事务、请求和响应的精确契约见 [Phase 3契约](../../docs/planning/PHASE-3-CONTRACT.md)。首次创建/导入携带 `expected_version:0`，其余写动作携带最新资源版本和 `Idempotency-Key`；人工回复额外携带最新 `expected_input_revision`。过期409保留数据库草稿。
 

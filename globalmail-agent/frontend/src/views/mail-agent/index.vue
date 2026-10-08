@@ -28,7 +28,11 @@
         @refresh="refreshList"
         @previous="paginate(false)"
         @next="paginate(true)"
-      />
+      >
+        <template #scenario
+          ><BusinessScenarioLauncher :disabled="busy" @created="selectScenario"
+        /></template>
+      </ConversationList>
       <section
         class="box-border flex-1 min-w-0 flex flex-col"
         :class="{ 'min-h-[600px]': narrow }"
@@ -160,6 +164,7 @@
   import MessageComposer from '@/components/mail-agent/MessageComposer.vue'
   import AgentProcessPanel from '@/components/mail-agent/AgentProcessPanel.vue'
   import ConversationDialog from '@/components/mail-agent/ConversationDialog.vue'
+  import BusinessScenarioLauncher from '@/components/mail-agent/BusinessScenarioLauncher.vue'
   import { conversationState, modeLabel } from '@/components/mail-agent/mail-labels'
   import { useMailWorkbench } from '@/composables/useMailWorkbench'
   import { useConversationEvents } from '@/composables/useConversationEvents'
@@ -230,6 +235,12 @@
   async function refreshCurrent() {
     await refreshDetail(true)
     if (!detailError.value) reconnect()
+  }
+  async function selectScenario(id: string) {
+    await filter('mode', '')
+    await filter('state', '')
+    await select(id)
+    actionNotice.value = '初始业务资料已载入独立会话，可以核对订单与售后条件。'
   }
   async function confirmClose() {
     try {

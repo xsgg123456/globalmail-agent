@@ -1,6 +1,6 @@
 # Development Plan — GlobalMail Agent
 
-版本：v1.0；进度更新：2026-10-08。状态：Phase 1本轮探索结束，保留未通过项；Phase 2运行基础已实现；Phase 3四步技术验证及最终独立两阶段审查通过，待用户查看；Phase 4–13未开始。
+版本：v1.0；进度更新：2026-10-08。状态：Phase 1本轮探索结束，保留未通过项；Phase 2运行基础已实现；Phase 3四步技术验证及最终独立两阶段审查通过，用户已要求继续；Phase 4四步技术验证和最终独立两阶段审查通过，待用户查看，Phase 5–13未开始。
 
 本文件记录开发顺序、交付物、关键文件与验收归属。它不改变业务范围，不将已有数据、组件实验或设计审查折算为正式应用完成。Phase 1 结果见 [图片实验报告](docs/verification/VISUAL-VALIDATION.md)：35场景108次真实请求，仍有关键业务失败，标签人工核对待完成。
 
@@ -21,7 +21,7 @@
 | 1 | 冻结客户图片样本并运行真实图文能力实验 | 当前资料及模型配置 | 本轮探索结束；原业务失败及人工核对项保留 |
 | 2 | 启动本机API、持久数据库和Art Design Pro业务外壳 | 1；纯工程准备可独立推进 | 四步技术验证通过，待用户查看 |
 | 3 | 导入/创建会话、逐封回放、人审和持久任务可操作 | 2 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-3-VALIDATION.md) |
-| 4 | 查询准确订单、商品、库存、物流与政策条件 | 3 | 未开始 |
+| 4 | 查询准确订单、商品、库存、物流与政策条件 | 3 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-4-VALIDATION.md) |
 | 5 | 上传/修订知识、解析并人工核对 | 2、4的商品范围 | 未开始 |
 | 6 | 构建向量、发布/回滚、检索试查及下架 | 5 | 未开始 |
 | 7 | 在工作台完成文本Agent查单、检索、回复与人审闭环 | 3、4、6 | 未开始 |
@@ -115,6 +115,8 @@ Phase 2结果：[验证记录](docs/verification/PHASE-2-VALIDATION.md)、[独�
 - `data/knowledge/v2/authoring/policy-profile.json`、`data/knowledge/v2/policies/policy-profile.json`、`data/knowledge/v2/policies/policy-profile.md`、`data/knowledge/v2/README.md`、`data/knowledge/v2/build_policy.py`、`data/knowledge/v2/policy-bundle.json` — 增补图片资格所需evidence_requirements的独立政策修订、生成器及清单（规则/说明摘要、适用范围、effective_at、supersedes和v1引用）；不覆盖v1或改动已确认数值，不把v2当完整重制知识包。原fixture继续绑定v1；图片专项明确选择经核对的v2。
 
 **验收标准**：真实API能查询准备数据且不能跨客户/品牌/分支；多商品无目标时返回澄清要求；历史无合法快照保持不可用。政策规则与自动生成说明一致，缺证据类型返回needs_input/requires_review，不默认将视觉观察当账本事实。新规则经核对后在Phase 6同版发布；未发布政策不得供Agent授权。此阶段不声称已经办理退款或补发。
+
+2026-10-08技术交付：12张业务表及0003增量迁移、72个初始资料场景、精确订单/行/物流/库存查询、逐行账本、可见客户选择和只读政策预览已实现。后端88项、前端28项、构建及真实浏览器通过，[最终fresh审查](docs/verification/PHASE-4-REVIEW-CLOSED.md)Stage 1/2均PASS，保留1项非阻塞LOW文案建议；[验证记录](docs/verification/PHASE-4-VALIDATION.md)限定实测范围。原v1字节不变，v2未发布；82项产品AC未整体勾选。
 
 ## Phase 5: 知识原件、解析核对与维护页面
 
@@ -379,4 +381,4 @@ PyPI固定版本元数据已核验FastAPI、LangGraph、checkpoint-postgres、la
 - 每阶段报告更新`docs/verification/ACCEPTANCE-RESULTS.md`的对应部分或模块实验报告，维护本文件阶段状态及`docs/planning/SESSION-HANDOFF.md`。AC满足全部条件后才勾选；历史设计审查和实验原始结果保持原结论。
 - 运行产生的含正文/图像/模型请求原始证据放Git忽略的`.local-data/`或`tmp/`；仓库只保留复核后的合成样本、去敏汇总与证据摘要。新增专题文档归`docs/`，模块README随源码，根目录保留约定五份Markdown。
 
-当前入口：Phase 1“客户图片样本与图文风险实验”。首个正式应用文字闭环在Phase 7交付，图片售后完整闭环在Phase 8–10交付，全部首版范围以Phase 13总验收为完成门槛。
+当前入口：查看Phase 4业务查询与只读条件核对，下一开发阶段是Phase 5“知识原件、解析核对与维护页面”。首个正式应用文字闭环在Phase 7交付，图片售后完整闭环在Phase 8–10交付，全部首版范围以Phase 13总验收为完成门槛。

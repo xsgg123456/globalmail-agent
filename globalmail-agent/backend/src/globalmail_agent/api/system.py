@@ -24,8 +24,9 @@ def system_router(settings, database, store):
     @router.get("/runtime-config")
     def runtime_config(request: Request):
         return response(request.state.request_id, {
-            "mode": "local_single_user", "phase": 3,
-            "features": {"conversations": True, "knowledge": False, "agent": False},
+            "mode": "local_single_user", "phase": 4,
+            "features": {"conversations": True, "business_queries": True,
+                         "knowledge": False, "agent": False},
             "model_configured": bool(settings.model_api_key.get_secret_value()
                                      and settings.model_name and settings.model_base_url),
         })

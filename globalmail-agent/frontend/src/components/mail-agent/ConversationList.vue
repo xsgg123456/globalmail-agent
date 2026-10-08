@@ -36,6 +36,7 @@
     <div class="flex flex-wrap gap-2 mb-4">
       <ElButton type="primary" :disabled="busy" @click="$emit('create')">新建模拟</ElButton>
       <ElButton :disabled="busy" @click="$emit('import')">导入案例</ElButton>
+      <slot name="scenario" />
     </div>
     <ElAlert v-if="error" :title="error" type="error" :closable="false" show-icon class="mb-3" />
     <ElButton v-if="error" :loading="loading" @click="$emit('refresh')" class="mb-3"

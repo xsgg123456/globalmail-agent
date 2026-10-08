@@ -37,10 +37,11 @@ export function validateSystemEnvelope<T>(
     valid =
       status === 200 &&
       data.mode === 'local_single_user' &&
-      data.phase === 3 &&
+      data.phase === 4 &&
       typeof data.model_configured === 'boolean' &&
       record(features) &&
       features.conversations === true &&
+      features.business_queries === true &&
       features.knowledge === false &&
       features.agent === false
   }

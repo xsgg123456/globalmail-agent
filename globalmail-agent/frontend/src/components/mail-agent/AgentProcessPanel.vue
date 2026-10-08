@@ -80,6 +80,7 @@
         </ElCollapseItem>
       </ElCollapse>
     </section>
+    <BusinessDetails :key="detail.conversation.id" :context="detail.conversation" />
     <HumanReviewPanel
       :conversation="detail.conversation"
       :review="detail.review"
@@ -103,6 +104,7 @@
   import type { ConversationDetail } from '@/api/mail-agent-contract'
   import type { HumanInput } from './mail-inputs'
   import HumanReviewPanel from './HumanReviewPanel.vue'
+  import BusinessDetails from './BusinessDetails.vue'
   import { conversationState, modeLabel, runLabels, formatMailTime } from './mail-labels'
   const props = defineProps<{
     detail: ConversationDetail
@@ -143,7 +145,9 @@
     model_not_connected: '模型尚未接入。',
     lease_expired: '任务租约失效，运行已中断。',
     process_interrupted: '本地进程中断，需显式重试。',
-    stopped_by_user: '用户已停止任务。'
+    stopped_by_user: '用户已停止任务。',
+    worker_interrupted: '本地进程中断，需显式重试。',
+    user_stopped: '用户已停止任务。'
   }
   const runError = (code: string) =>
     errors[code] ?? '任务未完成，已保存状态；请核对会话后显式重试。'

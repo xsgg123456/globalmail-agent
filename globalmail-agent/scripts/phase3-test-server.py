@@ -32,8 +32,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--api-port", type=int, default=18181)
     parser.add_argument("--web-port", type=int, default=15174)
+    parser.add_argument("--phase", type=int, choices=(3, 4), default=3)
     args = parser.parse_args()
-    stop_file = ROOT / "tmp/phase3-browser.stop"
+    temporary_root = ROOT / "tmp"
+    temporary_root.mkdir(exist_ok=True)
+    stop_file = temporary_root / f"phase{args.phase}-browser.stop"
     stop_file.unlink(missing_ok=True)
     for port in (args.api_port, args.web_port):
         with socket.socket() as listener:
@@ -44,13 +47,16 @@ def main():
     import sqlalchemy as sa
     from alembic import command
     from alembic.config import Config
-    schema = "phase3_browser_" + uuid4().hex
+    schema = f"phase{args.phase}_browser_" + uuid4().hex
     admin = sa.create_engine(url, hide_parameters=True)
     processes, outputs = [], []
-    temporary_directory = tempfile.TemporaryDirectory(prefix="globalmail_phase3_browser_")
-    with admin.begin() as connection:
-        connection.execute(sa.text(f'CREATE SCHEMA "{schema}"'))
+    temporary_directory = tempfile.TemporaryDirectory(
+        prefix=f"globalmail_phase{args.phase}_browser_", dir=temporary_root)
+    schema_created = False
     try:
+        with admin.begin() as connection:
+            connection.execute(sa.text(f'CREATE SCHEMA "{schema}"'))
+        schema_created = True
         with nullcontext(temporary_directory.name) as temporary:
             engine = sa.create_engine(url, hide_parameters=True,
                                      connect_args={"options": f"-csearch_path={schema}"})
@@ -99,7 +105,7 @@ def main():
             print(json.dumps({"status": "ready", "web": f"http://127.0.0.1:{args.web_port}/#/workbench",
                               "api": f"http://127.0.0.1:{args.api_port}", "schema": schema}), flush=True)
             try:
-                print("Stop by creating tmp/phase3-browser.stop.", flush=True)
+                print(f"Stop by creating tmp/phase{args.phase}-browser.stop.", flush=True)
                 while not stop_file.exists():
                     time.sleep(0.2)
             except (KeyboardInterrupt, EOFError):
@@ -116,8 +122,9 @@ def main():
                 process.wait(timeout=5)
         for output in outputs:
             output.close()
-        with admin.begin() as connection:
-            connection.execute(sa.text(f'DROP SCHEMA "{schema}" CASCADE'))
+        if schema_created:
+            with admin.begin() as connection:
+                connection.execute(sa.text(f'DROP SCHEMA "{schema}" CASCADE'))
         admin.dispose()
         temporary_directory.cleanup()
         stop_file.unlink(missing_ok=True)

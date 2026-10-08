@@ -45,7 +45,7 @@
         show-icon
       />
       <p class="mt-3 text-sm text-g-700"
-        >本机单用户 · Phase 3 会话与人审 · 知识与模型将在后续阶段接入</p
+        >本机单用户 · Phase 4 业务查询与政策预览 · 知识与模型将在后续阶段接入</p
       >
       <p v-if="detailed && checkedAt" class="mt-3 text-sm text-g-600">检查时间：{{ checkedAt }}</p>
       <p v-if="detailed && requestIds.length" class="mt-2 text-xs text-g-600 break-all"

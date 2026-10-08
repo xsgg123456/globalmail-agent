@@ -42,9 +42,9 @@ test('拒绝假成功、失配状态及非法配置', () => {
 test('运行配置仅接受当前阶段实际能力标志', () => {
   const config = {
     mode: 'local_single_user',
-    phase: 3,
+    phase: 4,
     model_configured: false,
-    features: { conversations: true, knowledge: false, agent: false }
+    features: { conversations: true, business_queries: true, knowledge: false, agent: false }
   }
   assert.deepEqual(
     validateSystemEnvelope(envelope(200, config), 200, '/runtime-config').data,

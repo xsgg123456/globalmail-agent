@@ -13,6 +13,7 @@ from globalmail_agent.api.system import system_router
 from globalmail_agent.api.conversations import conversation_router
 from globalmail_agent.api.events import events_router
 from globalmail_agent.api.runs import runs_router
+from globalmail_agent.api.business import business_router
 from globalmail_agent.application.conversation_lock import DEFAULT_WORKSPACE_ID
 from globalmail_agent.worker.runner import ProtocolRunner
 
@@ -58,6 +59,7 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
     app.include_router(conversation_router(database, store))
     app.include_router(events_router(database))
     app.include_router(runs_router(database))
+    app.include_router(business_router(database, store))
 
     return app
 

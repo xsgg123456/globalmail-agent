@@ -1,0 +1,734 @@
+{
+  "bundle_id": "SIM-POLICY-BUNDLE-V2-2.0.0",
+  "schema_version": "policy-profile/2.0",
+  "interpreter_version": "deterministic-eligibility/1.0",
+  "generator_version": "1.0.0",
+  "generator_sha256": "530e64fe8ce4f0d58e73440bc8f2d715e1c92b045decec6ca40238836bde82db",
+  "policy_id": "SIM-AFTERSALES-2026-10-V2",
+  "version": "2.0.0",
+  "publication_status": "unpublished",
+  "content_review_status": "pending",
+  "scope": {
+    "allowed_modes": [
+      "simulation"
+    ],
+    "brands": [
+      "OUTON",
+      "OUTONLIFE",
+      "BELEEV"
+    ],
+    "markets": [
+      "US",
+      "GB",
+      "DE",
+      "CA",
+      "AU"
+    ],
+    "channels": [
+      "amazon",
+      "brand_store"
+    ],
+    "currencies": [
+      "USD",
+      "GBP",
+      "EUR",
+      "CAD",
+      "AUD"
+    ]
+  },
+  "usage_split": [
+    "dev"
+  ],
+  "effective_at": "2026-10-08T00:00:00+08:00",
+  "supersedes": {
+    "policy_id": "SIM-AFTERSALES-2026-10-V1",
+    "version": "1.0.1"
+  },
+  "rules": {
+    "path": "policies/policy-profile.json",
+    "sha256": "cf355a4031415ccccc6be439a24703b80aa7d6de9270591cc3dca34fe86bac19"
+  },
+  "readable": {
+    "path": "policies/policy-profile.md",
+    "version": "2.0.0",
+    "sha256": "05d051061c181a5809e73f2068b65dfbbce75b491b34c0c110f265317fc45b34"
+  },
+  "authoring_sha256": "cf355a4031415ccccc6be439a24703b80aa7d6de9270591cc3dca34fe86bac19",
+  "v1_reference": {
+    "policy_id": "SIM-AFTERSALES-2026-10-V1",
+    "version": "1.0.1",
+    "path": "../v1",
+    "files": {
+      "authoring/policy-profile.json": "d67556c8dbc43685be834626127d266abcfa610ad055b7159ada2099bf263f95",
+      "policies/policy-profile.json": "bfee43f2bc9636d90a343940fb40e072d649ecaae818e0705afed6047077e305",
+      "policies/policy-profile.md": "a84086855cb9f9a6be667c19476e8a45873187c222eaf76cd971ccaa24b7bd6b"
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": [
+      "policy_id",
+      "version",
+      "schema_version",
+      "publication_status",
+      "effective_at",
+      "supersedes",
+      "evidence_requirements",
+      "identity",
+      "return",
+      "refund",
+      "replacement",
+      "spare_part",
+      "logistics",
+      "conflicts",
+      "human_review"
+    ],
+    "properties": {
+      "policy_id": {
+        "const": "SIM-AFTERSALES-2026-10-V2"
+      },
+      "version": {
+        "const": "2.0.0"
+      },
+      "schema_version": {
+        "const": "policy-profile/2.0"
+      },
+      "publication_status": {
+        "const": "unpublished"
+      },
+      "effective_at": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "evidence_requirements": {
+        "type": "object",
+        "required": [
+          "order_identity",
+          "quantity",
+          "paid_amount",
+          "customer_choice",
+          "address",
+          "reported_problem",
+          "return_condition",
+          "warehouse_receipt",
+          "warehouse_inspection",
+          "compatibility",
+          "inventory",
+          "compensation_ledger",
+          "delivery_date",
+          "safety"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "order_identity": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "quantity": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "paid_amount": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "customer_choice": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "address": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "reported_problem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "return_condition": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "warehouse_receipt": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "warehouse_inspection": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "compatibility": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "inventory": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "compensation_ledger": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "delivery_date": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          },
+          "safety": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "allowed_kinds",
+              "verification",
+              "on_missing"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "allowed_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "tool_fact",
+                    "verified_fixture",
+                    "human_decision",
+                    "customer_statement",
+                    "visual_observation"
+                  ]
+                }
+              },
+              "verification": {
+                "type": "string",
+                "minLength": 1
+              },
+              "on_missing": {
+                "enum": [
+                  "needs_input",
+                  "requires_review"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "refund": {
+        "type": "object",
+        "properties": {
+          "partial_offer_max_basis_points": {
+            "type": "integer",
+            "const": 2000
+          }
+        }
+      },
+      "return": {
+        "type": "object",
+        "properties": {
+          "window_days_after_delivery": {
+            "type": "integer",
+            "const": 30
+          }
+        }
+      },
+      "replacement": {
+        "type": "object",
+        "properties": {
+          "defect_window_days_after_delivery": {
+            "type": "integer",
+            "const": 365
+          }
+        }
+      },
+      "spare_part": {
+        "type": "object",
+        "properties": {
+          "defect_window_days_after_delivery": {
+            "type": "integer",
+            "const": 365
+          }
+        }
+      },
+      "logistics": {
+        "type": "object",
+        "properties": {
+          "stale_tracking_days": {
+            "type": "integer",
+            "const": 7
+          }
+        }
+      }
+    }
+  },
+  "schema_sha256": "e3c42746729c1065f692633695310e1350c75c02bb926f011ed7f9281ff23291"
+}

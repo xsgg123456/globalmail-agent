@@ -4,7 +4,7 @@
 
 版本：v1.1；日期：2026-10-07。依据：Product-Spec v1.13、BUSINESS-SCENARIOS v1.4、TECH-SELECTION v1.3、KNOWLEDGE-DESIGN v1.3 及知识专项实测。
 
-本文是开发设计基线；[Phase 2](docs/verification/PHASE-2-VALIDATION.md)已实现本机系统API、PG/对象依赖基础及前端外壳，其他业务契约尚待分阶段实现验收。技术取舍见 [后端总览](docs/architecture/BACKEND-ARCHITECTURE.md)，逐项验证设计见 [验收映射](docs/verification/AGENT-ACCEPTANCE.md)。具体已实现范围以DEV-PLAN和验证报告为准，其余数据库表、API路由和任务参数仍为工程设计；不改变Spec的业务授权与预算。
+本文是开发设计基线；[Phase 2](docs/verification/PHASE-2-VALIDATION.md)已实现本机系统API、PG/对象依赖基础及前端外壳；[Phase 3](docs/verification/PHASE-3-VALIDATION.md)已实现会话/人审/调度协议；[Phase 4](docs/verification/PHASE-4-VALIDATION.md)已实现订单/账本/适配/库存查询与未发布政策的只读预览，四步技术验证及独立两阶段审查通过，具体集成见[实施约定](docs/planning/PHASE-4-IMPLEMENTATION.md)。其他业务契约尚待分阶段实现验收。技术取舍见 [后端总览](docs/architecture/BACKEND-ARCHITECTURE.md)，逐项验证设计见 [验收映射](docs/verification/AGENT-ACCEPTANCE.md)。具体已实现范围以DEV-PLAN和验证报告为准，其余数据库表、API路由和任务参数仍为工程设计；不改变Spec的业务授权与预算。
 
 v1.0 的独立设计审查已通过，范围见 [原架构审查报告](docs/verification/AGENT-ARCHITECTURE-REVIEW.md)；该报告不涵盖本次客户图片增量。v1.1 补充第4.4节及对应输入、提交、清理和 API 契约，已通过 [图片增量独立设计审查](docs/verification/AGENT-VISUAL-REVIEW.md)：危险分流优先级与旧计数两项发现均已修订复核关闭；正式实现及图片质量仍待验证。
 
