@@ -51,8 +51,8 @@ class LocalAccessMiddleware:
 
         if scope["method"] == "OPTIONS":
             result = response(request_id)
-            result.headers["Access-Control-Allow-Methods"] = "GET, HEAD, OPTIONS"
-            result.headers["Access-Control-Allow-Headers"] = "Content-Type"
+            result.headers["Access-Control-Allow-Methods"] = "GET, HEAD, OPTIONS, POST, PATCH"
+            result.headers["Access-Control-Allow-Headers"] = "Content-Type, Idempotency-Key, Last-Event-ID"
             return await result(scope, receive, safe_send)
         try:
             await self.app(scope, receive, safe_send)

@@ -29,7 +29,9 @@ class ApiTests(unittest.TestCase):
             self.assertEqual(result.headers["x-request-id"], result.json()["request_id"])
             self.assertNotIn("SECRET_MARKER", result.text)
         self.assertTrue(result.json()["data"]["model_configured"])
-        self.assertFalse(any(result.json()["data"]["features"].values()))
+        self.assertEqual(result.json()["data"]["phase"], 3)
+        self.assertEqual(result.json()["data"]["features"],
+                         {"conversations": True, "knowledge": False, "agent": False})
 
     def test_readiness_degraded_without_database(self):
         result = self.client.get("/api/v1/health/ready")

@@ -1,28 +1,247 @@
 <template>
   <div>
     <RuntimeStatus />
-    <div class="page-content flex !p-0 max-lg:flex-col">
+    <div
+      ref="workbench"
+      class="page-content flex !p-0 overflow-hidden"
+      :class="{ 'flex-col': narrow }"
+      :style="{ height: narrow ? 'auto' : 'min(850px, max(600px, calc(100vh - 270px)))' }"
+    >
+      <ConversationList
+        class="w-[260px]"
+        :class="{ 'w-full! max-h-[380px] border-b-d': narrow }"
+        :items="items"
+        :selected-id="selectedId"
+        :mode="mode"
+        :state="state"
+        :loading="listLoading"
+        :busy="busy"
+        :error="listError"
+        :page="page"
+        :has-previous="page > 1"
+        :has-next="Boolean(nextCursor)"
+        @select="select"
+        @mode="filter('mode', $event)"
+        @state="filter('state', $event)"
+        @create="openDialog('create')"
+        @import="openDialog('import')"
+        @refresh="refreshList"
+        @previous="paginate(false)"
+        @next="paginate(true)"
+      />
       <section
-        class="box-border w-64 shrink-0 p-5 border-r border-g-300 max-lg:w-full max-lg:border-r-0 max-lg:border-b"
+        class="box-border flex-1 min-w-0 flex flex-col"
+        :class="{ 'min-h-[600px]': narrow }"
+        aria-label="邮件往来"
       >
-        <h1 class="text-base font-medium">客户会话</h1>
-        <ElEmpty description="会话功能尚未接入" :image-size="80" />
+        <div class="flex-cb flex-wrap gap-3 p-4">
+          <div class="min-w-0">
+            <h2 class="text-base font-medium break-words">{{
+              detail?.conversation.subject || '邮件往来'
+            }}</h2>
+            <p v-if="detail" class="text-xs text-g-700 mt-2 break-all"
+              >{{ detail.conversation.sender_key }} · {{ modeLabel(detail.conversation.mode) }} ·
+              {{ conversationState(detail.conversation) }}</p
+            >
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <ElButton v-if="selectedId" :loading="detailLoading" @click="refreshCurrent"
+              >刷新会话</ElButton
+            >
+            <ElButton v-if="compact && detail" @click="drawer = true">处理详情与人审</ElButton>
+          </div>
+        </div>
+        <ElAlert
+          v-if="detailError"
+          :title="detailError"
+          type="error"
+          :closable="false"
+          show-icon
+          class="mx-4 mb-3 max-w-[calc(100%-32px)]"
+        />
+        <ElAlert
+          v-if="actionError"
+          :title="actionError"
+          type="error"
+          :closable="false"
+          show-icon
+          class="mx-4 mb-3 max-w-[calc(100%-32px)]"
+        />
+        <ElAlert
+          v-if="actionNotice"
+          :title="actionNotice"
+          type="success"
+          :closable="true"
+          show-icon
+          class="mx-4 mb-3 max-w-[calc(100%-32px)]"
+          @close="actionNotice = ''"
+        />
+        <ElSkeleton v-if="detailLoading && !detail" :rows="6" animated class="p-4" />
+        <template v-else-if="detail">
+          <MessageTimeline
+            :messages="detail.messages"
+            :conversation-id="detail.conversation.id"
+            :scroll-signal="scrollSignal"
+            :class="{ 'max-h-[500px]': narrow }"
+          />
+          <MessageComposer
+            :model-value="incomingInput"
+            :historical="detail.conversation.mode === 'historical_replay'"
+            :replay="detail.replay"
+            :busy="busy"
+            :active-run="activeRun"
+            :human-review="detail.conversation.processing_owner === 'human_review'"
+            :resolved="detail.conversation.lifecycle === 'resolved'"
+            @update:model-value="setIncoming"
+            @submit="append"
+            @next="nextReplay"
+          />
+        </template>
+        <ElEmpty
+          v-else
+          :description="
+            selectedId
+              ? '会话读取失败，请点击刷新会话重试'
+              : '选择会话，或新建模拟会话、导入历史案例'
+          "
+          :image-size="100"
+          class="flex-1"
+        />
       </section>
       <section
-        class="box-border flex-1 min-w-0 p-5 border-r border-g-300 max-lg:border-r-0 max-lg:border-b"
+        v-if="!compact"
+        class="w-[360px] shrink-0 overflow-y-auto border-l-d min-w-0"
+        aria-label="Agent 处理记录"
       >
-        <h2 class="text-base font-medium">邮件往来</h2>
-        <ElEmpty description="导入和添加来信将在会话阶段开放" :image-size="100" />
-      </section>
-      <section class="box-border w-72 shrink-0 p-5 max-lg:w-full">
-        <h2 class="text-base font-medium">Agent 处理记录</h2>
-        <ElEmpty description="Agent 与人审尚未接入" :image-size="80" />
-        <p class="text-sm text-g-600">当前仅验证本机运行基础，未执行模型调用或发送邮件。</p>
+        <AgentProcessPanel
+          v-if="detail"
+          v-bind="panelProps"
+          @human-input="setHuman"
+          @takeover="takeover"
+          @save="saveHuman"
+          @complete="completeHuman"
+          @close="confirmClose"
+          @stop="stop"
+          @retry="retry"
+          @acknowledge="acknowledgeHuman"
+        />
+        <ElEmpty v-else description="选择会话后查看任务与人审" :image-size="70" />
       </section>
     </div>
+    <ElDrawer v-model="drawer" title="Agent 处理记录与人审" size="min(420px, 100vw)">
+      <AgentProcessPanel
+        v-if="detail"
+        v-bind="panelProps"
+        @human-input="setHuman"
+        @takeover="takeover"
+        @save="saveHuman"
+        @complete="completeHuman"
+        @close="confirmClose"
+        @stop="stop"
+        @retry="retry"
+        @acknowledge="acknowledgeHuman"
+      />
+    </ElDrawer>
+    <ConversationDialog
+      v-model="dialogVisible"
+      :kind="dialogKind"
+      :busy="busy"
+      :submit-command="createOrImport"
+    />
   </div>
 </template>
 <script setup lang="ts">
+  import { computed, onMounted, ref } from 'vue'
+  import { useElementSize } from '@vueuse/core'
+  import { ElMessageBox } from 'element-plus'
   import RuntimeStatus from '@/components/business/runtime-status.vue'
+  import ConversationList from '@/components/mail-agent/ConversationList.vue'
+  import MessageTimeline from '@/components/mail-agent/MessageTimeline.vue'
+  import MessageComposer from '@/components/mail-agent/MessageComposer.vue'
+  import AgentProcessPanel from '@/components/mail-agent/AgentProcessPanel.vue'
+  import ConversationDialog from '@/components/mail-agent/ConversationDialog.vue'
+  import { conversationState, modeLabel } from '@/components/mail-agent/mail-labels'
+  import { useMailWorkbench } from '@/composables/useMailWorkbench'
+  import { useConversationEvents } from '@/composables/useConversationEvents'
   defineOptions({ name: 'MailWorkbench' })
+  const {
+    items,
+    selectedId,
+    mode,
+    state,
+    page,
+    nextCursor,
+    listLoading,
+    listError,
+    detail,
+    detailLoading,
+    detailError,
+    busy,
+    actionError,
+    actionNotice,
+    incomingInput,
+    humanInput,
+    humanStale,
+    acknowledgeHuman,
+    scrollSignal,
+    conversation,
+    filter,
+    paginate,
+    select,
+    refreshList,
+    refreshDetail,
+    createOrImport,
+    setIncoming,
+    setHuman,
+    append,
+    nextReplay,
+    takeover,
+    saveHuman,
+    completeHuman,
+    close,
+    stop,
+    retry
+  } = useMailWorkbench()
+  const { state: eventState, reconnect } = useConversationEvents(conversation, async () => {
+    await refreshDetail()
+    await refreshList()
+  })
+  const workbench = ref<HTMLElement>()
+  const { width } = useElementSize(workbench)
+  const compact = computed(() => width.value < 1024)
+  const narrow = computed(() => width.value < 640)
+  const drawer = ref(false)
+  const dialogVisible = ref(false)
+  const dialogKind = ref<'create' | 'import'>('create')
+  const activeRun = computed(() =>
+    Boolean(detail.value?.runs.some((run) => ['queued', 'running'].includes(run.status)))
+  )
+  const panelProps = computed(() => ({
+    detail: detail.value!,
+    humanInput: humanInput.value,
+    humanStale: humanStale.value,
+    busy: busy.value,
+    eventState: eventState.value
+  }))
+  function openDialog(kind: 'create' | 'import') {
+    dialogKind.value = kind
+    dialogVisible.value = true
+  }
+  async function refreshCurrent() {
+    await refreshDetail(true)
+    if (!detailError.value) reconnect()
+  }
+  async function confirmClose() {
+    try {
+      await ElMessageBox.confirm(
+        '确认客户问题已解决？结案会停止当前任务。之后客户新来信会重开原会话。',
+        '人工确认结案',
+        { confirmButtonText: '确认结案', cancelButtonText: '取消', type: 'warning' }
+      )
+      await close()
+    } catch {
+      /* 用户取消，保持会话状态。 */
+    }
+  }
+  onMounted(refreshList)
 </script>

@@ -1,6 +1,6 @@
 # 项目文档索引
 
-本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口，Phase 1本轮探索已结束、保留原失败项；Phase 2运行基础已实现，进度以DEV-PLAN和验证报告为准。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
+本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口，Phase 1本轮探索已结束、保留原失败项；Phase 2运行基础及Phase 3会话/人审已实现，进度以DEV-PLAN和验证报告为准。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
 
 ## 根目录入口
 
@@ -29,10 +29,14 @@
 | verification | [PHASE-2-VALIDATION.md](verification/PHASE-2-VALIDATION.md) | 本机API、PG持久化、前端外壳与启停实测 |
 | verification | [PHASE-2-REVIEW-FINAL.md](verification/PHASE-2-REVIEW-FINAL.md) | Phase 2独立两阶段复审与修复验证 |
 | verification | [PHASE-2-REVIEW.md](verification/PHASE-2-REVIEW.md) | Phase 2初审原始问题与证据 |
+| verification | [PHASE-3-VALIDATION.md](verification/PHASE-3-VALIDATION.md) | 会话/回放/人审/调度协议、隔离PG/SSE和实际GUI验收范围 |
+| verification | [PHASE-3-REVIEW-PASS.md](verification/PHASE-3-REVIEW-PASS.md) | Phase 3最终fresh两阶段审查，以文件结论为准 |
+| verification | [PHASE-3-REVIEW.md](verification/PHASE-3-REVIEW.md)、[第二轮](verification/PHASE-3-REVIEW-FINAL.md)、[第三轮](verification/PHASE-3-REVIEW-3.md) | 历次发现的原始问题与证据，保留FAIL |
 | verification | [AGENT-ARCHITECTURE-REVIEW.md](verification/AGENT-ARCHITECTURE-REVIEW.md) | 原架构设计审查，结论限于报告指定版本 |
 | verification | [AGENT-VISUAL-REVIEW.md](verification/AGENT-VISUAL-REVIEW.md) | 客户图片能力增量设计审查 |
 | verification | [DOCUMENT-CONSISTENCY-REVIEW.md](verification/DOCUMENT-CONSISTENCY-REVIEW.md) | 本轮文档偏差、修订依据及开发计划覆盖自检 |
 | planning | [SESSION-HANDOFF.md](planning/SESSION-HANDOFF.md) | 当前进度、已有产出、未完成项和下一步 |
+| planning | [PHASE-3-IMPLEMENTATION.md](planning/PHASE-3-IMPLEMENTATION.md)、[PHASE-3-CONTRACT.md](planning/PHASE-3-CONTRACT.md) | Phase 3实施步骤、表/API及集成细节；主架构仍为契约主入口 |
 
 ## 任务阅读与新增文档
 

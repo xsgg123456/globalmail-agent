@@ -286,6 +286,8 @@ Agent 任务领取使用短事务、`FOR UPDATE SKIP LOCKED` 和数据库 AgentS
 
 ### 6.3 统一锁顺序与最终提交
 
+会话变更若可能撤销Agent和知识两类任务，先按agent→knowledge顺序锁定相关任务槽，再取会话锁；worker提交只取自身任务槽再取会话锁。不能持有会话锁后再补取另一类任务槽。槽行锁仅在短事务持有，知识与Agent的长期租约仍相互独立。
+
 涉及自动副作用的短事务按存在的资源依次锁：AgentSlot → SimulationBranch/运行集合栅栏 → Conversation → MessageAttachment/EvidenceRevision（ID排序）→ KnowledgeReleaseHead（scope排序）→ OrderLine（ID排序）→ Operation/Execution → Inventory（ID排序）→ Run/Task/结果行。领取/心跳只锁slot和task后结束，不再反向获取业务锁；人工图片更正/撤销从分支及会话开始按相同顺序，不能持附件锁回头锁会话；发布只锁knowledge head及知识对象，不在持锁期间回头锁会话。清理跨域拆成有栅栏的多个任务，不能反向嵌套锁。
 
 最终提交必须在同一事务内完成：

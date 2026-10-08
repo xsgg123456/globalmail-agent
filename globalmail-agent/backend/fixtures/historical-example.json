@@ -1,0 +1,30 @@
+{
+  "expected_version": 0,
+  "source_ref": "synthetic-demo",
+  "source_conversation_id": "lamp-example-01",
+  "split": "dev",
+  "identity_verified": false,
+  "messages": [
+    {
+      "source_message_id": "mail-01",
+      "sender": "customer",
+      "sent_at": "2026-10-01T08:00:00Z",
+      "subject": "Lamp remote control",
+      "body": "The lamp turns on, but the remote does not respond. What should I check?"
+    },
+    {
+      "source_message_id": "mail-02",
+      "sender": "historical_staff",
+      "sent_at": "2026-10-01T09:00:00Z",
+      "subject": "Re: Lamp remote control",
+      "body": "Please share your order number and confirm whether you replaced the remote batteries."
+    },
+    {
+      "source_message_id": "mail-03",
+      "sender": "customer",
+      "sent_at": "2026-10-02T08:00:00Z",
+      "subject": "Re: Lamp remote control",
+      "body": "My demo order number is DEMO-1001. I replaced the batteries, and the remote still does not respond."
+    }
+  ]
+}

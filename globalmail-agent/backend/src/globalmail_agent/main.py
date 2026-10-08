@@ -10,18 +10,31 @@ from globalmail_agent.api.security import LocalAccessMiddleware
 from globalmail_agent.adapters.database import make_engine
 from globalmail_agent.settings import Settings
 from globalmail_agent.api.system import system_router
+from globalmail_agent.api.conversations import conversation_router
+from globalmail_agent.api.events import events_router
+from globalmail_agent.api.runs import runs_router
+from globalmail_agent.application.conversation_lock import DEFAULT_WORKSPACE_ID
+from globalmail_agent.worker.runner import ProtocolRunner
 
 
-def create_app(settings: Settings | None = None, *, engine=None) -> FastAPI:
+def create_app(settings: Settings | None = None, *, engine=None, start_worker=True) -> FastAPI:
     settings = settings or Settings.from_env()
     database = engine if engine is not None else make_engine(settings)
     store = ObjectStore(settings.object_root, database)
 
     @asynccontextmanager
     async def lifespan(app):
-        yield
-        if database is not None:
-            database.dispose()
+        runner = None
+        if start_worker and database is not None:
+            runner = ProtocolRunner(database, DEFAULT_WORKSPACE_ID)
+            runner.start()
+        try:
+            yield
+        finally:
+            if runner is not None:
+                runner.close()
+            if database is not None:
+                database.dispose()
 
     app = FastAPI(title="GlobalMail Agent", version="0.1.0", lifespan=lifespan,
                   docs_url=None, redoc_url=None, openapi_url=None)
@@ -42,6 +55,9 @@ def create_app(settings: Settings | None = None, *, engine=None) -> FastAPI:
                         status=500, msg="internal_error")
 
     app.include_router(system_router(settings, database, store))
+    app.include_router(conversation_router(database, store))
+    app.include_router(events_router(database))
+    app.include_router(runs_router(database))
 
     return app
 

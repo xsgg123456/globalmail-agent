@@ -18,6 +18,8 @@ pwsh -File globalmail-agent/scripts/stop-local.ps1 -StopDatabase
 
 后端只从服务端环境取得连接串；根.env仅允许读取LLM_MODEL/LLM_BASE_URL/LLM_API_KEY作为配置标志，本阶段不调用模型。前端子进程不继承这些配置，VITE变量不得放密钥。日志和进程登记位于`.local-data/runtime`。这只是本地单用户入口，没有公开网络认证能力。
 
-工作台会话及知识维护尚未接入；页面状态应显示实际就绪和明确未开放功能，不能据启动成功声称后续业务已实现。
+Phase 3工作台已接会话、受控历史JSON、逐封回放和人工处理；后台仅验证持久任务协议。模型、业务查询、知识维护与完整删除仍在后续阶段接入。
+
+浏览器验收用`phase3-test-server.py`：必须提供服务端`GLOBALMAIL_TEST_DATABASE_URL`，自动创建随机schema和临时对象目录，默认隔离页面15174/API18181；用`tmp/phase3-browser.stop`停止并清理。`phase3-network-check.py`仅对该隔离默认端口检查真实SSE/历史隔离，不可对正式用户数据运行。实际结果与范围见[Phase3验收](../../docs/verification/PHASE-3-VALIDATION.md)。
 
 实现依据：[Compose健康检查](https://docs.docker.com/compose/how-tos/startup-order/)、[PG18卷布局](https://hub.docker.com/_/postgres)、[Phase 2验证记录](../../docs/verification/PHASE-2-VALIDATION.md)。

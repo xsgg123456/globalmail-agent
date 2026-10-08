@@ -1,6 +1,10 @@
-# 正式后端（Phase 2）
+# 正式后端（Phase 3）
 
-仅本机单用户运行。提供 `/api/v1/health/live`、`health/ready`、`runtime-config`，不开放上传、删除、会话或模型执行 API。
+仅本机单用户运行。会话、受控JSON历史导入、逐封回放、人审、结案/重开、停止/重试及SSE均持久化到PostgreSQL。自动任务当前只完成调度协议验证，准确记录 `protocol_verified_model_not_connected`，不生成模型回复、不投递真实邮件。模型、图片上传和完整删除在后续阶段接入。
+
+表、事务、请求和响应的精确契约见 [Phase 3契约](../../docs/planning/PHASE-3-CONTRACT.md)。首次创建/导入携带 `expected_version:0`，其余写动作携带最新资源版本和 `Idempotency-Key`；人工回复额外携带最新 `expected_input_revision`。过期409保留数据库草稿。
+
+导入只接受浏览器上传JSON的允许字段；[安全合成样例](fixtures/historical-example.json)也可从 `/api/v1/imports/example` 读取。不接受服务器路径、未来控制事件、参考答案或未经受控复核的身份授权。未验证真实身份只作为独立历史案例；`group_id`不参与身份合并。历史详情只显示真实可见前缀，人工审阅结果单独返回，不加入messages。
 
 使用项目启动脚本注入服务端配置。手动执行时先设置 `.env.example` 中的环境变量；模块不自动读取 `.env`。
 

@@ -44,7 +44,9 @@
         :closable="false"
         show-icon
       />
-      <p class="mt-3 text-sm text-g-600">本机单用户 · Phase 2 运行基础 · 模拟业务尚未接入</p>
+      <p class="mt-3 text-sm text-g-700"
+        >本机单用户 · Phase 3 会话与人审 · 知识与模型将在后续阶段接入</p
+      >
       <p v-if="detailed && checkedAt" class="mt-3 text-sm text-g-600">检查时间：{{ checkedAt }}</p>
       <p v-if="detailed && requestIds.length" class="mt-2 text-xs text-g-600 break-all"
         >请求标识：{{ requestIds.join(' / ') }}</p

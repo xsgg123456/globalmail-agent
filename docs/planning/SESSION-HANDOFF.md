@@ -2,7 +2,17 @@
 
 文档位置：根目录保留 AGENTS、Product-Spec、变更记录、AGENT-ARCHITECTURE 及已创建的 [DEV-PLAN](../../DEV-PLAN.md)；其余专题由 [文档索引](../README.md) 导航。本文件位于 docs/planning；新任务按 AGENTS 中的目录约定存放产物，不恢复旧根目录副本。
 
-更新：2026-10-07。当前阶段：Phase 1本轮探索结束并提交68de83f；Phase 2本机运行基础已实现，四步技术验证及独立两阶段审查通过，待用户查看。Phase 3–13未开始，82项产品AC未作整体验收。
+更新：2026-10-08。当前阶段：Phase 1本轮探索结束并提交68de83f，原失败保留；Phase 2本机运行基础已实现；Phase 3会话/回放/人审/持久任务四步技术验证和最终独立两阶段审查通过，待用户查看。Phase 4–13未开始，82项产品AC未作整体验收。
+
+## Phase 3 当前交接（优先于下方历史记录）
+
+- 用户要求继续Phase 3；按dev-builder实施会话/消息/受控JSON/逐封回放、人审/人工回复/结案重开、cycle/run/job/stop/retry、双槽租约/fence、事件日志/SSE和三栏界面。精确实现契约见[Phase3集成契约](PHASE-3-CONTRACT.md)，规划见[实施步骤](PHASE-3-IMPLEMENTATION.md)。
+- 本期runner只验证任务协议，不调用模型或生成AI回复，不投递真实邮箱。CaseIssue是稳定correspondence基础事项，事实带来源与可见seq；跨源可信身份复核未开放，历史订单snapshot未接，语义多事项/业务查询/知识/正式Agent均不能声称完成。
+- 后端34真实测试（全启用PG，无skip）、前端18测试、Python编译/依赖、vue-tsc+Vite构建、既有3脚本检查通过；真实隔离服务SSE补读/15秒心跳/GET无写、真实文件导入及人审/旧草稿刷新/结案重开/明暗窄屏/网络错误同key重试/阅读滚动均有证据，见[验收记录](../verification/PHASE-3-VALIDATION.md)。[最终fresh审查](../verification/PHASE-3-REVIEW-PASS.md)Stage1/2均PASS，五项旧问题关闭；一项非阻塞LOW：后续对齐任务error_code文案字典，当前状态标签/显式重试提示正确。
+- 初审旧草稿输入版本HIGH，第二轮结案接管/知识死锁/GUI Proxy导入，第三轮初挂载阅读位置MEDIUM均已修并保留原FAIL报告；最终从Stage1重新审。别把旧报告改成PASS，也别把工程层测试改写为完整模型/七业务验收。
+- 已按用户批准更新AGENTS“全程中文、口语化、说人话、不用文言文”，dev-builder加入AI读材料/业务判断/格式分层记录规则；已处理进化信号，不需要再次询问。没有变更模型或Phase1历史结论。
+- 本机正式入口仍是 http://127.0.0.1:15173/#/workbench 与 API18080/PG15432；本轮隔离测试使用15174/18181、随机schema和临时对象，收尾清理。启动脚本运行Alembic升级到0002，保留既有数据。
+- 下一步Phase4：受身份/模式/历史截点约束的商品、订单、库存、物流、政策条件查询。用户查看Phase3前进度写“技术验证通过，待用户查看”，不要擅自关闭82项AC。
 
 ## Phase 2 当前交接
 
