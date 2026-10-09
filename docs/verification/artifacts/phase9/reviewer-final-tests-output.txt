@@ -1,0 +1,90 @@
+test_refund_create_execution_execution (__main__.IndependentRace.test_refund_create_execution_execution) ... ok
+test_refund_create_execution_publication (__main__.IndependentRace.test_refund_create_execution_publication) ... ok
+test_refund_succeeded_execution (__main__.IndependentRace.test_refund_succeeded_execution) ... ok
+test_refund_succeeded_publication (__main__.IndependentRace.test_refund_succeeded_publication) ... ok
+test_spare_part_shipped_execution (__main__.IndependentRace.test_spare_part_shipped_execution) ... ok
+test_spare_part_shipped_publication (__main__.IndependentRace.test_spare_part_shipped_publication) ... ok
+test_cross_scope_decision_and_stale_address_are_denied (test_after_sales_operations.AfterSalesOperationTests.test_cross_scope_decision_and_stale_address_are_denied) ... ok
+test_new_run_and_new_issue_reuse_the_same_reserved_unit (test_after_sales_operations.AfterSalesOperationTests.test_new_run_and_new_issue_reuse_the_same_reserved_unit) ... ok
+test_partial_units_have_exact_paid_share_and_exclude_other_compensation (test_after_sales_operations.AfterSalesOperationTests.test_partial_units_have_exact_paid_share_and_exclude_other_compensation) ... ok
+test_policy_edit_numbers_are_used_and_revocation_blocks_creation (test_after_sales_operations.AfterSalesOperationTests.test_policy_edit_numbers_are_used_and_revocation_blocks_creation) ... ok
+test_refund_duplicate_commands_reuse_and_reserve_amount_once (test_after_sales_operations.AfterSalesOperationTests.test_refund_duplicate_commands_reuse_and_reserve_amount_once) ... ok
+test_unpublished_policy_and_bad_quote_cannot_create_decision_authority (test_after_sales_operations.AfterSalesOperationTests.test_unpublished_policy_and_bad_quote_cannot_create_decision_authority) ... ok
+test_waiting_warehouse_reserves_compensation_without_execution (test_after_sales_operations.AfterSalesOperationTests.test_waiting_warehouse_reserves_compensation_without_execution) ... ok
+test_cancel_without_execution_releases_once_and_stale_version_does_not_write (test_after_sales_cancellation.AfterSalesCancellationTests.test_cancel_without_execution_releases_once_and_stale_version_does_not_write) ... ok
+test_historical_context_cannot_create_decision (test_after_sales_cancellation.AfterSalesCancellationTests.test_historical_context_cannot_create_decision) ... ok
+test_negative_or_conditional_cancel_quote_cannot_authorize (test_after_sales_cancellation.AfterSalesCancellationTests.test_negative_or_conditional_cancel_quote_cannot_authorize) ... ok
+test_unknown_execution_requires_reconciliation_before_cancel_can_release (test_after_sales_cancellation.AfterSalesCancellationTests.test_unknown_execution_requires_reconciliation_before_cancel_can_release) ... ok
+test_reservation_scope_and_operation_line_cannot_be_forged (test_after_sales_migration.AfterSalesConstraintTests.test_reservation_scope_and_operation_line_cannot_be_forged) ... ok
+test_0007_existing_business_rows_and_sources_survive_additive_0008 (test_after_sales_migration.AfterSalesMigrationTests.test_0007_existing_business_rows_and_sources_survive_additive_0008) ... D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_after_sales_migration.py:35: SAWarning: Did not recognize type 'public.vector' of column 'vector'
+  old.reflect(conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_after_sales_migration.py:35: SAWarning: Did not recognize type 'public.vector' of column 'probe_vector'
+  old.reflect(conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_after_sales_migration.py:41: SAWarning: Did not recognize type 'public.vector' of column 'vector'
+  current.reflect(conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_after_sales_migration.py:41: SAWarning: Did not recognize type 'public.vector' of column 'probe_vector'
+  current.reflect(conn)
+ok
+test_human_or_stopped_gate_only_records_business_event (test_simulation_executions.SimulationExecutionTests.test_human_or_stopped_gate_only_records_business_event) ... ok
+test_refund_success_requires_receipt_and_preserves_exact_amount_currency (test_simulation_executions.SimulationExecutionTests.test_refund_success_requires_receipt_and_preserves_exact_amount_currency) ... ok
+test_return_document_receipt_and_inspection_stay_distinct (test_simulation_executions.SimulationExecutionTests.test_return_document_receipt_and_inspection_stay_distinct) ... ok
+test_same_event_key_replays_but_changed_payload_and_link_mismatch_are_rejected (test_simulation_executions.SimulationExecutionTests.test_same_event_key_replays_but_changed_payload_and_link_mismatch_are_rejected) ... ok
+test_spare_execution_owns_stock_label_is_not_shipping_and_dispatch_consumes_once (test_simulation_executions.SimulationExecutionTests.test_spare_execution_owns_stock_label_is_not_shipping_and_dispatch_consumes_once) ... ok
+test_unknown_and_failed_keep_reservation_until_not_executed_receipt (test_simulation_executions.SimulationExecutionTests.test_unknown_and_failed_keep_reservation_until_not_executed_receipt) ... ok
+test_dispatch_proof_cannot_be_reconciled_as_not_executed (test_simulation_safety.SimulationSafetyTests.test_dispatch_proof_cannot_be_reconciled_as_not_executed) ... ok
+test_failed_fulfillment_retains_stock_until_confirmed_not_executed (test_simulation_safety.SimulationSafetyTests.test_failed_fulfillment_retains_stock_until_confirmed_not_executed) ... ok
+test_http_cross_branch_and_unknown_execution_reject_without_ledger_event (test_simulation_safety.SimulationSafetyTests.test_http_cross_branch_and_unknown_execution_reject_without_ledger_event) ... ok
+test_inventory_wait_cannot_bypass_missing_address_and_restock_only_enables_execution (test_simulation_safety.SimulationSafetyTests.test_inventory_wait_cannot_bypass_missing_address_and_restock_only_enables_execution) ... ok
+test_logistics_investigation_has_real_execution_receipt (test_simulation_safety.SimulationSafetyTests.test_logistics_investigation_has_real_execution_receipt) ... ok
+test_merchant_return_authorization_requires_supplied_prepaid_document (test_simulation_safety.SimulationSafetyTests.test_merchant_return_authorization_requires_supplied_prepaid_document) ... ok
+test_replacement_requires_same_exact_spec_and_records_dispatch (test_simulation_safety.SimulationSafetyTests.test_replacement_requires_same_exact_spec_and_records_dispatch) ... ok
+test_publication_waits_until_console_execution_transaction_commits (test_simulation_policy_race.SimulationPolicyRaceTests.test_publication_waits_until_console_execution_transaction_commits) ... ok
+test_create_and_receipt_are_atomic_and_replay_after_lost_response (test_agent_after_sales.AgentAfterSalesTests.test_create_and_receipt_are_atomic_and_replay_after_lost_response) ... ok
+test_finite_graph_creates_real_application_and_waits_on_actual_version (test_agent_after_sales.AgentAfterSalesTests.test_finite_graph_creates_real_application_and_waits_on_actual_version) ... ok
+test_internal_effect_invalidates_prior_credential_without_rewriting_object (test_agent_after_sales.AgentAfterSalesTests.test_internal_effect_invalidates_prior_credential_without_rewriting_object) ... ok
+test_stop_after_committed_effect_preserves_application_and_receipt (test_agent_after_sales.AgentAfterSalesTests.test_stop_after_committed_effect_preserves_application_and_receipt) ... ok
+test_stop_before_effect_denies (test_agent_after_sales.AgentAfterSalesTests.test_stop_before_effect_denies) ... ok
+test_packing_preserves_every_condition_and_plan_value (test_agent_after_sales.CompactResultTests.test_packing_preserves_every_condition_and_plan_value) ... ok
+test_business_read_digest_allows_stable_ledger_and_rejects_silent_ledger_change (test_agent_tools.AgentToolTests.test_business_read_digest_allows_stable_ledger_and_rejects_silent_ledger_change) ... ok
+test_conditional_refund_keeps_two_intents_and_writes_no_after_sales_rows (test_agent_tools.AgentToolTests.test_conditional_refund_keeps_two_intents_and_writes_no_after_sales_rows) ... ok
+test_historical_future_snapshot_and_simulation_policy_never_enter_model (test_agent_tools.AgentToolTests.test_historical_future_snapshot_and_simulation_policy_never_enter_model) ... ok
+test_identity_mode_asof_sql_and_unknown_fields_are_rejected_before_execution (test_agent_tools.AgentToolTests.test_identity_mode_asof_sql_and_unknown_fields_are_rejected_before_execution) ... ok
+test_multiline_order_never_implicitly_selects_first_and_foreign_line_is_denied (test_agent_tools.AgentToolTests.test_multiline_order_never_implicitly_selects_first_and_foreign_line_is_denied) ... ok
+test_order_candidate_needs_visible_source_and_cross_customer_query_is_denied (test_agent_tools.AgentToolTests.test_order_candidate_needs_visible_source_and_cross_customer_query_is_denied) ... ok
+test_reply_rejects_language_forged_reference_order_fact_and_unsupported_step (test_agent_tools.AgentToolTests.test_reply_rejects_language_forged_reference_order_fact_and_unsupported_step) ... ok
+test_reused_order_source_repair_points_to_visible_history_without_reasking_customer (test_agent_tools.AgentToolTests.test_reused_order_source_repair_points_to_visible_history_without_reasking_customer) ... ok
+test_same_tool_args_without_new_information_stops_at_second_receipt (test_agent_tools.AgentToolTests.test_same_tool_args_without_new_information_stops_at_second_receipt) ... ok
+test_schema_pressure_keeps_scoped_reads_before_last_two_requests (test_agent_tools.AgentToolTests.test_schema_pressure_keeps_scoped_reads_before_last_two_requests) ... ok
+test_tool_receipt_same_key_replays_once_and_changed_arguments_conflict (test_agent_tools.AgentToolTests.test_tool_receipt_same_key_replays_once_and_changed_arguments_conflict) ... ok
+test_understanding_quotes_order_candidates_and_human_decisions_need_real_sources (test_agent_tools.AgentToolTests.test_understanding_quotes_order_candidates_and_human_decisions_need_real_sources) ... ok
+test_full_context_handoff_fits_when_both_terminal_schemas_do_not (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_handoff_fits_when_both_terminal_schemas_do_not) ... ok
+test_full_context_still_over_handoff_budget_does_not_fake_human_review (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_still_over_handoff_budget_does_not_fake_human_review) ... ok
+test_registered_but_undeclared_tool_is_not_executed_and_paid_usage_is_kept (test_agent_menu_pressure.AgentMenuPressureTests.test_registered_but_undeclared_tool_is_not_executed_and_paid_usage_is_kept) ... ok
+test_binding_rejection_repairs_with_actual_failure_not_positive_model_reason (test_agent_review_audit.ReviewAuditProtocolTests.test_binding_rejection_repairs_with_actual_failure_not_positive_model_reason) ... ok
+test_real_graph_rejects_missing_unit_and_never_saves_validated_hash (test_agent_review_audit.ReviewAuditProtocolTests.test_real_graph_rejects_missing_unit_and_never_saves_validated_hash) ... ok
+test_real_graph_rejects_old_four_field_response_without_outbound (test_agent_review_audit.ReviewAuditProtocolTests.test_real_graph_rejects_old_four_field_response_without_outbound) ... ok
+test_semantic_negative_with_valid_bindings_preserves_specific_model_reason (test_agent_review_audit.ReviewAuditProtocolTests.test_semantic_negative_with_valid_bindings_preserves_specific_model_reason) ... ok
+test_41_short_original_units_have_no_added_limit_but_must_all_be_checked (test_agent_review_audit.ReviewAuditTests.test_41_short_original_units_have_no_added_limit_but_must_all_be_checked) ... ok
+test_complete_original_units_and_exact_scoped_quotes_pass_protocol (test_agent_review_audit.ReviewAuditTests.test_complete_original_units_and_exact_scoped_quotes_pass_protocol) ... ok
+test_duplicate_or_out_of_range_request_unit_rejects (test_agent_review_audit.ReviewAuditTests.test_duplicate_or_out_of_range_request_unit_rejects) ... ok
+test_existing_but_unclaimed_or_foreign_source_cannot_authorize_claim (test_agent_review_audit.ReviewAuditTests.test_existing_but_unclaimed_or_foreign_source_cannot_authorize_claim) ... ok
+test_fact_needs_evidence_but_neutral_courtesy_does_not (test_agent_review_audit.ReviewAuditTests.test_fact_needs_evidence_but_neutral_courtesy_does_not) ... ok
+test_legacy_four_fields_and_coerced_indices_cannot_pass_new_contract (test_agent_review_audit.ReviewAuditTests.test_legacy_four_fields_and_coerced_indices_cannot_pass_new_contract) ... ok
+test_missing_duplicate_or_out_of_range_claim_index_rejects (test_agent_review_audit.ReviewAuditTests.test_missing_duplicate_or_out_of_range_claim_index_rejects) ... ok
+test_missing_or_fabricated_reply_quote_rejects (test_agent_review_audit.ReviewAuditTests.test_missing_or_fabricated_reply_quote_rejects) ... ok
+test_negative_claim_cannot_be_overridden_by_total_supported (test_agent_review_audit.ReviewAuditTests.test_negative_claim_cannot_be_overridden_by_total_supported) ... ok
+test_omitted_last_conditional_unit_cannot_hide_behind_total_true (test_agent_review_audit.ReviewAuditTests.test_omitted_last_conditional_unit_cannot_hide_behind_total_true) ... ok
+test_sentence_units_preserve_every_character_without_keyword_classification (test_agent_review_audit.ReviewAuditTests.test_sentence_units_preserve_every_character_without_keyword_classification) ... ok
+test_true_source_id_with_invented_translation_quote_rejects (test_agent_review_audit.ReviewAuditTests.test_true_source_id_with_invented_translation_quote_rejects) ... ok
+
+----------------------------------------------------------------------
+Ran 70 tests in 285.367s
+
+OK
+{"case": "refund:create_execution:execution", "schema": "test_protocol_9115ff74d2bb4c28855aa1184669cce8", "paid_model_calls": 0, "publication_blocked_until_effect_commit": true, "effect_committed": true, "new_epoch": 2}
+{"case": "refund:create_execution:publication", "schema": "test_protocol_63311aa388724cf1937f4cf8d4d01bd6", "paid_model_calls": 0, "new_epoch": 2, "refused": "published_policy_required", "ledger_unchanged": true}
+{"case": "refund:succeeded:execution", "schema": "test_protocol_a2d84169a7484884b8e3df5cf6a40dfc", "paid_model_calls": 0, "publication_blocked_until_effect_commit": true, "effect_committed": true, "new_epoch": 2}
+{"case": "refund:succeeded:publication", "schema": "test_protocol_92a68a4ffb2641db82d8263ee087f3db", "paid_model_calls": 0, "new_epoch": 2, "refused": "published_policy_required", "ledger_unchanged": true}
+{"case": "spare_part:shipped:execution", "schema": "test_protocol_7a40c0be263c48b0813b45e5e4ea9187", "paid_model_calls": 0, "publication_blocked_until_effect_commit": true, "effect_committed": true, "new_epoch": 2}
+{"case": "spare_part:shipped:publication", "schema": "test_protocol_03c695f796d14312b80edb96baaa86e4", "paid_model_calls": 0, "new_epoch": 2, "refused": "published_policy_required", "ledger_unchanged": true}
+{"tests": 70, "failures": 0, "errors": 0, "skipped": 0, "duration_seconds": 285.5, "source_changed": true, "independent_policy_cases": [{"case": "refund:create_execution:execution", "schema": "test_protocol_9115ff74d2bb4c28855aa1184669cce8", "paid_model_calls": 0, "publication_blocked_until_effect_commit": true, "effect_committed": true, "new_epoch": 2}, {"case": "refund:create_execution:publication", "schema": "test_protocol_63311aa388724cf1937f4cf8d4d01bd6", "paid_model_calls": 0, "new_epoch": 2, "refused": "published_policy_required", "ledger_unchanged": true}, {"case": "refund:succeeded:execution", "schema": "test_protocol_a2d84169a7484884b8e3df5cf6a40dfc", "paid_model_calls": 0, "publication_blocked_until_effect_commit": true, "effect_committed": true, "new_epoch": 2}, {"case": "refund:succeeded:publication", "schema": "test_protocol_92a68a4ffb2641db82d8263ee087f3db", "paid_model_calls": 0, "new_epoch": 2, "refused": "published_policy_required", "ledger_unchanged": true}, {"case": "spare_part:shipped:execution", "schema": "test_protocol_7a40c0be263c48b0813b45e5e4ea9187", "paid_model_calls": 0, "publication_blocked_until_effect_commit": true, "effect_committed": true, "new_epoch": 2}, {"case": "spare_part:shipped:publication", "schema": "test_protocol_03c695f796d14312b80edb96baaa86e4", "paid_model_calls": 0, "new_epoch": 2, "refused": "published_policy_required", "ledger_unchanged": true}], "successful": true}

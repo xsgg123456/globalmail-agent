@@ -70,6 +70,7 @@
     </section>
     <CaseMemoryPanel :detail="detail" />
     <BusinessDetails :key="detail.conversation.id" :context="detail.conversation" />
+    <OperationDetails :key="detail.conversation.id" :context="detail.conversation" @changed="$emit('businessChanged')" />
     <HumanReviewPanel
       :conversation="detail.conversation"
       :review="detail.review"
@@ -97,6 +98,7 @@
   import { useAgentRunDetails } from '@/composables/useAgentRunDetails'
   import HumanReviewPanel from './HumanReviewPanel.vue'
   import BusinessDetails from './BusinessDetails.vue'
+  import OperationDetails from './OperationDetails.vue'
   import AgentRunPanel from './AgentRunPanel.vue'
   import CaseMemoryPanel from './CaseMemoryPanel.vue'
   import { conversationState, modeLabel, runLabels } from './mail-labels'
@@ -117,6 +119,7 @@
     acknowledge: []
     stop: [id: string]
     retry: [id: string]
+    businessChanged: []
   }>()
   const { expanded, records, loading, errors, refresh, dispose } = useAgentRunDetails(
     toRef(props, 'detail')

@@ -1,0 +1,49 @@
+{
+  "inspection_http": 200,
+  "success_http": 200,
+  "final": [
+    {
+      "id": "3bb18055-5741-4515-bb70-e605ce2b2b22",
+      "kind": "refund",
+      "status": "succeeded",
+      "executions": 1,
+      "receipt": "SIM-PAYMENT-UI-1",
+      "amount_minor": 5499,
+      "shipments": [],
+      "returns": []
+    },
+    {
+      "id": "f99d6dea-ee29-4b1f-b669-aa45a3c09f7f",
+      "kind": "spare_part",
+      "status": "succeeded",
+      "executions": 1,
+      "receipt": "SIM-ERP-UI-1",
+      "amount_minor": null,
+      "shipments": [
+        {
+          "status": "delivered",
+          "receipt": "SIM-CARRIER-DELIVERED-UI"
+        }
+      ],
+      "returns": []
+    },
+    {
+      "id": "ad457328-4697-4b71-95e9-ef47eca01de4",
+      "kind": "return",
+      "status": "succeeded",
+      "executions": 1,
+      "receipt": "SIM-RETURN-COMPLETED-UI",
+      "amount_minor": null,
+      "shipments": [],
+      "returns": [
+        {
+          "received": true,
+          "inspection": "passed",
+          "address": "模拟仓库 9 号，仅用于本次测试",
+          "packing": "完整包装并附上模拟授权编号",
+          "postage": "customer"
+        }
+      ]
+    }
+  ]
+}

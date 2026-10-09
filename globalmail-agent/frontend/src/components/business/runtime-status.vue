@@ -45,7 +45,7 @@
         show-icon
       />
       <p class="mt-3 text-sm text-g-700"
-        >本机单用户 · Phase 8 图文 Agent ·
+        >本机单用户 · Phase 9 图文 Agent 与售后 ·
         {{
           runtime
             ? runtime.model_configured

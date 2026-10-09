@@ -14,6 +14,8 @@ v1.0 的独立设计审查已通过，范围见 [原架构审查报告](docs/ver
 
 ## 0. 本轮规划与完成标准
 
+2026-10-09进度：Phase8工程已验证并提交6b55d03；Phase9按[实施步骤](docs/planning/PHASE-9-IMPLEMENTATION.md)落实既有内部售后及独立模拟执行契约，工程四步验证及[独立两阶段审查](docs/verification/PHASE-9-REVIEW-FINAL.md)通过，见[验证记录](docs/verification/PHASE-9-VALIDATION.md)。下一期Phase10尚未开始。正式库保持0005；付费模型质量按既有决定延期，不变更本文件的授权/事务/来源约束。
+
 | 顺序 | 目标 | 完成标准 |
 |---|---|---|
 | 1 | 核对输入与不变量 | 明确七类业务、历史/模拟隔离、HITL、模型预算和知识实测边界，不重开已确认选型 |
@@ -295,6 +297,8 @@ Agent 任务领取使用短事务、`FOR UPDATE SKIP LOCKED` 和数据库 AgentS
 会话变更若可能撤销Agent和知识两类任务，先按agent→knowledge顺序锁定相关任务槽，再取会话锁；worker提交只取自身任务槽再取会话锁。不能持有会话锁后再补取另一类任务槽。槽行锁仅在短事务持有，知识与Agent的长期租约仍相互独立。
 
 涉及自动副作用的短事务按存在的资源依次锁：AgentSlot → SimulationBranch/运行集合栅栏 → Conversation → MessageAttachment/EvidenceRevision（ID排序）→ KnowledgeReleaseHead（scope排序）→ OrderLine（ID排序）→ Operation/Execution → Inventory（ID排序）→ Run/Task/结果行。领取/心跳只锁slot和task后结束，不再反向获取业务锁；人工图片更正/撤销从分支及会话开始按相同顺序，不能持附件锁回头锁会话；发布只锁knowledge head及知识对象，不在持锁期间回头锁会话。清理跨域拆成有栅栏的多个任务，不能反向嵌套锁。
+
+人工模拟售后执行也按该顺序锁当前KnowledgeReleaseHead，空头先建立可锁定行；政策校验至账本效果/命令回执提交始终持头锁。publish/rollback不能在控制台已核验旧epoch但尚未提交效果的窗口抢先完成。
 
 最终提交必须在同一事务内完成：
 

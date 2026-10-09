@@ -1,7 +1,8 @@
-"""Only read services and scoped candidate/terminal proposals are model-callable."""
+"""Scoped reads, internal applications and terminal proposals are model-callable."""
 from typing import Literal
 from pydantic import Field
 from globalmail_agent.agent.understanding import StrictModel, Fact, Intent, SourceRef
+from globalmail_agent.domain.operations import CheckOperation, CreateOperation, CancelOperation
 
 
 class Empty(StrictModel):
@@ -76,6 +77,8 @@ TOOLS = {"get_case_context": Empty, "get_order_snapshot": Order, "get_shipment_s
     "get_after_sales_context": Line, "get_item_availability": Availability, "get_operation_status": Operation,
     "search_reference": Search, "update_case_state": StateUpdate, "revise_understanding": UnderstandingRevision,
     "create_reply_draft": Draft, "request_human_review": Handoff}
+TOOLS.update(check_after_sales_eligibility=CheckOperation,
+    create_after_sales_operation=CreateOperation, cancel_after_sales_operation=CancelOperation)
 
 
 def compact_schema(value):

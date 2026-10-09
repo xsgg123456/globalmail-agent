@@ -1,0 +1,2 @@
+{"status": "ready", "web": "http://127.0.0.1:15174/#/workbench", "api": "http://127.0.0.1:18181", "schema": "phase9_browser_65286e5e669d4a2f8a0e10f2459fc334"}
+Stop by creating tmp/phase9-browser.stop.

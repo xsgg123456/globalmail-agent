@@ -2,15 +2,19 @@
 
 文档位置：根目录保留 AGENTS、Product-Spec、变更记录、AGENT-ARCHITECTURE 及已创建的 [DEV-PLAN](../../DEV-PLAN.md)；其余专题由 [文档索引](../README.md) 导航。本文件位于 docs/planning；新任务按 AGENTS 中的目录约定存放产物，不恢复旧根目录副本。
 
-更新：2026-10-09。当前阶段：Phase1原FAIL保留、Phase2–6按各期报告交付，Phase7工程提交09a818f/质量延期；Phase8图片工程四步验证及独立两阶段审查通过，模型质量延期，本地提交以git log为准。Phase9–13未开始，下一期Phase9内部售后申请与模拟执行；82项产品AC未作整体验收。
+更新：2026-10-09。当前阶段：Phase1原FAIL保留、Phase2–6按各期报告交付，Phase7工程提交09a818f/质量延期；Phase8图片及Phase9内部售后申请与模拟执行工程四步验证、独立两阶段审查均通过，模型质量延期，本地提交以git log为准。下一期Phase10，Phase10–13未开始；82项产品AC未作整体验收。
 
 ## 2026-10-09最新用户决定（覆盖下方旧推进门）
+
+用户已确认Phase8工程提交后继续Phase9。Phase8基线6b55d03，另有经用户批准的汇报规则提交3b4fff0。[Phase9实施步骤](PHASE-9-IMPLEMENTATION.md)已交付五类内部售后申请、取消/未知对账、独立模拟执行和工作台。初轮fresh审查的政策发布竞争HIGH与质检误标MEDIUM已修，[原FAIL](../verification/PHASE-9-REVIEW-INITIAL.md)保留；另一fresh实例完整重读后[Stage1/2均PASS](../verification/PHASE-9-REVIEW-FINAL.md)，无HIGH/MEDIUM/LOW。本期工程关闭，不继续付费模型微调。
+
+Phase9冻结后端61模块352项/0fail/error/skip、303.875秒、source_changed=false，236个当前后端文件逐一与测试SHA相同；前端61项/0skip/2662.4437ms、vue-tsc/Vite29.38秒通过，compileall退出0，70个变更文件最大288行。独审另跑70项/0skip/285.5秒（原source_changed=true如实保留：数量标签及忽略的Vite生成声明变化，后端SHA未变）、当前冻结政策六反例/0skip/37.547秒与前端61项/0skip/2441.5846ms、构建26.35秒；三值质检及通过后成功回执均真实UI HTTP200，实际宽窄/人工区/知识页/暗主题已对照。主Agent真实退款、补件、退货和丢回包原键核对已验证，详见[验证记录](../verification/PHASE-9-VALIDATION.md)。正式0005/54表、设置及160原件只读比对不变，测试schema/对象目录已清理，15174/18181已关闭；.idea不纳入编辑或提交。Phase10连续旅程、正式库升级及统一模型质量回归尚未执行。
 
 Phase7已按用户要求本地提交09a818f，原质量FAIL保留；用户明确“现在继续开发Phase8”，本期图片上传/仅图消息/受控预览/图文Understanding/人工字段更正/撤销和工作台已实现。五轮工程审查发现的来源、派生读取、撤销及风险去重缺陷已修；第六轮关闭风险HIGH并新增CMP-002时间线缺缩略图MEDIUM，现已补齐，六份原结论保留。[第七轮fresh](../verification/PHASE-8-REVIEW-7.md)从Stage1完整复核：本期工程Stage1 PASS、Stage2 PASS，无待修HIGH/MEDIUM工程阻塞。最后冻结后端319项/0skip/787.719秒/source_changed=false、前端55项/0skip/2630.1033ms与vue-tsc/Vite35.44秒、compileall通过；独审另跑27项生产路径与1项自写HTTP反例，并干净重跑该自写反例，源码SHA一致。实际缩略图加载/503回退/正常详情及撤销DOM清除/HTTP410已证，详见[验证记录](../verification/PHASE-8-VALIDATION.md)。正式0005/54表、设置及160原件只读比对不变，测试schema/对象目录已清理，15174/18181已关闭。工作目录.idea与本地反馈队列属于用户/环境文件，不纳入Phase8编辑或提交。
 
 用户此前要求“先把Phase7进行一下git提交”已完成；覆盖下方历史“不commit”的推进门，但提交不等于Phase7质量通过。Phase8使用0007隔离schema及临时对象验证，不升级正式0005数据库，不运行付费图片质量回归。原Phase7质量问题仍需统一回归，不因为本期工程审查清零全项目待验项。
 
-用户明确要求停止Phase7反复微调，继续开发，整个项目跑通后再处理模型细节。Phase8图片输入工程验证已通过，下一期Phase9内部售后申请与模拟执行；Phase7为工程已实现、业务质量/最终验收延期，原FAIL不改为PASS。保留所有拒发、来源/权限、预算、人审及提交栅栏，不再调用旧控制配置刷结果。Phase1图片质量也保留待统一回归；编译/工程测试/主链路故障继续当期修复。Phase8规划见[实施步骤](PHASE-8-IMPLEMENTATION.md)，不因旧“未开Phase8”或“先全过Phase7”记录停工，不再向用户重复请求已给出的推进许可。
+用户明确要求停止Phase7反复微调，继续开发，整个项目跑通后再处理模型细节。Phase8/9工程验证已通过，下一期Phase10连续跟进、异步事件、多订单与方案变更；Phase7为工程已实现、业务质量/最终验收延期，原FAIL不改为PASS。保留所有拒发、来源/权限、预算、人审及提交栅栏，不再调用旧控制配置刷结果。Phase1图片质量也保留待统一回归；编译/工程测试/主链路故障继续当期修复。Phase8规划见[实施步骤](PHASE-8-IMPLEMENTATION.md)，不因旧“未开Phase8”或“先全过Phase7”记录停工，不再向用户重复请求已给出的推进许可。
 
 ## Phase 7 历史交接（执行次序由最新用户决定覆盖）
 

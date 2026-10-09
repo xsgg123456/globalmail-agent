@@ -1,0 +1,25 @@
+### Result
+{"status":200,"confirmation":"确认模拟操作\n\n记录仓库质检结果 · 通过：OP-bb5cd810a7914119a922eb5fef70f273。资料将写入当前分支的真实模拟账本。\n\n取消\n确认记录","result":{"code":200,"msg":"ok","data":{"conversation_id":"fa1402c7-05d5-4da7-802b-16e310523f59","operation_id":"OP-bb5cd810a7914119a922eb5fef70f273","operation_version":5,"event_id":"43ca3200-3b4c-47c1-b67f-77c5aaac879e","event":"inspected","wake_status":"pending","branch_id":"43d80d58-6fcf-4fe3-b75b-aca8c5f45c9e","branch_generation":1,"conversation_version":6,"operations":[{"updated_at":"2026-10-08T02:00:00+00:00","confirmed_not_executed":false,"issue_id":"1c5a4505-08aa-43e7-a101-476f0c548985","currency":null,"order_line_id":"SIM-O-BASE-OUTON-05-L1","operation_id":"OP-bb5cd810a7914119a922eb5fef70f273","affected_unit_ids":["0"],"version":5,"address_version":null,"quantity":1,"kind":"return","amount_minor":null,"waiting_conditions":[],"item_id":null,"status":"awaiting_execution","plan":{"action":"return","item_id":null,"currency":null,"quantity":1,"amount_minor":null,"order_line_id":"SIM-O-BASE-OUTON-05-L1","address_version":null,"affected_unit_ids":["0"]},"managed":true,"execution_ids":["EXEC-048db725c847406dabcfd1e77b1d6463"],"source_kind":"synthetic_scenario","snapshot_at":"2026-10-08T02:00:00+00:00","is_realtime":false,"source_status":"accepted","order_id":"SIM-O-BASE-OUTON-05","unknown_fields":[],"cancelable":false,"allowed_events":["processing","succeeded","failed","unknown"]}],"executions":[{"updated_at":"2026-10-08T02:00:00+00:00","confirmed_not_executed":false,"region_spec":"US","currency":null,"affected_unit_ids":["0"],"address_version":null,"quantity":1,"kind":"return","amount_minor":null,"attempt_no":1,"execution_id":"EXEC-048db725c847406dabcfd1e77b1d6463","hardware_revision":"SIM-V1","item_id":null,"status":"accepted","operation_id":"OP-bb5cd810a7914119a922eb5fef70f273","source_kind":"synthetic_scenario","snapshot_at":"2026-10-08T02:00:00+00:00","is_realtime":false,"version":1,"receipt_ref":null,"order_id":"SIM-O-BASE-OUTON-05","order_line_id":"SIM-O-BASE-OUTON-05-L1","unknown_fields":[]}],"shipments":[],"returns":[{"return_id":"RMA-3f39e0e90c2d4eef8c7b30dae058530f","received":true,"updated_at":"2026-10-08T02:00:00+00:00","packing_instructions":"Pack the complete unit and accessories securely.","receipt_ref":"REVIEW-INSPECTION-PASSED","inspected_unit_ids":["0"],"inspected_quantity":1,"prepaid_label_ref":null,"affected_unit_ids":["0"],"prepaid_label":false,"inspection":"passed","carrier":null,"quantity":1,"postage_responsibility":"customer","tracking_number":null,"return_address":"Independent Reviewer Simulation Warehouse","authorized_return_reference":"REVIEW-passed-RMA","status":"inspected","operation_id":"OP-bb5cd810a7914119a922eb5fef70f273","execution_id":"EXEC-048db725c847406dabcfd1e77b1d6463","source_kind":"synthetic_scenario","snapshot_at":"2026-10-08T02:00:00+00:00","is_realtime":false,"version":3,"order_id":"SIM-O-BASE-OUTON-05","order_line_id":"SIM-O-BASE-OUTON-05-L1","unknown_fields":[]}]},"request_id":"e53b2a36-bde4-4074-97b4-40a7ce7c7f4f"}}
+### Ran Playwright code
+```js
+await (async (page) => {
+  const control=page.getByRole('region',{name:'模拟售后控制台',exact:true});
+  await page.getByRole('region',{name:'售后申请与模拟执行',exact:true}).first().getByText('退货 · 等待执行 · OP-bb5cd810a7914119a922eb5fef70f273',{exact:true}).first().waitFor();
+  await control.locator('.el-select').nth(0).click();
+  await page.getByRole('option',{name:'记录仓库质检结果',exact:true}).click();
+  await control.locator('.el-select').nth(1).click();
+  await page.getByRole('option',{name:'通过',exact:true}).click();
+  await page.getByRole('textbox',{name:'实际模拟回执或标签编号',exact:true}).fill('REVIEW-INSPECTION-PASSED');
+  await page.getByRole('textbox',{name:'实际收件或质检数量',exact:true}).fill('1');
+  await page.getByRole('button',{name:'确认模拟记录',exact:true}).click();
+  const dialog=page.getByRole('dialog',{name:'确认模拟操作',exact:true});
+  const confirmation=await dialog.innerText();
+  await page.screenshot({path:'docs/verification/artifacts/phase9/reviewer-final-inspection-passed-confirm.png'});
+  const response=page.waitForResponse(r=>r.request().method()==='POST' && r.url().includes('/simulation/branches/'));
+  await dialog.getByRole('button',{name:'确认记录',exact:true}).click();
+  const r=await response;
+  if(r.status()!==200) throw new Error('Actual inspection HTTP '+r.status());
+  return {status:r.status(), confirmation, result:await r.json()};
+}
+)(page);
+```

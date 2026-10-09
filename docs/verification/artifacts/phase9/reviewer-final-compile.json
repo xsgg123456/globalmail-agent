@@ -1,0 +1,9 @@
+{
+  "command": "globalmail-agent/backend/.venv/Scripts/python.exe -m compileall -q globalmail-agent/backend/src globalmail-agent/backend/tests globalmail-agent/backend/migrations",
+  "exit_code": 0,
+  "stdout_stderr": "",
+  "frontend_command": "pnpm build (vue-tsc --noEmit && vite build)",
+  "frontend_exit_code": 0,
+  "frontend_output": "reviewer-final-frontend-build.txt",
+  "frontend_tests_output": "reviewer-final-frontend-test.txt"
+}

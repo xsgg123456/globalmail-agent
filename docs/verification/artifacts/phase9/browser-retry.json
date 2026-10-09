@@ -1,0 +1,38 @@
+{
+  "committed": {
+    "status": 200,
+    "conversation": "3bb18055-5741-4515-bb70-e605ce2b2b22",
+    "event_id": "ca05d5ce-f41b-4b4a-9814-adc879633823"
+  },
+  "calls": [
+    {
+      "key": "2174c8c7-ee0a-4ac2-9c3a-97c7c5ef7961",
+      "payload": {
+        "conversation_id": "3bb18055-5741-4515-bb70-e605ce2b2b22",
+        "expected_version": 6,
+        "operation_id": "OP-3dd3e4acc0394561935c4e400fea6930",
+        "expected_operation_version": 3,
+        "event": "unknown",
+        "reason": "工程故障测试：控制器未取得实际结果，等待核对原尝试"
+      }
+    },
+    {
+      "key": "2174c8c7-ee0a-4ac2-9c3a-97c7c5ef7961",
+      "payload": {
+        "conversation_id": "3bb18055-5741-4515-bb70-e605ce2b2b22",
+        "expected_version": 6,
+        "operation_id": "OP-3dd3e4acc0394561935c4e400fea6930",
+        "expected_operation_version": 3,
+        "event": "unknown",
+        "reason": "工程故障测试：控制器未取得实际结果，等待核对原尝试"
+      }
+    }
+  ],
+  "executions": [
+    {
+      "id": "EXEC-26595e51d210402ba781e42a3e1bf95b",
+      "status": "unknown"
+    }
+  ],
+  "operations": 1
+}

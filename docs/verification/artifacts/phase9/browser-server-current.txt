@@ -1,0 +1,3 @@
+{"status": "ready", "web": "http://127.0.0.1:15174/#/workbench", "api": "http://127.0.0.1:18181", "schema": "phase9_browser_440e46cb193947389184f06019a706cc"}
+Stop by creating tmp/phase9-browser.stop.
+Isolated processes/schema/object directory cleaned.

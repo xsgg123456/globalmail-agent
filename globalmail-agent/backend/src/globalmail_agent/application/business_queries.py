@@ -153,6 +153,44 @@ class BusinessQueries:
                 "compatibility_unknown" if data["missing_fields"] else "branch_inventory_snapshot", data)
         return self.read(conversation_id, query)
 
+    @staticmethod
+    def context_from_model(model, selected):
+        row, line, order = selected
+        ref = "branch:" + str(model["branch"]["id"])
+        facts = {k: [verified(x, ref + ":" + k + ":" + str(i)) for i, x in enumerate(model[key])]
+            for k, key in (("operations", "operations"), ("execution_records", "executions"),
+                ("shipments", "shipments"), ("returns", "returns"), ("inventory", "inventory"))}
+        single = len(model["lines"]) == 1
+        state = {**model["state"], **facts, "verified_fixture": single, "evidence_ref": ref}
+        if not single:
+            state.pop("defect_confirmed_in_simulation", None); state.pop("confirmed_missing_part_id", None)
+        if single and state.get("defect_confirmed_in_simulation") is True:
+            state["problem_evidence"] = [{"order_line_id": line["line_id"], "reason": "defect",
+                "source_kind": "verified_fixture", "evidence_ref": ref + ":defect"}]
+        requested = state.get("return_request_details")
+        if single and requested and requested.get("reason") == "unwanted":
+            state["problem_evidence"] = [{"order_line_id": line["line_id"], "reason": "unwanted",
+                "source_kind": "verified_fixture", "evidence_ref": ref + ":return_request"}]
+            if requested.get("condition") == "unused_complete":
+                state["return_condition"] = {"unused": True, "complete": True,
+                    "source_kind": "verified_fixture", "evidence_ref": ref + ":return_condition"}
+        for choice in state["customer_choices"]:
+            choice["action"] = choice.get("kind")
+            if len(model["lines"]) == 1 and line["quantity"] == 1:
+                choice.setdefault("order_line_id", line["line_id"]); choice.setdefault("quantity", 1)
+        exact = [c for c in model["compatibility"] if c["sku"] == line["sku"]
+                 and c["hardware_revision"] == line.get("hardware_revision")]
+        compatibility = [verified(c, ref + ":compatibility:" + str(i)) for i, c in enumerate(exact)]
+        state["compatibility"] = compatibility
+        data = {"order": verified(order, ref + ":order"), "line": verified(line, "line:" + str(row["id"])),
+            "as_of": model["as_of"].isoformat(), "mode": model["conversation"]["mode"],
+            "state": state, "policy": model["policy"], "policy_metadata": model["policy_metadata"],
+            "product": verified(model["products"][line["sku"]], ref + ":product") if line["sku"] in model["products"] else None,
+            "parts": [verified(p, ref + ":part:" + p["part_id"]) for p in model["parts"] if any(c["part_id"] == p["part_id"] for c in exact)],
+            "compatibility": compatibility}
+        data["order"]["line_count"] = len(order["lines"])
+        return data
+
     def eligibility_context(self, conversation_id, order_line_id=None):
         def query(model):
             failure = self.failure(model, None)
@@ -164,39 +202,6 @@ class BusinessQueries:
                     "order_line_out_of_scope" if order_line_id else "target_order_line_required", None)
             if model["conversation"]["mode"] != "simulation":
                 return self.response(model, "unavailable", "historical_policy_unavailable", None)
-            row, line, order = selected
-            ref = "branch:" + str(model["branch"]["id"])
-            facts = {k: [verified(x, ref + ":" + k + ":" + str(i)) for i, x in enumerate(model[key])]
-                for k, key in (("operations", "operations"), ("execution_records", "executions"),
-                    ("shipments", "shipments"), ("returns", "returns"), ("inventory", "inventory"))}
-            single = len(model["lines"]) == 1
-            state = {**model["state"], **facts, "verified_fixture": single, "evidence_ref": ref}
-            if not single:
-                state.pop("defect_confirmed_in_simulation", None); state.pop("confirmed_missing_part_id", None)
-            if single and state.get("defect_confirmed_in_simulation") is True:
-                state["problem_evidence"] = [{"order_line_id": line["line_id"], "reason": "defect",
-                    "source_kind": "verified_fixture", "evidence_ref": ref + ":defect"}]
-            requested = state.get("return_request_details")
-            if single and requested and requested.get("reason") == "unwanted":
-                state["problem_evidence"] = [{"order_line_id": line["line_id"], "reason": "unwanted",
-                    "source_kind": "verified_fixture", "evidence_ref": ref + ":return_request"}]
-                if requested.get("condition") == "unused_complete":
-                    state["return_condition"] = {"unused": True, "complete": True,
-                        "source_kind": "verified_fixture", "evidence_ref": ref + ":return_condition"}
-            for choice in state["customer_choices"]:
-                choice["action"] = choice.get("kind")
-                if len(model["lines"]) == 1 and line["quantity"] == 1:
-                    choice.setdefault("order_line_id", line["line_id"]); choice.setdefault("quantity", 1)
-            exact = [c for c in model["compatibility"] if c["sku"] == line["sku"]
-                     and c["hardware_revision"] == line.get("hardware_revision")]
-            compatibility = [verified(c, ref + ":compatibility:" + str(i)) for i, c in enumerate(exact)]
-            state["compatibility"] = compatibility
-            data = {"order": verified(order, ref + ":order"), "line": verified(line, "line:" + str(row["id"])),
-                "as_of": model["as_of"].isoformat(), "mode": model["conversation"]["mode"],
-                "state": state, "policy": model["policy"], "policy_metadata": model["policy_metadata"],
-                "product": verified(model["products"][line["sku"]], ref + ":product") if line["sku"] in model["products"] else None,
-                "parts": [verified(p, ref + ":part:" + p["part_id"]) for p in model["parts"] if any(c["part_id"] == p["part_id"] for c in exact)],
-                "compatibility": compatibility}
-            data["order"]["line_count"] = len(order["lines"])
+            data = self.context_from_model(model, selected)
             return self.response(model, data=data)
         return self.read(conversation_id, query)

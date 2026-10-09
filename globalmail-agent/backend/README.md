@@ -1,12 +1,16 @@
-# 正式后端（Phase 6）
+# 本机后端（Phase 9）
 
-仅本机单用户运行。会话、受控JSON历史导入、逐封回放、人审、结案/重开、停止/重试及SSE均持久化到PostgreSQL。会话自动任务当前只完成调度协议验证，准确记录 `protocol_verified_model_not_connected`，不生成模型回复、不投递真实邮件。正式Agent、客户图片上传和完整删除在后续阶段接入。
+仅本机单用户运行。会话、受控JSON历史导入、逐封回放、人审、结案/重开、停止/重试及SSE均持久化到PostgreSQL。Phase7/8已接入文本及图文Agent、受控图片预览、更正与撤销；Phase9增加内部售后申请与人工模拟执行。模型语义质量按用户决定留完整链路后统一验收，完整删除在Phase12交付。回复仅在本机模拟。
 
 Phase 4新增白名单初始场景、scoped订单行/申请/执行/包裹/退件账本、精确适配/库存查询和只读政策预览。`0003_business_catalog`从0002增量建表，保留既有会话与对象。场景只能创建独立开发分支；查单不会创建任务或售后申请。未发布政策始终`authorized:false`，原v1场景不自动升级v2。公开接口及当前范围见[Phase4实施约定](../../docs/planning/PHASE-4-IMPLEMENTATION.md)。
 
+Phase 9在同一账本增加退款、退货、换货、补件、查件内部申请，以及独立人工模拟执行控制台。Agent仅能核对、申请、取消和查询；控制台按真实模拟回执推进执行、物流和退件质检。未知结果保留占用，确认原尝试未执行才释放；当前政策版本与执行同事务核验。接口和约束见[Phase9实施步骤](../../docs/planning/PHASE-9-IMPLEMENTATION.md)，实测范围见[工程验证](../../docs/verification/PHASE-9-VALIDATION.md)。
+
+当前源码迁移入口为`0008_after_sales_ledger`，Phase9验证只运行私有测试schema。用户正式库保持`0005_knowledge_index`；正式升级属于后续部署步骤，不能直接在该库跑本期控制台测试。
+
 Phase 5新增知识原件、不可变版本、精确适用范围、独立持久解析任务和人工核对。`0004_knowledge_content`保留旧表/数据，知识任务使用独立槽和本地parser；Markdown/政策/受控JSON在API环境，PDF用[独立MinerU环境](../parser-worker/README.md)。原件丢失/损坏记录明确失败、有限重试，不能挡住后续资料；缓存命中仍验原件。导入和核对不会发布，见[Phase5实施约定](../../docs/planning/PHASE-5-IMPLEMENTATION.md)。
 
-Phase 6用`0005_knowledge_index`增加结构切分、真实1024维Embedding、pgvector检索、完整发布清单/回滚和下架。核对后先构建，再确认发布；失败保留原生效版本。模型切换必须覆盖全部生效资料。试查先按SKU/用途/时间过滤，返回完整父证据和可核验引用；下架后旧引用立即停用。当前供模拟使用，正式Agent和彻底删除留在后续阶段，见[Phase6实施约定](../../docs/planning/PHASE-6-IMPLEMENTATION.md)、[实际评测](../knowledge-eval/README.md)和[本机脚本](../scripts/README.md)。
+Phase 6用`0005_knowledge_index`增加结构切分、真实1024维Embedding、pgvector检索、完整发布清单/回滚和下架。核对后先构建，再确认发布；失败保留原生效版本。模型切换必须覆盖全部生效资料。试查先按SKU/用途/时间过滤，返回完整父证据和可核验引用；下架后旧引用立即停用。供本机模拟Agent使用，彻底删除留在Phase12，见[Phase6实施约定](../../docs/planning/PHASE-6-IMPLEMENTATION.md)、[实际评测](../knowledge-eval/README.md)和[本机脚本](../scripts/README.md)。
 
 政策说明生成器1.1补齐明确同意/替代适配/旧事项核对条件。既有1.0版本保留原件和说明，可查看但不可构建发布；页面会提示保存新版本，再解析核对。数据库升级不自动修订或发布你的政策资料。
 

@@ -147,6 +147,11 @@ class AgentGraph:
             allowed = {"get_case_context", "create_reply_draft", "request_human_review", "update_case_state", "revise_understanding"}
         messages = [*state["messages"], {"role": "system", "content": prompt("grounding")}]
         tools = schemas(allowed)
+        from globalmail_agent.agent.tool_menu import stage_tools
+        tools, application_ready = stage_tools(tools, state, self.context)
+        if self.context.mode != "simulation":
+            from globalmail_agent.agent.tools.after_sales import NAMES as after_sales_tools
+            tools = [tool for tool in tools if tool["function"]["name"] not in after_sales_tools]
         remaining = self.budget.remaining_requests()
         if remaining <= 1:
             tools = schemas({"request_human_review"})
@@ -157,7 +162,14 @@ class AgentGraph:
             # Candidate writes may wait; keep scoped reads available while their requests fit.
             read_and_terminal = set(schema["function"]["name"] for schema in tools) - {
                 "get_case_context", "update_case_state", "revise_understanding"}
+            if not application_ready:
+                from globalmail_agent.agent.tools.after_sales import NAMES
+                read_and_terminal -= NAMES
             tools = schemas(read_and_terminal)
+            if application_ready and input_estimate(messages, tools) > 16000:
+                tools = schemas({'create_after_sales_operation', 'get_operation_status', 'create_reply_draft', 'request_human_review'})
+                if input_estimate(messages, tools) > 16000:
+                    tools = schemas({'create_after_sales_operation', 'request_human_review'})
             if input_estimate(messages, tools) > 16000:
                 tools = schemas({"create_reply_draft", "request_human_review"})
         if input_estimate(messages, tools) > 16000:
@@ -226,7 +238,17 @@ class AgentGraph:
                 "trigger_units": trigger_units(self.context.payload),
                 "draft": state["proposal"]["data"]}).decode()},
                 {"role": "system", "content": prompt("validation-grounding")}]
-            output = self.request(review_messages, "validation", schema=OutcomeReview.model_json_schema())
+            review_schema = OutcomeReview.model_json_schema()
+            observations = self.observations(state)
+            decoded = [json.loads(row['content']) for row in observations]
+            if any(isinstance(value.get('data'), dict) and
+                    ('condition_fields' in value['data'] or 'operation' in value['data']) for value in decoded):
+                from globalmail_agent.agent.tool_schemas import compact_schema
+                payload = json.loads(review_messages[1]['content'])
+                payload['observations'] = [{**row, 'content': value} for row, value in zip(observations, decoded)]
+                review_messages[1]['content'] = canonical(payload).decode()
+                review_schema = compact_schema(review_schema)
+            output = self.request(review_messages, "validation", schema=review_schema)
             try:
                 review = OutcomeReview.model_validate_json(output["content"])
             except (ValidationError, ValueError):

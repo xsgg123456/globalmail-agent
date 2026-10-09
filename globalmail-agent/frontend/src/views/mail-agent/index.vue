@@ -130,6 +130,7 @@
           @stop="stop"
           @retry="retry"
           @acknowledge="acknowledgeHuman"
+          @business-changed="refreshCurrent"
         />
         <ElEmpty v-else description="选择会话后查看任务与人审" :image-size="70" />
       </section>
@@ -151,6 +152,7 @@
         @stop="stop"
         @retry="retry"
         @acknowledge="acknowledgeHuman"
+        @business-changed="refreshCurrent"
       />
     </ElDrawer>
     <ConversationDialog

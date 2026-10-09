@@ -1,0 +1,7 @@
+D:\Work_Project\globalmail-agent\globalmail-agent\scripts\verify-preservation.py:38: SAWarning: Did not recognize type 'vector' of column 'vector'
+  table = sa.Table(name, sa.MetaData(), schema='public', autoload_with=conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\scripts\verify-preservation.py:38: SAWarning: Did not recognize type 'vector' of column 'probe_vector'
+  table = sa.Table(name, sa.MetaData(), schema='public', autoload_with=conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\scripts\verify-preservation.py:46: SAWarning: Did not recognize type 'vector' of column 'vector'
+  sa.Table(name, sa.MetaData(), schema='public', autoload_with=conn))).scalar_one()
+{"scope": "read_only_no_formal_upgrade", "revision": "0005_knowledge_index", "total_tables": 54, "settings_preserved": true, "source_bytes_preserved": true, "source_file_count": 160, "knowledge_counts": {"documents": 22, "document_versions": 22, "index_builds": 0, "knowledge_releases": 0, "embedding_cache": 0}, "formal_baseline_unchanged": true, "owned_schemas_absent": {"phase9_browser_440e46cb193947389184f06019a706cc": true, "phase9_browser_65286e5e669d4a2f8a0e10f2459fc334": true}, "remaining_phase9_browser_schemas": [], "owned_object_directories_absent": true, "test_ports_closed": {"15174": true, "18181": true}, "formal_upgrade_executed": false}

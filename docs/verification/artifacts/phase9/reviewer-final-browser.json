@@ -1,0 +1,64 @@
+{
+  "private_schema": "phase9_browser_440e46cb193947389184f06019a706cc",
+  "paid_model_calls": 0,
+  "actual_browser_session": "phase9-review-final",
+  "session_closed": true,
+  "cases": [
+    {
+      "inspection": "failed",
+      "status": 200,
+      "confirmation": "确认模拟操作\n\n记录仓库质检结果 · 未通过：OP-ca59c1e36888496bbab2de212bd4e1a3。资料将写入当前分支的真实模拟账本。\n\n取消\n确认记录",
+      "conversation_id": "bfd31728-cf6a-4d38-8ee9-25e89f5022f6",
+      "operation_id": "OP-ca59c1e36888496bbab2de212bd4e1a3",
+      "event_id": "336808e1-861e-4d36-9e7e-e9137a715e46",
+      "version": 5,
+      "warehouse_quantity": 1,
+      "warehouse_receipt_ref": "REVIEW-INSPECTION-FAILED",
+      "allowed_events": [
+        "processing",
+        "failed",
+        "unknown"
+      ]
+    },
+    {
+      "inspection": "disputed",
+      "status": 200,
+      "confirmation": "确认模拟操作\n\n记录仓库质检结果 · 有争议：OP-a9b42170e2e34e5cac332f734cac94d1。资料将写入当前分支的真实模拟账本。\n\n取消\n确认记录",
+      "conversation_id": "b7e61652-45c3-470a-b63c-8622f3a4256c",
+      "operation_id": "OP-a9b42170e2e34e5cac332f734cac94d1",
+      "event_id": "20adb36c-bfd0-4cc5-9273-0f2d4d22ced0",
+      "version": 5,
+      "warehouse_quantity": 1,
+      "warehouse_receipt_ref": "REVIEW-INSPECTION-DISPUTED",
+      "allowed_events": [
+        "processing",
+        "failed",
+        "unknown"
+      ]
+    },
+    {
+      "inspection": "passed",
+      "status": 200,
+      "confirmation": "确认模拟操作\n\n记录仓库质检结果 · 通过：OP-bb5cd810a7914119a922eb5fef70f273。资料将写入当前分支的真实模拟账本。\n\n取消\n确认记录",
+      "conversation_id": "fa1402c7-05d5-4da7-802b-16e310523f59",
+      "operation_id": "OP-bb5cd810a7914119a922eb5fef70f273",
+      "event_id": "43ca3200-3b4c-47c1-b67f-77c5aaac879e",
+      "version": 5,
+      "warehouse_quantity": 1,
+      "warehouse_receipt_ref": "REVIEW-INSPECTION-PASSED",
+      "allowed_events": [
+        "processing",
+        "succeeded",
+        "failed",
+        "unknown"
+      ]
+    }
+  ],
+  "passed_followup": {
+    "status": 200,
+    "event": "succeeded",
+    "operation_count": 1,
+    "execution_count": 1,
+    "receipt_ref": "REVIEW-RETURN-SUCCEEDED"
+  }
+}

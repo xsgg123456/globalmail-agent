@@ -1,0 +1,18 @@
+test_refund_create_execution_execution (__main__.IndependentRace.test_refund_create_execution_execution) ... ok
+test_refund_create_execution_publication (__main__.IndependentRace.test_refund_create_execution_publication) ... ok
+test_refund_succeeded_execution (__main__.IndependentRace.test_refund_succeeded_execution) ... ok
+test_refund_succeeded_publication (__main__.IndependentRace.test_refund_succeeded_publication) ... ok
+test_spare_part_shipped_execution (__main__.IndependentRace.test_spare_part_shipped_execution) ... ok
+test_spare_part_shipped_publication (__main__.IndependentRace.test_spare_part_shipped_publication) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 37.455s
+
+OK
+{"case": "refund:create_execution:execution", "schema": "test_protocol_10336de221d04790900cf52e4badb60d", "paid_model_calls": 0, "publication_blocked_until_effect_commit": true, "effect_committed": true, "new_epoch": 2}
+{"case": "refund:create_execution:publication", "schema": "test_protocol_41c575fab93e46dba7303a9df6c5c8d2", "paid_model_calls": 0, "new_epoch": 2, "refused": "published_policy_required", "ledger_unchanged": true}
+{"case": "refund:succeeded:execution", "schema": "test_protocol_9ddf8368c7ce4897a9418ee3a9ed166a", "paid_model_calls": 0, "publication_blocked_until_effect_commit": true, "effect_committed": true, "new_epoch": 2}
+{"case": "refund:succeeded:publication", "schema": "test_protocol_8caab15102464ceead66390543991105", "paid_model_calls": 0, "new_epoch": 2, "refused": "published_policy_required", "ledger_unchanged": true}
+{"case": "spare_part:shipped:execution", "schema": "test_protocol_c85265160e7b40c8b9a1242c330fd271", "paid_model_calls": 0, "publication_blocked_until_effect_commit": true, "effect_committed": true, "new_epoch": 2}
+{"case": "spare_part:shipped:publication", "schema": "test_protocol_d81d421a345e4c8d92d3e3e3108c55b9", "paid_model_calls": 0, "new_epoch": 2, "refused": "published_policy_required", "ledger_unchanged": true}
+{"tests": 6, "failures": 0, "errors": 0, "skipped": 0, "duration_seconds": 37.547, "source_changed": false, "independent_policy_cases": [{"case": "refund:create_execution:execution", "schema": "test_protocol_10336de221d04790900cf52e4badb60d", "paid_model_calls": 0, "publication_blocked_until_effect_commit": true, "effect_committed": true, "new_epoch": 2}, {"case": "refund:create_execution:publication", "schema": "test_protocol_41c575fab93e46dba7303a9df6c5c8d2", "paid_model_calls": 0, "new_epoch": 2, "refused": "published_policy_required", "ledger_unchanged": true}, {"case": "refund:succeeded:execution", "schema": "test_protocol_9ddf8368c7ce4897a9418ee3a9ed166a", "paid_model_calls": 0, "publication_blocked_until_effect_commit": true, "effect_committed": true, "new_epoch": 2}, {"case": "refund:succeeded:publication", "schema": "test_protocol_8caab15102464ceead66390543991105", "paid_model_calls": 0, "new_epoch": 2, "refused": "published_policy_required", "ledger_unchanged": true}, {"case": "spare_part:shipped:execution", "schema": "test_protocol_c85265160e7b40c8b9a1242c330fd271", "paid_model_calls": 0, "publication_blocked_until_effect_commit": true, "effect_committed": true, "new_epoch": 2}, {"case": "spare_part:shipped:publication", "schema": "test_protocol_d81d421a345e4c8d92d3e3e3108c55b9", "paid_model_calls": 0, "new_epoch": 2, "refused": "published_policy_required", "ledger_unchanged": true}], "successful": true}

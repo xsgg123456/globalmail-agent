@@ -73,7 +73,7 @@ def _record_wake_locked(conn, conv, condition_key, business_version):
         input_revision=updated["input_revision"], row_version=updated["row_version"]))
     trigger = conn.execute(sa.select(messages.c.id).where(messages.c.conversation_id == conv["id"],
         messages.c.seq <= conv["visible_message_seq"], messages.c.sender.in_(["customer", "real_customer"]))
-        .order_by(messages.c.seq.desc())).scalar_one_or_none()
+        .order_by(messages.c.seq.desc()).limit(1)).scalar_one_or_none()
     if trigger is None:
         raise ServiceError("customer_trigger_missing")
     event = record_event(conn, updated, "business_wait", condition_key + ":" + str(business_version),

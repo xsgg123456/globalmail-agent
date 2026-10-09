@@ -15,6 +15,7 @@ const states: Record<string, string> = {
   pending: '等待处理',
   accepted: '已受理',
   waiting: '等待条件',
+  waiting_condition: '申请已受理，等待条件',
   awaiting_choice: '等待客户选择',
   awaiting_execution: '等待执行',
   processing: '处理中',
@@ -36,14 +37,17 @@ const states: Record<string, string> = {
   label_created: '面单已创建，尚未确认交运',
   not_shipped: '尚未发出',
   received: '已收件',
-  inspecting: '质检中'
+  inspecting: '质检中',
+  authorized: '退货资料已授权',
+  inspected: '已完成质检'
 }
 const purposes: Record<string, string> = {
   original: '原订单包裹',
   return: '寄回包裹',
   replacement: '换货补发包裹',
   spare_part: '配件补发包裹',
-  reshipment: '补发包裹'
+  reshipment: '补发包裹',
+  outbound: '补发包裹'
 }
 export const recordStatus = (value: unknown) =>
   typeof value === 'string' ? (states[value] ?? '状态未确认') : '状态未知'
@@ -95,7 +99,13 @@ export function recordFields(
     ['execution_id', '关联执行单'],
     ['tracking_number', '运单号'],
     ['carrier', '承运商'],
-    ['part_id', '配件编号']
+    ['part_id', '配件编号'],
+    ['receipt_ref', '实际模拟回执'],
+    ['authorized_return_reference', '退货授权编号'],
+    ['return_address', '模拟退货地址'],
+    ['packing_instructions', '包装说明'],
+    ['prepaid_label_ref', '预付标签编号'],
+    ['reason', '记录说明']
   ]
   for (const [key, label] of optional)
     if (record[key]) rows.push({ label, value: textValue(record[key]) })
@@ -113,6 +123,7 @@ export function recordFields(
       )
     })
   if (kind === 'returns') {
+    if (record.postage_responsibility) rows.push({ label: '邮费承担方', value: record.postage_responsibility === 'merchant' ? '商家' : record.postage_responsibility === 'customer' ? '客户' : '未知' })
     if ('inspected_quantity' in record)
       rows.push({
         label: '质检合格数量',

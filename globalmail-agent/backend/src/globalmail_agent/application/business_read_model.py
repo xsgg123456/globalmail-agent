@@ -97,8 +97,9 @@ def read_model(conn, conversation_id, workspace=DEFAULT_WORKSPACE_ID):
                 continue
             if "execution_id" in row and row["execution_id"] and row["execution_id"] not in execution_ids:
                 continue
-            record = project(row["source_snapshot"], LEDGER_FIELDS)
+            record = project({**row["source_snapshot"], **row["details"]}, LEDGER_FIELDS)
             if key == "operations":
+                record["managed"] = row["decision_id"] is not None
                 operation_ids[row["id"]] = record["operation_id"] = row["external_id"]
                 record["execution_ids"] = []
             if key == "executions":
@@ -115,7 +116,8 @@ def read_model(conn, conversation_id, workspace=DEFAULT_WORKSPACE_ID):
                 if key == "operations":
                     record["source_status"] = row["source_snapshot"].get("status")
                     record["status"] = operation_status(row["status"])
-            for field in ("quantity", "amount_minor", "currency", "received", "inspection"):
+            for field in ("quantity", "amount_minor", "currency", "received", "inspection", "version", "receipt_ref",
+                    "confirmed_not_executed", "attempt_no", "kind"):
                 if field in row:
                     record[field] = row[field]
             order = next(o for o, original in zip(model["orders"], usable) if original["id"] == row["order_id"])
@@ -123,6 +125,21 @@ def read_model(conn, conversation_id, workspace=DEFAULT_WORKSPACE_ID):
             record.update(order_id=order["order_id"], order_line_id=line["line_id"])
             record["unknown_fields"] = unknown_fields(record, ("status", "updated_at", "snapshot_at"))
             model[key].append(record)
+    from globalmail_agent.domain.compensation import refundable_balance
+    # Immutable source aggregates are extended by newly managed ledger effects only.
+    managed = [o for o in model["operations"] if o.get("managed")]
+    for _, line, order in model["lines"]:
+        rows = [o for o in managed if o["order_line_id"] == line["line_id"]]
+        if rows:
+            succeeded, reserved = refundable_balance(rows, model["executions"])
+            line.update(refunded_minor=line.get("refunded_minor", 0) + succeeded,
+                pending_refund_minor=line.get("pending_refund_minor", 0) + reserved)
+    for order in model["orders"]:
+        rows = [o for o in managed if o["order_id"] == order["order_id"]]
+        if rows:
+            succeeded, reserved = refundable_balance(rows, model["executions"])
+            order.update(refunded_minor=order.get("refunded_minor", 0) + succeeded,
+                pending_refund_minor=order.get("pending_refund_minor", 0) + reserved)
     if historical:
         return model  # No Mock facts, compatibility, inventory or policy can cross this boundary.
     policy = conn.execute(select(bs.policy_profiles).where(bs.policy_profiles.c.id == branch["policy_profile_id"],

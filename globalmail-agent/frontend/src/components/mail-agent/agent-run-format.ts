@@ -22,7 +22,7 @@ const errorLabels: Record<string, string> = {
 export const runError = (code: string) =>
   errorLabels[code] ?? `处理未完成（${code}），请核对本轮记录。`
 export const outcomeLabels: Record<string, string> = {
-  reply_and_wait: '模拟回复已提交 · 等待客户',
+  reply_and_wait: '模拟回复已提交 · 已进入等待',
   historical_comparison: 'AI 本轮对照 · 未加入历史邮件',
   handoff: '已转人工 · 草稿未发送',
   wait_business: '等待业务条件',

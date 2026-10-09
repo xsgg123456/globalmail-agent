@@ -40,8 +40,10 @@ class AgentToolTests(AgentFixture):
             with self.subTest(field=forbidden):
                 self.assert_error("tool_parameters_invalid", lambda: gateway.call(
                     call("get_case_context", {forbidden: "forged"})))
-        for name in ("create_after_sales_operation", "cancel_after_sales_operation", "run_shell", "send_email"):
+        for name in ("create_execution", "simulation_event", "run_shell", "send_email"):
             self.assert_error("tool_not_allowed", lambda: gateway.call(call(name, {})))
+        for name in ("check_after_sales_eligibility", "create_after_sales_operation", "cancel_after_sales_operation"):
+            self.assert_error("tool_parameters_invalid", lambda: gateway.call(call(name, {"workspace_id": "forged"})))
         self.assertEqual(self.count(a.tool_commands), 0)
         self.assertEqual(self.budget_row(gateway.job)["tool_calls"], 0)
 

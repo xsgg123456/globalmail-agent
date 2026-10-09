@@ -30,7 +30,8 @@ def check_draft_sources(conn, store, context, understanding, draft):
                 raise ServiceError("stale_business_context")
         if record["name"] not in {"create_reply_draft", "request_human_review"}:
             command_ids.add("command:" + str(record["id"]))
-        if record["name"] in {"get_order_snapshot", "get_shipment_status", "get_after_sales_context", "get_operation_status", "get_item_availability"}:
+        if record["name"] in {"get_order_snapshot", "get_shipment_status", "get_after_sales_context", "get_operation_status", "get_item_availability",
+                "check_after_sales_eligibility", "create_after_sales_operation", "cancel_after_sales_operation"}:
             business_ids.add("command:" + str(record["id"]))
     for claim in draft.claims:
         if claim.text not in draft.body or any(s not in source_ids | visual_ids | command_ids | deps.keys() for s in claim.source_ids):

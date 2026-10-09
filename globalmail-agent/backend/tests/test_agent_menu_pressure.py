@@ -49,7 +49,7 @@ class AgentMenuPressureTests(AgentFixture):
         return cid, detail, model, output, job
 
     def test_full_context_handoff_fits_when_both_terminal_schemas_do_not(self):
-        cid, detail, model, output, job = self.pressure_case(300)
+        cid, detail, model, output, job = self.pressure_case(305)
         self.assertEqual(output.get("outcome"), "handoff", (output, len(model.requests)))
         request = model.requests[-1]
         names = {tool["function"]["name"] for tool in request["tools"]}

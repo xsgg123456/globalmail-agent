@@ -52,7 +52,7 @@ def audit_sources(context, observations):
         sources[identity] = row['body']
     for identity, row in context.get('visual_sources', {}).items():
         sources[identity] = row['body']
-    receipts = [json.loads(row['content']) for row in observations]
+    receipts = [json.loads(row['content']) if isinstance(row['content'], str) else row['content'] for row in observations]
     receipts += [dict(row['result'], command_source_id=row['command_source_id'])
         for row in context.get('verified_business_observations', [])]
     for receipt in receipts:

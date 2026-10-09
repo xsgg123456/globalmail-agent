@@ -93,6 +93,7 @@ def ledger(name, *columns):
         sa.Column("order_line_id", sa.Uuid, nullable=False),
         sa.Column("external_id", sa.String(160), nullable=False),
         sa.Column("status", sa.String(80)), sa.Column("snapshot_at", sa.DateTime(timezone=True)),
+        sa.Column("details", JSONB, nullable=False, server_default=sa.text("'{}'::jsonb")),
         fk("branch_orders", "order_id"),
         sa.ForeignKeyConstraint(["order_line_id", "order_id", *SCOPE_KEYS],
             ["branch_order_lines.id", "branch_order_lines.order_id", *[f"branch_order_lines.{k}" for k in SCOPE_KEYS]]),
@@ -103,6 +104,11 @@ def ledger(name, *columns):
 operations = ledger("operations", sa.Column("kind", sa.String(40), nullable=False),
     sa.Column("quantity", sa.Integer, nullable=False), sa.Column("amount_minor", sa.BigInteger),
     sa.Column("currency", sa.String(3)), sa.Column("issue_id", sa.String(160)),
+    sa.Column("version", sa.BigInteger, nullable=False, server_default="1"),
+    sa.Column("plan_digest", sa.String(64)), sa.Column("decision_id", sa.Uuid),
+    sa.Column("policy_release_id", sa.Uuid),
+    sa.Column("confirmed_not_executed", sa.Boolean, nullable=False, server_default=sa.false()),
+    sa.CheckConstraint("version > 0", name="operations_version_positive"),
     sa.CheckConstraint("quantity > 0"), sa.CheckConstraint("amount_minor IS NULL OR amount_minor >= 0"))
 
 
@@ -113,6 +119,12 @@ def operation_fk():
 
 executions = ledger("executions", sa.Column("operation_id", sa.Uuid, nullable=False),
     sa.Column("amount_minor", sa.BigInteger), sa.Column("currency", sa.String(3)), operation_fk(),
+    sa.Column("version", sa.BigInteger, nullable=False, server_default="1"),
+    sa.Column("attempt_no", sa.Integer, nullable=False, server_default="0"),
+    sa.Column("managed", sa.Boolean, nullable=False, server_default=sa.false()),
+    sa.Column("confirmed_not_executed", sa.Boolean, nullable=False, server_default=sa.false()),
+    sa.Column("receipt_ref", sa.String(240)),
+    sa.CheckConstraint("version > 0 AND attempt_no >= 0", name="executions_version_attempt_positive"),
     sa.UniqueConstraint("id", "operation_id", "order_id", "order_line_id", *SCOPE_KEYS),
     sa.CheckConstraint("amount_minor IS NULL OR amount_minor >= 0"))
 
@@ -124,15 +136,19 @@ def execution_fk():
 
 
 shipments = ledger("shipments", sa.Column("operation_id", sa.Uuid), sa.Column("execution_id", sa.Uuid),
+    sa.Column("version", sa.BigInteger, nullable=False, server_default="1"),
     sa.Column("parcel_purpose", sa.String(40), nullable=False), operation_fk(), execution_fk(),
     sa.CheckConstraint("execution_id IS NULL OR operation_id IS NOT NULL"))
 
 return_receipts = ledger("return_receipts", sa.Column("operation_id", sa.Uuid), sa.Column("execution_id", sa.Uuid),
+    sa.Column("version", sa.BigInteger, nullable=False, server_default="1"),
     sa.Column("quantity", sa.Integer, nullable=False), sa.Column("received", sa.Boolean),
     sa.Column("inspection", sa.String(80)), operation_fk(), execution_fk(),
     sa.CheckConstraint("quantity > 0"), sa.CheckConstraint("execution_id IS NULL OR operation_id IS NOT NULL"))
 
 policy_decisions = scoped("policy_decisions", sa.Column("order_line_id", sa.Uuid, nullable=False),
     sa.Column("policy_profile_id", sa.Uuid, nullable=False), sa.Column("authorized", sa.Boolean, nullable=False),
+    sa.Column("decision_data", JSONB), sa.Column("plan_digest", sa.String(64)),
+    sa.Column("release_id", sa.Uuid), sa.Column("run_id", sa.Uuid),
     fk("branch_order_lines", "order_line_id"),
     sa.ForeignKeyConstraint(["policy_profile_id", "workspace_id"], ["policy_profiles.id", "policy_profiles.workspace_id"]))

@@ -14,7 +14,8 @@ from globalmail_agent.domain.orders import result
 from globalmail_agent.knowledge.base import canonical
 
 BUSINESS_TOOLS = {"get_order_snapshot", "get_shipment_status", "get_after_sales_context",
-    "get_item_availability", "get_operation_status"}
+    "get_item_availability", "get_operation_status", "check_after_sales_eligibility",
+    "create_after_sales_operation", "cancel_after_sales_operation"}
 
 
 def scoped_run(table, conv, run_id):

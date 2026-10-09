@@ -1,0 +1,314 @@
+{
+  "baseline": "3b4fff08cf116740d4fe3b5d4b1440cc1b7e1c54",
+  "scope_files": 70,
+  "maximum_lines": 288,
+  "over_300": [],
+  "security_pattern_hits": [
+    {
+      "path": "globalmail-agent/backend/tests/test_api.py",
+      "line": 15,
+      "matched_pattern_only": "api_key=\"SECRET_MARKER"
+    }
+  ],
+  "broad_70_original_source_changed": true,
+  "changed_since_broad_70": [
+    "globalmail-agent/frontend/src/components/mail-agent/ScenarioControl.vue",
+    "globalmail-agent/frontend/src/types/import/components.d.ts"
+  ],
+  "backend_source_changed_since_broad_70": false,
+  "files": {
+    "globalmail-agent/backend/README.md": {
+      "lines": 40,
+      "sha256": "c69557fb5e82202df3768f12b8bc944ff104af8e25978d0a8f7516d1c95e164b"
+    },
+    "globalmail-agent/backend/migrations/versions/0008_after_sales_ledger.py": {
+      "lines": 116,
+      "sha256": "7d6c67c8133191f00e181a5cf20f1be7223568104b4217fd7de17ed3dc508dd3"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/adapters/after_sales_schema.py": {
+      "lines": 68,
+      "sha256": "708960b9262dce1f45ca5df0b43fe60f198c99e6a96245f0099c580749c4698f"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/adapters/business_schema.py": {
+      "lines": 154,
+      "sha256": "02e09aa8d27e86cd9356a1f3d1d9cbf386ef0dc6954151c82bea7a33bbab3698"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/adapters/database.py": {
+      "lines": 42,
+      "sha256": "7523ef0e9152500266fd925030a02b1a082b917ab46f5adbdb3d32499e0e6a3a"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/context.py": {
+      "lines": 121,
+      "sha256": "26fb4c2f362fd079a8398e1baf4b517c7183dac516a2c03562fd703c60a70ad3"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/graph.py": {
+      "lines": 288,
+      "sha256": "9a49a0cdf1401b6f2e764133162355bdc93ea5a17c9b6e8fdddb182398099d78"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/guard.py": {
+      "lines": 77,
+      "sha256": "f02aa0cdfc0c7d25f311d3159a6751ca935c03f02aa11f1e0bdb792276a3d891"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/decision.md": {
+      "lines": 11,
+      "sha256": "507f1ad1ac338f4c7b48427fc683964f07d84415056ecc82eccb276e6fce077c"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation.md": {
+      "lines": 9,
+      "sha256": "543f9025e6542a15eaac88101e8e62a6537b7198f5d44c294ca003777a3f40ad"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/review_audit.py": {
+      "lines": 103,
+      "sha256": "3d648a6a577ef99b31d1033833bf8f6d643ea6d548198ba805d013d479cd6ee9"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_gateway.py": {
+      "lines": 175,
+      "sha256": "25e8d740c286940988ad2fd22708c796542888f2544a74c667a058cb795b1181"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_menu.py": {
+      "lines": 38,
+      "sha256": "e0bc1215eb77417b8ac7564139ba8fcc0dc9f36d6c2022b472c29c864b8f692f"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_schemas.py": {
+      "lines": 99,
+      "sha256": "cc66b1c12af7810cb6a296773efdd8eddcb794e3c7931b0bb7f36d75e3fe49fd"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/tools/__init__.py": {
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/tools/after_sales.py": {
+      "lines": 43,
+      "sha256": "c9c13d5789a2ceca7dd04e5adf0a3f77f1876adc77cd7e9290ff2a0c52704060"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/tools/after_sales_result.py": {
+      "lines": 23,
+      "sha256": "b8b3470ff70670801dd5fbfdfc4a59d4cb3cf619c36f3f1df1aacc341df6cbd7"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/api/after_sales.py": {
+      "lines": 30,
+      "sha256": "f2a3673de218f0c902e412c34a9787a1f7aa91ed342edd4fcce6dfbecbad82f5"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/api/simulation.py": {
+      "lines": 21,
+      "sha256": "deeb7f95a188760cd8f12c9b40c4278b84faa010f0055449dcb570cfbd3ace95"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/api/system.py": {
+      "lines": 35,
+      "sha256": "811722b1800a4383e0653d683536e9734a9c2c6e1e6a8ce1ecc2645644a67419"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/after_sales.py": {
+      "lines": 199,
+      "sha256": "3b64c02d750095ec99e7954fd7e695ab17546de928fd7e0a26bf7ca6be627ab5"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/after_sales_ledger.py": {
+      "lines": 84,
+      "sha256": "370bc32cada244d8030f34a30882125155ec3df2365226891632c999e93529a2"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/after_sales_policy.py": {
+      "lines": 63,
+      "sha256": "fda0f5b1387896eba8c98b6720084ef4da1847d2f253009c60068a4f66d97e49"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/after_sales_selection.py": {
+      "lines": 107,
+      "sha256": "39bef01ac4a20bb19bbb5d6c0e931c5777a3e38e7bf03aa21587ed399e7d1c83"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/business_projection.py": {
+      "lines": 17,
+      "sha256": "bc2a98340de3a9030a5c4bf016f36358a5903afb20d007266f2bfb21e3abf105"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/business_queries.py": {
+      "lines": 207,
+      "sha256": "109e838fd9bac08ce1b0ea753a2ebefa0d751660c4161da4cfb39b4aaba54ea1"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/business_read_model.py": {
+      "lines": 179,
+      "sha256": "248d6b0de4e943c0672aaedd9ed3c444eb6b634e38e1b7e1c63222f92dfb1406"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/draft_validation.py": {
+      "lines": 47,
+      "sha256": "e5778e0c61d1f6662bc4d3deaa008704ac36fb12aaebd0c8463dccfb0b3bc553"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/event_store.py": {
+      "lines": 66,
+      "sha256": "0fba9139591247e780c7fa64f19bc597fd23b2482a20c832c98b4ddf4811eea8"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/reconciliation.py": {
+      "lines": 23,
+      "sha256": "310daa96ced3ea442866b0ffc128e929b55ba5d8b682b25e19d1de1ba762b5b6"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/simulation_control.py": {
+      "lines": 163,
+      "sha256": "2e1257dcf51938d940f6d1211f7e12187a6054d42ec8065097f5b58f29cdc4d6"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/simulation_execution.py": {
+      "lines": 104,
+      "sha256": "4b849d16e7b525d8218144774a1aae7b7d43de92de54acca4843d7899e5aeb3c"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/simulation_fulfillment.py": {
+      "lines": 114,
+      "sha256": "376001e294972892f5812a18b24546e9971be0cc373cdc2c76c585fd5ecd7898"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/simulation_inventory.py": {
+      "lines": 55,
+      "sha256": "2968fa9f5bef50b6fe4591a38d3cd9b04b711af80f8d3e26b990befab6ca8464"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/understanding_revisions.py": {
+      "lines": 122,
+      "sha256": "f4d5564509518f133893233fd4413d218aea9f310498c9757aeb0760dc103743"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/waits.py": {
+      "lines": 98,
+      "sha256": "fea01c4b8183cf84c20f7b991a052a12511c3c6a3e70c1fd50e54d92f3d207f6"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/domain/compensation.py": {
+      "lines": 20,
+      "sha256": "939cd230e7272b1a35f008337aa3afd055babcdabd5a1dfdb9eaf8e96482d53e"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/domain/executions.py": {
+      "lines": 84,
+      "sha256": "340935aeba8da0d97a7848a055283e985558536461330f8fa64af5924e7d3982"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/domain/operations.py": {
+      "lines": 39,
+      "sha256": "8c4490723f62cacc7e0af8379650bc7b394fb0a7c5a8ccf3aa5d19c73592a7c0"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/domain/policy.py": {
+      "lines": 155,
+      "sha256": "7c9b3b30d6915fdd966e466430e3b37f200ba4b5a605c46dbb28bffdcf4358f6"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/domain/policy_ledger.py": {
+      "lines": 116,
+      "sha256": "816d49430516242fff57e2d6f0c9543b477b61caa985f4b24bfb8162bcac082a"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/domain/returns.py": {
+      "lines": 11,
+      "sha256": "53fcd9f831570fcc5b87e8ab4844017856b7a06d284d8ae5aab89497a1480684"
+    },
+    "globalmail-agent/backend/src/globalmail_agent/main.py": {
+      "lines": 93,
+      "sha256": "b420082ace4566941b607eca8643b348fabddb0115b2086567fb5ee49f8c32b7"
+    },
+    "globalmail-agent/backend/tests/after_sales_fixture.py": {
+      "lines": 118,
+      "sha256": "a9691f7008d5f25e550a4557d17d4f063eb73568084bdbdd24244b01587020f0"
+    },
+    "globalmail-agent/backend/tests/test_after_sales_cancellation.py": {
+      "lines": 66,
+      "sha256": "1e1c1114384ea426ce6a8af607b8a460c7a2380fbdae78f89ffd45e5317ca5fb"
+    },
+    "globalmail-agent/backend/tests/test_after_sales_migration.py": {
+      "lines": 64,
+      "sha256": "c64614a8b28d0257bfacc71e49c1d61e0b647baff6e6c99c9f33e8e3cdd838f9"
+    },
+    "globalmail-agent/backend/tests/test_after_sales_operations.py": {
+      "lines": 103,
+      "sha256": "8de228e4e93873491cdc8b026c97b64a0309a6d93102f33f6a42fa2beca8b472"
+    },
+    "globalmail-agent/backend/tests/test_agent_after_sales.py": {
+      "lines": 143,
+      "sha256": "bcc0f9954e902e7039b1d6762bd62cae2a595d63357629cd9221bef54bcabbd6"
+    },
+    "globalmail-agent/backend/tests/test_agent_menu_pressure.py": {
+      "lines": 96,
+      "sha256": "803641dd19a4439469a36a51a642376ec5ef97d7000724baeec0881b548a6292"
+    },
+    "globalmail-agent/backend/tests/test_agent_tools.py": {
+      "lines": 248,
+      "sha256": "cfeda37bc94cf5e74dfc416d935423496e0d7c87c5c391ffe2c84f0685753301"
+    },
+    "globalmail-agent/backend/tests/test_api.py": {
+      "lines": 77,
+      "sha256": "156a57687095eb98d640fda93def5050e5635811635f38d3a0503928f8d396a4"
+    },
+    "globalmail-agent/backend/tests/test_simulation_executions.py": {
+      "lines": 101,
+      "sha256": "954e66baa4ce9bcaf3bf5fe717f9fc55b6f757e557226003baf33e7e2d692d4c"
+    },
+    "globalmail-agent/backend/tests/test_simulation_policy_race.py": {
+      "lines": 57,
+      "sha256": "2f1e88a93b044b7d7439bed77c4766871f193cfc8781f1c1936e58d0ac670cc5"
+    },
+    "globalmail-agent/backend/tests/test_simulation_safety.py": {
+      "lines": 93,
+      "sha256": "f3d4f0ee04891ce7a7f57ed046b27e147fa5869f9989490d09c70e5e09ed27ac"
+    },
+    "globalmail-agent/frontend/scripts/after-sales.test.ts": {
+      "lines": 182,
+      "sha256": "965b100e034eafbf25e9c77e7607f6102b77543b2528b0ea79dcc97300af11a4"
+    },
+    "globalmail-agent/frontend/scripts/runtime-contract.test.ts": {
+      "lines": 76,
+      "sha256": "4599a0f8e59b40290a7c2075e38704b967b2a6010e00ac1530c73949090a30ba"
+    },
+    "globalmail-agent/frontend/src/api/after-sales-api.ts": {
+      "lines": 19,
+      "sha256": "5ee5a164e2ec3d4b61c3188fa8d90d90b187742c1c8d76557aefeddad465c716"
+    },
+    "globalmail-agent/frontend/src/api/after-sales-contract.ts": {
+      "lines": 48,
+      "sha256": "977b386b26fc489b189326f0e3acd16f3a2f3b7a7696b9abd79638fc61452a10"
+    },
+    "globalmail-agent/frontend/src/api/runtime-contract.ts": {
+      "lines": 53,
+      "sha256": "6b6a4f39dd3d64ad2310d2bf6ae1da7fd603e9c7bbe5ac20d513434018419c39"
+    },
+    "globalmail-agent/frontend/src/components/business/runtime-status.vue": {
+      "lines": 71,
+      "sha256": "0bdee0d32f7f81c112842eb87fc076a1ebd97864cd54025b41db34079bd5ee92"
+    },
+    "globalmail-agent/frontend/src/components/mail-agent/AgentProcessPanel.vue": {
+      "lines": 146,
+      "sha256": "2d31df2698b1ec13d08a22621504fd6584bf583f14ec988b540fb31ed65ed054"
+    },
+    "globalmail-agent/frontend/src/components/mail-agent/OperationDetails.vue": {
+      "lines": 63,
+      "sha256": "9f8a6d0fccb5bd491d182199b25a8bf9605c111f562516a2d7691c88f9641e51"
+    },
+    "globalmail-agent/frontend/src/components/mail-agent/ScenarioControl.vue": {
+      "lines": 115,
+      "sha256": "7a8f9699327464cccc2d2a3b0c41db513ec8f78af4605ee10a674a8b693ca769"
+    },
+    "globalmail-agent/frontend/src/components/mail-agent/after-sales-inputs.ts": {
+      "lines": 87,
+      "sha256": "13080c1b02ac5ae3fc467eb74cf259303f00aa05cce1125da25cce8171b4c076"
+    },
+    "globalmail-agent/frontend/src/components/mail-agent/agent-run-format.ts": {
+      "lines": 61,
+      "sha256": "c382252ad6dea49daf5a4de83aeb000de0aeed908d4c88021403e1b6969e3607"
+    },
+    "globalmail-agent/frontend/src/components/mail-agent/business-records.ts": {
+      "lines": 177,
+      "sha256": "b0205842e939eb98ac452d734df976d09cdc4ab48e2974ae7e77dadc3e3f6127"
+    },
+    "globalmail-agent/frontend/src/composables/useAfterSales.ts": {
+      "lines": 116,
+      "sha256": "6946f3ccf8121813e2d21811880317d4bbf6ab1e03bd88cd7f42d22b4a2ca991"
+    },
+    "globalmail-agent/frontend/src/hooks/core/useRuntimeStatus.ts": {
+      "lines": 54,
+      "sha256": "ccf91453d50ec9e1ce6513bf046bc56b9b585debbf28789bbfbb452e5eec72d3"
+    },
+    "globalmail-agent/frontend/src/views/mail-agent/index.vue": {
+      "lines": 277,
+      "sha256": "7187415871a9fa57e21d3176b8afc265698875db876df38398b611a3d93f9c59"
+    },
+    "globalmail-agent/scripts/phase3-test-server.py": {
+      "lines": 139,
+      "sha256": "b70979e9971a882fcad7ed30bfe80e147d991471cbe3fa7dd8df9dcf5580bf1f"
+    }
+  },
+  "security_hit_review": [
+    {
+      "path": "globalmail-agent/backend/tests/test_api.py",
+      "line": 15,
+      "classification": "synthetic_SECRET_MARKER_for_API_non_disclosure_assertion_line_30_not_real_credential"
+    }
+  ],
+  "generated_change_review": {
+    "path": "globalmail-agent/frontend/src/types/import/components.d.ts",
+    "generated_header_line": 3,
+    "gitignore": "globalmail-agent/frontend/.gitignore:10",
+    "classification": "ignored_unplugin_vue_components_build_output"
+  }
+}

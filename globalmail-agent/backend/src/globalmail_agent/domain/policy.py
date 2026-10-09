@@ -88,12 +88,13 @@ def _refund(checks, context, command, units, share_paid, remaining):
             checks.add("refund_amount", "部分退款未超过整数向下取整上限", records=[context["line"]])
 
 
-def evaluate_eligibility(command, context):
+def evaluate_eligibility(command, context, *, policy_validated=False):
     """Consume only a scoped BusinessQueries context; never load a fallback policy."""
     if not isinstance(command, EligibilityRequest):
         command = EligibilityRequest.model_validate(command)
     policy = context["policy"]
-    validate_profile(policy)
+    if not policy_validated:
+        validate_profile(policy)
     checks, order, line = Conditions(policy), context.get("order"), context.get("line")
     state = context.get("state") or {}
     remaining = None
@@ -144,7 +145,8 @@ def evaluate_eligibility(command, context):
         if checks.evidence("safety", row, "安全风险", "requires_review"):
             checks.add("safety", "有效安全风险须人工审查", "requires_review", [row])
     data = {"outcome": checks.outcome(), "conditions": checks.items, "policy_id": policy["policy_id"],
-        "version": policy["version"], "authorized": False, "publication_status": "unpublished",
+        "version": policy["version"], "authorized": False,
+        "publication_status": "published" if policy_validated else "unpublished",
         "remaining_refund_minor": remaining, "missing_fields": checks.missing()}
     payload = {"command": command.model_dump(), "context": context, "result": data,
                "interpreter": INTERPRETER_VERSION}

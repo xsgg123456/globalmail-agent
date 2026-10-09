@@ -17,6 +17,7 @@ from globalmail_agent.agent.tool_schemas import TOOLS, Draft, ReplyParts
 from globalmail_agent.knowledge.base import canonical, sha
 from globalmail_agent.knowledge.retrieval import KnowledgeSearch
 from globalmail_agent.knowledge.index_commands import SearchCommand
+from globalmail_agent.agent.tools.after_sales import NAMES as AFTER_SALES_TOOLS, call_after_sales
 
 
 class ToolGateway:
@@ -59,16 +60,12 @@ class ToolGateway:
                     run_id=run["id"], command_key=key, name=name, payload_hash=digest, arguments=payload, status="pending"))
                 conn.execute(sa.insert(a.tool_calls).values(id=uuid4(), **scope, conversation_id=conv["id"], run_id=run["id"],
                     command_id=identity, provider_call_id=key, position=position))
-        output = self.execute(name, args, identity)
+        output = call_after_sales(self, name, args, identity) if name in AFTER_SALES_TOOLS else self.execute(name, args, identity)
         if name == "revise_understanding" and output["status"] == "ok":
             return identity, output  # Revision and receipt were committed in the same guarded transaction.
-        with BodyWriter(self.store) as writer, guarded(self.engine, self.context.workspace_id, self.job) as (conn, conv, run, cycle):
-            source = conn.execute(sa.select(a.agent_run_contexts.c.context_object_id).where(a.agent_run_contexts.c.run_id == run["id"])).scalar_one()
-            object_id = writer.put(conn, conv, canonical(output).decode(), "agent_tool_result", (source,))
-            conn.execute(a.tool_commands.update().where(a.tool_commands.c.id == identity)
-                .values(status=output["status"], result_object_id=object_id))
-            append_ui_event(conn, conv["id"], "agent.tool", {"run_id": str(run["id"]), "tool_name": name,
-                "status": output["status"], "reason_code": output["reason_code"]})
+        if name not in AFTER_SALES_TOOLS:
+            with BodyWriter(self.store) as writer, guarded(self.engine, self.context.workspace_id, self.job) as (conn, conv, run, cycle):
+                self.save_result(conn, writer, conv, run, name, identity, output)
         signature = (name, digest, sha(canonical({"status": output["status"], "data": output["data"],
             "reason_code": output["reason_code"], "resource_versions": output["resource_versions"]})))
         if name not in {"create_reply_draft", "request_human_review"} and signature == self.last_signature:
@@ -77,6 +74,14 @@ class ToolGateway:
         if output["status"] == "error":
             raise ServiceError(output["reason_code"], 503)
         return identity, output
+
+    def save_result(self, conn, writer, conv, run, name, identity, output):
+        source = conn.execute(sa.select(a.agent_run_contexts.c.context_object_id).where(a.agent_run_contexts.c.run_id == run["id"])).scalar_one()
+        object_id = writer.put(conn, conv, canonical(output).decode(), "agent_tool_result", (source,))
+        conn.execute(a.tool_commands.update().where(a.tool_commands.c.id == identity)
+            .values(status=output["status"], result_object_id=object_id))
+        append_ui_event(conn, conv["id"], "agent.tool", {"run_id": str(run["id"]), "tool_name": name,
+            "status": output["status"], "reason_code": output["reason_code"]})
 
     def _detail(self, **kwargs):
         return self.business.detail(self.context.conversation_id, **kwargs)
@@ -110,7 +115,7 @@ class ToolGateway:
             keys = ("shipments",) if name == "get_shipment_status" else ("operations", "executions", "returns", "customer_choices", "attempted_steps")
             output["data"] = {k: [r for r in data.get(k, []) if not r.get("order_line_id") or r["order_line_id"] == args.order_line_id] for k in keys}
             output["data"].update(order_line_id=args.order_line_id, policy_authorized=False,
-                limitation="Published policy must be retrieved. After-sales writes are not delivered in this phase.")
+                limitation="Check current published policy and explicit customer selection before an internal application; it is not an execution.")
             return output
         if name == "get_operation_status":
             output = self._detail()

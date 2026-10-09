@@ -1,0 +1,19 @@
+{
+  "tested_backend_files": 236,
+  "current_source_matches_tested_source": true,
+  "tests": 352,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "groups": [
+    88,
+    88,
+    88,
+    88
+  ],
+  "source_changed": false,
+  "frontend_final_tests": 61,
+  "frontend_final_failures": 0,
+  "frontend_final_log": "frontend-tests-final.txt",
+  "frontend_build_log": "frontend-build-final.txt"
+}

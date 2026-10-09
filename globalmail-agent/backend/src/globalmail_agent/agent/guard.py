@@ -41,7 +41,7 @@ def knowledge_guard(conn, workspace, run_id, current):
 
 
 @contextmanager
-def guarded(engine, workspace_id, job, *, checkpoint=False, check_knowledge=True):
+def guarded(engine, workspace_id, job, *, checkpoint=False, check_knowledge=True, lock_business=False):
     with engine.begin() as conn:
         slot = slot_for_update(conn, workspace_id)
         if not valid_lease(slot, job["id"], job["lease_owner"], job["slot_fence"], db_now(conn)):
@@ -57,6 +57,11 @@ def guarded(engine, workspace_id, job, *, checkpoint=False, check_knowledge=True
         # An empty scope still needs a lockable head to serialize its first publication.
         conn.execute(pg_insert(knowledge_release_heads).values(id=uuid4(), **scope(workspace_id)).on_conflict_do_nothing())
         current = head(conn, workspace_id, True)
+        if lock_business:
+            from globalmail_agent.adapters.business_schema import branch_order_lines
+            conn.execute(sa.select(branch_order_lines.c.id).where(
+                *[branch_order_lines.c[key] == conv[key] for key in ("workspace_id", "mode", "branch_id", "customer_id", "purpose")])
+                .order_by(branch_order_lines.c.id).with_for_update()).all()
         run = conn.execute(sa.select(agent_runs).where(agent_runs.c.id == job["run_id"],
             agent_runs.c.workspace_id == workspace_id).with_for_update()).mappings().one()
         task = conn.execute(sa.select(jobs).where(jobs.c.id == job["id"]).with_for_update()).mappings().one()

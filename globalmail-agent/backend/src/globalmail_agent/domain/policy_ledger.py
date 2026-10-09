@@ -1,7 +1,7 @@
 """Integer balances and cross-issue compensation checks; no database writes."""
 from globalmail_agent.domain.policy_conditions import integer, reference, TRUSTED_KINDS
 
-ACTIVE = {"accepted", "pending", "processing", "submitted", "waiting", "unknown", "result_unknown"}
+ACTIVE = {"accepted", "pending", "processing", "submitted", "waiting", "waiting_condition", "awaiting_execution", "unknown", "result_unknown"}
 SUCCESS = {"succeeded", "completed", "shipped"}
 TERMINAL = {"failed", "cancelled", "canceled", "rejected"}
 COMPENSATING = {"refund", "replacement", "spare_part"}
@@ -49,7 +49,9 @@ def ledger(checks, state, line, currency, selected_units, action, order):
         if kind not in COMPENSATING:
             continue
         succeeded = [row for row in executions if row.get("status") == "succeeded"]
-        occupying = status in ACTIVE or any(row.get("status") in ACTIVE for row in executions)
+        occupying = (status in ACTIVE or status == "failed" and operation.get("confirmed_not_executed") is not True
+            or any(row.get("status") in ACTIVE or row.get("status") == "failed" and
+                row.get("confirmed_not_executed") is not True for row in executions))
         completed = bool(succeeded) or (kind != "refund" and status in SUCCESS)
         if status not in ACTIVE | SUCCESS | TERMINAL:
             checks.add("compensation_ledger", "已有操作状态未知，先核对原操作", "wait", [operation])
@@ -57,7 +59,7 @@ def ledger(checks, state, line, currency, selected_units, action, order):
         if kind == "refund" and status in SUCCESS and not succeeded:
             checks.add("compensation_ledger", "已完成退款缺少关联成功执行回执", "requires_review")
             return None
-        if status in TERMINAL and occupying:
+        if status in TERMINAL and status != "failed" and occupying:
             checks.add("compensation_ledger", "取消或失败记录仍有处理中执行，须对账", "requires_review")
             return None
         if status in TERMINAL and completed:

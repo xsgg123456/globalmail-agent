@@ -1,10 +1,10 @@
 # 项目文档索引
 
-本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口；Phase1原图片质量FAIL保留，Phase2–6已交付各期工程验证，Phase7文本Agent和Phase8图文输入工程已接入，模型质量留完整链路后统一回归。Phase8工程四步验证及独立两阶段审查通过，下一期Phase9；实际范围以DEV-PLAN和验证报告为准。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
+本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口；Phase1原图片质量FAIL保留，Phase2–6已交付各期工程验证，Phase7文本Agent和Phase8图文输入工程已接入，模型质量留完整链路后统一回归。Phase8/9工程四步验证及独立两阶段审查通过，下一期Phase10尚未开始；实际范围以DEV-PLAN和验证报告为准。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
 
 ## 根目录入口
 
-2026-10-09当前推进：用户要求先跑通完整项目，已停止Phase7核验局部优化，Phase8图片工程验证通过，下一期Phase9内部售后申请与模拟执行；模型质量与最终验收延期，原FAIL、拒发与权限门保持。工程验证不等于全部产品验收通过。
+2026-10-09当前推进：用户要求先跑通完整项目，已停止Phase7核验局部优化，Phase8图片及Phase9内部售后申请与模拟执行工程验证通过；下一期Phase10连续跟进、异步事件、多订单与方案变更。模型质量与最终验收延期，原FAIL、拒发与权限门保持。工程验证不等于全部产品验收通过。
 
 | 文档 | 职责 |
 |---|---|
@@ -54,6 +54,10 @@
 | planning | [PHASE-6-IMPLEMENTATION.md](planning/PHASE-6-IMPLEMENTATION.md) | Phase 6切分/向量、发布/回滚/下架、检索与前后端接口及验证步骤 |
 | planning | [PHASE-7-IMPLEMENTATION.md](planning/PHASE-7-IMPLEMENTATION.md) | Phase 7文本Agent、预算/检查点/终局与工作台闭环实施及验证标准 |
 | planning | [PHASE-8-IMPLEMENTATION.md](planning/PHASE-8-IMPLEMENTATION.md) | 图片接收/消息绑定/联合理解/证据更正/工作台工程闭环，模型质量留统一回归 |
+| planning | [PHASE-9-IMPLEMENTATION.md](planning/PHASE-9-IMPLEMENTATION.md) | 内部售后申请、取消与未知对账、独立模拟执行及Agent/页面接入；工程四步验证通过 |
+| verification | [PHASE-9-VALIDATION.md](verification/PHASE-9-VALIDATION.md) | 五类售后、真实事务/Graph/控制台与故障回归；352后端/61前端、编译/浏览器/独审及清理证据 |
+| verification | [PHASE-9-REVIEW-INITIAL.md](verification/PHASE-9-REVIEW-INITIAL.md) | 初轮fresh Stage1 FAIL/Stage2未执行：政策发布竞争HIGH和质检结果误标MEDIUM，修前证据保留 |
+| verification | [PHASE-9-REVIEW-FINAL.md](verification/PHASE-9-REVIEW-FINAL.md) | fresh完整Stage1/2 PASS；独立70/6/61、三值质检真实HTTP及宽窄/邻居页面实证，原FAIL保留 |
 | verification | [PHASE-7-PROMPT-ADAPTATION.md](verification/PHASE-7-PROMPT-ADAPTATION.md) | Qwen来源/格式/采样适配、自评与真实回归区别，冻结业务目标不变 |
 | verification | [PHASE-7-VALIDATION.md](verification/PHASE-7-VALIDATION.md) | 容量专项92/评测43/独审18项及编译通过；唯一新负控制整体FAIL、两项局部进展，停止本配置付费，模型语义仍HIGH；历史全量及正式保旧证据保持 |
 | verification | [PHASE-7-REVIEW-INITIAL.md](verification/PHASE-7-REVIEW-INITIAL.md)、[第二轮](verification/PHASE-7-REVIEW-FINAL.md) | 两轮FAIL原始证据；第二轮文件名含FINAL，正文实际FAIL |

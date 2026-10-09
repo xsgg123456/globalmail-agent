@@ -7,7 +7,10 @@ LINE_FIELDS = {"line_id", "sku", "quantity", "paid_minor", "hardware_revision", 
 LEDGER_FIELDS = {"operation_id", "order_id", "order_line_id", "issue_id", "kind", "status", "quantity",
     "amount_minor", "currency", "part_id", "execution_ids", "affected_unit_ids", "execution_id", "parcel_id",
     "purpose", "tracking_number", "carrier", "updated_at", "return_id", "line_id", "received", "inspection",
-    "source_kind", "snapshot_at", "cancelable", "failure_code", "inspected_quantity", "inspected_unit_ids"}
+    "source_kind", "snapshot_at", "cancelable", "failure_code", "inspected_quantity", "inspected_unit_ids",
+    "version", "item_id", "address_version", "region_spec", "hardware_revision", "confirmed_not_executed", "attempt_no", "receipt_ref", "plan",
+    "authorized_return_reference", "return_address", "packing_instructions", "postage_responsibility", "prepaid_label", "prepaid_label_ref",
+    "waiting_conditions"}
 
 
 def project(record, allowed):
