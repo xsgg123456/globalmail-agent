@@ -57,6 +57,7 @@ export interface MailMessage {
   subject: string
   body: string
   sent_at: string
+  attachments?: import('./attachment-contract').ImageAttachment[]
 }
 export interface HumanReview {
   id: string

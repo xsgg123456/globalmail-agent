@@ -30,7 +30,7 @@
       <ElFormItem label="来信主题（可选）" :error="errors.subject"
         ><ElInput v-model="form.subject" :maxlength="500"
       /></ElFormItem>
-      <ElFormItem label="首封客户来信" required :error="errors.body"
+      <ElFormItem label="首封客户来信（有图片时可留空）" :error="errors.body"
         ><ElInput
           v-model="form.body"
           type="textarea"
@@ -39,6 +39,8 @@
           show-word-limit
           resize="vertical"
       /></ElFormItem>
+      <ImageUpload :model-value="form.attachments ?? []" :sender-email="form.sender_email" :disabled="busy"
+        @update:model-value="form.attachments = $event" @loading="imageLoading = $event" />
     </ElForm>
     <template v-else>
       <p class="text-sm text-g-800 mb-3"
@@ -74,12 +76,12 @@
       />
     </template>
     <p class="text-xs text-g-700 mt-4"
-      >关闭窗口会保留未提交内容；本阶段不调用模型、不向真实邮箱发信。</p
+      >关闭窗口会保留未提交内容；上传不调用模型，来信保存后按当前处理权运行，本机模拟回复。</p
     >
     <template #footer>
       <div class="flex justify-end flex-wrap gap-2">
         <ElButton :disabled="busy" @click="$emit('update:modelValue', false)">取消</ElButton>
-        <ElButton type="primary" :loading="busy" @click="submit">{{
+        <ElButton type="primary" :loading="busy" :disabled="imageLoading" @click="submit">{{
           kind === 'create' ? '创建并保存来信' : '校验并导入'
         }}</ElButton>
       </div>
@@ -87,7 +89,10 @@
   </ElDialog>
 </template>
 <script setup lang="ts">
-  import { computed, reactive, ref } from 'vue'
+  import { computed, reactive, ref, watch } from 'vue'
+  import ImageUpload from './ImageUpload.vue'
+  import { imageBindings } from '@/api/attachment-contract'
+  import { attachmentApi } from '@/api/attachment-api'
   import type { InputInstance } from 'element-plus'
   import { mailApi } from '@/api/mail-agent'
   import { validateNewConversation, readImportFile, type NewConversationInput } from './mail-inputs'
@@ -105,6 +110,12 @@
   const emailInput = ref<InputInstance>()
   const errors = ref<Record<string, string>>({})
   const error = ref('')
+  const imageLoading = ref(false)
+  watch(() => form.sender_email, () => {
+    const old = form.attachments ?? []
+    form.attachments = []
+    old.forEach((image) => { void attachmentApi.cancel(image.attachment_id).catch(() => {}) })
+  })
   const fileName = ref('')
   const fileData = ref<Record<string, unknown> | null>(null)
   const sampleLoading = ref(false)
@@ -149,7 +160,7 @@
     }
   }
   async function submit() {
-    if (props.busy) return
+    if (props.busy || imageLoading.value) return
     error.value = ''
     if (props.kind === 'create') {
       errors.value = validateNewConversation(form)
@@ -164,10 +175,10 @@
     try {
       const result = await props.submitCommand(
         props.kind === 'create' ? '/conversations' : '/imports',
-        props.kind === 'create' ? { ...form } : { ...fileData.value }
+        props.kind === 'create' ? { ...form, attachments: imageBindings(form.attachments) } : { ...fileData.value }
       )
       if (!result) return
-      if (props.kind === 'create') Object.assign(form, { sender_email: '', subject: '', body: '' })
+      if (props.kind === 'create') Object.assign(form, { sender_email: '', subject: '', body: '', attachments: [] })
       else {
         fileData.value = null
         fileName.value = ''

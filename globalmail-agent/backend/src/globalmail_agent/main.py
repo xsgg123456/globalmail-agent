@@ -22,6 +22,8 @@ from globalmail_agent.api.knowledge_documents import knowledge_router
 from globalmail_agent.api.knowledge_releases import knowledge_releases_router
 from globalmail_agent.api.knowledge_search import knowledge_search_router
 from globalmail_agent.knowledge.embedding import EmbeddingGateway
+from globalmail_agent.api.attachments import attachment_router
+from globalmail_agent.api.visual_evidence import visual_evidence_router
 
 
 def create_app(settings: Settings | None = None, *, engine=None, start_worker=True,
@@ -76,6 +78,8 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
     app.include_router(knowledge_router(database, store))
     app.include_router(knowledge_releases_router(database, store, gateway))
     app.include_router(knowledge_search_router(database, store, gateway))
+    app.include_router(attachment_router(database, store))
+    app.include_router(visual_evidence_router(database, store))
 
     return app
 

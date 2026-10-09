@@ -1,12 +1,15 @@
 """Upgrade existing Phase 4 rows under a second disposable schema, never production."""
 from pathlib import Path
+from datetime import datetime, timezone
 from uuid import UUID, uuid4
 from alembic import command
 from alembic.config import Config
 import sqlalchemy as sa
 from globalmail_agent.adapters.object_store import ObjectStore
 from globalmail_agent.application.conversations import ConversationService
-from globalmail_agent.domain.conversation import CreateConversation
+from globalmail_agent.adapters.body_store import BodyWriter
+from globalmail_agent.application.event_store import record_event
+from globalmail_agent.application.task_queue import enqueue
 from globalmail_agent.knowledge.documents import DocumentService
 from globalmail_agent.knowledge.commands import CreateDocument
 from globalmail_agent.adapters.conversation_schema import jobs
@@ -31,7 +34,16 @@ class KnowledgeMigrationTests(ProtocolFixture):
             command.upgrade(config, "0003_business_catalog")
         store = ObjectStore(Path(self.temp.name), engine)
         conversations = ConversationService(engine, store)
-        original = conversations.create(CreateConversation(expected_version=0, sender_email="upgrade@example.test", body="Existing user test message"), uuid4().hex)
+        # Seed the old schema with its message/event/job contract, before current services require head.
+        with BodyWriter(store) as writer, engine.begin() as conn:
+            conv = conversations.new_conversation(conn, "upgrade@example.test", "simulation", "", True, "manual")
+            message = conversations.add_message(conn, writer, conv, "Existing user test message", "",
+                "customer", "manual", uuid4().hex, datetime.now(timezone.utc))
+            conversations.update(conn, conv, visible_message_seq=message["seq"],
+                received_seq=message["received_seq"], input_revision=1)
+            event = record_event(conn, conv, "message", str(message["id"]),
+                "customer_message.accepted", {"message_id": str(message["id"])})
+            original = {"conversation_id": str(conv["id"]), **enqueue(conn, conv, event)}
         with engine.connect() as conn:
             existing = conn.execute(sa.select(jobs.c.id, jobs.c.run_id, jobs.c.cycle_id, jobs.c.conversation_id)).one()
         with engine.begin() as conn:

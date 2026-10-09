@@ -17,9 +17,10 @@ def run_child(name, *columns):
 
 cycle_budgets = child("cycle_budgets", sa.Column("cycle_id", sa.Uuid, nullable=False),
     *[sa.Column(k, sa.BigInteger, nullable=False, server_default="0") for k in
-      ("model_requests", "tool_calls", "reserved_tokens", "input_tokens", "output_tokens", "unknown_requests", "active_ms")],
+      ("model_requests", "tool_calls", "reserved_tokens", "input_tokens", "output_tokens", "unknown_requests", "active_ms", "image_views")],
     fk("processing_cycles", "cycle_id"), sa.UniqueConstraint("cycle_id"),
     sa.CheckConstraint("model_requests BETWEEN 0 AND 6 AND tool_calls BETWEEN 0 AND 12"),
+    sa.CheckConstraint("image_views BETWEEN 0 AND 6"),
     sa.CheckConstraint("reserved_tokens >= 0 AND input_tokens >= 0 AND output_tokens >= 0 AND active_ms >= 0"))
 agent_run_contexts = run_child("agent_run_contexts",
     sa.Column("release_id", sa.Uuid), sa.Column("release_epoch", sa.BigInteger, nullable=False),

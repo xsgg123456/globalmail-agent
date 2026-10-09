@@ -28,6 +28,21 @@
         >
           <p class="font-medium mb-2 break-words">{{ message.subject || '（无主题）' }}</p>
           <p class="whitespace-pre-wrap break-words">{{ message.body }}</p>
+          <div v-if="message.attachments?.length" class="flex flex-wrap gap-2 mt-3">
+            <div v-for="image in message.attachments" :key="image.attachment_id" class="w-28 min-w-0">
+              <ElImage v-if="!['revoked', 'cancelled', 'missing', 'unsupported'].includes(image.status)"
+                :src="attachmentApi.thumbnailUrl(image)" :alt="image.filename" fit="contain"
+                loading="lazy" class="h-20 w-28 rounded border-d">
+                <template #placeholder><span class="text-xs">加载中</span></template>
+                <template #error><span class="text-xs">无法预览</span></template>
+              </ElImage>
+              <ElButton size="small" class="w-full mt-1" :title="image.filename"
+                :disabled="image.status === 'revoked'" @click="$emit('image', image)">
+                <span class="max-w-20 truncate">{{ image.filename }}</span>
+              </ElButton>
+              <p class="text-xs mt-1 break-words">{{ imageStatusLabels[image.status] ?? image.status }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </article>
@@ -37,6 +52,9 @@
   import { ref, watch, nextTick } from 'vue'
   import type { MailMessage } from '@/api/mail-agent-contract'
   import { formatMailTime } from './mail-labels'
+  import { imageStatusLabels, type ImageAttachment } from '@/api/attachment-contract'
+  import { attachmentApi } from '@/api/attachment-api'
+  defineEmits<{ image: [value: ImageAttachment] }>()
   const props = defineProps<{
     messages: MailMessage[]
     conversationId: string

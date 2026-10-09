@@ -1,5 +1,6 @@
 """One global Agent slot, periodic leases, and explicit failure recovery."""
 import logging
+import time
 from threading import Event, Thread
 from uuid import uuid4
 import sqlalchemy as sa
@@ -28,6 +29,7 @@ class AgentRunner:
         self.leases = LeaseService(engine, workspace_id)
         self.owner, self.stopping = uuid4().hex, Event()
         self.active = None
+        self.last_image_cleanup = 0
         self.thread = Thread(target=self.run, name="globalmail-agent", daemon=True)
 
     def start(self):
@@ -87,14 +89,14 @@ class AgentRunner:
                 except ServiceError as error:
                     # Danger was persisted before the next checkpoint: it survives knowledge/network errors.
                     from globalmail_agent.adapters.agent_schema import understanding_results
-                    from globalmail_agent.adapters.body_store import read_body
+                    from globalmail_agent.adapters.body_store import read_bytes
                     import json
                     with self.engine.connect() as conn:
                         stored = conn.execute(sa.select(understanding_results.c.body_object_id).where(
                             understanding_results.c.run_id == job["run_id"])).scalar_one_or_none()
                         if stored:
                             conv = conn.execute(sa.select(conversations).where(conversations.c.id == context.conversation_id)).mappings().one()
-                            value = json.loads(read_body(conn, self.store, conv, stored))
+                            value = json.loads(read_bytes(conn, self.store, conv, stored))
                             if value["risk_flags"]:
                                 return risk_handoff(self.engine, self.store, context, job, value)
                     if error.code != "stale_release":
@@ -111,14 +113,14 @@ class AgentRunner:
             if context:
                 try:
                     from globalmail_agent.adapters.agent_schema import understanding_results
-                    from globalmail_agent.adapters.body_store import read_body
+                    from globalmail_agent.adapters.body_store import read_bytes
                     import json
                     with self.engine.connect() as conn:
                         stored = conn.execute(sa.select(understanding_results.c.body_object_id).where(
                             understanding_results.c.run_id == job["run_id"])).scalar_one_or_none()
                         if stored:
                             conv = conn.execute(sa.select(conversations).where(conversations.c.id == context.conversation_id)).mappings().one()
-                            value = json.loads(read_body(conn, self.store, conv, stored))
+                            value = json.loads(read_bytes(conn, self.store, conv, stored))
                             if value["risk_flags"]:
                                 return risk_handoff(self.engine, self.store, context, job, value)
                 except Exception:
@@ -136,7 +138,7 @@ class AgentRunner:
     def fail(self, job, code):
         try:
             with guarded(self.engine, self.workspace_id, job, check_knowledge=False) as (conn, conv, run, cycle):
-                status = "budget_exhausted" if code in {"budget_exhausted", "input_budget_exceeded", "provider_usage_exceeded"} else (
+                status = "budget_exhausted" if code in {"budget_exhausted", "input_budget_exceeded", "provider_usage_exceeded", "image_view_budget_exceeded"} else (
                     "interrupted" if code == "worker_interrupted" else "failed")
                 conn.execute(agent_runs.update().where(agent_runs.c.id == run["id"]).values(status=status,
                     error_code=code, finished_at=db_now(conn), checkpoint_writable=False))
@@ -144,6 +146,9 @@ class AgentRunner:
                 conn.execute(processing_cycles.update().where(processing_cycles.c.id == cycle["id"]).values(state=status))
                 conn.execute(conversations.update().where(conversations.c.id == conv["id"]).values(scheduling_state="failed",
                     auto_run_gate="manual_retry_required", row_version=conv["row_version"] + 1))
+                from globalmail_agent.adapters.attachment_schema import message_attachments
+                conn.execute(message_attachments.update().where(message_attachments.c.processing_run_id == run["id"],
+                    message_attachments.c.status == "processing").values(status="failed", failure_reason=code))
                 append_ui_event(conn, conv["id"], "run.failed", {"run_id": str(run["id"]), "reason_code": code})
                 release_slot(conn, slot_for_update(conn, self.workspace_id))
         except ServiceError:
@@ -157,6 +162,14 @@ class AgentRunner:
             try:
                 self.leases.recover_expired(restart=restart)
                 restart = False
+                if time.monotonic() - self.last_image_cleanup >= 60:
+                    from globalmail_agent.attachments.intake import AttachmentService
+                    try:
+                        AttachmentService(self.engine, self.store, self.workspace_id).cleanup_expired()
+                    except Exception:
+                        logger.warning("image_staging_cleanup_unavailable")
+                    finally:
+                        self.last_image_cleanup = time.monotonic()
                 job = self.leases.claim(self.owner)
                 if job:
                     self.execute(job)

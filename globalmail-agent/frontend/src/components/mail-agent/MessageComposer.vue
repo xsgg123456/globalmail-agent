@@ -39,7 +39,7 @@
           @update:model-value="update('subject', $event)"
         />
       </ElFormItem>
-      <ElFormItem label="客户来信正文" required :error="errors.body">
+      <ElFormItem label="客户来信正文（有图片时可留空）" :error="errors.body">
         <ElInput
           ref="bodyInput"
           :model-value="modelValue.body"
@@ -52,13 +52,15 @@
           @update:model-value="update('body', $event)"
         />
       </ElFormItem>
+      <ImageUpload :model-value="modelValue.attachments ?? []" :conversation-id="conversationId" :disabled="busy"
+        @update:model-value="$emit('update:modelValue', { ...modelValue, attachments: $event })" @loading="imageLoading = $event" />
       <div class="flex-cb flex-wrap gap-2">
         <p class="text-xs text-g-700">{{
           humanReview
             ? '人工接管中，新来信只记录，不启动 Agent。'
             : '有效来信保存后自动处理；所有回复仅在本机模拟，不投递真实邮箱。'
         }}</p>
-        <ElButton type="primary" native-type="submit" :loading="busy">添加客户来信</ElButton>
+        <ElButton type="primary" native-type="submit" :loading="busy" :disabled="imageLoading">添加客户来信</ElButton>
       </div>
       <p v-if="resolved" class="text-xs text-g-700 mt-2"
         >新增来信将重开原会话，保留人工结案记录。</p
@@ -72,6 +74,7 @@
   import type { ReplayCursor } from '@/api/mail-agent-contract'
   import { validateIncoming, type IncomingInput } from './mail-inputs'
   import { formatMailTime } from './mail-labels'
+  import ImageUpload from './ImageUpload.vue'
   const props = defineProps<{
     modelValue: IncomingInput
     historical: boolean
@@ -80,14 +83,17 @@
     activeRun: boolean
     humanReview: boolean
     resolved: boolean
+    conversationId?: string
   }>()
   const emit = defineEmits<{ 'update:modelValue': [value: IncomingInput]; submit: []; next: [] }>()
   const errors = ref<Record<string, string>>({})
+  const imageLoading = ref(false)
   const bodyInput = ref<InputInstance>()
-  function update(field: keyof IncomingInput, value: string) {
+  function update(field: 'subject' | 'body', value: string) {
     emit('update:modelValue', { ...props.modelValue, [field]: value })
   }
   function submit() {
+    if (imageLoading.value) return
     errors.value = validateIncoming(props.modelValue)
     if (Object.keys(errors.value).length) {
       bodyInput.value?.focus()

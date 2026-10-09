@@ -43,7 +43,7 @@ class UnderstandingRevision(StrictModel):
 
 
 class Claim(StrictModel):
-    kind: Literal["order_fact", "product_step", "customer_fact", "proposal", "clarification"]
+    kind: Literal["order_fact", "product_step", "customer_fact", "proposal", "clarification", "visual_observation"]
     text: str = Field(min_length=1, max_length=2000,
         description="Complete email paragraph, never source quotes.")
     source_ids: list[str] = Field(max_length=10,

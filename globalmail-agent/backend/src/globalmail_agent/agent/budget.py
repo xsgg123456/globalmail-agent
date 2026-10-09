@@ -43,19 +43,22 @@ class Budget:
     def active_ms(self):
         return self.base_ms + int((time.monotonic() - self.started) * 1000)
 
-    def reserve(self, messages, stage, model, tools=None):
-        estimate = input_estimate(messages, tools)
+    def reserve(self, messages, stage, model, tools=None, image_views=()):
+        estimate = input_estimate(messages, tools) + sum(r["visual_token_upper"] for r in image_views)
         reservation = estimate + output_limit(stage)
         if estimate > 16000:
             raise ServiceError("input_budget_exceeded")
         key = uuid4().hex
         with guarded(self.engine, self.workspace, self.job) as (conn, conv, run, cycle):
             row = self._row(conn)
+            if row["image_views"] + len(image_views) > 6:
+                raise ServiceError("image_view_budget_exceeded")
             if (row["model_requests"] >= 6 or row["reserved_tokens"] + reservation > 80000
                     or self.active_ms() >= 120000):
                 raise ServiceError("budget_exhausted")
             conn.execute(a.cycle_budgets.update().where(a.cycle_budgets.c.id == row["id"]).values(
                 model_requests=row["model_requests"] + 1, reserved_tokens=row["reserved_tokens"] + reservation,
+                image_views=row["image_views"] + len(image_views),
                 unknown_requests=row["unknown_requests"] + 1, active_ms=self.active_ms()))
             conn.execute(sa.insert(a.usage_records).values(id=uuid4(), **{k: conv[k] for k in SCOPE_KEYS},
                 conversation_id=conv["id"], run_id=run["id"], request_key=key, stage=stage, status="reserved",

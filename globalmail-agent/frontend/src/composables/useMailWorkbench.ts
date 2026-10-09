@@ -4,7 +4,7 @@ import type { ConversationDetail, Conversation, ActionResult } from '@/api/mail-
 import { MailApiError, PendingCommands } from '@/api/mail-agent-request'
 import { validateHuman } from '@/components/mail-agent/mail-inputs'
 import type { HumanInput, IncomingInput } from '@/components/mail-agent/mail-inputs'
-
+import { imageBindings } from '@/api/attachment-contract'
 export function useMailWorkbench(api: MailApi = mailApi) {
   const items = ref<Conversation[]>([])
   const mode = ref('')
@@ -191,7 +191,8 @@ export function useMailWorkbench(api: MailApi = mailApi) {
   async function append() {
     const id = selectedId.value
     const input = incomingInput.value
-    const success = await command(`/conversations/${id}/messages`, { ...input }, '客户来信已保存。')
+    const payload = { ...input, ...(input.attachments ? { attachments: imageBindings(input.attachments) } : {}) }
+    const success = await command(`/conversations/${id}/messages`, payload, '客户来信已保存。')
     if (success) {
       incomingInputs[id] = { subject: '', body: '' }
       scrollSignal.value += 1

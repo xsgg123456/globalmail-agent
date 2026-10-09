@@ -50,6 +50,8 @@ def audit_sources(context, observations):
         for row in [*context['messages'], *context['human_notes']]}
     for identity, row in context.get('verified_tool_sources', {}).items():
         sources[identity] = row['body']
+    for identity, row in context.get('visual_sources', {}).items():
+        sources[identity] = row['body']
     receipts = [json.loads(row['content']) for row in observations]
     receipts += [dict(row['result'], command_source_id=row['command_source_id'])
         for row in context.get('verified_business_observations', [])]
@@ -87,7 +89,7 @@ def audit_failure(review, context, observations, draft):
         claim = draft.claims[row.claim_index]
         if not row.supported:
             semantic_error = semantic_error or AuditFailure(f'claim_{row.claim_index}_not_supported', False)
-        if row.supported and (claim.kind in {'order_fact', 'customer_fact', 'product_step'} or claim.source_ids) and not row.evidence:
+        if row.supported and (claim.kind in {'order_fact', 'customer_fact', 'product_step', 'visual_observation'} or claim.source_ids) and not row.evidence:
             return AuditFailure(f'claim_{row.claim_index}_evidence_missing')
         for evidence in row.evidence:
             if evidence.source_id not in claim.source_ids or evidence.source_id not in sources:

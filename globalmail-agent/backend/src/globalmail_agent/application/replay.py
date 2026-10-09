@@ -31,6 +31,8 @@ class ReplayMixin:
                 message = self.add_message(conn, writer, conversation, item.body, item.subject,
                     item.sender, command.source_ref, item.source_message_id, item.sent_at)
                 imported.append(message)
+                from globalmail_agent.attachments.importing import save_metadata
+                save_metadata(conn, conversation, message, item.attachment_metadata)
                 conversation["received_seq"] = message["received_seq"]
             first = imported[0]
             conversation["received_seq"] = 0

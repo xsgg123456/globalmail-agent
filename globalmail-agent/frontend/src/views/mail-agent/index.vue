@@ -83,12 +83,14 @@
         <ElSkeleton v-if="detailLoading && !detail" :rows="6" animated class="p-4" />
         <template v-else-if="detail">
           <MessageTimeline
+            @image="selectedImage = $event"
             :messages="detail.messages"
             :conversation-id="detail.conversation.id"
             :scroll-signal="scrollSignal"
             :class="{ 'max-h-[500px]': narrow }"
           />
           <MessageComposer
+            :conversation-id="detail.conversation.id"
             :model-value="incomingInput"
             :historical="detail.conversation.mode === 'historical_replay'"
             :replay="detail.replay"
@@ -157,10 +159,14 @@
       :busy="busy"
       :submit-command="createOrImport"
     />
+    <ImageEvidenceDrawer v-if="detail" :image="selectedImage" :conversation="detail.conversation"
+      @close="selectedImage = null" @changed="refreshCurrent" />
   </div>
 </template>
 <script setup lang="ts">
-  import { computed, onMounted, ref } from 'vue'
+  import { computed, onMounted, ref, watch } from 'vue'
+  import ImageEvidenceDrawer from '@/components/mail-agent/ImageEvidenceDrawer.vue'
+  import type { ImageAttachment } from '@/api/attachment-contract'
   import { useElementSize } from '@vueuse/core'
   import { ElMessageBox } from 'element-plus'
   import RuntimeStatus from '@/components/business/runtime-status.vue'
@@ -221,6 +227,12 @@
   const compact = computed(() => width.value < 1024)
   const narrow = computed(() => width.value < 640)
   const drawer = ref(false)
+  const selectedImage = ref<ImageAttachment | null>(null)
+  watch(selectedId, () => { selectedImage.value = null })
+  watch(detail, (snapshot) => {
+    const id = selectedImage.value?.attachment_id
+    if (id) selectedImage.value = snapshot?.messages.flatMap((message) => message.attachments ?? []).find((image) => image.attachment_id === id) ?? null
+  })
   const dialogVisible = ref(false)
   const dialogKind = ref<'create' | 'import'>('create')
   const activeRun = computed(() =>

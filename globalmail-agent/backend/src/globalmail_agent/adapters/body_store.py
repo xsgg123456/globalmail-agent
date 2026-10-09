@@ -22,7 +22,10 @@ class BodyWriter:
                 path.unlink(missing_ok=True)
 
     def put(self, conn, conversation, body, source, derived_from=()):
-        content, object_id = body.encode("utf-8"), uuid4()
+        return self.put_bytes(conn, conversation, body.encode("utf-8"), source, derived_from)
+
+    def put_bytes(self, conn, conversation, content, source, derived_from=()):
+        object_id = uuid4()
         path = self.store._path(object_id)
         temporary = None
         try:
@@ -47,6 +50,19 @@ class BodyWriter:
 def read_body(conn, store, conversation, object_id):
     if object_id is None:
         return ""
+    from globalmail_agent.attachments.revocation import REDACTED
+    from globalmail_agent.application.conversation_lock import ServiceError
+    try:
+        return read_bytes(conn, store, conversation, object_id).decode("utf-8")
+    except ServiceError as error:
+        if error.code == "image_content_revoked":
+            return REDACTED
+        raise
+
+
+def read_bytes(conn, store, conversation, object_id):
+    from globalmail_agent.attachments.revocation import check_content_access
+    check_content_access(conn, conversation, object_id)
     row = conn.execute(select(objects).where(objects.c.id == object_id,
         *[objects.c[k] == conversation[k] for k in SCOPE_KEYS])).mappings().first()
     if row is None:
@@ -54,4 +70,4 @@ def read_body(conn, store, conversation, object_id):
     content = store._path(object_id).read_bytes()
     if len(content) != row["size_bytes"] or hashlib.sha256(content).hexdigest() != row["sha256"]:
         raise ValueError("object_integrity_error")
-    return content.decode("utf-8")
+    return content

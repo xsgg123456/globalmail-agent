@@ -71,7 +71,7 @@ test('响应式导入对象按HTTP JSON编码快照，编辑后不改变未知�
 })
 
 test('表单校验覆盖空白、长度、邮箱及保留换行', () => {
-  assert.equal(validateIncoming({ subject: '', body: ' \n ' }).body, '请填写客户来信正文')
+  assert.equal(validateIncoming({ subject: '', body: ' \n ' }).body, '请填写客户来信正文，或上传至少一张图片')
   assert.deepEqual(
     validateIncoming({ subject: '', body: '<script>unsafe</script>\nsecond line' }),
     {}

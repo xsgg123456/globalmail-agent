@@ -8,9 +8,9 @@
 
 本文是开发设计基线；[Phase 2](docs/verification/PHASE-2-VALIDATION.md)已实现本机系统API、PG/对象依赖基础及前端外壳；[Phase 3](docs/verification/PHASE-3-VALIDATION.md)已实现会话/人审/调度协议；[Phase 4](docs/verification/PHASE-4-VALIDATION.md)已实现订单/账本/适配/库存查询与未发布政策的只读预览，四步技术验证及独立两阶段审查通过，具体集成见[实施约定](docs/planning/PHASE-4-IMPLEMENTATION.md)。其他业务契约尚待分阶段实现验收。技术取舍见 [后端总览](docs/architecture/BACKEND-ARCHITECTURE.md)，逐项验证设计见 [验收映射](docs/verification/AGENT-ACCEPTANCE.md)。具体已实现范围以DEV-PLAN和验证报告为准，其余数据库表、API路由和任务参数仍为工程设计；不改变Spec的业务授权与预算。
 
-v1.0 的独立设计审查已通过，范围见 [原架构审查报告](docs/verification/AGENT-ARCHITECTURE-REVIEW.md)；该报告不涵盖本次客户图片增量。v1.1 补充第4.4节及对应输入、提交、清理和 API 契约，已通过 [图片增量独立设计审查](docs/verification/AGENT-VISUAL-REVIEW.md)：危险分流优先级与旧计数两项发现均已修订复核关闭；正式实现及图片质量仍待验证。
+v1.0 的独立设计审查已通过，范围见 [原架构审查报告](docs/verification/AGENT-ARCHITECTURE-REVIEW.md)；该报告不涵盖本次客户图片增量。v1.1 补充第4.4节及对应输入、提交、清理和 API 契约，已通过 [图片增量独立设计审查](docs/verification/AGENT-VISUAL-REVIEW.md)：危险分流优先级与旧计数两项发现均已修订复核关闭。图片工程随后由Phase8实现，四步验证及[第七轮独立审查](docs/verification/PHASE-8-REVIEW-7.md)通过；图片语义质量仍延期，正式库尚未升级0007。
 
-[Phase 5](docs/verification/PHASE-5-VALIDATION.md)已实现知识原件/不可变版本/精确适用范围、独立MinerU进程、持久任务及原件对照人工核对，四步技术验证和[独立两阶段审查](docs/verification/PHASE-5-REVIEW-CLOSED.md)通过；具体集成见[实施约定](docs/planning/PHASE-5-IMPLEMENTATION.md)。当前只到未发布的reviewed状态，正式Agent、向量、检索、发布/撤销和彻底删除仍按后续阶段实现，本文设计基线及业务授权不变。
+[Phase 5](docs/verification/PHASE-5-VALIDATION.md)已实现知识原件/不可变版本/精确适用范围、独立MinerU进程、持久任务及原件对照人工核对，四步技术验证和[独立两阶段审查](docs/verification/PHASE-5-REVIEW-CLOSED.md)通过；具体集成见[实施约定](docs/planning/PHASE-5-IMPLEMENTATION.md)。Phase6随后接入向量、检索、发布/回滚/下架，Phase7接入文本Agent，Phase8接入图片输入/证据更正撤销；[本期工程验证](docs/verification/PHASE-8-VALIDATION.md)与模型质量验收分开记录，彻底删除仍留Phase12。
 
 ## 0. 本轮规划与完成标准
 
@@ -357,7 +357,7 @@ Markdown直接读结构；政策JSON通过schema及语义校验生成只读说�
 | 数据组 | 主要表/对象 | 关键约束 |
 |---|---|---|
 | 身份/输入 | data_imports、identities、conversations、messages、replay_cursors | scoped sender唯一；来源消息唯一；历史原件不可变；输入接收序号有序 |
-| 图片/视觉证据 | attachment_staging、message_attachments、attachment_revisions、visual_analyses、visual_evidence、evidence_revisions | 所属消息/模式/分支与不可变摘要；逐图状态/coverage；人工修订和撤销epoch；原图不入共享向量库 |
+| 图片/视觉证据 | message_attachments（含暂存、revision、epoch）、visual_analyses、visual_evidence（含manual/supersedes） | 0007将原逻辑暂存/修订表合并；所属消息/模式/分支与不可变摘要、逐图状态/coverage、人工修订和撤销epoch仍保留；原图不入共享向量库 |
 | 案件/人审 | case_issues、case_facts、case_revisions、human_reviews、wait_conditions、wake_pending | 事实来源、CAS版本；每会话最多一个未完结HumanReview；人工回复覆盖输入屏障；等待注册补查先到事件 |
 | 运行/调度 | processing_cycles、agent_runs、tool_commands、tool_calls、jobs、agent_slots | trigger去重；cycle出站唯一；任务租约/fence；command同键异参拒绝 |
 | 售后账本 | branch_orders/lines、policy_decisions、operations、compensation_reservations、executions、inventory_reservations、shipments、return_receipts | 金额/数量check约束；来源分支FK；一未确定执行尝试；补偿跨操作重验 |
@@ -375,8 +375,8 @@ FK/唯一约束带workspace/mode/branch或scope，不能只在接口用where保�
 |---|---|---|
 | 会话/导入 | `POST /imports`，`GET/POST /conversations`，`GET /conversations/{id}` | 身份校验、创建模式分支、列表与当前已见内容；导入只消费明确允许字段 |
 | 输入/回放 | `POST /conversations/{id}/messages`、`/replay/next` | 接收来信排队；推进历史，不接收任意as_of覆盖 |
-| 客户图片 | `POST /conversations/{id}/attachment-uploads`，`DELETE /attachment-uploads/{id}`，`GET /attachments/{id}`、`/content` | 上传仅暂存/校验，消息提交绑定IDs/CID；原图/缩略图逐次授权与禁止缓存，返回不含路径的状态，预览不调用模型 |
-| 视觉证据 | `GET /attachments/{id}/analyses`，`POST /visual-evidence/{id}/corrections` | 对照原图/候选/观察/推测/核验；更正需人工处理权及版本，不触发自动回复 |
+| 客户图片 | `POST /attachments/uploads`，`POST /attachments/{id}/cancel`，`GET /attachments/{id}/preview`，`GET /conversations/{id}/attachments` | 实际上传接收原始字节及filename、conversation_id或sender_email；仅暂存/校验，消息提交绑定IDs/CID；原图/缩略图逐次授权与禁止缓存，返回不含路径的状态，预览不调用模型 |
+| 视觉证据 | `GET /conversations/{id}/visual-evidence?attachment_id=...`，`POST /attachments/{id}/corrections`、`/revoke` | 对照原图/候选/观察/推测/核验；更正需人工处理权、row/input/epoch版本，不触发自动回复；撤销后原图及所有依赖对象立即禁止读取，物理清理留Phase12 |
 | 图片生命周期 | `POST /attachments/{id}/revoke`、`/deletion-requests` | 展示依赖与影响，撤销即时生效；后台清理验证，复用GET任务；重发通过新客户消息，不原地替换 |
 | 运行 | `GET /runs/{id}`，`POST /runs/{id}/stop`、`/retry` | 过程、用量、明确停止/恢复；刷新GET无副作用 |
 | 人工 | `POST /conversations/{id}/takeover`、`/human-replies`、`/close` | 处理权、人审屏障与人工结案；备注/草稿保存不等于完成回复 |

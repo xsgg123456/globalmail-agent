@@ -1,5 +1,7 @@
 """Fixed Qwen chat/JSON/tool adapter; network attempts are individually budgeted."""
 import json
+import base64
+from copy import deepcopy
 from pathlib import Path
 from openai import OpenAI, APIConnectionError, APITimeoutError, APIStatusError
 from globalmail_agent.application.conversation_lock import ServiceError
@@ -17,9 +19,20 @@ class ModelProvider:
         self.client = OpenAI(api_key=settings.model_api_key.get_secret_value() or "unconfigured",
             base_url=settings.model_base_url or "http://127.0.0.1:1", timeout=30, max_retries=0)
 
-    def request(self, messages, *, schema=None, tools=None, timeout=30):
+    def request(self, messages, *, schema=None, tools=None, timeout=30, image_views=(), image_loader=None):
         if not self.configured:
             raise ServiceError("model_not_configured", 503)
+        if image_views:
+            if not image_loader or len(image_views) > 6:
+                raise ServiceError("image_view_invalid", 422)
+            messages = deepcopy(messages)
+            target = next(row for row in messages if row["role"] == "user")
+            blocks = [{"type": "text", "text": target["content"]}]
+            for ref in image_views:
+                blocks.append({"type": "text", "text": "Customer image attachment_id=" + ref["attachment_id"]})
+                data = base64.b64encode(image_loader(ref)).decode("ascii")
+                blocks.append({"type": "image_url", "image_url": {"url": "data:image/png;base64," + data}})
+            target["content"] = blocks
         options = {"model": self.model, "messages": messages, "max_tokens": 2000,
             "temperature": 0.7, "extra_body": {"enable_thinking": False}}
         if schema and schema.get("title") == "OutcomeReview" and not tools:

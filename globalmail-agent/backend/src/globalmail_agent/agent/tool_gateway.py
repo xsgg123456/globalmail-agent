@@ -5,7 +5,7 @@ import sqlalchemy as sa
 from pydantic import ValidationError
 from globalmail_agent.adapters import agent_schema as a
 from globalmail_agent.adapters.schema import SCOPE_KEYS
-from globalmail_agent.adapters.body_store import BodyWriter, read_body
+from globalmail_agent.adapters.body_store import BodyWriter, read_bytes
 from globalmail_agent.adapters.knowledge_index_schema import evidence_refs
 from globalmail_agent.adapters.knowledge_schema import document_versions
 from globalmail_agent.application.business_queries import BusinessQueries
@@ -49,7 +49,7 @@ class ToolGateway:
             if old and (old["name"] != name or old["payload_hash"] != digest):
                 raise ServiceError("tool_command_conflict")
             if old and old["result_object_id"]:
-                return identity, json.loads(read_body(conn, self.store, conv, old["result_object_id"]))
+                return identity, json.loads(read_bytes(conn, self.store, conv, old["result_object_id"]))
         self.budget.tool()
         with guarded(self.engine, self.context.workspace_id, self.job) as (conn, conv, run, cycle):
             if old is None:
@@ -96,7 +96,7 @@ class ToolGateway:
         if name == "get_order_snapshot":
             # Even a correct guessed order number is insufficient: require a visible source candidate.
             sources = [row["body"] for row in [*self.context.payload["messages"], *self.context.payload["human_notes"]]]
-            if not any(args.display_order_number in body for body in sources):
+            if not any(args.display_order_number in body for body in sources) and args.display_order_number not in self.context.payload.get("visual_order_numbers", []):
                 return result("denied", "order_number_without_source", simulation=simulation)
             output = self._detail(order_number=args.display_order_number)
             if output["data"]:

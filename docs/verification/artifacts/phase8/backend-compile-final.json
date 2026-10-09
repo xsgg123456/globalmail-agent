@@ -1,0 +1,5 @@
+{
+  "scope": "phase8_final_source_after_risk_fix",
+  "command": "backend/.venv/Scripts/python.exe -m compileall -q src tests migrations",
+  "exit_code": 0
+}

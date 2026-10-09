@@ -37,8 +37,17 @@ class RunRecords:
                 conversations.c.workspace_id == self.workspace)).mappings().one()
             if conv["lifecycle"] in {"deleting", "deleted"}:
                 raise ServiceError("run_not_found", 404)
+            from globalmail_agent.attachments.revocation import check_content_access
+            context_id = conn.execute(sa.select(a.agent_run_contexts.c.context_object_id).where(
+                a.agent_run_contexts.c.run_id == run_id)).scalar_one_or_none()
+            if context_id:
+                check_content_access(conn, conv, context_id)
             def body(object_id):
-                return read_body(conn, self.store, conv, object_id)
+                from globalmail_agent.attachments.revocation import REDACTED
+                value = read_body(conn, self.store, conv, object_id)
+                if value == REDACTED:
+                    raise ServiceError("image_content_revoked", 410)
+                return value
             understanding = conn.execute(sa.select(a.understanding_results).where(a.understanding_results.c.run_id == run_id)).mappings().first()
             understanding_value = json.loads(body(understanding["body_object_id"])) if understanding else None
             revisions = []

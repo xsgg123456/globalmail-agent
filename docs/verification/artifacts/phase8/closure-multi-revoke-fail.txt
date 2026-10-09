@@ -1,0 +1,15 @@
+test_revoking_one_image_does_not_turn_other_image_evidence_into_unhandled_json_error (phase8_review_closure_repro.ClosureRepro.test_revoking_one_image_does_not_turn_other_image_evidence_into_unhandled_json_error) ... FAIL
+
+======================================================================
+FAIL: test_revoking_one_image_does_not_turn_other_image_evidence_into_unhandled_json_error (phase8_review_closure_repro.ClosureRepro.test_revoking_one_image_does_not_turn_other_image_evidence_into_unhandled_json_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\tmp\phase8_review_closure_repro.py", line 102, in test_revoking_one_image_does_not_turn_other_image_evidence_into_unhandled_json_error
+    self.assertIn(response.status_code,(200,410),response.text)
+AssertionError: 500 not found in (200, 410) : {"code":500,"msg":"internal_error","data":null,"request_id":"1f41c205-162a-44c5-83b3-cf17a7ba1182"}
+
+----------------------------------------------------------------------
+Ran 1 test in 3.267s
+
+FAILED (failures=1)
+{"tests": 1, "failures": 1, "errors": 0, "skipped": 0, "successful": false, "duration_seconds": 3.359000000054948, "source_changed": false}

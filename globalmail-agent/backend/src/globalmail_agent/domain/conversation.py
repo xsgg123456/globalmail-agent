@@ -1,7 +1,8 @@
 """Validated public commands; callers cannot choose workspace or execution scope."""
 from datetime import datetime
 from typing import Literal
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from uuid import UUID
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 
 class Command(BaseModel):
@@ -21,7 +22,35 @@ class Body(Command):
         return value
 
 
-class CreateConversation(Body):
+class AttachmentBinding(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    attachment_id: UUID
+    cid: str | None = Field(default=None, min_length=1, max_length=160)
+
+
+class AttachmentMetadata(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    filename: str = Field(min_length=1, max_length=240)
+    mime_type: str = Field(default="application/octet-stream", min_length=1, max_length=80)
+    cid: str | None = Field(default=None, min_length=1, max_length=160)
+
+
+class CustomerBody(Command):
+    body: str = Field(default="", max_length=20000)
+    subject: str = Field(default="", max_length=500)
+    attachments: list[AttachmentBinding] = Field(default_factory=list, max_length=4)
+    attachment_metadata: list[AttachmentMetadata] = Field(default_factory=list, max_length=4)
+
+    @model_validator(mode="after")
+    def content_required(self):
+        if not self.body.strip() and not self.attachments:
+            raise ValueError("body_or_image_required")
+        if len(self.attachments) + len(self.attachment_metadata) > 4:
+            raise ValueError("attachment_count_limit")
+        return self
+
+
+class CreateConversation(CustomerBody):
     sender_email: str = Field(max_length=320)
 
     @field_validator("sender_email")
@@ -36,7 +65,7 @@ class CreateConversation(Body):
         return local + "@" + domain.lower()
 
 
-class AppendMessage(Body):
+class AppendMessage(CustomerBody):
     source_message_id: str | None = Field(default=None, min_length=1, max_length=160)
 
 
@@ -67,6 +96,7 @@ class ImportMessage(BaseModel):
     sent_at: datetime
     subject: str = Field(default="", max_length=500)
     body: str = Field(min_length=1, max_length=20000)
+    attachment_metadata: list[AttachmentMetadata] = Field(default_factory=list, max_length=4)
 
     @field_validator("sent_at")
     @classmethod

@@ -1,10 +1,10 @@
 # Development Plan — GlobalMail Agent
 
-版本：v1.0；进度更新：2026-10-08。状态：Phase 1本轮探索结束，保留未通过项；Phase 2运行基础已实现；Phase 3四步技术验证及最终独立两阶段审查通过，用户已要求继续；Phase 4四步技术验证和最终独立两阶段审查通过，用户已要求继续；Phase 5四步技术验证及最终独立两阶段审查通过，用户已要求继续；Phase 6四步技术验证及独立两阶段审查通过，用户已要求继续；Phase 7实施与验收中；Phase 8–13未开始。
+版本：v1.0；进度更新：2026-10-09。状态：Phase 1本轮探索结束，保留未通过项；Phase 2–6各期技术验证及独立审查通过；Phase 7工程已实现并提交09a818f，模型质量与最终验收延期；Phase 8工程四步验证及独立两阶段审查通过，模型质量延期；Phase 9–13未开始。
 
 本文件记录开发顺序、交付物、关键文件与验收归属。它不改变业务范围，不将已有数据、组件实验或设计审查折算为正式应用完成。Phase 1 结果见 [图片实验报告](docs/verification/VISUAL-VALIDATION.md)：35场景108次真实请求，仍有关键业务失败，标签人工核对待完成。
 
-2026-10-09用户决定：停止Phase7核验器的局部优化，先继续Phase8及后续功能，把完整项目链路跑通后集中处理模型质量与业务验收。Phase7工程已实现，业务回归/最终审查延期且保留原FAIL，不记为完成；不再作为下一Phase工程开工的阻塞。新增功能仍做编译、工程测试与主链路验证，不移除既有拒发/隔离/预算/提交门。Phase8当前开发中，后续按原依赖顺序；本决定覆盖本项目此前“先全部过Phase7再开Phase8”的执行次序。
+2026-10-09用户决定：停止Phase7核验器的局部优化，先继续Phase8及后续功能，把完整项目链路跑通后集中处理模型质量与业务验收。Phase7工程已实现，业务回归/最终审查延期且保留原FAIL，不记为完成；不再作为下一Phase工程开工的阻塞。新增功能仍做编译、工程测试与主链路验证，不移除既有拒发/隔离/预算/提交门。Phase8工程验证已通过，下一期Phase9按原依赖顺序推进；本决定覆盖本项目此前“先全部过Phase7再开Phase8”的执行次序。
 
 ## 1. 输入基线与实施规则
 
@@ -26,8 +26,8 @@
 | 4 | 查询准确订单、商品、库存、物流与政策条件 | 3 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-4-VALIDATION.md) |
 | 5 | 上传/修订知识、解析并人工核对 | 2、4的商品范围 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-5-VALIDATION.md) |
 | 6 | 构建向量、发布/回滚、检索试查及下架 | 5 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-6-VALIDATION.md) |
-| 7 | 在工作台完成文本Agent查单、检索、回复与人审闭环 | 3、4、6 | 实施中；[步骤与完成标准](docs/planning/PHASE-7-IMPLEMENTATION.md) |
-| 8 | 在正式工作台接收图片、核验字段并分流 | 1、7 | 未开始 |
+| 7 | 在工作台完成文本Agent查单、检索、回复与人审闭环 | 3、4、6 | 工程已实现/09a818f；原质量FAIL保留，统一回归延期 |
+| 8 | 在正式工作台接收图片、核验字段并分流 | 1、7 | 工程四步验证及独立两阶段审查通过；[验证记录](docs/verification/PHASE-8-VALIDATION.md)，AC082模型质量延期 |
 | 9 | 提交售后申请、模拟人工执行并查询回执 | 4、6、7；图片动作依赖8 | 未开始 |
 | 10 | 连续跟进、异步事件、多订单与方案变更 | 9 | 未开始 |
 | 11 | 查看实际Langfuse追踪并验证观测降级 | 7、8、10 | 未开始 |
@@ -175,7 +175,7 @@ Phase 2结果：[验证记录](docs/verification/PHASE-2-VALIDATION.md)、[独�
 
 ## Phase 8: 正式图片输入、证据与人工更正
 
-当前状态：2026-10-09开始工程开发；消费现有Phase7接口，不等待其模型质量全过。Phase1图片质量FAIL仍保留，先实现图片接收/联合理解/证据更正完整链路，专项模型质量与Phase7一起进入统一回归；不将工程模拟响应计作图片语义验收。
+当前状态：2026-10-09图片接收/联合理解/证据更正完整工程链路已实现，工程四步验证及第七轮独立Stage1/2通过；实测见[验证记录](docs/verification/PHASE-8-VALIDATION.md)，实施与故障修复见[步骤记录](docs/planning/PHASE-8-IMPLEMENTATION.md)。Phase1图片质量FAIL仍保留，专项模型质量与Phase7一起进入统一回归；工程固定响应不计作图片语义验收，AC082仍未通过。正式库仍0005，0007迁移仅在隔离环境验证。
 
 **交付内容**：
 - 实现暂存上传、实际格式/像素核验、附件/CID绑定、仅图来信、授权原图/缩略图预览及逐图状态；重发以新客户来信入库。
@@ -373,7 +373,7 @@ PyPI固定版本元数据已核验FastAPI、LangGraph、checkpoint-postgres、la
 | documents、document_versions、applicabilities、blocks、knowledge_reviews、knowledge_audits、policy_bundles | 5 | 6构建与发布关系 |
 | chunks、embedding_profiles、index_builds、index_entries、chunk_embeddings、releases、release_heads、evidence_refs | 6 | 7实际run依赖；12清理与恢复验证 |
 | understanding_results、tool_commands、tool_calls、reply_artifacts、usage_records、trace_correlations、wait_conditions、wake_pending | 7 | 8关联视觉证据；10扩展业务等待/事件；11实际追踪导出 |
-| attachment_staging、message_attachments、attachment_revisions、visual_analyses、visual_evidence、evidence_revisions | 8 | 12清理/共享对象依赖 |
+| message_attachments（含暂存、修订、epoch）、visual_analyses、visual_evidence（含人工修订/supersedes） | 8 | 12清理/共享对象依赖；实现合并逻辑表，不减少原契约 |
 | policy_decisions、operations、executions、shipments、return_receipts | 4 | 装载已有账本并查询；9增加业务写入，10关联等待；删除不破坏已执行业务防重 |
 | compensation_reservations、inventory_reservations | 9 | 与Phase 4账本同事务；10扩展取消/方案变更验证 |
 | deletion_requests、deletion_checks、backup_manifests | 12 | 复用2开始的依赖登记与journal，不另造第二套正文清单 |
@@ -391,4 +391,4 @@ PyPI固定版本元数据已核验FastAPI、LangGraph、checkpoint-postgres、la
 - 每阶段报告更新`docs/verification/ACCEPTANCE-RESULTS.md`的对应部分或模块实验报告，维护本文件阶段状态及`docs/planning/SESSION-HANDOFF.md`。AC满足全部条件后才勾选；历史设计审查和实验原始结果保持原结论。
 - 运行产生的含正文/图像/模型请求原始证据放Git忽略的`.local-data/`或`tmp/`；仓库只保留复核后的合成样本、去敏汇总与证据摘要。新增专题文档归`docs/`，模块README随源码，根目录保留约定五份Markdown。
 
-当前入口：Phase 7“文本Agent与首个工作台闭环”实施与验收，步骤见[实施记录](docs/planning/PHASE-7-IMPLEMENTATION.md)。图片售后完整闭环在Phase 8–10交付，全部首版范围以Phase 13总验收为完成门槛。
+当前入口：Phase 8图片输入工程验证通过，证据见[验证记录](docs/verification/PHASE-8-VALIDATION.md)；下一期Phase 9内部售后申请与模拟人工执行。Phase7/8模型质量按用户决定在完整链路后统一回归，全部首版范围以Phase13总验收为完成门槛。

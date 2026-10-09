@@ -1,0 +1,26 @@
+{
+  "dom": {
+    "images": 0,
+    "filenameDisabled": true,
+    "text": "客\n客户来信\n2026/10/9 10:47:05\n第 1 封\n\n（无主题）\n\nreview7-label_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_photo.png\n\n已移除",
+    "client": 517,
+    "scroll": 517
+  },
+  "http": {
+    "thumbnail": {
+      "status": 410,
+      "body": "{\"code\":410,\"msg\":\"attachment_revoked\",\"data\":null,\"request_id\":\"13844d12-70b2-49b7-bfd1-b5ff17ded994\"}",
+      "cache": "no-store"
+    },
+    "original": {
+      "status": 410,
+      "body": "{\"code\":410,\"msg\":\"attachment_revoked\",\"data\":null,\"request_id\":\"c6c511b9-061e-4b84-99c3-0653f4d149f9\"}",
+      "cache": "no-store"
+    },
+    "evidence": {
+      "status": 410,
+      "body": "{\"code\":410,\"msg\":\"attachment_revoked\",\"data\":null,\"request_id\":\"ed4f6dba-388b-426d-99f9-090e33208681\"}",
+      "cache": "no-store"
+    }
+  }
+}

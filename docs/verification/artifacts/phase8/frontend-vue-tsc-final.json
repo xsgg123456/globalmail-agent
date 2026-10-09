@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "command": "npm run build -> vue-tsc --noEmit && vite build",
+  "evidence": "frontend-build-final.txt"
+}

@@ -39,6 +39,9 @@ class FixtureConversations(ServiceBase):
                 message = self.add_message(conn, writer, conversation, item["body"], scenario_id,
                     sender, scenario["source_ref"], item["message_id"], timestamp(item["received_at"]))
                 added.append(message)
+                from globalmail_agent.attachments.importing import save_metadata
+                save_metadata(conn, conversation, message, [*item.get("attachments", []),
+                    *item.get("attachment_metadata", [])], writer=writer, package=self.package)
                 conversation["received_seq"] = message["received_seq"]
             if scenario["mode"] == "historical_replay":
                 current = next(m for m in added if m["sender"] == "customer")

@@ -1,0 +1,8 @@
+test_replacement_and_explicit_human_resolution_keep_old_source_unreadable (__main__.RiskProbe.test_replacement_and_explicit_human_resolution_keep_old_source_unreadable) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 6.372s
+
+OK
+REVIEW6_RISK {"new_risk_id_distinct": true, "new_source_b": true, "keep_active_models": 0, "keep_active_outbound": 0, "keep_active_owner": "human_review", "resolution_auto_run": false, "after_new_input_models": 3, "after_new_input_outbound": 1, "old_preview": 410, "old_risk_bytes": 410}
+REVIEW6_PROBE_RESULT {"tests": 1, "failures": 0, "errors": 0, "skipped": 0, "source_changed": false}

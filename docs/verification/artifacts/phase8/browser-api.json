@@ -1,0 +1,15 @@
+{
+  "engineering_fixture_only": true,
+  "paid_model_calls": 0,
+  "image_only_created": true,
+  "manual_correction_then_revoke_epoch": 2,
+  "revoked_preview_status": 410,
+  "revoked_evidence_status": 410,
+  "image_only_append_created": true,
+  "messages": 2,
+  "runs_after_append": 1,
+  "processing_owner": "human_review",
+  "auto_run_gate": "disabled",
+  "scheduling_state": "idle",
+  "assertions_passed": true
+}

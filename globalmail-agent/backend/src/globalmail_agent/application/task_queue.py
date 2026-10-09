@@ -15,6 +15,8 @@ def invalidate(conn, conversation_id):
         conn.execute(update(agent_runs).where(agent_runs.c.id.in_(ids)).values(status=after,
             checkpoint_writable=False, finished_at=func.now(), updated_at=func.now()))
         conn.execute(update(jobs).where(jobs.c.run_id.in_(ids)).values(status=after, updated_at=func.now()))
+        from globalmail_agent.attachments.lifecycle import interrupt_images
+        interrupt_images(conn, ids)
         affected_jobs = select(jobs.c.id).where(jobs.c.run_id.in_(ids))
         conn.execute(update(agent_slots).where(agent_slots.c.job_id.in_(affected_jobs))
             .values(lease_owner=None, lease_expires_at=None, job_id=None,

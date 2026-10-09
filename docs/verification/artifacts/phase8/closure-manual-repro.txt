@@ -1,0 +1,15 @@
+test_four_fields_through_formal_graph_and_raw_audit_only (phase8_review_closure_repro.ClosureRepro.test_four_fields_through_formal_graph_and_raw_audit_only) ... ok
+test_lost_lease_after_real_image_read_rejects_late_visual_output (phase8_review_closure_repro.ClosureRepro.test_lost_lease_after_real_image_read_rejects_late_visual_output) ... ok
+test_missing_preview_failure_can_revoke_and_cannot_fake_manual_bytes (phase8_review_closure_repro.ClosureRepro.test_missing_preview_failure_can_revoke_and_cannot_fake_manual_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 18.232s
+
+OK
+MANUAL_GRAPH {"key": "sku", "old_effective": false, "manual_effective": true, "raw_audit_preserved": true, "automatic_resume": false}
+MANUAL_GRAPH {"key": "model", "old_effective": false, "manual_effective": true, "raw_audit_preserved": true, "automatic_resume": false}
+MANUAL_GRAPH {"key": "error_code", "old_effective": false, "manual_effective": true, "raw_audit_preserved": true, "automatic_resume": false}
+MANUAL_GRAPH {"key": "order_number", "old_effective": false, "manual_effective": true, "raw_audit_preserved": true, "automatic_resume": false}
+LATE_LEASE {"error": "lease_expired", "analysis_count": 0, "outbound_count": 0}
+MISSING_HTTP {"preview": 503, "evidence": 200, "correction": 422, "revoke": 200, "status": "revoked"}
+{"tests": 3, "failures": 0, "errors": 0, "skipped": 0, "successful": true, "duration_seconds": 18.265999999945052, "source_changed": true}

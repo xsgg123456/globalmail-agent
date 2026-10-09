@@ -1,10 +1,10 @@
 # 项目文档索引
 
-本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口，Phase 1本轮探索已结束、保留原失败项；Phase 2运行基础、Phase 3会话/人审、Phase 4业务查询/只读政策核对、Phase 5知识维护/解析/人工核对及Phase 6构建/发布/检索/下架已实现，进度以DEV-PLAN和验证报告为准。正式Agent尚未接入。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
+本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口；Phase1原图片质量FAIL保留，Phase2–6已交付各期工程验证，Phase7文本Agent和Phase8图文输入工程已接入，模型质量留完整链路后统一回归。Phase8工程四步验证及独立两阶段审查通过，下一期Phase9；实际范围以DEV-PLAN和验证报告为准。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
 
 ## 根目录入口
 
-2026-10-09当前推进：用户要求先跑通完整项目，已停止Phase7核验局部优化，进入Phase8工程开发；模型质量与最终验收延期，原FAIL、拒发与权限门保持。阶段开工不等于原验收通过。
+2026-10-09当前推进：用户要求先跑通完整项目，已停止Phase7核验局部优化，Phase8图片工程验证通过，下一期Phase9内部售后申请与模拟执行；模型质量与最终验收延期，原FAIL、拒发与权限门保持。工程验证不等于全部产品验收通过。
 
 | 文档 | 职责 |
 |---|---|
@@ -58,6 +58,13 @@
 | verification | [PHASE-7-VALIDATION.md](verification/PHASE-7-VALIDATION.md) | 容量专项92/评测43/独审18项及编译通过；唯一新负控制整体FAIL、两项局部进展，停止本配置付费，模型语义仍HIGH；历史全量及正式保旧证据保持 |
 | verification | [PHASE-7-REVIEW-INITIAL.md](verification/PHASE-7-REVIEW-INITIAL.md)、[第二轮](verification/PHASE-7-REVIEW-FINAL.md) | 两轮FAIL原始证据；第二轮文件名含FINAL，正文实际FAIL |
 | verification | [PHASE-7-REVIEW-3.md](verification/PHASE-7-REVIEW-3.md) | 经用户授权本次复用实例的第三轮审查；Stage1未过、Stage2未执行，局部优化已停止 |
+| verification | [PHASE-8-REVIEW-INITIAL.md](verification/PHASE-8-REVIEW-INITIAL.md)、[第二轮](verification/PHASE-8-REVIEW-FINAL.md) | 两轮原FAIL：控制包/元数据、人工来源、派生读取与预览失败撤销；第二轮文件名FINAL不表示通过 |
+| verification | [PHASE-8-REVIEW-CLOSURE.md](verification/PHASE-8-REVIEW-CLOSURE.md) | 第三轮Stage1工程通过/Stage2 FAIL：联合分析撤销接口500与单文件301行，保留修前证据 |
+| verification | [PHASE-8-REVIEW-ENGINEERING-FINAL.md](verification/PHASE-8-REVIEW-ENGINEERING-FINAL.md) | 第四轮Stage1工程通过/Stage2 FAIL：共同分析失效后的更正POST返回500；文件名FINAL不表示通过 |
+| verification | [PHASE-8-REVIEW-5.md](verification/PHASE-8-REVIEW-5.md) | 第五轮Stage1 FAIL/HIGH、Stage2未执行：旧撤销来源吞掉新危险风险，保留实际失败时序 |
+| verification | [PHASE-8-REVIEW-6.md](verification/PHASE-8-REVIEW-6.md) | 第六轮关闭风险HIGH，保留CMP-002缺缩略图的MEDIUM；修前整体仍未闭合 |
+| verification | [PHASE-8-REVIEW-7.md](verification/PHASE-8-REVIEW-7.md) | 第七轮fresh Stage1本期工程PASS/Stage2 PASS；独立图片与页面反例关闭剩余工程缺口，模型语义延期 |
+| verification | [PHASE-8-VALIDATION.md](verification/PHASE-8-VALIDATION.md) | 图片输入/联合理解/证据更正撤销、真实PG/HTTP/SDK及页面工程验证；AC082模型质量延期 |
 
 ## 任务阅读与新增文档
 

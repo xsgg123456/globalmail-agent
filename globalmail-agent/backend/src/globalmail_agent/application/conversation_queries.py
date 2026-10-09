@@ -18,6 +18,9 @@ class QueryMixin:
         result = dict(row)
         for field, column in (("draft", "draft_object_id"), ("note", "note_object_id"), ("reply", "reply_object_id")):
             result[field] = read_body(conn, self.store, conversation, row[column])
+        from globalmail_agent.attachments.revocation import REDACTED
+        if REDACTED in (result["draft"], result["note"], result["reply"]):
+            result["reason"] = REDACTED
         return result
 
     def list(self, mode=None, limit=50, cursor=None, state=None):
@@ -25,7 +28,8 @@ class QueryMixin:
             raise ServiceError("database_unavailable", 503)
         with self.engine.connect() as conn:
             query = select(conversations).where(conversations.c.workspace_id == self.workspace_id,
-                conversations.c.lifecycle.not_in(["deleting", "deleted"]))
+                conversations.c.lifecycle.not_in(["deleting", "deleted"]),
+                conversations.c.received_seq > 0)
             if mode:
                 query = query.where(conversations.c.mode == ("simulation" if mode == "interactive_simulation" else mode))
             if state:
@@ -58,6 +62,9 @@ class QueryMixin:
                 visible = list(conn.execute(select(messages).where(messages.c.conversation_id == conversation_id,
                     messages.c.seq <= conversation["visible_message_seq"]).order_by(messages.c.seq)).mappings())
                 mail = [{**dict(m), "body": read_body(conn, self.store, conversation, m["body_object_id"])} for m in visible]
+                from globalmail_agent.attachments.binding import list_message_attachments
+                for item in mail:
+                    item["attachments"] = list_message_attachments(conn, conversation, item["id"])
                 reviews = list(conn.execute(select(human_reviews).where(human_reviews.c.conversation_id == conversation_id)
                                            .order_by(human_reviews.c.created_at)).mappings())
                 current = next((r for r in reversed(reviews) if r["status"] == "open"), None)

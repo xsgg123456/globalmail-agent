@@ -1,0 +1,281 @@
+{
+  "files": 67,
+  "max_lines": 301,
+  "over_300": [
+    {
+      "file": "globalmail-agent/frontend/src/composables/useMailWorkbench.ts",
+      "lines": 301
+    }
+  ],
+  "matches": [],
+  "lengths": [
+    {
+      "file": "globalmail-agent/backend/migrations/versions/0007_visual_evidence.py",
+      "lines": 123
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/adapters/agent_schema.py",
+      "lines": 94
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/adapters/attachment_schema.py",
+      "lines": 63
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/adapters/body_store.py",
+      "lines": 73
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/adapters/checkpoint_repository.py",
+      "lines": 179
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/adapters/database.py",
+      "lines": 41
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/adapters/model_provider.py",
+      "lines": 70
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/agent/budget.py",
+      "lines": 110
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/agent/context.py",
+      "lines": 120
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/agent/graph.py",
+      "lines": 266
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/agent/guard.py",
+      "lines": 72
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/agent/memory.py",
+      "lines": 57
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/agent/prompts/visual-understanding.md",
+      "lines": 17
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/agent/review_audit.py",
+      "lines": 103
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/agent/tool_gateway.py",
+      "lines": 170
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/agent/tool_schemas.py",
+      "lines": 96
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/agent/understanding.py",
+      "lines": 83
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/api/attachments.py",
+      "lines": 58
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/api/security.py",
+      "lines": 64
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/api/system.py",
+      "lines": 34
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/api/visual_evidence.py",
+      "lines": 30
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/application/commit_outcome.py",
+      "lines": 124
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/application/conversation_queries.py",
+      "lines": 86
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/application/conversations.py",
+      "lines": 59
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/application/draft_validation.py",
+      "lines": 46
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/application/event_store.py",
+      "lines": 64
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/application/fixture_conversations.py",
+      "lines": 68
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/application/human_review.py",
+      "lines": 133
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/application/replay.py",
+      "lines": 73
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/application/risk_records.py",
+      "lines": 49
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/application/run_records.py",
+      "lines": 83
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/application/task_queue.py",
+      "lines": 50
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/application/understanding_revisions.py",
+      "lines": 121
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/attachments/binding.py",
+      "lines": 86
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/attachments/corrections.py",
+      "lines": 96
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/attachments/evidence.py",
+      "lines": 109
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/attachments/importing.py",
+      "lines": 80
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/attachments/intake.py",
+      "lines": 144
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/attachments/lifecycle.py",
+      "lines": 8
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/attachments/queries.py",
+      "lines": 108
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/attachments/revocation.py",
+      "lines": 21
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/attachments/understanding.py",
+      "lines": 104
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/attachments/validation.py",
+      "lines": 52
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/attachments/views.py",
+      "lines": 72
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/domain/conversation.py",
+      "lines": 122
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/main.py",
+      "lines": 89
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/observability/local_records.py",
+      "lines": 31
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/observability/usage.py",
+      "lines": 10
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/worker/agent_runner.py",
+      "lines": 178
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/worker/jobs.py",
+      "lines": 110
+    },
+    {
+      "file": "globalmail-agent/backend/src/globalmail_agent/worker/leases.py",
+      "lines": 145
+    },
+    {
+      "file": "globalmail-agent/frontend/src/api/attachment-api.ts",
+      "lines": 20
+    },
+    {
+      "file": "globalmail-agent/frontend/src/api/attachment-contract.ts",
+      "lines": 51
+    },
+    {
+      "file": "globalmail-agent/frontend/src/api/mail-agent-contract.ts",
+      "lines": 126
+    },
+    {
+      "file": "globalmail-agent/frontend/src/api/mail-agent-request.ts",
+      "lines": 93
+    },
+    {
+      "file": "globalmail-agent/frontend/src/api/runtime-contract.ts",
+      "lines": 51
+    },
+    {
+      "file": "globalmail-agent/frontend/src/components/business/runtime-status.vue",
+      "lines": 71
+    },
+    {
+      "file": "globalmail-agent/frontend/src/components/mail-agent/ConversationDialog.vue",
+      "lines": 191
+    },
+    {
+      "file": "globalmail-agent/frontend/src/components/mail-agent/ImageEvidenceDrawer.vue",
+      "lines": 119
+    },
+    {
+      "file": "globalmail-agent/frontend/src/components/mail-agent/ImageUpload.vue",
+      "lines": 89
+    },
+    {
+      "file": "globalmail-agent/frontend/src/components/mail-agent/MessageComposer.vue",
+      "lines": 104
+    },
+    {
+      "file": "globalmail-agent/frontend/src/components/mail-agent/MessageTimeline.vue",
+      "lines": 90
+    },
+    {
+      "file": "globalmail-agent/frontend/src/components/mail-agent/mail-inputs.ts",
+      "lines": 58
+    },
+    {
+      "file": "globalmail-agent/frontend/src/components/mail-agent/pending-image-uploads.ts",
+      "lines": 13
+    },
+    {
+      "file": "globalmail-agent/frontend/src/composables/useMailWorkbench.ts",
+      "lines": 301
+    },
+    {
+      "file": "globalmail-agent/frontend/src/hooks/core/useRuntimeStatus.ts",
+      "lines": 54
+    },
+    {
+      "file": "globalmail-agent/frontend/src/views/mail-agent/index.vue",
+      "lines": 275
+    }
+  ]
+}

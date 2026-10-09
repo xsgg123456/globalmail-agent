@@ -12,6 +12,8 @@ from globalmail_agent.knowledge.base import canonical
 
 
 def persist_facts(conn, writer, conv, payload, facts, source):
+    from globalmail_agent.attachments.evidence import context_images
+    image_objects = context_images(conn, writer.store, conv)[3]
     scope = {k: conv[k] for k in SCOPE_KEYS}
     issue = conn.execute(sa.select(case_issues).where(case_issues.c.conversation_id == conv["id"],
         case_issues.c.issue_key == "correspondence")).mappings().one()
@@ -21,11 +23,11 @@ def persist_facts(conn, writer, conv, payload, facts, source):
     for fact in facts:
         for ref in fact["sources"]:
             if ref["message_id"] in visible:
-                grouped.setdefault((ref["message_id"], fact["kind"]), []).append(fact)
+                grouped.setdefault((ref["message_id"], "model_inference" if fact["kind"] == "visual_hypothesis" else fact["kind"]), []).append(fact)
     for (message_id, kind), values in grouped.items():
         source_object = conn.execute(sa.select(messages.c.body_object_id).where(messages.c.id == UUID(message_id),
             messages.c.conversation_id == conv["id"])).scalar_one()
-        body = writer.put(conn, conv, canonical(values).decode(), "candidate_case_facts", (source_object,))
+        body = writer.put(conn, conv, canonical(values).decode(), "candidate_case_facts", (source_object, *image_objects))
         old = conn.execute(sa.select(case_facts).where(case_facts.c.conversation_id == conv["id"],
             case_facts.c.source_message_id == UUID(message_id), case_facts.c.kind == kind)).mappings().first()
         if old:

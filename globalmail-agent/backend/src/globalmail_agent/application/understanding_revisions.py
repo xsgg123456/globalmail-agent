@@ -3,7 +3,7 @@ import json
 from uuid import uuid4
 import sqlalchemy as sa
 from globalmail_agent.adapters import agent_schema as a
-from globalmail_agent.adapters.body_store import BodyWriter, read_body
+from globalmail_agent.adapters.body_store import BodyWriter, read_bytes
 from globalmail_agent.adapters.conversation_schema import conversations, case_revisions
 from globalmail_agent.adapters.schema import SCOPE_KEYS
 from globalmail_agent.agent.guard import guarded
@@ -25,14 +25,14 @@ def scoped_run(table, conv, run_id):
 def initial_understanding(conn, store, conv, run_id):
     identity = conn.execute(sa.select(a.understanding_results.c.body_object_id).where(
         *scoped_run(a.understanding_results, conv, run_id))).scalar_one_or_none()
-    return json.loads(read_body(conn, store, conv, identity)) if identity else None
+    return json.loads(read_bytes(conn, store, conv, identity)) if identity else None
 
 
 def current_understanding(conn, store, conv, run_id):
     identity = conn.execute(sa.select(a.understanding_revisions.c.body_object_id).where(
         *scoped_run(a.understanding_revisions, conv, run_id)).order_by(
             a.understanding_revisions.c.revision.desc()).limit(1)).scalar_one_or_none()
-    return (json.loads(read_body(conn, store, conv, identity))["understanding"] if identity
+    return (json.loads(read_bytes(conn, store, conv, identity))["understanding"] if identity
         else initial_understanding(conn, store, conv, run_id))
 
 
@@ -42,12 +42,12 @@ def tool_sources(conn, store, conv, run_id):
         a.tool_commands.c.name.in_(BUSINESS_TOOLS), a.tool_commands.c.status == "ok",
         a.tool_commands.c.result_object_id.is_not(None))).mappings()
     return {"command:" + str(row["id"]): {"sender": "business_tool", "object_id": row["result_object_id"],
-        "body": canonical(json.loads(read_body(conn, store, conv, row["result_object_id"]))).decode()}
+        "body": canonical(json.loads(read_bytes(conn, store, conv, row["result_object_id"]))).decode()}
         for row in rows}
 
 
 def revision_result(conn, store, conv, row):
-    body = json.loads(read_body(conn, store, conv, row["body_object_id"]))
+    body = json.loads(read_bytes(conn, store, conv, row["body_object_id"]))
     return result(data={"understanding": body["understanding"], "revision": row["revision"],
         "case_revision": row["case_revision"], "source_ids": row["source_ids"],
         "sources": body["sources"], "change_reason": row["change_reason"], "candidate_only": True},
@@ -71,6 +71,7 @@ def revise_understanding(engine, store, context, job, args, command_id):
             [*context.payload["messages"], *context.payload["human_notes"]]}
         business = tool_sources(conn, store, conv, run["id"])
         sources.update(business)
+        sources.update(context.payload.get("visual_sources", {}))
         refs = [*args.sources, *[ref for intent in args.intents for ref in intent.sources]]
         for ref in refs:
             if ref.message_id not in sources or ref.quote not in sources[ref.message_id]["body"]:
@@ -80,10 +81,12 @@ def revise_understanding(engine, store, context, job, args, command_id):
                     sources[ref.message_id]["sender"] in {"customer", "simulated_human", "human_note"}
                     for ref in intent.sources):
                 raise ServiceError("candidate_choice_requires_message", 422)
-        value = Understanding.model_validate({**current, "intents": [i.model_dump(mode="json") for i in args.intents],
+        base = {k: current[k] for k in Understanding.model_fields}
+        value = Understanding.model_validate({**base, "intents": [i.model_dump(mode="json") for i in args.intents],
             "missing_information": args.missing_information})
         value = validate_sources(value, context.payload, tool_sources=business)
         value["risk_flags"] = current["risk_flags"]
+        value.update({k: current[k] for k in ("images", "image_views", "visual_context_hash") if k in current})
         if value["intents"] == current["intents"] and value["missing_information"] == current["missing_information"]:
             return result("denied", "understanding_unchanged", simulation=context.mode == "simulation")
         scope = {k: conv[k] for k in SCOPE_KEYS}

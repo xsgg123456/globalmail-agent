@@ -1,0 +1,20 @@
+test_four_fields_through_formal_graph_and_raw_audit_only (phase8_review_closure_repro.ClosureRepro.test_four_fields_through_formal_graph_and_raw_audit_only) ... ok
+test_lost_lease_after_real_image_read_rejects_late_visual_output (phase8_review_closure_repro.ClosureRepro.test_lost_lease_after_real_image_read_rejects_late_visual_output) ... ok
+test_missing_preview_failure_can_revoke_and_cannot_fake_manual_bytes (phase8_review_closure_repro.ClosureRepro.test_missing_preview_failure_can_revoke_and_cannot_fake_manual_bytes) ... ok
+test_controlled_package_hash_verified_bytes_bind_and_bad_path_is_rejected (test_vision_import.VisionImportTests.test_controlled_package_hash_verified_bytes_bind_and_bad_path_is_rejected) ... ok
+test_historical_import_hides_future_metadata_until_actual_customer_prefix (test_vision_import.VisionImportTests.test_historical_import_hides_future_metadata_until_actual_customer_prefix) ... ok
+test_known_missing_case_metadata_is_visible_unread_and_cannot_be_used_as_image_input (test_vision_import.VisionImportTests.test_known_missing_case_metadata_is_visible_unread_and_cannot_be_used_as_image_input) ... ok
+test_public_metadata_is_atomic_idempotent_and_no_bytes_do_not_allow_image_only_mail (test_vision_import.VisionImportTests.test_public_metadata_is_atomic_idempotent_and_no_bytes_do_not_allow_image_only_mail) ... ok
+test_upgrade_keeps_existing_real_agent_jobs_and_accepts_knowledge_without_conversation (test_knowledge_migration.KnowledgeMigrationTests.test_upgrade_keeps_existing_real_agent_jobs_and_accepts_knowledge_without_conversation) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 24.495s
+
+OK
+MANUAL_GRAPH {"key": "sku", "old_effective": false, "manual_effective": true, "raw_audit_preserved": true, "automatic_resume": false}
+MANUAL_GRAPH {"key": "model", "old_effective": false, "manual_effective": true, "raw_audit_preserved": true, "automatic_resume": false}
+MANUAL_GRAPH {"key": "error_code", "old_effective": false, "manual_effective": true, "raw_audit_preserved": true, "automatic_resume": false}
+MANUAL_GRAPH {"key": "order_number", "old_effective": false, "manual_effective": true, "raw_audit_preserved": true, "automatic_resume": false}
+LATE_LEASE {"error": "lease_expired", "analysis_count": 0, "outbound_count": 0}
+MISSING_HTTP {"preview": 503, "evidence": 200, "correction": 422, "revoke": 200, "status": "revoked"}
+{"tests": 8, "failures": 0, "errors": 0, "skipped": 0, "successful": true, "duration_seconds": 24.53200000000652, "source_changed": false}

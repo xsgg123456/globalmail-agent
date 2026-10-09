@@ -58,6 +58,8 @@ class JobService:
     def _stop(self, connection, conversation, run):
         if run["status"] not in {"queued", "running"}:
             raise ServiceError("run_not_active")
+        from globalmail_agent.attachments.lifecycle import interrupt_images
+        interrupt_images(connection, [run["id"]])
         now = db_now(connection)
         connection.execute(agent_runs.update().where(agent_runs.c.id == run["id"])
             .values(status="stopped", stop_requested=True, checkpoint_writable=False,

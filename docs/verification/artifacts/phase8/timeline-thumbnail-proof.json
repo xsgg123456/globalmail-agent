@@ -1,0 +1,44 @@
+{
+  "scope": "disposable_phase8_browser_schema_only",
+  "thumbnail_browser_measurement_before_failure": {
+    "natural_width": 512,
+    "displayed_width": 112,
+    "source": "scoped_preview_endpoint",
+    "loaded": true
+  },
+  "injected_browser_thumbnail_failure": {
+    "status": 503,
+    "fallback": "无法预览",
+    "original_and_evidence_drawer_still_available": true,
+    "actual_revoke_succeeded": true
+  },
+  "after_revoke": {
+    "attachment_status": "revoked",
+    "owner": "human_review",
+    "dom": {
+      "imageCount": 0,
+      "disabledAttachmentButtons": true
+    },
+    "http": {
+      "thumbnail": {
+        "status": 410,
+        "category": "attachment_revoked",
+        "cache_control": "no-store"
+      },
+      "original": {
+        "status": 410,
+        "category": "attachment_revoked",
+        "cache_control": "no-store"
+      },
+      "evidence": {
+        "status": 410,
+        "category": "attachment_revoked",
+        "cache_control": "no-store"
+      }
+    }
+  },
+  "source_sha256": {
+    "globalmail-agent/frontend/src/api/attachment-api.ts": "fa7f7e8b267c7e9889131872066be8edd2a5c1f7aa8e12daf23c9d405ae4f6cd",
+    "globalmail-agent/frontend/src/components/mail-agent/MessageTimeline.vue": "fef85f370b7958d23c9eff95db65f04d9fea22167d94a6183d52e14a4d26870f"
+  }
+}

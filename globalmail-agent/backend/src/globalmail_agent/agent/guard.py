@@ -51,6 +51,9 @@ def guarded(engine, workspace_id, job, *, checkpoint=False, check_knowledge=True
             simulation_branches.c.workspace_id == workspace_id).with_for_update()).mappings().first()
         conv = conn.execute(sa.select(conversations).where(conversations.c.id == job["conversation_id"],
             conversations.c.workspace_id == workspace_id).with_for_update()).mappings().one()
+        from globalmail_agent.adapters.attachment_schema import message_attachments
+        conn.execute(sa.select(message_attachments.c.id).where(message_attachments.c.conversation_id == conv["id"],
+            message_attachments.c.workspace_id == workspace_id).order_by(message_attachments.c.id).with_for_update()).all()
         # An empty scope still needs a lockable head to serialize its first publication.
         conn.execute(pg_insert(knowledge_release_heads).values(id=uuid4(), **scope(workspace_id)).on_conflict_do_nothing())
         current = head(conn, workspace_id, True)

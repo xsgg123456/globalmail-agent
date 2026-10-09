@@ -82,6 +82,7 @@ class CheckpointRepository(BaseCheckpointSaver[str]):
     def __init__(self, engine: Engine, workspace_id, job: Mapping, store=None):
         super().__init__(serde=JsonStateSerializer())
         self.engine, self.workspace_id, self.job = engine, workspace_id, dict(job)
+        self.store = store
         self.thread_id = str(self.job["run_id"])
 
     def _config(self, config: RunnableConfig | None, *, default=False) -> RunnableConfig:
@@ -106,6 +107,14 @@ class CheckpointRepository(BaseCheckpointSaver[str]):
                 *[agent_runs.c[key] == jobs.c[key] for key in SCOPE_KEYS])
         if connection.execute(query).first() is None:
             raise ServiceError("run_not_found", 404)
+        from globalmail_agent.adapters.agent_schema import agent_run_contexts
+        from globalmail_agent.attachments.revocation import check_content_access
+        source = connection.execute(sa.select(agent_run_contexts.c.context_object_id).where(
+            agent_run_contexts.c.run_id == self.job["run_id"])).scalar_one_or_none()
+        if source:
+            conv = connection.execute(sa.select(conversations).where(
+                conversations.c.id == self.job["conversation_id"])).mappings().one()
+            check_content_access(connection, conv, source)
 
     def _saver(self, connection):
         return PostgresSaver(_driver_connection(connection), serde=self.serde)

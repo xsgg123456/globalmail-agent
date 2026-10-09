@@ -6,7 +6,7 @@ import json
 import sqlalchemy as sa
 from globalmail_agent.adapters import agent_schema as a
 from globalmail_agent.adapters.conversation_schema import messages, human_reviews, replay_cursors, case_facts, case_issues
-from globalmail_agent.adapters.body_store import BodyWriter, read_body
+from globalmail_agent.adapters.body_store import BodyWriter, read_body, read_bytes
 from globalmail_agent.adapters.schema import SCOPE_KEYS, objects
 from globalmail_agent.agent.guard import guarded
 from globalmail_agent.knowledge.base import canonical
@@ -71,25 +71,29 @@ def load_context(engine, store, workspace, job, *, rebuild=False):
             for r in conn.execute(sa.select(a.wake_pending).where(a.wake_pending.c.conversation_id == conv["id"],
                 a.wake_pending.c.status.in_(["pending", "suppressed_by_human"]))).mappings()]
         from globalmail_agent.application.risk_records import active_risks
+        from globalmail_agent.attachments.evidence import context_images
+        image_manifest, image_notes, image_sources, image_objects = context_images(conn, store, conv)
+        notes.extend(image_notes)
         risks = active_risks(conn, store, conv) if conv["mode"] == "simulation" else []
         payload = {"mode": conv["mode"], "simulation": conv["mode"] == "simulation", "as_of": when.isoformat(),
             "messages": mail, "human_notes": notes, "case_facts": facts, "case_revision": conv["case_revision"],
-            "trigger_message_id": str(cycle["trigger_message_id"]), "unread_attachments": [], "wake_pending": wakes,
+            "trigger_message_id": str(cycle["trigger_message_id"]), "unread_attachments": image_manifest, "wake_pending": wakes,
+            "attachments": image_manifest, "visual_sources": image_sources,
             "active_risks": risks,
             "risk_history": active_risks(conn, store, conv, status=None) if conv["mode"] == "simulation" else [],
-            "limitations": ["Only text is read in this phase; attachment metadata is not content.",
+            "limitations": ["Image metadata is not content. Only authorized views in this request are read; unread coverage stays explicit.",
                 "After-sales write tools are not available in this phase. Never claim a new request or fulfillment succeeded."]}
         if rebuild:
             from globalmail_agent.application.understanding_revisions import current_understanding, tool_sources
             known = current_understanding(conn, store, conv, run["id"])
-            if known:
+            if known and not image_manifest:
                 payload["reused_understanding"] = known
                 payload["verified_tool_sources"] = {identity: {"sender": row["sender"], "body": row["body"]}
                     for identity, row in tool_sources(conn, store, conv, run["id"]).items()}
             names = {"get_order_snapshot", "get_shipment_status", "get_after_sales_context",
                 "get_item_availability", "get_operation_status"}
             payload["verified_business_observations"] = [{"command_source_id": "command:" + str(row["id"]),
-                "tool_name": row["name"], "result": json.loads(read_body(conn, store, conv, row["result_object_id"]))}
+                "tool_name": row["name"], "result": json.loads(read_bytes(conn, store, conv, row["result_object_id"]))}
                 for row in conn.execute(sa.select(a.tool_commands).where(a.tool_commands.c.run_id == run["id"],
                     a.tool_commands.c.name.in_(names), a.tool_commands.c.status.in_(["ok", "needs_input"]),
                     a.tool_commands.c.result_object_id.is_not(None))).mappings()]
@@ -98,7 +102,7 @@ def load_context(engine, store, workspace, job, *, rebuild=False):
             from globalmail_agent.application.conversation_lock import ServiceError
             raise ServiceError("knowledge_rebuild_exhausted")
         object_id = writer.put(conn, conv, canonical(payload).decode(), "agent_context",
-            tuple(row["body_object_id"] for row in rows))
+            (*tuple(row["body_object_id"] for row in rows), *image_objects))
         values = dict(release_id=current["release_id"], release_epoch=current["epoch"], profile_id=current["profile_id"],
             as_of=when, visible_message_seq=conv["visible_message_seq"], context_object_id=object_id,
             observed_wakes=wakes,

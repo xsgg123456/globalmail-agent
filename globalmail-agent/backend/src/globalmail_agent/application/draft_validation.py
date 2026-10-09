@@ -2,7 +2,7 @@
 import json
 import sqlalchemy as sa
 from globalmail_agent.adapters import agent_schema as a
-from globalmail_agent.adapters.body_store import read_body
+from globalmail_agent.adapters.body_store import read_bytes
 from globalmail_agent.adapters.conversation_schema import conversations
 from globalmail_agent.application.business_digest import business_digest
 from globalmail_agent.application.conversation_lock import ServiceError
@@ -16,6 +16,7 @@ def check_draft_sources(conn, store, context, understanding, draft):
     if any(identity not in deps for identity in draft.citation_ids):
         raise ServiceError("reply_citation_invalid", 422)
     source_ids = {r["message_id"] for r in [*context.payload["messages"], *context.payload["human_notes"]]}
+    visual_ids = set(context.payload.get("visual_sources", {}))
     command_ids, business_ids = set(), set()
     conv = conn.execute(sa.select(conversations).where(conversations.c.id == context.conversation_id)).mappings().one()
     current_business = business_digest(conn, conv, lock=True)
@@ -23,7 +24,7 @@ def check_draft_sources(conn, store, context, understanding, draft):
         a.tool_commands.c.status.in_(["ok", "needs_input"]))).mappings()
     for record in records:
         if record["result_object_id"]:
-            observation = json.loads(read_body(conn, store, conv, record["result_object_id"]))
+            observation = json.loads(read_bytes(conn, store, conv, record["result_object_id"]))
             prior_business = observation.get("resource_versions", {}).get("business_digest")
             if prior_business and prior_business != current_business:
                 raise ServiceError("stale_business_context")
@@ -32,7 +33,7 @@ def check_draft_sources(conn, store, context, understanding, draft):
         if record["name"] in {"get_order_snapshot", "get_shipment_status", "get_after_sales_context", "get_operation_status", "get_item_availability"}:
             business_ids.add("command:" + str(record["id"]))
     for claim in draft.claims:
-        if claim.text not in draft.body or any(s not in source_ids | command_ids | deps.keys() for s in claim.source_ids):
+        if claim.text not in draft.body or any(s not in source_ids | visual_ids | command_ids | deps.keys() for s in claim.source_ids):
             raise ServiceError("reply_source_invalid", 422)
         if claim.kind == "product_step" and not any(s in deps and s in draft.citation_ids for s in claim.source_ids):
             raise ServiceError("product_step_without_evidence", 422)
@@ -40,4 +41,6 @@ def check_draft_sources(conn, store, context, understanding, draft):
             raise ServiceError("order_fact_without_tool", 422)
         if claim.kind == "customer_fact" and not any(s in source_ids for s in claim.source_ids):
             raise ServiceError("customer_fact_without_message", 422)
+        if claim.kind == "visual_observation" and not any(s in visual_ids for s in claim.source_ids):
+            raise ServiceError("visual_fact_without_evidence", 422)
     return list(deps)

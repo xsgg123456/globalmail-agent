@@ -41,6 +41,20 @@ export function unwrapMailEnvelope<T>(body: unknown, status: number): T {
 }
 
 const client = axios.create({ baseURL: '/api/v1', timeout: 15000, withCredentials: false })
+export async function mailBlob(config: AxiosRequestConfig): Promise<Blob> {
+  try {
+    const response = await client.request<Blob>({ ...config, responseType: 'blob', validateStatus: () => true })
+    if (response.status < 200 || response.status >= 300) {
+      const body: unknown = JSON.parse(await response.data.text())
+      unwrapMailEnvelope(body, response.status)
+    }
+    if (!response.data.type.startsWith('image/')) throw new MailApiError(response.status, 'invalid_response', '')
+    return response.data
+  } catch (error) {
+    if (error instanceof MailApiError) throw error
+    throw new MailApiError(0, 'network', '')
+  }
+}
 export async function mailRequest<T>(config: AxiosRequestConfig): Promise<T> {
   try {
     const response = await client.request<unknown>({ ...config, validateStatus: () => true })

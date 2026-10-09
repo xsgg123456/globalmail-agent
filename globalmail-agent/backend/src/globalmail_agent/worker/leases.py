@@ -128,6 +128,8 @@ class LeaseService:
                     append_ui_event(connection, conversation["id"], "run.interrupted",
                                     {"run_id": str(job["run_id"])})
                     recovered.append(job["run_id"])
+                    from globalmail_agent.attachments.lifecycle import interrupt_images
+                    interrupt_images(connection, [job["run_id"]])
                 release_slot(connection, slot)
         return recovered
 

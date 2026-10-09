@@ -1,0 +1,51 @@
+{
+  "full_tests": 317,
+  "full_successful": true,
+  "full_source_changed": true,
+  "final_frozen_full_tests": 319,
+  "final_frozen_full_successful": true,
+  "final_frozen_full_source_changed": false,
+  "final_frozen_full_evidence": "backend-tests-final.json",
+  "final_focused_tests": 68,
+  "final_focused_successful": true,
+  "final_focused_source_changed": false,
+  "risk_fix_tests": 16,
+  "risk_fix_successful": true,
+  "risk_fix_source_changed": false,
+  "risk_fix_evidence": "risk-tests-final.json",
+  "risk_fix_changes": [
+    "globalmail-agent/backend/src/globalmail_agent/application/risk_records.py",
+    "globalmail-agent/backend/tests/test_vision_risks.py"
+  ],
+  "risk_fix_targets": [
+    "test_vision_risks",
+    "test_agent_risks",
+    "test_vision_graph",
+    "test_vision_corrections"
+  ],
+  "source_changes_covered_by_final_targeted_run": [
+    "globalmail-agent/backend/src/globalmail_agent/agent/context.py",
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_gateway.py",
+    "globalmail-agent/backend/src/globalmail_agent/application/draft_validation.py",
+    "globalmail-agent/backend/src/globalmail_agent/application/understanding_revisions.py",
+    "globalmail-agent/backend/src/globalmail_agent/attachments/corrections.py",
+    "globalmail-agent/backend/src/globalmail_agent/attachments/evidence.py",
+    "globalmail-agent/backend/src/globalmail_agent/worker/agent_runner.py",
+    "globalmail-agent/backend/tests/test_vision_graph.py"
+  ],
+  "final_targets": [
+    "test_attachment_binding",
+    "test_attachment_intake",
+    "test_attachment_lifecycle",
+    "test_attachment_migration",
+    "test_attachment_validation",
+    "test_vision_graph",
+    "test_vision_corrections",
+    "test_vision_import",
+    "test_vision_provider",
+    "test_knowledge_migration",
+    "test_agent_tools",
+    "test_agent_revisions",
+    "test_agent_validation"
+  ]
+}

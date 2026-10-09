@@ -16,16 +16,19 @@ def active_risks(conn, store, conv, status="active"):
     if status:
         query = query.where(agent_risks.c.status == status)
     for row in conn.execute(query).mappings():
-        value = json.loads(read_body(conn, store, conv, row["body_object_id"]))
+        from globalmail_agent.attachments.revocation import REDACTED
+        body = read_body(conn, store, conv, row["body_object_id"])
+        if body == REDACTED:
+            continue
+        value = json.loads(body)
         result.append({"id": str(row["id"]), "kind": row["kind"], "status": row["status"], **value})
     return result
 
 
 def store_risks(conn, writer, conv, run, understanding, source_object):
+    existing = {risk["kind"] for risk in active_risks(conn, writer.store, conv)}
     for kind in {r["kind"] for r in understanding["risk_flags"]}:
-        existing = conn.execute(sa.select(agent_risks.c.id).where(agent_risks.c.conversation_id == conv["id"],
-            agent_risks.c.kind == kind, agent_risks.c.status == "active")).scalar_one_or_none()
-        if existing:
+        if kind in existing:
             continue
         sources = [source for risk in understanding["risk_flags"] if risk["kind"] == kind for source in risk["sources"]]
         body = writer.put(conn, conv, canonical({"sources": sources, "language": understanding["language"]}).decode(),

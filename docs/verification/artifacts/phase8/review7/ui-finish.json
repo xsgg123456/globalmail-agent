@@ -1,0 +1,87 @@
+{
+  "sizes": [
+    {
+      "viewport": 1440,
+      "pane": {
+        "width": 531,
+        "height": 80,
+        "scrollWidth": 531
+      },
+      "image": {
+        "url": "http://127.0.0.1:15174/api/v1/attachments/d3e61c1a-8e60-4cfb-9abb-5976517f5a8f/preview?conversation_id=140428bc-1654-42c8-b6e6-7ae22b5825b4&thumbnail=true",
+        "natural": 512,
+        "width": 112,
+        "height": 80
+      },
+      "filename": {
+        "title": "review7-label_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_photo.png",
+        "disabled": false,
+        "width": 112
+      },
+      "text": "客\n客户来信\n2026/10/9 10:47:05\n第 1 封\n\n（无主题）\n\nreview7-label_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_photo.png\n\n待分析"
+    },
+    {
+      "viewport": 1280,
+      "pane": {
+        "width": 731,
+        "height": 80,
+        "scrollWidth": 731
+      },
+      "image": {
+        "url": "http://127.0.0.1:15174/api/v1/attachments/d3e61c1a-8e60-4cfb-9abb-5976517f5a8f/preview?conversation_id=140428bc-1654-42c8-b6e6-7ae22b5825b4&thumbnail=true",
+        "natural": 512,
+        "width": 112,
+        "height": 80
+      },
+      "filename": {
+        "title": "review7-label_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_photo.png",
+        "disabled": false,
+        "width": 112
+      },
+      "text": "客\n客户来信\n2026/10/9 10:47:05\n第 1 封\n\n（无主题）\n\nreview7-label_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_photo.png\n\n待分析"
+    },
+    {
+      "viewport": 900,
+      "pane": {
+        "width": 785,
+        "height": 278,
+        "scrollWidth": 785
+      },
+      "image": {
+        "url": "http://127.0.0.1:15174/api/v1/attachments/d3e61c1a-8e60-4cfb-9abb-5976517f5a8f/preview?conversation_id=140428bc-1654-42c8-b6e6-7ae22b5825b4&thumbnail=true",
+        "natural": 512,
+        "width": 112,
+        "height": 80
+      },
+      "filename": {
+        "title": "review7-label_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_photo.png",
+        "disabled": false,
+        "width": 112
+      },
+      "text": "客\n客户来信\n2026/10/9 10:47:05\n第 1 封\n\n（无主题）\n\nreview7-label_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_photo.png\n\n待分析"
+    }
+  ],
+  "fallback": {
+    "viewport": 900,
+    "pane": {
+      "width": 517,
+      "height": 48,
+      "scrollWidth": 517
+    },
+    "image": null,
+    "filename": {
+      "title": "review7-label_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_photo.png",
+      "disabled": false,
+      "width": 112
+    },
+    "text": "客\n客户来信\n2026/10/9 10:47:05\n第 1 封\n\n（无主题）\n\n无法预览\nreview7-label_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_very-long-name_photo.png\n\n待分析"
+  },
+  "original": {
+    "natural": 800,
+    "url": "blob:http://127.0.0.1:15174/76115231-980a-4ca2-9e15-b0d80b201855"
+  },
+  "readableBefore": {
+    "original": 200,
+    "evidence": 200
+  }
+}

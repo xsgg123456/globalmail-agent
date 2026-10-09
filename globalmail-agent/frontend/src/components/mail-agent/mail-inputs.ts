@@ -1,8 +1,10 @@
 import type { RiskDecision } from '@/api/mail-agent-contract'
+import type { ImageAttachment } from '@/api/attachment-contract'
 
 export interface IncomingInput {
   subject: string
   body: string
+  attachments?: ImageAttachment[]
 }
 export interface HumanInput {
   reply: string
@@ -16,7 +18,7 @@ export interface NewConversationInput extends IncomingInput {
 export function validateIncoming(input: IncomingInput): Record<string, string> {
   const errors: Record<string, string> = {}
   if (input.subject.length > 500) errors.subject = '主题最多 500 字符'
-  if (!input.body.trim()) errors.body = '请填写客户来信正文'
+  if (!input.body.trim() && !input.attachments?.some((image) => image.status === 'ready')) errors.body = '请填写客户来信正文，或上传至少一张图片'
   else if (input.body.length > 20000) errors.body = '正文最多 20,000 字符'
   return errors
 }

@@ -1,0 +1,45 @@
+### Ran Playwright code
+```js
+await (async (page) => {
+  const path = 'D:/Work_Project/globalmail-agent/tmp/phase8-review7/';
+  const seen = [];
+  page.on('response', async response => {
+    if (response.url().includes('/api/v1/attachments/') && response.url().includes('/preview'))
+      seen.push({ url:response.url(), status:response.status(), headers:response.headers() });
+  });
+  await page.setViewportSize({width:1280,height:900});
+  await page.getByRole('button', {name:'创建并保存来信', exact:true}).click();
+  const images = page.locator('[aria-label="当前可见邮件"] .el-image img');
+  await images.first().waitFor();
+  await page.waitForFunction(() => document.querySelector('[aria-label="当前可见邮件"] .el-image img')?.naturalWidth > 0);
+  const measurement = () => {
+    const pane = document.querySelector('[aria-label="当前可见邮件"]');
+    return { viewport:innerWidth, pane:{client:pane.clientWidth, scroll:pane.scrollWidth},
+      images:[...pane.querySelectorAll('.el-image img')].map(img => ({url:img.src, naturalWidth:img.naturalWidth,
+        naturalHeight:img.naturalHeight, width:img.getBoundingClientRect().width, height:img.getBoundingClientRect().height})),
+      filename:[...pane.querySelectorAll('button[title]')].map(button => ({title:button.title,
+        text:button.textContent.trim(), width:button.getBoundingClientRect().width, disabled:button.disabled,
+        innerWidth:button.querySelector('span span')?.getBoundingClientRect().width})),
+      status:pane.innerText};
+  };
+  const desktop = await page.evaluate(measurement);
+  await page.screenshot({path:path+'timeline-1280.png',fullPage:true});
+  await page.setViewportSize({width:900,height:900});
+  await page.waitForFunction(() => document.querySelector('[aria-label="当前可见邮件"]').clientWidth > 500);
+  const narrow = await page.evaluate(measurement);
+  await page.screenshot({path:path+'timeline-900.png',fullPage:true});
+  const smallUrl = desktop.images[0].url;
+  const parsed = new URL(smallUrl);
+  const id = parsed.pathname.split('/')[4], cid = parsed.searchParams.get('conversation_id');
+  const small = await page.request.get(smallUrl);
+  const original = await page.request.get(smallUrl.replace('thumbnail=true','thumbnail=false'));
+  const evidence = await page.request.get(parsed.origin+'/api/v1/conversations/'+cid+'/visual-evidence?attachment_id='+id);
+  const proof = {desktop,narrow,id,cid,seen,http:{thumbnail:small.status(),original:original.status(),
+    evidence:evidence.status(), thumbnail_headers:small.headers()},bytes:{thumbnail:(await small.body()).length,original:(await original.body()).length}};
+  if (desktop.images[0].naturalWidth !== 512 || desktop.images[0].width !== 112 || narrow.pane.scroll > narrow.pane.client ||
+      desktop.pane.scroll > desktop.pane.client || small.status()!==200 || original.status()!==200 || evidence.status()!==200)
+    throw new Error('thumbnail_create_measurement_failed');
+  console.log(JSON.stringify(proof));
+}
+)(page);
+```

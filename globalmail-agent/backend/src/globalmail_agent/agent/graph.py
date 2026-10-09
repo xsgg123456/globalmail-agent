@@ -42,16 +42,22 @@ class AgentGraph:
         builder.add_conditional_edges("validate", lambda state: END if state.get("proposal") else "decide")
         self.graph = builder.compile(checkpointer=checkpointer)
 
-    def request(self, messages, stage, *, schema=None, tools=None):
+    def request(self, messages, stage, *, schema=None, tools=None, image_views=()):
         for attempt in range(2):
             schema_budget = tools or ([schema] if schema else [])
-            key = self.budget.reserve(messages, stage, self.model.model, schema_budget)
+            key = self.budget.reserve(messages, stage, self.model.model, schema_budget, image_views)
             output = None
             try:
                 remaining = (120000 - self.budget.active_ms()) / 1000
                 if remaining <= 0:
                     raise ServiceError("budget_exhausted")
-                output = self.model.request(messages, schema=schema, tools=tools, timeout=min(network_timeout(stage), remaining))
+                options = {}
+                if image_views:
+                    from globalmail_agent.attachments.views import load_authorized_view
+                    options = {"image_views": image_views, "image_loader": lambda ref: load_authorized_view(
+                        self.gateway.engine, self.gateway.store, self.context, self.job, ref)}
+                output = self.model.request(messages, schema=schema, tools=tools,
+                    timeout=min(network_timeout(stage), remaining), **options)
             except ServiceError as error:
                 if attempt == 0 and error.code in {"model_timeout", "model_rate_limited", "model_unavailable"}:
                     time.sleep(0.25)
@@ -66,15 +72,36 @@ class AgentGraph:
 
     def understand(self, state):
         payload = self.context.payload
+        from globalmail_agent.attachments.views import prepare_authorized_image_views
+        from globalmail_agent.attachments.understanding import VisualUnderstanding, visual_sources, authorized_order_numbers, vision_schema, apply_manual_corrections
+        refs = prepare_authorized_image_views(self.gateway.engine, self.gateway.store, self.context, self.job) if payload.get("attachments") else []
+        definition = VisualUnderstanding if refs else Understanding
+        if refs:
+            payload["image_views"] = [{"attachment_id": r["attachment_id"], "location": r["location"]} for r in refs]
+            payload["unread_attachments"] = [r for r in payload["attachments"] if r["attachment_id"] not in {v["attachment_id"] for v in refs}]
         messages = [{"role": "system", "content": prompt("understanding")},
             {"role": "user", "content": canonical(payload).decode()}]
+        if refs:
+            messages.append({"role": "system", "content": prompt("visual-understanding")})
         last_code = "understanding_schema_invalid"
         for attempt in range(2):
             reused = payload.get("reused_understanding")
             output = {"content": canonical(reused).decode()} if reused else self.request(
-                messages, "understanding", schema=Understanding.model_json_schema())
+                messages, "understanding", schema=vision_schema() if refs else definition.model_json_schema(), image_views=refs)
             try:
-                value = Understanding.model_validate_json(output["content"])
+                value = definition.model_validate_json(output["content"])
+                raw_images = []
+                if refs:
+                    payload["visual_sources"].update(visual_sources(value, refs))
+                    from globalmail_agent.agent.understanding import Risk, SourceRef
+                    for image in value.images:
+                        for kind in image.risk_flags:
+                            value.risk_flags.append(Risk(kind=kind, sources=[SourceRef(
+                                message_id="image:" + image.attachment_id, quote=kind)]))
+                    payload["visual_order_numbers"] = authorized_order_numbers(value, payload)
+                    raw_images = [i.model_dump(mode="json") for i in value.images]
+                    value = apply_manual_corrections(value, payload)
+                    payload["visual_sources"].update(visual_sources(value, refs))
                 business_sources = None
                 if reused:
                     from globalmail_agent.agent.guard import guarded
@@ -82,6 +109,10 @@ class AgentGraph:
                     with guarded(self.gateway.engine, self.context.workspace_id, self.job) as (conn, conv, run, cycle):
                         business_sources = tool_sources(conn, self.gateway.store, conv, run["id"])
                 value = validate_sources(value, payload, tool_sources=business_sources)
+                if refs:
+                    from globalmail_agent.knowledge.base import sha
+                    value.update(image_views=refs, visual_context_hash=sha(canonical(payload)))
+                    value["_visual_raw_images"] = raw_images
                 if value["risk_flags"]:
                     from globalmail_agent.application.risk_handoff import risk_handoff
                     risk_handoff(self.gateway.engine, self.gateway.store, self.context, self.job, value)
@@ -96,7 +127,8 @@ class AgentGraph:
                         "gaps": ["需要人工核查安全风险及后续处置"], "draft": ""}} if risk else None}
             except (ValidationError, json.JSONDecodeError, ServiceError) as error:
                 if isinstance(error, ServiceError) and error.code not in {
-                        "understanding_source_invalid", "order_candidate_not_in_source", "human_source_invalid"}:
+                        "understanding_source_invalid", "order_candidate_not_in_source", "human_source_invalid",
+                        "visual_coverage_invalid", "visual_unreadable_has_facts", "visual_order_ambiguous", "visual_source_kind_invalid"}:
                     raise
                 last_code = error.code if isinstance(error, ServiceError) else "understanding_schema_invalid"
                 # Do not put unvalidated response text back into model history.
@@ -184,7 +216,7 @@ class AgentGraph:
         except ServiceError as error:
             if error.code not in {"reply_body_required", "reply_claims_incomplete", "reply_source_invalid",
                     "reply_language_invalid", "reply_citation_invalid", "product_step_without_evidence",
-                    "order_fact_without_tool", "customer_fact_without_message"}:
+                    "order_fact_without_tool", "customer_fact_without_message", "visual_fact_without_evidence"}:
                 raise
             code = error.code
         if code is None:

@@ -1,0 +1,8 @@
+test_real_exif_thumbnail_scope_and_revocation_http (__main__.Review7ThumbnailTests.test_real_exif_thumbnail_scope_and_revocation_http) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.283s
+
+OK
+REVIEW7_REAL_THUMBNAIL {"decoded_size": [256, 512], "scope_denied": 404, "cache_control": "no-store", "after_revoke": {"true": 410, "false": 410}}
+REVIEW7_TEST_RESULT {"tests": 1, "failures": 0, "errors": 0, "skipped": 0, "duration_seconds": 2.3280000000959262, "source_changed": false}

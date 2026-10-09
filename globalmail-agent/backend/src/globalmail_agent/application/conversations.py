@@ -24,6 +24,10 @@ class ConversationService(ServiceBase, QueryMixin, ReplayMixin, HumanReviewMixin
                 self.new_conversation(conn, command.sender_email, "simulation", command.subject, True, "manual"))
             message = self.add_message(conn, writer, conversation, command.body, command.subject,
                 "customer", "manual", key, datetime.now(timezone.utc))
+            from globalmail_agent.attachments.binding import bind_attachments
+            bind_attachments(conn, conversation, message, command.attachments)
+            from globalmail_agent.attachments.importing import save_metadata
+            save_metadata(conn, conversation, message, command.attachment_metadata)
             return self.accept(conn, writer, conversation, message)
         return self.write(key, "conversation.create", command, action)
 
@@ -39,9 +43,17 @@ class ConversationService(ServiceBase, QueryMixin, ReplayMixin, HumanReviewMixin
                 from globalmail_agent.adapters.body_store import read_body
                 if read_body(conn, self.store, conversation, existing["body_object_id"]) != command.body or existing["subject"] != command.subject:
                     raise ServiceError("source_message_conflict")
+                from globalmail_agent.attachments.binding import assert_same_manifest
+                assert_same_manifest(conn, conversation, existing, command.attachments)
+                from globalmail_agent.attachments.importing import assert_metadata
+                assert_metadata(conn, conversation, existing, command.attachment_metadata)
                 return {"conversation_id": str(conversation_id), "message_id": str(existing["id"]),
                         "version": conversation["row_version"]}
             message = self.add_message(conn, writer, conversation, command.body, command.subject,
                 "customer", "manual", source_id, datetime.now(timezone.utc))
+            from globalmail_agent.attachments.binding import bind_attachments
+            bind_attachments(conn, conversation, message, command.attachments)
+            from globalmail_agent.attachments.importing import save_metadata
+            save_metadata(conn, conversation, message, command.attachment_metadata)
             return self.accept(conn, writer, conversation, message)
         return self.write(key, "conversation.append:" + str(conversation_id), command, action)

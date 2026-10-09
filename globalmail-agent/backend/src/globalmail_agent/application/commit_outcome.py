@@ -71,7 +71,7 @@ def commit_outcome(engine, store, context, job, understanding, proposal, *, safe
             draft_object = writer.put(conn, conv, body, "agent_unsent_draft", (context_object,)) if body else None
             note = writer.put(conn, conv, summary, "agent_handoff_summary", (context_object,))
             conn.execute(sa.insert(human_reviews).values(id=uuid4(), **scope, conversation_id=conv["id"],
-                status="open", input_revision=conv["input_revision"], reason=summary[:500],
+                status="open", input_revision=conv["input_revision"], reason="Agent转人工：" + command.reason,
                 visible_message_seq=conv["visible_message_seq"], as_of=context.as_of,
                 draft_object_id=draft_object, note_object_id=note))
             conn.execute(conversations.update().where(conversations.c.id == conv["id"]).values(processing_owner="human_review",

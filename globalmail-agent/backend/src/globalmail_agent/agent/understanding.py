@@ -33,7 +33,7 @@ class Candidate(StrictModel):
 class Fact(StrictModel):
     key: str = Field(min_length=1, max_length=100)
     value: str = Field(min_length=1, max_length=2000)
-    kind: Literal["customer_report", "historical_claim", "human_decision", "model_inference"]
+    kind: Literal["customer_report", "historical_claim", "human_decision", "model_inference", "visual_observation", "visual_hypothesis"]
     sources: list[SourceRef] = Field(min_length=1, max_length=8)
 
 
@@ -55,6 +55,7 @@ class Understanding(StrictModel):
 def validate_sources(value, payload, *, tool_sources=None):
     sources = {row["message_id"]: row for row in [*payload["messages"], *payload["human_notes"]]}
     sources.update(tool_sources or {})
+    sources.update(payload.get("visual_sources", {}))
     for item in [*value.intents, *value.order_candidates, *value.facts, *value.risk_flags]:
         for ref in item.sources:
             if ref.message_id not in sources or ref.quote not in sources[ref.message_id]["body"]:
@@ -69,6 +70,9 @@ def validate_sources(value, payload, *, tool_sources=None):
         if fact.kind == "human_decision" and not all(sources[ref.message_id]["sender"] in
                 {"simulated_human", "human_note"} for ref in fact.sources):
             raise ServiceError("human_source_invalid", 422)
+        if any(ref.message_id.startswith("image:") for ref in fact.sources) and fact.kind not in {
+                "visual_observation", "visual_hypothesis", "model_inference"}:
+            raise ServiceError("visual_source_kind_invalid", 422)
     result = value.model_dump(mode="json")
     resolved = [row for row in payload.get("risk_history", [])
         if row["status"] in {"resolved_by_human", "corrected_by_human"}]

@@ -14,8 +14,11 @@ class HumanReviewMixin:
             human_reviews.c.status == "open")).mappings().first()
 
     def dependencies(self, conn, conversation):
-        return tuple(conn.execute(select(messages.c.body_object_id).where(
+        from globalmail_agent.attachments.evidence import context_images
+        image_objects = context_images(conn, self.store, conversation)[3]
+        return (*tuple(conn.execute(select(messages.c.body_object_id).where(
             messages.c.conversation_id == conversation["id"], messages.c.seq <= conversation["visible_message_seq"])).scalars())
+            , *image_objects)
 
     def takeover(self, conversation_id, command, key):
         def action(conn, writer):
@@ -32,7 +35,9 @@ class HumanReviewMixin:
                     replay_cursors.c.conversation_id == conversation_id)).scalar()
                 conn.execute(insert(human_reviews).values(id=review_id, **{k: conversation[k] for k in SCOPE_KEYS},
                     conversation_id=conversation_id, status="open", input_revision=conversation["input_revision"],
-                    reason=command.reason, visible_message_seq=conversation["visible_message_seq"], as_of=as_of))
+                    reason="人工主动接管", visible_message_seq=conversation["visible_message_seq"], as_of=as_of,
+                    note_object_id=writer.put(conn, conversation, command.reason, "human_takeover_note",
+                        self.dependencies(conn, conversation))))
             append_ui_event(conn, conversation_id, "human.takeover", {"review_id": str(review_id),
                 "row_version": conversation["row_version"]})
             return {"conversation_id": str(conversation_id), "review_id": str(review_id), "version": conversation["row_version"]}
