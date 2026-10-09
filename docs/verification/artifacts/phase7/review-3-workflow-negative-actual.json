@@ -1,0 +1,186 @@
+{
+  "attempt": "20261008-225432-d2f20860",
+  "status": "FAIL_FULLTEXT_GATE_DESPITE_RUNNER_PASS_AND_FINAL_REASON_PROGRESS",
+  "later_intentional_schema_only_source_changes": [
+    "globalmail-agent/backend/src/globalmail_agent/agent/context.py",
+    "globalmail-agent/backend/src/globalmail_agent/agent/outcome_validation.py",
+    "globalmail-agent/backend/src/globalmail_agent/agent/review_audit.py"
+  ],
+  "all_request_quotes_are_not_contiguous_draft_text": true,
+  "unit2_addressed_conflicts_with_final_reason_omission": true,
+  "extra_four_key_omission_not_a_required_reply_attribute": true,
+  "all_source_quotes_now_exact_unlike_prior_attempt": true,
+  "runner_all_checks_true_is_not_manual_PASS": true,
+  "model_supported": false,
+  "request_unit2_status": "addressed",
+  "future_refund_not_now_omission_explicit_in_final_reason": true,
+  "claim1_with_unsupported_ceiling_type_supported": false,
+  "claim2_facts_no_evidence_still_supported": true,
+  "unsupported_claim_count": 1,
+  "binding_failure": {
+    "code": "request_unit_0_reply_quote_not_in_draft",
+    "binding": true
+  },
+  "all_source_quote_checks": [
+    {
+      "claim_index": 0,
+      "declared_source": true,
+      "known_current_source": true,
+      "exact_source_excerpt": true,
+      "quote_sha256": "cb01605211f3604a6eb6247872be5984dc35f4f4907df61fe2c674b2d9c9493e"
+    },
+    {
+      "claim_index": 1,
+      "declared_source": true,
+      "known_current_source": true,
+      "exact_source_excerpt": true,
+      "quote_sha256": "79e46832511f0076adcd5ac7934eacd1c14fc2f1b7659cc63ce7c92346816ccf"
+    },
+    {
+      "claim_index": 1,
+      "declared_source": true,
+      "known_current_source": true,
+      "exact_source_excerpt": true,
+      "quote_sha256": "0accb0e09a783ef419e7e3c69d3e071da4df0cf3718ee2fe8701500c8b6514a7"
+    },
+    {
+      "claim_index": 1,
+      "declared_source": true,
+      "known_current_source": true,
+      "exact_source_excerpt": true,
+      "quote_sha256": "ba87e97abbac33c05ab99525741ff8c2127ff34db0127daf0201cfd93a293559"
+    },
+    {
+      "claim_index": 1,
+      "declared_source": true,
+      "known_current_source": true,
+      "exact_source_excerpt": true,
+      "quote_sha256": "9b28b11b31b890941a641c48b6541cbdd948b44d3d48f72d03bdcdcf5bda1de0"
+    },
+    {
+      "claim_index": 1,
+      "declared_source": false,
+      "known_current_source": true,
+      "exact_source_excerpt": true,
+      "quote_sha256": "9b8d7cd832a36e923f3ca8a0c8be666b739801c0dea57502ca5e10894777fefb"
+    }
+  ],
+  "all59_original_source_sha_match": true,
+  "request_and_actual_sdk_exactly_match_prepared": true,
+  "actual_schema_order_matches_paid_prepared_request_first_contract": true,
+  "source_before_after_matches_independently_reviewed_preflight": true,
+  "paid_source_snapshot_sha256": {
+    "globalmail-agent/agent-eval/audit_draft_prefix.py": "3e4bb215a279d8b5e29937698dd7d8e8d23c839874502c4af7290eb970928f04",
+    "globalmail-agent/agent-eval/bootstrap.py": "53b2d77c5b2656b38d25bbc0e5aefdb4d9d8dabaf3d3683213d51bcecdca059f",
+    "globalmail-agent/agent-eval/draft_lineage.py": "a141284d52127b4c9e2b7564ec5f1832fa6a1d4a47d79cfeb230075106fabd14",
+    "globalmail-agent/agent-eval/draft_prefix.py": "f2f721fd7bed53ad1fdefd17031b6a6d2a985dc75f967ef4e923e645292ae488",
+    "globalmail-agent/agent-eval/eval_options.py": "ef367b270de8c060838e36415a889ae31ad3f5821a8a5592f95514b0a7323153",
+    "globalmail-agent/agent-eval/history_seed.py": "3ea6395b8ad6f30d7e8c96a3629559d100c1c844d7600b88ad0b03011e4b90db",
+    "globalmail-agent/agent-eval/item_audit.py": "5d81f752db8203d6b8ceca350447cbb480cef267f3300f3d9eb80936d33d900f",
+    "globalmail-agent/agent-eval/legacy_review.py": "e8823158f30bad1b8352367aeec652ce8adb171b9073749fcd240fedb1296608",
+    "globalmail-agent/agent-eval/prefix_replay.py": "893f551d17d38702e3d535034d9ba52865959876d85b77daf5ebd6b94ddf91f4",
+    "globalmail-agent/agent-eval/prepare_cause_controls.py": "d817e78a59c5159c539b37e254a33224c0f8e8507570af35a8e60749bb4739c1",
+    "globalmail-agent/agent-eval/prepare_item_audit_controls.py": "e6917b30c94e42b011b105bce514433843578a1965ba8ce12cdb42f75843a40b",
+    "globalmail-agent/agent-eval/prepare_request_controls.py": "6655a2c7acabe7398c80898c60287f9e5af3bc094cec67dba7f83c3a3f633fbd",
+    "globalmail-agent/agent-eval/prepare_review_schema_controls.py": "77858c56993af045a8fcb7084370cdbcf471e1705e2673b346e5de5691afcde3",
+    "globalmail-agent/agent-eval/prepare_review_thinking_controls.py": "f1d7e253bcac3301f8109b17d94e59666141c7571143841c1eb89719aa64c6a9",
+    "globalmail-agent/agent-eval/prepare_review_workflow_controls.py": "70cb847c22d5e87d05baea2328d477cdf6c7535978843ff28ec3de1f2ca7b243",
+    "globalmail-agent/agent-eval/recording.py": "3109c799ef173f6128f7f872b4aeaab516279547d94f96648d679e30bec346bc",
+    "globalmail-agent/agent-eval/replay_engineering.py": "64e4f16ba718b703ea2a3d6b14e01044d13c0a52b346b7bc0934995119733d47",
+    "globalmail-agent/agent-eval/run_cause_controls.py": "f705d485478703e7db5ece11ac28ffceaeb3f6234ccc53c7077ddb2eaa8db944",
+    "globalmail-agent/agent-eval/run_eval.py": "6525cd0c75813bd1632a441e7cafb7a04c46bd6c13ed8bfb6e23cf1986977564",
+    "globalmail-agent/agent-eval/run_request_controls.py": "1cdd56c7071435916b282f1ef24c41626a17dc2acf768390b5bced533a8d7713",
+    "globalmail-agent/agent-eval/second_history_seed.py": "2893c7ae427370efbb162fe77584b1f80a3451c69b9250166c16c0c9238ffe7b",
+    "globalmail-agent/agent-eval/semantic_review.py": "e1eacff4fda9bd626e763f3473f1edf93384b2e71937ffdc3d51e6180d931b56",
+    "globalmail-agent/agent-eval/test_cause_controls.py": "3602a7f0625ec4a6f811860d615a3f366c16f9ff0453581a9f65ff4e73909cab",
+    "globalmail-agent/agent-eval/test_draft_lineage.py": "7ca00fe499553c88488646c2e88ffad8ee24497784ab799ea24ab56a1b4ae90c",
+    "globalmail-agent/agent-eval/test_draft_prefix.py": "27c12ec7ee5fcc862682aa1f6500ca64057cf1cf6075f4b2e7264b3808f8b148",
+    "globalmail-agent/agent-eval/test_item_audit_controls.py": "8c089812cf65ca0e439596e5af5b95da802c4f262cd5f7b9d31d431f0ede3b15",
+    "globalmail-agent/agent-eval/test_legacy_review.py": "372150ae7533f34605c4d9106cb063dd56523e83f96b9f8a41acf68a2f256363",
+    "globalmail-agent/agent-eval/test_prefix.py": "3846a42d99125535486adf919722080488dff7323477dc84ffdfd351f667cda2",
+    "globalmail-agent/agent-eval/test_recording.py": "d7763893bab450ecc6a8610c6e7d880914761c688ac89d6afbdbbe5bf7b1e602",
+    "globalmail-agent/agent-eval/test_request_controls.py": "812b274587c8155d0f0c472d67fa0ccbd354b522db53cd8c23e86848a410d91f",
+    "globalmail-agent/agent-eval/test_request_control_runner.py": "2c5018995cce104022bc9e2bbfbed6dabe872d904aabe919415bed7f22ca17b9",
+    "globalmail-agent/agent-eval/test_review_recording.py": "dfe92db23154841f6f6ad187b470d99de5a56423b92f02f4ce3631db12bf8c05",
+    "globalmail-agent/agent-eval/test_review_schema_controls.py": "63cc24f94d38e7e01ccd16cae58da71be06395a229ed00d4947c04f37c4fab77",
+    "globalmail-agent/agent-eval/test_semantic_review.py": "b8ba99a756abce33cbff7b0d4450dd46e79a2caeeeb762b8e2a256637f9900c0",
+    "globalmail-agent/agent-eval/third_history_seed.py": "6c221eb531f5dc62d6ab734d00a573dde034f4ef82d75b9d389e275f7af5c2d9",
+    "globalmail-agent/agent-eval/validate_frozen.py": "3ccf10f7ea7cf586212d6a595831c02b5a17092ac9b65cd6aae9f905571472ce",
+    "globalmail-agent/backend/src/globalmail_agent/agent/budget.py": "4bfd60ad18980088a84dc527294b0f82a77f296642901d961aee466086b1a5da",
+    "globalmail-agent/backend/src/globalmail_agent/agent/context.py": "f51ad8ccdd989e6be2381ec1a8ea57da0855ae09bbef134be6955c801509d6a7",
+    "globalmail-agent/backend/src/globalmail_agent/agent/graph.py": "8893d2ccdb9b3ab1cd3a1bd1eed001ece43cdc19e8ecd83e8c135c31868ec74e",
+    "globalmail-agent/backend/src/globalmail_agent/agent/guard.py": "58c9f92df8457f34756eec0e885f5f1ebef85ebe36dcea24d40cca6c68548792",
+    "globalmail-agent/backend/src/globalmail_agent/agent/memory.py": "c5ddc35e821619bae13d92225aefe0e4feadd7bcc51bd004463d9a27b9004019",
+    "globalmail-agent/backend/src/globalmail_agent/agent/outcome_validation.py": "ebba5431d81c7d2aa0d392229224afec8e12e63910009dbbe9215437b457bab5",
+    "globalmail-agent/backend/src/globalmail_agent/agent/review_audit.py": "4a0a84daa0eeddb84c11cad490f93ad127b9bad0bf33e390fabc58bf48fc9a49",
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_gateway.py": "8c026035c21a85dc95ecf21a97fe7ad6d5c6590a7d8b6f82cdb14ce824abc891",
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_schemas.py": "7bea3e95620711253f5c5b5128f8c000036955255cb375c50ba4f2df4606bab8",
+    "globalmail-agent/backend/src/globalmail_agent/agent/transcript.py": "bcbda1345d0b695afce4a890ed3904d6e674f0d93fa806a6165f0e206326204d",
+    "globalmail-agent/backend/src/globalmail_agent/agent/understanding.py": "5fa492cc66ce981a0838e44d56b3ee22db1a130915a255189134319cbb81192b",
+    "globalmail-agent/backend/src/globalmail_agent/agent/__init__.py": "dea9db5c5acd58495e35db562a61e82cf2dc9dd7bd23a6cda8975f7073c17227",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/decision.md": "7d90922330e901c5d8b28c3276776e685bf768ea4c5a995b273e80cb390bedf0",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/grounding.md": "08424baa298b91d0214f0aca7ed71651004f9a24f97d4bd40a40840c0211284a",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/understanding.md": "527f0dd5996ccb6880740b44e61f5c52a5c2c08282d8d8532021b770cd53a9f9",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation-grounding.md": "b7aa842474ccbe3cdc1a63afe684ce41a6e9d7f2fe937aeec646fce41928b814",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation.md": "c8da63d742f1a7796989a4a2bc88bf73ba0ab035d62e4062cdac948e5b397de0",
+    "globalmail-agent/backend/src/globalmail_agent/worker/agent_runner.py": "76262bef8955f3b30e03dc628e7105d6a2f596a03ec17c6b97bb424472d63407",
+    "globalmail-agent/backend/src/globalmail_agent/adapters/model_provider.py": "9be830d287527605ac12cd124bc15a359b0a3284f6a058c80ba1b4768d192883",
+    "globalmail-agent/backend/src/globalmail_agent/adapters/checkpoint_repository.py": "7abe629d1ed9c3ac827e2a1f188cab3b8ad601b99b2496397ff3da97ec065b9c",
+    "globalmail-agent/backend/src/globalmail_agent/application/commit_outcome.py": "2aa0617408f0a0851642e13b7526171483c15d8fe0dba8a7488e7262b8b0ad92",
+    "globalmail-agent/backend/src/globalmail_agent/application/draft_validation.py": "1e762f9618aaf892dbf75ac749df037caae40705cd11e471e16e42605fc5a99b",
+    "globalmail-agent/backend/src/globalmail_agent/application/event_store.py": "c9553c0eb55e9572b0135dea58bec8eebba3326503f2ebbc31bbcc2101f0b7d0",
+    "globalmail-agent/backend/src/globalmail_agent/observability/local_records.py": "c9ab9a937f82e787335bec0eded7ffcb8d118952d01ca076f194523bd838e542"
+  },
+  "usage": {
+    "completion_tokens": 1455,
+    "prompt_tokens": 3577,
+    "total_tokens": 5032,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 512,
+      "rejected_prediction_tokens": null,
+      "text_tokens": 1455
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": 3577
+    }
+  },
+  "active_ms": 31358,
+  "sdk_adapter_seconds": 31.25,
+  "actual_sampling": {
+    "temperature": 0.7,
+    "enable_thinking": false,
+    "top_p": "server_default",
+    "validation_profile": {
+      "temperature": 0.7,
+      "enable_thinking": true,
+      "thinking_budget": 512,
+      "max_completion_tokens": 1990,
+      "top_p": "server_default"
+    }
+  },
+  "within_original_budget": true,
+  "new_paid_calls_in_review": 0,
+  "actual_paid_calls_in_attempt": 1,
+  "business_outbound": 0,
+  "positive_and_fresh_06_09_not_called": true,
+  "raw_evidence_sha256": {
+    "tmp/phase7-agent-eval/20261008-225432-d2f20860/unsupported_product_and_missing_conditional_original/request-01.json": "c07a67a9a3033ccb0cc67d895014cf18cb66b61c759d7236dfd4a515f332e861",
+    "tmp/phase7-agent-eval/20261008-225432-d2f20860/unsupported_product_and_missing_conditional_original/response-01.json": "03e34868d8439b125b8cbb7dc970bbba405646eb0d7056775a8169a80397abba",
+    "tmp/phase7-agent-eval/20261008-225432-d2f20860/unsupported_product_and_missing_conditional_original/provider-payload-01.json": "66615e039e90d36d827d41e274ba407fac9a6343c53c1e5915112cae6d667a35",
+    "tmp/phase7-agent-eval/20261008-225432-d2f20860/manifest-before-paid-calls.json": "13b8ce15bd40275f148a29c06213c2db67cc283d40209a0cf57df6225d8a73d4",
+    "tmp/phase7-agent-eval/20261008-225432-d2f20860/result.json": "fc01041a3ff1379563f19269998bd5c5ff2d600359d53c4713d995b59c2ab4c5",
+    "tmp/phase7-agent-eval/20261008-225432-d2f20860/unsupported_product_and_missing_conditional_original/actual-item-audit.json": "84a62c430bc529fcaee69c04ebdd57eb14bbbdd6f5e976ec13c82d7ad1500336"
+  },
+  "private_reasoning_retained_not_exported": {
+    "characters": 1647,
+    "sha256": "8e036cc6ae8f25e4bd5e200fda11a4486d670cd645fd3fd9c6e1944a7a01409b"
+  },
+  "stage1": "H12/H13 remain open pending complete negative/positive and fresh business",
+  "stage2": "not started"
+}

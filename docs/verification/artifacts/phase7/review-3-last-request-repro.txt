@@ -1,0 +1,7 @@
+FINAL_REQUEST_MALICIOUS_REPLY: handoff-only exposure; ignored schema -> budget_exhausted; model ledger 6; new actual requests 2; outbound 0
+test_model_ignores_handoff_only_schema_reply_still_cannot_escape_validation (__main__.ReviewLastRequest.test_model_ignores_handoff_only_schema_reply_still_cannot_escape_validation) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 3.240s
+
+OK

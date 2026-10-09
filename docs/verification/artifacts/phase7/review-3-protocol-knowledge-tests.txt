@@ -1,0 +1,11 @@
+test_final_commit_holds_head_lock_until_effect_then_withdraw_can_commit (test_agent_knowledge.AgentKnowledgeTests.test_final_commit_holds_head_lock_until_effect_then_withdraw_can_commit) ... ok
+test_query_embedding_head_switch_registers_no_old_evidence (test_agent_knowledge.AgentKnowledgeTests.test_query_embedding_head_switch_registers_no_old_evidence) ... ok
+test_release_switch_rebuilds_once_clears_old_knowledge_and_keeps_cycle_budget (test_agent_knowledge.AgentKnowledgeTests.test_release_switch_rebuilds_once_clears_old_knowledge_and_keeps_cycle_budget) ... ok
+test_second_release_switch_handoffs_without_second_rebuild_or_outbound (test_agent_knowledge.AgentKnowledgeTests.test_second_release_switch_handoffs_without_second_rebuild_or_outbound) ... ok
+test_withdraw_after_exposure_blocks_unreferenced_dependency_and_late_commit (test_agent_knowledge.AgentKnowledgeTests.test_withdraw_after_exposure_blocks_unreferenced_dependency_and_late_commit) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 21.332s
+
+OK
+Process exit code: 0

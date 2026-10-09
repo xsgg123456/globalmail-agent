@@ -1,0 +1,19 @@
+{
+  "frozen_attempt": "20261008-181730-48507885",
+  "paid_calls": 0,
+  "all_messages_unchanged": true,
+  "remaining_model_requests": 4,
+  "original_all_tools_input_proxy": 16201,
+  "read_and_terminal_input_proxy": 13737,
+  "budget": 16000,
+  "available_tools": [
+    "get_order_snapshot",
+    "get_shipment_status",
+    "get_after_sales_context",
+    "get_item_availability",
+    "get_operation_status",
+    "search_reference",
+    "create_reply_draft",
+    "request_human_review"
+  ]
+}

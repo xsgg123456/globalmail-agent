@@ -1,0 +1,24 @@
+{
+  "frozen_attempt": "20261008-181730-48507885",
+  "paid_calls": 0,
+  "method": "Direct current AgentGraph.decide with captured request, no DB/provider",
+  "all_original_messages_unchanged": true,
+  "full_input_estimate": 16201,
+  "latest_actual_menu_input_estimate": 13737,
+  "latest_tools": [
+    "get_order_snapshot",
+    "get_shipment_status",
+    "get_after_sales_context",
+    "get_item_availability",
+    "get_operation_status",
+    "search_reference",
+    "create_reply_draft",
+    "request_human_review"
+  ],
+  "remaining_requests": 4,
+  "source_sha256": {
+    "globalmail-agent/backend/src/globalmail_agent/agent/graph.py": "0b5731e846cdcac68e2d6988b25f59078b8fdf769813e059b5d00d1330e01b6e",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/grounding.md": "d0ec00925a3fc260a729bd8f350cc614aa1adbd9a0d26457e4da0f7f38afb7e5",
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_schemas.py": "0146d3d41dce5569ccbb5c23f899e47667e121cd9c52b5a303f50c9d6fcb66fb"
+  }
+}

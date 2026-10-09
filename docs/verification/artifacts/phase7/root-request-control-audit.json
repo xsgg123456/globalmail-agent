@@ -1,0 +1,16 @@
+{
+  "status": "PASS_preflight_only_no_quality_or_understanding_claim",
+  "new_HTTP": 0,
+  "trusted_raw_and_planned_files": 21,
+  "negative_original_DATA_and_schema_exact": true,
+  "positive_only_four_explicit_draft_operations": true,
+  "all_original_understanding_evidence_and_sources_preserved": true,
+  "actual_product_validation_head_and_tail_match_both_prepared": true,
+  "input_proxies": [
+    13445,
+    13688
+  ],
+  "reserved_tokens": 31133,
+  "actual_tail_text_sha256": "c01aa20472ad5f0255779043f93d1128b063eef8d24072f2061616b518542891",
+  "manifest_sha256": "53293515273b68634cc5c1d1c7fce97264166dadd3fad75f7bc7a854eecb36e2"
+}

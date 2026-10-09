@@ -1,0 +1,183 @@
+{
+  "provenance": "explicit_scripted_engineering_UI_no_real_model_quality",
+  "api": "http://127.0.0.1:18181",
+  "fixtures": {
+    "normal": {
+      "conversation_id": "32c27364-4621-439a-b86a-cc4541745e85",
+      "owner": "agent",
+      "input_revision": 1,
+      "row_version": 4,
+      "active_risks": 0,
+      "messages": 2,
+      "agent_outbound": 1,
+      "human_outbound": 0,
+      "runs": [
+        {
+          "run_id": "1490f092-732a-4c7e-ad1d-2c27d2aa54a9",
+          "cycle_id": "5bb7a4cc-b0aa-4cb0-be9f-4c026679f155",
+          "status": "completed",
+          "attempt": 1,
+          "usage": {
+            "model_requests": 5,
+            "tool_calls": 3,
+            "input_tokens": 100,
+            "output_tokens": 50,
+            "unknown_requests": 0,
+            "reserved_tokens": 150,
+            "active_ms": 1515,
+            "limits": {
+              "model_requests": 6,
+              "tool_calls": 12,
+              "tokens": 80000,
+              "active_ms": 120000
+            },
+            "cost": null
+          },
+          "tools": [
+            "get_order_snapshot",
+            "search_reference",
+            "create_reply_draft"
+          ],
+          "references": [
+            {
+              "eligible": true,
+              "title": "页面协议验收资料"
+            }
+          ]
+        }
+      ]
+    },
+    "risk": {
+      "conversation_id": "e2f65d34-b2f1-4807-9f71-bfab50a77fff",
+      "owner": "human_wait_customer",
+      "input_revision": 1,
+      "row_version": 5,
+      "active_risks": 0,
+      "messages": 2,
+      "agent_outbound": 0,
+      "human_outbound": 1,
+      "runs": [
+        {
+          "run_id": "a08a9d94-ce3d-48bf-a194-4955f456dbfe",
+          "cycle_id": "ecad5fb2-823f-43c4-b519-c361df8e4595",
+          "status": "handed_off",
+          "attempt": 1,
+          "usage": {
+            "model_requests": 1,
+            "tool_calls": 0,
+            "input_tokens": 20,
+            "output_tokens": 10,
+            "unknown_requests": 0,
+            "reserved_tokens": 30,
+            "active_ms": 297,
+            "limits": {
+              "model_requests": 6,
+              "tool_calls": 12,
+              "tokens": 80000,
+              "active_ms": 120000
+            },
+            "cost": null
+          },
+          "tools": [],
+          "references": []
+        }
+      ]
+    },
+    "failed": {
+      "conversation_id": "e70fca7d-3ec7-4533-9e17-3bed28f6a6a2",
+      "owner": "agent",
+      "input_revision": 1,
+      "row_version": 5,
+      "active_risks": 0,
+      "messages": 1,
+      "agent_outbound": 0,
+      "human_outbound": 0,
+      "runs": [
+        {
+          "run_id": "5b95ffb3-2852-4bbd-bd45-749ac4271c06",
+          "cycle_id": "17aef53b-a3b2-4ebb-a629-dfcef830f4e9",
+          "status": "failed",
+          "attempt": 1,
+          "usage": {
+            "model_requests": 2,
+            "tool_calls": 0,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_requests": 2,
+            "reserved_tokens": 16512,
+            "active_ms": 467,
+            "limits": {
+              "model_requests": 6,
+              "tool_calls": 12,
+              "tokens": 80000,
+              "active_ms": 120000
+            },
+            "cost": null
+          },
+          "tools": [],
+          "references": []
+        },
+        {
+          "run_id": "88e2ca7e-b84b-485b-96fe-2dbd2bcf1327",
+          "cycle_id": "17aef53b-a3b2-4ebb-a629-dfcef830f4e9",
+          "status": "queued",
+          "attempt": 2,
+          "usage": {
+            "model_requests": 2,
+            "tool_calls": 0,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_requests": 2,
+            "reserved_tokens": 16512,
+            "active_ms": 467,
+            "limits": {
+              "model_requests": 6,
+              "tool_calls": 12,
+              "tokens": 80000,
+              "active_ms": 120000
+            },
+            "cost": null
+          },
+          "tools": [],
+          "references": []
+        }
+      ]
+    },
+    "queued": {
+      "conversation_id": "7d46f0bf-d19a-47c4-becf-c332eaa8c2c1",
+      "owner": "agent",
+      "input_revision": 1,
+      "row_version": 3,
+      "active_risks": 0,
+      "messages": 1,
+      "agent_outbound": 0,
+      "human_outbound": 0,
+      "runs": [
+        {
+          "run_id": "2280f7e4-3fe4-449e-950b-cafeffb982cf",
+          "cycle_id": "05c22acd-baed-4828-96bc-0978bb66e430",
+          "status": "stopped",
+          "attempt": 1,
+          "usage": {
+            "model_requests": 0,
+            "tool_calls": 0,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_requests": 0,
+            "reserved_tokens": 0,
+            "active_ms": 0,
+            "limits": {
+              "model_requests": 6,
+              "tool_calls": 12,
+              "tokens": 80000,
+              "active_ms": 120000
+            },
+            "cost": null
+          },
+          "tools": [],
+          "references": []
+        }
+      ]
+    }
+  }
+}

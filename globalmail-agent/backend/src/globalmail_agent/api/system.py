@@ -24,11 +24,11 @@ def system_router(settings, database, store):
     @router.get("/runtime-config")
     def runtime_config(request: Request):
         return response(request.state.request_id, {
-            "mode": "local_single_user", "phase": 6,
+            "mode": "local_single_user", "phase": 7,
             "features": {"conversations": True, "business_queries": True,
-                         "knowledge": True, "agent": False},
+                         "knowledge": True, "agent": True},
             "model_configured": bool(settings.model_api_key.get_secret_value()
-                                     and settings.model_name and settings.model_base_url),
+                                     and settings.model_name == "qwen3.7-plus" and settings.model_base_url),
         })
 
     return router

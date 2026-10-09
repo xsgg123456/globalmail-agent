@@ -1,0 +1,6 @@
+test_full_context_handoff_fits_when_both_terminal_schemas_do_not (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_handoff_fits_when_both_terminal_schemas_do_not) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 3.686s
+
+OK

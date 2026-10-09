@@ -1,0 +1,23 @@
+{
+  "scope": "zero HTTP engineering contrast only; no understanding or business quality PASS",
+  "independent_complete_prepared_and_original_read": true,
+  "negative_entire_request_except_explicit_planned_tail_exact": true,
+  "positive_exact_four_explicit_operations_only": true,
+  "wrong_original_understanding_retained": true,
+  "all_other_context_observations_sources_schema_exact": true,
+  "trusted_21_source_sha_verified": true,
+  "input_proxies": [
+    13445,
+    13688
+  ],
+  "reserved_two_controls": 31133,
+  "new_HTTP_calls": 0,
+  "business_outbound": 0,
+  "original_FAILURE_unchanged": true,
+  "source_raw_sha256": {
+    "tmp/phase7-agent-eval/20261008-202431-2f2a7ecc/P7-06-conditional-refund/request-05.json": "21230fd3ed89a8e745700315cb37b89502afca4809c97d0443cd95438c176df5",
+    "tmp/phase7-agent-eval/20261008-203514-f5ace13f/unsupported_product_and_missing_conditional_original/prepared-request-before-paid-call.json": "3ff16594fd914a01a3496373a70ef3568a8c9f56447b9b0228851d506f8bcaef",
+    "tmp/phase7-agent-eval/20261008-203514-f5ace13f/generic_parcel_and_customer_preference_synthetic/prepared-request-before-paid-call.json": "f1035c4c9fd564004015803d63373fc70deaf59e154d4f77c288139b35458772",
+    "tmp/phase7-agent-eval/20261008-203514-f5ace13f/manifest-planned-zero-http.json": "53293515273b68634cc5c1d1c7fce97264166dadd3fad75f7bc7a854eecb36e2"
+  }
+}

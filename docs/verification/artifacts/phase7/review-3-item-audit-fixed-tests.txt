@@ -1,0 +1,24 @@
+Independent item-audit protocol PG: exact indices/quotes, legacy rejection, original early-source/full-body/hash/commit/menu/wake gates and no-body scoped wait. Explicit Scripted engineering data only, zero paid chat, random schemas auto-cleanup, no public DML or credential output.
+test_real_graph_rejects_missing_unit_and_never_saves_validated_hash (test_agent_review_audit.ReviewAuditProtocolTests.test_real_graph_rejects_missing_unit_and_never_saves_validated_hash) ... ok
+test_real_graph_rejects_old_four_field_response_without_outbound (test_agent_review_audit.ReviewAuditProtocolTests.test_real_graph_rejects_old_four_field_response_without_outbound) ... ok
+test_41_short_original_units_have_no_added_limit_but_must_all_be_checked (test_agent_review_audit.ReviewAuditTests.test_41_short_original_units_have_no_added_limit_but_must_all_be_checked) ... ok
+test_complete_original_units_and_exact_scoped_quotes_pass_protocol (test_agent_review_audit.ReviewAuditTests.test_complete_original_units_and_exact_scoped_quotes_pass_protocol) ... ok
+test_duplicate_or_out_of_range_request_unit_rejects (test_agent_review_audit.ReviewAuditTests.test_duplicate_or_out_of_range_request_unit_rejects) ... ok
+test_existing_but_unclaimed_or_foreign_source_cannot_authorize_claim (test_agent_review_audit.ReviewAuditTests.test_existing_but_unclaimed_or_foreign_source_cannot_authorize_claim) ... ok
+test_fact_needs_evidence_but_neutral_courtesy_does_not (test_agent_review_audit.ReviewAuditTests.test_fact_needs_evidence_but_neutral_courtesy_does_not) ... ok
+test_legacy_four_fields_and_coerced_indices_cannot_pass_new_contract (test_agent_review_audit.ReviewAuditTests.test_legacy_four_fields_and_coerced_indices_cannot_pass_new_contract) ... ok
+test_missing_duplicate_or_out_of_range_claim_index_rejects (test_agent_review_audit.ReviewAuditTests.test_missing_duplicate_or_out_of_range_claim_index_rejects) ... ok
+test_missing_or_fabricated_reply_quote_rejects (test_agent_review_audit.ReviewAuditTests.test_missing_or_fabricated_reply_quote_rejects) ... ok
+test_negative_claim_cannot_be_overridden_by_total_supported (test_agent_review_audit.ReviewAuditTests.test_negative_claim_cannot_be_overridden_by_total_supported) ... ok
+test_omitted_last_conditional_unit_cannot_hide_behind_total_true (test_agent_review_audit.ReviewAuditTests.test_omitted_last_conditional_unit_cannot_hide_behind_total_true) ... ok
+test_sentence_units_preserve_every_character_without_keyword_classification (test_agent_review_audit.ReviewAuditTests.test_sentence_units_preserve_every_character_without_keyword_classification) ... ok
+test_true_source_id_with_invented_translation_quote_rejects (test_agent_review_audit.ReviewAuditTests.test_true_source_id_with_invented_translation_quote_rejects) ... ok
+test_empty_body_does_not_bypass_scoped_operation_gate (__main__.IndependentAuditPG.test_empty_body_does_not_bypass_scoped_operation_gate) ... ok
+test_no_body_existing_scoped_business_wait_uses_real_validation_and_commit (__main__.IndependentAuditPG.test_no_body_existing_scoped_business_wait_uses_real_validation_and_commit) ... ok
+test_true_total_with_true_source_id_but_invented_quote_never_authorizes_hash (__main__.IndependentAuditPG.test_true_total_with_true_source_id_but_invented_quote_never_authorizes_hash) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 11.416s
+
+OK
+SOURCE_CHANGED: False

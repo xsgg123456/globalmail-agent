@@ -6,7 +6,6 @@ from pathlib import Path
 import sqlalchemy as sa
 
 ROOT = Path(__file__).resolve().parents[2]
-ARTIFACTS = ROOT / 'docs/verification/artifacts/phase6'
 
 
 def canonical(value):
@@ -54,15 +53,17 @@ def capture(before=None):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('action', choices=('before', 'after'))
+    parser.add_argument('--phase', type=int, choices=range(2, 14), default=6)
     args = parser.parse_args()
-    ARTIFACTS.mkdir(parents=True, exist_ok=True)
+    artifacts = ROOT / 'docs/verification/artifacts' / f'phase{args.phase}'
+    artifacts.mkdir(parents=True, exist_ok=True)
     if args.action == 'before':
         value = capture()
-        (ARTIFACTS / 'formal-before.json').write_text(json.dumps(value, indent=2, ensure_ascii=False), encoding='utf-8')
+        (artifacts / 'formal-before.json').write_text(json.dumps(value, indent=2, ensure_ascii=False), encoding='utf-8')
         print(json.dumps({'status': 'captured_read_only', 'revision': value['revision'], 'tables': value['table_count'],
                           'knowledge_counts': value['knowledge_counts']}))
         return
-    before = json.loads((ARTIFACTS / 'formal-before.json').read_text(encoding='utf-8'))
+    before = json.loads((artifacts / 'formal-before.json').read_text(encoding='utf-8'))
     after = capture(before)
     preserved = {name: data == after['tables'].get(name) for name, data in before['tables'].items() if name != 'alembic_version'}
     value = {'before_revision': before['revision'], 'after_revision': after['revision'],
@@ -70,7 +71,7 @@ def main():
         'old_tables_preserved': preserved, 'settings_preserved': before['settings_sha256'] == after['settings_sha256'],
         'source_bytes_preserved': before['source_files'] == after['source_files'],
         'knowledge_counts': after['knowledge_counts']}
-    (ARTIFACTS / 'formal-preservation.json').write_text(json.dumps(value, indent=2, ensure_ascii=False), encoding='utf-8')
+    (artifacts / 'formal-preservation.json').write_text(json.dumps(value, indent=2, ensure_ascii=False), encoding='utf-8')
     print(json.dumps(value))
     if not all(preserved.values()) or not value['settings_preserved'] or not value['source_bytes_preserved']:
         raise SystemExit(1)

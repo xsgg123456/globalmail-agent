@@ -1,0 +1,24 @@
+...............................FF.......agent_dependency_error
+......................................................................................................................................................................................................knowledge_worker_dependency_unavailable
+agent_worker_dependency_unavailable
+..............
+======================================================================
+FAIL: test_release_switch_rebuilds_once_clears_old_knowledge_and_keeps_cycle_budget (test_agent_knowledge.AgentKnowledgeTests.test_release_switch_rebuilds_once_clears_old_knowledge_and_keeps_cycle_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_knowledge.py", line 91, in test_release_switch_rebuilds_once_clears_old_knowledge_and_keeps_cycle_budget
+    self.assertTrue(entered.wait(10))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_second_release_switch_handoffs_without_second_rebuild_or_outbound (test_agent_knowledge.AgentKnowledgeTests.test_second_release_switch_handoffs_without_second_rebuild_or_outbound)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_knowledge.py", line 136, in test_second_release_switch_handoffs_without_second_rebuild_or_outbound
+    self.assertTrue(entered[index].wait(10))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 252 tests in 468.200s
+
+FAILED (failures=2)

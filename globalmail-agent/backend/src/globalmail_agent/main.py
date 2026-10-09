@@ -15,7 +15,8 @@ from globalmail_agent.api.events import events_router
 from globalmail_agent.api.runs import runs_router
 from globalmail_agent.api.business import business_router
 from globalmail_agent.application.conversation_lock import DEFAULT_WORKSPACE_ID
-from globalmail_agent.worker.runner import ProtocolRunner
+from globalmail_agent.worker.agent_runner import AgentRunner
+from globalmail_agent.adapters.model_provider import ModelProvider
 from globalmail_agent.worker.knowledge_runner import KnowledgeRunner
 from globalmail_agent.api.knowledge_documents import knowledge_router
 from globalmail_agent.api.knowledge_releases import knowledge_releases_router
@@ -24,17 +25,18 @@ from globalmail_agent.knowledge.embedding import EmbeddingGateway
 
 
 def create_app(settings: Settings | None = None, *, engine=None, start_worker=True,
-               embedding_gateway=None) -> FastAPI:
+               embedding_gateway=None, model_provider=None) -> FastAPI:
     settings = settings or Settings.from_env()
     database = engine if engine is not None else make_engine(settings)
     store = ObjectStore(settings.object_root, database)
     gateway = embedding_gateway if embedding_gateway is not None else EmbeddingGateway(settings)
+    model = model_provider if model_provider is not None else ModelProvider(settings)
 
     @asynccontextmanager
     async def lifespan(app):
         runner = knowledge = None
         if start_worker and database is not None:
-            runner = ProtocolRunner(database, DEFAULT_WORKSPACE_ID)
+            runner = AgentRunner(database, store, DEFAULT_WORKSPACE_ID, model, gateway)
             runner.start()
             knowledge = KnowledgeRunner(database, store, DEFAULT_WORKSPACE_ID, gateway)
             knowledge.start()
@@ -69,7 +71,7 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
     app.include_router(system_router(settings, database, store))
     app.include_router(conversation_router(database, store))
     app.include_router(events_router(database))
-    app.include_router(runs_router(database))
+    app.include_router(runs_router(database, store))
     app.include_router(business_router(database, store))
     app.include_router(knowledge_router(database, store))
     app.include_router(knowledge_releases_router(database, store, gateway))

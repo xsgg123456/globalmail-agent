@@ -1,0 +1,39 @@
+{
+  "scope": "current production prompt/source matches approved zero-HTTP contrast; no semantic outcome or paid authorization inferred",
+  "checks": {
+    "complete_old_tail_preserved_with_generic_cause_rule": true,
+    "first_validation_head_unchanged": true,
+    "prepared_DATA_schema_budget_unmodified": true,
+    "generation_generic_symptom_vs_cause_rule_present": true,
+    "understanding_repair_current_or_historical_exact_number_hint": true
+  },
+  "tail_sha256": "91c1f65a27b14bac1002acbb3c017037e2bb0946c6dca4495d721c994f56fdd4",
+  "targets": [
+    {
+      "test_id": "unsupported_cause_original",
+      "input_proxy": 14384,
+      "full_prepared_system_matches_current_production": true,
+      "raw_prepared_file_sha256_unchanged": true
+    },
+    {
+      "test_id": "question_without_cause_synthetic",
+      "input_proxy": 14184,
+      "full_prepared_system_matches_current_production": true,
+      "raw_prepared_file_sha256_unchanged": true
+    }
+  ],
+  "source_sha256": {
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/decision.md": "0e20831e1800b1d0b1ca7dc55b5c6b6ac924080aaa1efcd96063fcbb1b53e143",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/grounding.md": "356597c86bffa1f33b2b93584c5e41ea98b7225e88dd8797fc390d160bfd784b",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/understanding.md": "130cc204bcd822bf3798157197dd28b8e0fad8d6f94bcf8955aca0d280327a6c",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation-grounding.md": "f5f3a10d908747a2e65b4d5f884907e29276a776e43877c41220463fe5b28da6",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation.md": "3e142152096368147c798244af6f4b1e5306c3084cac8c33827514c6a863ea9b",
+    "globalmail-agent/backend/src/globalmail_agent/agent/graph.py": "48c7ec80f9766b730ea712729d40beb2251dd918c5b634facebb80f3b0275109",
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_gateway.py": "8c026035c21a85dc95ecf21a97fe7ad6d5c6590a7d8b6f82cdb14ce824abc891",
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_schemas.py": "7bea3e95620711253f5c5b5128f8c000036955255cb375c50ba4f2df4606bab8"
+  },
+  "new_HTTP": 0,
+  "DB_access": false,
+  "tail_sha256_definition": "SHA256 UTF-8 prompt() runtime text; Path.read_text universal newline CRLF to LF; not raw file bytes or canonical JSON",
+  "source_sha256_definition": "SHA256 read_bytes raw file bytes, including original newline bytes"
+}

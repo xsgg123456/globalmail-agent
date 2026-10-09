@@ -149,6 +149,111 @@ test('人审草稿PATCH使用review版本，完成人工回复另带会话和输
   assert.equal(calls[0][3], 'PATCH')
   assert.equal((calls[0][1] as Record<string, unknown>).expected_version, 1)
   assert.equal((calls[0][1] as Record<string, unknown>).draft, 'saved reply')
-  assert.equal((calls[0][1] as Record<string, unknown>).expected_input_revision,
-    model.detail.value?.review?.input_revision)
+  assert.equal(
+    (calls[0][1] as Record<string, unknown>).expected_input_revision,
+    model.detail.value?.review?.input_revision
+  )
+})
+
+test('自动人审晚于首次打开会话时加载服务器草稿，已有用户输入保留', async () => {
+  for (const existing of ['', '客服已编辑的回复']) {
+    const api = makeApi(),
+      server = detailFixture()
+    server.review = null
+    api.detail = async () => structuredClone(server)
+    const model = useMailWorkbench(api)
+    await model.select('c-1')
+    if (existing) model.setHuman({ reply: existing, note: '客服备注' })
+    server.review = { ...detailFixture().review!, draft: '服务器未发送草稿', note: '证据缺口' }
+    await model.refreshDetail()
+    assert.equal(model.humanInput.value.reply, existing || '服务器未发送草稿')
+    assert.equal(model.humanInput.value.note, existing ? '客服备注' : '证据缺口')
+    assert.equal(model.humanStale.value, false)
+  }
+})
+
+test('普通人工回复显式保持风险；自由文字不授权清除风险', async () => {
+  const api = makeApi(),
+    calls: Record<string, unknown>[] = []
+  api.command = async (_path, payload) => {
+    calls.push(payload)
+    return {}
+  }
+  const model = useMailWorkbench(api)
+  await model.select('c-1')
+  assert.equal(model.humanInput.value.risk_decision, 'keep_active')
+  model.setHuman({ reply: 'The risk is resolved', note: '已处理，误判' })
+  await model.completeHuman()
+  assert.equal(calls[0].risk_decision, 'keep_active')
+  assert.equal(calls[0].expected_version, 2)
+  assert.equal(calls[0].expected_input_revision, 1)
+  assert.equal(model.humanInput.value.risk_decision, 'keep_active')
+})
+
+test('风险更正没有依据不提交；有依据提交明确决定及版本，失败保留输入', async () => {
+  const api = makeApi(),
+    server = detailFixture(),
+    calls: Record<string, unknown>[] = []
+  server.active_risks = [{ id: 'risk-1', kind: 'fire', status: 'active', sources: [] }]
+  api.detail = async () => structuredClone(server)
+  api.command = async (_path, payload) => {
+    calls.push(payload)
+    throw new MailApiError(503, 'database_unavailable', '')
+  }
+  const model = useMailWorkbench(api)
+  await model.select('c-1')
+  model.setHuman({ reply: '复核后的回复', note: ' \n ', risk_decision: 'corrected_by_human' })
+  await model.completeHuman()
+  assert.equal(calls.length, 0)
+  assert.match(model.actionError.value, /复核依据/)
+  model.setHuman({
+    reply: '复核后的回复',
+    note: '经客户确认，烧灼描述属于其他设备',
+    risk_decision: 'corrected_by_human'
+  })
+  await model.refreshDetail()
+  assert.equal(model.humanInput.value.risk_decision, 'corrected_by_human')
+  await model.completeHuman()
+  assert.equal(calls[0].risk_decision, 'corrected_by_human')
+  assert.equal(calls[0].expected_version, 2)
+  assert.equal(calls[0].expected_input_revision, 1)
+  assert.equal(model.humanInput.value.reply, '复核后的回复')
+  assert.equal(model.humanInput.value.risk_decision, 'corrected_by_human')
+})
+
+test('切会话、新接管、新输入或新风险都重置风险决定，保留人工文本', async () => {
+  const api = makeApi(),
+    server = detailFixture()
+  server.active_risks = [{ id: 'risk-1', kind: 'fire', status: 'active', sources: [] }]
+  api.detail = async (id) => (id === 'c-1' ? structuredClone(server) : detailFixture(id))
+  const model = useMailWorkbench(api)
+  await model.select('c-1')
+  const choose = () =>
+    model.setHuman({
+      reply: '未发送的人工草稿',
+      note: '复核依据',
+      risk_decision: 'resolved_by_human'
+    })
+  choose()
+  await model.select('c-2')
+  assert.equal(model.humanInput.value.risk_decision, 'keep_active')
+  await model.select('c-1')
+  assert.equal(model.humanInput.value.risk_decision, 'keep_active')
+  assert.equal(model.humanInput.value.reply, '未发送的人工草稿')
+  choose()
+  server.review!.id = 'new-review'
+  await model.refreshDetail()
+  assert.equal(model.humanInput.value.risk_decision, 'keep_active')
+  choose()
+  server.conversation.input_revision += 1
+  await model.refreshDetail()
+  assert.equal(model.humanInput.value.risk_decision, 'keep_active')
+  assert.equal(model.humanStale.value, true)
+  model.acknowledgeHuman()
+  choose()
+  server.active_risks.push({ id: 'risk-2', kind: 'injury', status: 'active', sources: [] })
+  await model.refreshDetail()
+  assert.equal(model.humanInput.value.risk_decision, 'keep_active')
+  assert.equal(model.humanInput.value.reply, '未发送的人工草稿')
+  assert.equal(model.humanInput.value.note, '复核依据')
 })

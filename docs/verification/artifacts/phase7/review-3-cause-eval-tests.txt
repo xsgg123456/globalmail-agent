@@ -1,0 +1,24 @@
+test_actual_evidence_questions_sources_and_claim_order_retained (test_cause_controls.CauseControlTests.test_actual_evidence_questions_sources_and_claim_order_retained) ... ok
+test_missing_or_duplicate_causal_sentence_refuses_preparation (test_cause_controls.CauseControlTests.test_missing_or_duplicate_causal_sentence_refuses_preparation) ... ok
+test_added_or_trimmed_text_is_visible (test_draft_lineage.DraftLineageTests.test_added_or_trimmed_text_is_visible) ... ok
+test_legacy_explicit_body_is_compared_without_reconstruction (test_draft_lineage.DraftLineageTests.test_legacy_explicit_body_is_compared_without_reconstruction) ... ok
+test_new_claims_preserve_order_spaces_and_unicode (test_draft_lineage.DraftLineageTests.test_new_claims_preserve_order_spaces_and_unicode) ... ok
+test_actual_191114_second_response_content_arguments_and_origin_preserved (test_draft_prefix.DraftAuditTests.test_actual_191114_second_response_content_arguments_and_origin_preserved) ... ok
+test_changed_business_amount_is_rejected (test_draft_prefix.DraftAuditTests.test_changed_business_amount_is_rejected) ... ok
+test_changed_full_sop_text_is_rejected (test_draft_prefix.DraftAuditTests.test_changed_full_sop_text_is_rejected) ... ok
+test_only_identity_and_observation_metadata_may_change (test_draft_prefix.DraftAuditTests.test_only_identity_and_observation_metadata_may_change) ... ok
+test_plain_assistant_content_alongside_tool_call_is_preserved (test_draft_prefix.DraftAuditTests.test_plain_assistant_content_alongside_tool_call_is_preserved) ... ok
+test_changed_source_rejected_before_any_provider_call (test_prefix.PrefixSafetyTests.test_changed_source_rejected_before_any_provider_call) ... ok
+test_elapsed_original_time_cannot_be_reset_by_replay (test_prefix.PrefixSafetyTests.test_elapsed_original_time_cannot_be_reset_by_replay) ... ok
+test_budget_rejection_captures_full_unsent_request_before_model (test_recording.ExportPrivacyTests.test_budget_rejection_captures_full_unsent_request_before_model) ... ok
+test_new_revision_tool_does_not_export_quotes_by_default (test_recording.ExportPrivacyTests.test_new_revision_tool_does_not_export_quotes_by_default) ... ok
+test_sdk_capture_is_pass_through_and_omits_credential_fields (test_recording.ExportPrivacyTests.test_sdk_capture_is_pass_through_and_omits_credential_fields) ... ok
+test_source_scope_keeps_ids_and_hashes_without_mail_or_note_body (test_recording.ExportPrivacyTests.test_source_scope_keeps_ids_and_hashes_without_mail_or_note_body) ... ok
+test_terminal_and_handoff_export_no_original_free_text (test_recording.ExportPrivacyTests.test_terminal_and_handoff_export_no_original_free_text) ... ok
+test_failed_semantic_review_is_preserved_as_failed (test_semantic_review.SemanticReviewGateTests.test_failed_semantic_review_is_preserved_as_failed) ... ok
+test_unknown_status_or_reviewer_cannot_release_next_run (test_semantic_review.SemanticReviewGateTests.test_unknown_status_or_reviewer_cannot_release_next_run) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 1.661s
+
+OK

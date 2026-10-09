@@ -56,7 +56,7 @@
         <p class="text-xs text-g-700">{{
           humanReview
             ? '人工接管中，新来信只记录，不启动 Agent。'
-            : '来信仅用于本机模拟，模型在 Phase 7 接入。'
+            : '有效来信保存后自动处理；所有回复仅在本机模拟，不投递真实邮箱。'
         }}</p>
         <ElButton type="primary" native-type="submit" :loading="busy">添加客户来信</ElButton>
       </div>

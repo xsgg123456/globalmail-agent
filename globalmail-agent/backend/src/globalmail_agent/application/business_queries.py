@@ -27,6 +27,7 @@ class BusinessQueries:
     def response(model, status="ok", code="business_snapshot", data=None):
         branch = model["branch"]
         versions = {"conversation": model["conversation"]["row_version"]}
+        versions["business_digest"] = model["business_digest"]
         if branch:
             versions.update(branch_generation=branch["generation"], source_hash=branch["source_hash"])
         if model["policy_metadata"]:

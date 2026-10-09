@@ -1,0 +1,22 @@
+..........E....................
+======================================================================
+ERROR: test_historical_future_snapshot_and_simulation_policy_never_enter_model (test_agent_tools.AgentToolTests.test_historical_future_snapshot_and_simulation_policy_never_enter_model)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_tools.py", line 172, in test_historical_future_snapshot_and_simulation_policy_never_enter_model
+    observed = json.loads(decisions[-1]["messages"][-1]["content"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\82358\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\82358\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\82358\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+----------------------------------------------------------------------
+Ran 31 tests in 71.297s
+
+FAILED (errors=1)

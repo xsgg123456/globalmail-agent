@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "test": "tsx --test scripts/*.test.ts",
     "serve": "vite preview",
     "lint": "eslint",
     "fix": "eslint --fix",

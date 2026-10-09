@@ -5,7 +5,8 @@ from globalmail_agent.adapters.conversation_schema import conversations, ui_even
 from globalmail_agent.adapters.schema import SCOPE_KEYS
 
 SAFE_KEYS = {"conversation_id", "message_id", "review_id", "run_id", "job_id", "processing_cycle_id",
-             "status", "state", "row_version", "input_revision", "outcome", "reason_code"}
+             "status", "state", "row_version", "input_revision", "outcome", "reason_code",
+             "artifact_id", "tool_name", "risk", "revision", "case_revision"}
 
 
 def append_ui_event(conn, conversation_id, kind, payload):

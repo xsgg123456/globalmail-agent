@@ -1,0 +1,14 @@
+test_full_context_handoff_fits_when_both_terminal_schemas_do_not (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_handoff_fits_when_both_terminal_schemas_do_not) ... FAIL
+
+======================================================================
+FAIL: test_full_context_handoff_fits_when_both_terminal_schemas_do_not (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_handoff_fits_when_both_terminal_schemas_do_not)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_menu_pressure.py", line 27, in test_full_context_handoff_fits_when_both_terminal_schemas_do_not
+    self.assertEqual(output.get("outcome"), "handoff", (output, len(model.requests)))
+AssertionError: None != 'handoff' : ({'error_code': 'input_budget_exceeded'}, 2)
+
+----------------------------------------------------------------------
+Ran 1 test in 3.943s
+
+FAILED (failures=1)

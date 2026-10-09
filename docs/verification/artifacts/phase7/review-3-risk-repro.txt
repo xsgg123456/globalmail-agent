@@ -1,0 +1,4 @@
+{"case": "corrected_by_human_old_source_requoted", "outcome": "reply_and_wait", "model_requests": 3, "active_risks": 0, "outbound": 1}
+{"case": "corrected_by_human_mixed_old_and_new_source", "outcome": "handoff", "model_requests": 1, "active_risks": 1, "new_outbound": 0}
+{"case": "resolved_by_human_old_source_requoted", "outcome": "reply_and_wait", "model_requests": 3, "active_risks": 0, "outbound": 1}
+{"case": "resolved_by_human_mixed_old_and_new_source", "outcome": "handoff", "model_requests": 1, "active_risks": 1, "new_outbound": 0}

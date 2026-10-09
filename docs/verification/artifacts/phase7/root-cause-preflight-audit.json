@@ -1,0 +1,22 @@
+{
+  "scope": "independent_root_zero_http_preflight_not_semantic_quality",
+  "checks": {
+    "trusted_sha_match": true,
+    "negative_full_data_unchanged": true,
+    "negative_user_verbatim": true,
+    "positive_only_body_claim_cause_deletion": true,
+    "schemas_original_equal": true,
+    "original_system_preserved": true,
+    "planned_tail_exact": true,
+    "non_message_fields_unchanged": true,
+    "no_http": true,
+    "no_business": true,
+    "within_original_request_budget": true
+  },
+  "input_proxy": {
+    "negative": 14384,
+    "positive": 14184
+  },
+  "new_http": 0,
+  "business_commit": false
+}

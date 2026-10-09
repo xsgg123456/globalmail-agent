@@ -132,7 +132,12 @@
         <ElEmpty v-else description="选择会话后查看任务与人审" :image-size="70" />
       </section>
     </div>
-    <ElDrawer v-model="drawer" title="Agent 处理记录与人审" size="min(420px, 100vw)">
+    <ElDrawer
+      v-model="drawer"
+      title="Agent 处理记录与人审"
+      size="min(420px, 100vw)"
+      destroy-on-close
+    >
       <AgentProcessPanel
         v-if="detail"
         v-bind="panelProps"

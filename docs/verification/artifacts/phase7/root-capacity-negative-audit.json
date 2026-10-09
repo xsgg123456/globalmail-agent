@@ -1,0 +1,75 @@
+{
+  "status": "FAIL",
+  "reviewer": "coding_agent_semantic_review_not_external_business_owner",
+  "attempt_id": "20261009-074740-90d0b3da",
+  "actual_response_sha256": "a692dca4bc996248807f0de6dabfbe0eba2681827f219599d1ddbc10d18af81b",
+  "negative_reply_failures_explicitly_explained": true,
+  "conditional_future_refund_omission_correctly_detected": true,
+  "claim_1_product_and_SKU_not_supported_by_declared_shipment_source_correctly_detected": true,
+  "wrong_missing_four_buttons_US_black_rejection_not_repeated": true,
+  "claim_0_checked_shipment_supported_by_order_only_still_wrong": true,
+  "claim_2_mixed_factual_paragraph_empty_evidence_supported_true_still_wrong": true,
+  "quote_checks": [
+    {
+      "claim_index": 0,
+      "source_id": "command:e4b0c282-0b91-577f-be18-6687d43889a7",
+      "declared_for_claim": true,
+      "exact_continuous_source_quote": false
+    },
+    {
+      "claim_index": 1,
+      "source_id": "command:261855d7-9614-5907-ab88-7479a8203f76",
+      "declared_for_claim": true,
+      "exact_continuous_source_quote": false
+    }
+  ],
+  "request_quote_checks": [
+    {
+      "unit_index": 0,
+      "status": "addressed",
+      "empty": false,
+      "exact_when_nonempty": true
+    },
+    {
+      "unit_index": 1,
+      "status": "addressed",
+      "empty": false,
+      "exact_when_nonempty": true
+    },
+    {
+      "unit_index": 2,
+      "status": "omitted",
+      "empty": true,
+      "exact_when_nonempty": true
+    }
+  ],
+  "typed_first_binding_failure": "claim_0_quote_not_in_source",
+  "complete_DATA_sources_SDK_materials_current_source_verified": true,
+  "trusted_original_raw_SHA_count": 75,
+  "actual_usage": {
+    "completion_tokens": 2737,
+    "prompt_tokens": 3542,
+    "total_tokens": 6279,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 2048,
+      "rejected_prediction_tokens": null,
+      "text_tokens": 2737
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": 3542
+    }
+  },
+  "actual_active_ms": 49062,
+  "new_HTTP": 1,
+  "business_outbound": 0,
+  "positive_permitted": false,
+  "Graph_parsed_integration_permitted": false,
+  "fresh_06_to_09_permitted": false,
+  "interpretation": "Two target defects now noticed, but other factual claims and exact source bindings remain wrong; not a complete review PASS."
+}

@@ -75,7 +75,8 @@ evidence_refs = scoped("evidence_refs", sa.Column("release_id", sa.Uuid, nullabl
     sa.Column("build_id", sa.Uuid, nullable=False), sa.Column("document_id", sa.Uuid, nullable=False),
     sa.Column("revocation_epoch", sa.BigInteger, nullable=False), sa.Column("content_object_id", sa.Uuid, nullable=False),
     sa.Column("reference", JSONB, nullable=False), fk("knowledge_releases", "release_id"),
-    fk("index_builds", "build_id"), fk("documents", "document_id"), fk("objects", "content_object_id"))
+    fk("index_builds", "build_id"), fk("documents", "document_id"), fk("objects", "content_object_id"),
+    sa.UniqueConstraint("id", "workspace_id", name="evidence_refs_workspace"))
 knowledge_dependencies = scoped("knowledge_dependencies",
     sa.Column("reference_id", sa.Uuid, nullable=False), sa.Column("source_object_id", sa.Uuid, nullable=False),
     sa.Column("content_object_id", sa.Uuid, nullable=False), sa.Column("holder_kind", sa.String(80), nullable=False),

@@ -1,0 +1,6 @@
+test_schema_pressure_keeps_scoped_reads_before_last_two_requests (test_agent_tools.AgentToolTests.test_schema_pressure_keeps_scoped_reads_before_last_two_requests) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 3.647s
+
+OK

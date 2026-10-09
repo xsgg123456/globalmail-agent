@@ -15,6 +15,9 @@ def lock_conversation(conn, conversation_id, workspace_id=DEFAULT_WORKSPACE_ID, 
     # Invalidation can revoke either task kind; lock both before the conversation.
     conn.execute(select(agent_slots).where(agent_slots.c.workspace_id == workspace_id)
         .order_by(agent_slots.c.slot_key).with_for_update()).mappings().all()
+    from globalmail_agent.adapters.business_schema import simulation_branches
+    conn.execute(select(simulation_branches).where(simulation_branches.c.conversation_id == conversation_id,
+        simulation_branches.c.workspace_id == workspace_id).with_for_update()).mappings().first()
     row = conn.execute(select(conversations).where(conversations.c.id == conversation_id,
         conversations.c.workspace_id == workspace_id).with_for_update()).mappings().first()
     if row is None or row["lifecycle"] in {"deleting", "deleted"}:

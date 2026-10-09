@@ -1,0 +1,49 @@
+{
+  "scope": "root_fulltext_observation_partial_progress_not_business_PASS",
+  "attempt": "20261008-224147-cf5c680c",
+  "semantic_status": "FAIL",
+  "future_conditional_refund_omission_explicitly_detected": true,
+  "unsupported_ceiling_type_not_rejected": true,
+  "mixed_fact_claim_still_falsely_pure_clarification": true,
+  "model_supported": false,
+  "unsupported_claims_empty": true,
+  "program_binding_rejection_not_semantic_PROOF": true,
+  "item_audit": {
+    "audit_accepts": false,
+    "effective_supported_AND": false,
+    "request_check_count": 3,
+    "trigger_unit_count": 3,
+    "source_check_count": 3,
+    "draft_claim_count": 3,
+    "complete_audit_sha256": "9411068a006cbd8ceb750bb96fc7dc97abeaa72b3f445de347d6616fad9065d1"
+  },
+  "actual_complete_request_and_SDK_equals_prepared": true,
+  "source_stable_during_actual_attempt": true,
+  "source_subsequently_changed_for_separate_workflow_hypothesis": true,
+  "usage": {
+    "completion_tokens": 1299,
+    "prompt_tokens": 3571,
+    "total_tokens": 4870,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 512,
+      "rejected_prediction_tokens": null,
+      "text_tokens": 1299
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": 3571
+    }
+  },
+  "active_ms": 25030,
+  "new_HTTP": 1,
+  "positive_HTTP": 0,
+  "fresh06_to09_HTTP": 0,
+  "business_outbound": 0,
+  "raw_response_sha256": "639d3f02622af72ab182a98354ba4a6d268691f21a8bc7f5d68698516f23a350",
+  "current_schema_and_quote_rules_not_relaxed": true
+}

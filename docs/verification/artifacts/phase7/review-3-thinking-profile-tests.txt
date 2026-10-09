@@ -1,0 +1,17 @@
+Independent validation profile engineering: captured SDK only, reasoning-inclusive total charge, length/over-cap blocked, real PG random schemas cleanup; zero paid HTTP, no formal/public DML or credential output.
+test_multiple_tools_keep_dynamic_choice_with_supported_auto_protocol (test_model_provider.ModelProviderTests.test_multiple_tools_keep_dynamic_choice_with_supported_auto_protocol) ... ok
+test_only_outcome_review_uses_bounded_thinking_and_preserves_full_input (test_model_provider.ModelProviderTests.test_only_outcome_review_uses_bounded_thinking_and_preserves_full_input) ... ok
+test_schema_request_does_not_add_a_tool_selection (test_model_provider.ModelProviderTests.test_schema_request_does_not_add_a_tool_selection) ... ok
+test_single_tool_names_the_allowed_function_in_actual_sdk_request (test_model_provider.ModelProviderTests.test_single_tool_names_the_allowed_function_in_actual_sdk_request) ... ok
+test_understanding_after_review_still_uses_non_thinking_profile (test_model_provider.ModelProviderTests.test_understanding_after_review_still_uses_non_thinking_profile) ... ok
+test_unknown_usage_remains_unknown_in_normalized_tool_response (test_model_provider.ModelProviderTests.test_unknown_usage_remains_unknown_in_normalized_tool_response) ... ok
+test_private_sdk_capture_has_total_cap_and_stage_specific_sampling (test_review_recording.ReviewRecordingTests.test_private_sdk_capture_has_total_cap_and_stage_specific_sampling) ... ok
+test_validation_length_does_not_authorize_even_complete_engineering_audit (__main__.ThinkingBudgetPG.test_validation_length_does_not_authorize_even_complete_engineering_audit) ... ok
+test_validation_over_total_cap_keeps_actual_charge_and_blocks_outbound (__main__.ThinkingBudgetPG.test_validation_over_total_cap_keeps_actual_charge_and_blocks_outbound) ... ok
+test_validation_total_completion_including_reasoning_is_settled_once (__main__.ThinkingBudgetPG.test_validation_total_completion_including_reasoning_is_settled_once) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 6.828s
+
+OK
+SOURCE_CHANGED: False

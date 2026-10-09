@@ -1,0 +1,1 @@
+{"status": "passed", "checks": ["SSE_reconnect_monotonic_scope_safe_payload", "15_second_heartbeat_reconnect_no_new_run_or_mail", "invalid_and_future_cursor_rejected"], "provider_calls": 0, "heartbeat_seconds": 15.0, "isolation": "random Phase7 PostgreSQL schema and temporary objects"}

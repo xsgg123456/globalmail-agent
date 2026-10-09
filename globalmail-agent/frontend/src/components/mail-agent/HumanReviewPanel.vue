@@ -1,6 +1,15 @@
 <template>
   <section aria-label="人工处理">
     <h3 class="text-sm font-medium mb-3">人工处理</h3>
+    <ElAlert
+      v-if="activeRisks.length"
+      title="存在尚未处理的安全风险"
+      :description="`当前风险：${activeRisks.map((risk) => riskLabel(risk.kind)).join('、')}。普通完成回复会保留风险，下一轮仍需人工核对。`"
+      type="warning"
+      :closable="false"
+      show-icon
+      class="mb-3"
+    />
     <template v-if="conversation.lifecycle === 'resolved'">
       <ElAlert
         title="已人工结案"
@@ -30,7 +39,7 @@
       />
       <p class="text-xs text-g-700 mb-3"
         >已接收
-        {{ messageCount }} 封可见邮件。模型摘要和业务查询在后续阶段接入，请核对中间邮件区。</p
+        {{ messageCount }} 封可见邮件。请核对本轮诉求、工具与引用，以及中间邮件区的最新内容。</p
       >
       <div v-if="stale" class="mb-4" aria-live="polite">
         <ElAlert
@@ -50,6 +59,22 @@
         label-position="top"
         @submit.prevent="submit(true)"
       >
+        <template v-if="activeRisks.length">
+          <ElFormItem label="本次风险决定">
+            <ElSelect
+              :model-value="modelValue.risk_decision ?? 'keep_active'"
+              aria-label="本次风险决定"
+              @update:model-value="updateRiskDecision"
+            >
+              <ElOption label="保持风险，继续人工核对" value="keep_active" />
+              <ElOption label="风险已由人工处理" value="resolved_by_human" />
+              <ElOption label="人工复核为误判" value="corrected_by_human" />
+            </ElSelect>
+            <p class="text-xs text-g-700 mt-2"
+              >选择已处理或误判时，请在人工备注填写复核依据，完成回复时一并提交。</p
+            >
+          </ElFormItem>
+        </template>
         <ElFormItem
           :label="historical ? '本轮审阅回复' : '人工回复正文'"
           required
@@ -65,13 +90,19 @@
             @update:model-value="update('reply', $event)"
           />
         </ElFormItem>
-        <ElFormItem label="人工备注（可选）" :error="errors.note">
+        <ElFormItem
+          :label="riskNoteRequired ? '人工备注与风险复核依据' : '人工备注（可选）'"
+          :required="riskNoteRequired"
+          :error="errors.note"
+        >
           <ElInput
+            ref="noteInput"
             :model-value="modelValue.note"
             type="textarea"
             :rows="3"
             :maxlength="5000"
             resize="vertical"
+            aria-label="人工备注与风险复核依据"
             @update:model-value="update('note', $event)"
           />
         </ElFormItem>
@@ -114,9 +145,14 @@
   </section>
 </template>
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { computed, ref, watch } from 'vue'
   import type { InputInstance } from 'element-plus'
-  import type { Conversation, HumanReview } from '@/api/mail-agent-contract'
+  import type {
+    ActiveRisk,
+    Conversation,
+    HumanReview,
+    RiskDecision
+  } from '@/api/mail-agent-contract'
   import { validateHuman, type HumanInput } from './mail-inputs'
   const props = defineProps<{
     conversation: Conversation
@@ -127,6 +163,7 @@
     busy: boolean
     stale: boolean
     messageCount: number
+    activeRisks?: ActiveRisk[]
   }>()
   const emit = defineEmits<{
     'update:modelValue': [value: HumanInput]
@@ -138,14 +175,42 @@
   }>()
   const errors = ref<Record<string, string>>({})
   const replyInput = ref<InputInstance>()
-  function update(field: keyof HumanInput, value: string) {
+  const noteInput = ref<InputInstance>()
+  const activeRisks = computed(
+    () => props.activeRisks?.filter((risk) => risk.status === 'active') ?? []
+  )
+  const riskNoteRequired = computed(
+    () =>
+      activeRisks.value.length > 0 &&
+      Boolean(props.modelValue.risk_decision && props.modelValue.risk_decision !== 'keep_active')
+  )
+  const riskLabel = (kind: string) =>
+    ({
+      fire: '烧灼或起火迹象',
+      electric_shock: '触电迹象',
+      injury: '人身伤害迹象',
+      battery_danger: '电池危险迹象',
+      other_safety: '其他安全迹象'
+    })[kind] ?? '待核对的安全迹象'
+  watch(
+    () => [props.conversation.id, props.review?.id],
+    () => {
+      errors.value = {}
+    }
+  )
+  function update(field: 'reply' | 'note', value: string) {
     emit('update:modelValue', { ...props.modelValue, [field]: value })
+  }
+  function updateRiskDecision(value: RiskDecision) {
+    errors.value = {}
+    emit('update:modelValue', { ...props.modelValue, risk_decision: value })
   }
   function submit(completion: boolean) {
     if (props.busy || (completion && props.stale)) return
     errors.value = validateHuman(props.modelValue, completion)
     if (Object.keys(errors.value).length) {
-      replyInput.value?.focus()
+      if (errors.value.reply) replyInput.value?.focus()
+      else if (errors.value.note) noteInput.value?.focus()
       return
     }
     if (completion) emit('complete')

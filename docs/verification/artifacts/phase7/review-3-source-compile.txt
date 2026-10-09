@@ -1,0 +1,5 @@
+Command: .venv/Scripts/python.exe -m compileall -q src
+Working directory: D:/Work_Project/globalmail-agent/globalmail-agent/backend
+Exit code: 0
+Raw stdout/stderr: (empty)
+Scope: source precheck extraction and current Graph/Commit source; paired with review-3-source-tests-snapshot.json

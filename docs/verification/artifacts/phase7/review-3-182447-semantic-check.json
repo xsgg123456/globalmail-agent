@@ -1,0 +1,41 @@
+{
+  "attempt_id": "20261008-182447-c623f2cd",
+  "review": "Read all five full responses, full validation request05 and original full SOP",
+  "reviewer": "independent_reused_code_reviewer_under_user_authorization",
+  "status": "FAIL",
+  "run_status": "budget_exhausted",
+  "error_code": "input_budget_exceeded",
+  "actual_model_http_calls": 5,
+  "usage": {
+    "model_requests": 5,
+    "tool_calls": 3,
+    "input_tokens": 17745,
+    "output_tokens": 1426,
+    "unknown_requests": 0,
+    "reserved_tokens": 19171,
+    "active_ms": 37515,
+    "limits": {
+      "model_requests": 6,
+      "tool_calls": 12,
+      "tokens": 80000,
+      "active_ms": 120000
+    },
+    "cost": null
+  },
+  "tools": [
+    "get_order_snapshot",
+    "search_reference",
+    "create_reply_draft"
+  ],
+  "new_automatic_outbound": 0,
+  "semantic_failure": "Validator treats when inside explicit If so as an unconditional history assertion; independently judged false-positive. No approved hash/automatic outbound.",
+  "files_sha256": {
+    "response-01.json": "41f371b1de96625a0009baa9bc8e4f7bda692c09a1964f7ab4439e39cb5b12ed",
+    "response-02.json": "9ca363caf5ff85e9970cc3afa63006ac8c2807e2365a659086995dcefd8eb8c9",
+    "response-03.json": "2434875fcb10befb65b727943d9ff6800004eaf6a2fe7859e7d660c80a157097",
+    "response-04.json": "6e265b67109bb18216a010d229cb3acb10590d7a10e5f6c8789fe349296fac3a",
+    "response-05.json": "8c3ed62a66823faeb3394c6d7999c5d7529d55f563825b4255b4c527ddf6e0f9"
+  },
+  "request05_sha256": "17c27470bf872886187e983729d62534cbe01cd72b105647caa90266fe0d6a31",
+  "SOP_sha256": "543cd121be53c138969f47d4fe59f621202de5d4a2d108d1298ecb9fb439952c"
+}

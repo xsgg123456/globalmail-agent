@@ -1,0 +1,49 @@
+{
+  "scope": "offline shape comparison only, not product edit/preflight for paid calls/quality proof",
+  "new_HTTP_calls": 0,
+  "business_outbound": 0,
+  "product_code_edited": false,
+  "only_observations_content_JSON_strings_to_exact_parsed_objects": true,
+  "all_other_DATA_schema_system_tools_timeout_unchanged": true,
+  "roundtrips": [
+    {
+      "index": 0,
+      "canonical_roundtrip_to_original_string_exact": true,
+      "full_parsed_value_sha256": "7f131a7e900e223e1b25abe8d7c062ef52ec0e38071cedbbdf2d289c0a396aff",
+      "full_parsed_value_keys": [
+        "command_source_id",
+        "data",
+        "evidence_refs",
+        "observed_at",
+        "reason_code",
+        "resource_versions",
+        "retryable",
+        "simulation",
+        "source_kind",
+        "status"
+      ]
+    },
+    {
+      "index": 1,
+      "canonical_roundtrip_to_original_string_exact": true,
+      "full_parsed_value_sha256": "a85792d7a5528211ac53aab208af4c0e25066de20ffd4c7465e306fa48b5e17b",
+      "full_parsed_value_keys": [
+        "command_source_id",
+        "data",
+        "evidence_refs",
+        "observed_at",
+        "reason_code",
+        "resource_versions",
+        "retryable",
+        "simulation",
+        "source_kind",
+        "status"
+      ]
+    }
+  ],
+  "input_proxies_before_after": [
+    14128,
+    13548
+  ],
+  "limitations": "One counterexample proves lossless shape and proxy size only; no evidence that escaping caused semantic failures or parsing fixes them."
+}

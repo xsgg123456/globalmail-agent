@@ -1,0 +1,100 @@
+agent_dependency_error
+agent_dependency_error
+agent_dependency_error
+agent_dependency_error
+agent_dependency_error
+agent_dependency_error
+agent_dependency_error
+agent_dependency_error
+agent_worker_dependency_unavailable
+knowledge_worker_dependency_unavailable
+======================================================================
+ERROR: test_get_run_restores_understanding_tools_artifacts_usage_without_model_calls (test_agent_outcomes.AgentOutcomeTests.test_get_run_restores_understanding_tools_artifacts_usage_without_model_calls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_outcomes.py", line 170, in test_get_run_restores_understanding_tools_artifacts_usage_without_model_calls
+    self.assertEqual(restored["understanding"]["language"], "en")
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+ERROR: test_handoff_new_mail_is_suppressed_and_human_reply_next_mail_starts_new_run (test_agent_outcomes.AgentOutcomeTests.test_handoff_new_mail_is_suppressed_and_human_reply_next_mail_starts_new_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_outcomes.py", line 79, in test_handoff_new_mail_is_suppressed_and_human_reply_next_mail_starts_new_run
+    self.assertEqual(output["outcome"], "handoff", output)
+                     ~~~~~~^^^^^^^^^^^
+KeyError: 'outcome'
+
+======================================================================
+ERROR: test_historical_next_context_ignores_ai_human_comparison_and_future_messages (test_agent_outcomes.AgentOutcomeTests.test_historical_next_context_ignores_ai_human_comparison_and_future_messages)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_outcomes.py", line 141, in test_historical_next_context_ignores_ai_human_comparison_and_future_messages
+    self.assertEqual(output["outcome"], "historical_comparison", output)
+                     ~~~~~~^^^^^^^^^^^
+KeyError: 'outcome'
+
+======================================================================
+ERROR: test_missing_order_full_graph_sends_one_mail_and_persists_process_records (test_agent_outcomes.AgentOutcomeTests.test_missing_order_full_graph_sends_one_mail_and_persists_process_records)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_outcomes.py", line 24, in test_missing_order_full_graph_sends_one_mail_and_persists_process_records
+    self.assertEqual(output["outcome"], "reply_and_wait", output)
+                     ~~~~~~^^^^^^^^^^^
+KeyError: 'outcome'
+
+======================================================================
+ERROR: test_next_input_reads_prior_simulated_outbound_and_customer_failure (test_agent_outcomes.AgentOutcomeTests.test_next_input_reads_prior_simulated_outbound_and_customer_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_outcomes.py", line 125, in test_next_input_reads_prior_simulated_outbound_and_customer_failure
+    self.assertEqual(output["outcome"], "reply_and_wait", output)
+                     ~~~~~~^^^^^^^^^^^
+KeyError: 'outcome'
+
+======================================================================
+ERROR: test_safety_risk_handoffs_without_decision_request (test_agent_outcomes.AgentOutcomeTests.test_safety_risk_handoffs_without_decision_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_outcomes.py", line 111, in test_safety_risk_handoffs_without_decision_request
+    self.assertEqual(output["outcome"], "handoff", output)
+                     ~~~~~~^^^^^^^^^^^
+KeyError: 'outcome'
+
+======================================================================
+ERROR: test_same_terminal_and_reexecuted_job_read_original_receipt (test_agent_outcomes.AgentOutcomeTests.test_same_terminal_and_reexecuted_job_read_original_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_outcomes.py", line 43, in test_same_terminal_and_reexecuted_job_read_original_receipt
+    first = commit_outcome(self.engine, self.store, context, job, value, proposal)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\commit_outcome.py", line 125, in commit_outcome
+    append_ui_event(conn, conv["id"], "agent.handed_off" if handoff else "run.completed",
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\event_store.py", line 13, in append_ui_event
+    raise ValueError("unsafe_event_payload")
+ValueError: unsafe_event_payload
+
+======================================================================
+FAIL: test_commit_response_loss_and_restart_do_not_recreate_effect (test_agent_outcomes.AgentOutcomeTests.test_commit_response_loss_and_restart_do_not_recreate_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_outcomes.py", line 62, in test_commit_response_loss_and_restart_do_not_recreate_effect
+    self.assertEqual(self.controls.get(rid)["run"]["status"], "completed")
+AssertionError: 'failed' != 'completed'
+- failed
++ completed
+
+
+======================================================================
+FAIL: test_live_and_safe_runtime (test_api.ApiTests.test_live_and_safe_runtime)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_api.py", line 31, in test_live_and_safe_runtime
+    self.assertTrue(result.json()["data"]["model_configured"])
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 182 tests in 338.462s
+
+FAILED (failures=2, errors=7)

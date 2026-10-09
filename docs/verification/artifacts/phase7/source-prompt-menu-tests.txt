@@ -1,0 +1,8 @@
+test_full_context_handoff_fits_when_both_terminal_schemas_do_not (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_handoff_fits_when_both_terminal_schemas_do_not) ... ok
+test_full_context_still_over_handoff_budget_does_not_fake_human_review (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_still_over_handoff_budget_does_not_fake_human_review) ... ok
+test_registered_but_undeclared_tool_is_not_executed_and_paid_usage_is_kept (test_agent_menu_pressure.AgentMenuPressureTests.test_registered_but_undeclared_tool_is_not_executed_and_paid_usage_is_kept) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 6.597s
+
+OK

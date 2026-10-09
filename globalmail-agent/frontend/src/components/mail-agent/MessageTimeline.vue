@@ -46,6 +46,7 @@
   const senderLabels = {
     customer: '客户来信',
     historical_staff: '历史客服',
+    simulated_agent: '模拟 Agent · 本机已发送',
     simulated_human: '模拟人工 · 本机已发送'
   }
   async function scrollToBottom(force = false) {

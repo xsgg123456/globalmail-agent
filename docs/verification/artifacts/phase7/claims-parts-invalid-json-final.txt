@@ -1,0 +1,9 @@
+test_invalid_parts_reject_before_tool_budget_and_empty_mail_never_passes_review (test_agent_reply_parts.ReplyPartsTests.test_invalid_parts_reject_before_tool_budget_and_empty_mail_never_passes_review) ... ok
+test_malicious_parts_still_require_full_semantic_rejection (test_agent_reply_parts.ReplyPartsTests.test_malicious_parts_still_require_full_semantic_rejection) ... ok
+test_ordered_parts_are_reviewed_and_committed_as_exact_complete_body (test_agent_reply_parts.ReplyPartsTests.test_ordered_parts_are_reviewed_and_committed_as_exact_complete_body) ... ok
+test_parts_and_identical_legacy_body_reuse_same_normalized_receipt (test_agent_reply_parts.ReplyPartsTests.test_parts_and_identical_legacy_body_reuse_same_normalized_receipt) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 9.997s
+
+OK

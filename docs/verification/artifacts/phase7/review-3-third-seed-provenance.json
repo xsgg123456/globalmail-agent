@@ -1,0 +1,185 @@
+{
+  "status": "PASS",
+  "attempt_id": "20261008-192935-d54a6bcd",
+  "scope": "Accepted original actual third HITL only as exact audited history; no new HTTP or new understanding/decision quality claim",
+  "source16_SHA_match_prior_independent_accepted_SHA": true,
+  "response_all_fields_equal_plain_content_unmodified": true,
+  "all_four_full_user_context_understanding_and_live_read_DATA_equal": true,
+  "all_initial_current_revisions_and_summary_gaps_reason_note_draft_artifact_fields_equal": true,
+  "identity_mapping": {
+    "dd031321-c6da-42b6-8620-a7431ef66a64": "3e61d3cb-aa7c-4e35-b798-0a12854b160a",
+    "974f20ae-45d3-4e77-a6e4-4fe9a367e150": "6c43939f-71cd-42f9-be7c-ea8580f24a7a",
+    "0646b5a9-8b28-45c4-9639-ac36111a9266": "f7cf411f-bb06-47ef-ab34-33d99bb5d426",
+    "42a540e3-7030-4d10-84c5-a4e3a166fcbe": "bc547187-b1db-4a9a-af10-a46123406ec1",
+    "6e241342-329c-4e7c-a27d-e59bfac989bb": "77c8d5d6-18fc-4096-ac18-96799bf85e61",
+    "command:e68e982c-b4ee-5cf0-a9f1-eb1c60ad9e4c": "command:8c7cb35f-f263-56a6-98e5-d6f759d460ba",
+    "d61a8cc8-6b9a-45f9-aea2-736a5b8c445b": "baec365d-8440-4e92-9352-e1cef4a13fd5",
+    "branch:33012885-f3c5-4003-afe9-338ca3e7d866": "branch:0e58c054-1fd3-41ae-a7d8-854f598ce643",
+    "command:f3af5f67-68e8-54c9-ab58-4611fd9ce1ce": "command:a4c7159f-7db1-5058-a191-84fa90a5349b",
+    "6c9fe180-daa6-53ec-b06b-dbc19a3baa9b": "d8087a4e-7c30-5004-b415-423828a449f7"
+  },
+  "read_data_metadata_changes": [
+    {
+      "path": "context.messages[0].message_id",
+      "kind": "scoped_uuid",
+      "old": "dd031321-c6da-42b6-8620-a7431ef66a64",
+      "current": "3e61d3cb-aa7c-4e35-b798-0a12854b160a"
+    },
+    {
+      "path": "context.messages[1].message_id",
+      "kind": "scoped_uuid",
+      "old": "974f20ae-45d3-4e77-a6e4-4fe9a367e150",
+      "current": "6c43939f-71cd-42f9-be7c-ea8580f24a7a"
+    },
+    {
+      "path": "context.messages[2].message_id",
+      "kind": "scoped_uuid",
+      "old": "0646b5a9-8b28-45c4-9639-ac36111a9266",
+      "current": "f7cf411f-bb06-47ef-ab34-33d99bb5d426"
+    },
+    {
+      "path": "context.messages[3].message_id",
+      "kind": "scoped_uuid",
+      "old": "42a540e3-7030-4d10-84c5-a4e3a166fcbe",
+      "current": "bc547187-b1db-4a9a-af10-a46123406ec1"
+    },
+    {
+      "path": "context.messages[4].message_id",
+      "kind": "scoped_uuid",
+      "old": "6e241342-329c-4e7c-a27d-e59bfac989bb",
+      "current": "77c8d5d6-18fc-4096-ac18-96799bf85e61"
+    },
+    {
+      "path": "observations[0].command_source_id",
+      "kind": "command_uuid",
+      "old": "command:e68e982c-b4ee-5cf0-a9f1-eb1c60ad9e4c",
+      "current": "command:8c7cb35f-f263-56a6-98e5-d6f759d460ba"
+    },
+    {
+      "path": "observations[0].data.orders[0].customer_id",
+      "kind": "scoped_uuid",
+      "old": "d61a8cc8-6b9a-45f9-aea2-736a5b8c445b",
+      "current": "baec365d-8440-4e92-9352-e1cef4a13fd5"
+    },
+    {
+      "path": "observations[0].evidence_refs[0].evidence_id",
+      "kind": "branch_uuid",
+      "old": "branch:33012885-f3c5-4003-afe9-338ca3e7d866",
+      "current": "branch:0e58c054-1fd3-41ae-a7d8-854f598ce643"
+    },
+    {
+      "path": "observations[0].observed_at",
+      "kind": "current_actual_observation_timestamp",
+      "old": "2026-10-08T11:11:51.582795+00:00",
+      "current": "2026-10-08T11:29:46.004373+00:00"
+    },
+    {
+      "path": "observations[0].resource_versions.business_digest",
+      "kind": "derived_digest_of_current_scoped_ledger",
+      "old": "f20c90a221c4a5fb9d3be93884bb7535949173517a68dcebd978e75cccdbac8f",
+      "current": "e6ca81f4b96a360a0f19aea8175e7bb607133a343d0471979452e7ae6840b425"
+    },
+    {
+      "path": "observations[1].command_source_id",
+      "kind": "command_uuid",
+      "old": "command:f3af5f67-68e8-54c9-ab58-4611fd9ce1ce",
+      "current": "command:a4c7159f-7db1-5058-a191-84fa90a5349b"
+    },
+    {
+      "path": "observations[1].data.evidence[0].evidence_id",
+      "kind": "scoped_uuid",
+      "old": "6c9fe180-daa6-53ec-b06b-dbc19a3baa9b",
+      "current": "d8087a4e-7c30-5004-b415-423828a449f7"
+    },
+    {
+      "path": "observations[1].observed_at",
+      "kind": "current_actual_observation_timestamp",
+      "old": "2026-10-08T11:12:00.224198+00:00",
+      "current": "2026-10-08T11:29:48.935898+00:00"
+    },
+    {
+      "path": "observations[1].resource_versions.business_digest",
+      "kind": "derived_digest_of_current_scoped_ledger",
+      "old": "f20c90a221c4a5fb9d3be93884bb7535949173517a68dcebd978e75cccdbac8f",
+      "current": "e6ca81f4b96a360a0f19aea8175e7bb607133a343d0471979452e7ae6840b425"
+    }
+  ],
+  "persisted_terminal_observed_timestamp_is_separate_engineering_metadata": true,
+  "current_prompts_used_for_current_graph": true,
+  "full_SOP_sha256": "2f0d709e185997720ceb5a38823d8286e3bd8defbf0a0f5f2547a927c635f59a",
+  "usage": {
+    "model_requests": 4,
+    "tool_calls": 3,
+    "input_tokens": 14911,
+    "output_tokens": 1691,
+    "unknown_requests": 0,
+    "reserved_tokens": 16602,
+    "active_ms": 45499,
+    "limits": {
+      "model_requests": 6,
+      "tool_calls": 12,
+      "tokens": 80000,
+      "active_ms": 120000
+    },
+    "cost": null
+  },
+  "original_active_ms_base": 41797,
+  "new_chat_HTTP": 0,
+  "new_outbound": 0,
+  "future_human_or_failed_fourth_inputs_used": false,
+  "source_snapshot": {
+    "globalmail-agent/agent-eval/audit_draft_prefix.py": "14f7068e5cfd047f068a77f59a5aff5b24b1b65ccbc8ee44eb63f753f28207db",
+    "globalmail-agent/agent-eval/bootstrap.py": "ce914d26ec0aa7edf39e3680d7c129e7c5b1c6bc810292f0d274a8ed3e9ae4b9",
+    "globalmail-agent/agent-eval/draft_prefix.py": "f2f721fd7bed53ad1fdefd17031b6a6d2a985dc75f967ef4e923e645292ae488",
+    "globalmail-agent/agent-eval/eval_options.py": "ef367b270de8c060838e36415a889ae31ad3f5821a8a5592f95514b0a7323153",
+    "globalmail-agent/agent-eval/history_seed.py": "968f2055528aaa8126c34efd9118ad88802df80f92d931e91c0ee121cce40195",
+    "globalmail-agent/agent-eval/prefix_replay.py": "893f551d17d38702e3d535034d9ba52865959876d85b77daf5ebd6b94ddf91f4",
+    "globalmail-agent/agent-eval/recording.py": "55d4777a3532b14498005bcbca5a177e5135f4a12f9a6ec100f8f3c73738e66b",
+    "globalmail-agent/agent-eval/replay_engineering.py": "f1fe67a02c462ec6ead2540b350708b7ee51be54e6f85f46599faec7e6e310e6",
+    "globalmail-agent/agent-eval/run_eval.py": "67c0994807c52ccc3baa4a9473afaa0f5806a6d27387cc35ce67291a02985a6e",
+    "globalmail-agent/agent-eval/second_history_seed.py": "5102c244b5c7e7a1969267fd015c5888173431054b2c4db45d52c71771d3fe02",
+    "globalmail-agent/agent-eval/semantic_review.py": "e1eacff4fda9bd626e763f3473f1edf93384b2e71937ffdc3d51e6180d931b56",
+    "globalmail-agent/agent-eval/test_draft_prefix.py": "27c12ec7ee5fcc862682aa1f6500ca64057cf1cf6075f4b2e7264b3808f8b148",
+    "globalmail-agent/agent-eval/test_prefix.py": "3846a42d99125535486adf919722080488dff7323477dc84ffdfd351f667cda2",
+    "globalmail-agent/agent-eval/test_recording.py": "d7763893bab450ecc6a8610c6e7d880914761c688ac89d6afbdbbe5bf7b1e602",
+    "globalmail-agent/agent-eval/test_semantic_review.py": "b8ba99a756abce33cbff7b0d4450dd46e79a2caeeeb762b8e2a256637f9900c0",
+    "globalmail-agent/agent-eval/third_history_seed.py": "6c221eb531f5dc62d6ab734d00a573dde034f4ef82d75b9d389e275f7af5c2d9",
+    "globalmail-agent/agent-eval/validate_frozen.py": "3ccf10f7ea7cf586212d6a595831c02b5a17092ac9b65cd6aae9f905571472ce",
+    "globalmail-agent/backend/src/globalmail_agent/agent/budget.py": "4bfd60ad18980088a84dc527294b0f82a77f296642901d961aee466086b1a5da",
+    "globalmail-agent/backend/src/globalmail_agent/agent/context.py": "43138f8ff10116b5208abeb1566a12cb783ff8bd4fd82bdf853d46791feee599",
+    "globalmail-agent/backend/src/globalmail_agent/agent/graph.py": "65580d84ba35f533df4a9f7dc902a8e06c5f1077a0c0828c95a4eab24b16eab5",
+    "globalmail-agent/backend/src/globalmail_agent/agent/guard.py": "58c9f92df8457f34756eec0e885f5f1ebef85ebe36dcea24d40cca6c68548792",
+    "globalmail-agent/backend/src/globalmail_agent/agent/memory.py": "c5ddc35e821619bae13d92225aefe0e4feadd7bcc51bd004463d9a27b9004019",
+    "globalmail-agent/backend/src/globalmail_agent/agent/outcome_validation.py": "b45137f52fa8f816e11d136380acb82ab42f8c21046b2dc135127696d846f2a8",
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_gateway.py": "5348f6f9d985725e02324a653d4e239f0f9a3c8c13caf4aff3966cdca43498c4",
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_schemas.py": "0146d3d41dce5569ccbb5c23f899e47667e121cd9c52b5a303f50c9d6fcb66fb",
+    "globalmail-agent/backend/src/globalmail_agent/agent/transcript.py": "bcbda1345d0b695afce4a890ed3904d6e674f0d93fa806a6165f0e206326204d",
+    "globalmail-agent/backend/src/globalmail_agent/agent/understanding.py": "1876597759107179dbb60fca0f7535c7c92ec13f0554f9685cd04dc99c047c83",
+    "globalmail-agent/backend/src/globalmail_agent/agent/__init__.py": "dea9db5c5acd58495e35db562a61e82cf2dc9dd7bd23a6cda8975f7073c17227",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/decision.md": "96d3a3831de865371bf96ea31ea1a4556471ad32aaf0e8511880cceaa1ae8e21",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/grounding.md": "bc1dcd68b238c8284584388bdb424f20c8889ff986be5ec102398f7fac3ea2e8",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/understanding.md": "2e0712942e20db3b694ddea3686877eeb58f3d7733131871aa707b4ddc64ba63",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation-grounding.md": "fee7f49bd7f991f200bf7303eedacd27ad9404a0ba1edaecd183fd403ae47b65",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation.md": "3e142152096368147c798244af6f4b1e5306c3084cac8c33827514c6a863ea9b",
+    "globalmail-agent/backend/src/globalmail_agent/worker/agent_runner.py": "76262bef8955f3b30e03dc628e7105d6a2f596a03ec17c6b97bb424472d63407",
+    "globalmail-agent/backend/src/globalmail_agent/adapters/model_provider.py": "a8379e303aa3578c733fe78b4b6059f8476ef25925a00a73603715451c74a4bb",
+    "globalmail-agent/backend/src/globalmail_agent/adapters/checkpoint_repository.py": "7abe629d1ed9c3ac827e2a1f188cab3b8ad601b99b2496397ff3da97ec065b9c",
+    "globalmail-agent/backend/src/globalmail_agent/application/commit_outcome.py": "34e5e9a2ec17e7e5214469309ff1de6d0b19aaab63711cb881be36945bafe94a",
+    "globalmail-agent/backend/src/globalmail_agent/application/event_store.py": "c9553c0eb55e9572b0135dea58bec8eebba3326503f2ebbc31bbcc2101f0b7d0",
+    "globalmail-agent/backend/src/globalmail_agent/observability/local_records.py": "c9ab9a937f82e787335bec0eded7ffcb8d118952d01ca076f194523bd838e542"
+  },
+  "raw_sha256": {
+    "tmp/phase7-agent-eval/20261008-192935-d54a6bcd/manifest-before-paid-calls.json": "eafb1353c4b3211b379e191c04ba92273880a89f9f7db7bb57fbdfbc7b0c0ccc",
+    "tmp/phase7-agent-eval/20261008-192935-d54a6bcd/history-third-seed-record.json": "b418f8faf6611127407870da55ea9d1c84b8d2302f541a0b08dcbf3b7c09e682",
+    "tmp/phase7-agent-eval/20261008-192935-d54a6bcd/third-seed-persisted-domain-audit.json": "2b1eb48fe6511cf00f6fbdcae68e67369754db38d624d1eb587274c816ea7cd6",
+    "tmp/phase7-agent-eval/20261008-192935-d54a6bcd/result.json": "7e455c74ee4586214054783c90ffb32087e1432a4fbcb41efa62aef63f8799e7",
+    "tmp/phase7-agent-eval/20261008-192935-d54a6bcd/third-seed/request-01.json": "7abb0cd3ee26afbb4ac551ca0e8508cceca6812e97899de5af7b04ad5d1320ae",
+    "tmp/phase7-agent-eval/20261008-192935-d54a6bcd/third-seed/response-01.json": "110e5fb017408d6198fdb3a40a458d566af2c4cd19134b9f7046499dd8dd1558",
+    "tmp/phase7-agent-eval/20261008-192935-d54a6bcd/third-seed/request-02.json": "61bbbbdcb9b071318227df1185a09b320a04a6a0cad556d8b635b712e4c57c23",
+    "tmp/phase7-agent-eval/20261008-192935-d54a6bcd/third-seed/response-02.json": "8ff5ce6ba1e718214f99ee05a6da65592b5be5d772845cd2657442dcf2ea7b55",
+    "tmp/phase7-agent-eval/20261008-192935-d54a6bcd/third-seed/request-03.json": "704b5d093be43281fa84c4ae56df5ccdc1dd1bb6d6ae5c2b579fb866384b8358",
+    "tmp/phase7-agent-eval/20261008-192935-d54a6bcd/third-seed/response-03.json": "cfda42394e52a0c531c6cfce39ffd1be0b05ee4b2bc197549e8b60c1fe752eb9",
+    "tmp/phase7-agent-eval/20261008-192935-d54a6bcd/third-seed/request-04.json": "2894dff8f2328b025414585d616b69783e6e2208cc1ff18e342f3d94cdb3552e",
+    "tmp/phase7-agent-eval/20261008-192935-d54a6bcd/third-seed/response-04.json": "3bf47a2845a52c5df5ff81845628a2bd4b6f5d3947a11218956420efaed624f3"
+  }
+}

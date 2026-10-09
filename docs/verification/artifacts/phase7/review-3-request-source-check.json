@@ -1,0 +1,27 @@
+{
+  "zero_HTTP": true,
+  "scope": "source/protocol only, semantic H12/H13 remains open",
+  "understanding_schema_only_description_changes": true,
+  "prepared_head_and_tail_exact_runtime_source_match": true,
+  "input_proxies": [
+    13445,
+    13688
+  ],
+  "schema_data_limits_and_permissions_not_changed": true,
+  "runtime_tail_text_utf8_sha256": "c01aa20472ad5f0255779043f93d1128b063eef8d24072f2061616b518542891",
+  "runtime_tail_text_hash_definition": "actual prompt() LF text UTF-8, not CRLF raw source file bytes",
+  "raw_source_file_sha256": {
+    "globalmail-agent/backend/src/globalmail_agent/agent/understanding.py": "5fa492cc66ce981a0838e44d56b3ee22db1a130915a255189134319cbb81192b",
+    "globalmail-agent/backend/src/globalmail_agent/agent/graph.py": "48c7ec80f9766b730ea712729d40beb2251dd918c5b634facebb80f3b0275109",
+    "globalmail-agent/backend/src/globalmail_agent/agent/budget.py": "4bfd60ad18980088a84dc527294b0f82a77f296642901d961aee466086b1a5da",
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_gateway.py": "8c026035c21a85dc95ecf21a97fe7ad6d5c6590a7d8b6f82cdb14ce824abc891",
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_schemas.py": "7bea3e95620711253f5c5b5128f8c000036955255cb375c50ba4f2df4606bab8",
+    "globalmail-agent/backend/src/globalmail_agent/application/draft_validation.py": "1e762f9618aaf892dbf75ac749df037caae40705cd11e471e16e42605fc5a99b",
+    "globalmail-agent/backend/src/globalmail_agent/application/commit_outcome.py": "2aa0617408f0a0851642e13b7526171483c15d8fe0dba8a7488e7262b8b0ad92",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/decision.md": "7d90922330e901c5d8b28c3276776e685bf768ea4c5a995b273e80cb390bedf0",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/grounding.md": "08424baa298b91d0214f0aca7ed71651004f9a24f97d4bd40a40840c0211284a",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/understanding.md": "527f0dd5996ccb6880740b44e61f5c52a5c2c08282d8d8532021b770cd53a9f9",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation-grounding.md": "b7aa842474ccbe3cdc1a63afe684ce41a6e9d7f2fe937aeec646fce41928b814",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation.md": "3e142152096368147c798244af6f4b1e5306c3084cac8c33827514c6a863ea9b"
+  }
+}

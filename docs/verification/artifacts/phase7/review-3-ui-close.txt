@@ -1,0 +1,7 @@
+命令：npx @playwright/cli -s=phase7-review close
+范围：本审查者自有 Playwright CLI 会话 phase7-review。
+原始输出：
+Browser 'phase7-review' closed
+
+exit_code=0
+只执行上述指定会话的 close。未执行 root CLI 会话关闭、服务停止或数据库清理；已保存截图和审查证据保留。先前调用等待期间尚无输出，最终读取完成结果时已成功关闭，无需另发 --offline close。

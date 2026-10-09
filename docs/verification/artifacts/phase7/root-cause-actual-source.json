@@ -1,0 +1,9 @@
+{
+  "scope": "actual_product_source_matches_planned_control_tail",
+  "checks": {
+    "unsupported_cause_original": true,
+    "question_without_cause_synthetic": true
+  },
+  "actual_tail_sha256": "f5f3a10d908747a2e65b4d5f884907e29276a776e43877c41220463fe5b28da6",
+  "new_http": 0
+}

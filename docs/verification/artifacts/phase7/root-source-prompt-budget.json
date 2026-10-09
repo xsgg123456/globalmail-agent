@@ -1,0 +1,15 @@
+{
+  "scope": "offline_current_system_only_exact_original_blocked_request_zero_http",
+  "before_proxy": 16157,
+  "after_proxy": 15809,
+  "original_sha256": "d6b8c920e9d114e8a4ee70c75c42bf913fb412a7cf6dbb83b6ad5e7dc8d5b6ed",
+  "decision_sha256": "d348f2ce8f31b7da867ae46c2893e57dc5c78f564dca10a7a895de9acedecffd",
+  "grounding_sha256": "1c724f2861f8393cde6baa0e1a7a835ac5260e40da03bd78eea5b5a1815320a7",
+  "checks": {
+    "all_non_system_messages_exact": true,
+    "other_request_fields_exact": true,
+    "only_human_declared": true,
+    "new_proxy_fits": true
+  },
+  "all_pass": true
+}

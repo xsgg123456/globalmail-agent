@@ -36,6 +36,8 @@ def read_model(conn, conversation_id, workspace=DEFAULT_WORKSPACE_ID):
         "orders": [], "lines": [], "shipments": [], "operations": [], "executions": [], "returns": [],
         "policy": None, "policy_metadata": None, "inventory": [], "compatibility": [], "products": {},
         "parts": [], "state": {}, "seen": list(seen), "unavailable": False, "future": False}
+    from globalmail_agent.application.business_digest import business_digest
+    model["business_digest"] = business_digest(conn, conversation)
     if not branch:
         model["unavailable"] = historical
         return model

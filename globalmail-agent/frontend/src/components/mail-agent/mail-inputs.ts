@@ -1,3 +1,5 @@
+import type { RiskDecision } from '@/api/mail-agent-contract'
+
 export interface IncomingInput {
   subject: string
   body: string
@@ -5,6 +7,7 @@ export interface IncomingInput {
 export interface HumanInput {
   reply: string
   note: string
+  risk_decision?: RiskDecision
 }
 export interface NewConversationInput extends IncomingInput {
   sender_email: string
@@ -32,6 +35,13 @@ export function validateHuman(input: HumanInput, completion: boolean): Record<st
   if (completion && !input.reply.trim()) errors.reply = '完成回复前请填写正文'
   if (input.reply.length > 20000) errors.reply = '人工回复最多 20,000 字符'
   if (input.note.length > 5000) errors.note = '备注最多 5,000 字符'
+  else if (
+    completion &&
+    input.risk_decision &&
+    input.risk_decision !== 'keep_active' &&
+    !input.note.trim()
+  )
+    errors.note = '请填写风险已处理或误判的复核依据'
   return errors
 }
 

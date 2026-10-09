@@ -1,0 +1,2 @@
+Command: uv run python -m compileall -q src
+Exit code: 0

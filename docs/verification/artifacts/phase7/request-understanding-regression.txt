@@ -1,0 +1,8 @@
+test_conditional_refund_keeps_two_intents_and_writes_no_after_sales_rows (test_agent_tools.AgentToolTests.test_conditional_refund_keeps_two_intents_and_writes_no_after_sales_rows) ... ok
+test_understanding_quotes_order_candidates_and_human_decisions_need_real_sources (test_agent_tools.AgentToolTests.test_understanding_quotes_order_candidates_and_human_decisions_need_real_sources) ... ok
+test_reused_order_source_repair_points_to_visible_history_without_reasking_customer (test_agent_tools.AgentToolTests.test_reused_order_source_repair_points_to_visible_history_without_reasking_customer) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 7.111s
+
+OK

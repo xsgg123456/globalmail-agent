@@ -9,11 +9,13 @@ from globalmail_agent.api.envelope import response
 from globalmail_agent.domain.conversation import Command
 from globalmail_agent.application.conversation_lock import ServiceError
 from globalmail_agent.worker.jobs import JobService
+from globalmail_agent.application.run_records import RunRecords
 
 
-def runs_router(database):
+def runs_router(database, store):
     router = APIRouter(prefix="/api/v1/runs")
     service = JobService(database)
+    records = RunRecords(database, store)
 
     def handle(request, function, *, status=200):
         try:
@@ -25,7 +27,11 @@ def runs_router(database):
 
     @router.get("/{run_id}")
     def get(run_id: UUID, request: Request):
-        return handle(request, lambda: service.get(run_id))
+        return handle(request, lambda: records.get(run_id))
+
+    @router.get("/{run_id}/references/{reference_id}")
+    def reference(run_id: UUID, reference_id: UUID, request: Request):
+        return handle(request, lambda: records.reference(run_id, reference_id))
 
     @router.post("/{run_id}/stop")
     def stop(run_id: UUID, command: Command, request: Request,

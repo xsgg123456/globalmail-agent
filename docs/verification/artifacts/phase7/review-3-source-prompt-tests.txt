@@ -1,0 +1,13 @@
+Independent latest compressed grounding: real PG menu/source-repair/final-hash tests, random schema cleanup. Zero paid HTTP; no public DML or credential output.
+test_full_context_handoff_fits_when_both_terminal_schemas_do_not (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_handoff_fits_when_both_terminal_schemas_do_not) ... ok
+test_full_context_still_over_handoff_budget_does_not_fake_human_review (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_still_over_handoff_budget_does_not_fake_human_review) ... ok
+test_registered_but_undeclared_tool_is_not_executed_and_paid_usage_is_kept (test_agent_menu_pressure.AgentMenuPressureTests.test_registered_but_undeclared_tool_is_not_executed_and_paid_usage_is_kept) ... ok
+test_missing_fact_source_repairs_before_paid_review_and_sends_only_valid_draft (test_agent_validation.AgentValidationTests.test_missing_fact_source_repairs_before_paid_review_and_sends_only_valid_draft) ... ok
+test_repeated_missing_fact_sources_never_call_semantic_review_or_commit (test_agent_validation.AgentValidationTests.test_repeated_missing_fact_sources_never_call_semantic_review_or_commit) ... ok
+test_validated_hash_does_not_authorize_modified_or_unreviewed_body (test_agent_validation.AgentValidationTests.test_validated_hash_does_not_authorize_modified_or_unreviewed_body) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 12.354s
+
+OK
+SOURCE_CHANGED: False

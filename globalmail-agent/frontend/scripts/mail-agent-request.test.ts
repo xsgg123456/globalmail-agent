@@ -101,3 +101,22 @@ test('受控文件输入读取JSON，拒绝错误扩展、非法JSON和超限文
     /5 MiB/
   )
 })
+
+test('风险明确处理或更正需非空依据；普通完成和保存草稿不推断风险决定', () => {
+  for (const risk_decision of ['resolved_by_human', 'corrected_by_human'] as const) {
+    assert.match(
+      validateHuman({ reply: '人工回复', note: ' \n ', risk_decision }, true).note,
+      /复核依据/
+    )
+    assert.deepEqual(
+      validateHuman({ reply: '人工回复', note: '已核对证据', risk_decision }, true),
+      {}
+    )
+    assert.deepEqual(validateHuman({ reply: '', note: '', risk_decision }, false), {})
+  }
+  assert.deepEqual(validateHuman({ reply: '风险已解决', note: '' }, true), {})
+  assert.deepEqual(
+    validateHuman({ reply: '人工回复', note: '', risk_decision: 'keep_active' }, true),
+    {}
+  )
+})

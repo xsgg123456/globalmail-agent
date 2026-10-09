@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "scope": "zero_HTTP_fulltext_schema_preflight_not_business_quality",
+  "trusted_file_sha256_count": 34,
+  "source_stable": true,
+  "new_model_http_calls": 0,
+  "original_bad_understanding_preserved": true,
+  "positive_exactly_four_original_operations": true,
+  "known_development_contrasts_not_holdout": true,
+  "hypothesis_not_proven_root_cause": true,
+  "manifest_file_sha256": "c728c9b57215e5a8fd42cae92535cbfda9b570506dd84ef24bac4f70aed9593f",
+  "targets": [
+    {
+      "test": "unsupported_product_and_missing_conditional_original",
+      "expected": false,
+      "prepared_file_sha256": "c07c1328a501db306107af9c05c965e8846e68b89e1f9872b4d991d035c05d80",
+      "property_order": [
+        "reason",
+        "unsupported_claims",
+        "supported",
+        "language_correct"
+      ],
+      "required_order": [
+        "reason",
+        "unsupported_claims",
+        "supported",
+        "language_correct"
+      ],
+      "all_non_schema_fields_unchanged": true,
+      "current_source_schema_exact_and_order_equal": true,
+      "strict_contract_preserved": true,
+      "full_messages_unchanged": true,
+      "input_proxy": 14128
+    },
+    {
+      "test": "generic_parcel_and_customer_preference_synthetic",
+      "expected": true,
+      "prepared_file_sha256": "c1d671a364120074c0d26d1a3ec705036d6e69c1cdee5bba81b60a7c928cb372",
+      "property_order": [
+        "reason",
+        "unsupported_claims",
+        "supported",
+        "language_correct"
+      ],
+      "required_order": [
+        "reason",
+        "unsupported_claims",
+        "supported",
+        "language_correct"
+      ],
+      "all_non_schema_fields_unchanged": true,
+      "current_source_schema_exact_and_order_equal": true,
+      "strict_contract_preserved": true,
+      "full_messages_unchanged": true,
+      "input_proxy": 14371
+    }
+  ]
+}

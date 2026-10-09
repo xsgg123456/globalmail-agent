@@ -1,0 +1,14 @@
+test_schema_pressure_keeps_scoped_reads_before_last_two_requests (test_agent_tools.AgentToolTests.test_schema_pressure_keeps_scoped_reads_before_last_two_requests) ... FAIL
+
+======================================================================
+FAIL: test_schema_pressure_keeps_scoped_reads_before_last_two_requests (test_agent_tools.AgentToolTests.test_schema_pressure_keeps_scoped_reads_before_last_two_requests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_tools.py", line 199, in test_schema_pressure_keeps_scoped_reads_before_last_two_requests
+    self.assertEqual(output.get("outcome"), "handoff", (output, len(model.requests)))
+AssertionError: None != 'handoff' : ({'error_code': 'input_budget_exceeded'}, 2)
+
+----------------------------------------------------------------------
+Ran 1 test in 3.452s
+
+FAILED (failures=1)

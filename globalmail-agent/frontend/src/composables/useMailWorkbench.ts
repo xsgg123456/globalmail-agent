@@ -2,6 +2,7 @@ import { computed, reactive, ref } from 'vue'
 import { mailApi, type MailApi } from '@/api/mail-agent'
 import type { ConversationDetail, Conversation, ActionResult } from '@/api/mail-agent-contract'
 import { MailApiError, PendingCommands } from '@/api/mail-agent-request'
+import { validateHuman } from '@/components/mail-agent/mail-inputs'
 import type { HumanInput, IncomingInput } from '@/components/mail-agent/mail-inputs'
 
 export function useMailWorkbench(api: MailApi = mailApi) {
@@ -25,10 +26,13 @@ export function useMailWorkbench(api: MailApi = mailApi) {
   const humanInputs = reactive<Record<string, HumanInput>>({})
   const humanRevisions = reactive<Record<string, number>>({})
   const reviewIds = reactive<Record<string, string>>({})
+  const riskContexts: Record<string, string> = {}
   const incomingInput = computed(
     () => incomingInputs[selectedId.value] ?? { subject: '', body: '' }
   )
-  const humanInput = computed(() => humanInputs[selectedId.value] ?? { reply: '', note: '' })
+  const humanInput = computed(
+    () => humanInputs[selectedId.value] ?? { reply: '', note: '', risk_decision: 'keep_active' }
+  )
   const humanStale = computed(() =>
     Boolean(
       detail.value?.review &&
@@ -68,8 +72,26 @@ export function useMailWorkbench(api: MailApi = mailApi) {
       if (id !== selectedId.value || generation !== detailGeneration) return
       detail.value = result
       if (!humanInputs[id])
-        humanInputs[id] = { reply: result.review?.draft ?? '', note: result.review?.note ?? '' }
+        humanInputs[id] = {
+          reply: result.review?.draft ?? '',
+          note: result.review?.note ?? '',
+          risk_decision: 'keep_active'
+        }
+      const riskContext = JSON.stringify([
+        result.review?.id,
+        result.conversation.input_revision,
+        result.active_risks
+          ?.filter((risk) => risk.status === 'active')
+          .map((risk) => risk.id)
+          .sort()
+      ])
+      if (riskContexts[id] !== riskContext) humanInputs[id].risk_decision = 'keep_active'
+      riskContexts[id] = riskContext
       if (result.review && reviewIds[id] !== result.review.id) {
+        if (!humanInputs[id].reply.trim() && !humanInputs[id].note.trim()) {
+          humanInputs[id].reply = result.review.draft
+          humanInputs[id].note = result.review.note
+        }
         reviewIds[id] = result.review.id
         humanRevisions[id] = result.review.input_revision
       }
@@ -82,6 +104,8 @@ export function useMailWorkbench(api: MailApi = mailApi) {
     }
   }
   async function select(id: string) {
+    if (humanInputs[selectedId.value]) humanInputs[selectedId.value].risk_decision = 'keep_active'
+    if (humanInputs[id]) humanInputs[id].risk_decision = 'keep_active'
     selectedId.value = id
     detail.value = null
     actionError.value = ''
@@ -176,24 +200,37 @@ export function useMailWorkbench(api: MailApi = mailApi) {
   async function completeHuman() {
     const id = selectedId.value
     const input = humanInput.value
+    const errors = validateHuman(input, true)
+    if (Object.keys(errors).length) {
+      actionError.value = Object.values(errors)[0]
+      return
+    }
     const historical = detail.value?.conversation.mode === 'historical_replay'
     const success = await command(
       `/conversations/${id}/human-replies`,
-      { body: input.reply, note: input.note, expected_input_revision: humanRevisions[id] },
+      {
+        body: input.reply,
+        note: input.note,
+        risk_decision: input.risk_decision ?? 'keep_active',
+        expected_input_revision: humanRevisions[id]
+      },
       historical
         ? '本轮审阅已独立保存，没有加入真实历史邮件。'
         : '人工回复已在本机模拟发送，等待客户新来信。'
     )
     if (success) {
-      humanInputs[id] = { reply: '', note: '' }
+      humanInputs[id] = { reply: '', note: '', risk_decision: 'keep_active' }
       scrollSignal.value += 1
     }
   }
   const saveHuman = () =>
     command(
       `/human-reviews/${detail.value?.review?.id}`,
-      { draft: humanInput.value.reply, note: humanInput.value.note,
-        expected_input_revision: humanRevisions[selectedId.value] },
+      {
+        draft: humanInput.value.reply,
+        note: humanInput.value.note,
+        expected_input_revision: humanRevisions[selectedId.value]
+      },
       '人工草稿已保存，仍保持接管。',
       true,
       'PATCH'

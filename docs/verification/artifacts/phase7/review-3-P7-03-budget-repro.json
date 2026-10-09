@@ -1,0 +1,37 @@
+{
+  "original_real_attempt": "20261008-184615-a6194636",
+  "case": "P7-03-attempts-failed",
+  "paid_calls": 0,
+  "method": "Independently reconstruct from actual request03/response03/real normalized gateway receipt, then capture direct current AgentGraph.decide",
+  "all_messages_equal_worker_reconstruction": true,
+  "estimates": {
+    "full": 20424,
+    "lean": 17960,
+    "terminal": 16547,
+    "human_only": 15372
+  },
+  "actual_current_menu": [
+    "request_human_review"
+  ],
+  "actual_current_input_estimate": 15372,
+  "graph_sha256": "64bf85396863de3f38f170bb7c7db9565c71150ae27236216297ee6b6832ffc1",
+  "remaining_requests": 3,
+  "current_real_usage": {
+    "model_requests": 3,
+    "tool_calls": 2,
+    "input_tokens": 10115,
+    "output_tokens": 1225,
+    "unknown_requests": 0,
+    "reserved_tokens": 11340,
+    "active_ms": 31359,
+    "limits": {
+      "model_requests": 6,
+      "tool_calls": 12,
+      "tokens": 80000,
+      "active_ms": 120000
+    },
+    "cost": null
+  },
+  "original_result": "FAIL no terminal and no new outbound",
+  "understanding_layer": "Exact historical order source and all five attempt/refusal facts retained; product_inquiry category imprecise but not immutable routing/transaction authority"
+}

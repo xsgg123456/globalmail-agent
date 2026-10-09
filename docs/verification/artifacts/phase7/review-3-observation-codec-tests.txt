@@ -1,0 +1,8 @@
+test_complete_current_source_id_and_canonical_body_stay_identical (test_review_observations.ObservationPresentationTests.test_complete_current_source_id_and_canonical_body_stay_identical) ... ok
+test_noncanonical_or_malformed_input_is_not_silently_repaired (test_review_observations.ObservationPresentationTests.test_noncanonical_or_malformed_input_is_not_silently_repaired) ... ok
+test_roundtrip_preserves_every_value_and_original_raw_content (test_review_observations.ObservationPresentationTests.test_roundtrip_preserves_every_value_and_original_raw_content) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

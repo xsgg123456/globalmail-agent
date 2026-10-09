@@ -3,8 +3,8 @@ export const modeLabel = (mode: ConversationMode) =>
   mode === 'historical_replay' ? '历史回放' : '交互模拟'
 export const runLabels: Record<RunStatus, string> = {
   queued: '排队中',
-  running: '任务协议运行中',
-  completed: '任务协议完成',
+  running: 'Agent 处理中',
+  completed: '本轮完成',
   handed_off: '已转人工',
   failed: '失败',
   budget_exhausted: '预算耗尽',
@@ -20,7 +20,7 @@ export function conversationState(conversation: Conversation): string {
   const labels = {
     idle: '未处理',
     queued: '排队中',
-    running: '任务协议运行中',
+    running: 'Agent 处理中',
     waiting_customer: '等待客户',
     waiting_business: '等待业务',
     failed: '处理失败',

@@ -1,0 +1,90 @@
+{
+  "scope": "independent_zero_HTTP_typed_feedback_API_not_semantic_quality",
+  "source_snapshot": {
+    "globalmail-agent/backend/src/globalmail_agent/agent/review_audit.py": "4a0a84daa0eeddb84c11cad490f93ad127b9bad0bf33e390fabc58bf48fc9a49",
+    "globalmail-agent/backend/src/globalmail_agent/agent/graph.py": "8893d2ccdb9b3ab1cd3a1bd1eed001ece43cdc19e8ecd83e8c135c31868ec74e",
+    "globalmail-agent/backend/tests/test_agent_review_audit.py": "7d82670ab48f0b36cc20c9c1862d438d361f78fdae839d9bee83324f2215a088"
+  },
+  "source_changed": false,
+  "cases": [
+    {
+      "code": null,
+      "binding": null,
+      "wrapper_parity": true
+    },
+    {
+      "code": "request_indexes_incomplete",
+      "binding": true,
+      "wrapper_parity": true
+    },
+    {
+      "code": "request_indexes_incomplete",
+      "binding": true,
+      "wrapper_parity": true
+    },
+    {
+      "code": "request_indexes_incomplete",
+      "binding": true,
+      "wrapper_parity": true
+    },
+    {
+      "code": "claim_indexes_incomplete",
+      "binding": true,
+      "wrapper_parity": true
+    },
+    {
+      "code": "claim_indexes_incomplete",
+      "binding": true,
+      "wrapper_parity": true
+    },
+    {
+      "code": "claim_indexes_incomplete",
+      "binding": true,
+      "wrapper_parity": true
+    },
+    {
+      "code": "request_unit_1_omitted",
+      "binding": false,
+      "wrapper_parity": true
+    },
+    {
+      "code": "claim_0_quote_not_in_source",
+      "binding": true,
+      "wrapper_parity": true
+    },
+    {
+      "code": "request_unit_1_changed_condition",
+      "binding": false,
+      "wrapper_parity": true
+    },
+    {
+      "code": "claim_0_quote_not_in_source",
+      "binding": true,
+      "wrapper_parity": true
+    },
+    {
+      "code": "claim_0_not_supported",
+      "binding": false,
+      "wrapper_parity": true
+    },
+    {
+      "code": "claim_1_source_not_owned",
+      "binding": true,
+      "wrapper_parity": true
+    },
+    {
+      "code": "claim_0_evidence_missing",
+      "binding": true,
+      "wrapper_parity": true
+    },
+    {
+      "code": "request_unit_0_reply_quote_missing",
+      "binding": true,
+      "wrapper_parity": true
+    }
+  ],
+  "new_HTTP": 0,
+  "DB_initialized": false,
+  "bindings_checked_even_when_an_earlier_semantic_negative_exists": true,
+  "extreme_out_of_range_indices_reject_without_IndexError": true
+}

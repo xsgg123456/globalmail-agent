@@ -53,6 +53,7 @@ class ReviewDraft(Command):
 class HumanReply(Body):
     expected_input_revision: int = Field(ge=0)
     note: str = Field(default="", max_length=5000)
+    risk_decision: Literal["keep_active", "resolved_by_human", "corrected_by_human"] = "keep_active"
 
 
 class Close(Command):

@@ -1,0 +1,27 @@
+{
+  "scope": "latest_current_source_independent_root_third_history_full_raw_audit_not_new_quality",
+  "checks": {
+    "sixteen_source_sha": true,
+    "ten_ids_fourteen_explicit_deltas": true,
+    "response1_all_fields": true,
+    "request1_whole_user_data": true,
+    "response2_all_fields": true,
+    "request2_whole_user_data": true,
+    "response3_all_fields": true,
+    "request3_whole_user_data": true,
+    "response4_all_fields": true,
+    "request4_whole_user_data": true,
+    "exact_two_real_gateway_tools": true,
+    "tool0_all_business_full_sop_except_listed_metadata": true,
+    "tool1_all_business_full_sop_except_listed_metadata": true,
+    "whole_understanding_initial_current_revisions": true,
+    "whole_review_domain_summary_gaps": true,
+    "all_artifact_body_language_claims_citations": true,
+    "original_four_three_known16602_retained41797base": true,
+    "cleanup_no_new_http_no_source_changes": true,
+    "current_all_snapshot_sha_match": true,
+    "new_helper_in_snapshot": true
+  },
+  "all_pass": true,
+  "attempt": "20261008-194702-272c8dc1"
+}

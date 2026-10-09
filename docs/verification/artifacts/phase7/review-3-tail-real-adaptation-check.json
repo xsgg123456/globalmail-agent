@@ -1,0 +1,38 @@
+{
+  "attempt_id": "20261008-183751-0d17ae5c",
+  "scope": "Two actual offline adaptation controls, not a business PASS",
+  "independent_full_responses_read": true,
+  "checks": [
+    {
+      "test": "conditional_when_full_actual_draft",
+      "original_full_user_unchanged": true,
+      "roles_match_current_graph": true,
+      "all_schema_unchanged": true,
+      "actual_request_matches_frozen_new_SHA": true,
+      "input_estimate": 14988,
+      "review_supported": true,
+      "independent_semantic_judgment": "Correct conditional versus unconditional distinction; full source rules retained",
+      "response_sha256": "ee37f052cb41e4a9fe50128f797c54f8b63b4e1118a82b23f77854a146caf76e"
+    },
+    {
+      "test": "unsupported_when",
+      "original_full_user_unchanged": true,
+      "roles_match_current_graph": true,
+      "all_schema_unchanged": true,
+      "actual_request_matches_frozen_new_SHA": true,
+      "input_estimate": 14880,
+      "review_supported": false,
+      "independent_semantic_judgment": "Correct conditional versus unconditional distinction; full source rules retained",
+      "response_sha256": "c06e1b75c7701376514027ccb28e16373f23cedb978cb0e294af916b10653bdb"
+    }
+  ],
+  "new_HTTP": 2,
+  "tokens": 8441,
+  "active_ms": 12077,
+  "business_outbound": 0,
+  "business_commit": false,
+  "original_cycle_unchanged": true,
+  "graph_sha256": "b5ccb956fbd2610c89ac8ee99bb5fc3c49cac4f652f215ab502a305d11167581",
+  "validation_sha256": "3e142152096368147c798244af6f4b1e5306c3084cac8c33827514c6a863ea9b",
+  "validation_grounding_sha256": "a0e17a43a065b04da8f1ee0a2c003627f35c882d26d443a9dccfb4b5e90b5266"
+}

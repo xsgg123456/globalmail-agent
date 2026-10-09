@@ -1,0 +1,16 @@
+.....................................F..agent_dependency_error
+......................................................................................................................................................................................................knowledge_worker_dependency_unavailable
+agent_worker_dependency_unavailable
+..............
+======================================================================
+FAIL: test_full_context_handoff_fits_when_both_terminal_schemas_do_not (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_handoff_fits_when_both_terminal_schemas_do_not)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_agent_menu_pressure.py", line 53, in test_full_context_handoff_fits_when_both_terminal_schemas_do_not
+    self.assertEqual(output.get("outcome"), "handoff", (output, len(model.requests)))
+AssertionError: None != 'handoff' : ({'error_code': 'model_tool_not_allowed'}, 2)
+
+----------------------------------------------------------------------
+Ran 252 tests in 466.065s
+
+FAILED (failures=1)

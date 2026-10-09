@@ -1,0 +1,27 @@
+{
+  "scope": "independent_zero_HTTP_courtesy_capacity_source_contract_not_quality",
+  "schema_change_from_211045": "Only remove request_checks.maxItems=40; all other schema values/order unchanged.",
+  "schema_exact": true,
+  "required_and_property_order_exact": true,
+  "source_checks_original_max30_retained": true,
+  "true_greeting_and_true_courtesy": true,
+  "full_41_units_accepted_by_bindings": true,
+  "40_clipped_units_rejected_by_completeness": true,
+  "body_unchanged": true,
+  "output_limit_not_proven_by_zero_HTTP": "Actual max2000/finish-length/Budget checks unchanged; no guarantee for arbitrary large texts.",
+  "new_HTTP": 0,
+  "DB_initialized": false,
+  "source_sha256": {
+    "globalmail-agent/backend/src/globalmail_agent/agent/outcome_validation.py": "ebba5431d81c7d2aa0d392229224afec8e12e63910009dbbe9215437b457bab5",
+    "globalmail-agent/backend/src/globalmail_agent/agent/review_audit.py": "5beec228bd10b0f00c36ca40ae2c5905e24ab175ef702a23b3122250ba1071e8",
+    "globalmail-agent/backend/src/globalmail_agent/agent/graph.py": "1c3ce0ce505b761c4c43d3aab26a4749099f1da7739a62ea54080df27dfbc824",
+    "globalmail-agent/backend/src/globalmail_agent/agent/context.py": "856f734df406225d136f8257d5b06a55c46c5ae465622128e9a3e4841633b528",
+    "globalmail-agent/backend/src/globalmail_agent/agent/budget.py": "4bfd60ad18980088a84dc527294b0f82a77f296642901d961aee466086b1a5da",
+    "globalmail-agent/backend/src/globalmail_agent/adapters/model_provider.py": "a8379e303aa3578c733fe78b4b6059f8476ef25925a00a73603715451c74a4bb",
+    "globalmail-agent/backend/src/globalmail_agent/application/draft_validation.py": "1e762f9618aaf892dbf75ac749df037caae40705cd11e471e16e42605fc5a99b",
+    "globalmail-agent/backend/src/globalmail_agent/application/commit_outcome.py": "2aa0617408f0a0851642e13b7526171483c15d8fe0dba8a7488e7262b8b0ad92",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation.md": "1b7af7f47a979b1cbc787c61d7f68f2119e1b83c9816d7ea6349dae50127ca4a",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation-grounding.md": "b7aa842474ccbe3cdc1a63afe684ce41a6e9d7f2fe937aeec646fce41928b814"
+  },
+  "test_source_sha256": "0a5c17fb660a527d45bee989ee154d04dd2cdcde0fefb8094d82f545a2bff69a"
+}

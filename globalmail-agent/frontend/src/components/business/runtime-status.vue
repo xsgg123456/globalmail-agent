@@ -45,7 +45,14 @@
         show-icon
       />
       <p class="mt-3 text-sm text-g-700"
-        >本机单用户 · Phase 6 知识发布与检索 · 正式 Agent 暂未接入</p
+        >本机单用户 · Phase 7 文本 Agent ·
+        {{
+          runtime
+            ? runtime.model_configured
+              ? '已配置，实际调用见运行记录'
+              : '已接入，模型尚未配置'
+            : '能力状态未知'
+        }}</p
       >
       <p v-if="detailed && checkedAt" class="mt-3 text-sm text-g-600">检查时间：{{ checkedAt }}</p>
       <p v-if="detailed && requestIds.length" class="mt-2 text-xs text-g-600 break-all"

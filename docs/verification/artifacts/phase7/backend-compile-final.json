@@ -1,0 +1,4 @@
+{
+  "command": "python -X utf8 -m compileall -q src tests ../agent-eval",
+  "exit_code": 0
+}

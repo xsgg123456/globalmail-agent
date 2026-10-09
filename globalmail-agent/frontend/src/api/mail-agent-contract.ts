@@ -1,5 +1,12 @@
 export type ConversationMode = 'interactive_simulation' | 'historical_replay'
 export type ProcessingOwner = 'agent' | 'human_review' | 'human_wait_customer'
+export type RiskDecision = 'keep_active' | 'resolved_by_human' | 'corrected_by_human'
+export interface ActiveRisk {
+  id: string
+  kind: string
+  status: 'active' | 'resolved_by_human' | 'corrected_by_human'
+  sources: { message_id: string; quote: string }[]
+}
 export type SchedulingState =
   | 'idle'
   | 'queued'
@@ -46,7 +53,7 @@ export interface Conversation {
 export interface MailMessage {
   id: string
   seq: number
-  sender: 'customer' | 'historical_staff' | 'simulated_human'
+  sender: 'customer' | 'historical_staff' | 'simulated_human' | 'simulated_agent'
   subject: string
   body: string
   sent_at: string
@@ -95,6 +102,7 @@ export interface ConversationDetail {
   replay: ReplayCursor | null
   comparisons: HumanReview[]
   human_history: HumanReview[]
+  active_risks?: ActiveRisk[]
 }
 export interface ConversationPage {
   items: Conversation[]

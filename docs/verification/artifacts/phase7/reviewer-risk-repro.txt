@@ -1,0 +1,26 @@
+Phase 7 第二轮独立 Stage 1 反例；2026-10-08；产品修复前快照。
+HEAD dd95be236b6d327c2e10adbadc10053e28107f37，包含当时未提交 Phase 7 实现。
+命令：uv run python ../../tmp/phase7_review_repro.py
+cwd：globalmail-agent/backend
+退出码：0
+随机隔离 test_protocol_* PostgreSQL schema，真实迁移、Graph、来源验证、人工回复与终局事务；finally 清理。
+ScriptedModel 只提供固定结构化输出，不是 Qwen 质量证据。
+
+审查时 agent/understanding.py:72–74 的比较原文：
+    result["risk_flags"] = [risk for risk in result["risk_flags"] if not any(
+        row["kind"] == risk["kind"] and all(ref in row["sources"] for ref in risk["sources"])
+        for row in resolved)]
+
+原始标准输出：
+CORRECTED_OLD_SOURCE_REQUOTED {"result":{"artifact_id":"b9d0acc8-a299-4982-9c47-696d30fcf364","outcome":"handoff"},"model_requests":1,"active_risks":[{"id":"cdf4866f-8831-49d6-a083-df3f8d18163f","kind":"electric_shock","status":"active","language":"en","sources":[{"message_id":"d3d37348-6065-420d-b610-f9017c77c0fb","quote":"I felt an electric shock."}]}],"outbound_count":0}
+
+先前人工决定：corrected_by_human；当前非空备注：
+The old electric-shock report was checked and corrected by human.
+初始危险原文：The plug sparked and I felt an electric shock.
+初始风险引用：electric shock
+人工更正后 active_risks 为 []。
+后继无危险新来信：Please continue with my unrelated order question.
+模型重新引用同一旧 message_id、另一段合法 quote：I felt an electric shock.
+实际重新创建 active electric_shock 并 handoff。
+
+后续主 Agent 已修改为按来源 message_id 比较并新增回归。本文件保留原失败；本轮没有验证后续修复。

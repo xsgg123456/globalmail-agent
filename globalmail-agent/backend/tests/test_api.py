@@ -13,7 +13,7 @@ class ApiTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.settings = Settings(object_root=Path(self.temp.name), model_api_key="SECRET_MARKER",
-                                 model_name="test", model_base_url="http://example.invalid")
+                                 model_name="qwen3.7-plus", model_base_url="http://example.invalid")
         self.app = create_app(self.settings)
         self.client = TestClient(self.app, base_url="http://127.0.0.1:18080")
 
@@ -29,10 +29,10 @@ class ApiTests(unittest.TestCase):
             self.assertEqual(result.headers["x-request-id"], result.json()["request_id"])
             self.assertNotIn("SECRET_MARKER", result.text)
         self.assertTrue(result.json()["data"]["model_configured"])
-        self.assertEqual(result.json()["data"]["phase"], 6)
+        self.assertEqual(result.json()["data"]["phase"], 7)
         self.assertEqual(result.json()["data"]["features"],
                          {"conversations": True, "business_queries": True,
-                          "knowledge": True, "agent": False})
+                          "knowledge": True, "agent": True})
 
     def test_readiness_degraded_without_database(self):
         result = self.client.get("/api/v1/health/ready")

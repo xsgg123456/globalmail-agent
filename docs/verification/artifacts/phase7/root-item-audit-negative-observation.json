@@ -1,0 +1,45 @@
+{
+  "scope": "root_actual_fulltext_semantic_and_binding_separate_review",
+  "attempt_id": "20261008-212722-cb12997b",
+  "semantic_status": "FAIL",
+  "binding_rejection_confirmed": true,
+  "effective_product_AND": false,
+  "not_current_Graph_false_release": true,
+  "source_stable_during_actual_attempt": true,
+  "actual_complete_SDK_equals_frozen": true,
+  "trusted_source_file_count": 51,
+  "actual_response_sha256": "76c80d85bb5825912d2e66692085e81d369f6efa366312fc96d8a3813020cb1d",
+  "bindings": [
+    {
+      "claim_index": 0,
+      "evidence_index": 0,
+      "exact_quote_match": false,
+      "is_claim_source": true
+    },
+    {
+      "claim_index": 1,
+      "evidence_index": 0,
+      "exact_quote_match": false,
+      "is_claim_source": true
+    },
+    {
+      "claim_index": 1,
+      "evidence_index": 1,
+      "exact_quote_match": false,
+      "is_claim_source": false
+    }
+  ],
+  "model_supported": true,
+  "new_HTTP": 1,
+  "known_tokens": 4366,
+  "active_ms": 17702,
+  "business_outbound": 0,
+  "positive_HTTP": 0,
+  "fresh06_HTTP": 0,
+  "semantic_failures": [
+    "Future conditional refund/not-now request mapped to unrelated delivery question.",
+    "Ambiguous original product name accepted as invented ceiling subtype.",
+    "Mixed system/customer factual paragraph falsely called pure clarification."
+  ],
+  "read_limit": "Binding rejection is necessary but does not close semantic H12/H13. Raw content remains private."
+}

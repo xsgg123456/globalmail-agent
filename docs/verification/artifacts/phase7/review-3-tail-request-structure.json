@@ -1,0 +1,28 @@
+{
+  "method": "Direct current AgentGraph.validate captured request; explicit local reject; no DB/provider",
+  "paid_calls": 0,
+  "frozen_positive_attempt": "20261008-182447-c623f2cd",
+  "all_user_data_unchanged": true,
+  "roles": [
+    "system",
+    "user",
+    "system"
+  ],
+  "all_schema_unchanged": true,
+  "input_estimate": 14988,
+  "prompt_files": 5,
+  "source_sha256": {
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/decision.md": "96d3a3831de865371bf96ea31ea1a4556471ad32aaf0e8511880cceaa1ae8e21",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/grounding.md": "d0ec00925a3fc260a729bd8f350cc614aa1adbd9a0d26457e4da0f7f38afb7e5",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/understanding.md": "975b0ad9b9a986c93350f8728bdb93d3d50dde1ec9e3c4f787223e94ac9bf8dd",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation-grounding.md": "a0e17a43a065b04da8f1ee0a2c003627f35c882d26d443a9dccfb4b5e90b5266",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation.md": "3e142152096368147c798244af6f4b1e5306c3084cac8c33827514c6a863ea9b",
+    "globalmail-agent/backend/src/globalmail_agent/agent/graph.py": "b5ccb956fbd2610c89ac8ee99bb5fc3c49cac4f652f215ab502a305d11167581"
+  },
+  "PG_tests": {
+    "count": 17,
+    "seconds": 35.749,
+    "status": "PASS",
+    "evidence": "review-3-tail-validation-tests.txt"
+  }
+}

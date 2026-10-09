@@ -1,0 +1,12 @@
+test_changed_source_rejected_before_any_provider_call (test_prefix.PrefixSafetyTests.test_changed_source_rejected_before_any_provider_call) ... ok
+test_elapsed_original_time_cannot_be_reset_by_replay (test_prefix.PrefixSafetyTests.test_elapsed_original_time_cannot_be_reset_by_replay) ... ok
+test_new_revision_tool_does_not_export_quotes_by_default (test_recording.ExportPrivacyTests.test_new_revision_tool_does_not_export_quotes_by_default) ... ok
+test_source_scope_keeps_ids_and_hashes_without_mail_or_note_body (test_recording.ExportPrivacyTests.test_source_scope_keeps_ids_and_hashes_without_mail_or_note_body) ... ok
+test_terminal_and_handoff_export_no_original_free_text (test_recording.ExportPrivacyTests.test_terminal_and_handoff_export_no_original_free_text) ... ok
+test_failed_semantic_review_is_preserved_as_failed (test_semantic_review.SemanticReviewGateTests.test_failed_semantic_review_is_preserved_as_failed) ... ok
+test_unknown_status_or_reviewer_cannot_release_next_run (test_semantic_review.SemanticReviewGateTests.test_unknown_status_or_reviewer_cannot_release_next_run) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.339s
+
+OK

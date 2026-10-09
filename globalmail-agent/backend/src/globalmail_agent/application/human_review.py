@@ -72,6 +72,10 @@ class HumanReviewMixin:
             body_object = writer.put(conn, conversation, command.body, "human_reply", dependencies)
             note_object = (writer.put(conn, conversation, command.note, "human_note", dependencies)
                            if command.note else review["note_object_id"])
+            from globalmail_agent.application.risk_records import resolve_risks
+            if command.risk_decision != "keep_active" and not command.note.strip():
+                raise ServiceError("risk_decision_requires_evidence", 422)
+            resolve_risks(conn, conversation, review, command.risk_decision, note_object)
             if conversation["mode"] == "simulation":
                 message = self.add_message(conn, writer, conversation, command.body, command.subject,
                     "simulated_human", "human", key, datetime.now(timezone.utc))

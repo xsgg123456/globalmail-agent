@@ -1,0 +1,19 @@
+{
+  "status": "PASS_METADATA_ERRATA_ONLY",
+  "HTTP": 0,
+  "trusted_count": 65,
+  "all_trusted_current": true,
+  "source_before_after_current_equal": true,
+  "prepared_request_and_SDK_raw_bytes_equal_225934": true,
+  "input_proxies": [
+    15615,
+    15993
+  ],
+  "headroom": [
+    385,
+    7
+  ],
+  "reserve": 35608,
+  "old_manifest_raw_sha": "4f6d10fc0237e2078254e5deda6b1d190582928455a852de18c8ce4d1001d6d6",
+  "new_manifest_raw_sha": "d9e866e63c64e9071a9b633a40817d2ead8afb239408bde6c73f6c5387825354"
+}

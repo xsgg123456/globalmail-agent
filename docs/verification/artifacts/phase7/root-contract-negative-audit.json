@@ -1,0 +1,53 @@
+{
+  "scope": "root_fulltext_control_review_not_business_PASS",
+  "attempt": "20261008-230652-194e6b3f",
+  "semantic_status": "FAIL",
+  "future_refund_unit_still_mapped_to_unrelated_delivery_question": true,
+  "ceiling_translation_explicitly_considered_reasonable": true,
+  "rejection_based_on_unrequired_four_key_US_black_attributes": true,
+  "source_first_output_did_not_fix_semantic_defects": true,
+  "unit0_and_unit2_quotes_are_exact_but_mapping_still_wrong": true,
+  "unit1_quote_crosses_paragraph_using_single_space": true,
+  "three_source_quotes_reformatted_not_exact_canonical_text": true,
+  "claim_1_extra_order_source_not_declared": true,
+  "claim_2_mixed_fact_still_wrongly_empty_supported": true,
+  "typed_binding_failure": "request_unit_1_reply_quote_not_in_draft",
+  "item_audit": {
+    "audit_accepts": false,
+    "effective_supported_AND": false,
+    "request_check_count": 3,
+    "trigger_unit_count": 3,
+    "source_check_count": 3,
+    "draft_claim_count": 3,
+    "complete_audit_sha256": "4ceac93133f6d98646cd3fc70d1a321dbaafba779aa12d94dfd7866df783ccbf"
+  },
+  "actual_complete_request_and_SDK_equals_prepared": true,
+  "source_stable_during_actual_attempt": true,
+  "usage": {
+    "completion_tokens": 1510,
+    "prompt_tokens": 3577,
+    "total_tokens": 5087,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 512,
+      "rejected_prediction_tokens": null,
+      "text_tokens": 1510
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": 3577
+    }
+  },
+  "active_ms": 28405,
+  "new_HTTP": 1,
+  "positive_HTTP": 0,
+  "fresh06_to09_HTTP": 0,
+  "business_outbound": 0,
+  "raw_response_sha256": "4820d019a6cde4755312dfc103cb39bf79d486fa875534568373290b8bd9a111",
+  "positive_gate_not_written": true,
+  "binding_rules_not_relaxed": true
+}

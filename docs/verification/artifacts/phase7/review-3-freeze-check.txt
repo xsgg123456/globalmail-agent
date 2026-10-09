@@ -1,0 +1,1 @@
+{"freeze": "verified", "cases": 9, "paid_calls": 0}

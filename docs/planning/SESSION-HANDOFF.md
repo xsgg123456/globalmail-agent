@@ -2,9 +2,39 @@
 
 文档位置：根目录保留 AGENTS、Product-Spec、变更记录、AGENT-ARCHITECTURE 及已创建的 [DEV-PLAN](../../DEV-PLAN.md)；其余专题由 [文档索引](../README.md) 导航。本文件位于 docs/planning；新任务按 AGENTS 中的目录约定存放产物，不恢复旧根目录副本。
 
-更新：2026-10-08。当前阶段：Phase1–5按各期报告交付，Phase5已提交d0833a4；Phase6四步技术验证和独立两阶段审查通过，正式本机已升级，待用户查看。Phase6提交号以`git log -1`为准。Phase7–13未开始，82项产品AC未作整体验收。
+更新：2026-10-08。当前阶段：Phase1–6按各期报告交付，Phase6提交dd95be2；用户已要求开始Phase7，目前文本Agent实施与验收中。Phase8–13未开始，82项产品AC未作整体验收。
 
-## Phase 6 当前交接（优先于下方历史记录）
+## 2026-10-09最新用户决定（覆盖下方旧推进门）
+
+用户追加“先把Phase 7进行一下git提交”：先保存当前Phase7工程代码、测试及原FAIL证据，再继续Phase8。该授权覆盖下方历史“不commit”的推进门；提交不等于Stage1/2通过，不改needs_review为clean，也不升级正式数据库。Phase8尚未写入新代码，当前只有后续规划。
+
+用户明确要求停止Phase7反复微调，继续开发，整个项目跑通后再处理模型细节。现在进入Phase8图片输入工程开发；Phase7为工程已实现、业务质量/最终验收延期，原FAIL不改为PASS。保留所有拒发、来源/权限、预算、人审及提交栅栏，不再调用旧控制配置刷结果。Phase1图片质量也保留待统一回归；编译/工程测试/主链路故障继续当期修复。Phase8规划见[实施步骤](PHASE-8-IMPLEMENTATION.md)，不因旧“未开Phase8”或“先全过Phase7”记录停工，不再向用户重复请求已给出的推进许可。
+
+## Phase 7 当前交接（优先于下方历史记录）
+
+- 2026-10-09容量候选本轮已结束，Phase7仍未完成：root92项84.176秒/0skip、最终eval43项0.757秒/当前源稳定、独审18项19.541秒/0skip及compileall0；零HTTP预案074344-66a5c470有75可信SHA、输入15035/15413、38448双控制保守预留。唯一实际negative074740-90d0b3da为1HTTP/6279tokens（3542+2737，含2048推理一次）/49062活动ms/0业务，全文双审FAIL：未来条件遗漏与claim1缺声明商品来源两项有进展，但claim0只引订单号仍认可已查物流、claim2混合事实空证据true，两源引用重写非原文。原机检11true保留，结果另标stopped_on_fulltext_semantic_failure/FAIL gate，实际正例入口0HTTP证实被拦。停止本配置付费；不正例、不接Graph、不新06–09、不全量重复、不Stage2、不正式升级/commit/Phase8/82AC。当前源仍text/5及获准4k/2048/最多60秒，Graph原表示不变；下一步需解决逐事实覆盖与引用产生方式，再完整重冻及独审，不能靠总false或再扩额度刷过。
+- 最新正式库只读核验：0005/54表、旧53业务表列/行/SHA与设置/160原件相同，知识22/22、build/release/cache0；formal-before原件不变。正式与隔离15173/18080/15174/18181均未监听，旧隔离浏览器schema/对象不存在；没有正式升级或重启。needs_review且暂存为空。
+
+- 2026-10-09用户“好的那你继续”已授权容量方案，不再待授权。Spec v1.14/架构v1.2/DEV-PLAN同步：仅validation总4k（3990+10）、thinking2048、min(60,剩余活动秒)，其他2k/30及总6/12/120秒/16k/80k保持。text/5工程实施中；先真实PG边界/独审/完整零HTTP，再唯一原负全文双审，PASS才原正、表示接Graph和新06–09。质量仍未通过，旧FAIL、Stage1 HIGH/Stage2未开始保持。
+
+- 当前最新text/4工程全量：后端276项548.623秒/0fail/error/skip/source稳定，独审核179原SHA；旧274原字节归档before-thinking-workflow-contract-274。eval42项0.791秒/0skip/source稳定、compileall通过；前端未改，53项/构建证据仍适用。模型语义仍未过，Stage1 HIGH/Stage2未做；needs_review、不commit、不正式升级、不开始8/不勾82AC。
+- 230652 schema对齐与231655无损parsed表示各唯一negative完整双审FAIL，原正控制及新06–09仍零HTTP。后者4892tokens/25780活动ms/1HTTP/0业务，原DATA还原与canonical source正文完全相同，却仍错映未来退款，商品译名主要否决理由也错误；表示prototype未接Graph、该假设停止。当前产品仍validation512/1990/30秒，其他节点非thinking/2k/30秒。
+- 具体容量新假设已做好零HTTP完整SDK/预算[提案](../verification/artifacts/phase7/validator-capacity-proposal-zero-http.json)：仅validation4000总输出（3990+10）、thinking2048、min(60, cycle剩余活动秒)，其他及总6/12/120秒/16k/80k保持；双完整原对照预留38448。尚未授权/改产品/新HTTP，需用户允许改ASM-006；获准后先源文档同步与stage reserve/unknown/settle/timeout/晚到门工程自检、原负正全文双门、再同一表示接Graph/新06–09/最终当前源及独审Stage1/2/正式保旧升级。不得把预算假设当已证质量改善。
+
+- 最新授权：用户已要求按方案继续调整并尽快结束Phase7，批准仅核验启用有界思考；下方“待授权/产品仍非思考”已过时。理解/决策仍非思考，OutcomeReview使用thinking_budget512、max_completion_tokens1990，推理计入原输出及累计预算。仅thinking的224147负控制仍FAIL，随后text/3改为先核事实来源、再核全部诉求。225009零HTTP预案双审/59可信SHA、材料/schema不变、输入15406/15784；根41项73.542秒、独审4项10.136秒/0skip/source稳定及compileall通过。旧274全量属于这些改动前，稳定后需新全量。
+- 当前source-first唯一负控制225432-d2f20860：1HTTP/5032tokens（3577+1455，含512推理）/31358活动ms/0业务出站/source稳定；runner检查通过，阅读全文双审待完成。总理由提缺依据商品译名和漏未来退款，但unit2仍标addressed并编写非正文quote、claim1多引未声明来源、claim2混合事实empty evidence却true。positive及新06–09仍零HTTP，不只据总false宣布语义通过，不得提前升级、clean或commit。
+
+- 用户要求开发Phase7；文本LangGraph、可信全文上下文、多诉求理解/修订、scoped业务/RAG、持久预算、共事务checkpoint/终局、早到事件/等待及工作台运行详情已实现。原6模型/12工具/120活动秒、16k输入/2k输出/80k总量不变；图片、售后写、实际Langfuse、完整删除留8/9/11/12。规划及历次修复标准见[实施步骤](PHASE-7-IMPLEMENTATION.md)，全实测/原FAIL见[验证记录](../verification/PHASE-7-VALIDATION.md)。
+- 第三轮fresh reviewer被thread limit拒绝，用户明确批准“允许本次复用审查实例”。该code-reviewer已从Stage1完整重读源文档/代码；当前Stage1仍有真实模型HIGH缺口、Stage2未执行，不称fresh，不改AGENTS默认。最新审查见[第三轮报告](../verification/PHASE-7-REVIEW-3.md)，旧两轮FAIL保留；不得提前clean、commit或正式升级。
+- 连续四封分层证据：缺订单第一封旧真实响应仅作已审核历史；第二封原四生成响应严格审计后新核验/真实提交1出站，非新生成；第三封191114实际4HTTP/3工具/16602tokens/41797ms达HITL0出站，后来0chat严格历史初始化不当新质量；194850新第四封4HTTP/2工具/16438tokens/54280ms/1出站核心PASS。单claim弱no-created备注/核验创建与派发精度/等待无补问列MEDIUM，不声称独立售后账本核查。
+- 202431新德语完整5HTTP/3工具/18425tokens/40578ms/1出站全文双审PASS，H10/H11该反例关闭。同批06漏未来条件、无据ceiling译名，5HTTP/16841tokens/31327ms/1出站FAIL，首失败停/cleanuptrue，07–09未调用。203514完整坏稿与显式四操作正例0HTTP双审；204212通用尾规则1HTTP3604tokens5967ms误放，205412 reason-first schema1HTTP3602tokens6282ms仍误放；实际SDK/全文/顺序/SHA正确，全部旧FAIL保留，positive零调用。当前停止付费并重审机制，新的必填request_checks/source_checks已落源：服务无损trigger单位与claim索引齐全、引用精确匹配、逐项与总判断共同AND；原DATA完整与预算不变，text/2、graph/2。出处门不证明语义，须新控制及fresh06双审。
+- 新结构前258项518.840秒、before-verdict-schema258项515.871秒及before-request-rules773.268秒均保；88.048秒专项原快照曾被覆写，勿冒充保有。逐项协议修前271项524.878秒与反馈修前272项530.155秒全量稳定通过，分别归档。真courtesy/41单位无截断修后14项5.369秒、独审17项11.416秒/eval38项0.867秒通过。最新反馈typed修复root41项70.487秒、独审22项22.997秒/0skip/SHA稳定，compileall exit0/57包兼容；274项最终后端全量542.232秒/0失败/0错误/0skip/source_changed=false已通过，见验证报告及backend-tests-final快照；backend冻结。初版独审21项2FAIL、root错误addressed空quote前提FAIL均保。worker已结束，root owns评测，执行worker不得复用；旧4字段实际响应不补新审项，旧seed在初始化/Embedding付费前拒绝。前端53项2483.4484ms/0skip、vue-tsc/Vite26.17秒通过；Stage2尚须实际邻居渲染对照。
+- 211045旧0HTTP正例来源前提不合法，原样留未付费。212036新51来源预案双审PASS，负稿不改；正稿额外恰三项来源元数据修正，正文/claim.text/全部非draft DATA及错误under保持；输入15,364/15,742。212722恰一次negative1HTTP/4,366tokens/17,702ms/0业务：模型仍把未来退款/not-now映到无关物流补问、认错ceiling类型和混合事实；三条引用非逐字/含未声明出处，binding与最终AND均false，不能称新Graph放行。root/独审全文记录及机械反例证明引用门不等于语义正确。positive/fresh06–09尚0新HTTP，H12/H13仍HIGH。仅修Graph失败反馈：真实binding错误传typed代码，合法绑定下语义负项保reason，原一次repair及全文不变；该工程缺口双审关闭。
+- 候选仅语义核验启用有界思考，已向用户请求更改DEV-PLAN:348固定非thinking约定，尚未授权。0HTTP完整SDK候选见[预案](../verification/artifacts/phase7/validator-mode-proposal-zero-http.json)：原messages/schema/SOP/错理解逐字保留、.7/30秒/retry0，thinking_budget512、max_completion_tokens1990包含推理与回答，加官方10token容差≤原2k；输入15,364/15,742/预留35,106，当前产品仍false。不得未答即改产品或付费，也不保证JSON容量/质量改善。获准后另冻当期源及完整actual字段（recording当前未捕获max_completion_tokens须同步），先原坏稿一次，首FAIL停；全文双门后才正例与fresh06–09逐案，不重付05。
+- 所有实际模型原请求只保Git忽略tmp/phase7-agent-eval，安全SHA/usage/manifest/失败/cleanup摘要在[real-model.json](../verification/artifacts/phase7/real-model.json)，9输入13原资料SHA从首次付费前冻结，开发作者已知材料，不报生产准确率。已授权每个边界根Agent与独审全文双门，首FAIL停，不因completed判质量；当前无再付费授权执行正在进行。现有CLI以--case单独06/07/08/09顺序复验，不重付05、每案新隔离初始化，不改冻结输入或引入参考答案。
+- 本期API18181/Web15174独立schema/manual-agent ScriptedModel工程页面已关闭，随机schema及对象目录已清理；root/独审各自CLI均已关闭，root自有CLI delete-data返回无用户数据。正式15173/API18080当前均未监听，未重启或升级；PG15432数据仍Phase6。最新[只读保旧核对](../verification/artifacts/phase7/formal-current-readonly.json)确认0005/54总表及53旧业务表列/行/SHA、配置与160原件字节一致，资料22/22、build/release/cache0、formal-before字节未变。formal-before已冻结0005/54总表/53旧业务表、22原资料/22版本、build/release/cache0、设置与160原件SHA，绝不能覆写。全部四步及独立Stage1/2通过才stop/start-SkipInstall增量升级0006，verify-preservation after --phase 7，核旧53表/设置/160字节与新Agent表为空；不用正式库导入测试或运行评测。隔离launcher通过tmp/phase7-browser.stop已完成自有清理；Stage1通过后若需Stage2渲染，按phase7_browser_app原隔离入口重建，不连接正式库。未来通过升级门槛后正式服务留用户；82AC未勾选、用户查看前不自动开始Phase8。
+
+## Phase 6 历史交接（当期结果）
 
 - 依据[实施步骤](PHASE-6-IMPLEMENTATION.md)完成0005/53业务表（另有alembic_version，总54表）、1024维真实Embedding隔离子进程、结构切分/完整短文/缓存/任务、完整发布清单/CAS/回滚/同模型空间、检索试查/引用与下架及现成Element界面。正式Agent仍未接入，完整删除留Phase12。
 - 独立审查发现并修复不同章节前提遗漏、发布状态筛选、政策说明缺明确同意等条件，以及后置停止条件遗漏。policy生成器1.1保留原1.0渲染核验；旧政策可查看但构建明确要求新版本。chunker修订structure/4收集全文中实际SKU有资格的安全前提/停止条件，保留每块位置。第四轮实际GUI又发现明确清空B后重开自动补回、改变未知发布body/key；现按实际组件清空值修正、恢复选择区分未初始化和已清空。四轮FAIL原文不改，第五轮从Stage1重审并通过。

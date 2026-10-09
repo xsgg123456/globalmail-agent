@@ -1,0 +1,13 @@
+test_claim_coverage_missing_sentence_is_rejected_without_semantic_request (test_agent_validation.AgentValidationTests.test_claim_coverage_missing_sentence_is_rejected_without_semantic_request) ... ok
+test_last_request_only_offers_handoff_and_never_sends_unvalidated_reply (test_agent_validation.AgentValidationTests.test_last_request_only_offers_handoff_and_never_sends_unvalidated_reply) ... ok
+test_last_two_requests_preserve_history_and_offer_only_terminal_tools (test_agent_validation.AgentValidationTests.test_last_two_requests_preserve_history_and_offer_only_terminal_tools) ... ok
+test_malicious_clarification_financial_success_or_disassembly_is_rejected (test_agent_validation.AgentValidationTests.test_malicious_clarification_financial_success_or_disassembly_is_rejected) ... ok
+test_one_repair_can_replace_rejected_draft_before_atomic_send (test_agent_validation.AgentValidationTests.test_one_repair_can_replace_rejected_draft_before_atomic_send) ... ok
+test_repair_retains_complete_rejected_result_and_read_observations_once (test_agent_validation.AgentValidationTests.test_repair_retains_complete_rejected_result_and_read_observations_once) ... ok
+test_validated_hash_does_not_authorize_modified_or_unreviewed_body (test_agent_validation.AgentValidationTests.test_validated_hash_does_not_authorize_modified_or_unreviewed_body) ... ok
+test_validation_retains_full_tool_observations_without_duplicate_draft (test_agent_validation.AgentValidationTests.test_validation_retains_full_tool_observations_without_duplicate_draft) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 17.827s
+
+OK

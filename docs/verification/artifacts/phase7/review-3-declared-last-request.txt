@@ -1,0 +1,7 @@
+DECLARED_FINAL_MENU: unexpected refund reply rejected before tool; original 4 + 2 current requests ledger 6/unknown0/tools0/outbound0; no seventh HTTP
+test_last_reply_outside_handoff_menu_is_rejected_before_tool_with_paid_usage (__main__.ReviewDeclaredLastRequest.test_last_reply_outside_handoff_menu_is_rejected_before_tool_with_paid_usage) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.823s
+
+OK

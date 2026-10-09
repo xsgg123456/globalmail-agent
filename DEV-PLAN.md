@@ -1,13 +1,15 @@
 # Development Plan — GlobalMail Agent
 
-版本：v1.0；进度更新：2026-10-08。状态：Phase 1本轮探索结束，保留未通过项；Phase 2运行基础已实现；Phase 3四步技术验证及最终独立两阶段审查通过，用户已要求继续；Phase 4四步技术验证和最终独立两阶段审查通过，用户已要求继续；Phase 5四步技术验证及最终独立两阶段审查通过，用户已要求继续；Phase 6四步技术验证及独立两阶段审查通过，待用户查看；Phase 7–13未开始。
+版本：v1.0；进度更新：2026-10-08。状态：Phase 1本轮探索结束，保留未通过项；Phase 2运行基础已实现；Phase 3四步技术验证及最终独立两阶段审查通过，用户已要求继续；Phase 4四步技术验证和最终独立两阶段审查通过，用户已要求继续；Phase 5四步技术验证及最终独立两阶段审查通过，用户已要求继续；Phase 6四步技术验证及独立两阶段审查通过，用户已要求继续；Phase 7实施与验收中；Phase 8–13未开始。
 
 本文件记录开发顺序、交付物、关键文件与验收归属。它不改变业务范围，不将已有数据、组件实验或设计审查折算为正式应用完成。Phase 1 结果见 [图片实验报告](docs/verification/VISUAL-VALIDATION.md)：35场景108次真实请求，仍有关键业务失败，标签人工核对待完成。
 
+2026-10-09用户决定：停止Phase7核验器的局部优化，先继续Phase8及后续功能，把完整项目链路跑通后集中处理模型质量与业务验收。Phase7工程已实现，业务回归/最终审查延期且保留原FAIL，不记为完成；不再作为下一Phase工程开工的阻塞。新增功能仍做编译、工程测试与主链路验证，不移除既有拒发/隔离/预算/提交门。Phase8当前开发中，后续按原依赖顺序；本决定覆盖本项目此前“先全部过Phase7再开Phase8”的执行次序。
+
 ## 1. 输入基线与实施规则
 
-- 产品依据：[Product-Spec v1.13](Product-Spec.md)，包括全部14项REQ、20项P0 SCOPE、82项AC及17项DEMO。
-- 运行契约：[AGENT-ARCHITECTURE v1.1](AGENT-ARCHITECTURE.md)；专题见 [技术选型](docs/architecture/TECH-SELECTION.md)、[知识设计](docs/architecture/KNOWLEDGE-DESIGN.md)。主架构决定状态、权限、事务和发布行为，计划只分配实现工作。
+- 产品依据：[Product-Spec v1.14](Product-Spec.md)，包括全部14项REQ、20项P0 SCOPE、82项AC及17项DEMO；2026-10-09仅核验节点预算调整，不改变业务验收目标。
+- 运行契约：[AGENT-ARCHITECTURE v1.2](AGENT-ARCHITECTURE.md)；专题见 [技术选型](docs/architecture/TECH-SELECTION.md)、[知识设计](docs/architecture/KNOWLEDGE-DESIGN.md)。主架构决定状态、权限、事务和发布行为，计划只分配实现工作。
 - 场景依据：[业务场景](docs/business/BUSINESS-SCENARIOS.md)、[验收映射及18类故障时序](docs/verification/AGENT-ACCEPTANCE.md)、[数据契约](data/knowledge/v1/DATA-CONTRACT.md)。本轮对齐记录见 [文档一致性检查](docs/verification/DOCUMENT-CONSISTENCY-REVIEW.md)。
 - 已有：三品牌/8产品族/34 SKU、22份逻辑知识、51个环节输入和21条连续流程；前端副本、tech-spike与knowledge-spike已有证据。客户图片专项已实施且验收未通过；已有运行基础、会话/人审、业务查询及知识解析/发布检索。正式Agent与七类业务闭环按后续阶段交付。
 - UI依据：已复制的 Art Design Pro，来源与哈希见 [前端基线](globalmail-agent/frontend/FRONTEND-BASELINE.md)。没有独立 Design-Brief/设计稿，按已确认的ASM-008继承现成组件和主题，不新增视觉设计阶段、不重搭前端。
@@ -24,7 +26,7 @@
 | 4 | 查询准确订单、商品、库存、物流与政策条件 | 3 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-4-VALIDATION.md) |
 | 5 | 上传/修订知识、解析并人工核对 | 2、4的商品范围 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-5-VALIDATION.md) |
 | 6 | 构建向量、发布/回滚、检索试查及下架 | 5 | 四步技术验证通过，待用户查看；[实测记录](docs/verification/PHASE-6-VALIDATION.md) |
-| 7 | 在工作台完成文本Agent查单、检索、回复与人审闭环 | 3、4、6 | 未开始 |
+| 7 | 在工作台完成文本Agent查单、检索、回复与人审闭环 | 3、4、6 | 实施中；[步骤与完成标准](docs/planning/PHASE-7-IMPLEMENTATION.md) |
 | 8 | 在正式工作台接收图片、核验字段并分流 | 1、7 | 未开始 |
 | 9 | 提交售后申请、模拟人工执行并查询回执 | 4、6、7；图片动作依赖8 | 未开始 |
 | 10 | 连续跟进、异步事件、多订单与方案变更 | 9 | 未开始 |
@@ -155,6 +157,8 @@ Phase 2结果：[验证记录](docs/verification/PHASE-2-VALIDATION.md)、[独�
 
 ## Phase 7: 文本Agent与首个工作台闭环
 
+当前状态：工程已实现，模型质量与最终验收按2026-10-09用户决定延期。H12/H13原真实缺陷、当前核验器逐事实/引用问题、正控制与新06–09及Stage2进入完整链路后的统一回归，不再追加本期付费微调循环。下面原验收标准保持，不提前勾选。
+
 **交付内容**：
 - 实现可信RunContext、可见历史/案件记忆、结构化多诉求理解和LangGraph动态工具循环；接通已完成的查询/知识工具，候选事实可由工具和人工更正。
 - 实现统一预算、工具网关、风险直接人审、最终提交、正常等待及检查点写栅栏；每cycle最多一个终局/自动出站，不直接resume旧HITL动作。
@@ -170,6 +174,8 @@ Phase 2结果：[验证记录](docs/verification/PHASE-2-VALIDATION.md)、[独�
 **验收标准**：使用真实Qwen完成至少3封客户来信及HITL恢复，英/德回复、条件退款不误执行、多诉求/多商品澄清正确；无适用步骤不编造。真实PG验证FT-01/02/04/05/08/09/10：提交与撤销共锁、未知结果查凭证、checkpoint的put/pending-writes与校验同事务；如锁定SDK不能直接实现则在适配器内修正并实测，不降级成检查后另连写入。停止/预算耗尽无半成品出站，显式重试沿用cycle剩余额度。SSE恢复、主题切换及1280×720/1440×900可用。售后写能力尚未交付，阶段验收不冒充七类业务完整通过。
 
 ## Phase 8: 正式图片输入、证据与人工更正
+
+当前状态：2026-10-09开始工程开发；消费现有Phase7接口，不等待其模型质量全过。Phase1图片质量FAIL仍保留，先实现图片接收/联合理解/证据更正完整链路，专项模型质量与Phase7一起进入统一回归；不将工程模拟响应计作图片语义验收。
 
 **交付内容**：
 - 实现暂存上传、实际格式/像素核验、附件/CID绑定、仅图来信、授权原图/缩略图预览及逐图状态；重发以新客户来信入库。
@@ -345,7 +351,7 @@ SCN/JRN类别对应沿用验收映射第5节，Phase 10运行、Phase 13复核�
 | API | FastAPI 0.142.2、Pydantic 2.13.5、Uvicorn 0.54.0 | tech-spike/uv.lock及已记录组件实验 |
 | Agent | LangGraph 1.2.14、checkpoint-postgres 3.1.2 | [检查点](https://docs.langchain.com/oss/python/langgraph/checkpointers)与[sync持久化](https://reference.langchain.com/python/langgraph/types/Durability)；业务事务仍独立保护 |
 | 模型适配 | langchain-openai/core 1.6.7、langchain 1.4.3、OpenAI SDK 3.26.0 | 已验证工具/Schema/usage组合，完整langchain为观测依赖；不增加第二套Agent运行时 |
-| 主模型 | qwen3.7-plus，北京兼容接口；enable_thinking=false | [官方图文、工具及结构化输出能力](https://help.aliyun.com/zh/model-studio/qwen3-7-plus)已复核；联合客户图片质量仍由Phase 1/8验收 |
+| 主模型 | qwen3.7-plus，北京兼容接口；理解/生成enable_thinking=false、2k/30秒；Phase7核验候选true、thinking_budget2048、max_completion_tokens3990、最多60秒 | 2026-10-09用户授权容量调整并同步ASM-006：核验推理与回答共同计4k，容差留在3990+10内；timeout受剩余120秒活动时间约束，stage预留/unknown/settle一致。6请求/12工具/16k输入/80k累计不变；原负/正及新业务全文双审前不称质量达标，旧FAIL保持。[官方能力](https://help.aliyun.com/zh/model-studio/qwen3-7-plus)及[总输出限额](https://help.aliyun.com/en/model-studio/qwen-api-via-openai-chat-completions)已复核；图片仍由Phase1/8验收 |
 | 业务DB | PostgreSQL 18.6、pgvector 0.8.6、SQLAlchemy 2.1.3、Alembic 1.20.0、psycopg 3.3.6 | 复用已实测镜像`pgvector/pgvector@sha256:78bf48b801e792f99e3ac62b5036fd3876e9be48afda16c1e331af1c75ceb2ff`，应用迁移另建 |
 | 检索 | pgvector Python 0.5.0；qwen3.7-text-embedding 1024维 | [模型能力](https://help.aliyun.com/zh/model-studio/qwen3-7-text-embedding)与本地60查询实验；v4仅在完整独立索引已构建时可回退 |
 | 文档解析 | pypdf 6.19.0、pypdfium2 5.14.0；MinerU 4.0.10 Basic、DocVortex 0.5.9 | [固定MinerU发布](https://github.com/opendatalab/MinerU/releases/tag/mineru-4.0.10-released)及115包实验锁；解析SDK2.x和主SDK3.x分环境 |
@@ -385,4 +391,4 @@ PyPI固定版本元数据已核验FastAPI、LangGraph、checkpoint-postgres、la
 - 每阶段报告更新`docs/verification/ACCEPTANCE-RESULTS.md`的对应部分或模块实验报告，维护本文件阶段状态及`docs/planning/SESSION-HANDOFF.md`。AC满足全部条件后才勾选；历史设计审查和实验原始结果保持原结论。
 - 运行产生的含正文/图像/模型请求原始证据放Git忽略的`.local-data/`或`tmp/`；仓库只保留复核后的合成样本、去敏汇总与证据摘要。新增专题文档归`docs/`，模块README随源码，根目录保留约定五份Markdown。
 
-当前入口：查看Phase 6知识索引构建、发布、检索试查与下架；四步技术验证和独立两阶段审查已通过，待用户查看。下一开发阶段是Phase 7“文本Agent与首个工作台闭环”；图片售后完整闭环在Phase 8–10交付，全部首版范围以Phase 13总验收为完成门槛。
+当前入口：Phase 7“文本Agent与首个工作台闭环”实施与验收，步骤见[实施记录](docs/planning/PHASE-7-IMPLEMENTATION.md)。图片售后完整闭环在Phase 8–10交付，全部首版范围以Phase 13总验收为完成门槛。

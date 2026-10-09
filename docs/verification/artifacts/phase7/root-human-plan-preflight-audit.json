@@ -1,0 +1,41 @@
+{
+  "scope": "independent_root_full_data_delta_preflight_zero_http_not_semantic_pass",
+  "checks": [
+    {
+      "target": "human_plan_promoted_to_current_original",
+      "data_diff": [],
+      "checks": {
+        "original_request_sha": true,
+        "prepared_sha": true,
+        "exact_data_delta": true,
+        "source_refs_and_nondraft_unchanged": true,
+        "draft_sha": true,
+        "full_original_schema": true,
+        "all_original_request_other_fields": true,
+        "exact_current_three_messages": true,
+        "budget_15474": true,
+        "zero_http": true
+      }
+    },
+    {
+      "target": "human_plan_awaiting_synthetic_variant",
+      "data_diff": [
+        ".draft.body",
+        ".draft.claims[1].text"
+      ],
+      "checks": {
+        "original_request_sha": true,
+        "prepared_sha": true,
+        "exact_data_delta": true,
+        "source_refs_and_nondraft_unchanged": true,
+        "draft_sha": true,
+        "full_original_schema": true,
+        "all_original_request_other_fields": true,
+        "exact_current_three_messages": true,
+        "budget_15474": true,
+        "zero_http": true
+      }
+    }
+  ],
+  "all_pass": true
+}

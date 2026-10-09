@@ -32,8 +32,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--api-port", type=int, default=18181)
     parser.add_argument("--web-port", type=int, default=15174)
-    parser.add_argument("--phase", type=int, choices=(3, 4, 5, 6), default=3)
+    parser.add_argument("--phase", type=int, choices=(3, 4, 5, 6, 7), default=3)
+    parser.add_argument("--manual-agent", action="store_true", help="Phase7 UI driver controls isolated runs; no background model calls")
     args = parser.parse_args()
+    if args.manual_agent and args.phase != 7:
+        parser.error("--manual-agent requires --phase 7")
     temporary_root = ROOT / "tmp"
     temporary_root.mkdir(exist_ok=True)
     stop_file = temporary_root / f"phase{args.phase}-browser.stop"
@@ -73,11 +76,12 @@ def main():
             environment.update(GLOBALMAIL_DATABASE_URL=test_url.render_as_string(hide_password=False),
                 GLOBALMAIL_OBJECT_ROOT=str(Path(temporary) / "objects"),
                 GLOBALMAIL_ALLOWED_ORIGINS=f"http://127.0.0.1:{args.web_port}",
-                PYTHONPATH=str(BACKEND / "src"))
+                PYTHONPATH=os.pathsep.join((str(BACKEND / "src"), str(Path(__file__).parent))))
             api_log = open(Path(temporary) / "api.log", "wb")
             outputs.append(api_log)
             processes.append(subprocess.Popen([sys.executable, "-m", "uvicorn", "--app-dir", "src",
-                "globalmail_agent.main:app", "--host", "127.0.0.1", "--port", str(args.api_port),
+                "phase7_browser_app:app" if args.manual_agent else "globalmail_agent.main:app",
+                "--host", "127.0.0.1", "--port", str(args.api_port),
                 "--no-access-log"], cwd=BACKEND, env=environment, stdout=api_log, stderr=api_log,
                 creationflags=subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.CREATE_NO_WINDOW))
             for name in list(environment):

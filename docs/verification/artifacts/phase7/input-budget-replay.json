@@ -1,0 +1,11 @@
+{
+  "frozen_attempt": "20261008-173040-bf929b72",
+  "all_tools_input_proxy": 17504,
+  "terminal_tools_input_proxy": 13627,
+  "complete_messages_unchanged": true,
+  "budget": 16000,
+  "terminal_tool_names": [
+    "create_reply_draft",
+    "request_human_review"
+  ]
+}

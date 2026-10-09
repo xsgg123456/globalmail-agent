@@ -4,6 +4,8 @@
 
 ## 根目录入口
 
+2026-10-09当前推进：用户要求先跑通完整项目，已停止Phase7核验局部优化，进入Phase8工程开发；模型质量与最终验收延期，原FAIL、拒发与权限门保持。阶段开工不等于原验收通过。
+
 | 文档 | 职责 |
 |---|---|
 | [AGENTS.md](../AGENTS.md) | Agent 工作规则、目录约定与任务路由 |
@@ -50,6 +52,12 @@
 | planning | [PHASE-4-IMPLEMENTATION.md](planning/PHASE-4-IMPLEMENTATION.md) | Phase 4资料/账本、查询、政策预览和工作台集成步骤及接口 |
 | planning | [PHASE-5-IMPLEMENTATION.md](planning/PHASE-5-IMPLEMENTATION.md) | Phase 5原件/版本、解析、核对与知识维护页面；包含受控JSON/JSONL契约 |
 | planning | [PHASE-6-IMPLEMENTATION.md](planning/PHASE-6-IMPLEMENTATION.md) | Phase 6切分/向量、发布/回滚/下架、检索与前后端接口及验证步骤 |
+| planning | [PHASE-7-IMPLEMENTATION.md](planning/PHASE-7-IMPLEMENTATION.md) | Phase 7文本Agent、预算/检查点/终局与工作台闭环实施及验证标准 |
+| planning | [PHASE-8-IMPLEMENTATION.md](planning/PHASE-8-IMPLEMENTATION.md) | 图片接收/消息绑定/联合理解/证据更正/工作台工程闭环，模型质量留统一回归 |
+| verification | [PHASE-7-PROMPT-ADAPTATION.md](verification/PHASE-7-PROMPT-ADAPTATION.md) | Qwen来源/格式/采样适配、自评与真实回归区别，冻结业务目标不变 |
+| verification | [PHASE-7-VALIDATION.md](verification/PHASE-7-VALIDATION.md) | 容量专项92/评测43/独审18项及编译通过；唯一新负控制整体FAIL、两项局部进展，停止本配置付费，模型语义仍HIGH；历史全量及正式保旧证据保持 |
+| verification | [PHASE-7-REVIEW-INITIAL.md](verification/PHASE-7-REVIEW-INITIAL.md)、[第二轮](verification/PHASE-7-REVIEW-FINAL.md) | 两轮FAIL原始证据；第二轮文件名含FINAL，正文实际FAIL |
+| verification | [PHASE-7-REVIEW-3.md](verification/PHASE-7-REVIEW-3.md) | 经用户授权本次复用实例的第三轮审查；Stage1未过、Stage2未执行，局部优化已停止 |
 
 ## 任务阅读与新增文档
 

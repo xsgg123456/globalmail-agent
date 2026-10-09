@@ -65,7 +65,9 @@ class QueryMixin:
                     case_facts.c.visible_seq <= conversation["visible_message_seq"])).mappings())
                 cursor = conn.execute(select(replay_cursors).where(
                     replay_cursors.c.conversation_id == conversation_id)).mappings().first()
+                from globalmail_agent.application.risk_records import active_risks
                 return {"conversation": self.present_conversation(conn, conversation), "messages": mail,
+                    "active_risks": active_risks(conn, self.store, conversation) if conversation["mode"] == "simulation" else [],
                     "review": self.present_review(conn, conversation, current) if current else None,
                     "human_history": [self.present_review(conn, conversation, r) for r in reviews if r["status"] != "open"],
                     "comparisons": [self.present_review(conn, conversation, r) for r in reviews

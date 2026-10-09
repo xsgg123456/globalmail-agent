@@ -1,0 +1,11 @@
+Independent item-audit protocol PG: exact indices/quotes, legacy rejection, original early-source/full-body/hash/commit/menu/wake gates and no-body scoped wait. Explicit Scripted engineering data only, zero paid chat, random schemas auto-cleanup, no public DML or credential output.
+test_full_context_handoff_fits_when_both_terminal_schemas_do_not (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_handoff_fits_when_both_terminal_schemas_do_not) ... ok
+test_full_context_still_over_handoff_budget_does_not_fake_human_review (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_still_over_handoff_budget_does_not_fake_human_review) ... ok
+test_registered_but_undeclared_tool_is_not_executed_and_paid_usage_is_kept (test_agent_menu_pressure.AgentMenuPressureTests.test_registered_but_undeclared_tool_is_not_executed_and_paid_usage_is_kept) ... ok
+test_validation_retains_full_tool_observations_without_duplicate_draft (test_agent_validation.AgentValidationTests.test_validation_retains_full_tool_observations_without_duplicate_draft) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 10.136s
+
+OK
+SOURCE_CHANGED: False

@@ -1,0 +1,22 @@
+{
+  "messages_full_tools_proxy": 16201,
+  "messages_shown_terminal_proxy": 12324,
+  "full_messages_equal": true,
+  "shown_tools": [
+    "create_reply_draft",
+    "request_human_review"
+  ],
+  "tool_sizes": {
+    "get_case_context": 134,
+    "get_order_snapshot": 212,
+    "get_shipment_status": 199,
+    "get_after_sales_context": 203,
+    "get_item_availability": 239,
+    "get_operation_status": 198,
+    "search_reference": 356,
+    "update_case_state": 789,
+    "revise_understanding": 1538,
+    "create_reply_draft": 1174,
+    "request_human_review": 431
+  }
+}

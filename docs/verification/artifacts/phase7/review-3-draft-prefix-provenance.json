@@ -1,0 +1,44 @@
+{
+  "engineering_attempt": "20261008-184249-2625ddca",
+  "review": "PASS provenance engineering only; business Stage1 pending new actual validation and later cases",
+  "independent_original_response_SHA_matches_prior_review": true,
+  "all_four_paid_response_values_providerIDs_usage_match_under_only_exact_ID_mapping": true,
+  "full_context_understanding_order_knowledge_and_draft_equal_except_12_listed_fields": true,
+  "identity_fields": 8,
+  "fresh_metadata_fields": [
+    "observations[0].observed_at",
+    "observations[0].resource_versions.business_digest",
+    "observations[1].observed_at",
+    "observations[1].resource_versions.business_digest"
+  ],
+  "complete_SOP_text_sha256": "2f0d709e185997720ceb5a38823d8286e3bd8defbf0a0f5f2547a927c635f59a",
+  "draft_body_sha256": "ad219354abb8f342d2d4db1e532bd77a79b040d2579ea41527edd87b537b78f1",
+  "original_failed_response05_not_reused": true,
+  "trusted_original_current_manifest_files": {
+    "tmp/phase7-agent-eval/20261008-182447-c623f2cd/P7-02-order-and-evidence/request-01.json": "b3449ac008c7feb0226a3df8af6340028da5034b051ccb996f892415102b673c",
+    "tmp/phase7-agent-eval/20261008-182447-c623f2cd/P7-02-order-and-evidence/response-01.json": "41f371b1de96625a0009baa9bc8e4f7bda692c09a1964f7ab4439e39cb5b12ed",
+    "tmp/phase7-agent-eval/20261008-182447-c623f2cd/P7-02-order-and-evidence/request-02.json": "a74c92fa9fb9ade414af171317710b543c12e2d9b4082a848028ab1805e19d4d",
+    "tmp/phase7-agent-eval/20261008-182447-c623f2cd/P7-02-order-and-evidence/response-02.json": "9ca363caf5ff85e9970cc3afa63006ac8c2807e2365a659086995dcefd8eb8c9",
+    "tmp/phase7-agent-eval/20261008-182447-c623f2cd/P7-02-order-and-evidence/request-03.json": "3a8a8fd965fb5fbfcf92599f797e8c6827f6856b3ab72b8a17ea74f10045b72e",
+    "tmp/phase7-agent-eval/20261008-182447-c623f2cd/P7-02-order-and-evidence/response-03.json": "2434875fcb10befb65b727943d9ff6800004eaf6a2fe7859e7d660c80a157097",
+    "tmp/phase7-agent-eval/20261008-182447-c623f2cd/P7-02-order-and-evidence/request-04.json": "82b1506940bb9e4d99ff74f21bdf459761db79d6a9cce6a2abfb8d61b1a2ba1c",
+    "tmp/phase7-agent-eval/20261008-182447-c623f2cd/P7-02-order-and-evidence/response-04.json": "6e265b67109bb18216a010d229cb3acb10590d7a10e5f6c8789fe349296fac3a",
+    "tmp/phase7-agent-eval/20261008-182447-c623f2cd/P7-02-order-and-evidence/request-05.json": "17c27470bf872886187e983729d62534cbe01cd72b105647caa90266fe0d6a31",
+    "tmp/phase7-agent-eval/20261008-182447-c623f2cd/P7-02-order-and-evidence/run-record.json": "ec8b047073aed6dc03f90cada798678568c9d67ea54c7428e5585183cd212210",
+    "tmp/phase7-agent-eval/20261008-182447-c623f2cd/result.json": "648d130aa4ad45cc810bdec9ad5f1b074f38622781b73ce574fd0bedeac141a1"
+  },
+  "original_model_requests_accounted": 4,
+  "real_current_gateway_tools": 3,
+  "tokens": 15257,
+  "active_ms_with_conservative_old_base": 42780,
+  "new_chat_HTTP": 0,
+  "new_outbound": 0,
+  "cleanup_all_true": true,
+  "graph_sha256": "b5ccb956fbd2610c89ac8ee99bb5fc3c49cac4f652f215ab502a305d11167581",
+  "current_draft_prefix_sha256": "d65c2c0509dadeb338bc0341c2fb4d4c1cab52049676ee3d5d23bf86702ccbb5",
+  "new_validation_message_roles": [
+    "system",
+    "user",
+    "system"
+  ]
+}

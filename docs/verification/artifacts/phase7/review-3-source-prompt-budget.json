@@ -1,0 +1,22 @@
+{
+  "scope": "independent_current_AgentGraph_decide_request_capture_zero_HTTP_zero_DB",
+  "before_input_proxy": 16157,
+  "after_input_proxy": 15809,
+  "original_limit": 16000,
+  "checks": {
+    "all_original_messages_except_last_grounding_system_exact": true,
+    "full_original_schema_tools_exact": true,
+    "remaining_requests_three_original_cycle_not_reset": true,
+    "current_graph_human_only_declared": true,
+    "no_original_data_or_SOP_truncation": true
+  },
+  "source_sha256": {
+    "globalmail-agent/backend/src/globalmail_agent/agent/graph.py": "3b3051c5fd80ddaf8553e6d7ec31927862a15ce5a5161d8f58d5ca2b5916f67b",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/decision.md": "d348f2ce8f31b7da867ae46c2893e57dc5c78f564dca10a7a895de9acedecffd",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/grounding.md": "1c724f2861f8393cde6baa0e1a7a835ac5260e40da03bd78eea5b5a1815320a7",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/understanding.md": "2e0712942e20db3b694ddea3686877eeb58f3d7733131871aa707b4ddc64ba63",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation-grounding.md": "fee7f49bd7f991f200bf7303eedacd27ad9404a0ba1edaecd183fd403ae47b65",
+    "globalmail-agent/backend/src/globalmail_agent/agent/prompts/validation.md": "3e142152096368147c798244af6f4b1e5306c3084cac8c33827514c6a863ea9b"
+  },
+  "raw_original_request_sha256": "d6b8c920e9d114e8a4ee70c75c42bf913fb412a7cf6dbb83b6ad5e7dc8d5b6ed"
+}

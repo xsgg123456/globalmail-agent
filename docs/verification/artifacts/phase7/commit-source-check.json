@@ -1,0 +1,23 @@
+{
+  "snapshots": {
+    "review-capacity-tests-snapshot.json": {
+      "tests": 92,
+      "successful": true,
+      "skipped": 0,
+      "checked": 180,
+      "mismatches": []
+    },
+    "review-capacity-eval-tests-final-snapshot.json": {
+      "tests": 43,
+      "successful": true,
+      "skipped": 0,
+      "checked": 41,
+      "mismatches": []
+    }
+  },
+  "commit_paths": 468,
+  "excluded": [
+    ".codex/evolution/signals.jsonl"
+  ],
+  "phase8_code_included": false
+}

@@ -1,0 +1,28 @@
+{
+  "paid_calls": 0,
+  "frozen_request_replay": [
+    {
+      "attempt": "20261008-173040-bf929b72",
+      "original_input_proxy": 17504,
+      "current_input_proxy": 14504,
+      "budget": 16000,
+      "retained_read_messages": 2,
+      "all_read_messages_equal": true,
+      "allowed_tools": [
+        "create_reply_draft",
+        "request_human_review"
+      ]
+    },
+    {
+      "attempt": "20261008-175613-3c27e549",
+      "original_input_proxy": 17427,
+      "current_input_proxy": 15869,
+      "budget": 16000,
+      "retained_read_messages": 2,
+      "all_read_messages_equal": true,
+      "allowed_tools": [
+        "request_human_review"
+      ]
+    }
+  ]
+}

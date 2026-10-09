@@ -1,0 +1,9 @@
+{
+  "source": "Actual completed tool result for exec session 27726, retained in task transcript",
+  "tests": 244,
+  "duration_seconds": 443.344,
+  "result": "OK",
+  "exit_code": 0,
+  "scope": "Intermediate engineering regression; two prompt files changed during execution, not final-source verification",
+  "raw_log_limitation": "A relative-path rename failed before the next run, so its Tee-Object destination was reused. This JSON preserves the observed result and is not a verbatim reconstructed log."
+}

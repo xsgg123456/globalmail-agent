@@ -1,0 +1,294 @@
+{
+  "provenance": "isolated_real_API_PG_explicit_scripted_UI_not_Qwen_quality",
+  "api": "http://127.0.0.1:18181",
+  "observations": [
+    {
+      "id": "a1e677bf-ecfb-4466-84b3-9cefe64e60c0",
+      "conversation": {
+        "id": "a1e677bf-ecfb-4466-84b3-9cefe64e60c0",
+        "created_at": "2026-10-08T17:28:54.513707+08:00",
+        "updated_at": "2026-10-08T17:28:58.425352+08:00",
+        "workspace_id": "00000000-0000-0000-0000-000000000001",
+        "mode": "interactive_simulation",
+        "branch_id": "4aaed830-8b9a-4971-9a00-3f01b83b6797",
+        "customer_id": "3cea9f9e-9703-4dc5-a009-3a73ae9b6047",
+        "purpose": "conversation",
+        "dataset_id": "a1c64712-153e-479c-be1f-0e2445511cf4",
+        "identity_id": "3cea9f9e-9703-4dc5-a009-3a73ae9b6047",
+        "subject": "BASE-OUTON-01",
+        "row_version": 4,
+        "input_revision": 1,
+        "authority_epoch": 0,
+        "branch_generation": 1,
+        "case_revision": 2,
+        "visible_message_seq": 2,
+        "next_seq": 7,
+        "received_seq": 2,
+        "human_reply_after_seq": null,
+        "lifecycle": "open",
+        "processing_owner": "agent",
+        "auto_run_gate": "open",
+        "scheduling_state": "waiting_customer",
+        "sender_key": "customer-base-outon-01@example.invalid",
+        "identity_verified": true
+      },
+      "active_risks": [],
+      "messages": [
+        {
+          "id": "99111283-4b0e-4c8c-9508-7a7ef769bc69",
+          "sender": "customer"
+        },
+        {
+          "id": "9bbea588-06d2-4b37-b7d3-67587b3c7817",
+          "sender": "simulated_agent"
+        }
+      ],
+      "runs": [
+        {
+          "id": "5cde7f49-7ab5-40ea-be42-624a6cdbe528",
+          "created_at": "2026-10-08T17:28:54.513707+08:00",
+          "updated_at": "2026-10-08T17:28:54.513707+08:00",
+          "workspace_id": "00000000-0000-0000-0000-000000000001",
+          "mode": "simulation",
+          "branch_id": "4aaed830-8b9a-4971-9a00-3f01b83b6797",
+          "customer_id": "3cea9f9e-9703-4dc5-a009-3a73ae9b6047",
+          "purpose": "conversation",
+          "conversation_id": "a1e677bf-ecfb-4466-84b3-9cefe64e60c0",
+          "processing_cycle_id": "0d0a5fdc-a567-46c6-a59c-a832dafe72e3",
+          "attempt_no": 1,
+          "status": "completed",
+          "input_revision": 1,
+          "authority_epoch": 0,
+          "branch_generation": 1,
+          "trigger_id": "a7468bb0-a30b-4c66-9910-205bb6b6219f",
+          "stop_requested": false,
+          "checkpoint_writable": false,
+          "error_code": null,
+          "outcome": "reply_and_wait",
+          "started_at": "2026-10-08T17:28:56.682387+08:00",
+          "finished_at": "2026-10-08T17:28:58.447847+08:00"
+        }
+      ]
+    },
+    {
+      "id": "d4f99981-1e0b-4638-8c86-3897501f5150",
+      "conversation": {
+        "id": "d4f99981-1e0b-4638-8c86-3897501f5150",
+        "created_at": "2026-10-08T17:28:58.577186+08:00",
+        "updated_at": "2026-10-08T17:40:43.761707+08:00",
+        "workspace_id": "00000000-0000-0000-0000-000000000001",
+        "mode": "interactive_simulation",
+        "branch_id": "154ecfbf-36dd-487c-8d5d-3feaafa707cd",
+        "customer_id": "0fd9552c-458f-4dc3-bbc4-99c50653bfcc",
+        "purpose": "conversation",
+        "dataset_id": "00000000-0000-0000-0000-000000000002",
+        "identity_id": "0fd9552c-458f-4dc3-bbc4-99c50653bfcc",
+        "subject": "",
+        "row_version": 5,
+        "input_revision": 1,
+        "authority_epoch": 2,
+        "branch_generation": 1,
+        "case_revision": 1,
+        "visible_message_seq": 2,
+        "next_seq": 5,
+        "received_seq": 2,
+        "human_reply_after_seq": 2,
+        "lifecycle": "open",
+        "processing_owner": "human_wait_customer",
+        "auto_run_gate": "disabled",
+        "scheduling_state": "waiting_customer",
+        "sender_key": "ui.risk@example.test",
+        "identity_verified": true
+      },
+      "active_risks": [],
+      "messages": [
+        {
+          "id": "d30a78f0-bd0c-4a47-850c-2504ab1ebb73",
+          "sender": "customer"
+        },
+        {
+          "id": "d808bb89-f29b-4ea6-8f93-4e3ef72559c0",
+          "sender": "simulated_human"
+        }
+      ],
+      "runs": [
+        {
+          "id": "ef587945-16eb-4d9d-82a6-28c51b2013a4",
+          "created_at": "2026-10-08T17:28:58.577186+08:00",
+          "updated_at": "2026-10-08T17:28:58.577186+08:00",
+          "workspace_id": "00000000-0000-0000-0000-000000000001",
+          "mode": "simulation",
+          "branch_id": "154ecfbf-36dd-487c-8d5d-3feaafa707cd",
+          "customer_id": "0fd9552c-458f-4dc3-bbc4-99c50653bfcc",
+          "purpose": "conversation",
+          "conversation_id": "d4f99981-1e0b-4638-8c86-3897501f5150",
+          "processing_cycle_id": "8f651e86-1844-414d-a5be-8cd417ec7ffe",
+          "attempt_no": 1,
+          "status": "handed_off",
+          "input_revision": 1,
+          "authority_epoch": 0,
+          "branch_generation": 1,
+          "trigger_id": "2308bf32-09a2-474f-9592-633cb6663f20",
+          "stop_requested": false,
+          "checkpoint_writable": false,
+          "error_code": null,
+          "outcome": "handoff",
+          "started_at": "2026-10-08T17:28:58.67748+08:00",
+          "finished_at": "2026-10-08T17:28:58.937956+08:00"
+        }
+      ]
+    },
+    {
+      "id": "7bde2798-1257-472b-8546-57f248c3e798",
+      "conversation": {
+        "id": "7bde2798-1257-472b-8546-57f248c3e798",
+        "created_at": "2026-10-08T17:28:59.039787+08:00",
+        "updated_at": "2026-10-08T17:38:17.038186+08:00",
+        "workspace_id": "00000000-0000-0000-0000-000000000001",
+        "mode": "interactive_simulation",
+        "branch_id": "823458dc-061f-4043-afbf-c4f727e0e0d4",
+        "customer_id": "c64353a9-886e-4544-8e50-21f6d8000501",
+        "purpose": "conversation",
+        "dataset_id": "00000000-0000-0000-0000-000000000002",
+        "identity_id": "c64353a9-886e-4544-8e50-21f6d8000501",
+        "subject": "",
+        "row_version": 5,
+        "input_revision": 1,
+        "authority_epoch": 0,
+        "branch_generation": 1,
+        "case_revision": 1,
+        "visible_message_seq": 1,
+        "next_seq": 4,
+        "received_seq": 1,
+        "human_reply_after_seq": null,
+        "lifecycle": "open",
+        "processing_owner": "agent",
+        "auto_run_gate": "open",
+        "scheduling_state": "queued",
+        "sender_key": "ui.failure@example.test",
+        "identity_verified": true
+      },
+      "active_risks": [],
+      "messages": [
+        {
+          "id": "b15e72d6-d9a8-4e03-8964-bc77f0b47b1b",
+          "sender": "customer"
+        }
+      ],
+      "runs": [
+        {
+          "id": "07bda225-7c6f-4d4a-b739-d220f52b17dc",
+          "created_at": "2026-10-08T17:28:59.039787+08:00",
+          "updated_at": "2026-10-08T17:28:59.039787+08:00",
+          "workspace_id": "00000000-0000-0000-0000-000000000001",
+          "mode": "simulation",
+          "branch_id": "823458dc-061f-4043-afbf-c4f727e0e0d4",
+          "customer_id": "c64353a9-886e-4544-8e50-21f6d8000501",
+          "purpose": "conversation",
+          "conversation_id": "7bde2798-1257-472b-8546-57f248c3e798",
+          "processing_cycle_id": "aeea2010-11f5-4943-8cbe-de6c8566e14b",
+          "attempt_no": 1,
+          "status": "failed",
+          "input_revision": 1,
+          "authority_epoch": 0,
+          "branch_generation": 1,
+          "trigger_id": "86fcff3f-e658-4eaa-b8b3-8eb092407d99",
+          "stop_requested": false,
+          "checkpoint_writable": false,
+          "error_code": "model_timeout",
+          "outcome": null,
+          "started_at": "2026-10-08T17:28:59.125047+08:00",
+          "finished_at": "2026-10-08T17:28:59.678259+08:00"
+        },
+        {
+          "id": "2c84f7c5-e700-4057-ba9d-ef94f3070297",
+          "created_at": "2026-10-08T17:38:17.038186+08:00",
+          "updated_at": "2026-10-08T17:38:17.038186+08:00",
+          "workspace_id": "00000000-0000-0000-0000-000000000001",
+          "mode": "simulation",
+          "branch_id": "823458dc-061f-4043-afbf-c4f727e0e0d4",
+          "customer_id": "c64353a9-886e-4544-8e50-21f6d8000501",
+          "purpose": "conversation",
+          "conversation_id": "7bde2798-1257-472b-8546-57f248c3e798",
+          "processing_cycle_id": "aeea2010-11f5-4943-8cbe-de6c8566e14b",
+          "attempt_no": 2,
+          "status": "queued",
+          "input_revision": 1,
+          "authority_epoch": 0,
+          "branch_generation": 1,
+          "trigger_id": "86fcff3f-e658-4eaa-b8b3-8eb092407d99",
+          "stop_requested": false,
+          "checkpoint_writable": true,
+          "error_code": null,
+          "outcome": null,
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "id": "13007037-20be-4e32-a72c-309903aa0767",
+      "conversation": {
+        "id": "13007037-20be-4e32-a72c-309903aa0767",
+        "created_at": "2026-10-08T17:28:59.701981+08:00",
+        "updated_at": "2026-10-08T17:38:51.581444+08:00",
+        "workspace_id": "00000000-0000-0000-0000-000000000001",
+        "mode": "interactive_simulation",
+        "branch_id": "8e8aa00a-d572-4505-b4e7-e4f2a223f78f",
+        "customer_id": "e9404a36-67f4-4fce-a6e3-ed27d5345f10",
+        "purpose": "conversation",
+        "dataset_id": "00000000-0000-0000-0000-000000000002",
+        "identity_id": "e9404a36-67f4-4fce-a6e3-ed27d5345f10",
+        "subject": "",
+        "row_version": 3,
+        "input_revision": 1,
+        "authority_epoch": 1,
+        "branch_generation": 1,
+        "case_revision": 1,
+        "visible_message_seq": 1,
+        "next_seq": 2,
+        "received_seq": 1,
+        "human_reply_after_seq": null,
+        "lifecycle": "open",
+        "processing_owner": "agent",
+        "auto_run_gate": "manual_retry_required",
+        "scheduling_state": "stopped",
+        "sender_key": "ui.stop@example.test",
+        "identity_verified": true
+      },
+      "active_risks": [],
+      "messages": [
+        {
+          "id": "a899d230-14b5-4e36-9cea-6478004a56af",
+          "sender": "customer"
+        }
+      ],
+      "runs": [
+        {
+          "id": "89e2c25f-f484-4609-ac3a-ad2f8b20e423",
+          "created_at": "2026-10-08T17:28:59.701981+08:00",
+          "updated_at": "2026-10-08T17:28:59.701981+08:00",
+          "workspace_id": "00000000-0000-0000-0000-000000000001",
+          "mode": "simulation",
+          "branch_id": "8e8aa00a-d572-4505-b4e7-e4f2a223f78f",
+          "customer_id": "e9404a36-67f4-4fce-a6e3-ed27d5345f10",
+          "purpose": "conversation",
+          "conversation_id": "13007037-20be-4e32-a72c-309903aa0767",
+          "processing_cycle_id": "607c3e0b-b2e3-46f9-b371-de253fea0ba4",
+          "attempt_no": 1,
+          "status": "stopped",
+          "input_revision": 1,
+          "authority_epoch": 0,
+          "branch_generation": 1,
+          "trigger_id": "ca413f5f-b7df-4d2e-9022-ff0f9c3d5ae2",
+          "stop_requested": true,
+          "checkpoint_writable": false,
+          "error_code": "user_stopped",
+          "outcome": null,
+          "started_at": null,
+          "finished_at": "2026-10-08T17:38:51.606399+08:00"
+        }
+      ]
+    }
+  ]
+}

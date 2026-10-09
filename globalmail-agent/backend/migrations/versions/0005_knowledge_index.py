@@ -110,7 +110,12 @@ def upgrade():
         extension = conn.execute(sa.text("SELECT current_schema()")).scalar_one()
     conn.execute(sa.text("SELECT set_config('search_path', current_setting('search_path') || ',' || quote_ident(:namespace), true)"), {"namespace": extension})
     metadata.reflect(conn, only=["workspaces", "objects", "documents", "document_versions"], extend_existing=True)
-    metadata.create_all(conn, tables=[metadata.tables[n] for n in TABLE_NAMES], checkfirst=True)
+    # search_path includes the extension schema; its application tables are not our target.
+    target = conn.execute(sa.text("SELECT current_schema()")).scalar_one()
+    existing = set(sa.inspect(conn).get_table_names(schema=target))
+    for table in sa.sql.ddl.sort_tables([metadata.tables[name] for name in TABLE_NAMES]):
+        if table.name not in existing:
+            table.create(conn, checkfirst=False)
     additions = {"documents": [sa.Column("revocation_epoch", sa.BigInteger, nullable=False, server_default="0"),
         sa.Column("withdrawn", sa.Boolean, nullable=False, server_default=sa.false())],
         "jobs": [sa.Column("knowledge_operation", sa.String(24), nullable=False, server_default="parse"),
