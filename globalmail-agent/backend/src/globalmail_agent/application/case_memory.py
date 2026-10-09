@@ -7,7 +7,7 @@ from globalmail_agent.adapters.body_store import read_body
 
 
 def rebuild(conn, writer, store, conversation, visible_messages, as_of):
-    issue = conn.execute(select(case_issues).where(case_issues.c.conversation_id == conversation["id"],
+    issue = conn.execute(select(case_issues.c.id, case_issues.c.version).where(case_issues.c.conversation_id == conversation["id"],
         case_issues.c.issue_key == "correspondence")).mappings().first()
     scope = {k: conversation[k] for k in SCOPE_KEYS}
     if issue is None:

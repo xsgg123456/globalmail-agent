@@ -25,7 +25,7 @@ def append_ui_event(conn, conversation_id, kind, payload):
 
 
 def record_event(conn, conversation, source, source_event_id, kind, payload, *, suppressed=False):
-    existing = conn.execute(select(domain_events).where(
+    existing = conn.execute(select(*[domain_events.c[k] for k in ("id", *SCOPE_KEYS, "conversation_id", "source", "source_event_id", "kind", "payload", "status")]).where(
         domain_events.c.conversation_id == conversation["id"], domain_events.c.source == source,
         domain_events.c.source_event_id == source_event_id)).mappings().first()
     if existing:

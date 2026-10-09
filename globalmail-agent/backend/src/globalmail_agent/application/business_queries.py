@@ -162,6 +162,8 @@ class BusinessQueries:
                 ("shipments", "shipments"), ("returns", "returns"), ("inventory", "inventory"))}
         single = len(model["lines"]) == 1
         state = {**model["state"], **facts, "verified_fixture": single, "evidence_ref": ref}
+        if line["line_id"] in state.get("address_confirmations", {}):
+            state["address_confirmation"] = state["address_confirmations"][line["line_id"]]
         if not single:
             state.pop("defect_confirmed_in_simulation", None); state.pop("confirmed_missing_part_id", None)
         if single and state.get("defect_confirmed_in_simulation") is True:

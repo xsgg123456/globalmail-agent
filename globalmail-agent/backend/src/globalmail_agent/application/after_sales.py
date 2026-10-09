@@ -39,6 +39,10 @@ class AfterSalesService:
             raise ServiceError("order_line_out_of_scope", 422)
         bundle = published_policy(conn, self.store, self.workspace_id, context, model, selected)
         data = BusinessQueries.context_from_model(model, selected)
+        from globalmail_agent.application.case_issues import validate_issue_target
+        validate_issue_target(conn, conv, command, selected[0])
+        from globalmail_agent.application.plan_changes import check_plan_change
+        check_plan_change(conn, conv, selected[0]["id"], command.action, exclude)
         data.update(policy=bundle["rules"], all_lines=[l[1] for l in model["lines"]])
         data["state"]["risk_flags"] = [*data["state"].get("risk_flags", []), *context.payload.get("active_risks", [])]
         normalize_selection(conn, self.store, conv, context, command, data)
@@ -152,6 +156,8 @@ class AfterSalesService:
             issue_id=command.issue_id, status=state, snapshot_at=context.as_of, plan_digest=plan_hash,
             decision_id=decision_id, policy_release_id=context.release_id, version=1)
         conn.execute(sa.insert(b.operations).values(**row))
+        from globalmail_agent.application.case_issues import bind_plan
+        bind_plan(conn, conv, row)
         if command.action in COMPENSATING:
             for position, unit in enumerate(proposal["affected_unit_ids"]):
                 unit_amount = None if command.amount_minor is None else command.amount_minor // len(proposal["affected_unit_ids"]) + int(
@@ -187,11 +193,19 @@ class AfterSalesService:
         if operation["status"] == "succeeded" or any(e["status"] == "succeeded" for e in executions):
             return result("denied", "executed_operation_not_cancelable", simulation=True)
         if any(not e["confirmed_not_executed"] for e in executions):
-            return result("unknown", "execution_reconciliation_required", simulation=True)
+            details = {**operation["source_snapshot"], **operation["details"], "cancellation_requested": True,
+                "cancellation_ref": command.selection_ref.model_dump(), "version": operation["version"] + 1}
+            conn.execute(b.operations.update().where(b.operations.c.id == operation["id"]).values(
+                details=details, version=operation["version"] + 1))
+            response = result("unknown", "execution_reconciliation_required", simulation=True,
+                data={"operation_id": operation["external_id"], "version": operation["version"] + 1})
+            return self._remember(conn, conv, command_id, operation, "cancel", digest, response)
         snapshot = {**operation["source_snapshot"], "status": "cancelled", "version": operation["version"] + 1}
         conn.execute(b.operations.update().where(b.operations.c.id == operation["id"]).values(status="cancelled",
             version=operation["version"] + 1, confirmed_not_executed=True, details=snapshot))
         release_compensation(conn, operation)
+        from globalmail_agent.application.case_issues import bind_plan
+        bind_plan(conn, conv, dict(operation, status="cancelled"))
         refresh_balances(conn, conv)
         response = operations_view(read_model(conn, conv["id"], self.workspace_id), operation["external_id"])
         response.update(reason_code="operation_cancelled")

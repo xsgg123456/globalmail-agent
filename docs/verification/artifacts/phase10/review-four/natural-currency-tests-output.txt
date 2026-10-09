@@ -1,0 +1,19 @@
+test_explicit_usdt_without_numeral_cannot_fallback_to_original_usd (phase10_review_four_currency_natural.NaturalCurrencyReview.test_explicit_usdt_without_numeral_cannot_fallback_to_original_usd) ... FAIL
+
+======================================================================
+FAIL: test_explicit_usdt_without_numeral_cannot_fallback_to_original_usd (phase10_review_four_currency_natural.NaturalCurrencyReview.test_explicit_usdt_without_numeral_cannot_fallback_to_original_usd)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_four_currency_natural.py", line 5, in test_explicit_usdt_without_numeral_cannot_fallback_to_original_usd
+    self.reject_changed_refund('Yes, I confirm a full refund in USDT.')
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_selection_freshness.py", line 141, in reject_changed_refund
+    self.assert_error("selection_amount_currency_required", lambda: self.push(cid, op, "create_execution"))
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\agent_fixture.py", line 120, in assert_error
+    with self.assertRaises(ServiceError) as raised:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ServiceError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 5.598s
+
+FAILED (failures=1)

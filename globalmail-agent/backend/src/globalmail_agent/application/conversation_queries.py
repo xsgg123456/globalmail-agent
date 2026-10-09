@@ -73,6 +73,7 @@ class QueryMixin:
                 cursor = conn.execute(select(replay_cursors).where(
                     replay_cursors.c.conversation_id == conversation_id)).mappings().first()
                 from globalmail_agent.application.risk_records import active_risks
+                from globalmail_agent.application.case_state_view import case_state
                 return {"conversation": self.present_conversation(conn, conversation), "messages": mail,
                     "active_risks": active_risks(conn, self.store, conversation) if conversation["mode"] == "simulation" else [],
                     "review": self.present_review(conn, conversation, current) if current else None,
@@ -81,6 +82,6 @@ class QueryMixin:
                         if r["status"] != "open"] if conversation["mode"] == "historical_replay" else [],
                     "runs": [dict(r) for r in conn.execute(select(agent_runs).where(agent_runs.c.conversation_id == conversation_id)
                         .order_by(agent_runs.c.created_at)).mappings()],
-                    "issues": [dict(r) for r in conn.execute(select(case_issues).where(case_issues.c.conversation_id == conversation_id)).mappings()],
+                    **case_state(conn, conversation),
                     "facts": [{**dict(f), "value": read_body(conn, self.store, conversation, f["value_object_id"])} for f in facts],
                     "replay": dict(cursor) if cursor else None}

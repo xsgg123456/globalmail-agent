@@ -1,0 +1,71 @@
+test_capture_two_units (phase10_review_four_diagnostic.ReviewFourDiagnosticTests.test_capture_two_units) ... ERROR
+test_capture_other_sku (phase10_review_four_diagnostic.ReviewFourDiagnosticTests.test_capture_other_sku) ... ERROR
+
+======================================================================
+ERROR: test_capture_two_units (phase10_review_four_diagnostic.ReviewFourDiagnosticTests.test_capture_two_units)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_four_diagnostic.py", line 22, in test_capture_two_units
+    self.capture('Yes, please send 2 replacements of H-CTD16-US-BK.')
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_four_diagnostic.py", line 15, in capture
+    response = self.push(cid, op, 'create_execution')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\after_sales_fixture.py", line 118, in push
+    return self.simulation.event(UUID(listing["branch_id"]), command, key or uuid4().hex)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\simulation_control.py", line 82, in event
+    execution, status = create_execution(conn, self.store, conv, branch, operation,
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\simulation_execution.py", line 33, in create_execution
+    data = recheck(conn, store, conv, branch, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\simulation_execution.py", line 26, in recheck
+    _, _, data, outcome, _ = AfterSalesService(None, store)._evaluate(conn, conv, context, command, exclude=operation["external_id"])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\after_sales.py", line 48, in _evaluate
+    normalize_selection(conn, self.store, conv, context, command, data)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\after_sales_selection.py", line 32, in normalize_selection
+    source = normalize_selection(conn, store, conv, current, updated, data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\after_sales_selection.py", line 54, in normalize_selection
+    validate_declared_parameters(command, data, quote)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\selection_parameters.py", line 14, in validate_declared_parameters
+    raise ServiceError("selection_quantity_mismatch", 422)
+globalmail_agent.application.conversation_lock.ServiceError: ('selection_quantity_mismatch', 422)
+
+======================================================================
+ERROR: test_capture_other_sku (phase10_review_four_diagnostic.ReviewFourDiagnosticTests.test_capture_other_sku)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_four_diagnostic.py", line 25, in test_capture_other_sku
+    self.capture('Yes, please send replacement H-CTD16-US-BK-NEW instead.')
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_four_diagnostic.py", line 15, in capture
+    response = self.push(cid, op, 'create_execution')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\after_sales_fixture.py", line 118, in push
+    return self.simulation.event(UUID(listing["branch_id"]), command, key or uuid4().hex)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\simulation_control.py", line 82, in event
+    execution, status = create_execution(conn, self.store, conv, branch, operation,
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\simulation_execution.py", line 33, in create_execution
+    data = recheck(conn, store, conv, branch, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\simulation_execution.py", line 26, in recheck
+    _, _, data, outcome, _ = AfterSalesService(None, store)._evaluate(conn, conv, context, command, exclude=operation["external_id"])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\after_sales.py", line 48, in _evaluate
+    normalize_selection(conn, self.store, conv, context, command, data)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\after_sales_selection.py", line 32, in normalize_selection
+    source = normalize_selection(conn, store, conv, current, updated, data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\after_sales_selection.py", line 54, in normalize_selection
+    validate_declared_parameters(command, data, quote)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\selection_parameters.py", line 22, in validate_declared_parameters
+    raise ServiceError("selection_target_mismatch", 422)
+globalmail_agent.application.conversation_lock.ServiceError: ('selection_target_mismatch', 422)
+
+----------------------------------------------------------------------
+Ran 2 tests in 9.247s
+
+FAILED (errors=2)

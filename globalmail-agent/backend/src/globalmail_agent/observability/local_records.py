@@ -18,6 +18,8 @@ def store_understanding(conn, writer, conv, run, value):
     """Danger uses the terminal transaction, so an active risk cannot exist without its review."""
     from globalmail_agent.attachments.evidence import store_visual_analysis
     store_visual_analysis(conn, writer, conv, run, value)
+    from globalmail_agent.application.case_issues import sync_intents
+    sync_intents(conn, conv, value)
     source = conn.execute(sa.select(a.agent_run_contexts.c.context_object_id).where(
         a.agent_run_contexts.c.run_id == run["id"])).scalar_one()
     body = writer.put(conn, conv, canonical(value).decode(), "understanding_result", (source,))

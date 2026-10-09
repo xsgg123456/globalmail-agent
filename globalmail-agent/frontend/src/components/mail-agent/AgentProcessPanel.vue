@@ -68,6 +68,7 @@
         </ElCollapseItem>
       </ElCollapse>
     </section>
+    <CaseIssues :detail="detail" />
     <CaseMemoryPanel :detail="detail" />
     <BusinessDetails :key="detail.conversation.id" :context="detail.conversation" />
     <OperationDetails :key="detail.conversation.id" :context="detail.conversation" @changed="$emit('businessChanged')" />
@@ -101,6 +102,7 @@
   import OperationDetails from './OperationDetails.vue'
   import AgentRunPanel from './AgentRunPanel.vue'
   import CaseMemoryPanel from './CaseMemoryPanel.vue'
+  import CaseIssues from './CaseIssues.vue'
   import { conversationState, modeLabel, runLabels } from './mail-labels'
   import { retryableRun } from './agent-run-format'
   const props = defineProps<{

@@ -92,7 +92,16 @@ export interface ConversationDetail {
   messages: MailMessage[]
   review: HumanReview | null
   runs: AgentRun[]
-  issues: { id: string; issue_key: string; status: string; version: number }[]
+  issues: { id: string; issue_key: string; status: string; version: number;
+    order_line_id?: string | null; order_number?: string | null; business_type?: string | null;
+    plan_status?: string | null; current_operation_id?: string | null }[]
+  waits?: { id: string; issue_id: string; operation_id: string | null; condition_type: string;
+    last_seen_business_version: number; owner: string; status: string; run_id: string }[]
+  wakes?: { id: string; issue_id: string | null; operation_id: string | null; condition_key: string;
+    business_version: number; status: string; observed_run_id: string | null }[]
+  business_events?: { id: string; source: string; source_event_id: string; issue_id: string | null;
+    operation_id: string | null; condition_type: string | null; business_version: number | null;
+    status: string; observed_run_id: string | null }[]
   facts: {
     id: string
     source_message_id: string

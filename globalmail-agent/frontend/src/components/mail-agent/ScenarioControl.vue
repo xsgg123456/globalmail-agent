@@ -8,10 +8,16 @@
           <ElOption v-for="event in operation.allowed_events" :key="event" :value="event" :label="eventLabels[event]" />
         </ElSelect>
       </ElFormItem>
+      <template v-if="form.event === 'create_corrective_execution'">
+        <ElFormItem label="记录人"><ElInput v-model="form.staffId" :disabled="busy" maxlength="160" /></ElFormItem>
+        <ElFormItem label="原成功执行单编号"><ElInput v-model="form.correctionOf" :disabled="busy" maxlength="160" /></ElFormItem>
+        <ElFormItem label="发件差错核查回执"><ElInput v-model="form.receiptRef" :disabled="busy" maxlength="240" /></ElFormItem>
+        <ElFormItem label="差错与纠正原因"><ElInput v-model="form.reason" type="textarea" :disabled="busy" maxlength="500" /></ElFormItem>
+      </template>
       <ElFormItem v-if="form.event && form.event !== 'create_execution' && form.event !== 'inventory_changed'" label="执行单编号（多笔时必填）">
         <ElInput v-model="form.executionId" :disabled="busy" maxlength="160" />
       </ElFormItem>
-      <ElFormItem v-if="['succeeded', 'label_created', 'received', 'inspected', 'reconciled_not_executed', 'shipped', 'delivered'].includes(form.event)" :label="returnDocuments ? '退货授权编号' : '实际模拟回执或标签编号'">
+      <ElFormItem v-if="['succeeded', 'label_created', 'received', 'inspected', 'reconciled_not_executed', 'cancellation_acknowledged', 'shipped', 'delivered'].includes(form.event)" :label="returnDocuments ? '退货授权编号' : '实际模拟回执或标签编号'">
         <ElInput v-model="form.receiptRef" :disabled="busy" maxlength="240" />
       </ElFormItem>
       <template v-if="returnDocuments">
@@ -30,7 +36,7 @@
         <ElFormItem label="承运商"><ElInput v-model="form.carrier" :disabled="busy" maxlength="80" /></ElFormItem>
         <ElFormItem label="运单号"><ElInput v-model="form.trackingNumber" :disabled="busy" maxlength="160" /></ElFormItem>
       </template>
-      <ElFormItem v-if="['failed', 'unknown', 'reconciled_not_executed'].includes(form.event)" label="失败、未知或对账依据">
+      <ElFormItem v-if="['failed', 'unknown', 'reconciled_not_executed', 'cancellation_acknowledged'].includes(form.event)" label="失败、未知或对账依据">
         <ElInput v-model="form.reason" type="textarea" :disabled="busy" maxlength="500" />
       </ElFormItem>
       <ElFormItem v-if="form.event === 'inspected'" label="实际质检结果">
@@ -38,7 +44,7 @@
           <ElOption value="passed" label="通过" /><ElOption value="failed" label="未通过" /><ElOption value="disputed" label="有争议" />
         </ElSelect>
       </ElFormItem>
-      <ElCheckbox v-if="form.event === 'reconciled_not_executed'" v-model="form.confirmedNotExecuted" :disabled="busy" class="mb-3">
+      <ElCheckbox v-if="['reconciled_not_executed', 'cancellation_acknowledged'].includes(form.event)" v-model="form.confirmedNotExecuted" :disabled="busy" class="mb-3">
         已核对原执行尝试，确认未实际执行
       </ElCheckbox>
       <ElFormItem v-if="['received', 'inspected'].includes(form.event)" label="实际收件或质检数量">

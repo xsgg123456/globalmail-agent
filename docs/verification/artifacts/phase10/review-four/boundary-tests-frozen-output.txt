@@ -1,0 +1,9 @@
+test_original_refund_amount_boundary_counterexample_now_rejected (phase10_review_four_adversarial.ReviewFourBoundaryTests.test_original_refund_amount_boundary_counterexample_now_rejected) ... ok
+test_original_refund_currency_boundary_counterexample_now_rejected (phase10_review_four_adversarial.ReviewFourBoundaryTests.test_original_refund_currency_boundary_counterexample_now_rejected) ... ok
+test_explicit_two_units_cannot_reconfirm_one_replacement (phase10_review_four_adversarial.ReviewFourBoundaryTests.test_explicit_two_units_cannot_reconfirm_one_replacement) ... ok
+test_wrong_exact_sku_cannot_reconfirm_original_replacement (phase10_review_four_adversarial.ReviewFourBoundaryTests.test_wrong_exact_sku_cannot_reconfirm_original_replacement) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 20.182s
+
+OK

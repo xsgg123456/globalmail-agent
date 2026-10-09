@@ -1,0 +1,9 @@
+test_previous_address_source_rejected (__main__.AddressAndGateFix.test_previous_address_source_rejected) ... ok
+test_unrelated_return_gate_blocked (__main__.AddressAndGateFix.test_unrelated_return_gate_blocked) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 4.968s
+
+OK
+FIX_OLD_ADDRESS_SOURCE_REJECTED address_source_superseded
+FIX_CROSS_ORDER_RETURN_GATE {"name": "after_internal_return_request", "status": "blocked", "reason": "current_business_premise_missing", "evidence_refs": ["operation:REF-A", "version:1"], "resource_ids": {"operation_id": "REF-A"}, "run_id": null}

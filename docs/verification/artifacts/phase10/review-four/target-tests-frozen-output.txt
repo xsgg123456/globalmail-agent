@@ -1,0 +1,7 @@
+test_unknown_new_explicit_target_rejected_with_original_choices_retained (phase10_review_four_target_final.ExplicitTargetReviewFinal.test_unknown_new_explicit_target_rejected_with_original_choices_retained) ... ok
+test_verified_different_actual_line_does_not_block_original_plan (phase10_review_four_target_final.ExplicitTargetReviewFinal.test_verified_different_actual_line_does_not_block_original_plan) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 9.467s
+
+OK

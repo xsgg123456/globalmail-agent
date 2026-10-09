@@ -140,13 +140,16 @@ class AgentGraph:
         raise ServiceError(last_code, 503)
 
     def decide(self, state):
+        multiple_waits = len(state["understanding"]["intents"]) > 1 or any(
+            issue.get("order_line_id") for issue in self.context.payload.get("issues", []))
+        menu = lambda allowed=None: schemas(allowed, multiple_waits=multiple_waits)
         allowed = None
         candidates = [*state["understanding"]["order_candidates"],
             *[intent["order_number"] for intent in state["understanding"]["intents"] if intent["order_number"]]]
         if not candidates and not self.context.payload.get("verified_business_observations"):
             allowed = {"get_case_context", "create_reply_draft", "request_human_review", "update_case_state", "revise_understanding"}
         messages = [*state["messages"], {"role": "system", "content": prompt("grounding")}]
-        tools = schemas(allowed)
+        tools = menu(allowed)
         from globalmail_agent.agent.tool_menu import stage_tools
         tools, application_ready = stage_tools(tools, state, self.context)
         if self.context.mode != "simulation":
@@ -154,10 +157,10 @@ class AgentGraph:
             tools = [tool for tool in tools if tool["function"]["name"] not in after_sales_tools]
         remaining = self.budget.remaining_requests()
         if remaining <= 1:
-            tools = schemas({"request_human_review"})
+            tools = menu({"request_human_review"})
         elif remaining <= 2:
             # Keep every observation; reserve the last request for independent reply validation.
-            tools = schemas({"create_reply_draft", "request_human_review"})
+            tools = menu({"create_reply_draft", "request_human_review"})
         elif input_estimate(messages, tools) > 16000:
             # Candidate writes may wait; keep scoped reads available while their requests fit.
             read_and_terminal = set(schema["function"]["name"] for schema in tools) - {
@@ -165,16 +168,16 @@ class AgentGraph:
             if not application_ready:
                 from globalmail_agent.agent.tools.after_sales import NAMES
                 read_and_terminal -= NAMES
-            tools = schemas(read_and_terminal)
+            tools = menu(read_and_terminal)
             if application_ready and input_estimate(messages, tools) > 16000:
-                tools = schemas({'create_after_sales_operation', 'get_operation_status', 'create_reply_draft', 'request_human_review'})
+                tools = menu({'create_after_sales_operation', 'get_operation_status', 'create_reply_draft', 'request_human_review'})
                 if input_estimate(messages, tools) > 16000:
-                    tools = schemas({'create_after_sales_operation', 'request_human_review'})
+                    tools = menu({'create_after_sales_operation', 'request_human_review'})
             if input_estimate(messages, tools) > 16000:
-                tools = schemas({"create_reply_draft", "request_human_review"})
+                tools = menu({"create_reply_draft", "request_human_review"})
         if input_estimate(messages, tools) > 16000:
             # A sourced handoff can still fit when the larger reply schema cannot.
-            tools = schemas({"request_human_review"})
+            tools = menu({"request_human_review"})
         output = self.request(messages, "decision", tools=tools)
         if not output["calls"]:
             raise ServiceError("model_tool_response_invalid", 503)

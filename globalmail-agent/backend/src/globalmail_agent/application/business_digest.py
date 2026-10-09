@@ -6,7 +6,7 @@ from globalmail_agent.adapters.schema import SCOPE_KEYS
 from globalmail_agent.knowledge.base import sha
 
 
-TABLES = (b.branch_orders, b.branch_order_lines, b.operations, b.executions,
+TABLES = (b.simulation_branches, b.branch_orders, b.branch_order_lines, b.operations, b.executions,
     b.shipments, b.return_receipts, b.inventory)
 
 

@@ -1,0 +1,11 @@
+test_old_address_quote_accepted_after_new_customer_address (__main__.IndependentReview.test_old_address_quote_accepted_after_new_customer_address) ... ok
+test_return_gate_accepts_other_order_return (__main__.IndependentReview.test_return_gate_accepts_other_order_return) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 4.801s
+
+OK
+REPRO_STALE_ADDRESS_ACCEPTED {"conversation_id": "7386f847-751d-47e8-be45-40d2aca1d553", "event_id": "d8e605e2-dcbf-4929-9f01-026a1bbd7a3c", "status": "record_only", "business_version": 1}
+REPRO_CURRENT_ADDRESS {"evidence_ref": "branch:09ea1c3e-657a-4c9c-911f-4d85ca98c59e:address:1", "confirmed": true, "version": 1, "market": "US", "source_kind": "customer_statement"}
+REPRO_STORED_ADDRESS {"market": "US", "version": 1, "confirmed": true, "customer_id": "SIM-C-BASE-OUTON-06", "source_kind": "customer_statement", "evidence_ref": "review-old-address-proof", "source_message_id": "SIM-M-BASE-OUTON-06-1"}
+REPRO_CROSS_ORDER_RETURN_GATE {"name": "after_internal_return_request", "status": "passed", "reason": "ledger_verified", "evidence_refs": ["operation:REF-A", "version:1"], "resource_ids": {"operation_id": "REF-A"}, "run_id": null}

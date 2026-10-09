@@ -1,0 +1,13 @@
+{
+  "frozen_tests": 409,
+  "backend_manifest_files": 264,
+  "frozen_source_still_matches": true,
+  "program_files": 72,
+  "program_source_still_matches": true,
+  "maximum_lines": 291,
+  "independent_current_source_tests": {
+    "independent-tests-final-75.json": 75,
+    "boundary-tests-final-8.json": 8
+  },
+  "over_300": []
+}

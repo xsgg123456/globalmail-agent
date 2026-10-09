@@ -1,0 +1,30 @@
+[
+  {
+    "path": "globalmail-agent/backend/src/globalmail_agent/application/after_sales_selection.py",
+    "tested_sha256": "efaafe62389618d7ab5b68f0cd9768e0cddb6cb6a15c6159d009e96720214d46",
+    "current_sha256": "90e72db1af0e38a2baf9aed73b28cf0030392bcab65af773571db55d943ec1ba",
+    "source_still_matches": false,
+    "copied_original": false
+  },
+  {
+    "path": "globalmail-agent/backend/src/globalmail_agent/application/selection_freshness.py",
+    "tested_sha256": "da3f6a49b01999e8fba2e650e35f829e197256a551387e8d3f5829f24b75a809",
+    "current_sha256": "da3f6a49b01999e8fba2e650e35f829e197256a551387e8d3f5829f24b75a809",
+    "source_still_matches": true,
+    "copied_original": true
+  },
+  {
+    "path": "globalmail-agent/backend/src/globalmail_agent/application/choice_binding.py",
+    "tested_sha256": "e4ead75d89210b8901c469d29ad37c84ae09151b3e59decdcc59284606c9436f",
+    "current_sha256": "e4ead75d89210b8901c469d29ad37c84ae09151b3e59decdcc59284606c9436f",
+    "source_still_matches": true,
+    "copied_original": true
+  },
+  {
+    "path": "globalmail-agent/backend/src/globalmail_agent/application/simulation_execution.py",
+    "tested_sha256": "c0ea8f533fb63d821ae3c085c00033bf234af9caba78edd0e532157ee196bacc",
+    "current_sha256": "c0ea8f533fb63d821ae3c085c00033bf234af9caba78edd0e532157ee196bacc",
+    "source_still_matches": true,
+    "copied_original": true
+  }
+]

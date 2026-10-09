@@ -10,7 +10,8 @@ LEDGER_FIELDS = {"operation_id", "order_id", "order_line_id", "issue_id", "kind"
     "source_kind", "snapshot_at", "cancelable", "failure_code", "inspected_quantity", "inspected_unit_ids",
     "version", "item_id", "address_version", "region_spec", "hardware_revision", "confirmed_not_executed", "attempt_no", "receipt_ref", "plan",
     "authorized_return_reference", "return_address", "packing_instructions", "postage_responsibility", "prepaid_label", "prepaid_label_ref",
-    "waiting_conditions"}
+    "waiting_conditions", "cancellation_requested", "document_version", "document_ref", "inspection_correction_ref",
+    "correction_reason", "correction_of_execution_id", "correction_ref", "staff_id"}
 
 
 def project(record, allowed):

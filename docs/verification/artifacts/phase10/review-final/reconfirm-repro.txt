@@ -1,0 +1,7 @@
+RECONFIRM_REUSED_BUT_EXECUTION_DENIED OP-9cba2afd2b384a2db1cb56c59325c45f operation_reused selection_superseded
+test_current_identical_reconfirmation_is_rejected (__main__.Reconfirm.test_current_identical_reconfirmation_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 5.837s
+
+OK

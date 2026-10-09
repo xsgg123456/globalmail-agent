@@ -15,6 +15,12 @@ from globalmail_agent.domain.conversation import Command
 
 class AfterSalesMigrationTests(ProtocolFixture):
     def test_0007_existing_business_rows_and_sources_survive_additive_0008(self):
+        self.preserve_upgrade("0007_visual_evidence", "0008_after_sales_ledger")
+
+    def test_0008_existing_rows_and_sources_survive_repeat_additive_0009(self):
+        self.preserve_upgrade("0008_after_sales_ledger", "0009_business_waits")
+
+    def preserve_upgrade(self, start, end):
         namespace = "test_after_sales_upgrade_" + uuid4().hex
         with self.admin.begin() as conn:
             conn.execute(sa.text(f'CREATE SCHEMA "{namespace}"'))
@@ -27,7 +33,7 @@ class AfterSalesMigrationTests(ProtocolFixture):
         config = Config(str(Path(__file__).resolve().parents[1] / "alembic.ini"))
         with engine.begin() as conn:
             config.attributes["connection"] = conn
-            command.upgrade(config, "0007_visual_evidence")
+            command.upgrade(config, start)
         service = FixtureConversations(engine, ObjectStore(Path(self.temp.name), engine))
         service.create("BASE-OUTON-04", Command(expected_version=0), uuid4().hex)
         with engine.begin() as conn:
@@ -36,7 +42,8 @@ class AfterSalesMigrationTests(ProtocolFixture):
             before = {name: [dict(r) for r in conn.execute(sa.select(table)).mappings()]
                 for name, table in old.tables.items() if name != "alembic_version"}
             config.attributes["connection"] = conn
-            command.upgrade(config, "head")
+            command.upgrade(config, end)
+            command.upgrade(config, end)
             current = sa.MetaData()
             current.reflect(conn)
             for name, rows in before.items():
@@ -44,8 +51,8 @@ class AfterSalesMigrationTests(ProtocolFixture):
                 identity = lambda row: tuple(row[key] for key in keys)
                 now = {identity(r): r for r in conn.execute(sa.select(current.tables[name])).mappings()}
                 self.assertEqual([{k: now[identity(r)][k] for k in r} for r in rows], rows, name)
-            self.assertEqual(conn.execute(sa.text("SELECT version_num FROM alembic_version")).scalar_one(), "0008_after_sales_ledger")
-        source = Path(__file__).resolve().parents[1] / "migrations/versions/0008_after_sales_ledger.py"
+            self.assertEqual(conn.execute(sa.text("SELECT version_num FROM alembic_version")).scalar_one(), end)
+        source = Path(__file__).resolve().parents[1] / ("migrations/versions/" + end + ".py")
         self.assertNotIn("from globalmail_agent", source.read_text(encoding="utf-8"))
 
 

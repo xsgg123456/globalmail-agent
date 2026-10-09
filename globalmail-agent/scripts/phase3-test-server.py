@@ -32,11 +32,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--api-port", type=int, default=18181)
     parser.add_argument("--web-port", type=int, default=15174)
-    parser.add_argument("--phase", type=int, choices=(3, 4, 5, 6, 7, 8, 9), default=3)
+    parser.add_argument("--phase", type=int, choices=(3, 4, 5, 6, 7, 8, 9, 10), default=3)
     parser.add_argument("--manual-agent", action="store_true", help="Phase7 UI driver controls isolated runs; no background model calls")
     args = parser.parse_args()
-    if args.manual_agent and args.phase not in (7, 8, 9):
-        parser.error("--manual-agent requires --phase 7, 8 or 9")
+    if args.manual_agent and args.phase not in (7, 8, 9, 10):
+        parser.error("--manual-agent requires --phase 7, 8, 9 or 10")
     temporary_root = ROOT / "tmp"
     temporary_root.mkdir(exist_ok=True)
     stop_file = temporary_root / f"phase{args.phase}-browser.stop"

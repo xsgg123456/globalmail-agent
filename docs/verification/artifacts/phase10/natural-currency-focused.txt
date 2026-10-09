@@ -1,0 +1,7 @@
+test_unsupported_currency_without_amount_does_not_execute_old_plan (test_selection_freshness.SelectionFreshnessTests.test_unsupported_currency_without_amount_does_not_execute_old_plan) ... ok
+test_natural_same_currency_reconfirmation_executes_original_plan (test_selection_freshness.SelectionFreshnessTests.test_natural_same_currency_reconfirmation_executes_original_plan) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 10.558s
+
+OK

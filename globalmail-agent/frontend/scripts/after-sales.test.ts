@@ -16,6 +16,7 @@ const ledger = (id = 'op1', version = 1, conversationVersion = 2): LedgerResult 
   branch_id: 'b1', branch_generation: 1, conversation_version: conversationVersion,
   operations: [operation(id, version)], executions: [], shipments: [], returns: [] })
 const apiFixture = (): AfterSalesApi => ({ listing: async () => ledger(),
+  fact: async (_branch, input) => ({ conversation_id: String(input.conversation_id), operation_id: '' }),
   event: async (_branch, input) => ({ conversation_id: String(input.conversation_id), operation_id: String(input.operation_id) }),
   link: async (_branch, input) => ({ conversation_id: String(input.conversation_id), operation_id: String(input.operation_id) }) })
 

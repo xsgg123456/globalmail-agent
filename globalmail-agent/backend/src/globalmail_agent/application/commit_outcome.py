@@ -80,11 +80,25 @@ def commit_outcome(engine, store, context, job, understanding, proposal, *, safe
         else:
             validate_draft(conn, store, context, understanding, command)
             business_wait = command.waiting_for not in {"customer_information", "customer_feedback"}
-            if business_wait and (not command.waiting_operation_id or context.mode != "simulation"):
+            if business_wait and (not (command.waiting_operation_id or command.waiting_issue_id) or context.mode != "simulation"):
                 raise ServiceError("business_wait_invalid", 422)
             if context.mode == "simulation" and not register_wait(conn, conv, run["id"], command.waiting_for,
-                    command.waiting_operation_id, command.observed_business_version):
+                    command.waiting_operation_id, command.observed_business_version, command.waiting_issue_id):
                 return {"outcome": "superseded", "reason_code": "stale_business_context"}
+            if command.additional_waits and context.mode != "simulation":
+                raise ServiceError("business_wait_invalid", 422)
+            keys = {command.waiting_for + ":" + (command.waiting_operation_id or (
+                "issue/" + command.waiting_issue_id if command.waiting_issue_id else "customer"))}
+            for wait in command.additional_waits:
+                if not (wait.operation_id or wait.issue_id):
+                    raise ServiceError("business_wait_invalid", 422)
+                key = wait.condition_type + ":" + (wait.operation_id or "issue/" + wait.issue_id)
+                if key in keys:
+                    raise ServiceError("duplicate_business_wait", 422)
+                keys.add(key)
+                if not register_wait(conn, conv, run["id"], wait.condition_type, wait.operation_id, wait.observed_business_version, wait.issue_id):
+                    return {"outcome": "superseded", "reason_code": "stale_business_context"}
+            business_wait = business_wait or bool(command.additional_waits)
             body, citations = command.body, command.citation_ids
             claims = [c.model_dump(mode="json") for c in command.claims]
             draft_object = writer.put(conn, conv, body, "agent_reply", (context_object,))
@@ -115,8 +129,6 @@ def commit_outcome(engine, store, context, job, understanding, proposal, *, safe
         conn.execute(jobs.update().where(jobs.c.id == job["id"]).values(status="completed", lease_expires_at=None))
         conn.execute(processing_cycles.update().where(processing_cycles.c.id == cycle["id"]).values(state="completed", completed_at=now))
         conn.execute(conversations.update().where(conversations.c.id == conv["id"]).values(row_version=conv["row_version"] + 1))
-        conn.execute(domain_events.update().where(domain_events.c.conversation_id == conv["id"], domain_events.c.status == "pending")
-            .values(status="processed"))
         consume_wakes(conn, conv, run["id"])
         append_ui_event(conn, conv["id"], "agent.handed_off" if handoff else "run.completed",
             {"run_id": str(run["id"]), "artifact_id": str(artifact_id), "outcome": outcome})

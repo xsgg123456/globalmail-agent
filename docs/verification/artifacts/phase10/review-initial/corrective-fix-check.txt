@@ -1,0 +1,6 @@
+test_unknown_corrective_attempt_does_not_release_original_success_and_can_retry_only_after_proof (test_continuous_fulfillment.ContinuousFulfillmentTests.test_unknown_corrective_attempt_does_not_release_original_success_and_can_retry_only_after_proof) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 7.258s
+
+OK

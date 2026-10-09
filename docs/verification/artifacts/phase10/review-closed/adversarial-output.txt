@@ -1,0 +1,42 @@
+test_refund_amount_substring_must_not_reconfirm_original (phase10_review_closed_adversarial.AdversarialReconfirmationTests.test_refund_amount_substring_must_not_reconfirm_original) ... FAIL
+test_replacement_units_change_must_not_reconfirm_original (phase10_review_closed_adversarial.AdversarialReconfirmationTests.test_replacement_units_change_must_not_reconfirm_original) ... ERROR
+test_replacement_changed_target_must_not_execute_old_plan (phase10_review_closed_adversarial.AdversarialReconfirmationTests.test_replacement_changed_target_must_not_execute_old_plan) ... ERROR
+
+======================================================================
+ERROR: test_replacement_units_change_must_not_reconfirm_original (phase10_review_closed_adversarial.AdversarialReconfirmationTests.test_replacement_units_change_must_not_reconfirm_original)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_closed_adversarial.py", line 30, in test_replacement_units_change_must_not_reconfirm_original
+    result, _, _ = self.create_operation(cid, context, current)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\after_sales_fixture.py", line 103, in create_operation
+    request = CreateOperation(**command.model_dump(), decision_id=decision["data"]["decision_id"])
+                                                                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+ERROR: test_replacement_changed_target_must_not_execute_old_plan (phase10_review_closed_adversarial.AdversarialReconfirmationTests.test_replacement_changed_target_must_not_execute_old_plan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_closed_adversarial.py", line 39, in test_replacement_changed_target_must_not_execute_old_plan
+    result, _, _ = self.create_operation(cid, context, current)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\after_sales_fixture.py", line 103, in create_operation
+    request = CreateOperation(**command.model_dump(), decision_id=decision["data"]["decision_id"])
+                                                                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+FAIL: test_refund_amount_substring_must_not_reconfirm_original (phase10_review_closed_adversarial.AdversarialReconfirmationTests.test_refund_amount_substring_must_not_reconfirm_original)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_closed_adversarial.py", line 24, in test_refund_amount_substring_must_not_reconfirm_original
+    self.reject_expected(op, cid, 'Customer selected 154.99 USD while original is 54.99 USD')
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_closed_adversarial.py", line 15, in reject_expected
+    self.fail(f'{reason}: create_execution was accepted: {result}; execution_count={self.count(b.executions)}')
+AssertionError: Customer selected 154.99 USD while original is 54.99 USD: create_execution was accepted: {'conversation_id': '8f9e0c9f-3c02-4d24-be7d-499fc5966608', 'operation_id': 'OP-a4f26df0c584440097a6d0574e1b6d74', 'operation_version': 2, 'event_id': 'faa9b4d4-5242-4bd1-ae4c-19cd18d50b1d', 'event': 'create_execution', 'wake_status': 'pending', 'branch_id': '571fa670-e836-45bd-9994-e2f0bb6b739d', 'branch_generation': 1, 'conversation_version': 7, 'operations': [{'affected_unit_ids': ['0'], 'version': 2, 'kind': 'refund', 'currency': 'USD', 'order_line_id': 'SIM-O-BASE-OUTON-04-L1', 'address_version': None, 'status': 'awaiting_execution', 'waiting_conditions': [], 'plan': {'action': 'refund', 'item_id': None, 'currency': 'USD', 'quantity': 1, 'amount_minor': 5499, 'order_line_id': 'SIM-O-BASE-OUTON-04-L1', 'address_version': None, 'affected_unit_ids': ['0']}, 'issue_id': 'c0a1e418-f70d-4e35-9b27-b08e70c67e7a', 'quantity': 1, 'updated_at': '2026-10-08T02:00:00+00:00', 'operation_id': 'OP-a4f26df0c584440097a6d0574e1b6d74', 'item_id': None, 'confirmed_not_executed': False, 'amount_minor': 5499, 'managed': True, 'execution_ids': ['EXEC-f47c284f666f41a5a48aafa39047c5ec'], 'source_kind': 'synthetic_scenario', 'snapshot_at': '2026-10-08T02:00:00+00:00', 'is_realtime': False, 'source_status': 'accepted', 'order_id': 'SIM-O-BASE-OUTON-04', 'unknown_fields': [], 'business_version': 2, 'cancelable': False, 'allowed_events': ['processing', 'succeeded', 'failed', 'unknown', 'label_created']}], 'executions': [{'affected_unit_ids': ['0'], 'execution_id': 'EXEC-f47c284f666f41a5a48aafa39047c5ec', 'kind': 'refund', 'currency': 'USD', 'hardware_revision': 'SIM-V1', 'address_version': None, 'attempt_no': 1, 'region_spec': 'US', 'status': 'accepted', 'quantity': 1, 'updated_at': '2026-10-08T02:00:00+00:00', 'item_id': None, 'confirmed_not_executed': False, 'amount_minor': 5499, 'operation_id': 'OP-a4f26df0c584440097a6d0574e1b6d74', 'source_kind': 'synthetic_scenario', 'snapshot_at': '2026-10-08T02:00:00+00:00', 'is_realtime': False, 'version': 1, 'receipt_ref': None, 'order_id': 'SIM-O-BASE-OUTON-04', 'order_line_id': 'SIM-O-BASE-OUTON-04-L1', 'unknown_fields': []}], 'shipments': [], 'returns': []}; execution_count=1
+
+----------------------------------------------------------------------
+Ran 3 tests in 16.302s
+
+FAILED (failures=1, errors=2)

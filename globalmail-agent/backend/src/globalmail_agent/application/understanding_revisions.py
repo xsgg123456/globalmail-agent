@@ -105,6 +105,8 @@ def revise_understanding(engine, store, context, job, args, command_id):
             "command_id": command_id, "revision": revision + 1, "case_revision": case_revision,
             "body_object_id": body, "source_ids": source_ids, "change_reason": args.change_reason}
         conn.execute(sa.insert(a.understanding_revisions).values(**row))
+        from globalmail_agent.application.case_issues import sync_intents
+        sync_intents(conn, conv, value)
         conn.execute(sa.insert(case_revisions).values(id=uuid4(), **scope, conversation_id=conv["id"],
             revision=case_revision, as_of=context.as_of, visible_message_seq=conv["visible_message_seq"],
             source="agent_understanding_revision"))

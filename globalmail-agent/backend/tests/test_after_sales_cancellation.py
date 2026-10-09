@@ -58,6 +58,22 @@ class AfterSalesCancellationTests(AfterSalesFixture):
         with self.engine.connect() as conn:
             self.assertEqual(conn.execute(sa.select(b.operations.c.status)).scalar_one(), "accepted")
 
+    def test_cancel_acknowledgment_requires_request_and_releases_once_with_actual_proof(self):
+        cid, context, op = self.prepared_operation()
+        self.push(cid, op, "create_execution")
+        self.assert_error("simulation_event_not_allowed", lambda: self.push(cid, op, "cancellation_acknowledged",
+            confirmed_not_executed=True, receipt_ref="cancel-proof", reason="Provider confirms not paid"))
+        self.assertEqual(self.cancel(cid, context, op)["reason_code"], "execution_reconciliation_required")
+        self.assert_error("not_executed_confirmation_required", lambda: self.push(cid, op, "cancellation_acknowledged"))
+        output = self.push(cid, op, "cancellation_acknowledged", key="cancel-ack-once",
+            confirmed_not_executed=True, receipt_ref="cancel-proof", reason="Provider confirms not paid")
+        self.assertEqual(output["operations"][0]["status"], "cancelled")
+        with self.engine.connect() as conn:
+            self.assertFalse(conn.execute(sa.select(a.compensation_reservations.c.active)).scalar_one())
+            self.assertTrue(conn.execute(sa.select(b.executions.c.confirmed_not_executed)).scalar_one())
+        self.assert_error("simulation_event_not_allowed", lambda: self.push(cid, op, "cancellation_acknowledged",
+            confirmed_not_executed=True, receipt_ref="cancel-proof", reason="Provider confirms not paid"))
+
     def test_historical_context_cannot_create_decision(self):
         self.publish_policy()
         cid, context, request = self.prepared()

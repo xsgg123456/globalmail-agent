@@ -135,6 +135,9 @@ domain_events = child("domain_events", sa.Column("source", sa.String(80), nullab
     sa.Column("source_event_id", sa.String(160), nullable=False),
     sa.Column("kind", sa.String(80), nullable=False), sa.Column("payload", JSONB, nullable=False),
     sa.Column("status", sa.String(32), nullable=False, server_default="pending"),
+    sa.Column("issue_id", sa.Uuid), sa.Column("operation_id", sa.String(160)),
+    sa.Column("condition_type", sa.String(40)), sa.Column("business_version", sa.BigInteger),
+    sa.Column("observed_run_id", sa.Uuid),
     sa.UniqueConstraint("conversation_id", "source", "source_event_id"))
 
 ui_events = child("ui_events", sa.Column("seq", sa.BigInteger, nullable=False),
@@ -153,6 +156,9 @@ sa.Index("one_open_human_review", human_reviews.c.conversation_id, unique=True,
 
 case_issues = child("case_issues", sa.Column("issue_key", sa.String(160), nullable=False),
     sa.Column("status", sa.String(24), nullable=False), sa.Column("version", sa.BigInteger, nullable=False),
+    sa.Column("order_line_id", sa.Uuid), sa.Column("order_number", sa.String(160)),
+    sa.Column("business_type", sa.String(40)), sa.Column("source_message_id", sa.Uuid),
+    sa.Column("plan_status", sa.String(40)), sa.Column("current_operation_id", sa.String(160)),
     sa.UniqueConstraint("conversation_id", "issue_key"))
 
 case_facts = child("case_facts", sa.Column("issue_id", sa.Uuid, nullable=False),

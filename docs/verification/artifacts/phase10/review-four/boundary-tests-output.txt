@@ -1,0 +1,31 @@
+test_original_refund_amount_boundary_counterexample_now_rejected (phase10_review_four_adversarial.ReviewFourBoundaryTests.test_original_refund_amount_boundary_counterexample_now_rejected) ... ok
+test_original_refund_currency_boundary_counterexample_now_rejected (phase10_review_four_adversarial.ReviewFourBoundaryTests.test_original_refund_currency_boundary_counterexample_now_rejected) ... ok
+test_explicit_two_units_cannot_reconfirm_one_replacement (phase10_review_four_adversarial.ReviewFourBoundaryTests.test_explicit_two_units_cannot_reconfirm_one_replacement) ... FAIL
+test_wrong_exact_sku_cannot_reconfirm_original_replacement (phase10_review_four_adversarial.ReviewFourBoundaryTests.test_wrong_exact_sku_cannot_reconfirm_original_replacement) ... FAIL
+
+======================================================================
+FAIL: test_explicit_two_units_cannot_reconfirm_one_replacement (phase10_review_four_adversarial.ReviewFourBoundaryTests.test_explicit_two_units_cannot_reconfirm_one_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_four_adversarial.py", line 28, in test_explicit_two_units_cannot_reconfirm_one_replacement
+    self.reject_execution(cid,op)
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_four_adversarial.py", line 7, in reject_execution
+    with self.assertRaises(ServiceError) as result:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ServiceError not raised
+
+======================================================================
+FAIL: test_wrong_exact_sku_cannot_reconfirm_original_replacement (phase10_review_four_adversarial.ReviewFourBoundaryTests.test_wrong_exact_sku_cannot_reconfirm_original_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_four_adversarial.py", line 38, in test_wrong_exact_sku_cannot_reconfirm_original_replacement
+    self.reject_execution(cid,op)
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_four_adversarial.py", line 7, in reject_execution
+    with self.assertRaises(ServiceError) as result:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ServiceError not raised
+
+----------------------------------------------------------------------
+Ran 4 tests in 23.150s
+
+FAILED (failures=2)

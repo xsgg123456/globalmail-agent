@@ -10,6 +10,11 @@ export const afterSalesApi = {
       url: `/simulation/branches/${encodeURIComponent(branchId)}/events`, method: 'POST',
       data: payload, headers: { 'Idempotency-Key': key }
     }),
+  fact: (branchId: string, payload: Record<string, unknown>, key: string) =>
+    mailRequest<SimulationResult>({
+      url: `/simulation/branches/${encodeURIComponent(branchId)}/branch-facts`, method: 'POST',
+      data: payload, headers: { 'Idempotency-Key': key }
+    }),
   link: (branchId: string, payload: Record<string, unknown>, key: string) =>
     mailRequest<SimulationResult>({
       url: `/simulation/branches/${encodeURIComponent(branchId)}/execution-links`, method: 'POST',

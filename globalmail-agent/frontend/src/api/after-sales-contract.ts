@@ -5,6 +5,8 @@ export type SimulationEventName =
   | 'create_execution' | 'processing' | 'succeeded' | 'failed' | 'unknown'
   | 'reconciled_not_executed' | 'label_created' | 'shipped' | 'delivered'
   | 'return_in_transit' | 'received' | 'inspected' | 'inventory_changed'
+  | 'cancellation_acknowledged'
+  | 'create_corrective_execution'
 
 export interface OperationRecord extends BusinessRecord {
   operation_id: string
@@ -40,6 +42,8 @@ export interface SimulationInput {
   packing_instructions?: string
   postage_responsibility?: 'customer' | 'merchant'
   prepaid_label_ref?: string
+  staff_id?: string
+  correction_of_execution_id?: string
 }
 export interface SimulationResult {
   conversation_id: string

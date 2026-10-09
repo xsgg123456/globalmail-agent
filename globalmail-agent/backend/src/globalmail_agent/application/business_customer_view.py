@@ -18,4 +18,6 @@ def customer_view(model):
     address = model["state"].get("address_confirmation")
     safe_address = None if not address else {**project(address, ADDRESS_FIELDS),
         "source_kind": address.get("original_source_kind")}
-    return {"customer_choices": choices, "address_confirmation": safe_address}
+    scoped = {line_id: {**project(value, ADDRESS_FIELDS), "source_kind": value.get("original_source_kind", value.get("source_kind"))}
+        for line_id, value in model["state"].get("address_confirmations", {}).items()}
+    return {"customer_choices": choices, "address_confirmation": safe_address, **({"address_confirmations": scoped} if scoped else {})}

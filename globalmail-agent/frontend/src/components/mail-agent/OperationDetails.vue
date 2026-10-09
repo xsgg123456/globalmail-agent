@@ -12,6 +12,7 @@
         </div>
         <ElEmpty v-if="!loading && !error && !data?.operations.length" description="当前没有可见售后申请" :image-size="50" />
         <template v-if="data">
+          <BranchFactControl v-if="context.mode === 'interactive_simulation' && data.branch_id" :key="`${context.id}:${retryVersion}`" :busy="busy || canRetry" :submit="submitFact" @changed="$emit('changed')" />
           <BusinessLedger :records="data" />
           <p v-if="context.mode !== 'interactive_simulation'" class="text-xs text-g-700 mt-3">历史模式仅查看，不能修改模拟账本。</p>
           <template v-else-if="data.branch_id && data.operations.length">
@@ -37,10 +38,11 @@
   import { useAfterSales } from '@/composables/useAfterSales'
   import BusinessLedger from './BusinessLedger.vue'
   import ScenarioControl from './ScenarioControl.vue'
+  import BranchFactControl from './BranchFactControl.vue'
   import { actionLabels, recordStatus } from './business-records'
   const props = defineProps<{ context: AfterSalesContext }>()
   const emit = defineEmits<{ changed: [] }>()
-  const { data, loading, busy, error, actionError, notice, canRetry, retryCommand, refresh, submit, retry, dispose } = useAfterSales(toRef(props, 'context'))
+  const { data, loading, busy, error, actionError, notice, canRetry, retryCommand, refresh, submit, submitFact, retry, dispose } = useAfterSales(toRef(props, 'context'))
   const retryVersion = ref(0)
   async function confirmRetry() {
     if (busy.value || !canRetry.value) return

@@ -4,7 +4,8 @@ from uuid import UUID
 from pydantic import BaseModel, ConfigDict, Field
 
 EventName = Literal["create_execution", "processing", "succeeded", "failed", "unknown", "reconciled_not_executed",
-    "label_created", "shipped", "delivered", "return_in_transit", "received", "inspected", "inventory_changed"]
+    "label_created", "shipped", "delivered", "return_in_transit", "received", "inspected", "inventory_changed",
+    "cancellation_acknowledged", "create_corrective_execution"]
 
 
 class SimulationEvent(BaseModel):
@@ -26,6 +27,8 @@ class SimulationEvent(BaseModel):
     packing_instructions: str | None = Field(default=None, min_length=1, max_length=2000)
     postage_responsibility: Literal["customer", "merchant"] | None = None
     prepaid_label_ref: str | None = Field(default=None, min_length=1, max_length=240)
+    staff_id: str | None = Field(default=None, min_length=1, max_length=160)
+    correction_of_execution_id: str | None = Field(default=None, min_length=1, max_length=160)
 
 
 class ExecutionLink(BaseModel):
@@ -41,9 +44,13 @@ UNDETERMINED = {"accepted", "processing", "unknown", "failed"}
 
 
 def allowed_events(operation, executions=(), shipments=(), returns=()):
+    if operation.get("status") == "succeeded" and operation.get("kind") in {"spare_part", "replacement"}:
+        return ["create_corrective_execution", *(["delivered"] if any(s.get("status") == "shipped" for s in shipments) else [])]
     if operation.get("status") in {"cancelled", "succeeded"}:
         return ["delivered"] if any(s.get("status") == "shipped" for s in shipments) else []
-    active = [e for e in executions if not e.get("confirmed_not_executed")]
+    active = sorted((e for e in executions if not e.get("confirmed_not_executed")), key=lambda e: e.get("attempt_no", 0))
+    if active:
+        shipments = [s for s in shipments if s.get("execution_id") == active[-1].get("execution_id")]
     events = []
     if not active:
         events.append("create_execution")
@@ -63,6 +70,9 @@ def allowed_events(operation, executions=(), shipments=(), returns=()):
         events = [event for event in events if event != "succeeded"]
     if dispatched:
         events = [event for event in events if event != "reconciled_not_executed"]
+    if operation.get("cancellation_requested") and not dispatched and any(
+            e.get("status") in UNDETERMINED and not e.get("confirmed_not_executed") for e in executions):
+        events.append("cancellation_acknowledged")
     if kind in {"replacement", "spare_part"}:
         events.append("inventory_changed")
         if active and active[-1].get("status") in {"accepted", "processing", "unknown"}:

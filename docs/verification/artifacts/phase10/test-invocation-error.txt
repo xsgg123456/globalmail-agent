@@ -1,0 +1,35 @@
+test_changed_explicit_refund_amount_does_not_execute_old_plan (test_selection_freshness.SelectionFreshnessTests.test_changed_explicit_refund_amount_does_not_execute_old_plan) ... ok
+test_changed_explicit_refund_currency_does_not_execute_old_plan (test_selection_freshness.SelectionFreshnessTests.test_changed_explicit_refund_currency_does_not_execute_old_plan) ... ok
+test_changed_explicit_replacement_quantity_does_not_execute_single_unit_plan (test_selection_freshness.SelectionFreshnessTests.test_changed_explicit_replacement_quantity_does_not_execute_single_unit_plan) ... ok
+test_changed_replacement_sku_suffix_does_not_execute_original_plan (test_selection_freshness.SelectionFreshnessTests.test_changed_replacement_sku_suffix_does_not_execute_original_plan) ... ok
+test_conditional_full_refund_cannot_bind_natural_choice (test_selection_freshness.SelectionFreshnessTests.test_conditional_full_refund_cannot_bind_natural_choice) ... ok
+test_currency_token_containing_original_code_does_not_execute_old_plan (test_selection_freshness.SelectionFreshnessTests.test_currency_token_containing_original_code_does_not_execute_old_plan) ... ok
+test_larger_amount_containing_original_digits_does_not_execute_old_plan (test_selection_freshness.SelectionFreshnessTests.test_larger_amount_containing_original_digits_does_not_execute_old_plan) ... ok
+test_later_uninterpreted_or_declined_customer_message_blocks_old_execution (test_selection_freshness.SelectionFreshnessTests.test_later_uninterpreted_or_declined_customer_message_blocks_old_execution) ... ok
+test_multiple_units_cannot_bind_ambiguous_natural_choice (test_selection_freshness.SelectionFreshnessTests.test_multiple_units_cannot_bind_ambiguous_natural_choice) ... ok
+test_natural_full_refund_binds_real_paid_amount_and_rejects_conditional_or_wrong_amount (test_selection_freshness.SelectionFreshnessTests.test_natural_full_refund_binds_real_paid_amount_and_rejects_conditional_or_wrong_amount) ... ok
+test_same_plan_current_confirmation_reuses_original_and_records_actual_execution_source (test_selection_freshness.SelectionFreshnessTests.test_same_plan_current_confirmation_reuses_original_and_records_actual_execution_source) ... ok
+test_cross_scope_decision_and_stale_address_are_denied (test_after_sales_operations.AfterSalesOperationTests.test_cross_scope_decision_and_stale_address_are_denied) ... ok
+test_new_run_and_new_issue_reuse_the_same_reserved_unit (test_after_sales_operations.AfterSalesOperationTests.test_new_run_and_new_issue_reuse_the_same_reserved_unit) ... ok
+test_partial_units_have_exact_paid_share_and_exclude_other_compensation (test_after_sales_operations.AfterSalesOperationTests.test_partial_units_have_exact_paid_share_and_exclude_other_compensation) ... ok
+test_policy_edit_numbers_are_used_and_revocation_blocks_creation (test_after_sales_operations.AfterSalesOperationTests.test_policy_edit_numbers_are_used_and_revocation_blocks_creation) ... ok
+test_refund_duplicate_commands_reuse_and_reserve_amount_once (test_after_sales_operations.AfterSalesOperationTests.test_refund_duplicate_commands_reuse_and_reserve_amount_once) ... ok
+test_unpublished_policy_and_bad_quote_cannot_create_decision_authority (test_after_sales_operations.AfterSalesOperationTests.test_unpublished_policy_and_bad_quote_cannot_create_decision_authority) ... ok
+test_waiting_warehouse_reserves_compensation_without_execution (test_after_sales_operations.AfterSalesOperationTests.test_waiting_warehouse_reserves_compensation_without_execution) ... ok
+test_after_sales_fulfillment (unittest.loader._FailedTest.test_after_sales_fulfillment) ... ERROR
+
+======================================================================
+ERROR: test_after_sales_fulfillment (unittest.loader._FailedTest.test_after_sales_fulfillment)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_after_sales_fulfillment
+Traceback (most recent call last):
+  File "C:\Users\82358\AppData\Local\Programs\Python\Python312\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'test_after_sales_fulfillment'
+
+
+----------------------------------------------------------------------
+Ran 19 tests in 92.930s
+
+FAILED (errors=1)

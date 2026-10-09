@@ -126,6 +126,13 @@ def read_model(conn, conversation_id, workspace=DEFAULT_WORKSPACE_ID):
             record["unknown_fields"] = unknown_fields(record, ("status", "updated_at", "snapshot_at"))
             model[key].append(record)
     from globalmail_agent.domain.compensation import refundable_balance
+    if not historical:
+        from globalmail_agent.adapters.agent_schema import wake_pending
+        versions = dict(conn.execute(select(wake_pending.c.operation_id, func.max(wake_pending.c.business_version)).where(
+            *scope_where(wake_pending, scope), wake_pending.c.operation_id.is_not(None)).group_by(wake_pending.c.operation_id)).all())
+        for operation in model["operations"]:
+            if operation["operation_id"] in versions:
+                operation["business_version"] = max(operation.get("version", 0), versions[operation["operation_id"]])
     # Immutable source aggregates are extended by newly managed ledger effects only.
     managed = [o for o in model["operations"] if o.get("managed")]
     for _, line, order in model["lines"]:
@@ -158,7 +165,7 @@ def read_model(conn, conversation_id, workspace=DEFAULT_WORKSPACE_ID):
         model["inventory"].append({"item_id": row["item_id"], "region_spec": row["region_spec"],
             "hardware_revision": row["hardware_revision"], "on_hand": row["on_hand"], "reserved": row["reserved"],
             "snapshot_at": row["snapshot_at"].isoformat() if row["snapshot_at"] else None, "source_kind": row["source_kind"],
-            "evidence_ref": "inventory:" + str(row["id"]), "source_hash": row["source_hash"]})
+            "evidence_ref": "inventory:" + str(row["id"]), "source_hash": row["source_hash"], **row["details"]})
     state = dict(branch["state"])
     state["customer_choices"] = [verified({**choice, "source_message_seq": seen[choice["source_message_id"]]}, "message:" + choice["source_message_id"])
         for choice in state.get("customer_choices", []) if choice.get("source_message_id") in seen]
@@ -172,6 +179,11 @@ def read_model(conn, conversation_id, workspace=DEFAULT_WORKSPACE_ID):
             "branch:" + str(branch["id"]) + ":address:" + str(address.get("version")))
     else:
         state.pop("address_confirmation", None)
+    state["address_confirmations"] = {line_id: verified({**value, "customer_id": str(scope["customer_id"])},
+        "branch:" + str(branch["id"]) + ":address:" + line_id + ":" + str(value.get("version")))
+        for line_id, value in state.get("address_confirmations", {}).items()
+        if any(line_id == row[1]["line_id"] for row in model["lines"])
+        and value.get("customer_id") == state["source_customer_id"] and value.get("source_message_id") in seen}
     state.pop("source_customer_id", None); state.pop("allowed_order_ids", None)
     state["visible_source_message_ids"] = list(seen)
     state["mode"] = conversation["mode"]

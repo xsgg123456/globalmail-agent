@@ -35,7 +35,8 @@ class Conditions:
 
     def evidence(self, code, record, label, missing="needs_input"):
         requirement = self.policy.get("evidence_requirements", {}).get(code)
-        allowed = set(requirement["allowed_kinds"]) if requirement else TRUSTED_KINDS
+        allowed = set(requirement["allowed_kinds"]) if requirement else TRUSTED_KINDS | (
+            {"customer_statement"} if code == "customer_choice" else set())
         kind = record.get("source_kind") if isinstance(record, dict) else None
         if not record or not reference(record):
             return self.add(code, label, missing)

@@ -1,0 +1,85 @@
+warning: in the working copy of 'AGENT-ARCHITECTURE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'DEV-PLAN.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Product-Spec.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/planning/SESSION-HANDOFF.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/adapters/agent_schema.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/adapters/business_schema.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/adapters/conversation_schema.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/adapters/database.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/agent/context.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/agent/graph.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/agent/prompts/decision.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/agent/tool_schemas.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/api/simulation.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/after_sales.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/after_sales_selection.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/business_customer_view.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/business_digest.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/business_projection.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/business_queries.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/business_read_model.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/case_memory.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/commit_outcome.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/conversation_queries.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/event_store.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/simulation_control.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/simulation_execution.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/understanding_revisions.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/waits.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/domain/executions.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/domain/policy_conditions.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/observability/local_records.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/tests/test_after_sales_cancellation.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/tests/test_after_sales_migration.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/scripts/phase3-test-server.py', LF will be replaced by CRLF the next time Git touches it
+{
+  "baseline": "6bbc075",
+  "program_count": 70,
+  "maximum_lines": 291,
+  "over_300": [],
+  "independent-tests-frozen.json": {
+    "test_count": 73,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "source_changed": false,
+    "current_sha_mismatches": []
+  },
+  "boundary-tests-frozen.json": {
+    "test_count": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "source_changed": false,
+    "current_sha_mismatches": []
+  },
+  "target-tests-frozen.json": {
+    "test_count": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "source_changed": false,
+    "current_sha_mismatches": []
+  }
+}
+[
+  {
+    "path": "globalmail-agent/backend/tests/test_after_sales_migration.py",
+    "hits": {
+      "sql_interpolation": [
+        26,
+        29
+      ]
+    }
+  },
+  {
+    "path": "globalmail-agent/scripts/phase3-test-server.py",
+    "hits": {
+      "sql_interpolation": [
+        61,
+        131
+      ]
+    }
+  }
+]

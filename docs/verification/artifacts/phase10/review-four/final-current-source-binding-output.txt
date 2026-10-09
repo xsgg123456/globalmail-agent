@@ -1,0 +1,8 @@
+captured_at "2026-10-09T08:14:31.603009+00:00"
+frontend_compiled_source_mismatches []
+frontend_changed_program_files 14
+tests {"independent-tests-final-75.json": {"tests": 75, "failures": 0, "errors": 0, "skipped": 0, "duration_seconds": 229.5, "source_changed": false, "current_sha_mismatches": []}, "boundary-tests-final-8.json": {"tests": 8, "failures": 0, "errors": 0, "skipped": 0, "duration_seconds": 54.625, "source_changed": false, "current_sha_mismatches": []}}
+main_full_output_read_verified {"tests": 409, "failures": 0, "errors": 0, "skipped": 0, "duration_seconds": 364.7030000000959, "source_changed": false, "exit_codes": [0, 0, 0, 0]}
+main_full_current_sha_mismatches []
+main_full_independent_source_mismatches []
+scenario_report_independent_counts {"sha256": "dc4eb37fe506c6fc731d60d94b73e5b872ccc613794d6b70b4f070a5dd4bfd39", "scenarios": 72, "initialized": 72, "initial_run_statuses": {"handed_off": 71, "not_run": 1}, "scenario_statuses": {"in_progress": 31, "blocked": 20, "awaiting_checkpoint": 21}, "steps": 335, "step_statuses": {"blocked": 20, "not_run": 294, "awaiting_checkpoint": 21}}

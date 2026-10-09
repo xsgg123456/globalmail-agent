@@ -1,0 +1,16 @@
+ACTUAL_RESPONSE {'conversation_id': 'f1210d36-3f16-4619-af11-ac3546a35f43', 'operation_id': 'OP-fd1a548cec644bc7b5ae791bb50a327c', 'operation_version': 2, 'event_id': '9f6ffce8-425b-4c74-818c-69a26c9f874f', 'event': 'create_execution', 'wake_status': 'pending', 'branch_id': 'e01f2aef-5a76-487d-95a2-05297cd890af', 'branch_generation': 1, 'conversation_version': 5, 'operations': [{'amount_minor': None, 'plan': {'action': 'replacement', 'item_id': 'H-CTD16-US-BK', 'currency': None, 'quantity': 1, 'amount_minor': None, 'order_line_id': 'SIM-O-BASE-OUTON-06-L1', 'address_version': 1, 'affected_unit_ids': ['0']}, 'affected_unit_ids': ['0'], 'confirmed_not_executed': False, 'address_version': 1, 'issue_id': 'b3f00d63-57fa-43df-a3d2-69fd5774b5a4', 'updated_at': '2026-10-08T02:00:00+00:00', 'waiting_conditions': [], 'status': 'awaiting_execution', 'operation_id': 'OP-fd1a548cec644bc7b5ae791bb50a327c', 'quantity': 1, 'currency': None, 'order_line_id': 'SIM-O-BASE-OUTON-06-L1', 'kind': 'replacement', 'item_id': 'H-CTD16-US-BK', 'version': 2, 'managed': True, 'execution_ids': ['EXEC-01ca2a798c9f44b19e17386d1df2efdf'], 'source_kind': 'synthetic_scenario', 'snapshot_at': '2026-10-08T02:00:00+00:00', 'is_realtime': False, 'source_status': 'accepted', 'order_id': 'SIM-O-BASE-OUTON-06', 'unknown_fields': [], 'business_version': 2, 'cancelable': False, 'allowed_events': ['processing', 'failed', 'unknown', 'inventory_changed', 'label_created']}], 'executions': [{'amount_minor': None, 'affected_unit_ids': ['0'], 'confirmed_not_executed': False, 'address_version': 1, 'attempt_no': 1, 'execution_id': 'EXEC-01ca2a798c9f44b19e17386d1df2efdf', 'updated_at': '2026-10-08T02:00:00+00:00', 'status': 'accepted', 'quantity': 1, 'currency': None, 'kind': 'replacement', 'hardware_revision': 'SIM-V1', 'region_spec': 'US', 'item_id': 'H-CTD16-US-BK', 'operation_id': 'OP-fd1a548cec644bc7b5ae791bb50a327c', 'source_kind': 'synthetic_scenario', 'snapshot_at': '2026-10-08T02:00:00+00:00', 'is_realtime': False, 'version': 1, 'receipt_ref': None, 'order_id': 'SIM-O-BASE-OUTON-06', 'order_line_id': 'SIM-O-BASE-OUTON-06-L1', 'unknown_fields': []}], 'shipments': [], 'returns': []}
+test_latest_explicit_changed_target_cannot_execute_old_replacement (phase10_review_four_target.ExplicitTargetReview.test_latest_explicit_changed_target_cannot_execute_old_replacement) ... FAIL
+
+======================================================================
+FAIL: test_latest_explicit_changed_target_cannot_execute_old_replacement (phase10_review_four_target.ExplicitTargetReview.test_latest_explicit_changed_target_cannot_execute_old_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\tmp\phase10_review_four_target.py", line 27, in test_latest_explicit_changed_target_cannot_execute_old_replacement
+    with self.assertRaises(ServiceError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ServiceError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 5.637s
+
+FAILED (failures=1)

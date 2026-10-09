@@ -11,7 +11,7 @@ export function useAfterSales(context: Ref<AfterSalesContext>, api: AfterSalesAp
   const error = ref('')
   const actionError = ref('')
   const notice = ref('')
-  type RetryCommand = { kind: 'event' | 'link'; branch: string; id: string; operation: string;
+  type RetryCommand = { kind: 'event' | 'link' | 'fact'; branch: string; id: string; operation: string;
     action: string; key: string; payload: Record<string, unknown> }
   const retryCommand = shallowRef<RetryCommand | null>(null)
   const canRetry = computed(() => Boolean(retryCommand.value && context.value.mode === 'interactive_simulation' &&
@@ -62,6 +62,17 @@ export function useAfterSales(context: Ref<AfterSalesContext>, api: AfterSalesAp
     if (busy.value || !canRetry.value || !retryCommand.value) return false
     return execute(retryCommand.value)
   }
+  async function submitFact(input: Record<string, unknown>) {
+    const ledger = data.value
+    if (busy.value || retryCommand.value || !ledger?.branch_id || context.value.mode !== 'interactive_simulation') return false
+    const id = context.value.id
+    const action = `fact:${String(input.source_event_id)}`
+    const prepared = pending.prepare(action, { id, branch: ledger.branch_id, input }, {
+      ...input, conversation_id: id, expected_version: ledger.conversation_version
+    })
+    return execute({ kind: 'fact', branch: ledger.branch_id, id, operation: '', action,
+      key: prepared.key, payload: prepared.payload })
+  }
   async function execute(command: RetryCommand) {
     const { id, operation, action } = command
     const scope = scopeGeneration
@@ -72,7 +83,7 @@ export function useAfterSales(context: Ref<AfterSalesContext>, api: AfterSalesAp
     try {
       const response = await api[command.kind](command.branch, command.payload, command.key)
       if (scope !== scopeGeneration || id !== context.value.id) return false
-      if (response.conversation_id !== id || response.operation_id !== operation)
+      if (response.conversation_id !== id || command.kind !== 'fact' && response.operation_id !== operation)
         throw new Error('响应关联不匹配，请刷新核验原申请。')
       pending.complete(action)
       retryCommand.value = null
@@ -112,5 +123,5 @@ export function useAfterSales(context: Ref<AfterSalesContext>, api: AfterSalesAp
     stopScope()
     stopVersion()
   }
-  return { result, data, loading, busy, error, actionError, notice, canRetry, retryCommand, refresh, submit, retry, dispose }
+  return { result, data, loading, busy, error, actionError, notice, canRetry, retryCommand, refresh, submit, submitFact, retry, dispose }
 }

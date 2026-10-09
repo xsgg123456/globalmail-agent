@@ -78,12 +78,13 @@ class SimulationControlService:
                 raise ServiceError("execution_quantity_mismatch", 422)
             execution = self._execution(conn, conv, operation, command.execution_id)
             status, confirmed = operation["status"], operation["confirmed_not_executed"]
-            if command.event == "create_execution":
-                execution, status = create_execution(conn, self.store, conv, branch, operation)
+            if command.event in {"create_execution", "create_corrective_execution"}:
+                execution, status = create_execution(conn, self.store, conv, branch, operation,
+                    command if command.event == "create_corrective_execution" else None)
                 conn.execute(a.compensation_reservations.update().where(a.compensation_reservations.c.operation_id == operation["id"],
                     *scope_where(a.compensation_reservations, conv)).values(active=True))
                 confirmed = False
-            elif command.event in {"processing", "succeeded", "failed", "unknown", "reconciled_not_executed"}:
+            elif command.event in {"processing", "succeeded", "failed", "unknown", "reconciled_not_executed", "cancellation_acknowledged"}:
                 status, confirmed = execution_event(conn, self.store, conv, branch, operation, execution, command)
             elif command.event == "inventory_changed":
                 change(conn, conv, operation, command.on_hand, branch["clock"])
@@ -105,7 +106,7 @@ class SimulationControlService:
             else:
                 return_event(conn, conv, branch, operation, command)
             version = operation["version"] + 1
-            snapshot = {**operation["source_snapshot"], "status": status, "version": version,
+            snapshot = {**operation["source_snapshot"], **operation["details"], "status": status, "version": version,
                 "confirmed_not_executed": confirmed, "updated_at": branch["clock"].isoformat()}
             conn.execute(b.operations.update().where(b.operations.c.id == operation["id"])
                 .values(status=status, version=version, confirmed_not_executed=confirmed, details=snapshot))
@@ -116,10 +117,11 @@ class SimulationControlService:
             conn.execute(sa.insert(a.simulation_events).values(id=event_id, **{k: conv[k] for k in a.SCOPE_KEYS},
                 conversation_id=conv["id"], operation_id=operation["id"], execution_id=execution["id"] if execution else None,
                 event=command.event, sequence=sequence + 1, payload=payload))
-            condition = "inventory" if command.event == "inventory_changed" else "warehouse_receipt" if command.event in {
-                "received", "inspected", "return_in_transit"} else "shipment_changed" if command.event in {
-                "label_created", "shipped", "delivered"} else "refund_receipt" if operation["kind"] == "refund" else "manual_execution"
-            wake = _record_wake_locked(conn, conv, condition + ":" + operation["external_id"], version)
+            from globalmail_agent.worker.event_dispatcher import dispatch_locked
+            from globalmail_agent.application.case_issues import bind_plan
+            current_operation = dict(operation, status=status, version=version)
+            bind_plan(conn, conv, current_operation)
+            wake = dispatch_locked(conn, conv, current_operation, command.event, str(event_id))
             append_ui_event(conn, conv["id"], "simulation.event", {"event_id": str(event_id),
                 "operation_id": operation["external_id"], "event": command.event, "operation_version": version})
             data = operations_view(read_model(conn, conv["id"], self.workspace_id), operation["external_id"])["data"]

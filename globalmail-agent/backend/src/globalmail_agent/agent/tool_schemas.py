@@ -51,6 +51,13 @@ class Claim(StrictModel):
         description="Source IDs only, never quotes.")
 
 
+class BusinessWait(StrictModel):
+    condition_type: Literal["manual_execution", "refund_receipt", "warehouse_receipt", "inventory", "shipment_changed"]
+    operation_id: str | None = Field(default=None, min_length=1, max_length=160)
+    issue_id: str | None = Field(default=None, min_length=1, max_length=160)
+    observed_business_version: int = Field(ge=0)
+
+
 class ReplyParts(StrictModel):
     language: str = Field(min_length=2, max_length=32)
     claims: list[Claim] = Field(max_length=30,
@@ -59,7 +66,9 @@ class ReplyParts(StrictModel):
     waiting_for: Literal["customer_information", "customer_feedback", "manual_execution", "refund_receipt",
         "warehouse_receipt", "inventory", "shipment_changed"]
     waiting_operation_id: str | None = Field(default=None, max_length=160)
+    waiting_issue_id: str | None = Field(default=None, max_length=160)
     observed_business_version: int = Field(default=0, ge=0)
+    additional_waits: list[BusinessWait] = Field(default_factory=list, max_length=12)
 
 
 class Draft(ReplyParts):
@@ -91,9 +100,14 @@ def compact_schema(value):
     return value
 
 
-def schemas(allowed=None):
+def schemas(allowed=None, *, multiple_waits=True):
+    reply_schema = ReplyParts.model_json_schema()
+    if not multiple_waits:
+        reply_schema["properties"].pop("additional_waits", None)
+        reply_schema["properties"].pop("waiting_issue_id", None)
+        reply_schema.get("$defs", {}).pop("BusinessWait", None)
     return [{"type": "function", "function": {"name": name, "parameters": compact_schema(
-        (ReplyParts if name == "create_reply_draft" else model).model_json_schema()),
+        reply_schema if name == "create_reply_draft" else model.model_json_schema()),
         **({"description": "Revise candidates using exact visible-message/human-note or successful current-run command:<id> quotes; never authorize or clear risks."}
            if name == "revise_understanding" else {})}}
         for name, model in TOOLS.items() if allowed is None or name in allowed]

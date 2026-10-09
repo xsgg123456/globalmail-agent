@@ -5,7 +5,7 @@ from uuid import UUID, uuid4
 import json
 import sqlalchemy as sa
 from globalmail_agent.adapters import agent_schema as a
-from globalmail_agent.adapters.conversation_schema import messages, human_reviews, replay_cursors, case_facts, case_issues
+from globalmail_agent.adapters.conversation_schema import messages, human_reviews, replay_cursors, case_facts, case_issues, domain_events
 from globalmail_agent.adapters.body_store import BodyWriter, read_body, read_bytes
 from globalmail_agent.adapters.schema import SCOPE_KEYS, objects
 from globalmail_agent.agent.guard import guarded
@@ -13,8 +13,8 @@ from globalmail_agent.knowledge.base import canonical
 from globalmail_agent.knowledge.release_queries import head
 from globalmail_agent.worker.leases import db_now
 
-PROMPT_VERSION = "after-sales/1"
-GRAPH_VERSION = "after-sales-graph/1"
+PROMPT_VERSION = "after-sales/2"
+GRAPH_VERSION = "after-sales-graph/2"
 
 
 @dataclass(frozen=True)
@@ -70,6 +70,13 @@ def load_context(engine, store, workspace, job, *, rebuild=False):
         wakes = [{"condition_key": r["condition_key"], "business_version": r["business_version"], "status": r["status"]}
             for r in conn.execute(sa.select(a.wake_pending).where(a.wake_pending.c.conversation_id == conv["id"],
                 a.wake_pending.c.status.in_(["pending", "suppressed_by_human"]))).mappings()]
+        observed_events = [str(r) for r in conn.execute(sa.select(domain_events.c.id).where(
+            domain_events.c.conversation_id == conv["id"],
+            sa.or_(domain_events.c.source.in_(["business_wait", "branch_fact"]),
+                sa.and_(domain_events.c.source == "message", domain_events.c.source_event_id.in_([str(r["id"]) for r in rows]))),
+            domain_events.c.status.in_(["pending", "suppressed_by_human"]))).scalars()]
+        from globalmail_agent.application.case_state_view import case_state
+        case = case_state(conn, conv)
         from globalmail_agent.application.risk_records import active_risks
         from globalmail_agent.attachments.evidence import context_images
         image_manifest, image_notes, image_sources, image_objects = context_images(conn, store, conv)
@@ -83,6 +90,13 @@ def load_context(engine, store, workspace, job, *, rebuild=False):
             "risk_history": active_risks(conn, store, conv, status=None) if conv["mode"] == "simulation" else [],
             "limitations": ["Image metadata is not content. Only authorized views in this request are read; unread coverage stays explicit.",
                 "Simulation permits validated internal applications only. The scenario console is the sole execution controller; acceptance is not refund or shipment success."]}
+        for key, values in {
+            "issues": [{k: v for k, v in row.items() if v is not None} for row in case["issues"] if row["order_line_id"]],
+            "waits": [r for r in case["waits"] if r["status"] == "active"],
+            "business_events": [r for r in case["business_events"] if r["source"] in {"business_wait", "branch_fact"}
+                and r["status"] in {"pending", "suppressed_by_human"}]}.items():
+            if values:
+                payload[key] = values
         if rebuild:
             from globalmail_agent.application.understanding_revisions import current_understanding, tool_sources
             known = current_understanding(conn, store, conv, run["id"])
@@ -107,6 +121,7 @@ def load_context(engine, store, workspace, job, *, rebuild=False):
         values = dict(release_id=current["release_id"], release_epoch=current["epoch"], profile_id=current["profile_id"],
             as_of=when, visible_message_seq=conv["visible_message_seq"], context_object_id=object_id,
             observed_wakes=wakes,
+            observed_event_ids=observed_events,
             validated_draft_hash=None,
             prompt_version=PROMPT_VERSION, graph_version=GRAPH_VERSION)
         if old:

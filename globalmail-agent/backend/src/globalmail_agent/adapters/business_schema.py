@@ -80,6 +80,7 @@ compatibility = sa.Table("compatibility", metadata, *common(), *source(),
     sa.UniqueConstraint("workspace_id", "sku", "item_id", "hardware_revision", "version"))
 
 inventory = scoped("inventory", sa.Column("item_id", sa.String(160), nullable=False),
+    sa.Column("details", JSONB, nullable=False, server_default=sa.text("'{}'::jsonb")),
     sa.Column("region_spec", sa.String(40)), sa.Column("hardware_revision", sa.String(80)),
     sa.Column("on_hand", sa.Integer, nullable=False), sa.Column("reserved", sa.Integer, nullable=False),
     sa.Column("snapshot_at", sa.DateTime(timezone=True)),
