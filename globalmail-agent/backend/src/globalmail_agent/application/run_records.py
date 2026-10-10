@@ -45,7 +45,7 @@ class RunRecords:
             def body(object_id):
                 from globalmail_agent.attachments.revocation import REDACTED
                 value = read_body(conn, self.store, conv, object_id)
-                if value == REDACTED:
+                if value in {REDACTED, "（内容已删除）"}:
                     raise ServiceError("image_content_revoked", 410)
                 return value
             understanding = conn.execute(sa.select(a.understanding_results).where(a.understanding_results.c.run_id == run_id)).mappings().first()

@@ -38,9 +38,10 @@
         </ElForm>
         <div class="border-t-d mt-6 pt-4">
           <ElButton type="danger" plain :loading="busy" @click="revoke">撤销这张图片证据</ElButton>
-          <p class="text-xs text-g-700 mt-2">撤销后立即禁止读取及旧结果提交。完整副本删除在后续阶段实现。</p>
+          <p class="text-xs text-g-700 mt-2">撤销后立即禁止读取及旧结果提交；彻底删除还会清理本项目持有的副本。</p>
         </div>
       </template>
+      <div class="border-t-d mt-6 pt-4"><ElButton type="danger" plain @click="emit('delete', {id:image.attachment_id,label:image.filename})">彻底删除图片</ElButton></div>
     </template>
   </ElDrawer>
 </template>
@@ -52,7 +53,7 @@
   import type { Conversation } from '@/api/mail-agent-contract'
   import { PendingCommands, MailApiError } from '@/api/mail-agent-request'
   const props = defineProps<{ image: ImageAttachment | null; conversation: Conversation }>()
-  const emit = defineEmits<{ close: []; changed: [] }>()
+  const emit = defineEmits<{ close: []; changed: []; delete: [target: {id: string; label: string}] }>()
   const page = ref<VisualEvidencePage | null>(null)
   const url = ref('')
   const loading = ref(false), busy = ref(false), error = ref('')

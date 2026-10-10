@@ -1,0 +1,84 @@
+test_database_failure_and_missing_table_are_degraded (test_postgres.PostgresTests.test_database_failure_and_missing_table_are_degraded) ... ok
+test_every_scope_dimension_is_enforced (test_postgres.PostgresTests.test_every_scope_dimension_is_enforced) ... ok
+test_migration_repeat_restart_and_ready (test_postgres.PostgresTests.test_migration_repeat_restart_and_ready) ... ok
+test_missing_schema_and_unwritable_store_degraded (test_postgres.PostgresTests.test_missing_schema_and_unwritable_store_degraded) ... ok
+test_path_and_digest_protection (test_postgres.PostgresTests.test_path_and_digest_protection) ... ok
+test_source_dependency_and_scope_database_constraint (test_postgres.PostgresTests.test_source_dependency_and_scope_database_constraint) ... ok
+test_attachment_scope_and_evidence_conversation_composite_fks_reject_forgery (test_attachment_migration.AttachmentMigrationTests.test_attachment_scope_and_evidence_conversation_composite_fks_reject_forgery) ... ok
+test_phase7_rows_preserved_and_budget_counter_defaults_to_zero (test_attachment_migration.AttachmentMigrationTests.test_phase7_rows_preserved_and_budget_counter_defaults_to_zero) ... D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_attachment_migration.py:44: SAWarning: Did not recognize type 'public.vector' of column 'vector'
+  old.reflect(conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_attachment_migration.py:44: SAWarning: Did not recognize type 'public.vector' of column 'probe_vector'
+  old.reflect(conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_attachment_migration.py:62: SAWarning: Did not recognize type 'public.vector' of column 'vector'
+  current.reflect(conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_attachment_migration.py:62: SAWarning: Did not recognize type 'public.vector' of column 'probe_vector'
+  current.reflect(conn)
+ok
+test_old_commercial_run_objects_and_image_preserved_on_0010 (test_human_assistance_migration.FormalMigrationProbes.test_old_commercial_run_objects_and_image_preserved_on_0010) ... D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_human_assistance_migration.py:50: SAWarning: Did not recognize type 'public.vector' of column 'vector'
+  old.reflect(conn, schema=namespace)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_human_assistance_migration.py:50: SAWarning: Did not recognize type 'public.vector' of column 'probe_vector'
+  old.reflect(conn, schema=namespace)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_human_assistance_migration.py:107: SAWarning: Did not recognize type 'public.vector' of column 'vector'
+  current.reflect(conn, schema=namespace)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_human_assistance_migration.py:107: SAWarning: Did not recognize type 'public.vector' of column 'probe_vector'
+  current.reflect(conn, schema=namespace)
+ok
+test_previously_claimed_commercial_conversation_is_consistent_with_review (test_human_assistance_migration.FormalMigrationProbes.test_previously_claimed_commercial_conversation_is_consistent_with_review) ... ok
+test_upgrade_keeps_existing_real_agent_jobs_and_accepts_knowledge_without_conversation (test_knowledge_migration.KnowledgeMigrationTests.test_upgrade_keeps_existing_real_agent_jobs_and_accepts_knowledge_without_conversation) ... ok
+test_reservation_scope_and_operation_line_cannot_be_forged (test_after_sales_migration.AfterSalesConstraintTests.test_reservation_scope_and_operation_line_cannot_be_forged) ... ok
+test_0007_existing_business_rows_and_sources_survive_additive_0008 (test_after_sales_migration.AfterSalesMigrationTests.test_0007_existing_business_rows_and_sources_survive_additive_0008) ... D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_after_sales_migration.py:44: SAWarning: Did not recognize type 'public.vector' of column 'vector'
+  old.reflect(conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_after_sales_migration.py:44: SAWarning: Did not recognize type 'public.vector' of column 'probe_vector'
+  old.reflect(conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_after_sales_migration.py:51: SAWarning: Did not recognize type 'public.vector' of column 'vector'
+  current.reflect(conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_after_sales_migration.py:51: SAWarning: Did not recognize type 'public.vector' of column 'probe_vector'
+  current.reflect(conn)
+ok
+test_0008_existing_rows_and_sources_survive_repeat_additive_0009 (test_after_sales_migration.AfterSalesMigrationTests.test_0008_existing_rows_and_sources_survive_repeat_additive_0009) ... ok
+test_actual_controlled_jsonl_keeps_table_headers_units_and_full_raw (test_parser_process.ParserProcessTests.test_actual_controlled_jsonl_keeps_table_headers_units_and_full_raw) ... ok
+test_actual_markdown_child_preserves_warning_units_and_missing_image_section (test_parser_process.ParserProcessTests.test_actual_markdown_child_preserves_warning_units_and_missing_image_section) ... ok
+test_cancel_before_start_and_unsupported_profile (test_parser_process.ParserProcessTests.test_cancel_before_start_and_unsupported_profile) ... ok
+test_configuration_change_never_uses_old_parser_cache (test_parser_process.ParserProcessTests.test_configuration_change_never_uses_old_parser_cache) ... ok
+test_invalid_contract_ids_pages_and_assets_cannot_pass (test_parser_process.ParserProcessTests.test_invalid_contract_ids_pages_and_assets_cannot_pass) ... ok
+test_runner_keeps_recovery_after_database_failure (test_parser_process.ParserProcessTests.test_runner_keeps_recovery_after_database_failure) ... ok
+test_secret_environment_is_not_inherited (test_parser_process.ParserProcessTests.test_secret_environment_is_not_inherited) ... ok
+test_timeout_and_fence_loss_stop_only_owned_child (test_parser_process.ParserProcessTests.test_timeout_and_fence_loss_stop_only_owned_child) ... ok
+test_async_delete_acceptance_is_not_completion_and_retry_works (test_observability_purge.ObservabilityPurgeTests.test_async_delete_acceptance_is_not_completion_and_retry_works) ... ok
+test_buffer_corruption_fails_closed_before_http (test_observability_purge.ObservabilityPurgeTests.test_buffer_corruption_fails_closed_before_http) ... ok
+test_explicitly_rejected_send_has_no_remote_ingestion_to_wait_for (test_observability_purge.ObservabilityPurgeTests.test_explicitly_rejected_send_has_no_remote_ingestion_to_wait_for) ... ok
+test_exported_evidence_cannot_be_erased_by_late_failure_or_persist (test_observability_purge.ObservabilityPurgeTests.test_exported_evidence_cannot_be_erased_by_late_failure_or_persist) ... ok
+test_exported_trace_and_root_deleted_before_success (test_observability_purge.ObservabilityPurgeTests.test_exported_trace_and_root_deleted_before_success) ... ok
+test_ingestion_not_visible_cannot_be_mistaken_for_deleted (test_observability_purge.ObservabilityPurgeTests.test_ingestion_not_visible_cannot_be_mistaken_for_deleted) ... ok
+test_lost_delete_response_retries_by_confirming_absence (test_observability_purge.ObservabilityPurgeTests.test_lost_delete_response_retries_by_confirming_absence) ... ok
+test_process_lock_timeout_does_not_revoke_inflight_export (test_observability_purge.ObservabilityPurgeTests.test_process_lock_timeout_does_not_revoke_inflight_export) ... ok
+test_purge_drains_send_on_another_connection_before_delete (test_observability_purge.ObservabilityPurgeTests.test_purge_drains_send_on_another_connection_before_delete) ... ok
+test_revoked_public_buffer_still_allows_private_cleanup_read (test_observability_purge.ObservabilityPurgeTests.test_revoked_public_buffer_still_allows_private_cleanup_read) ... ok
+test_scope_mismatch_cannot_delete_trace (test_observability_purge.ObservabilityPurgeTests.test_scope_mismatch_cannot_delete_trace) ... ok
+test_unexported_purge_and_shutdown_late_persist_never_contact_remote (test_observability_purge.ObservabilityPurgeTests.test_unexported_purge_and_shutdown_late_persist_never_contact_remote) ... ok
+test_unknown_ack_is_deleted_and_offline_retries_keep_fence (test_observability_purge.ObservabilityPurgeTests.test_unknown_ack_is_deleted_and_offline_retries_keep_fence) ... ok
+test_joint_request_persists_per_image_evidence_without_binary_checkpoint (test_vision_graph.VisionGraphTests.test_joint_request_persists_per_image_evidence_without_binary_checkpoint) ... ok
+test_network_retry_charges_views_unknown_usage_and_stops_over_six (test_vision_graph.VisionGraphTests.test_network_retry_charges_views_unknown_usage_and_stops_over_six) ... ok
+test_revoke_blocks_prior_analysis_context_checkpoint_and_preview_immediately (test_vision_graph.VisionGraphTests.test_revoke_blocks_prior_analysis_context_checkpoint_and_preview_immediately) ... ok
+test_revoking_one_joint_image_keeps_other_preview_but_invalidates_shared_evidence (test_vision_graph.VisionGraphTests.test_revoking_one_joint_image_keeps_other_preview_but_invalidates_shared_evidence) ... ok
+test_stop_takeover_new_input_and_revoke_during_vision_reject_late_output (test_vision_graph.VisionGraphTests.test_stop_takeover_new_input_and_revoke_during_vision_reject_late_output) ... ok
+test_visual_risk_goes_directly_to_atomic_hitl_with_no_second_model (test_vision_graph.VisionGraphTests.test_visual_risk_goes_directly_to_atomic_hitl_with_no_second_model) ... ok
+test_preview_cancel_confirm_retry_and_deleted_read (test_lifecycle_api.LifecycleApiTests.test_preview_cancel_confirm_retry_and_deleted_read) ... ok
+test_restore_marker_blocks_reads_and_writes (test_lifecycle_api.LifecycleApiTests.test_restore_marker_blocks_reads_and_writes) ... ok
+test_uncommitted_external_tombstone_closes_http (test_lifecycle_api.LifecycleApiTests.test_uncommitted_external_tombstone_closes_http) ... ok
+test_attachment_delete_purges_original_and_fences_every_case_run (test_lifecycle_attachments.AttachmentDeletionTests.test_attachment_delete_purges_original_and_fences_every_case_run) ... ok
+test_remaining_image_and_conversation_continue_after_related_derived_content_is_deleted (test_lifecycle_attachments.AttachmentDeletionTests.test_remaining_image_and_conversation_continue_after_related_derived_content_is_deleted) ... ok
+test_replay_revoke_is_idempotent_and_retains_local_bytes (test_lifecycle_attachments.AttachmentDeletionTests.test_replay_revoke_is_idempotent_and_retains_local_bytes) ... ok
+test_all_scope_dimensions_are_rechecked_even_for_a_known_attachment_id (test_attachment_lifecycle.AttachmentLifecycleTests.test_all_scope_dimensions_are_rechecked_even_for_a_known_attachment_id) ... ok
+test_cancel_is_idempotent_and_cleanup_preserves_bound_and_referenced_sources (test_attachment_lifecycle.AttachmentLifecycleTests.test_cancel_is_idempotent_and_cleanup_preserves_bound_and_referenced_sources) ... ok
+test_deletion_journal_blocks_original_and_thumbnail_reads (test_attachment_lifecycle.AttachmentLifecycleTests.test_deletion_journal_blocks_original_and_thumbnail_reads) ... ok
+test_expired_preview_and_upload_retry_cannot_revive_cancelled_source (test_attachment_lifecycle.AttachmentLifecycleTests.test_expired_preview_and_upload_retry_cannot_revive_cancelled_source) ... ok
+test_storage_failure_rolls_back_registry_identity_and_disk_files (test_attachment_lifecycle.AttachmentLifecycleTests.test_storage_failure_rolls_back_registry_identity_and_disk_files) ... ok
+
+----------------------------------------------------------------------
+Ran 52 tests in 226.491s
+
+OK
+PROBE migration_0010 {'persistent_human': True, 'run_status': 'interrupted', 'slot_fence': 8, 'image_status': 'failed', 'conversation_state': 'failed', 'objects_preserved': 2}
+PROBE migration_0010 {'persistent_human': True, 'run_status': 'handed_off', 'slot_fence': 8, 'image_status': 'understood', 'conversation_state': 'waiting_customer', 'objects_preserved': 3}
+PROBE migrated_staff {'processing_owner': 'human_wait_customer', 'human_claimed': True, 'open_review': False}

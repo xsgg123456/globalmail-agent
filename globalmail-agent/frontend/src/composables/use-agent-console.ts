@@ -12,6 +12,13 @@ export function useAgentConsole() {
   const loadedRecord = ref<AgentRunDetail | null>(null), error = ref(''), loading = ref(false)
   const traceRevision = ref(0)
   let generation = 0
+  watch([work.contentInvalidation, work.selectedId], () => {
+    generation++
+    loadedRecord.value = null
+    loading.value = false
+    error.value = ''
+    traceRevision.value++
+  }, { flush: 'sync' })
   const rounds = computed(() => conversationRounds(work.detail.value?.runs ?? []))
   const run = computed(() => route.query.run_id
     ? work.detail.value?.runs.find((item) => item.id === route.query.run_id)

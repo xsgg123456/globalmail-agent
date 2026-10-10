@@ -1,0 +1,10 @@
+test_pending_request_is_completed_by_cleanup_worker (test_lifecycle_invalidation.ContentInvalidationTests.test_pending_request_is_completed_by_cleanup_worker) ... ok
+test_revoked_review_hidden_before_purge_watermark_and_event_survive_completion (test_lifecycle_invalidation.ContentInvalidationTests.test_revoked_review_hidden_before_purge_watermark_and_event_survive_completion) ... ok
+test_preview_cancel_confirm_retry_and_deleted_read (test_lifecycle_api.LifecycleApiTests.test_preview_cancel_confirm_retry_and_deleted_read) ... ok
+test_restore_marker_blocks_reads_and_writes (test_lifecycle_api.LifecycleApiTests.test_restore_marker_blocks_reads_and_writes) ... ok
+test_uncommitted_external_tombstone_closes_http (test_lifecycle_api.LifecycleApiTests.test_uncommitted_external_tombstone_closes_http) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 16.987s
+
+OK

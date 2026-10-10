@@ -1,0 +1,25 @@
+{
+  "code": 202,
+  "msg": "ok",
+  "data": {
+    "id": "8c3b6307-a11b-4dda-9480-fe3d64a42ff9",
+    "request_id": "8c3b6307-a11b-4dda-9480-fe3d64a42ff9",
+    "status": "completed",
+    "target_type": "attachment",
+    "target_id": "2494bd88-374a-4643-a3cb-1aa86ed58b36",
+    "action": "delete",
+    "new_conversation_id": null,
+    "impact": {
+      "objects": 3,
+      "runs": 1,
+      "conversations": 1,
+      "versions": 0,
+      "blocked_document_ids": [],
+      "external_copies_included": false,
+      "business_ledger_retained": true,
+      "branch_reservations_released": false
+    },
+    "error_code": null
+  },
+  "request_id": "72f04b07-b02e-4c6d-8324-b2e0f111a0a7"
+}

@@ -10,6 +10,7 @@ class Settings(BaseModel):
     model_config = ConfigDict(frozen=True)
     database_url: SecretStr = SecretStr("")
     object_root: Path = Path(".local-data/objects")
+    lifecycle_journal_root: Path | None = None
     allowed_origins: tuple[str, ...] = (
         "http://127.0.0.1:15173", "http://localhost:15173",
     )
@@ -63,6 +64,7 @@ class Settings(BaseModel):
         values = {
             "database_url": os.getenv("GLOBALMAIL_DATABASE_URL", ""),
             "object_root": os.getenv("GLOBALMAIL_OBJECT_ROOT", ".local-data/objects"),
+            "lifecycle_journal_root": os.getenv("GLOBALMAIL_LIFECYCLE_JOURNAL_ROOT") or None,
             "model_api_key": os.getenv("LLM_API_KEY", ""),
             "model_name": os.getenv("LLM_MODEL", ""),
             "model_base_url": os.getenv("LLM_BASE_URL", ""),

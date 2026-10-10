@@ -33,6 +33,15 @@ class TraceExporter:
                 self.records.mark(run_id, "degraded", "observability_queue_full")
 
     def export_one(self, run_id, *, recovering=False):
+        try:
+            with self.records.export_lock(run_id):
+                if not self.stopping.is_set():
+                    self._export_locked(run_id, recovering=recovering)
+        except ServiceError:
+            # Another exporter or cleanup owns the run. Never undo its fence.
+            return
+
+    def _export_locked(self, run_id, *, recovering=False):
         snapshot = None
         try:
             snapshot = self.records.payload(run_id)

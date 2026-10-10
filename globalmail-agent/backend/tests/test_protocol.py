@@ -40,6 +40,7 @@ class ProtocolFixture(unittest.TestCase):
         self.addCleanup(self.engine.dispose)
         self.temp = tempfile.TemporaryDirectory(prefix="globalmail_protocol_")
         self.addCleanup(self.temp.cleanup)
+        self.addCleanup(self.cleanup_journal)
         config = Config(str(Path(__file__).resolve().parents[1] / "alembic.ini"))
         with self.engine.begin() as connection:
             config.attributes["connection"] = connection
@@ -52,6 +53,14 @@ class ProtocolFixture(unittest.TestCase):
         with self.admin.begin() as connection:
             connection.execute(sa.text(f'DROP SCHEMA "{self.schema}" CASCADE'))
         self.admin.dispose()
+
+    def cleanup_journal(self):
+        import shutil
+        target = Path(self.temp.name + "-lifecycle").absolute()
+        if target.parent != Path(self.temp.name).absolute().parent or not target.name.startswith("globalmail_protocol_"):
+            raise RuntimeError("test_cleanup_scope_mismatch")
+        if target.exists() and target.resolve() == target:
+            shutil.rmtree(target)
 
     def create(self, email="customer@example.test"):
         result = self.service.create(CreateConversation(expected_version=0, sender_email=email,

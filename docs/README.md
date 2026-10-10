@@ -1,5 +1,7 @@
 # 项目文档索引
 
+当前：Phase12工程完成，500后端/101前端、两模式编译、GUI及[fresh两阶段独审](verification/PHASE-12-REVIEW-6.md)通过，正式0012保旧；待用户查看。见[验收记录](verification/PHASE-12-VALIDATION.md)、[实施规划](planning/PHASE-12-IMPLEMENTATION.md)、[操作说明](verification/LIFECYCLE-OPERATIONS.md)与[GUI证据](verification/PHASE-12-GUI.md)。五轮历史FAIL及一项自动审批拒绝的旧隔离数据清理例外均保留；下一期Phase13，历史模型质量和82项AC仍待总验收。下文各期状态为历史。
+
 本目录集中保存业务、技术专题、数据准备、验证审查与交接文档。根目录固定保留五个项目文档入口；Phase1原图片质量FAIL保留，Phase2–6已交付各期工程验证，Phase7文本Agent和Phase8图文输入工程已接入，模型质量留完整链路后统一回归。Phase8–10工程四步验证及独立两阶段审查通过；实际范围以DEV-PLAN和验证报告为准。模块说明和实验结果仍随源码存放，数据原件继续存放于 `data/`。
 
 ## 根目录入口

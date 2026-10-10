@@ -65,6 +65,11 @@ class ObjectStore:
             raise RuntimeError("database_unavailable")
         if not isinstance(content, bytes) or len(content) > 50 * 1024 * 1024:
             raise ValueError("invalid_object_content")
+        from globalmail_agent.application.writer_barrier import writer_barrier
+        with writer_barrier(self.engine, scope.workspace_id):
+            return self._put(content, scope, source, derived_from)
+
+    def _put(self, content, scope, source, derived_from):
         object_id = uuid4()
         path = self._path(object_id)
         temporary = None
@@ -76,6 +81,8 @@ class ObjectStore:
                 os.fsync(output.fileno())
             os.replace(temporary, path)
             with self.engine.begin() as connection:
+                from globalmail_agent.application.content_fence import check_objects
+                check_objects(connection, scope.model_dump(), derived_from, writing=True)
                 connection.execute(insert(objects).values(
                     id=object_id, **scope.model_dump(), sha256=hashlib.sha256(content).hexdigest(),
                     size_bytes=len(content), source_kind=source.kind, source_ref=source.reference,
@@ -94,6 +101,8 @@ class ObjectStore:
         if self.engine is None:
             raise RuntimeError("database_unavailable")
         with self.engine.connect() as connection:
+            from globalmail_agent.application.content_fence import check_objects
+            check_objects(connection, scope.model_dump(), (object_id,))
             row = connection.execute(select(objects).where(and_(
                 objects.c.id == object_id,
                 *[objects.c[key] == value for key, value in scope.model_dump().items()],

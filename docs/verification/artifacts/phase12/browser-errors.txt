@@ -1,0 +1,8 @@
+### Result
+Total messages: 7 (Errors: 4, Warnings: 0)
+Returning 4 messages for level "error"
+
+[ERROR] Failed to load resource: the server responded with a status of 503 (Service Unavailable) @ http://127.0.0.1:15179/api/v1/lifecycle/requests:0
+[ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:15179/api/v1/conversations/638fc6d0-84c3-48e0-9272-a9d0cf5c4432:0
+[ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:15179/api/v1/conversations/638fc6d0-84c3-48e0-9272-a9d0cf5c4432/advice:0
+[ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:15179/api/v1/conversations/638fc6d0-84c3-48e0-9272-a9d0cf5c4432/advice:0

@@ -120,8 +120,9 @@ def load_context(engine, store, workspace, job, *, rebuild=False):
         if rebuild and old and old["rebuild_count"] >= 1:
             from globalmail_agent.application.conversation_lock import ServiceError
             raise ServiceError("knowledge_rebuild_exhausted")
-        object_id = writer.put(conn, conv, canonical(payload).decode(), "agent_context",
-            (*tuple(row["body_object_id"] for row in rows), *image_objects))
+        from globalmail_agent.application.content_fence import readable_objects
+        sources = readable_objects(conn, conv, (*tuple(row["body_object_id"] for row in rows), *image_objects))
+        object_id = writer.put(conn, conv, canonical(payload).decode(), "agent_context", sources)
         values = dict(release_id=current["release_id"], release_epoch=current["epoch"], profile_id=current["profile_id"],
             as_of=when, visible_message_seq=conv["visible_message_seq"], context_object_id=object_id,
             observed_wakes=wakes,

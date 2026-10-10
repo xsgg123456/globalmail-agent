@@ -1,0 +1,243 @@
+{
+  "files": 59,
+  "over300": [],
+  "scan_hits": [],
+  "sizes": [
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/adapters/backup_store.py",
+      "lines": 122
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/adapters/body_store.py",
+      "lines": 76
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/adapters/database.py",
+      "lines": 43
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/adapters/deletion_journal.py",
+      "lines": 119
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/adapters/lifecycle_schema.py",
+      "lines": 25
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/adapters/object_store.py",
+      "lines": 116
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/agent/context.py",
+      "lines": 141
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/api/lifecycle.py",
+      "lines": 51
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/api/restore_gate.py",
+      "lines": 32
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/backup_cli.py",
+      "lines": 101
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/case_memory.py",
+      "lines": 52
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/content_dependencies.py",
+      "lines": 14
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/content_fence.py",
+      "lines": 55
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/content_revision.py",
+      "lines": 11
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/conversation_advice.py",
+      "lines": 40
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/conversation_queries.py",
+      "lines": 100
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/deletion.py",
+      "lines": 205
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/human_review.py",
+      "lines": 141
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/journal_gate.py",
+      "lines": 21
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/lifecycle.py",
+      "lines": 208
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/lifecycle_inventory.py",
+      "lines": 105
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/lifecycle_replay.py",
+      "lines": 53
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/lifecycle_revoke.py",
+      "lines": 67
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/replay_journal.py",
+      "lines": 96
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/restore.py",
+      "lines": 103
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/restore_checks.py",
+      "lines": 57
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/revocation_log.py",
+      "lines": 21
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/risk_records.py",
+      "lines": 48
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/run_records.py",
+      "lines": 88
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/application/writer_barrier.py",
+      "lines": 33
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/attachments/corrections.py",
+      "lines": 99
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/attachments/evidence.py",
+      "lines": 126
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/attachments/revocation.py",
+      "lines": 23
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/base.py",
+      "lines": 114
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/knowledge/releases.py",
+      "lines": 154
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/main.py",
+      "lines": 122
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/observability/exporter.py",
+      "lines": 148
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/observability/purge.py",
+      "lines": 132
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/observability/records.py",
+      "lines": 197
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/settings.py",
+      "lines": 82
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/worker/agent_runner.py",
+      "lines": 198
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/worker/cleanup_runner.py",
+      "lines": 33
+    },
+    {
+      "path": "globalmail-agent/backend/src/globalmail_agent/worker/knowledge_runner.py",
+      "lines": 98
+    },
+    {
+      "path": "globalmail-agent/frontend/src/api/lifecycle-api.ts",
+      "lines": 38
+    },
+    {
+      "path": "globalmail-agent/frontend/src/api/mail-agent-contract.ts",
+      "lines": 143
+    },
+    {
+      "path": "globalmail-agent/frontend/src/api/mail-agent-request.ts",
+      "lines": 94
+    },
+    {
+      "path": "globalmail-agent/frontend/src/components/mail-agent/ImageEvidenceDrawer.vue",
+      "lines": 120
+    },
+    {
+      "path": "globalmail-agent/frontend/src/components/shared/DeletionDialog.vue",
+      "lines": 63
+    },
+    {
+      "path": "globalmail-agent/frontend/src/components/shared/DeletionHistory.vue",
+      "lines": 21
+    },
+    {
+      "path": "globalmail-agent/frontend/src/components/shared/DeletionStatus.vue",
+      "lines": 20
+    },
+    {
+      "path": "globalmail-agent/frontend/src/composables/content-invalidations.ts",
+      "lines": 38
+    },
+    {
+      "path": "globalmail-agent/frontend/src/composables/conversation-commands.ts",
+      "lines": 20
+    },
+    {
+      "path": "globalmail-agent/frontend/src/composables/conversation-event-session.ts",
+      "lines": 87
+    },
+    {
+      "path": "globalmail-agent/frontend/src/composables/create-mail-workbench.ts",
+      "lines": 300
+    },
+    {
+      "path": "globalmail-agent/frontend/src/composables/mail-draft-cache.ts",
+      "lines": 47
+    },
+    {
+      "path": "globalmail-agent/frontend/src/composables/use-agent-console.ts",
+      "lines": 94
+    },
+    {
+      "path": "globalmail-agent/frontend/src/composables/use-conversation-advice.ts",
+      "lines": 55
+    },
+    {
+      "path": "globalmail-agent/frontend/src/views/knowledge/index.vue",
+      "lines": 270
+    },
+    {
+      "path": "globalmail-agent/frontend/src/views/mail-agent/index.vue",
+      "lines": 92
+    }
+  ]
+}

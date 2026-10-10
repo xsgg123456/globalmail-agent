@@ -8,6 +8,8 @@ REDACTED = "（图片证据已撤销，相关派生内容不可读取）"
 
 
 def check_content_access(conn, conv, object_id):
+    from globalmail_agent.application.content_fence import check_objects
+    check_objects(conn, conv, (object_id,))
     ancestors = sa.select(sa.literal(object_id, type_=sa.Uuid).label("id")).cte("image_ancestors", recursive=True)
     ancestors = ancestors.union(sa.select(content_dependencies.c.source_object_id).join(ancestors,
         content_dependencies.c.dependent_object_id == ancestors.c.id).where(

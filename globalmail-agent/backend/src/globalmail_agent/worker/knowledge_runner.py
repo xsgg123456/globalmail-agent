@@ -10,6 +10,7 @@ from globalmail_agent.knowledge.jobs import KnowledgeJobService
 from globalmail_agent.knowledge.parser_process import parse_bytes, ParserFailure, ParserStopped
 from globalmail_agent.knowledge.parser_profiles import fingerprint
 from globalmail_agent.knowledge.index_worker import execute_index
+from globalmail_agent.application.writer_barrier import guarded_writer
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +25,10 @@ class KnowledgeRunner:
         self.thread = Thread(target=self.run, name="globalmail-knowledge", daemon=True)
 
     def start(self):
+        from globalmail_agent.application.restore import assert_restore_open
+        assert_restore_open(self.store.root)
+        from globalmail_agent.application.journal_gate import assert_journal_current
+        assert_journal_current(self.jobs.engine, self.store)
         self.thread.start()
 
     def close(self):
@@ -31,7 +36,12 @@ class KnowledgeRunner:
         # The child observes this flag during its bounded polling loop.
         self.thread.join(timeout=20)
 
+    @guarded_writer
     def execute(self, job):
+        from globalmail_agent.application.restore import assert_restore_open
+        assert_restore_open(self.store.root)
+        from globalmail_agent.application.journal_gate import assert_journal_current
+        assert_journal_current(self.jobs.engine, self.store)
         def current():
             return not self.stopping.is_set() and self.jobs.heartbeat(job, self.owner, job["slot_fence"])
         if job["knowledge_operation"] == "index":

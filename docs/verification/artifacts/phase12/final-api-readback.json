@@ -1,0 +1,379 @@
+{
+  "deleted_conversation": {
+    "status": 404,
+    "body": {
+      "code": 404,
+      "msg": "conversation_not_found",
+      "data": null,
+      "request_id": "07394275-137a-47ef-8134-6b8d3480bd30"
+    }
+  },
+  "deleted_document": {
+    "status": 404,
+    "body": {
+      "code": 404,
+      "msg": "document_not_found",
+      "data": null,
+      "request_id": "0fdcc907-cc22-4750-8e36-30fb8c3539f4"
+    }
+  },
+  "deleted_document_source": {
+    "status": 404,
+    "body": {
+      "code": 404,
+      "msg": "document_not_found",
+      "data": null,
+      "request_id": "46bdf72b-4488-4b79-b384-dae8cc162748"
+    }
+  },
+  "deleted_image": {
+    "status": 410,
+    "body": {
+      "code": 410,
+      "msg": "attachment_revoked",
+      "data": null,
+      "request_id": "ec93957a-3411-477c-984c-ae5d51917717"
+    }
+  },
+  "shared_source": {
+    "status": 410,
+    "body": {
+      "code": 410,
+      "msg": "content_deleted",
+      "data": null,
+      "request_id": "6d81f549-14c8-4734-8019-33e3ac56f564"
+    }
+  },
+  "preserved_image_conversation": {
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "conversation": {
+          "id": "92b08a7e-a638-460c-b256-05c1f9d4c76b",
+          "created_at": "2026-10-10T13:55:37.671736+00:00",
+          "updated_at": "2026-10-10T13:56:28.234663+00:00",
+          "workspace_id": "00000000-0000-0000-0000-000000000001",
+          "mode": "interactive_simulation",
+          "branch_id": "69989779-444d-4d5f-92d9-8f4474084067",
+          "customer_id": "7bae7474-0354-4897-9cb3-b5ebb5f99411",
+          "purpose": "conversation",
+          "dataset_id": "00000000-0000-0000-0000-000000000002",
+          "identity_id": "7bae7474-0354-4897-9cb3-b5ebb5f99411",
+          "subject": "",
+          "row_version": 3,
+          "input_revision": 2,
+          "authority_epoch": 1,
+          "branch_generation": 1,
+          "case_revision": 1,
+          "visible_message_seq": 1,
+          "next_seq": 1,
+          "received_seq": 1,
+          "human_reply_after_seq": null,
+          "persistent_human": false,
+          "human_claimed": false,
+          "lifecycle": "open",
+          "processing_owner": "agent",
+          "auto_run_gate": "disabled",
+          "scheduling_state": "idle",
+          "sender_key": "phase12-image@example.test",
+          "identity_verified": true
+        },
+        "messages": [
+          {
+            "id": "7e7180b7-e61d-447f-95ff-ec74b5cc71a1",
+            "created_at": "2026-10-10T13:56:28.234663+00:00",
+            "updated_at": "2026-10-10T13:56:28.234663+00:00",
+            "workspace_id": "00000000-0000-0000-0000-000000000001",
+            "mode": "simulation",
+            "branch_id": "69989779-444d-4d5f-92d9-8f4474084067",
+            "customer_id": "7bae7474-0354-4897-9cb3-b5ebb5f99411",
+            "purpose": "conversation",
+            "conversation_id": "92b08a7e-a638-460c-b256-05c1f9d4c76b",
+            "seq": 1,
+            "received_seq": 1,
+            "source_ref": "manual",
+            "source_message_id": "phase12-gui-image-conversation",
+            "sender": "customer",
+            "subject": "Phase12 图片删除演练",
+            "body_object_id": "8aa7b97f-9d9e-497d-b7d9-7c5f2daf3dae",
+            "sent_at": "2026-10-10T13:56:28.245917+00:00",
+            "body": "PHASE12_IMAGE_MESSAGE",
+            "attachments": [
+              {
+                "attachment_id": "2494bd88-374a-4643-a3cb-1aa86ed58b36",
+                "failure_reason": null,
+                "conversation_id": "92b08a7e-a638-460c-b256-05c1f9d4c76b",
+                "message_id": "7e7180b7-e61d-447f-95ff-ec74b5cc71a1",
+                "position": 0,
+                "cid": null,
+                "filename": "",
+                "mime_type": "image/png",
+                "size_bytes": 1067,
+                "width": 400,
+                "height": 300,
+                "revision": 2,
+                "evidence_epoch": 1,
+                "status": "revoked"
+              }
+            ]
+          }
+        ],
+        "active_risks": [],
+        "review": null,
+        "human_history": [],
+        "comparisons": [],
+        "runs": [
+          {
+            "id": "d3eef464-e7e9-4d18-b974-2a192f89c630",
+            "created_at": "2026-10-10T13:56:28.234663+00:00",
+            "updated_at": "2026-10-10T13:57:05.055390+00:00",
+            "workspace_id": "00000000-0000-0000-0000-000000000001",
+            "mode": "simulation",
+            "branch_id": "69989779-444d-4d5f-92d9-8f4474084067",
+            "customer_id": "7bae7474-0354-4897-9cb3-b5ebb5f99411",
+            "purpose": "conversation",
+            "conversation_id": "92b08a7e-a638-460c-b256-05c1f9d4c76b",
+            "processing_cycle_id": "8cd7dd4a-ff0d-49a4-aefc-7c71b4f0f104",
+            "execution_mode": "autonomous",
+            "attempt_no": 1,
+            "status": "cancelled",
+            "input_revision": 1,
+            "authority_epoch": 0,
+            "branch_generation": 1,
+            "trigger_id": "efa7bd6a-22a0-4dfb-a4ba-e7355071b186",
+            "stop_requested": true,
+            "checkpoint_writable": false,
+            "error_code": null,
+            "outcome": null,
+            "started_at": null,
+            "finished_at": "2026-10-10T13:57:05.055390+00:00",
+            "trigger_message_id": "7e7180b7-e61d-447f-95ff-ec74b5cc71a1"
+          }
+        ],
+        "issues": [
+          {
+            "id": "dd05b30e-3da5-45a3-ae4e-82c03d802639",
+            "issue_key": "correspondence",
+            "order_line_id": null,
+            "order_number": null,
+            "business_type": null,
+            "status": "open",
+            "plan_status": null,
+            "current_operation_id": null,
+            "source_message_id": null,
+            "version": 1
+          }
+        ],
+        "waits": [],
+        "wakes": [],
+        "business_events": [
+          {
+            "id": "efa7bd6a-22a0-4dfb-a4ba-e7355071b186",
+            "source": "message",
+            "source_event_id": "7e7180b7-e61d-447f-95ff-ec74b5cc71a1",
+            "issue_id": null,
+            "operation_id": null,
+            "condition_type": null,
+            "business_version": null,
+            "status": "cancelled",
+            "observed_run_id": null
+          }
+        ],
+        "facts": [
+          {
+            "id": "16a5e1d4-6382-4934-8f3e-d4719e936353",
+            "created_at": "2026-10-10T13:56:28.234663+00:00",
+            "updated_at": "2026-10-10T13:56:28.234663+00:00",
+            "workspace_id": "00000000-0000-0000-0000-000000000001",
+            "mode": "simulation",
+            "branch_id": "69989779-444d-4d5f-92d9-8f4474084067",
+            "customer_id": "7bae7474-0354-4897-9cb3-b5ebb5f99411",
+            "purpose": "conversation",
+            "conversation_id": "92b08a7e-a638-460c-b256-05c1f9d4c76b",
+            "issue_id": "dd05b30e-3da5-45a3-ae4e-82c03d802639",
+            "source_message_id": "7e7180b7-e61d-447f-95ff-ec74b5cc71a1",
+            "kind": "customer_report",
+            "value_object_id": "a686e02e-9973-41b6-9bad-f81dde64c3c3",
+            "revision": 1,
+            "visible_seq": 1,
+            "value": "（内容已删除）"
+          }
+        ],
+        "replay": null
+      },
+      "request_id": "37958f39-9b89-4cd9-ba7d-0fa95e10ea48"
+    }
+  },
+  "conversation_list": {
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "id": "92b08a7e-a638-460c-b256-05c1f9d4c76b",
+            "created_at": "2026-10-10T13:55:37.671736+00:00",
+            "updated_at": "2026-10-10T13:56:28.234663+00:00",
+            "workspace_id": "00000000-0000-0000-0000-000000000001",
+            "mode": "interactive_simulation",
+            "branch_id": "69989779-444d-4d5f-92d9-8f4474084067",
+            "customer_id": "7bae7474-0354-4897-9cb3-b5ebb5f99411",
+            "purpose": "conversation",
+            "dataset_id": "00000000-0000-0000-0000-000000000002",
+            "identity_id": "7bae7474-0354-4897-9cb3-b5ebb5f99411",
+            "subject": "",
+            "row_version": 3,
+            "input_revision": 2,
+            "authority_epoch": 1,
+            "branch_generation": 1,
+            "case_revision": 1,
+            "visible_message_seq": 1,
+            "next_seq": 1,
+            "received_seq": 1,
+            "human_reply_after_seq": null,
+            "persistent_human": false,
+            "human_claimed": false,
+            "lifecycle": "open",
+            "processing_owner": "agent",
+            "auto_run_gate": "disabled",
+            "scheduling_state": "idle",
+            "sender_key": "phase12-image@example.test",
+            "identity_verified": true
+          }
+        ],
+        "next_cursor": null
+      },
+      "request_id": "fb62b385-9171-4e09-bfa4-c02ae09ec0fb"
+    }
+  },
+  "document_list": {
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "id": "cbbd4295-8e0b-4d36-aa2e-10f900e0099c",
+            "title": "Phase12 shared PDF 2",
+            "document_type": "manual_pdf",
+            "brand": null,
+            "source_kind": "user_provided_simulation_knowledge",
+            "source_reference": "phase12-shared",
+            "allowed_modes": [
+              "simulation"
+            ],
+            "usage_split": "rag",
+            "row_version": 1,
+            "current_version_id": "2aa56bf8-2c8d-419d-a7e9-7ea6ca672792",
+            "current_version_number": 1,
+            "status": "draft",
+            "published": false,
+            "publication": null,
+            "withdrawn": false,
+            "revocation_epoch": 0
+          }
+        ],
+        "next_cursor": null
+      },
+      "request_id": "001965fb-8a6d-4aa6-bce3-d4b6018110d7"
+    }
+  },
+  "deletion_history": {
+    "status": 200,
+    "body": {
+      "code": 200,
+      "msg": "ok",
+      "data": {
+        "items": [
+          {
+            "id": "2a927b0e-ffea-4045-a468-59ed4da9f1f6",
+            "request_id": "2a927b0e-ffea-4045-a468-59ed4da9f1f6",
+            "status": "completed",
+            "target_type": "conversation",
+            "target_id": "638fc6d0-84c3-48e0-9272-a9d0cf5c4432",
+            "action": "delete",
+            "new_conversation_id": null,
+            "impact": {
+              "objects": 2,
+              "runs": 1,
+              "conversations": 1,
+              "versions": 0,
+              "blocked_document_ids": [],
+              "external_copies_included": false,
+              "business_ledger_retained": true,
+              "branch_reservations_released": true
+            },
+            "error_code": null
+          },
+          {
+            "id": "a33b82c6-f622-425c-957b-d0f2302080f3",
+            "request_id": "a33b82c6-f622-425c-957b-d0f2302080f3",
+            "status": "blocked_dependencies",
+            "target_type": "document",
+            "target_id": "bdcdb05c-e9a6-41e4-ba33-5d66e9ebb503",
+            "action": "delete",
+            "new_conversation_id": null,
+            "impact": {
+              "objects": 1,
+              "runs": 0,
+              "conversations": 0,
+              "versions": 1,
+              "blocked_document_ids": [
+                "cbbd4295-8e0b-4d36-aa2e-10f900e0099c"
+              ],
+              "external_copies_included": false,
+              "business_ledger_retained": true,
+              "branch_reservations_released": false
+            },
+            "error_code": "shared_source_requires_separation"
+          },
+          {
+            "id": "8c3b6307-a11b-4dda-9480-fe3d64a42ff9",
+            "request_id": "8c3b6307-a11b-4dda-9480-fe3d64a42ff9",
+            "status": "completed",
+            "target_type": "attachment",
+            "target_id": "2494bd88-374a-4643-a3cb-1aa86ed58b36",
+            "action": "delete",
+            "new_conversation_id": null,
+            "impact": {
+              "objects": 3,
+              "runs": 1,
+              "conversations": 1,
+              "versions": 0,
+              "blocked_document_ids": [],
+              "external_copies_included": false,
+              "business_ledger_retained": true,
+              "branch_reservations_released": false
+            },
+            "error_code": null
+          },
+          {
+            "id": "9027201f-5f04-4a61-8d6a-32b2ef1240fe",
+            "request_id": "9027201f-5f04-4a61-8d6a-32b2ef1240fe",
+            "status": "completed",
+            "target_type": "document",
+            "target_id": "7275428b-38fd-422a-82bf-30b712f3633c",
+            "action": "delete",
+            "new_conversation_id": null,
+            "impact": {
+              "objects": 1,
+              "runs": 0,
+              "conversations": 0,
+              "versions": 1,
+              "blocked_document_ids": [],
+              "external_copies_included": false,
+              "business_ledger_retained": true,
+              "branch_reservations_released": false
+            },
+            "error_code": null
+          }
+        ]
+      },
+      "request_id": "2f94b517-a7e1-4222-a893-1a52e3f8cf42"
+    }
+  }
+}

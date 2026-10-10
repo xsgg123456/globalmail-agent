@@ -18,7 +18,7 @@ def active_risks(conn, store, conv, status="active"):
     for row in conn.execute(query).mappings():
         from globalmail_agent.attachments.revocation import REDACTED
         body = read_body(conn, store, conv, row["body_object_id"])
-        if body == REDACTED:
+        if body in {REDACTED, "（内容已删除）"}:
             continue
         value = json.loads(body)
         result.append({"id": str(row["id"]), "kind": row["kind"], "status": row["status"], **value})

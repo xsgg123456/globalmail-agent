@@ -3,17 +3,19 @@ import tempfile
 import unittest
 from pathlib import Path
 from uuid import uuid4
+from unittest.mock import patch
 
 from alembic import command
 from alembic.config import Config
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine, insert, select, text
-from sqlalchemy.exc import IntegrityError
+from sqlalchemy.exc import IntegrityError, OperationalError
 
 from globalmail_agent.adapters.object_store import ObjectStore, Scope, Source
 from globalmail_agent.adapters.schema import content_dependencies, objects, workspaces
 from globalmail_agent.main import create_app
 from globalmail_agent.settings import Settings
+from globalmail_agent.application.conversation_lock import ServiceError
 
 
 @unittest.skipUnless(os.getenv("GLOBALMAIL_TEST_DATABASE_URL"), "requires isolated PostgreSQL configuration")
@@ -73,8 +75,9 @@ class PostgresTests(unittest.TestCase):
                 connection.execute(insert(content_dependencies).values(id=uuid4(), **self.scope.model_dump(),
                     source_object_id=parent, dependent_object_id=outsider))
         before = set(Path(self.temp.name).iterdir())
-        with self.assertRaises(IntegrityError):
+        with self.assertRaises(ServiceError) as rejected:
             self.store.put(b"bad derived", self.scope, self.source, derived_from=(outsider,))
+        self.assertEqual((rejected.exception.code, rejected.exception.status), ("object_not_found", 404))
         self.assertEqual(before, set(Path(self.temp.name).iterdir()))
         with self.engine.connect() as connection:
             self.assertEqual(len(connection.execute(select(content_dependencies)).all()), 1)
@@ -100,8 +103,18 @@ class PostgresTests(unittest.TestCase):
             with self.subTest(scope_key=key):
                 with self.assertRaises(LookupError):
                     self.store.get(parent, other)
-                with self.assertRaises(IntegrityError):
+                before = set(Path(self.temp.name).iterdir())
+                with self.assertRaises(ServiceError) as rejected:
                     self.store.put(b"not authorized", other, self.source, derived_from=(parent,))
+                self.assertEqual((rejected.exception.code, rejected.exception.status), ("object_not_found", 404))
+                self.assertEqual(before, set(Path(self.temp.name).iterdir()))
+                outsider = self.store.put(b"isolated object", other, self.source)
+                with self.assertRaises(IntegrityError), self.engine.begin() as connection:
+                    connection.execute(insert(content_dependencies).values(id=uuid4(), **other.model_dump(),
+                        source_object_id=parent, dependent_object_id=outsider))
+        with self.engine.connect() as connection:
+            self.assertEqual(connection.execute(select(content_dependencies)).all(), [])
+        self.assertEqual(self.store.get(parent, self.scope), b"scope protected")
 
     def test_database_failure_and_missing_table_are_degraded(self):
         bad_engine = create_engine("postgresql+psycopg://invalid:SECRET_MARKER@127.0.0.1:1/missing",
@@ -133,4 +146,16 @@ class PostgresTests(unittest.TestCase):
             self.assertEqual(result.json()["data"]["database"], "ready")
             self.assertEqual(result.json()["data"]["schema"], "unavailable")
             self.assertEqual(result.json()["data"]["object_store"], "unavailable")
+
+    def test_failed_journal_query_cannot_report_ready_after_database_recovers(self):
+        with TestClient(create_app(Settings(object_root=Path(self.temp.name)), engine=self.engine),
+                        base_url="http://localhost") as client:
+            failure = OperationalError("SELECT journal_receipts", {}, RuntimeError("synthetic outage"))
+            with patch("globalmail_agent.application.journal_gate.assert_journal_current", side_effect=failure):
+                result = client.get("/api/v1/health/ready")
+                self.assertEqual(result.status_code, 503)
+                self.assertEqual(result.json()["data"]["database"], "ready")
+                self.assertEqual(result.json()["data"]["journal"], "unavailable")
+                self.assertEqual(client.get("/api/v1/conversations").status_code, 503)
+                self.assertEqual(client.get("/api/v1/health/live").status_code, 200)
 

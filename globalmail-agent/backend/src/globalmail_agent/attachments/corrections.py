@@ -13,7 +13,7 @@ from globalmail_agent.application.conversation_lock import ServiceError
 from globalmail_agent.application.task_queue import invalidate
 from globalmail_agent.application.event_store import append_ui_event
 from globalmail_agent.attachments.queries import authorize_attachment
-from globalmail_agent.attachments.evidence import scoped
+from globalmail_agent.attachments.evidence import scoped, readable_rows
 from globalmail_agent.knowledge.base import canonical
 
 
@@ -57,6 +57,9 @@ class EvidenceService(ServiceBase):
             if not revoke and (not command.value.strip() or not command.reason.strip()):
                 raise ServiceError("correction_content_required", 422)
             epoch = attachment["evidence_epoch"] + 1
+            if revoke:
+                from globalmail_agent.application.revocation_log import record_revocation
+                record_revocation(conn, self.store, self.workspace_id, "attachment", attachment_id)
             if not revoke:
                 previous = list(conn.execute(sa.select(visual_evidence).where(*scoped(visual_evidence, conv),
                     visual_evidence.c.attachment_id == attachment_id,
@@ -64,7 +67,7 @@ class EvidenceService(ServiceBase):
                     .order_by(visual_evidence.c.created_at)).mappings())
                 # Carry forward human corrections in other columns; inference never overwrites them.
                 supersedes = None
-                for row in previous:
+                for row in readable_rows(conn, conv, previous, explicit=True):
                     content = json.loads(read_bytes(conn, self.store, conv, row["body_object_id"]))
                     same = row["kind"] == command.kind and (command.kind != "field_candidate"
                         or content.get("key", "other") == command.field_key)

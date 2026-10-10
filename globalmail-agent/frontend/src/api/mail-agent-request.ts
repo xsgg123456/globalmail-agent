@@ -90,4 +90,5 @@ export class PendingCommands {
   complete(action: string) {
     this.pending.delete(action)
   }
+  clear() { this.pending.clear() }
 }

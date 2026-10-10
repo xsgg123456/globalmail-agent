@@ -38,6 +38,7 @@ export interface Conversation {
   identity_verified: boolean
   subject: string
   row_version: number
+  content_revision?: number
   input_revision: number
   authority_epoch: number
   branch_generation: number

@@ -10,7 +10,7 @@
             ><ElButton @click="searchDrawer = true">检索试查</ElButton
             ><ElButton @click="releaseDrawer = true">发布记录与模型切换</ElButton
             ><ElButton :loading="busy" @click="importPrepared">导入准备资料</ElButton
-            ><ElButton type="primary" :disabled="busy" @click="create">新建资料</ElButton></div
+            ><ElButton type="primary" :disabled="busy" @click="create">新建资料</ElButton><DeletionHistory /></div
           ></div
         ></template
       >
@@ -171,6 +171,7 @@
         @edit="edit"
       />
       <ElEmpty v-else-if="!detailLoading" description="资料读取失败，请关闭后刷新重试" />
+      <div v-if="document" class="border-t-d mt-6 pt-4"><ElButton type="danger" plain @click="deleting={id:document.document.id,label:document.document.title}">彻底删除资料</ElButton><p class="text-xs text-g-700 mt-2">下架只停止使用；彻底删除会清理本项目持有的正文及衍生内容。</p></div>
     </ElDrawer>
     <ElDrawer v-model="searchDrawer" title="检索试查" size="min(860px, 100vw)" destroy-on-close>
       <SearchPreview v-if="searchDrawer" :products="catalog.products" @source="openSource" />
@@ -183,6 +184,7 @@
     >
       <ReleaseManager v-if="releaseDrawer" @changed="refreshSelected" />
     </ElDrawer>
+    <DeletionDialog v-if="deleting" kind="document" :target-id="deleting.id" :label="deleting.label" @close="deleting=null" @revoked="drawer=false;closeDetail();refreshList()" @completed="refreshList" />
     <KnowledgeEditor
       v-if="editor"
       :document="editing ? document?.document || null : null"
@@ -201,6 +203,8 @@
   import KnowledgeEditor from '@/components/knowledge/KnowledgeEditor.vue'
   import SearchPreview from '@/components/knowledge/SearchPreview.vue'
   import ReleaseManager from '@/components/knowledge/ReleaseManager.vue'
+  import DeletionDialog from '@/components/shared/DeletionDialog.vue'
+  import DeletionHistory from '@/components/shared/DeletionHistory.vue'
   import { typeLabels, labelState } from '@/components/knowledge/knowledge-labels'
   import { useKnowledgeWorkbench } from '@/composables/useKnowledgeWorkbench'
   import type { KnowledgeDocument } from '@/api/knowledge-contract'
@@ -233,6 +237,7 @@
   const drawer = ref(false),
     editor = ref(false),
     editing = ref(false)
+  const deleting=ref<{id:string;label:string}|null>(null)
   const searchDrawer = ref(false),
     releaseDrawer = ref(false)
   async function refreshSelected() {

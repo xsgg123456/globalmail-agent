@@ -32,11 +32,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--api-port", type=int, default=18181)
     parser.add_argument("--web-port", type=int, default=15174)
-    parser.add_argument("--phase", type=int, choices=(3, 4, 5, 6, 7, 8, 9, 10, 11, 16), default=3)
+    parser.add_argument("--phase", type=int, choices=(3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16), default=3)
     parser.add_argument("--manual-agent", action="store_true", help="Phase7 UI driver controls isolated runs; no background model calls")
     args = parser.parse_args()
-    if args.manual_agent and args.phase not in (7, 8, 9, 10, 11, 16):
-        parser.error("--manual-agent requires --phase 7, 8, 9, 10, 11 or 16")
+    if args.manual_agent and args.phase not in (7, 8, 9, 10, 11, 12, 16):
+        parser.error("--manual-agent requires --phase 7, 8, 9, 10, 11, 12 or 16")
     temporary_root = ROOT / "tmp"
     temporary_root.mkdir(exist_ok=True)
     stop_file = temporary_root / f"phase{args.phase}-browser.stop"
@@ -75,6 +75,7 @@ def main():
             environment = dict(os.environ)
             environment.update(GLOBALMAIL_DATABASE_URL=test_url.render_as_string(hide_password=False),
                 GLOBALMAIL_OBJECT_ROOT=str(Path(temporary) / "objects"),
+                GLOBALMAIL_LIFECYCLE_JOURNAL_ROOT=str(Path(temporary) / "lifecycle"),
                 GLOBALMAIL_ALLOWED_ORIGINS=f"http://127.0.0.1:{args.web_port}",
                 PYTHONPATH=os.pathsep.join((str(BACKEND / "src"), str(Path(__file__).parent))))
             api_log = open(Path(temporary) / "api.log", "wb")

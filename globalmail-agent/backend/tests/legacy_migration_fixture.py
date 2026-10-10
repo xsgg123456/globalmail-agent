@@ -6,9 +6,32 @@ from globalmail_agent.adapters.schema import SCOPE_KEYS
 from globalmail_agent.application.conversation_lock import ServiceError
 from globalmail_agent.application.conversations import ConversationService
 from globalmail_agent.application.fixture_conversations import FixtureConversations
+from globalmail_agent.adapters.body_store import BodyWriter
+
+
+def historical_fence(conn, scope):
+    """Frozen pre-0012 write contract, only for explicitly historical fixtures."""
+    if scope.get('purpose') == 'conversation':
+        table = sa.Table('conversations', sa.MetaData(), autoload_with=conn)
+        row = conn.execute(sa.select(table.c.lifecycle).where(
+            *[table.c[key] == scope[key] for key in SCOPE_KEYS]).with_for_update()).first()
+        if row is None or row.lifecycle in {'deleting', 'deleted'}:
+            raise ServiceError('conversation_not_found', 404)
+
+
+class LegacyBodyWriter(BodyWriter):
+    def put_bytes(self, *args, **kwargs):
+        with patch('globalmail_agent.application.content_fence.check_conversation_write', historical_fence):
+            return super().put_bytes(*args, **kwargs)
 
 
 class LegacyLock:
+    def write(self, *args, **kwargs):
+        # These fixtures seed pre-0012 schemas; their era has no deletion_requests.
+        # Keep the historical conversation lock instead of running a head-only gate.
+        with patch('globalmail_agent.application.content_fence.check_conversation_write', historical_fence):
+            return super().write(*args, **kwargs)
+
     def lock(self, conn, conversation_id, expected_version=None):
         table = sa.Table("conversations", sa.MetaData(), autoload_with=conn)
         row = conn.execute(sa.select(table).where(table.c.id == conversation_id,
@@ -19,7 +42,9 @@ class LegacyLock:
 
 
 class LegacyConversations(LegacyLock, ConversationService):
-    pass
+    def add_message(self, *args, **kwargs):
+        with patch('globalmail_agent.application.content_fence.check_conversation_write', historical_fence):
+            return super().add_message(*args, **kwargs)
 
 
 class LegacyScenarios(LegacyLock, FixtureConversations):

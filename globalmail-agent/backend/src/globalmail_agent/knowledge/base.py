@@ -75,6 +75,8 @@ class KnowledgeFiles:
                 path.unlink(missing_ok=True)
 
     def put(self, conn, content, source, reference, derived_from=()):
+        from globalmail_agent.application.content_fence import check_objects
+        check_objects(conn, scope(self.workspace), derived_from, writing=True)
         if not isinstance(content, bytes) or len(content) > 50 * 1024 * 1024:
             raise ServiceError("file_too_large", 422)
         identity = uuid4()
@@ -97,6 +99,8 @@ class KnowledgeFiles:
                 os.unlink(temporary)
 
     def read(self, conn, identity):
+        from globalmail_agent.application.content_fence import check_objects
+        check_objects(conn, scope(self.workspace), (identity,))
         row = conn.execute(sa.select(objects).where(objects.c.id == identity,
             *scoped_where(objects, self.workspace))).mappings().first()
         if row is None:

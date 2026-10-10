@@ -6,6 +6,8 @@ from globalmail_agent.adapters.schema import content_dependencies
 
 
 def register_dependencies(connection, scope: dict, object_id: UUID, source_ids: tuple[UUID, ...]):
+    from globalmail_agent.application.content_fence import check_objects
+    check_objects(connection, scope, source_ids, writing=True)
     for source_id in set(source_ids):
         connection.execute(insert(content_dependencies).values(
             id=uuid4(), **scope, source_object_id=source_id, dependent_object_id=object_id,

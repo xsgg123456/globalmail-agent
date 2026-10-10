@@ -15,10 +15,12 @@ class HumanReviewMixin:
 
     def dependencies(self, conn, conversation):
         from globalmail_agent.attachments.evidence import context_images
+        from globalmail_agent.application.content_fence import readable_objects
         image_objects = context_images(conn, self.store, conversation)[3]
-        return (*tuple(conn.execute(select(messages.c.body_object_id).where(
+        sources = (*tuple(conn.execute(select(messages.c.body_object_id).where(
             messages.c.conversation_id == conversation["id"], messages.c.seq <= conversation["visible_message_seq"])).scalars())
             , *image_objects)
+        return readable_objects(conn, conversation, sources)
 
     def takeover(self, conversation_id, command, key):
         def action(conn, writer):

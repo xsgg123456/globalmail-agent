@@ -1,5 +1,8 @@
 """Scoped correlations and safe object buffers; this module never schedules a run."""
 import json
+from contextlib import contextmanager
+from hashlib import blake2b
+from time import monotonic, sleep
 import sqlalchemy as sa
 from globalmail_agent.adapters import agent_schema as a
 from globalmail_agent.adapters.conversation_schema import agent_runs, conversations
@@ -14,6 +17,35 @@ class TraceRecords:
     def __init__(self, engine, store, settings, workspace=DEFAULT_WORKSPACE_ID):
         self.engine, self.store, self.settings, self.workspace = engine, store, settings, workspace
         self.exporter = None
+
+    @contextmanager
+    def export_lock(self, run_id):
+        """Cross-process send/persist/purge gate, with no transaction across HTTP.
+
+        Session locks must be explicitly released before the pooled connection
+        returns; a broken unlock invalidates the connection instead.
+        """
+        key = int.from_bytes(blake2b(f"trace:{self.workspace}:{run_id}".encode(),
+            digest_size=8).digest(), "big", signed=True)
+        deadline = monotonic() + self.settings.langfuse_http_timeout + self.settings.langfuse_flush_timeout + 2
+        with self.engine.connect() as conn:
+            acquired = False
+            try:
+                while not acquired:
+                    acquired = conn.execute(sa.text("SELECT pg_try_advisory_lock(:key)"), {"key": key}).scalar_one()
+                    conn.commit()
+                    if not acquired:
+                        if monotonic() >= deadline:
+                            raise ServiceError("observability_drain_timeout", 503)
+                        sleep(0.02)
+                yield
+            finally:
+                if acquired:
+                    try:
+                        conn.execute(sa.text("SELECT pg_advisory_unlock(:key)"), {"key": key})
+                        conn.commit()
+                    except Exception:
+                        conn.invalidate()
 
     def _rows(self, conn, run_id):
         run = conn.execute(sa.select(agent_runs).where(agent_runs.c.id == run_id,
@@ -76,10 +108,12 @@ class TraceRecords:
     def persist(self, job, observations, started, degraded):
         # Called after the business transaction. Its failure cannot change its result.
         try:
-            with BodyWriter(self.store) as writer, self.engine.begin() as conn:
+            with self.export_lock(job["run_id"]), BodyWriter(self.store) as writer, self.engine.begin() as conn:
+                if self.exporter and self.exporter.stopping.is_set():
+                    return
                 conv, run, trace = self._rows(conn, job["run_id"])
                 self._fence(conn, conv, run, trace)
-                if trace is None:
+                if trace is None or trace["export_object_id"]:
                     return
                 from globalmail_agent.observability.snapshot import snapshot
                 value, sources = snapshot(conn, conv, run, observations, started)
@@ -131,6 +165,8 @@ class TraceRecords:
         try:
             with self.engine.begin() as conn:
                 where = [a.trace_correlations.c.run_id == run_id, a.trace_correlations.c.workspace_id == self.workspace]
+                # Revocation is terminal, including late failures without a generation.
+                where.append(a.trace_correlations.c.export_status.not_in(("revoked", "exported")))
                 if generation is not None:
                     where += [a.trace_correlations.c.generation == generation,
                         a.trace_correlations.c.export_status == "pending"]
@@ -145,4 +181,17 @@ class TraceRecords:
 
     def revoke(self, run_id):
         """Phase12 stop-write entry; remote deletion remains its separate responsibility."""
-        self.mark(run_id, "revoked", "trace_revoked")
+        with self.export_lock(run_id):
+            self.revoke_locked(run_id)
+
+    def revoke_locked(self, run_id):
+        """Caller holds export_lock; preserve remote acknowledgement evidence."""
+        with self.engine.begin() as conn:
+            conn.execute(a.trace_correlations.update().where(
+                a.trace_correlations.c.run_id == run_id,
+                a.trace_correlations.c.workspace_id == self.workspace,
+                a.trace_correlations.c.export_status != "revoked").values(
+                export_status="revoked", generation=a.trace_correlations.c.generation + 1,
+                reason_code=sa.case((a.trace_correlations.c.export_status == "exported",
+                    "observability_exported"), else_=a.trace_correlations.c.reason_code),
+                pending_count=0, updated_at=sa.func.now()))

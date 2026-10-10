@@ -7,6 +7,7 @@ import sys
 import tempfile
 import time
 import unittest
+from contextlib import nullcontext
 from unittest.mock import patch
 from globalmail_agent.knowledge.parser_process import child_environment, run_child, parse_bytes, ParserStopped, ParserFailure
 from globalmail_agent.knowledge.parser_contract import ParserResult
@@ -64,7 +65,10 @@ class ParserProcessTests(unittest.TestCase):
         from unittest.mock import Mock
         runner = KnowledgeRunner(Mock(), Mock(), "workspace")
         runner.jobs = Mock()
-        with self.assertRaises(ParserFailure) as error:
+        with patch('globalmail_agent.application.writer_barrier.writer_barrier', return_value=nullcontext()), \
+                patch('globalmail_agent.application.restore.assert_restore_open'), \
+                patch('globalmail_agent.application.journal_gate.assert_journal_current'), \
+                self.assertRaises(ParserFailure) as error:
             runner.execute({"knowledge_operation": "parse", "parser_fingerprint": "obsolete", "parser_profile_id": "markdown"})
         self.assertEqual(error.exception.code, "parser_configuration_changed")
         runner.jobs.cached_result.assert_not_called()

@@ -8,10 +8,27 @@ from globalmail_agent.adapters.schema import SCOPE_KEYS
 from globalmail_agent.attachments.queries import authorize_attachment
 from globalmail_agent.application.conversation_lock import ServiceError
 from globalmail_agent.knowledge.base import canonical, sha
+from globalmail_agent.application.content_fence import readable_objects
 
 
 def scoped(table, conv):
     return [table.c.conversation_id == conv["id"], *[table.c[k] == conv[k] for k in SCOPE_KEYS]]
+
+
+def readable_rows(conn, conv, rows, *, explicit=False):
+    if explicit:
+        from globalmail_agent.attachments.revocation import check_content_access
+        available = []
+        for row in rows:
+            try:
+                check_content_access(conn, conv, row['body_object_id'])
+            except ServiceError as error:
+                if error.code != 'content_deleted':
+                    raise
+            else:
+                available.append(row)
+        return available
+    return [row for row in rows if readable_objects(conn, conv, (row['body_object_id'],))]
 
 
 def context_images(conn, store, conv):
@@ -24,8 +41,8 @@ def context_images(conn, store, conv):
         "source_sha256": r["source_sha256"], "source_available_at": r["created_at"].isoformat(),
         "filename": r["filename"]} for r in rows]
     notes, sources = [], {}
-    for row in conn.execute(sa.select(visual_evidence).where(*scoped(visual_evidence, conv),
-            visual_evidence.c.manual.is_(True)).order_by(visual_evidence.c.created_at)).mappings():
+    for row in readable_rows(conn, conv, conn.execute(sa.select(visual_evidence).where(*scoped(visual_evidence, conv),
+            visual_evidence.c.manual.is_(True)).order_by(visual_evidence.c.created_at)).mappings()):
         attachment = next((r for r in rows if r["id"] == row["attachment_id"]), None)
         if not attachment or attachment["status"] == "revoked" or row["evidence_epoch"] != attachment["evidence_epoch"]:
             continue
@@ -67,9 +84,9 @@ def store_visual_analysis(conn, writer, conv, run, value):
         row = rows[image["attachment_id"]]
         ref = next(r for r in refs if r["attachment_id"] == image["attachment_id"])
         manual = [(r["kind"], json.loads(read_bytes(conn, writer.store, conv, r["body_object_id"]))) for r in
-            conn.execute(sa.select(visual_evidence).where(*scoped(visual_evidence, conv),
+            readable_rows(conn, conv, conn.execute(sa.select(visual_evidence).where(*scoped(visual_evidence, conv),
                 visual_evidence.c.attachment_id == row["id"], visual_evidence.c.evidence_epoch == row["evidence_epoch"],
-                visual_evidence.c.manual.is_(True))).mappings()]
+                visual_evidence.c.manual.is_(True))).mappings())]
         entries = [("field_candidate", field) for field in image["field_candidates"]]
         entries += [(kind, {"value": text}) for key, kind in (("observations", "observation"),
             ("hypotheses", "hypothesis"), ("uncertainties", "uncertainty"), ("risk_flags", "risk_flag")) for text in image[key]]
@@ -90,10 +107,10 @@ def store_visual_analysis(conn, writer, conv, run, value):
 def evidence_listing(conn, store, conv, attachment_id):
     attachment = authorize_attachment(conn, conv, attachment_id)
     items = []
-    for row in conn.execute(sa.select(visual_evidence).where(*scoped(visual_evidence, conv),
+    for row in readable_rows(conn, conv, conn.execute(sa.select(visual_evidence).where(*scoped(visual_evidence, conv),
             visual_evidence.c.attachment_id == attachment_id,
             visual_evidence.c.evidence_epoch == attachment["evidence_epoch"])
-            .order_by(visual_evidence.c.created_at)).mappings():
+            .order_by(visual_evidence.c.created_at)).mappings(), explicit=True):
         content = json.loads(read_bytes(conn, store, conv, row["body_object_id"]))
         items.append({"evidence_id": str(row["id"]), "attachment_id": str(row["attachment_id"]),
             "message_id": str(row["message_id"]), "revision": row["revision"], "evidence_epoch": row["evidence_epoch"],
@@ -104,6 +121,6 @@ def evidence_listing(conn, store, conv, attachment_id):
         visual_analyses.c.attachment_manifest.contains([{"attachment_id": str(attachment_id),
             "evidence_epoch": attachment["evidence_epoch"]}])).order_by(visual_analyses.c.created_at.desc()).limit(1)).mappings().first()
     coverage = next((r for r in json.loads(read_bytes(conn, store, conv, latest["body_object_id"]))
-        if r["attachment_id"] == str(attachment_id)), {}) if latest else {}
+        if r["attachment_id"] == str(attachment_id)), {}) if latest and readable_rows(conn, conv, [latest], explicit=True) else {}
     return {"items": items, "evidence_revision": attachment["evidence_epoch"],
         "coverage": coverage.get("coverage"), "quality": coverage.get("quality")}

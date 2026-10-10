@@ -18,7 +18,7 @@ from globalmail_agent.application.conversation_advice import ConversationAdvice
 from globalmail_agent.domain.business_events import BranchFact
 from vision_fixture import VisionFixture, VisionModel, image_output, handoff as image_handoff
 from globalmail_agent.attachments.corrections import EvidenceService, EvidenceCommand
-from globalmail_agent.adapters.body_store import BodyWriter
+from legacy_migration_fixture import LegacyBodyWriter as BodyWriter
 from globalmail_agent.adapters.schema import SCOPE_KEYS
 from globalmail_agent.application.conversation_lock import DEFAULT_WORKSPACE_ID
 

@@ -33,6 +33,9 @@ def rebuild(conn, writer, store, conversation, visible_messages, as_of):
     else:
         conn.execute(delete(case_facts).where(case_facts.c.conversation_id == conversation["id"]))
     for message in visible_messages:
+        from globalmail_agent.application.content_fence import readable_objects
+        if not readable_objects(conn, conversation, (message['body_object_id'],)):
+            continue
         kind = "customer_report" if message["sender"] == "customer" else "historical_claim"
         if (message["id"], kind) in kept:
             continue

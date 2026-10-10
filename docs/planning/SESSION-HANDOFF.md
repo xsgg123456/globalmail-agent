@@ -1,5 +1,9 @@
 # 新会话交接
 
+2026-10-10最新：Phase12工程四步验证完成，待用户查看。后端冻结全量500/500、0skip、源码SHA未变（三进程分片167/167/166，最长666.567s）；前端101/101、两模式vue-tsc/Vite51.00s/34.05s通过；[第六轮fresh两阶段独审](../verification/PHASE-12-REVIEW-6.md)PASS，无HIGH/MEDIUM。会话/知识/图片删除、ID与水位驱动的浏览器缓存清理、删除后继续人审、独立journal、备份/新目标恢复及离线崩溃重放已交付。见[验收](../verification/PHASE-12-VALIDATION.md)、[操作说明](../verification/LIFECYCLE-OPERATIONS.md)。五轮原FAIL保留；模型调用0，不代替Phase13模型语义和82项AC。
+
+正式0011→0012_lifecycle；私有备份`.local-data/backups/before-0012-20261010-223426`已验证dump目录及70对象，目录ACL仅当前用户/SYSTEM/管理员。77旧业务表、70对象、22知识/版本、源包及settings摘要保留。正式15173/18080、Langfuse3001、原预览15175返回200；正式active jobs和删除请求均0。最终隔离schema/对象已清，浏览器全关闭。例外：旧合成GUI schema `phase12_browser_ca1031205ca740bc9046e3b824b16c42` 及 `tmp/globalmail_phase12_browser_r0kfaxmr` 清理命令被自动审批以`blocked by policy`拒绝，保留未绕过，18189/15179端口关闭。证据[交付与清理](../verification/artifacts/phase12/delivery-cleanup.json)。允许本地提交、不推送，实际提交以Git日志为准。下一步Phase13；下文Phase11及更早状态为历史。
+
 2026-10-10追加授权：用户要求“提交下git”，允许把本轮已验证的源码、预览和文档提交到本地main；此前“不暂存/不提交”属于旧授权。本次不推送远端，不纳入用户`.idea/`、私有配置、数据库备份或临时目录；提交结果以Git日志为准。
 
 文档位置：根目录保留 AGENTS、Product-Spec、变更记录、AGENT-ARCHITECTURE 及已创建的 [DEV-PLAN](../../DEV-PLAN.md)；其余专题由 [文档索引](../README.md) 导航。本文件位于 docs/planning；新任务按 AGENTS 中的目录约定存放产物，不恢复旧根目录副本。

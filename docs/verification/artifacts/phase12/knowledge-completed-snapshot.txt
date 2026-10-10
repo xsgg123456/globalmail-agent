@@ -1,0 +1,140 @@
+### Page
+- Page URL: http://127.0.0.1:15179/#/knowledge
+- Page Title: 知识库 - GlobalMail Agent
+### Snapshot
+```yaml
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e3]:
+    - complementary [ref=f3e4]:
+      - generic [ref=f3e6]:
+        - generic [ref=f3e7] [cursor=pointer]:
+          - img "logo" [ref=f3e9]
+          - paragraph [ref=f3e10]: GlobalMail Agent
+        - menubar [ref=f3e14]:
+          - menuitem "GlobalMail Agent" [expanded] [ref=f3e15]:
+            - menu [ref=f3e24]:
+              - menuitem "邮件工作台" [ref=f3e25] [cursor=pointer]
+              - menuitem "Agent 运行台" [ref=f3e30] [cursor=pointer]
+              - menuitem "知识库" [ref=f3e35] [cursor=pointer]
+              - menuitem "系统状态" [ref=f3e40] [cursor=pointer]
+    - main [ref=f3e45]:
+      - generic [ref=f3e47]:
+        - generic [ref=f3e48]:
+          - generic [ref=f3e49]:
+            - generic [ref=f3e50] [cursor=pointer]
+            - generic [ref=f3e53] [cursor=pointer]
+            - navigation "breadcrumb" [ref=f3e56]:
+              - list [ref=f3e57]:
+                - listitem [ref=f3e58]:
+                  - generic [ref=f3e59] [cursor=pointer]: GlobalMail Agent
+                  - generic [aria-hidden] [ref=f3e61]: /
+                - listitem [ref=f3e62]:
+                  - generic [ref=f3e63]: 知识库
+          - generic [ref=f3e65]:
+            - generic [ref=f3e66] [cursor=pointer]:
+              - generic [ref=f3e67]: 搜索
+              - generic [ref=f3e71]: k
+            - generic [ref=f3e75] [cursor=pointer]
+            - generic [ref=f3e80] [cursor=pointer]
+            - generic [ref=f3e83] [cursor=pointer]
+            - generic [ref=f3e86]: 本机单用户
+        - generic [ref=f3e88]:
+          - list [ref=f3e90]:
+            - listitem [ref=f3e91] [cursor=pointer]: 邮件工作台
+            - listitem [ref=f3e94] [cursor=pointer]: 知识库
+          - generic [ref=f3e101] [cursor=pointer]
+      - generic [ref=f3e106]:
+        - generic [ref=f3e107]:
+          - generic [ref=f3e109]:
+            - generic [ref=f3e110]: 本机运行状态
+            - button "刷新状态" [ref=f3e111] [cursor=pointer]
+          - generic [ref=f3e113]:
+            - generic [ref=f3e114]:
+              - generic [ref=f3e115]: API：可访问
+              - generic [ref=f3e117]: 数据库：就绪
+              - generic [ref=f3e119]: 数据结构：就绪
+              - generic [ref=f3e121]: 对象存储：就绪
+              - generic [ref=f3e123]: 模型：已配置，未验证连接
+            - paragraph [ref=f3e125]: 本机单用户 · 图文 Agent、只读业务查询、持续人工与运行记录 · 已配置，实际调用见运行记录
+        - generic [ref=f3e126]:
+          - generic [ref=f3e128]:
+            - heading "知识库" [level=1] [ref=f3e129]
+            - generic [ref=f3e130]:
+              - button "刷新列表" [ref=f3e131] [cursor=pointer]
+              - button "检索试查" [ref=f3e133] [cursor=pointer]
+              - button "发布记录与模型切换" [ref=f3e135] [cursor=pointer]
+              - button "导入准备资料" [ref=f3e137] [cursor=pointer]
+              - button "新建资料" [ref=f3e139] [cursor=pointer]
+              - button "删除记录" [ref=f3e141] [cursor=pointer]
+          - generic [ref=f3e143]:
+            - alert [ref=f3e144]:
+              - generic [ref=f3e145]: 资料核对完成后，先构建索引，再显式发布。Agent 和检索试查只使用当前合格的发布资料，未发布资料不会成为回复依据。
+            - generic [ref=f3e147]:
+              - generic [ref=f3e149] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选发布状态" [ref=f3e151]
+                  - generic [ref=f3e152]: 全部发布状态
+              - generic [ref=f3e158] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选资料类型" [ref=f3e160]
+                  - generic [ref=f3e161]: 全部类型
+              - generic [ref=f3e167] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选品牌" [ref=f3e169]
+                  - generic [ref=f3e170]: 全部品牌
+              - generic [ref=f3e176]:
+                - generic [ref=f3e177]:
+                  - combobox "筛选精确型号" [ref=f3e179]
+                  - generic [ref=f3e180]: 全部型号
+                - generic [ref=f3e182] [cursor=pointer]
+              - generic [ref=f3e186] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选状态" [ref=f3e188]
+                  - generic [ref=f3e189]: 全部状态
+            - generic [ref=f3e195]:
+              - table [ref=f3e197]:
+                - rowgroup [ref=f3e204]:
+                  - row [ref=f3e205]:
+                    - columnheader "资料" [ref=f3e206]
+                    - columnheader "版本" [ref=f3e208]
+                    - columnheader "状态" [ref=f3e210]
+                    - columnheader "用途" [ref=f3e212]
+                    - columnheader "操作" [ref=f3e214]
+              - table [ref=f3e220]:
+                - rowgroup [ref=f3e227]:
+                  - row [ref=f3e421]:
+                    - cell [ref=f3e422]:
+                      - generic [ref=f3e230]:
+                        - button "Phase12 shared PDF 1" [ref=f3e423] [cursor=pointer]
+                        - paragraph [ref=f3e233]: 按具体范围绑定 · 产品说明 PDF
+                    - cell "第 1 版" [ref=f3e234]
+                    - cell "草稿" [ref=f3e236]
+                    - cell "仅供模拟 · 未发布" [ref=f3e240]
+                    - cell [ref=f3e242]:
+                      - button "查看核对" [ref=f3e244] [cursor=pointer]
+                  - row [ref=f3e424]:
+                    - cell [ref=f3e425]:
+                      - generic [ref=f3e248]:
+                        - button "Phase12 shared PDF 2" [ref=f3e426] [cursor=pointer]
+                        - paragraph [ref=f3e251]: 按具体范围绑定 · 产品说明 PDF
+                    - cell "第 1 版" [ref=f3e252]
+                    - cell "草稿" [ref=f3e254]
+                    - cell "仅供模拟 · 未发布" [ref=f3e258]
+                    - cell [ref=f3e260]:
+                      - button "查看核对" [ref=f3e262] [cursor=pointer]
+            - generic [ref=f3e282]:
+              - button "上一页" [disabled] [ref=f3e283]
+              - button "下一页" [disabled] [ref=f3e285]
+        - dialog "彻底删除" [ref=f3e393]:
+          - generic [ref=f3e394]:
+            - generic [ref=f3e395]:
+              - heading "彻底删除" [level=2] [ref=f3e396]
+              - button "关闭此对话框" [ref=f3e397] [cursor=pointer]
+            - status [ref=f3e427]:
+              - alert [ref=f3e428]:
+                - generic [ref=f3e429]: 删除完成
+              - paragraph [ref=f3e431]: 删除记录：9027201f-5f04-4a61-8d6a-32b2ef1240fe
+            - button "关闭" [ref=f3e435] [cursor=pointer]
+  - tooltip "点击这里查看主题风格、 开启顶栏菜单等更多配置" [ref=f3e287]:
+    - paragraph [ref=f3e288]: 点击这里查看主题风格、 开启顶栏菜单等更多配置
+```

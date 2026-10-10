@@ -1,0 +1,105 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e6]:
+        - generic [ref=e7] [cursor=pointer]:
+          - img "logo" [ref=e9]
+          - paragraph [ref=e10]: GlobalMail Agent
+        - menubar [ref=e14]:
+          - menuitem [ref=e15]:
+            - generic [ref=e16] [cursor=pointer]
+    - main [ref=e20]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e24]:
+            - generic [ref=e25] [cursor=pointer]
+            - generic [ref=e28] [cursor=pointer]
+          - generic [ref=e31]:
+            - generic [ref=e32] [cursor=pointer]:
+              - generic [ref=e33]: 搜索
+              - generic [ref=e37]: k
+            - generic [ref=e41] [cursor=pointer]
+            - generic [ref=e46] [cursor=pointer]
+            - generic [ref=e49] [cursor=pointer]
+            - generic [ref=e52]: 本机单用户
+        - generic [ref=e54]:
+          - list [ref=e56]:
+            - listitem [ref=e57] [cursor=pointer]: 邮件工作台
+          - generic [ref=e61] [cursor=pointer]
+      - generic [ref=e294]:
+        - generic [ref=e295]:
+          - complementary "客户会话" [ref=e296]:
+            - generic [ref=e297]:
+              - generic [ref=e298]:
+                - heading "客户会话" [level=2] [ref=e299]
+                - button "刷新" [ref=e300] [cursor=pointer]
+              - textbox "搜索客户会话" [ref=e304]:
+                - /placeholder: 搜索本页客户、邮件主题
+              - generic [ref=e306] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选会话状态" [ref=e308]
+                  - generic [ref=e309]: 全部状态
+            - paragraph [ref=e513]: 没有符合筛选的会话
+            - generic [ref=e322]:
+              - button "上一页" [disabled] [ref=e323]
+              - generic [ref=e325]: "1"
+              - button "下一页" [disabled] [ref=e326]
+          - region "邮件往来" [ref=e328]:
+            - generic [ref=e329]:
+              - generic [ref=e330]:
+                - heading "邮件往来" [level=2] [ref=e331]
+                - paragraph [ref=e514]: review5@example.test · 交互模拟
+              - generic [ref=e515]:
+                - button "人工接管" [disabled] [ref=e516]
+                - button "标记已解决" [ref=e518] [cursor=pointer]
+                - button "刷新" [ref=e520] [cursor=pointer]
+            - generic [ref=e522]:
+              - generic [ref=e523]:
+                - generic [ref=e526]: Agent
+                - generic [ref=e527]: 人工接管中
+                - generic [ref=e529]: 按本轮权限处理
+              - generic [ref=e530]:
+                - button "查看客服建议" [ref=e531] [cursor=pointer]
+                - button "全部 1 轮 →" [ref=e533] [cursor=pointer]
+                - button "查看最新运行 →" [ref=e535] [cursor=pointer]
+            - generic "当前可见邮件" [ref=e537]:
+              - article [ref=e538]:
+                - generic [ref=e539]: 客
+                - generic [ref=e540]:
+                  - generic [ref=e541]:
+                    - generic [ref=e542]: 客户来信
+                    - generic [ref=e544]: 2026/10/10 22:20:33
+                    - generic [ref=e545]: 第 1 封
+                  - generic [ref=e546]:
+                    - paragraph [ref=e547]: （无主题）
+                    - paragraph [ref=e548]: Synthetic image review
+                    - generic [ref=e550]:
+                      - button [disabled] [ref=e586]
+                      - paragraph [ref=e554]: 已移除
+            - generic [ref=e555]:
+              - generic [ref=e556]:
+                - generic [ref=e557]: 人工回复
+                - generic [ref=e558]: 草稿跨页保留 · 本机模拟发送
+              - textbox "人工回复正文" [ref=e560]:
+                - /placeholder: 输入给客户的回复…
+              - button "人工备注与风险复核" [ref=e563] [cursor=pointer]
+              - generic [ref=e568]:
+                - generic [ref=e569]: 请先人工接管后回复
+                - generic [ref=e570]:
+                  - button "保存草稿" [disabled] [ref=e571]
+                  - button "发送模拟回复" [disabled] [ref=e573]
+        - generic [ref=e395]:
+          - button "删除记录" [ref=e396] [cursor=pointer]
+          - button "删除会话" [ref=e575] [cursor=pointer]
+        - dialog "彻底删除" [ref=e466]:
+          - generic [ref=e467]:
+            - generic [ref=e468]:
+              - heading "彻底删除" [level=2] [ref=e469]
+              - button "关闭此对话框" [ref=e470] [cursor=pointer]
+            - status [ref=e577]:
+              - alert [ref=e578]:
+                - generic [ref=e579]: 删除完成
+              - paragraph [ref=e581]: 删除记录：094ba904-3520-4974-88fa-4fd689ea5ae1
+            - button "关闭" [ref=e585] [cursor=pointer]
+  - tooltip "点击这里查看主题风格、 开启顶栏菜单等更多配置" [ref=e172]:
+    - paragraph [ref=e173]: 点击这里查看主题风格、 开启顶栏菜单等更多配置

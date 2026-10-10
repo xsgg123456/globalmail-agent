@@ -5,7 +5,7 @@
       <section class="flex-1 min-w-0 flex flex-col min-h-0" aria-label="邮件往来">
         <div class="p-4 flex-cb flex-wrap gap-3">
           <div class="min-w-0"><h2 class="text-base font-medium break-words">{{ conversation?.subject || '邮件往来' }}</h2><p v-if="conversation" class="text-xs text-g-700 mt-2 break-all">{{ conversation.sender_key }} · {{ modeLabel(conversation.mode) }}</p></div>
-          <div v-if="conversation" class="flex flex-wrap gap-2"><ElButton :disabled="busy || conversation.lifecycle !== 'open' || (conversation.human_claimed && conversation.processing_owner === 'human_review')" @click="takeover">人工接管</ElButton><ElButton :disabled="busy || conversation.lifecycle !== 'open'" @click="confirmClose">标记已解决</ElButton><ElButton :loading="detailLoading" @click="refreshCurrent">刷新</ElButton></div>
+          <div v-if="conversation" class="flex flex-wrap gap-2"><ElButton :disabled="busy || conversation.lifecycle !== 'open' || (conversation.human_claimed && conversation.processing_owner === 'human_review' && detail?.review?.status === 'open')" @click="takeover">人工接管</ElButton><ElButton :disabled="busy || conversation.lifecycle !== 'open'" @click="confirmClose">标记已解决</ElButton><ElButton :loading="detailLoading" @click="refreshCurrent">刷新</ElButton></div>
         </div>
         <ElAlert v-if="detailError || actionError" :title="detailError || actionError" type="error" :closable="false" class="mx-4 mb-3 !w-auto" />
         <ElAlert v-if="actionNotice" :title="actionNotice" type="success" class="mx-4 mb-3 !w-auto" @close="actionNotice=''" />
@@ -22,8 +22,11 @@
         <ElEmpty v-else :description="selectedId ? '会话读取失败，请刷新重试' : '选择客户会话查看邮件往来'" :image-size="100" class="flex-1" />
       </section>
     </div>
+    <div class="flex flex-wrap justify-end gap-2 mt-3"><DeletionHistory /><ElButton v-if="conversation" type="danger" plain @click="deleting={id:conversation.id,label:conversation.subject || '客户会话'}">删除会话</ElButton></div>
+    <DeletionDialog v-if="deleting" kind="conversation" :target-id="deleting.id" :label="deleting.label" @close="deleting=null" @revoked="forgetDeleted" @completed="refreshList" />
+    <DeletionDialog v-if="deletingImage" kind="attachment" :target-id="deletingImage.id" :label="deletingImage.label" @close="deletingImage=null" @revoked="refreshCurrent" @completed="refreshCurrent" />
     <AgentAdviceDrawer v-model="adviceOpen" :snapshot="snapshot" :can-adopt="Boolean(currentAdvice)" :loading="adviceLoading" :error="adviceError" @adopt="adopt" />
-    <ImageEvidenceDrawer v-if="detail" :image="selectedImage" :conversation="detail.conversation" @close="selectedImage=null" @changed="refreshCurrent" />
+    <ImageEvidenceDrawer v-if="detail" :image="selectedImage" :conversation="detail.conversation" @close="selectedImage=null" @changed="refreshCurrent" @delete="deletingImage=$event" />
   </div>
 </template>
 <script setup lang="ts">
@@ -38,6 +41,8 @@
   import StaffReply from '@/components/mail-agent/StaffReply.vue'
   import AgentAdviceDrawer from '@/components/mail-agent/AgentAdviceDrawer.vue'
   import ImageEvidenceDrawer from '@/components/mail-agent/ImageEvidenceDrawer.vue'
+  import DeletionDialog from '@/components/shared/DeletionDialog.vue'
+  import DeletionHistory from '@/components/shared/DeletionHistory.vue'
   import type { ImageAttachment } from '@/api/attachment-contract'
   import { conversationState, modeLabel } from '@/components/mail-agent/mail-labels'
   import { readingPositions } from '@/composables/mail-reading-state'
@@ -46,6 +51,11 @@
   const { items, selectedId, state, page, nextCursor, listLoading, listError, detail, conversation, detailLoading, detailError, busy, actionError, actionNotice, humanInput, humanStale, scrollSignal, refreshList, refreshDetail, filter, paginate, setHuman, acknowledgeHuman, takeover, saveHuman, completeHuman, close }=work
   const { open:adviceOpen, snapshot, current:currentAdvice, loading:adviceLoading, error:adviceError, refresh:refreshAdvice, adopt }=useConversationAdvice(work)
   const timeline=ref<InstanceType<typeof MessageTimeline>>(), selectedImage=ref<ImageAttachment|null>(null)
+  watch(work.contentInvalidation, () => { selectedImage.value = null }, { flush: 'sync' })
+  const deletingImage=ref<{id:string;label:string}|null>(null)
+  watch(work.contentInvalidation, () => { if (route.path === '/workbench') void refreshCurrent() })
+  const deleting=ref<{id:string;label:string}|null>(null)
+  async function forgetDeleted(){if(!deleting.value)return;const id=deleting.value.id;work.forget(id);delete readingPositions[id];adviceOpen.value=false;snapshot.value=null;selectedImage.value=null;await router.replace('/workbench');await refreshList()}
   const roundCount=computed(()=>new Set(detail.value?.runs.map(item=>item.processing_cycle_id)).size)
   const focusedMessage=computed(()=>detail.value?.messages.find(item=>item.id===route.query.message_id))
   const statusNote=computed(()=>conversation.value?.lifecycle==='resolved' ? '已人工结案，后续来信只登记' : conversation.value?.persistent_human ? '客服持续主导 · Agent 只提供内部建议和草稿' : '按本轮权限处理')

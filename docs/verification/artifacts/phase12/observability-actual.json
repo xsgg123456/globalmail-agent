@@ -1,0 +1,33 @@
+{
+  "schema": "test_protocol_d24565bd6309466ebace68682205515b",
+  "run_id": "a48ef078-fbbd-4b13-8bdc-3f545f392312",
+  "trace_id": "84eebf3a8a9d43e08a722d06775e06d3",
+  "object_root": "D:\\Work_Project\\globalmail-agent\\tmp\\phase12-observability-e2fb26406007419787138cd9bc27f727\\objects",
+  "model_calls": 0,
+  "export_status": "exported",
+  "existing_traces_touched": false,
+  "purged": true,
+  "attempts": [
+    "observability_ingestion_unconfirmed",
+    "observability_purge_unconfirmed"
+  ],
+  "final_reason": "observability_purged",
+  "isolated_local_state_removed": true,
+  "final_source_sha256": {
+    "globalmail-agent/backend/tests/test_observability_recovery.py": "2a9bb12bf4b5702b794d885a769f2c3612df4151c57fb68fc84b8e8669202cff",
+    "globalmail-agent/backend/src/globalmail_agent/observability/exporter.py": "b2e0617c3bfd64f7da8f1662c3478fe18159f16dff6d18f065d22c40fa3b6d64",
+    "globalmail-agent/backend/src/globalmail_agent/observability/records.py": "81547ed3f76c1a07e77f9df28c2d8b458e7dc72317c8e8631ad74881aad56454",
+    "globalmail-agent/backend/tests/test_observability_purge.py": "7a2c10442e04dfddd3ccf9d606c75a409f3f30b665e43e81702ff1ad69ddaf29",
+    "globalmail-agent/backend/src/globalmail_agent/observability/purge.py": "fecdb40a8c0f0d6c5c4635dca899cbde6e67075f32297a9d16bdcd3bf5aeec29"
+  },
+  "source_note": "Actual remote probe preceded the final lost-delete-response recovery hardening; final source hashes recorded after that change. Fresh isolated purge regression validates the final source.",
+  "final_regression": {
+    "tests": 13,
+    "isolation": "Real PostgreSQL random test_protocol schema and temporary object directory; deterministic HTTP MockTransport; no model calls",
+    "command": "python -m unittest discover -s tests -p test_observability_purge.py -v",
+    "duration_seconds": 54.123,
+    "result": "OK"
+  },
+  "compileall": "OK",
+  "diff_check": "OK"
+}

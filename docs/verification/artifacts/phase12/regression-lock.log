@@ -1,0 +1,6 @@
+test_process_lock_timeout_does_not_revoke_inflight_export (test_observability_purge.ObservabilityPurgeTests.test_process_lock_timeout_does_not_revoke_inflight_export) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 8.588s
+
+OK

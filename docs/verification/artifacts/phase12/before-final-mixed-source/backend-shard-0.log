@@ -1,0 +1,359 @@
+test_cancel_acknowledgment_requires_request_and_releases_once_with_actual_proof (test_after_sales_cancellation.AfterSalesCancellationTests.test_cancel_acknowledgment_requires_request_and_releases_once_with_actual_proof) ... ok
+test_negative_or_conditional_cancel_quote_cannot_authorize (test_after_sales_cancellation.AfterSalesCancellationTests.test_negative_or_conditional_cancel_quote_cannot_authorize) ... ok
+test_0007_existing_business_rows_and_sources_survive_additive_0008 (test_after_sales_migration.AfterSalesMigrationTests.test_0007_existing_business_rows_and_sources_survive_additive_0008) ... D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_after_sales_migration.py:44: SAWarning: Did not recognize type 'public.vector' of column 'vector'
+  old.reflect(conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_after_sales_migration.py:44: SAWarning: Did not recognize type 'public.vector' of column 'probe_vector'
+  old.reflect(conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_after_sales_migration.py:51: SAWarning: Did not recognize type 'public.vector' of column 'vector'
+  current.reflect(conn)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_after_sales_migration.py:51: SAWarning: Did not recognize type 'public.vector' of column 'probe_vector'
+  current.reflect(conn)
+ok
+test_new_run_and_new_issue_reuse_the_same_reserved_unit (test_after_sales_operations.AfterSalesOperationTests.test_new_run_and_new_issue_reuse_the_same_reserved_unit) ... ok
+test_refund_duplicate_commands_reuse_and_reserve_amount_once (test_after_sales_operations.AfterSalesOperationTests.test_refund_duplicate_commands_reuse_and_reserve_amount_once) ... ok
+test_legacy_write_tools_are_denied_before_effect_or_budget (test_agent_after_sales.AgentAfterSalesTests.test_legacy_write_tools_are_denied_before_effect_or_budget) ... ok
+test_packing_preserves_every_condition_and_plan_value (test_agent_after_sales.CompactResultTests.test_packing_preserves_every_condition_and_plan_value) ... ok
+test_completed_run_has_one_final_write_window_and_terminal_diagnostics (test_agent_checkpoint.CheckpointTests.test_completed_run_has_one_final_write_window_and_terminal_diagnostics) ... ok
+test_migrations_create_local_knowledge_tables_without_changing_existing_public (test_agent_checkpoint.CheckpointTests.test_migrations_create_local_knowledge_tables_without_changing_existing_public) ... ok
+test_reads_writes_and_listing_cannot_cross_run_or_workspace (test_agent_checkpoint.CheckpointTests.test_reads_writes_and_listing_cannot_cross_run_or_workspace) ... ok
+test_stop_first_and_new_input_reject_both_late_entrypoints (test_agent_checkpoint.CheckpointTests.test_stop_first_and_new_input_reject_both_late_entrypoints) ... ok
+test_exact_sdk_versions_and_json_roundtrip (test_agent_checkpoint.SerializerTests.test_exact_sdk_versions_and_json_roundtrip) ... ok
+test_event_barriers_stop_new_input_takeover_and_lease_expiry_reject_late_draft (test_agent_faults.AgentFaultTests.test_event_barriers_stop_new_input_takeover_and_lease_expiry_reject_late_draft) ... ok
+test_provider_usage_beyond_output_budget_is_preserved_and_no_mail_is_sent (test_agent_faults.AgentFaultTests.test_provider_usage_beyond_output_budget_is_preserved_and_no_mail_is_sent) ... ok
+test_terminal_proposal_followed_by_another_tool_has_no_effect (test_agent_faults.AgentFaultTests.test_terminal_proposal_followed_by_another_tool_has_no_effect) ... ok
+test_unknown_usage_keeps_full_reserved_budget_and_settlement_is_idempotent (test_agent_faults.AgentFaultTests.test_unknown_usage_keeps_full_reserved_budget_and_settlement_is_idempotent) ... ok
+test_final_commit_holds_head_lock_until_effect_then_withdraw_can_commit (test_agent_knowledge.AgentKnowledgeTests.test_final_commit_holds_head_lock_until_effect_then_withdraw_can_commit) ... ok
+test_second_release_switch_handoffs_without_second_rebuild_or_outbound (test_agent_knowledge.AgentKnowledgeTests.test_second_release_switch_handoffs_without_second_rebuild_or_outbound) ... ok
+test_stale_case_revision_conflicts_and_forged_source_cannot_change_memory (test_agent_memory.AgentMemoryTests.test_stale_case_revision_conflicts_and_forged_source_cannot_change_memory) ... ok
+test_full_context_still_over_handoff_budget_does_not_fake_human_review (test_agent_menu_pressure.AgentMenuPressureTests.test_full_context_still_over_handoff_budget_does_not_fake_human_review) ... ok
+test_get_run_restores_understanding_tools_artifacts_usage_without_model_calls (test_agent_outcomes.AgentOutcomeTests.test_get_run_restores_understanding_tools_artifacts_usage_without_model_calls) ... ok
+test_missing_order_full_graph_sends_one_mail_and_persists_process_records (test_agent_outcomes.AgentOutcomeTests.test_missing_order_full_graph_sends_one_mail_and_persists_process_records) ... ok
+test_same_terminal_and_reexecuted_job_read_original_receipt (test_agent_outcomes.AgentOutcomeTests.test_same_terminal_and_reexecuted_job_read_original_receipt) ... ok
+test_ordered_parts_are_reviewed_and_committed_as_exact_complete_body (test_agent_reply_parts.ReplyPartsTests.test_ordered_parts_are_reviewed_and_committed_as_exact_complete_body) ... ok
+test_real_graph_rejects_missing_unit_and_never_saves_validated_hash (test_agent_review_audit.ReviewAuditProtocolTests.test_real_graph_rejects_missing_unit_and_never_saves_validated_hash) ... ok
+test_41_short_original_units_have_no_added_limit_but_must_all_be_checked (test_agent_review_audit.ReviewAuditTests.test_41_short_original_units_have_no_added_limit_but_must_all_be_checked) ... ok
+test_existing_but_unclaimed_or_foreign_source_cannot_authorize_claim (test_agent_review_audit.ReviewAuditTests.test_existing_but_unclaimed_or_foreign_source_cannot_authorize_claim) ... ok
+test_missing_duplicate_or_out_of_range_claim_index_rejects (test_agent_review_audit.ReviewAuditTests.test_missing_duplicate_or_out_of_range_claim_index_rejects) ... ok
+test_omitted_last_conditional_unit_cannot_hide_behind_total_true (test_agent_review_audit.ReviewAuditTests.test_omitted_last_conditional_unit_cannot_hide_behind_total_true) ... ok
+test_cross_run_tool_receipt_cannot_revise_new_run (test_agent_revisions.AgentRevisionTests.test_cross_run_tool_receipt_cannot_revise_new_run) ... ok
+test_revision_rejects_scope_risk_ledger_and_unverified_tool_sources (test_agent_revisions.AgentRevisionTests.test_revision_rejects_scope_risk_ledger_and_unverified_tool_sources) ... ok
+test_tool_revision_updates_next_decision_validation_and_ui_keeps_initial (test_agent_revisions.AgentRevisionTests.test_tool_revision_updates_next_decision_validation_and_ui_keeps_initial) ... ok
+test_corrected_old_source_cannot_reactivate_with_a_different_quote (test_agent_risks.AgentRiskTests.test_corrected_old_source_cannot_reactivate_with_a_different_quote) ... ok
+test_ordinary_human_reply_keeps_risk_and_next_run_handoffs_without_configured_model (test_agent_risks.AgentRiskTests.test_ordinary_human_reply_keeps_risk_and_next_run_handoffs_without_configured_model) ... ok
+test_conditional_refund_keeps_two_intents_and_writes_no_after_sales_rows (test_agent_tools.AgentToolTests.test_conditional_refund_keeps_two_intents_and_writes_no_after_sales_rows) ... ok
+test_multiline_order_never_implicitly_selects_first_and_foreign_line_is_denied (test_agent_tools.AgentToolTests.test_multiline_order_never_implicitly_selects_first_and_foreign_line_is_denied) ... ok
+test_reused_order_source_repair_points_to_visible_history_without_reasking_customer (test_agent_tools.AgentToolTests.test_reused_order_source_repair_points_to_visible_history_without_reasking_customer) ... ok
+test_tool_receipt_same_key_replays_once_and_changed_arguments_conflict (test_agent_tools.AgentToolTests.test_tool_receipt_same_key_replays_once_and_changed_arguments_conflict) ... ok
+test_last_request_only_offers_handoff_and_never_sends_unvalidated_reply (test_agent_validation.AgentValidationTests.test_last_request_only_offers_handoff_and_never_sends_unvalidated_reply) ... ok
+test_missing_fact_source_repairs_before_paid_review_and_sends_only_valid_draft (test_agent_validation.AgentValidationTests.test_missing_fact_source_repairs_before_paid_review_and_sends_only_valid_draft) ... ok
+test_repeated_missing_fact_sources_never_call_semantic_review_or_commit (test_agent_validation.AgentValidationTests.test_repeated_missing_fact_sources_never_call_semantic_review_or_commit) ... ok
+test_late_validation_cannot_commit_after_stop_new_input_takeover_or_expired_lease (test_agent_validation_budget.ValidationBudgetTests.test_late_validation_cannot_commit_after_stop_new_input_takeover_or_expired_lease) ... ok
+test_unknown_validation_retains_full_reservation_and_late_settlement_is_idempotent (test_agent_validation_budget.ValidationBudgetTests.test_unknown_validation_retains_full_reservation_and_late_settlement_is_idempotent) ... ok
+test_business_change_records_without_queue_and_invalidates_old_attempt (test_agent_waits.AgentWaitTests.test_business_change_records_without_queue_and_invalidates_old_attempt) ... ok
+test_new_business_wait_terminal_is_refused_without_reply_or_wait (test_agent_waits.AgentWaitTests.test_new_business_wait_terminal_is_refused_without_reply_or_wait) ... ok
+test_bad_hosts_and_origins_rejected (test_api.ApiTests.test_bad_hosts_and_origins_rejected) ... ok
+test_preflight_and_write_protection (test_api.ApiTests.test_preflight_and_write_protection) ... ok
+test_all_four_images_bind_in_client_order_and_retry_does_not_duplicate (test_attachment_binding.AttachmentBindingTests.test_all_four_images_bind_in_client_order_and_retry_does_not_duplicate) ... ok
+test_duplicate_id_cid_and_total_size_limit_are_explicit_and_atomic (test_attachment_binding.AttachmentBindingTests.test_duplicate_id_cid_and_total_size_limit_are_explicit_and_atomic) ... ok
+test_http_stream_limit_and_target_validation_leave_no_objects (test_attachment_intake.AttachmentIntakeTests.test_http_stream_limit_and_target_validation_leave_no_objects) ... ok
+test_all_scope_dimensions_are_rechecked_even_for_a_known_attachment_id (test_attachment_lifecycle.AttachmentLifecycleTests.test_all_scope_dimensions_are_rechecked_even_for_a_known_attachment_id) ... ok
+test_expired_preview_and_upload_retry_cannot_revive_cancelled_source (test_attachment_lifecycle.AttachmentLifecycleTests.test_expired_preview_and_upload_retry_cannot_revive_cancelled_source) ... ok
+test_phase7_rows_preserved_and_budget_counter_defaults_to_zero (test_attachment_migration.AttachmentMigrationTests.test_phase7_rows_preserved_and_budget_counter_defaults_to_zero) ... ERROR
+test_fake_types_corruption_animated_png_webp_and_paths_are_rejected (test_attachment_validation.ImageValidationTests.test_fake_types_corruption_animated_png_webp_and_paths_are_rejected) ... ok
+test_newer_deleted_target_absent_from_old_backup_has_receipt (test_backup_restore.BackupRestoreTests.test_newer_deleted_target_absent_from_old_backup_has_receipt) ... ok
+test_recovery_receipt_without_completed_deletion_stays_closed (test_backup_restore.BackupRestoreTests.test_recovery_receipt_without_completed_deletion_stays_closed) ... ERROR
+test_same_database_replay_after_rollback_failure_and_retry (test_backup_restore.BackupRestoreTests.test_same_database_replay_after_rollback_failure_and_retry) ... ERROR
+test_all_statements_share_repeatable_read_snapshot (test_business.BusinessTests.test_all_statements_share_repeatable_read_snapshot) ... ok
+test_human_initial_state_has_open_review_and_no_job (test_business.BusinessTests.test_human_initial_state_has_open_review_and_no_job) ... ok
+test_multi_line_and_cross_scope_are_explicit (test_business.BusinessTests.test_multi_line_and_cross_scope_are_explicit) ... ok
+test_source_snapshot_immutable_and_ledger_foreign_keys (test_business.BusinessTests.test_source_snapshot_immutable_and_ledger_foreign_keys) ... ok
+test_catalogue_and_current_details_exclude_controller_and_answers (test_business_api.BusinessApiTests.test_catalogue_and_current_details_exclude_controller_and_answers) ... ok
+test_reads_and_eligibility_do_not_execute_or_enqueue (test_business_api.BusinessApiTests.test_reads_and_eligibility_do_not_execute_or_enqueue) ... ok
+test_future_address_confirmation_is_not_projected_or_used (test_business_regressions.BusinessRegressionTests.test_future_address_confirmation_is_not_projected_or_used) ... ok
+test_inventory_time_gap_cannot_become_eligible_in_formal_http (test_business_regressions.BusinessRegressionTests.test_inventory_time_gap_cannot_become_eligible_in_formal_http) ... ok
+test_multi_line_choice_remains_unbound_without_explicit_target (test_business_regressions.BusinessRegressionTests.test_multi_line_choice_remains_unbound_without_explicit_target) ... ok
+test_human_barrier_records_real_inventory_without_queueing (test_business_waits.BranchFactTests.test_human_barrier_records_real_inventory_without_queueing) ... ok
+test_completed_run_consumes_only_events_in_its_frozen_context (test_business_waits.BusinessIssueTests.test_completed_run_consumes_only_events_in_its_frozen_context) ... ok
+test_corrective_dispatch_reuses_original_operation_and_keeps_consumed_stock_history (test_continuous_fulfillment.ContinuousFulfillmentTests.test_corrective_dispatch_reuses_original_operation_and_keeps_consumed_stock_history) ... ok
+test_another_order_or_line_return_never_satisfies_this_refund_gate (test_controller_business_gates.ControllerBusinessGateTests.test_another_order_or_line_return_never_satisfies_this_refund_gate) ... ok
+test_close_revokes_and_new_customer_message_only_registers (test_conversations.ConversationTests.test_close_revokes_and_new_customer_message_only_registers) ... ok
+test_history_real_prefix_group_id_and_comparison_isolation (test_conversations.ConversationTests.test_history_real_prefix_group_id_and_comparison_isolation) ... ok
+test_reply_before_next_input_waits_and_next_local_sequence_resumes (test_conversations.ConversationTests.test_reply_before_next_input_waits_and_next_local_sequence_resumes) ... ok
+test_actual_child_invalid_or_oversized_output (test_embedding_process.EmbeddingTests.test_actual_child_invalid_or_oversized_output) ... ok
+test_actual_child_timeout_stops_owned_process (test_embedding_process.EmbeddingTests.test_actual_child_timeout_stops_owned_process) ... ok
+test_input_and_drift_never_silently_pass (test_embedding_process.EmbeddingTests.test_input_and_drift_never_silently_pass) ... ok
+test_closed_conversation_cannot_retry_an_old_stopped_run (test_formal_boundary.FormalBoundaryProbes.test_closed_conversation_cannot_retry_an_old_stopped_run) ... ok
+test_model_and_advice_records_preserve_all_scope_guards (test_formal_boundary.FormalBoundaryProbes.test_model_and_advice_records_preserve_all_scope_guards) ... ok
+test_actual_image_call_records_use_refs_and_revoke_with_the_original (test_formal_boundary.FormalImageRecordProbes.test_actual_image_call_records_use_refs_and_revoke_with_the_original) ... ok
+test_resolved_mail_is_recorded_without_reopen_or_run (test_human_assistance.HumanAssistanceTests.test_resolved_mail_is_recorded_without_reopen_or_run) ... ok
+test_old_commercial_run_objects_and_image_preserved_on_0010 (test_human_assistance_migration.FormalMigrationProbes.test_old_commercial_run_objects_and_image_preserved_on_0010) ... D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_human_assistance_migration.py:50: SAWarning: Did not recognize type 'public.vector' of column 'vector'
+  old.reflect(conn, schema=namespace)
+D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_human_assistance_migration.py:50: SAWarning: Did not recognize type 'public.vector' of column 'probe_vector'
+  old.reflect(conn, schema=namespace)
+ERROR
+test_closed_conversation_rejects_takeover_and_new_input_only_registers (test_human_events.HumanEventTests.test_closed_conversation_rejects_takeover_and_new_input_only_registers) ... ok
+test_conflicting_duplicate_sequence_gap_and_future_dependency_rejected (test_journey_driver.ControllerLoaderTests.test_conflicting_duplicate_sequence_gap_and_future_dependency_rejected) ... ok
+test_business_gate_requires_real_resource_and_evidence_contract (test_journey_driver.JourneyDriverTests.test_business_gate_requires_real_resource_and_evidence_contract) ... ok
+test_cursor_resume_keeps_real_mapping_and_does_not_replay (test_journey_driver.JourneyDriverTests.test_cursor_resume_keeps_real_mapping_and_does_not_replay) ... ok
+test_human_close_requires_explicit_identity_and_reason (test_journey_driver.JourneyDriverTests.test_human_close_requires_explicit_identity_and_reason) ... ok
+test_old_completed_run_cannot_authorize_current_queued_checkpoint (test_journey_driver.JourneyDriverTests.test_old_completed_run_cannot_authorize_current_queued_checkpoint) ... ok
+test_service_and_gate_failures_are_reported (test_journey_driver.JourneyDriverTests.test_service_and_gate_failures_are_reported) ... ok
+test_uncommitted_receipt_is_blocked_and_retry_keeps_same_command (test_journey_driver.JourneyDriverTests.test_uncommitted_receipt_is_blocked_and_retry_keeps_same_command) ... ok
+test_actual_graph_handoff_is_observed_but_text_checkpoint_is_still_pending (test_journey_services.JourneyServiceTests.test_actual_graph_handoff_is_observed_but_text_checkpoint_is_still_pending) ... ok
+test_policy_edit_is_validated_and_generation_remains_same_version (test_knowledge_api.KnowledgeApiTests.test_policy_edit_is_validated_and_generation_remains_same_version) ... ok
+test_exact_sku_brand_type_mode_time_and_stale_filter_before_provider (test_knowledge_index_api.IndexApiTests.test_exact_sku_brand_type_mode_time_and_stale_filter_before_provider) ... ok
+test_publication_filters_are_distinct_and_keep_old_publication_after_draft_revision (test_knowledge_index_api.IndexApiTests.test_publication_filters_are_distinct_and_keep_old_publication_after_draft_revision) ... ok
+test_cancel_inflight_result_and_retry_preserve_reviewed_parse (test_knowledge_index_faults.IndexFaultTests.test_cancel_inflight_result_and_retry_preserve_reviewed_parse) ... ok
+test_provider_failure_is_distinct_from_no_evidence_and_no_fallback_model (test_knowledge_index_faults.IndexFaultTests.test_provider_failure_is_distinct_from_no_evidence_and_no_fallback_model) ... ok
+test_immutable_input_and_scope_foreign_keys_reject_direct_corruption (test_knowledge_index_structure.IndexStructureTests.test_immutable_input_and_scope_foreign_keys_reject_direct_corruption) ... ok
+test_shared_operation_separates_sku_prerequisites_and_preserves_full_warning (test_knowledge_index_structure.IndexStructureTests.test_shared_operation_separates_sku_prerequisites_and_preserves_full_warning) ... ok
+test_table_header_units_survive_children_and_wrong_sku_parent_cannot_expand (test_knowledge_index_structure.IndexStructureTests.test_table_header_units_survive_children_and_wrong_sku_parent_cannot_expand) ... ok
+test_cancel_unknown_retry_and_late_completion_are_fenced (test_knowledge_jobs.KnowledgeJobTests.test_cancel_unknown_retry_and_late_completion_are_fenced) ... ok
+test_expired_lease_recovery_and_bounded_three_automatic_retries (test_knowledge_jobs.KnowledgeJobTests.test_expired_lease_recovery_and_bounded_three_automatic_retries) ... ok
+test_review_requires_all_digests_and_reparse_invalidates_previous_review (test_knowledge_jobs.KnowledgeJobTests.test_review_requires_all_digests_and_reparse_invalidates_previous_review) ... ok
+test_assets_dependencies_scope_and_raw_data_never_reach_http (test_knowledge_prepared.PreparedTests.test_assets_dependencies_scope_and_raw_data_never_reach_http) ... ok
+test_provider_period_head_change_returns_stale_without_exposing_old_evidence (test_knowledge_releases.ReleaseTests.test_provider_period_head_change_returns_stale_without_exposing_old_evidence) ... ok
+test_unrelated_source_fault_cannot_block_immediate_target_withdrawal (test_knowledge_releases.ReleaseTests.test_unrelated_source_fault_cannot_block_immediate_target_withdrawal) ... ok
+test_explicit_logical_range_is_bounded_and_changes_applicability_digest (test_knowledge_replacement.ReplacementTests.test_explicit_logical_range_is_bounded_and_changes_applicability_digest) ... ok
+test_cached_result_never_bypasses_missing_original (test_knowledge_source_fault.SourceFaultTests.test_cached_result_never_bypasses_missing_original) ... ok
+test_review_rechecks_original_and_old_source_fault_does_not_hide_new_version (test_knowledge_source_fault.SourceFaultTests.test_review_rechecks_original_and_old_source_fault_does_not_hide_new_version) ... ok
+test_uncommitted_external_tombstone_closes_http (test_lifecycle_api.LifecycleApiTests.test_uncommitted_external_tombstone_closes_http) ... ok
+test_replay_revoke_is_idempotent_and_retains_local_bytes (test_lifecycle_attachments.AttachmentDeletionTests.test_replay_revoke_is_idempotent_and_retains_local_bytes) ... ok
+test_late_checkpoint_and_object_registration_cannot_resurrect_deleted_content (test_lifecycle_core.LifecycleTests.test_late_checkpoint_and_object_registration_cannot_resurrect_deleted_content) ... ok
+test_purges_checkpoint_rows_and_inline_holders (test_lifecycle_core.LifecycleTests.test_purges_checkpoint_rows_and_inline_holders) ... ok
+test_inflight_model_drains_before_deleted_content_can_complete (test_lifecycle_drain.WriterDrainTests.test_inflight_model_drains_before_deleted_content_can_complete) ... ok
+test_replay_withdraw_restores_fence_without_deleting_retained_original (test_lifecycle_knowledge.KnowledgeDeletionTests.test_replay_withdraw_restores_fence_without_deleting_retained_original) ... ok
+test_case_delete_keeps_shared_knowledge_original_used_without_citation (test_lifecycle_sources.SourceOwnershipTests.test_case_delete_keeps_shared_knowledge_original_used_without_citation) ... ok
+test_only_outcome_review_uses_bounded_thinking_and_preserves_full_input (test_model_provider.ModelProviderTests.test_only_outcome_review_uses_bounded_thinking_and_preserves_full_input) ... ok
+test_understanding_after_review_still_uses_non_thinking_profile (test_model_provider.ModelProviderTests.test_understanding_after_review_still_uses_non_thinking_profile) ... ok
+test_timeout_attempts_have_distinct_failed_receipts_and_unknown_usage (test_model_records.ModelRecordTests.test_timeout_attempts_have_distinct_failed_receipts_and_unknown_usage) ... ok
+test_bounded_queue_overflow_and_flush_deadline (test_observability.ObservabilityTests.test_bounded_queue_overflow_and_flush_deadline) ... ok
+test_http_failure_retry_does_not_execute_or_double_bill (test_observability.ObservabilityTests.test_http_failure_retry_does_not_execute_or_double_bill) ... ok
+test_scope_deletion_fences_and_private_api_do_not_rerun (test_observability.ObservabilityTests.test_scope_deletion_fences_and_private_api_do_not_rerun) ... ok
+test_async_delete_acceptance_is_not_completion_and_retry_works (test_observability_purge.ObservabilityPurgeTests.test_async_delete_acceptance_is_not_completion_and_retry_works) ... ok
+test_exported_evidence_cannot_be_erased_by_late_failure_or_persist (test_observability_purge.ObservabilityPurgeTests.test_exported_evidence_cannot_be_erased_by_late_failure_or_persist) ... ok
+test_lost_delete_response_retries_by_confirming_absence (test_observability_purge.ObservabilityPurgeTests.test_lost_delete_response_retries_by_confirming_absence) ... ok
+test_revoked_public_buffer_still_allows_private_cleanup_read (test_observability_purge.ObservabilityPurgeTests.test_revoked_public_buffer_still_allows_private_cleanup_read) ... ok
+test_unknown_ack_is_deleted_and_offline_retries_keep_fence (test_observability_purge.ObservabilityPurgeTests.test_unknown_ack_is_deleted_and_offline_retries_keep_fence) ... ok
+test_two_exporters_cannot_send_the_same_persistent_buffer (test_observability_recovery.ObservabilityRecoveryTests.test_two_exporters_cannot_send_the_same_persistent_buffer) ... ok
+test_http_rejection_and_partial_rejection_are_real_failure (test_observability_sdk.SdkBoundaryTests.test_http_rejection_and_partial_rejection_are_real_failure) ... Failed to export spans batch code: 400, reason: observability_http_rejected
+ok
+test_non_loopback_config_and_embedded_credentials_are_rejected (test_observability_sdk.SdkBoundaryTests.test_non_loopback_config_and_embedded_credentials_are_rejected) ... ok
+test_raw_exception_context_and_remote_payload_never_enter_sdk_transport (test_observability_sdk.SdkBoundaryTests.test_raw_exception_context_and_remote_payload_never_enter_sdk_transport) ... ok
+test_response_lost_after_acceptance_reconciles_without_resending (test_observability_sdk.SdkBoundaryTests.test_response_lost_after_acceptance_reconciles_without_resending) ... Failed to export spans batch code: 400, reason: observability_transport_failed
+ok
+test_actual_media_is_blocked_before_sdk_and_revocation_blocks_pending_export (test_observability_vision.VisionObservationTests.test_actual_media_is_blocked_before_sdk_and_revocation_blocks_pending_export) ... ok
+test_cancel_before_start_and_unsupported_profile (test_parser_process.ParserProcessTests.test_cancel_before_start_and_unsupported_profile) ... ok
+test_runner_keeps_recovery_after_database_failure (test_parser_process.ParserProcessTests.test_runner_keeps_recovery_after_database_failure) ... ok
+test_same_version_rules_readable_hashes_and_original_v1_bytes (test_policy.BundleTests.test_same_version_rules_readable_hashes_and_original_v1_bytes) ... ok
+test_numbers_are_strict_integers_and_no_scope_or_evidence_parameters (test_policy.PublicCommandTests.test_numbers_are_strict_integers_and_no_scope_or_evidence_parameters) ... ok
+test_visual_evidence_is_not_order_money_or_warehouse_ledger (test_policy.PublicCommandTests.test_visual_evidence_is_not_order_money_or_warehouse_ledger) ... ok
+test_invalid_paid_quantity_and_allocations_are_not_coerced (test_policy_financial.FinancialTests.test_invalid_paid_quantity_and_allocations_are_not_coerced) ... ok
+test_partial_refund_integer_floor_and_currency_no_conversion (test_policy_financial.FinancialTests.test_partial_refund_integer_floor_and_currency_no_conversion) ... ok
+test_exact_return_window_and_warranty_window_boundaries (test_policy_fulfillment.FulfillmentTests.test_exact_return_window_and_warranty_window_boundaries) ... ok
+test_inventory_snapshot_must_exist_and_not_exceed_context_time (test_policy_fulfillment.FulfillmentTests.test_inventory_snapshot_must_exist_and_not_exceed_context_time) ... ok
+test_receipt_and_inspection_must_cover_all_affected_quantity (test_policy_fulfillment.FulfillmentTests.test_receipt_and_inspection_must_cover_all_affected_quantity) ... ok
+test_actual_v1_v2_rules_require_explicit_acceptance_and_reconciliation (test_policy_generation.PolicyFactTests.test_actual_v1_v2_rules_require_explicit_acceptance_and_reconciliation) ... ok
+test_invalid_or_unsupported_policy_returns_safe_gap (test_policy_service.ServiceTests.test_invalid_or_unsupported_policy_returns_safe_gap) ... ok
+test_unpublished_preview_preserves_queries_provenance_and_no_execute_method (test_policy_service.ServiceTests.test_unpublished_preview_preserves_queries_provenance_and_no_execute_method) ... ok
+test_migration_repeat_restart_and_ready (test_postgres.PostgresTests.test_migration_repeat_restart_and_ready) ... ok
+test_source_dependency_and_scope_database_constraint (test_postgres.PostgresTests.test_source_dependency_and_scope_database_constraint) ... ERROR
+test_lease_expiration_blocks_old_commit_and_requires_explicit_retry (test_protocol.ProtocolTests.test_lease_expiration_blocks_old_commit_and_requires_explicit_retry) ... ok
+test_single_slot_concurrent_claim_and_read_only_refresh (test_protocol.ProtocolTests.test_single_slot_concurrent_claim_and_read_only_refresh) ... ok
+test_catalog_reports_all_original_inputs_and_journeys_as_not_run (test_scenario_driver.OriginalScenarioDriverTests.test_catalog_reports_all_original_inputs_and_journeys_as_not_run) ... ok
+test_missing_stock_specification_and_snapshot_are_not_filled (test_scenario_driver.OriginalScenarioDriverTests.test_missing_stock_specification_and_snapshot_are_not_filled) ... ok
+test_changed_explicit_refund_amount_does_not_execute_old_plan (test_selection_freshness.SelectionFreshnessTests.test_changed_explicit_refund_amount_does_not_execute_old_plan) ... ok
+test_changed_replacement_sku_suffix_does_not_execute_original_plan (test_selection_freshness.SelectionFreshnessTests.test_changed_replacement_sku_suffix_does_not_execute_original_plan) ... ok
+test_explicit_unknown_target_cannot_bypass_retained_original_choice (test_selection_freshness.SelectionFreshnessTests.test_explicit_unknown_target_cannot_bypass_retained_original_choice) ... ok
+test_multiple_units_cannot_bind_ambiguous_natural_choice (test_selection_freshness.SelectionFreshnessTests.test_multiple_units_cannot_bind_ambiguous_natural_choice) ... ok
+test_same_plan_current_confirmation_reuses_original_and_records_actual_execution_source (test_selection_freshness.SelectionFreshnessTests.test_same_plan_current_confirmation_reuses_original_and_records_actual_execution_source) ... ok
+test_human_or_stopped_gate_only_records_business_event (test_simulation_executions.SimulationExecutionTests.test_human_or_stopped_gate_only_records_business_event) ... ok
+test_same_event_key_replays_but_changed_payload_and_link_mismatch_are_rejected (test_simulation_executions.SimulationExecutionTests.test_same_event_key_replays_but_changed_payload_and_link_mismatch_are_rejected) ... ok
+test_publication_waits_until_console_execution_transaction_commits (test_simulation_policy_race.SimulationPolicyRaceTests.test_publication_waits_until_console_execution_transaction_commits) ... ok
+test_failed_fulfillment_retains_stock_until_confirmed_not_executed (test_simulation_safety.SimulationSafetyTests.test_failed_fulfillment_retains_stock_until_confirmed_not_executed) ... ok
+test_merchant_return_authorization_requires_supplied_prepaid_document (test_simulation_safety.SimulationSafetyTests.test_merchant_return_authorization_requires_supplied_prepaid_document) ... ok
+test_correction_authority_versions_idempotency_and_later_inference_cannot_replace_manual (test_vision_corrections.VisionCorrectionTests.test_correction_authority_versions_idempotency_and_later_inference_cannot_replace_manual) ... ok
+test_joint_request_persists_per_image_evidence_without_binary_checkpoint (test_vision_graph.VisionGraphTests.test_joint_request_persists_per_image_evidence_without_binary_checkpoint) ... ok
+test_revoking_one_joint_image_keeps_other_preview_but_invalidates_shared_evidence (test_vision_graph.VisionGraphTests.test_revoking_one_joint_image_keeps_other_preview_but_invalidates_shared_evidence) ... FAIL
+test_controlled_package_hash_verified_bytes_bind_and_bad_path_is_rejected (test_vision_import.VisionImportTests.test_controlled_package_hash_verified_bytes_bind_and_bad_path_is_rejected) ... ok
+test_public_metadata_is_atomic_idempotent_and_no_bytes_do_not_allow_image_only_mail (test_vision_import.VisionImportTests.test_public_metadata_is_atomic_idempotent_and_no_bytes_do_not_allow_image_only_mail) ... ok
+test_new_same_kind_risk_after_revoked_image_persists_and_blocks_later_automatic_reply (test_vision_risks.VisionRiskTests.test_new_same_kind_risk_after_revoked_image_persists_and_blocks_later_automatic_reply) ... ok
+
+======================================================================
+ERROR: test_phase7_rows_preserved_and_budget_counter_defaults_to_zero (test_attachment_migration.AttachmentMigrationTests.test_phase7_rows_preserved_and_budget_counter_defaults_to_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 1192, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "deletion_requests" does not exist
+LINE 2: FROM deletion_requests
+             ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_attachment_migration.py", line 40, in test_phase7_rows_preserved_and_budget_counter_defaults_to_zero
+    message = service.add_message(conn, writer, conversation, "ԭ���ʼ�����", "Existing", "customer",
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\conversation_base.py", line 56, in add_message
+    object_id = writer.put(conn, conversation, body, "message_body")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\adapters\body_store.py", line 25, in put
+    return self.put_bytes(conn, conversation, body.encode("utf-8"), source, derived_from)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\adapters\body_store.py", line 29, in put_bytes
+    check_conversation_write(conn, conversation)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\content_fence.py", line 37, in check_conversation_write
+    if conn.execute(sa.select(deletion_requests.c.id).where(
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1448, in execute
+    return meth(
+           ^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 533, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1668, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1822, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1962, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2332, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 1192, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+sqlalchemy.exc.ProgrammingError: (psycopg.errors.UndefinedTable) relation "deletion_requests" does not exist
+LINE 2: FROM deletion_requests
+             ^
+[SQL: SELECT deletion_requests.id
+FROM deletion_requests
+WHERE deletion_requests.workspace_id = %(workspace_id_1)s::UUID AND deletion_requests.status != %(status_1)s::VARCHAR AND deletion_requests.manifest[%(manifest_1)s::TEXT] @> %(param_1)s::JSONB
+ LIMIT %(param_2)s::INTEGER]
+[SQL parameters hidden due to hide_parameters=True]
+(Background on this error at: https://sqlalche.me/e/21/f405)
+
+======================================================================
+ERROR: test_recovery_receipt_without_completed_deletion_stays_closed (test_backup_restore.BackupRestoreTests.test_recovery_receipt_without_completed_deletion_stays_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_backup_restore.py", line 280, in test_recovery_receipt_without_completed_deletion_stays_closed
+    recovery.run()
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\replay_journal.py", line 44, in run
+    self._offline(connection)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\replay_journal.py", line 24, in _offline
+    lock_database(connection, allow_inherited_tasks=True)
+TypeError: lock_database() got an unexpected keyword argument 'allow_inherited_tasks'
+
+======================================================================
+ERROR: test_same_database_replay_after_rollback_failure_and_retry (test_backup_restore.BackupRestoreTests.test_same_database_replay_after_rollback_failure_and_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_backup_restore.py", line 219, in test_same_database_replay_after_rollback_failure_and_retry
+    recovery.run()
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\replay_journal.py", line 44, in run
+    self._offline(connection)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\replay_journal.py", line 24, in _offline
+    lock_database(connection, allow_inherited_tasks=True)
+TypeError: lock_database() got an unexpected keyword argument 'allow_inherited_tasks'
+
+======================================================================
+ERROR: test_old_commercial_run_objects_and_image_preserved_on_0010 (test_human_assistance_migration.FormalMigrationProbes.test_old_commercial_run_objects_and_image_preserved_on_0010)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 1192, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "deletion_requests" does not exist
+LINE 2: FROM deletion_requests
+             ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_human_assistance_migration.py", line 28, in test_old_commercial_run_objects_and_image_preserved_on_0010
+    self.preserve_upgrade()
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_human_assistance_migration.py", line 65, in preserve_upgrade
+    body = writer.put(conn, conv, "I request a refund.", "message_body")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\adapters\body_store.py", line 25, in put
+    return self.put_bytes(conn, conversation, body.encode("utf-8"), source, derived_from)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\adapters\body_store.py", line 29, in put_bytes
+    check_conversation_write(conn, conversation)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\content_fence.py", line 37, in check_conversation_write
+    if conn.execute(sa.select(deletion_requests.c.id).where(
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1448, in execute
+    return meth(
+           ^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 533, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1668, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1822, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1962, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2332, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 1192, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\.venv\Lib\site-packages\psycopg\cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+sqlalchemy.exc.ProgrammingError: (psycopg.errors.UndefinedTable) relation "deletion_requests" does not exist
+LINE 2: FROM deletion_requests
+             ^
+[SQL: SELECT deletion_requests.id
+FROM deletion_requests
+WHERE deletion_requests.workspace_id = %(workspace_id_1)s::UUID AND deletion_requests.status != %(status_1)s::VARCHAR AND deletion_requests.manifest[%(manifest_1)s::TEXT] @> %(param_1)s::JSONB
+ LIMIT %(param_2)s::INTEGER]
+[SQL parameters hidden due to hide_parameters=True]
+(Background on this error at: https://sqlalche.me/e/21/f405)
+
+======================================================================
+ERROR: test_source_dependency_and_scope_database_constraint (test_postgres.PostgresTests.test_source_dependency_and_scope_database_constraint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_postgres.py", line 77, in test_source_dependency_and_scope_database_constraint
+    self.store.put(b"bad derived", self.scope, self.source, derived_from=(outsider,))
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\adapters\object_store.py", line 70, in put
+    return self._put(content, scope, source, derived_from)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\adapters\object_store.py", line 85, in _put
+    check_objects(connection, scope.model_dump(), derived_from, writing=True)
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\src\globalmail_agent\application\content_fence.py", line 21, in check_objects
+    raise ServiceError("object_not_found", 404)
+globalmail_agent.application.conversation_lock.ServiceError: ('object_not_found', 404)
+
+======================================================================
+FAIL: test_revoking_one_joint_image_keeps_other_preview_but_invalidates_shared_evidence (test_vision_graph.VisionGraphTests.test_revoking_one_joint_image_keeps_other_preview_but_invalidates_shared_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Work_Project\globalmail-agent\globalmail-agent\backend\tests\test_vision_graph.py", line 30, in test_revoking_one_joint_image_keeps_other_preview_but_invalidates_shared_evidence
+    self.assertEqual(evidence.status_code, 410, evidence.text)
+AssertionError: 200 != 410 : {"code":200,"msg":"ok","data":{"items":[],"evidence_revision":0,"coverage":null,"quality":null},"request_id":"e1898c05-9fb4-4bb1-b0e5-0cbbfd80c20c"}
+
+----------------------------------------------------------------------
+Ran 166 tests in 594.748s
+
+FAILED (failures=1, errors=5)
+PROBE scopes {'foreign_workspace_read': '404', 'foreign_object_updates': '3 FK rejections'}
+PROBE image_records {'image_transport': 'authorized_reference', 'revoked_read': 'image_content_revoked'}

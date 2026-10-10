@@ -1,0 +1,136 @@
+### Page
+- Page URL: http://127.0.0.1:15179/#/workbench?conversation_id=92b08a7e-a638-460c-b256-05c1f9d4c76b
+- Page Title: 邮件工作台 - GlobalMail Agent
+### Snapshot
+```yaml
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e3]:
+    - complementary [ref=f3e4]:
+      - generic [ref=f3e6]:
+        - generic [ref=f3e7] [cursor=pointer]:
+          - img "logo" [ref=f3e9]
+          - paragraph [ref=f3e10]: GlobalMail Agent
+        - menubar [ref=f3e14]:
+          - menuitem "GlobalMail Agent" [expanded] [ref=f3e15]:
+            - menu [ref=f3e24]:
+              - menuitem "邮件工作台" [ref=f3e25] [cursor=pointer]
+              - menuitem "Agent 运行台" [ref=f3e30] [cursor=pointer]
+              - menuitem "知识库" [ref=f3e35] [cursor=pointer]
+              - menuitem "系统状态" [ref=f3e40] [cursor=pointer]
+    - main [ref=f3e45]:
+      - generic [ref=f3e47]:
+        - generic [ref=f3e48]:
+          - generic [ref=f3e49]:
+            - generic [ref=f3e50] [cursor=pointer]
+            - generic [ref=f3e53] [cursor=pointer]
+            - navigation "breadcrumb" [ref=f3e56]:
+              - list [ref=f3e57]:
+                - listitem [ref=f3e58]:
+                  - generic [ref=f3e59] [cursor=pointer]: GlobalMail Agent
+                  - generic [aria-hidden] [ref=f3e61]: /
+                - listitem [ref=f3e436]:
+                  - generic [ref=f3e437]: 邮件工作台
+          - generic [ref=f3e65]:
+            - generic [ref=f3e66] [cursor=pointer]:
+              - generic [ref=f3e67]: 搜索
+              - generic [ref=f3e71]: k
+            - generic [ref=f3e75] [cursor=pointer]
+            - generic [ref=f3e80] [cursor=pointer]
+            - generic [ref=f3e83] [cursor=pointer]
+            - generic [ref=f3e86]: 本机单用户
+        - generic [ref=f3e88]:
+          - list [ref=f3e90]:
+            - listitem [ref=f3e91] [cursor=pointer]: 邮件工作台
+            - listitem [ref=f3e94] [cursor=pointer]: 知识库
+          - generic [ref=f3e101] [cursor=pointer]
+      - generic [ref=f3e439]:
+        - generic [ref=f3e440]:
+          - complementary "客户会话" [ref=f3e441]:
+            - generic [ref=f3e442]:
+              - generic [ref=f3e443]:
+                - heading "客户会话" [level=2] [ref=f3e444]
+                - button "刷新" [ref=f3e445] [cursor=pointer]
+              - textbox "搜索客户会话" [ref=f3e449]:
+                - /placeholder: 搜索本页客户、邮件主题
+              - generic [ref=f3e451] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选会话状态" [ref=f3e453]
+                  - generic [ref=f3e454]: 全部状态
+            - button "phase12-image@example.test 21:56 排队中" [ref=f3e460]:
+              - generic [ref=f3e461]:
+                - generic [ref=f3e462]: phase12-image@example.test
+                - generic [ref=f3e463]: 21:56
+              - paragraph
+              - generic [ref=f3e464]: 排队中
+            - generic [ref=f3e467]:
+              - button "上一页" [disabled] [ref=f3e468]
+              - generic [ref=f3e470]: "1"
+              - button "下一页" [disabled] [ref=f3e471]
+          - region "邮件往来" [ref=f3e473]:
+            - generic [ref=f3e474]:
+              - generic [ref=f3e475]:
+                - heading "邮件往来" [level=2] [ref=f3e476]
+                - paragraph [ref=f3e477]: phase12-image@example.test · 交互模拟
+              - generic [ref=f3e478]:
+                - button "人工接管" [ref=f3e479] [cursor=pointer]
+                - button "标记已解决" [ref=f3e481] [cursor=pointer]
+                - button "刷新" [ref=f3e483] [cursor=pointer]
+            - generic [ref=f3e485]:
+              - generic [ref=f3e486]:
+                - generic [ref=f3e489]: Agent
+                - generic [ref=f3e490]: 未处理
+                - generic [ref=f3e492]: 按本轮权限处理
+              - generic [ref=f3e493]:
+                - button "查看客服建议" [ref=f3e494] [cursor=pointer]
+                - button "全部 1 轮 →" [ref=f3e496] [cursor=pointer]
+                - button "查看最新运行 →" [ref=f3e498] [cursor=pointer]
+            - generic "当前可见邮件" [ref=f3e500]:
+              - article [ref=f3e501]:
+                - generic [ref=f3e502]: 客
+                - generic [ref=f3e503]:
+                  - generic [ref=f3e504]:
+                    - generic [ref=f3e505]: 客户来信
+                    - generic [ref=f3e507]: 2026/10/10 21:56:28
+                    - generic [ref=f3e508]: 第 1 封
+                  - generic [ref=f3e509]:
+                    - paragraph [ref=f3e510]: Phase12 图片删除演练
+                    - paragraph [ref=f3e511]: PHASE12_IMAGE_MESSAGE
+                    - generic [ref=f3e513]:
+                      - button [disabled] [ref=f3e624]
+                      - paragraph [ref=f3e519]: 已移除
+            - generic [ref=f3e520]:
+              - generic [ref=f3e521]:
+                - generic [ref=f3e522]: 人工回复
+                - generic [ref=f3e523]: 草稿跨页保留 · 本机模拟发送
+              - textbox "人工回复正文" [ref=f3e525]:
+                - /placeholder: 输入给客户的回复…
+              - button "人工备注与风险复核" [ref=f3e528] [cursor=pointer]
+              - generic [ref=f3e533]:
+                - generic [ref=f3e534]: 请先人工接管后回复
+                - generic [ref=f3e535]:
+                  - button "保存草稿" [disabled] [ref=f3e536]
+                  - button "发送模拟回复" [disabled] [ref=f3e538]
+        - generic [ref=f3e540]:
+          - button "删除记录" [ref=f3e541] [cursor=pointer]
+          - button "删除会话" [ref=f3e543] [cursor=pointer]
+        - dialog "客户图片与证据" [ref=f3e546]:
+          - generic [ref=f3e547]:
+            - heading "客户图片与证据" [level=2] [ref=f3e548]
+            - button "关闭此对话框" [ref=f3e549] [cursor=pointer]
+          - generic [ref=f3e553]:
+            - paragraph
+            - generic [ref=f3e555]: 已移除
+            - button "彻底删除图片" [ref=f3e584] [cursor=pointer]
+        - dialog "彻底删除" [ref=f3e587]:
+          - generic [ref=f3e588]:
+            - generic [ref=f3e589]:
+              - heading "彻底删除" [level=2] [ref=f3e590]
+              - button "关闭此对话框" [ref=f3e591] [cursor=pointer]
+            - status [ref=f3e615]:
+              - alert [ref=f3e616]:
+                - generic [ref=f3e617]: 删除完成
+              - paragraph [ref=f3e619]: 删除记录：8c3b6307-a11b-4dda-9480-fe3d64a42ff9
+            - button "关闭" [ref=f3e623] [cursor=pointer]
+  - tooltip "点击这里查看主题风格、 开启顶栏菜单等更多配置" [ref=f3e287]:
+    - paragraph [ref=f3e288]: 点击这里查看主题风格、 开启顶栏菜单等更多配置
+```

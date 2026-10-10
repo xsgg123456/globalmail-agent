@@ -1,0 +1,90 @@
+### Page
+- Page URL: http://127.0.0.1:15179/#/workbench?conversation_id=638fc6d0-84c3-48e0-9272-a9d0cf5c4432
+- Page Title: 邮件工作台 - GlobalMail Agent
+- Console: 4 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e3]:
+    - complementary [ref=f3e4]:
+      - generic [ref=f3e6]:
+        - generic [ref=f3e7] [cursor=pointer]:
+          - img "logo" [ref=f3e9]
+          - paragraph [ref=f3e10]: GlobalMail Agent
+        - menubar [ref=f3e819]:
+          - menuitem "GlobalMail Agent" [expanded] [ref=f3e820]:
+            - menu [ref=f3e829]:
+              - menuitem "邮件工作台" [ref=f3e830] [cursor=pointer]
+              - menuitem "Agent 运行台" [ref=f3e835] [cursor=pointer]
+              - menuitem "知识库" [ref=f3e840] [cursor=pointer]
+              - menuitem "系统状态" [ref=f3e845] [cursor=pointer]
+    - main [ref=f3e45]:
+      - generic [ref=f3e47]:
+        - generic [ref=f3e48]:
+          - generic [ref=f3e49]:
+            - generic [ref=f3e50] [cursor=pointer]
+            - generic [ref=f3e53] [cursor=pointer]
+            - navigation "breadcrumb" [ref=f3e56]:
+              - list [ref=f3e57]:
+                - listitem [ref=f3e58]:
+                  - generic [ref=f3e59] [cursor=pointer]: GlobalMail Agent
+                  - generic [aria-hidden] [ref=f3e61]: /
+                - listitem [ref=f3e850]:
+                  - generic [ref=f3e851]: 邮件工作台
+          - generic [ref=f3e65]:
+            - generic [ref=f3e66] [cursor=pointer]:
+              - generic [ref=f3e67]: 搜索
+              - generic [ref=f3e71]: k
+            - generic [ref=f3e75] [cursor=pointer]
+            - generic [ref=f3e80] [cursor=pointer]
+            - generic [ref=f3e83] [cursor=pointer]
+            - generic [ref=f3e86]: 本机单用户
+        - generic [ref=f3e88]:
+          - list [ref=f3e90]:
+            - listitem [ref=f3e91] [cursor=pointer]: 邮件工作台
+            - listitem [ref=f3e94] [cursor=pointer]: 知识库
+          - generic [ref=f3e101] [cursor=pointer]
+      - generic [ref=f3e853]:
+        - generic [ref=f3e854]:
+          - complementary "客户会话" [ref=f3e855]:
+            - generic [ref=f3e856]:
+              - generic [ref=f3e857]:
+                - heading "客户会话" [level=2] [ref=f3e858]
+                - button "刷新" [ref=f3e859] [cursor=pointer]
+              - textbox "搜索客户会话" [ref=f3e863]:
+                - /placeholder: 搜索本页客户、邮件主题
+              - generic [ref=f3e865] [cursor=pointer]:
+                - generic:
+                  - combobox "筛选会话状态" [ref=f3e867]
+                  - generic [ref=f3e868]: 全部状态
+            - button "phase12-image@example.test 21:56 未处理" [ref=f3e882]:
+              - generic [ref=f3e883]:
+                - generic [ref=f3e884]: phase12-image@example.test
+                - generic [ref=f3e885]: 21:56
+              - paragraph
+              - generic [ref=f3e886]: 未处理
+            - generic [ref=f3e889]:
+              - button "上一页" [disabled] [ref=f3e890]
+              - generic [ref=f3e892]: "1"
+              - button "下一页" [disabled] [ref=f3e893]
+          - region "邮件往来" [ref=f3e895]:
+            - heading "邮件往来" [level=2] [ref=f3e1017]
+            - alert [ref=f3e1055]:
+              - generic [ref=f3e1056]: 记录已不存在，请刷新会话列表。
+            - paragraph [ref=f3e1077]: 会话读取失败，请刷新重试
+        - button "删除记录" [ref=f3e955] [cursor=pointer]
+        - dialog "彻底删除" [ref=f3e989]:
+          - generic [ref=f3e990]:
+            - generic [ref=f3e991]:
+              - heading "彻底删除" [level=2] [ref=f3e992]
+              - button "关闭此对话框" [ref=f3e993] [cursor=pointer]
+            - status [ref=f3e1038]:
+              - alert [ref=f3e1039]:
+                - generic [ref=f3e1040]: 删除完成
+              - paragraph [ref=f3e1042]: 删除记录：2a927b0e-ffea-4045-a468-59ed4da9f1f6
+            - button "关闭" [ref=f3e1046] [cursor=pointer]
+  - tooltip "点击这里查看主题风格、 开启顶栏菜单等更多配置" [ref=f3e287]:
+    - paragraph [ref=f3e288]: 点击这里查看主题风格、 开启顶栏菜单等更多配置
+```
+### Events
+- New console entries: .playwright-cli\console-2026-10-10T14-00-19-111Z.log#L1-L3

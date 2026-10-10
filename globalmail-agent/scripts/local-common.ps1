@@ -27,6 +27,7 @@ function Invoke-LocalCompose([string[]]$ComposeArgs) {
 function Import-BackendEnvironment($Settings) {
     $env:GLOBALMAIL_DATABASE_URL = $Settings.database_url
     $env:GLOBALMAIL_OBJECT_ROOT = $Settings.object_root
+    $env:GLOBALMAIL_LIFECYCLE_JOURNAL_ROOT = $Settings.lifecycle_journal_root
     $env:GLOBALMAIL_ALLOWED_ORIGINS = $Settings.allowed_origins
     # Only these server-side values may be imported; never dot-source an env file.
     $envFile = Join-Path $repoRoot '.env'

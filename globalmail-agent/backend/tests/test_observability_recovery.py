@@ -84,10 +84,30 @@ class ObservabilityRecoveryTests(AgentFixture):
         observer = self.observer(transport)
         _, rid, _, _, _ = self.run_mail(observer)
         original = transport.send
-        def revoked(*args):
-            observer.records.revoke(rid)
+        entered, release, revoked = Event(), Event(), Event()
+        def blocked(*args):
+            entered.set()
+            if not release.wait(5):
+                raise AssertionError("send barrier timed out")
             return original(*args)
-        transport.send = revoked
-        observer.exporter.export_one(rid)
+        def revoke():
+            observer.records.revoke(rid)
+            revoked.set()
+        transport.send = blocked
+        sender = Thread(target=observer.exporter.export_one, args=(rid,))
+        revoker = Thread(target=revoke)
+        sender.start()
+        try:
+            self.assertTrue(entered.wait(3))
+            revoker.start()
+            self.assertFalse(revoked.wait(0.1))
+        finally:
+            release.set()
+            sender.join(5)
+            if revoker.ident is not None:
+                revoker.join(5)
+        self.assertTrue(revoked.is_set())
+        self.assertFalse(sender.is_alive())
+        observer.records.mark(rid, "exported")  # A late acknowledgement cannot undo revoke.
         self.assertEqual(observer.records.get(rid)["export_status"], "revoked")
         self.assertEqual(len(transport.payloads), 1)

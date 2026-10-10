@@ -1,0 +1,12 @@
+test_expired_claim_after_process_crash_is_fenced_and_replayed (test_journal_crash_recovery.CrashRecoveryTests.test_expired_claim_after_process_crash_is_fenced_and_replayed) ... ok
+test_case_delete_keeps_shared_knowledge_original_used_without_citation (test_lifecycle_sources.SourceOwnershipTests.test_case_delete_keeps_shared_knowledge_original_used_without_citation) ... ok
+test_deleting_read_document_cleans_case_outputs_but_keeps_other_read_document_original (test_lifecycle_sources.SourceOwnershipTests.test_deleting_read_document_cleans_case_outputs_but_keeps_other_read_document_original) ... ok
+test_deleting_one_published_document_preserves_other_eligible_release_entry (test_lifecycle_knowledge.KnowledgeDeletionTests.test_deleting_one_published_document_preserves_other_eligible_release_entry) ... ok
+test_replaying_applied_withdraw_does_not_undo_later_legal_republication (test_lifecycle_knowledge.KnowledgeDeletionTests.test_replaying_applied_withdraw_does_not_undo_later_legal_republication) ... ok
+test_recovery_refuses_live_connection_and_active_worker (test_backup_restore.BackupRestoreTests.test_recovery_refuses_live_connection_and_active_worker) ... ok
+test_newer_deleted_target_absent_from_old_backup_has_receipt (test_backup_restore.BackupRestoreTests.test_newer_deleted_target_absent_from_old_backup_has_receipt) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 59.739s
+
+OK

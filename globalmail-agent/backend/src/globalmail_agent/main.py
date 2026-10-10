@@ -35,6 +35,7 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
     settings = settings or Settings.from_env()
     database = engine if engine is not None else make_engine(settings)
     store = ObjectStore(settings.object_root, database)
+    store.lifecycle_journal_root = settings.lifecycle_journal_root
     gateway = embedding_gateway if embedding_gateway is not None else EmbeddingGateway(settings)
     model = model_provider if model_provider is not None else ModelProvider(settings)
     observability = ObservabilityService(database, store, settings, transport=observability_transport)
@@ -42,16 +43,32 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
     @asynccontextmanager
     async def lifespan(app):
         runner = knowledge = None
-        if database is not None:
+        cleanup = None
+        from globalmail_agent.application.restore import assert_restore_open
+        from globalmail_agent.application.journal_gate import assert_journal_current
+        available = database is not None
+        try:
+            assert_restore_open(store.root)
+            if available:
+                assert_journal_current(database, store)
+        except Exception:
+            available = False
+        if available:
             observability.start()
-        if start_worker and database is not None:
+        if start_worker and available:
             runner = AgentRunner(database, store, DEFAULT_WORKSPACE_ID, model, gateway, observability=observability)
             runner.start()
             knowledge = KnowledgeRunner(database, store, DEFAULT_WORKSPACE_ID, gateway)
             knowledge.start()
+            from globalmail_agent.application.lifecycle import LifecycleService
+            from globalmail_agent.worker.cleanup_runner import CleanupRunner
+            cleanup = CleanupRunner(LifecycleService(database, store, settings))
+            cleanup.start()
         try:
             yield
         finally:
+            if cleanup is not None:
+                cleanup.close()
             if runner is not None:
                 runner.close()
             if knowledge is not None:
@@ -62,6 +79,8 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
 
     app = FastAPI(title="GlobalMail Agent", version="0.1.0", lifespan=lifespan,
                   docs_url=None, redoc_url=None, openapi_url=None)
+    from globalmail_agent.api.restore_gate import RestoreGateMiddleware
+    app.add_middleware(RestoreGateMiddleware, engine=database, store=store)
     app.add_middleware(LocalAccessMiddleware, allowed_origins=settings.allowed_origins)
     app.state.observability = observability
 
@@ -92,6 +111,8 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
     app.include_router(after_sales_router(database, store))
     app.include_router(testing_router(database, store))
     app.include_router(observability_router(observability.records))
+    from globalmail_agent.api.lifecycle import lifecycle_router
+    app.include_router(lifecycle_router(database, store, settings))
 
     return app
 

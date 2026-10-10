@@ -26,6 +26,9 @@ class ConversationAdvice:
             row = conn.execute(sa.select(reply_artifacts).where(reply_artifacts.c.conversation_id == conversation_id,
                 reply_artifacts.c.advice_object_id.is_not(None)).order_by(reply_artifacts.c.created_at.desc(),
                 reply_artifacts.c.id.desc()).limit(1)).mappings().first()
+            from globalmail_agent.application.content_fence import readable_objects
+            if row and not readable_objects(conn, conv, (row['advice_object_id'],)):
+                row = None
             if row is None:
                 return {"advice": None, "run_id": str(latest["id"]) if latest else None,
                     "stale": False, "input_revision": conv["input_revision"], "observations": []}

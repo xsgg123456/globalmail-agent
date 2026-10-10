@@ -1,9 +1,12 @@
-import { computed, reactive, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { mailApi, type MailApi } from '@/api/mail-agent'
 import type { ConversationDetail, Conversation, ActionResult } from '@/api/mail-agent-contract'
-import { MailApiError, PendingCommands } from '@/api/mail-agent-request'
+import { MailApiError } from '@/api/mail-agent-request'
 import { validateHuman } from '@/components/mail-agent/mail-inputs'
 import type { HumanInput, IncomingInput } from '@/components/mail-agent/mail-inputs'
+import { ConversationCommands, mailErrorMessage } from './conversation-commands'
+import { createMailDraftCache } from './mail-draft-cache'
+import { contentInvalidations } from './content-invalidations'
 import { imageBindings } from '@/api/attachment-contract'
 export function createMailWorkbench(api: MailApi = mailApi) {
   const items = ref<Conversation[]>([])
@@ -22,11 +25,9 @@ export function createMailWorkbench(api: MailApi = mailApi) {
   const actionError = ref('')
   const actionNotice = ref('')
   const scrollSignal = ref(0)
-  const incomingInputs = reactive<Record<string, IncomingInput>>({})
-  const humanInputs = reactive<Record<string, HumanInput>>({})
-  const humanRevisions = reactive<Record<string, number>>({})
-  const reviewIds = reactive<Record<string, string>>({})
-  const riskContexts: Record<string, string> = {}
+  const drafts = createMailDraftCache()
+  const { incomingInputs, humanInputs, humanRevisions } = drafts
+  const contentInvalidation = ref(0)
   const incomingInput = computed(
     () => incomingInputs[selectedId.value] ?? { subject: '', body: '' }
   )
@@ -36,11 +37,22 @@ export function createMailWorkbench(api: MailApi = mailApi) {
   const humanStale = computed(() => Boolean(detail.value?.review &&
     humanRevisions[selectedId.value] !== detail.value.conversation.input_revision))
   const conversation = computed(() => detail.value?.conversation ?? null)
-  const pending = new PendingCommands()
+  const pending = new ConversationCommands()
   let listGeneration = 0
   let detailGeneration = 0
-  const errorMessage = (error: unknown) =>
-    error instanceof Error ? error.message : '本地服务请求失败，请重试。'
+  const unsubscribe = contentInvalidations.subscribe((id) => {
+    drafts.clear(id)
+    pending.forget(id)
+    listGeneration++
+    listLoading.value = false
+    items.value = items.value.filter(item => item.id !== id)
+    if (selectedId.value === id) {
+      detailGeneration++
+      detail.value = null
+      detailLoading.value = false
+      contentInvalidation.value++
+    }
+  })
   async function refreshList() {
     const generation = ++listGeneration
     listLoading.value = true
@@ -48,10 +60,11 @@ export function createMailWorkbench(api: MailApi = mailApi) {
     try {
       const result = await api.list(mode.value, state.value, cursors.value[page.value - 1])
       if (generation !== listGeneration) return
-      items.value = result.items
+      for (const item of result.items) contentInvalidations.observe(item.id, item.content_revision ?? 0)
+      items.value = result.items.filter(item => (item.content_revision ?? 0) >= contentInvalidations.revision(item.id))
       nextCursor.value = result.next_cursor
     } catch (error) {
-      if (generation === listGeneration) listError.value = errorMessage(error)
+      if (generation === listGeneration) listError.value = mailErrorMessage(error)
     } finally {
       if (generation === listGeneration) listLoading.value = false
     }
@@ -65,36 +78,17 @@ export function createMailWorkbench(api: MailApi = mailApi) {
     try {
       const result = await api.detail(id)
       if (id !== selectedId.value || generation !== detailGeneration) return
+      if ((result.conversation.content_revision ?? 0) < contentInvalidations.revision(id)) return
+      contentInvalidations.observe(id, result.conversation.content_revision ?? 0)
       detail.value = result
-      if (!humanInputs[id])
-        humanInputs[id] = {
-          reply: result.review?.staff_draft ?? '',
-          note: result.review?.staff_note ?? '',
-          risk_decision: 'keep_active'
-        }
-      const riskContext = JSON.stringify([
-        result.review?.id,
-        result.conversation.input_revision,
-        result.active_risks
-          ?.filter((risk) => risk.status === 'active')
-          .map((risk) => risk.id)
-          .sort()
-      ])
-      if (riskContexts[id] !== riskContext) humanInputs[id].risk_decision = 'keep_active'
-      riskContexts[id] = riskContext
-      if (result.review && reviewIds[id] !== result.review.id) {
-        if (!humanInputs[id].reply.trim() && !humanInputs[id].note.trim()) {
-          humanInputs[id].reply = result.review.staff_draft ?? ''
-          humanInputs[id].note = result.review.staff_note ?? ''
-        }
-        reviewIds[id] = result.review.id
-        if (humanRevisions[id] === undefined || (!humanInputs[id].reply.trim() && !humanInputs[id].note.trim()))
-          humanRevisions[id] = result.review.input_revision
-      }
-      if (!incomingInputs[id]) incomingInputs[id] = { subject: '', body: '' }
+      drafts.hydrate(id, result)
     } catch (error) {
-      if (id === selectedId.value && generation === detailGeneration)
-        detailError.value = errorMessage(error)
+      if (id !== selectedId.value || generation !== detailGeneration) return
+      if (error instanceof MailApiError && error.status === 404) {
+        contentInvalidations.invalidate([id])
+        selectedId.value = ''
+      }
+      detailError.value = mailErrorMessage(error)
     } finally {
       if (generation === detailGeneration) detailLoading.value = false
     }
@@ -137,16 +131,18 @@ export function createMailWorkbench(api: MailApi = mailApi) {
       return false
     }
     const id = snapshot.conversation.id
+    const contentGeneration = contentInvalidations.generation(id)
     const version = reviewVersion ? snapshot.review?.version : snapshot.conversation.row_version
     if (version === undefined) return false
     const payload: Record<string, unknown> = { ...input, expected_version: version }
-    const prepared = pending.prepare(path, input, payload)
+    const prepared = pending.prepareFor(id, path, input, payload)
     busy.value = true
     actionError.value = ''
     actionNotice.value = ''
     try {
       await api.command(path, prepared.payload, prepared.key, method)
       pending.complete(path)
+      if (contentGeneration !== contentInvalidations.generation(id)) return false
       if (id === selectedId.value) {
         actionNotice.value = notice
         await refreshDetail()
@@ -154,11 +150,12 @@ export function createMailWorkbench(api: MailApi = mailApi) {
       await refreshList()
       return true
     } catch (error) {
+      if (contentGeneration !== contentInvalidations.generation(id)) return false
       if (error instanceof MailApiError && error.status === 409) {
         pending.complete(path)
         if (id === selectedId.value) await refreshDetail()
       }
-      if (id === selectedId.value) actionError.value = errorMessage(error)
+      if (id === selectedId.value) actionError.value = mailErrorMessage(error)
       return false
     } finally {
       busy.value = false
@@ -262,6 +259,12 @@ export function createMailWorkbench(api: MailApi = mailApi) {
     selectedId,
     detail,
     conversation,
+    contentInvalidation,
+    dispose: unsubscribe,
+    forget: (id: string) => {
+      contentInvalidations.invalidate([id])
+      if (selectedId.value === id) selectedId.value = ''
+    },
     listLoading,
     detailLoading,
     busy,

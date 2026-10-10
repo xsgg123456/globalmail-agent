@@ -1,5 +1,7 @@
 # Development Plan — GlobalMail Agent
 
+2026-10-10 Phase12工程完成，待用户查看：会话/知识/图片删除、模拟分支重置、独立日志和联合恢复已交付。冻结后端500/500、前端101/101、两模式编译、实际GUI和[fresh第六轮两阶段独审](docs/verification/PHASE-12-REVIEW-6.md)通过；正式备份后升级0012_lifecycle，77旧业务表、70对象、22知识、源包与配置保留。见[本期验收](docs/verification/PHASE-12-VALIDATION.md)和[操作说明](docs/verification/LIFECYCLE-OPERATIONS.md)。早期一轮合成GUI schema/目录的清理被自动审批拒绝，已停用并记录例外；不影响正式功能。下一期Phase13；模型质量及82项AC仍未总验收。
+
 2026-10-10 Phase11工程完成：独立Langfuse自托管、实际run安全追踪与独立运行台入口已接入；后端451/451、前端91/91、编译/功能测试及[fresh两阶段独审](docs/verification/PHASE-11-REVIEW-4.md)通过。正式库备份后升级0011，77旧表、70对象和配置保留；本期隔离环境已清理，正式及观测服务留运行。见[实施规划](docs/planning/PHASE-11-IMPLEMENTATION.md)和[验收记录](docs/verification/PHASE-11-VALIDATION.md)。剩余Phase12–13未开始；真实模型业务失败和历史质量FAIL保留，82项AC仍待总验收。下方旧推进状态为历史，以本段为准。
 
 2026-10-10追加工作流授权：用户要求提交当前已验证改造到本地Git，覆盖此前不暂存/提交约束；不推送，保留私有配置、备份、临时目录和用户`.idea/`在提交之外。
@@ -24,7 +26,7 @@
 
 2026-10-09当前用户任务：先交付沿用现有前端的交互预览，明确允许假数据；按 [预览实施规划](docs/planning/UI-PREVIEW-IMPLEMENTATION.md) 制作邮件、独立运行台、业务中心与实验室，做编译、现有前端回归、浏览器交互和独立审查。该任务不推进 Phase11，不计正式 Agent 能力验收；用户看过预览后再确定正式解耦实施范围。
 
-版本：v1.0；进度更新：2026-10-10。状态：Phase 1本轮探索结束，保留未通过项；Phase 2–6各期技术验证及独立审查通过；Phase 7工程已实现并提交09a818f，模型质量与最终验收延期；Phase 8工程四步验证及独立两阶段审查通过，模型质量延期；Phase 9–11及14–16工程四步验证及独立两阶段审查通过；Phase 12–13未开始。
+版本：v1.0；进度更新：2026-10-10。状态：Phase 1本轮探索结束，保留未通过项；Phase 2–6各期技术验证及独立审查通过；Phase 7工程已实现并提交09a818f，模型质量与最终验收延期；Phase 8工程四步验证及独立两阶段审查通过，模型质量延期；Phase 9–12及14–16工程四步验证及独立两阶段审查通过；Phase 13未开始。
 
 本文件记录开发顺序、交付物、关键文件与验收归属。它不改变业务范围，不将已有数据、组件实验或设计审查折算为正式应用完成。Phase 1 结果见 [图片实验报告](docs/verification/VISUAL-VALIDATION.md)：35场景108次真实请求，仍有关键业务失败，标签人工核对待完成。
 
@@ -58,7 +60,7 @@
 | 15 | 逐次真实模型记录及独立客服建议 | 14 | 工程验证及fresh独审通过；历史未采集不反填，真实模型质量延期 |
 | 16 | 正式邮件/独立运行台接入与脚本/API验收 | 14、15 | 422后端/86前端、编译/GUI/CLI和fresh两阶段独审通过；[本期验证](docs/verification/FORMAL-WORKBENCH-REFACTOR-VALIDATION.md)，正式前后端已启动，待用户查看 |
 | 11 | 查看实际Langfuse追踪并验证观测降级 | 7、8、10、16 | 工程四步验证及fresh两阶段独审通过；[证据](docs/verification/PHASE-11-VALIDATION.md)，模型业务质量留13 |
-| 12 | 重置/删除、联合备份恢复及防止旧数据复活 | 3、6、8、10、11 | 未开始 |
+| 12 | 重置/删除、联合备份恢复及防止旧数据复活 | 3、6、8、10、11 | 工程四步验证及fresh两阶段独审通过；[验收](docs/verification/PHASE-12-VALIDATION.md)，正式0012保旧，待用户查看 |
 | 13 | 七类业务、图片和故障回归通过，交付本地运行说明 | 1–12 | 未开始 |
 
 ```mermaid
@@ -278,7 +280,7 @@ Phase 2结果：[验证记录](docs/verification/PHASE-2-VALIDATION.md)、[独�
 **关键文件（新增）**：
 - `globalmail-agent/backend/src/globalmail_agent/application/lifecycle.py`、`globalmail-agent/backend/src/globalmail_agent/application/deletion.py`、`globalmail-agent/backend/src/globalmail_agent/application/restore.py`、`globalmail-agent/backend/src/globalmail_agent/worker/cleanup_runner.py`、`globalmail-agent/backend/src/globalmail_agent/observability/purge.py` — 删除编排、依赖枚举、导出停写与恢复门禁。
 - `globalmail-agent/backend/src/globalmail_agent/api/lifecycle.py`、`globalmail-agent/backend/src/globalmail_agent/adapters/deletion_journal.py`、`globalmail-agent/backend/src/globalmail_agent/adapters/backup_store.py` — 影响预览、持久journal及备份。
-- `globalmail-agent/backend/migrations/versions/0010_lifecycle_verification.py`、`globalmail-agent/scripts/backup-local.ps1`、`globalmail-agent/scripts/restore-local.ps1` — 清理验证状态与封闭恢复入口，两个脚本均在scripts目录。
+- `globalmail-agent/backend/migrations/versions/0012_lifecycle.py`、`globalmail-agent/scripts/backup-local.ps1`、`globalmail-agent/scripts/restore-local.ps1`、`globalmail-agent/scripts/replay-journal-local.ps1` — 接0011的清理验证状态、联合恢复和离线事务崩溃重放入口。
 - `globalmail-agent/frontend/src/components/shared/DeletionDialog.vue`、`globalmail-agent/frontend/src/components/shared/DeletionStatus.vue` — 分开下架/撤销和彻底删除，取消确认不改变数据。
 
 **验收标准**：真实PG、对象目录、checkpoint和已部署观测服务联合执行FT-11/15，晚到响应/检查点/SDK缓冲不能复活正文；清理失败保持失败且可重试。共享PDF不能安全分离则blocked_dependencies，不伪称完成；旧备份缺最新删除水位不开放。验证源包摘要、其他分支和已发生操作去重均不变；明确外部文件/供应商/离线备份不属于本地完成承诺。
@@ -424,4 +426,4 @@ PyPI固定版本元数据已核验FastAPI、LangGraph、checkpoint-postgres、la
 - 每阶段报告更新`docs/verification/ACCEPTANCE-RESULTS.md`的对应部分或模块实验报告，维护本文件阶段状态及`docs/planning/SESSION-HANDOFF.md`。AC满足全部条件后才勾选；历史设计审查和实验原始结果保持原结论。
 - 运行产生的含正文/图像/模型请求原始证据放Git忽略的`.local-data/`或`tmp/`；仓库只保留复核后的合成样本、去敏汇总与证据摘要。新增专题文档归`docs/`，模块README随源码，根目录保留约定五份Markdown。
 
-当前入口：Phase11实际观测工程验证和fresh两阶段独审通过，见[验证记录](docs/verification/PHASE-11-VALIDATION.md)与[独立审查](docs/verification/PHASE-11-REVIEW-4.md)；下一期Phase12完整删除、重置与联合恢复。Phase12实施前须按当前0011 head重新确定增量迁移编号，旧关键文件中的0010_lifecycle_verification仅为历史计划，不可直接复用。Phase1/7/8模型质量、原51业务语义及21完整旅程按用户决定在完整链路后统一回归，全部首版范围以Phase13总验收为完成门槛。
+当前入口：Phase12删除、重置与联合恢复工程验证通过，正式head为0012_lifecycle；见[验收](docs/verification/PHASE-12-VALIDATION.md)。下一期Phase13集中处理Phase1/7/8模型质量、原51业务语义、21完整旅程及82项AC；历史质量FAIL保留，全部首版范围仍以Phase13总验收为完成门槛。

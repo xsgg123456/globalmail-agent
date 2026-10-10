@@ -1,0 +1,27 @@
+{
+  "http_status": {
+    "api_ready": 200,
+    "proxy_ready": 200,
+    "formal_ui": 200,
+    "observability": 200,
+    "original_preview": 200,
+    "lifecycle_history": 200
+  },
+  "isolated_schemas_remaining": [
+    "phase12_browser_ca1031205ca740bc9046e3b824b16c42"
+  ],
+  "formal_active_jobs": 0,
+  "formal_deletion_requests": 0,
+  "current_test_directory_removed": true,
+  "previous_test_directory_removed": false,
+  "model_calls_for_phase12_verification": 0,
+  "backup_folder": "before-0012-20261010-223426",
+  "cleanup_exception": {
+    "reason": "Automatic approval rejected cleanup command: blocked by policy",
+    "retained_schema": "phase12_browser_ca1031205ca740bc9046e3b824b16c42",
+    "retained_directory": "tmp/globalmail_phase12_browser_r0kfaxmr",
+    "test_ports_closed": true,
+    "browsers_closed": true,
+    "contents": "synthetic Phase12 GUI test data"
+  }
+}

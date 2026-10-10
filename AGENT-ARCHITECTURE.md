@@ -389,6 +389,12 @@ Markdown直接读结构；政策JSON通过schema及语义校验生成只读说�
 
 ### 7.3 下架、删除与恢复
 
+浏览器撤销契约：彻底删除响应的impact.conversation_ids包含受影响会话，journal_seq作为去重水位；撤销事务同步写content.revoked事件，其外层conversation_id在正文清理后仍有效。会话列表/详情返回content_revision（该会话删除请求的最大journal_seq），用于漏收事件、外部API操作后的读取兜底。已撤销人审记录从撤销时即不返回；前端清理相关草稿、建议、运行缓存及晚到请求，同源标签页只传ID与水位，不误清无关会话草稿。
+
+附件或知识删除完成后，保留会话仍允许继续处理：若旧人审已清理，人工接管可重新建立空白人审，不因human_claimed历史状态禁用入口；清理未完成时正文写门仍拒绝写入。
+
+2026-10-10 Phase12实施细化：新迁移0012_lifecycle；外部删除/撤销日志先持久化，业务事务同写journal_receipts。日志水位领先事务回执或日志缺失/损坏时封闭API和worker，显式重放后核验才恢复。联合备份要求离线无其他连接、锁定业务表与独立日志；恢复只允许全新数据库及对象目录，默认封闭，重放最新撤销/删除并检查对象/有效索引/任务写门后开放。不原地覆盖正式数据。具体步骤见[Phase12规划](docs/planning/PHASE-12-IMPLEMENTATION.md)，本段不是验收通过声明。
+
 下架事务设置document撤销代次、更新发布head并停止相关任务资格，完成后即阻止新检索/未提交结果；物理向量清理可异步。迟到任务在产物登记和ready/发布阶段都校验document fence、job fence及输入摘要；不能靠旧缓存恢复资料。
 
 删除使用 `DeletionRequest`：`revoked → purging → verifying → completed`，失败进入`cleanup_failed / blocked_dependencies`可重试。维护衍生依赖清单，覆盖原件副本、解析文本/图片、规范块、向量/Embedding缓存、引用正文、工具结果、Graph checkpoint、CaseState摘要、Draft、模拟邮件及本地trace副本；只留无正文的删除记录与占位引用。知识正文返回给run前先登记内容依赖，不能只登记最终引用：模型看过但未引用的正文也可能进入摘要/回复；无法细分时按整个依赖run/摘要保守清理。共享输入对应多个资料时按引用关系处理，不能直接删除其他文档。

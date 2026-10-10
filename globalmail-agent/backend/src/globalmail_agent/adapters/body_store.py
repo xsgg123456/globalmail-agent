@@ -25,6 +25,9 @@ class BodyWriter:
         return self.put_bytes(conn, conversation, body.encode("utf-8"), source, derived_from)
 
     def put_bytes(self, conn, conversation, content, source, derived_from=()):
+        from globalmail_agent.application.content_fence import check_conversation_write, check_objects
+        check_conversation_write(conn, conversation)
+        check_objects(conn, conversation, derived_from, writing=True)
         object_id = uuid4()
         path = self.store._path(object_id)
         temporary = None
@@ -55,8 +58,8 @@ def read_body(conn, store, conversation, object_id):
     try:
         return read_bytes(conn, store, conversation, object_id).decode("utf-8")
     except ServiceError as error:
-        if error.code == "image_content_revoked":
-            return REDACTED
+        if error.code in {"image_content_revoked", "content_deleted"}:
+            return REDACTED if error.code == "image_content_revoked" else "（内容已删除）"
         raise
 
 

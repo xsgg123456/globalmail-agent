@@ -138,6 +138,8 @@ class ReleaseService:
             slot_for_update(conn, self.workspace_id, "knowledge")
             current = self._head(conn, command.expected_release_epoch)
             doc = document(conn, self.workspace_id, identity, command.expected_version, True)
+            from globalmail_agent.application.revocation_log import record_revocation
+            record_revocation(conn, self.store, self.workspace_id, "document", identity)
             invalidate_document_jobs(conn, self.workspace_id, doc)
             epoch = doc["revocation_epoch"] + 1
             conn.execute(documents.update().where(documents.c.id == identity).values(withdrawn=True, revocation_epoch=epoch,

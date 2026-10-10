@@ -1,0 +1,15 @@
+test_database_failure_and_missing_table_are_degraded (test_postgres.PostgresTests.test_database_failure_and_missing_table_are_degraded) ... ok
+test_every_scope_dimension_is_enforced (test_postgres.PostgresTests.test_every_scope_dimension_is_enforced) ... ok
+test_failed_journal_query_cannot_report_ready_after_database_recovers (test_postgres.PostgresTests.test_failed_journal_query_cannot_report_ready_after_database_recovers) ... ok
+test_migration_repeat_restart_and_ready (test_postgres.PostgresTests.test_migration_repeat_restart_and_ready) ... ok
+test_missing_schema_and_unwritable_store_degraded (test_postgres.PostgresTests.test_missing_schema_and_unwritable_store_degraded) ... ok
+test_path_and_digest_protection (test_postgres.PostgresTests.test_path_and_digest_protection) ... ok
+test_source_dependency_and_scope_database_constraint (test_postgres.PostgresTests.test_source_dependency_and_scope_database_constraint) ... ok
+test_preview_cancel_confirm_retry_and_deleted_read (test_lifecycle_api.LifecycleApiTests.test_preview_cancel_confirm_retry_and_deleted_read) ... ok
+test_restore_marker_blocks_reads_and_writes (test_lifecycle_api.LifecycleApiTests.test_restore_marker_blocks_reads_and_writes) ... ok
+test_uncommitted_external_tombstone_closes_http (test_lifecycle_api.LifecycleApiTests.test_uncommitted_external_tombstone_closes_http) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 35.790s
+
+OK

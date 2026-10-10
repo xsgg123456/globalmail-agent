@@ -10,6 +10,8 @@ from globalmail_agent.application.conversation_lock import ServiceError
 class QueryMixin:
     def present_conversation(self, conn, row):
         result = dict(row)
+        from globalmail_agent.application.content_revision import revoked_content
+        result['content_revision'] = revoked_content(conn, row)[0]
         identity = conn.execute(select(identities).where(identities.c.id == row["identity_id"])).mappings().one()
         result.update(mode="interactive_simulation" if row["mode"] == "simulation" else row["mode"],
                       sender_key=identity["sender_key"], identity_verified=identity["verified"])
@@ -25,7 +27,7 @@ class QueryMixin:
                 objects.c.id == row[field + "_object_id"])).scalar_one_or_none()
             result["staff_" + field] = result[field] if source == "human_" + field else ""
         from globalmail_agent.attachments.revocation import REDACTED
-        if REDACTED in (result["draft"], result["note"], result["reply"]):
+        if any(value in {REDACTED, "（内容已删除）"} for value in (result["draft"], result["note"], result["reply"])):
             result["reason"] = REDACTED
         return result
 
@@ -73,6 +75,9 @@ class QueryMixin:
                     item["attachments"] = list_message_attachments(conn, conversation, item["id"])
                 reviews = list(conn.execute(select(human_reviews).where(human_reviews.c.conversation_id == conversation_id)
                                            .order_by(human_reviews.c.created_at)).mappings())
+                from globalmail_agent.application.content_revision import revoked_content
+                revoked_reviews = revoked_content(conn, conversation)[1]
+                reviews = [row for row in reviews if str(row['id']) not in revoked_reviews]
                 current = next((r for r in reversed(reviews) if r["status"] == "open"), None)
                 facts = list(conn.execute(select(case_facts).where(case_facts.c.conversation_id == conversation_id,
                     case_facts.c.visible_seq <= conversation["visible_message_seq"])).mappings())

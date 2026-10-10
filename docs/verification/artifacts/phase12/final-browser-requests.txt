@@ -1,0 +1,9 @@
+### Result
+1. [GET] http://127.0.0.1:15179/api/v1/health/live => [200] OK
+2. [GET] http://127.0.0.1:15179/api/v1/health/ready => [200] OK
+3. [GET] http://127.0.0.1:15179/api/v1/runtime-config => [200] OK
+4. [GET] http://127.0.0.1:15179/api/v1/knowledge/catalog => [200] OK
+5. [GET] http://127.0.0.1:15179/api/v1/knowledge/documents => [200] OK
+6. [GET] http://127.0.0.1:15179/api/v1/lifecycle/requests => [200] OK
+7. [POST] http://127.0.0.1:15179/api/v1/lifecycle/requests/01707b19-5a41-4ea7-8c3c-fa19031673eb/retry => [202] Accepted
+8. [GET] http://127.0.0.1:15179/api/v1/lifecycle/requests => [200] OK

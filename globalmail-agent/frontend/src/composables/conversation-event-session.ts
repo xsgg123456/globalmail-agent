@@ -1,3 +1,4 @@
+import { revokeConversationContent } from './content-invalidations'
 import type { ConversationEvent } from '../api/mail-agent-contract'
 
 export interface EventScope {
@@ -69,6 +70,7 @@ export class ConversationEventSession {
         const parsed = readConversationEvent(event.data, scope, lastSeq)
         if (parsed) {
           lastSeq = parsed.seq
+          if (parsed.kind === 'content.revoked') revokeConversationContent([parsed.conversation_id])
           onUpdate(parsed)
         }
       } catch {

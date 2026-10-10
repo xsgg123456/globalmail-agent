@@ -1,0 +1,6 @@
+test_inflight_model_drains_before_deleted_content_can_complete (test_lifecycle_drain.WriterDrainTests.test_inflight_model_drains_before_deleted_content_can_complete) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 6.281s
+
+OK

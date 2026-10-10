@@ -1,0 +1,27 @@
+{
+  "code": 202,
+  "msg": "ok",
+  "data": {
+    "id": "a33b82c6-f622-425c-957b-d0f2302080f3",
+    "request_id": "a33b82c6-f622-425c-957b-d0f2302080f3",
+    "status": "blocked_dependencies",
+    "target_type": "document",
+    "target_id": "bdcdb05c-e9a6-41e4-ba33-5d66e9ebb503",
+    "action": "delete",
+    "new_conversation_id": null,
+    "impact": {
+      "objects": 1,
+      "runs": 0,
+      "conversations": 0,
+      "versions": 1,
+      "blocked_document_ids": [
+        "cbbd4295-8e0b-4d36-aa2e-10f900e0099c"
+      ],
+      "external_copies_included": false,
+      "business_ledger_retained": true,
+      "branch_reservations_released": false
+    },
+    "error_code": "shared_source_requires_separation"
+  },
+  "request_id": "95ebc116-166e-4285-a934-a4d651a94c13"
+}

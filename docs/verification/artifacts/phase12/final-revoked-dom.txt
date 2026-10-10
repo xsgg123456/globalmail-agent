@@ -1,0 +1,10 @@
+### Result
+{
+  "bodyPresent": false,
+  "draftPresent": false,
+  "storageDraft": false
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => ({bodyPresent:document.body.innerText.includes("PHASE12_DELETE_SENTINEL"),draftPresent:[...document.querySelectorAll("textarea")].some(x=>x.value.includes("PHASE12_DRAFT_SENTINEL")),storageDraft:JSON.stringify(localStorage).includes("PHASE12_DRAFT_SENTINEL")})');
+```

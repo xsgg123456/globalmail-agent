@@ -18,6 +18,7 @@ from globalmail_agent.application.risk_handoff import risk_handoff
 from globalmail_agent.application.conversation_lock import ServiceError
 from globalmail_agent.application.event_store import append_ui_event
 from globalmail_agent.worker.leases import LeaseService, db_now, slot_for_update, release_slot
+from globalmail_agent.application.writer_barrier import guarded_writer
 
 logger = logging.getLogger(__name__)
 
@@ -36,6 +37,10 @@ class AgentRunner:
         self.thread = Thread(target=self.run, name="globalmail-agent", daemon=True)
 
     def start(self):
+        from globalmail_agent.application.restore import assert_restore_open
+        assert_restore_open(self.store.root)
+        from globalmail_agent.application.journal_gate import assert_journal_current
+        assert_journal_current(self.engine, self.store)
         self.thread.start()
 
     def close(self):
@@ -51,7 +56,12 @@ class AgentRunner:
                 conn.execute(sa.insert(trace_correlations).values(id=uuid4(), **{k: conv[k] for k in SCOPE_KEYS},
                     conversation_id=conv["id"], run_id=run["id"], trace_id=uuid4().hex, export_status="local_only"))
 
+    @guarded_writer
     def execute(self, job):
+        from globalmail_agent.application.restore import assert_restore_open
+        assert_restore_open(self.store.root)
+        from globalmail_agent.application.journal_gate import assert_journal_current
+        assert_journal_current(self.engine, self.store)
         prior = existing_outcome(self.engine, self.workspace_id, job)
         if prior:
             return prior
