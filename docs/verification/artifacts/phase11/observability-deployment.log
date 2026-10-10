@@ -1,0 +1,7 @@
+clickhouse healthy; image locked; project isolated
+langfuse-web healthy; image locked; project isolated
+langfuse-worker healthy; image locked; project isolated
+minio healthy; image locked; project isolated
+postgres healthy; image locked; project isolated
+redis healthy; image locked; project isolated
+HTTP health OK; authenticated project globalmail-agent-local; anonymous rejected (401); UI login OK

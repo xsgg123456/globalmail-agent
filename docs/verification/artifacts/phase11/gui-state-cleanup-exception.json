@@ -1,0 +1,8 @@
+{
+  "AutomaticApprovalRejectedDelete": true,
+  "ToolReason": "blocked by policy",
+  "PrivateGuiAuthFileRetained": true,
+  "AclProtected": true,
+  "UnexpectedPrincipals": 0,
+  "PrivateOrTemporaryPathsWillBeExcludedFromGit": true
+}

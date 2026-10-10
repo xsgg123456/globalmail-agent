@@ -4,7 +4,9 @@
 
 ## 根目录入口
 
-2026-10-10最新进度：已按批准预览完成正式14–16工程改造，422后端/86前端、编译/GUI/CLI及fresh两阶段独审通过；0010正式迁移保旧、15173/18080已启动。具体任务见[实施规划](planning/WORKBENCH-REFACTOR-IMPLEMENTATION.md)、[验证](verification/FORMAL-WORKBENCH-REFACTOR-VALIDATION.md)、[最终独审](verification/FORMAL-WORKBENCH-REFACTOR-REVIEW-FINAL.md)和[脚本/API入口](verification/WORKBENCH-API-TESTING.md)。用户已追加授权本地Git提交，不推送；11–13及真实模型质量未完成，旧报告保留历史。
+2026-10-10最新进度：Phase11工程完成，451后端/91前端、编译/实际故障与GUI及[fresh两阶段独审](verification/PHASE-11-REVIEW-4.md)通过；正式0011保旧，隔离验收环境已清理，正式15173/18080、观测3001及原预览15175保留。见[实施规划](planning/PHASE-11-IMPLEMENTATION.md)和[验收记录](verification/PHASE-11-VALIDATION.md)。剩余Phase12–13；真实模型业务失败、历史质量FAIL及82项AC最终验收仍保留。允许本地Git提交，不推送。
+
+2026-10-10 Phase11之前的历史交付：已按批准预览完成正式14–16工程改造，422后端/86前端、编译/GUI/CLI及fresh两阶段独审通过；0010正式迁移保旧、15173/18080已启动。具体任务见[实施规划](planning/WORKBENCH-REFACTOR-IMPLEMENTATION.md)、[验证](verification/FORMAL-WORKBENCH-REFACTOR-VALIDATION.md)、[最终独审](verification/FORMAL-WORKBENCH-REFACTOR-REVIEW-FINAL.md)和[脚本/API入口](verification/WORKBENCH-API-TESTING.md)。用户已追加授权本地Git提交，不推送；11–13及真实模型质量未完成，旧报告保留历史。
 
 2026-10-09历史推进：用户要求先跑通完整项目，停止Phase7核验局部优化，Phase8–10工程验证通过；当时下一期Phase11。其后用户批准本轮14–16先改造，当前进度以上方为准。模型质量与最终验收延期，原FAIL、拒发与权限门保持。工程验证不等于全部产品验收通过。
 
@@ -51,6 +53,9 @@
 | verification | [WORKBENCH-DECOUPLING-REVIEW.md](verification/WORKBENCH-DECOUPLING-REVIEW.md) | 邮件工作台、Agent展示、业务及模拟入口的独立范围排查；区别现有Spec合规、新诉求差距与源码风险 |
 | verification | [DOCUMENT-CONSISTENCY-REVIEW.md](verification/DOCUMENT-CONSISTENCY-REVIEW.md) | 本轮文档偏差、修订依据及开发计划覆盖自检 |
 | planning | [SESSION-HANDOFF.md](planning/SESSION-HANDOFF.md) | 当前进度、已有产出、未完成项和下一步 |
+| planning | [PHASE-11-IMPLEMENTATION.md](planning/PHASE-11-IMPLEMENTATION.md) | 自托管观测、安全导出、独立运行台、真实模型/故障和正式保旧的五项任务 |
+| verification | [PHASE-11-VALIDATION.md](verification/PHASE-11-VALIDATION.md)、[最终fresh审查](verification/PHASE-11-REVIEW-4.md) | Phase11工程四步及Stage1/2通过、真实Qwen业务失败保留、v4单发/父拓扑与正式0011保旧、隔离清理证据 |
+| verification | [Phase11前端原FAIL](verification/PHASE-11-FRONTEND-REVIEW.md)、[整体原FAIL](verification/PHASE-11-REVIEW.md)、[第二轮FAIL](verification/PHASE-11-REVIEW-FINAL.md)、[第三轮FAIL](verification/PHASE-11-REVIEW-CLOSED.md) | 旧链接HIGH、图文父关系、验收脚本只读及已有加载空记录MEDIUM；FINAL/CLOSED不表示通过，旧结论不覆盖 |
 | planning | [WORKBENCH-DECOUPLING-PROPOSAL.md](planning/WORKBENCH-DECOUPLING-PROPOSAL.md) | 用户选择独立Agent运行台后的页面/状态/API职责拆分建议、逐次模型记录及实施验收；尚未实施 |
 | planning | [UI-PREVIEW-IMPLEMENTATION.md](planning/UI-PREVIEW-IMPLEMENTATION.md) | 当前v1.17业务收敛预览步骤：四类只读/持续人工、删除业务中心/实验室、脚本/API；下方旧四类页面是历史 |
 | verification | [UI-PREVIEW-VALIDATION.md](verification/UI-PREVIEW-VALIDATION.md)、[独立审查](verification/UI-PREVIEW-REVIEW.md) | 15175隔离交互预览的编译、64项回归、真实点击、明暗宽窄及阅读位置修复证据 |

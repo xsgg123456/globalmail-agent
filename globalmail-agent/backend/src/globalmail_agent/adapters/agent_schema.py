@@ -90,7 +90,13 @@ wake_pending = child("wake_pending", sa.Column("condition_key", sa.String(200), 
     sa.Column("business_version", sa.BigInteger, nullable=False), sa.Column("status", sa.String(24), nullable=False),
     sa.Column("observed_run_id", sa.Uuid), sa.UniqueConstraint("conversation_id", "condition_key"))
 trace_correlations = run_child("trace_correlations", sa.Column("trace_id", sa.String(64), nullable=False),
-    sa.Column("export_status", sa.String(24), nullable=False), sa.UniqueConstraint("run_id"))
+    sa.Column("export_status", sa.String(24), nullable=False),
+    sa.Column("reason_code", sa.String(80)),
+    sa.Column("export_object_id", sa.Uuid), object_fk("export_object_id"),
+    sa.Column("generation", sa.BigInteger, nullable=False, server_default="1"),
+    sa.Column("attempts", sa.Integer, nullable=False, server_default="0"),
+    sa.Column("pending_count", sa.Integer, nullable=False, server_default="0"),
+    sa.UniqueConstraint("run_id"))
 agent_risks = run_child("agent_risks", sa.Column("kind", sa.String(40), nullable=False),
     sa.Column("status", sa.String(40), nullable=False), sa.Column("body_object_id", sa.Uuid, nullable=False),
     object_fk("body_object_id"), sa.Column("resolution_review_id", sa.Uuid), fk("human_reviews", "resolution_review_id"),

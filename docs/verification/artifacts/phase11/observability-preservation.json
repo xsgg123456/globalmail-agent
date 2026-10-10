@@ -1,0 +1,17 @@
+{
+  "verified_at": "2026-10-10T01:42:37.2250247Z",
+  "project": "globalmail-agent-observability",
+  "base_url": "http://127.0.0.1:3001",
+  "langfuse_release": "v4.56.0",
+  "services_healthy": 6,
+  "api_project_authentication": "PASS",
+  "anonymous_projects_status": 401,
+  "ui_login": "PASS",
+  "credentials_preserved": "PASS",
+  "volumes_preserved": 5,
+  "retention_trace_id": "8615d2ce8f6c4d7ea99dd5950dd32740",
+  "retention_api": "v2/observations",
+  "business_postgres_unchanged": "PASS",
+  "private_acl": "protected/current-user,SYSTEM,Administrators",
+  "model_quality": "not assessed"
+}

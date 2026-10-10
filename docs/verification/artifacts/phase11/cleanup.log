@@ -1,0 +1,31 @@
+{
+  "owned_schema": "phase11_browser_287a5f1bd5634c7ca4216952a916108f",
+  "owned_schema_absent": true,
+  "owned_fixture_directory_absent": true,
+  "owned_stop_file_absent": true,
+  "isolated_ports_closed": {
+    "18188": true,
+    "15178": true
+  },
+  "temporary_gui_auth_state_absent": false,
+  "temporary_gui_auth_cleanup": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+  "retained_gui_auth_is_private_and_excluded_from_git": true,
+  "private_actual_model_records_retained": true,
+  "formal_revision": "0011_observability",
+  "retained_services_http_status": {
+    "formal_api": 200,
+    "formal_proxy": 200,
+    "preview": 200,
+    "observability": 200
+  },
+  "formal_readiness": {
+    "formal_api": "ready",
+    "formal_proxy": "ready"
+  },
+  "verdict": "PASS_WITH_PRIVATE_GUI_AUTH_RETAINED"
+}
+{
+  "files_compared": 283,
+  "changed_files": [],
+  "matches_final_full_test_source": true
+}

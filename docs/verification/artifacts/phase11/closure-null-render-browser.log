@@ -1,0 +1,12 @@
+[     270ms] [ERROR] [VueError] TypeError: Cannot read properties of null (reading 'model_calls')
+    at executionSteps (http://127.0.0.1:15178/src/components/agent-runtime/run-presentation.ts:26:26)
+    at ComputedRefImpl.fn (http://127.0.0.1:15178/src/composables/use-agent-console.ts:16:73)
+    at refreshComputed (http://127.0.0.1:15178/node_modules/.vite/deps/chunk-OWHZE6EB.js?v=89252ffa:659:29)
+    at get value (http://127.0.0.1:15178/node_modules/.vite/deps/chunk-OWHZE6EB.js?v=89252ffa:1861:5)
+    at ComputedRefImpl.fn (http://127.0.0.1:15178/src/composables/use-agent-console.ts:17:37)
+    at refreshComputed (http://127.0.0.1:15178/node_modules/.vite/deps/chunk-OWHZE6EB.js?v=89252ffa:659:29)
+    at get value (http://127.0.0.1:15178/node_modules/.vite/deps/chunk-OWHZE6EB.js?v=89252ffa:1861:5)
+    at unref (http://127.0.0.1:15178/node_modules/.vite/deps/chunk-OWHZE6EB.js?v=89252ffa:1734:30)
+    at Object.get (http://127.0.0.1:15178/node_modules/.vite/deps/chunk-OWHZE6EB.js?v=89252ffa:1740:64)
+    at Proxy._sfc_render (http://127.0.0.1:15178/src/views/agent-runs/index.vue?t=1791596397337:496:22) render function Proxy(Object) @ http://127.0.0.1:15178/src/utils/sys/error-handle.ts:27
+[   63900ms] [ERROR] Failed to load resource: the server responded with a status of 503 (Service Unavailable) @ http://127.0.0.1:15178/api/v1/observability/runs/e214058a-eefb-4346-a35b-b8ce3f43a33b:0

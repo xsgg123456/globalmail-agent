@@ -10,16 +10,18 @@ import { agentReadingPositions } from './agent-reading-state'
 export function useAgentConsole() {
   const route = useRoute(), router = useRouter(), work = useMailWorkbench()
   const loadedRecord = ref<AgentRunDetail | null>(null), error = ref(''), loading = ref(false)
+  const traceRevision = ref(0)
   let generation = 0
   const rounds = computed(() => conversationRounds(work.detail.value?.runs ?? []))
   const run = computed(() => route.query.run_id
     ? work.detail.value?.runs.find((item) => item.id === route.query.run_id)
     : work.detail.value?.runs.at(-1))
   const record = computed(() => loadedRecord.value?.run.id === run.value?.id ? loadedRecord.value : null)
-  const steps = computed(() => record.value?.run.id === run.value?.id ? executionSteps(record.value!) : [])
+  const steps = computed(() => record.value ? executionSteps(record.value) : [])
   const step = computed(() => steps.value.find((item) => item.id === route.query.step_id) ?? steps.value[0])
   async function refreshRun() {
     if (route.path !== '/agent-runs') return
+    traceRevision.value++
     const id = run.value?.id, current = ++generation
     if (!id) {
       loadedRecord.value = null; loading.value = false
@@ -67,7 +69,7 @@ export function useAgentConsole() {
   watch(() => run.value?.id, refreshRun)
   const events = useConversationEvents(work.conversation, async () => {
     await work.refreshDetail(); await work.refreshList(); await refreshRun()
-  })
+  }, () => { traceRevision.value++ })
   onMounted(async () => {
     await work.refreshList()
     if (!route.query.conversation_id && typeof route.query.run_id === 'string') {
@@ -80,6 +82,6 @@ export function useAgentConsole() {
       await selectConversation(work.items.value[0].id)
     await synchronize()
   })
-  return { work, record, error, loading, rounds, run, steps, step, events,
+  return { work, record, error, loading, rounds, run, steps, step, events, traceRevision,
     refreshRun, selectConversation, selectRun, selectStep, openMail }
 }

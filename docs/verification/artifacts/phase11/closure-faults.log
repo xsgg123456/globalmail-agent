@@ -1,0 +1,9 @@
+test_generation_revokes_pending_without_rerun (__main__.ReviewFaults.test_generation_revokes_pending_without_rerun) ... ok
+test_revoke_during_send_wins_over_http_success (__main__.ReviewFaults.test_revoke_during_send_wins_over_http_success) ... ok
+test_crash_after_acceptance_resolves_existing_receipt_without_resend (__main__.ReviewFaults.test_crash_after_acceptance_resolves_existing_receipt_without_resend) ... ok
+test_concurrent_export_claim_sends_once (__main__.ReviewFaults.test_concurrent_export_claim_sends_once) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 14.510s
+
+OK

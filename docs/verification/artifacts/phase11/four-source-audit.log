@@ -1,0 +1,33 @@
+warning: in the working copy of 'AGENT-ARCHITECTURE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'DEV-PLAN.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/planning/SESSION-HANDOFF.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/.env.example', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/pyproject.toml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/adapters/agent_schema.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/adapters/database.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/agent/context.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/agent/graph.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/agent/tool_gateway.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/application/commit_outcome.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/observability/sanitization.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/settings.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/src/globalmail_agent/worker/agent_runner.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/backend/uv.lock', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/scripts/local-common.ps1', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/scripts/mail-test-api.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/scripts/phase3-test-server.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/scripts/start-local.ps1', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'globalmail-agent/scripts/start-workbench-test.ps1', LF will be replaced by CRLF the next time Git touches it
+{
+  "backend_frozen_files": 283,
+  "backend_mismatches": [],
+  "changed_program_file_count": 52,
+  "over_300_lines": [],
+  "security_scan_locations": {},
+  "guard_matches_current_verifier": true,
+  "restore_business_unchanged": true,
+  "restore_no_reexecution": true,
+  "all_generation_cost_unknown": true
+}

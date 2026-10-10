@@ -1,0 +1,43 @@
+### Ran Playwright code
+```js
+await (async (page) => {
+  await page.unrouteAll({ behavior: 'wait' });
+  await page.getByRole('menuitem', { name: '知识库', exact: true }).click();
+  await page.getByRole('heading', { name: '知识库', exact: true }).waitFor();
+  const errors = [];
+  const handler = error => errors.push(String(error));
+  page.on('pageerror', handler);
+  await page.route('**/api/v1/conversations**', async route => {
+    await new Promise(resolve => setTimeout(resolve, 700));
+    await route.continue();
+  });
+  await page.getByRole('menuitem', { name: 'Agent 运行台', exact: true }).click();
+  await new Promise(resolve => setTimeout(resolve, 120));
+  await page.screenshot({ path: 'docs/verification/artifacts/phase11/four-return-loading-light.png' });
+  await page.getByRole('heading', { name: '执行过程', exact: true }).waitFor({ timeout: 15000 });
+  await new Promise(resolve => setTimeout(resolve, 1100));
+  await page.unroute('**/api/v1/conversations**');
+  await page.getByText('观测已降级', { exact: true }).waitFor({ timeout: 10000 });
+  const widths = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth }));
+  await page.screenshot({ path: 'docs/verification/artifacts/phase11/four-return-ready-light.png' });
+  console.log(JSON.stringify({ navigation: 'knowledge -> production agent console', genuine_get_delayed: true,
+    page_errors: errors, width: widths.width, scrollWidth: widths.scrollWidth }));
+  await page.evaluate(proof => { window.__fourNavigation = proof; }, { navigation: 'knowledge -> production agent console',
+    genuine_get_delayed: true, page_errors: errors, width: widths.width, scrollWidth: widths.scrollWidth });
+  page.off('pageerror', handler);
+}
+
+)(page);
+```
+### Open tabs
+- 0: [Agent 运行台 - GlobalMail Agent](http://127.0.0.1:15178/#/agent-runs?conversation_id=60fc6cc3-33c6-4314-bdfa-563b3ade3dfa&run_id=7ca3a33a-3b2f-45e7-9950-5e865540d928&step_id=ef71fec5-3f0d-4eef-bf8f-2d4ffb3241d6)
+- 1: (current) [Agent 运行台 - GlobalMail Agent](http://127.0.0.1:15178/#/agent-runs?conversation_id=60fc6cc3-33c6-4314-bdfa-563b3ade3dfa&run_id=7ca3a33a-3b2f-45e7-9950-5e865540d928)
+### Page
+- Page URL: http://127.0.0.1:15178/#/agent-runs?conversation_id=60fc6cc3-33c6-4314-bdfa-563b3ade3dfa&run_id=7ca3a33a-3b2f-45e7-9950-5e865540d928
+- Page Title: Agent 运行台 - GlobalMail Agent
+### Result
+"{\"navigation\":\"knowledge -> production agent console\",\"genuine_get_delayed\":true,\"page_errors\":[],\"width\":1920,\"scrollWidth\":1920}"
+### Ran Playwright code
+```js
+await page.evaluate('() => (JSON.stringify(window.__fourNavigation))');
+```

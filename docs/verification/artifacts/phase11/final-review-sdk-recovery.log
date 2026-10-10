@@ -1,0 +1,28 @@
+test_equal_start_child_completed_first_keeps_actual_parent_dependency (test_observability_sdk.SdkBoundaryTests.test_equal_start_child_completed_first_keeps_actual_parent_dependency) ... ok
+test_http_rejection_and_partial_rejection_are_real_failure (test_observability_sdk.SdkBoundaryTests.test_http_rejection_and_partial_rejection_are_real_failure) ... Failed to export spans batch code: 400, reason: observability_http_rejected
+ok
+test_missing_or_cyclic_parent_fails_before_sdk_media_or_http (test_observability_sdk.SdkBoundaryTests.test_missing_or_cyclic_parent_fails_before_sdk_media_or_http) ... ok
+test_network_timeout_is_bounded_and_cannot_mark_success (test_observability_sdk.SdkBoundaryTests.test_network_timeout_is_bounded_and_cannot_mark_success) ... Failed to export spans batch code: 400, reason: observability_transport_failed
+ok
+test_non_loopback_config_and_embedded_credentials_are_rejected (test_observability_sdk.SdkBoundaryTests.test_non_loopback_config_and_embedded_credentials_are_rejected) ... ok
+test_official_v4_events_only_json_queue_receipt_is_acknowledged (test_observability_sdk.SdkBoundaryTests.test_official_v4_events_only_json_queue_receipt_is_acknowledged) ... ok
+test_original_times_parent_tree_and_single_generation_usage_in_actual_http (test_observability_sdk.SdkBoundaryTests.test_original_times_parent_tree_and_single_generation_usage_in_actual_http) ... ok
+test_raw_exception_context_and_remote_payload_never_enter_sdk_transport (test_observability_sdk.SdkBoundaryTests.test_raw_exception_context_and_remote_payload_never_enter_sdk_transport) ... ok
+test_raw_media_url_and_exception_rejected_before_sdk_media_traversal (test_observability_sdk.SdkBoundaryTests.test_raw_media_url_and_exception_rejected_before_sdk_media_traversal) ... ok
+test_reconciliation_rejects_duplicate_and_incomplete_remote_receipts (test_observability_sdk.SdkBoundaryTests.test_reconciliation_rejects_duplicate_and_incomplete_remote_receipts) ... ok
+test_response_lost_after_acceptance_reconciles_without_resending (test_observability_sdk.SdkBoundaryTests.test_response_lost_after_acceptance_reconciles_without_resending) ... Failed to export spans batch code: 400, reason: observability_transport_failed
+ok
+test_sdk_internal_status_and_connection_retries_are_disabled (test_observability_sdk.SdkBoundaryTests.test_sdk_internal_status_and_connection_retries_are_disabled) ... Failed to export spans batch code: 400, reason: observability_http_rejected
+Failed to export spans batch code: 400, reason: observability_http_rejected
+ok
+test_third_party_propagated_metadata_cannot_join_safe_spans (test_observability_sdk.SdkBoundaryTests.test_third_party_propagated_metadata_cannot_join_safe_spans) ... ok
+test_pre_send_crash_sentinel_recovers_by_read_without_post (test_observability_recovery.ObservabilityRecoveryTests.test_pre_send_crash_sentinel_recovers_by_read_without_post) ... ok
+test_revocation_during_http_wins_over_acknowledgement (test_observability_recovery.ObservabilityRecoveryTests.test_revocation_during_http_wins_over_acknowledgement) ... ok
+test_two_exporters_cannot_send_the_same_persistent_buffer (test_observability_recovery.ObservabilityRecoveryTests.test_two_exporters_cannot_send_the_same_persistent_buffer) ... ok
+test_unknown_acknowledgement_never_resends_unconfirmed_receipt (test_observability_recovery.ObservabilityRecoveryTests.test_unknown_acknowledgement_never_resends_unconfirmed_receipt) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 31.160s
+
+OK
+SUMMARY 17 failures 0 errors 0 skipped 0

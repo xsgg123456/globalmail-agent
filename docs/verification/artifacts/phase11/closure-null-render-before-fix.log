@@ -1,0 +1,32 @@
+✖ 生产运行台在可达初始loading状态不得把null交给executionSteps (13.4402ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 568.071
+
+✖ failing tests:
+
+test at scripts\closure-null-render.probe.ts:1:503
+✖ 生产运行台在可达初始loading状态不得把null交给executionSteps (13.4402ms)
+  AssertionError [ERR_ASSERTION]: 首次生产render发生异常：TypeError: Cannot read properties of null (reading 'model_calls')
+  + actual - expected
+  
+  + [
+  +   "TypeError: Cannot read properties of null (reading 'model_calls')"
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (D:\Work_Project\globalmail-agent\globalmail-agent\frontend\scripts\closure-null-render.probe.ts:29:12)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ "TypeError: Cannot read properties of null (reading 'model_calls')" ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -23,9 +23,12 @@ logger = logging.getLogger(__name__)
 
 
 class AgentRunner:
-    def __init__(self, engine, store, workspace_id, model, embedding_gateway):
+    def __init__(self, engine, store, workspace_id, model, embedding_gateway, *, observability=None):
         self.engine, self.store, self.workspace_id = engine, store, workspace_id
         self.model, self.embedding = model, embedding_gateway
+        from globalmail_agent.observability.service import ObservabilityService
+        from globalmail_agent.settings import Settings
+        self.observability = observability or ObservabilityService(engine, store, Settings(), workspace_id)
         self.leases = LeaseService(engine, workspace_id)
         self.owner, self.stopping = uuid4().hex, Event()
         self.active = None
@@ -63,11 +66,15 @@ class AgentRunner:
                     self.fail(job, "lease_heartbeat_failed")
                     return
         pulse = Thread(target=heartbeat, name="globalmail-agent-heartbeat", daemon=True)
-        budget = context = None
+        budget = context = recorder = None
         pulse.start()
         try:
             budget = Budget(self.engine, self.workspace_id, job)
-            self._trace(job)
+            try:
+                self._trace(job)
+                recorder = self.observability.begin(job)
+            except Exception:
+                logger.warning("observability_record_unavailable")
             for rebuild in (False, True):
                 context = load_context(self.engine, self.store, self.workspace_id, job, rebuild=rebuild)
                 if context.payload["active_risks"]:
@@ -133,6 +140,8 @@ class AgentRunner:
             pulse.join(timeout=5)
             if budget:
                 budget.finish()
+            if recorder:
+                recorder.close()
             self.active = None
 
     def fail(self, job, code):

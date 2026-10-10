@@ -1,0 +1,7 @@
+test_human_reply_and_new_input_have_new_trace_and_latest_facts (__main__.ReviewAC052.test_human_reply_and_new_input_have_new_trace_and_latest_facts) ... ok
+test_actual_search_receipt_and_withdrawal_export_fence (__main__.ReviewKnowledge.test_actual_search_receipt_and_withdrawal_export_fence) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 10.566s
+
+OK

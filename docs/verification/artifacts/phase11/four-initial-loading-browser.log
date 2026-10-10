@@ -1,0 +1,70 @@
+### Ran Playwright code
+```js
+await (async (page) => {
+  await page.setViewportSize({width:1440,height:900});
+  await page.unrouteAll({behavior:'wait'});
+  const errors=[];
+  const listener=e=>errors.push(String(e));
+  page.on('pageerror',listener);
+  let delayed=0, pending=0;
+  await page.route('**/api/v1/conversations**',async route=>{
+    delayed++; pending++;
+    await new Promise(resolve=>setTimeout(resolve,2000));
+    await route.continue(); pending--;
+  });
+  await page.reload({waitUntil:'domcontentloaded'});
+  await page.getByRole('heading',{name:'Agent 运行台',exact:true}).waitFor();
+  await new Promise(resolve=>setTimeout(resolve,450));
+  const initial={stage:'fresh initial null-record loading',pending,delayed,page_errors:[...errors],visible_text:await page.locator('main').innerText()};
+  await page.evaluate(proof=>{window.__fourInitialProof=proof},initial);
+  await page.screenshot({path:'docs/verification/artifacts/phase11/four-initial-null-record-dark.png'});
+  await page.getByRole('heading',{name:'执行过程',exact:true}).waitFor({timeout:20000});
+  await new Promise(resolve=>setTimeout(resolve,3000));
+  await page.unroute('**/api/v1/conversations**');
+  await page.getByRole('menuitem',{name:'知识库',exact:true}).click();
+  await page.getByRole('heading',{name:'知识库',exact:true}).waitFor();
+  await page.getByRole('menuitem',{name:'Agent 运行台',exact:true}).click();
+  await page.getByRole('heading',{name:'执行过程',exact:true}).waitFor();
+  await new Promise(resolve=>setTimeout(resolve,700));
+  const proof={stage:'initial loading and knowledge return',genuine_get_delayed:delayed,pending_after:pending,page_errors:errors,viewport:await page.evaluate(()=>({width:innerWidth,height:innerHeight,scrollWidth:document.documentElement.scrollWidth})),observability:await page.getByLabel('本轮运行追踪').innerText()};
+  await page.evaluate(value=>{window.__fourFinalNavProof=value},proof);
+  await page.screenshot({path:'docs/verification/artifacts/phase11/four-return-ready-dark.png'});
+  page.off('pageerror',listener);
+}
+)(page);
+```
+### Open tabs
+- 0: (current) [Agent 运行台 - GlobalMail Agent](http://127.0.0.1:15178/#/agent-runs?conversation_id=60fc6cc3-33c6-4314-bdfa-563b3ade3dfa&run_id=7ca3a33a-3b2f-45e7-9950-5e865540d928&step_id=ef71fec5-3f0d-4eef-bf8f-2d4ffb3241d6)
+- 1: [知识库 - GlobalMail Agent](http://127.0.0.1:15178/#/knowledge)
+- 2: [Tracing | Langfuse](http://127.0.0.1:3001/project/globalmail-agent-local/traces/a42744ffe3b246198446289a67509cca?observation=a76e6a0495682b29&traceTab=attributes)
+### Page
+- Page URL: http://127.0.0.1:15178/#/agent-runs?conversation_id=60fc6cc3-33c6-4314-bdfa-563b3ade3dfa&run_id=7ca3a33a-3b2f-45e7-9950-5e865540d928&step_id=ef71fec5-3f0d-4eef-bf8f-2d4ffb3241d6
+- Page Title: Agent 运行台 - GlobalMail Agent
+### Events
+- New console entries: .playwright-cli\console-2026-10-10T02-37-04-348Z.log#L21-L30
+### Result
+{
+  "initial": {
+    "stage": "fresh initial null-record loading",
+    "pending": 1,
+    "delayed": 1,
+    "page_errors": [],
+    "visible_text": "GlobalMail Agent\n/\nAgent 运行台\n搜索\nk\n本机单用户\n邮件工作台\nAgent 运行台\n知识库\nAgent 运行台\n\n先选客户会话，再查看某一轮的判断与执行。\n\n选择客户会话\n上一页\n下一页\n返回邮件\n\n暂无可查看的客户会话"
+  },
+  "returned": {
+    "stage": "initial loading and knowledge return",
+    "genuine_get_delayed": 3,
+    "pending_after": 0,
+    "page_errors": [],
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440
+    },
+    "observability": "观测已降级\n观测导出暂不可用，业务处理不受影响。\n刷新追踪状态"
+  }
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => ({initial:window.__fourInitialProof,returned:window.__fourFinalNavProof})');
+```

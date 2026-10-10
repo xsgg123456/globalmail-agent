@@ -31,6 +31,10 @@ class RunContext:
     payload: dict
 
 
+from globalmail_agent.observability.tracing import observed
+
+
+@observed("context")
 def load_context(engine, store, workspace, job, *, rebuild=False):
     with BodyWriter(store) as writer, guarded(engine, workspace, job, check_knowledge=False) as (conn, conv, run, cycle):
         rows = list(conn.execute(sa.select(messages).where(messages.c.conversation_id == conv["id"],

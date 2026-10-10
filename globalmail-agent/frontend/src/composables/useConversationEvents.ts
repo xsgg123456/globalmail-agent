@@ -4,7 +4,8 @@ import { ConversationEventSession } from './conversation-event-session'
 
 export function useConversationEvents(
   conversation: Ref<Conversation | null>,
-  refresh: () => Promise<void>
+  refresh: () => Promise<void>,
+  invalidate: () => void = () => {}
 ) {
   const state = ref('未选择会话')
   const session = new ConversationEventSession((url) => new EventSource(url))
@@ -22,6 +23,7 @@ export function useConversationEvents(
     session.connect(
       current,
       async () => {
+        invalidate()
         dirty = true
         if (refreshPending) return
         refreshPending = true

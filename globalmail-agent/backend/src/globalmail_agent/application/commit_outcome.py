@@ -14,6 +14,7 @@ from globalmail_agent.application.event_store import append_ui_event
 from globalmail_agent.application.draft_validation import check_draft_sources
 from globalmail_agent.application.waits import register_wait, consume_wakes
 from globalmail_agent.worker.leases import db_now, slot_for_update, release_slot
+from globalmail_agent.observability.tracing import observed
 
 
 def existing_outcome(engine, workspace, job):
@@ -43,6 +44,7 @@ def validate_draft(conn, store, context, understanding, draft):
     return check_draft_sources(conn, store, context, understanding, draft)
 
 
+@observed("commit")
 def commit_outcome(engine, store, context, job, understanding, proposal, *, safety=False):
     prior = existing_outcome(engine, context.workspace_id, job)
     if prior:

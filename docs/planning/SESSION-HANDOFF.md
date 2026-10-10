@@ -4,7 +4,15 @@
 
 文档位置：根目录保留 AGENTS、Product-Spec、变更记录、AGENT-ARCHITECTURE 及已创建的 [DEV-PLAN](../../DEV-PLAN.md)；其余专题由 [文档索引](../README.md) 导航。本文件位于 docs/planning；新任务按 AGENTS 中的目录约定存放产物，不恢复旧根目录副本。
 
-更新：2026-10-10。当前阶段：本轮正式14–16工程验证及fresh两阶段独审通过，用户已授权按批准交互改造正式前后端；继续不Git暂存/提交。此前Phase1原FAIL、Phase2–10各期历史结论保留；11–13未开始，模型质量及82项AC未作整体验收。
+更新：2026-10-10。当前阶段：Phase11工程完成；按[实施规划](PHASE-11-IMPLEMENTATION.md)接入独立Langfuse4.56.0、安全receipt及现有独立运行台。后端451/451（1388.164s）与283文件冻结SHA一致，前端91/91（15590.3801ms）、vue-tsc/Vite29.02s及功能测试通过；[第4轮fresh两阶段独审](../verification/PHASE-11-REVIEW-4.md)通过，无未关闭的本期HIGH/MEDIUM。允许本地Git提交，不推送；结果以Git日志为准。剩余Phase12–13未开始，历史模型质量FAIL和82项AC未作整体验收。
+
+Phase11证据：[验收记录](../verification/PHASE-11-VALIDATION.md)，原前端及三轮整体FAIL均保留。实际Qwen文本5次模型/4工具和图文2次模型的安全追踪已严格读回；reply_citation_invalid及understanding_schema_invalid保持业务失败，完整原模型记录私有归档`.local-data/verification/phase11/actual-qwen-model-records.json`供Phase13分析，不提交。v4同ID重发双计、父关系、原网络异常链、只读验收辅助和已有空记录渲染缺陷已修；独审真实只读GET2次，导出/模型/Graph0调用、七表hash不变。未知费用保持null，不重跑旧业务或模型来修追踪。
+
+正式库已0010→0011_observability，私有备份`.local-data/backups/before-0011-20261010-095740`；77旧业务表原字段/行hash、70对象和settings保持。正式API18080/前端15173、观测3001六服务及原预览15175保留运行，直连/代理ready200。本期15178/18188、专属schema/临时objects和自己的浏览器已清理，见[精确清理核验](../verification/artifacts/phase11/cleanup.json)；临时GUI登录状态文件删除被自动审批拒绝（blocked by policy），继续保存在仅当前用户/SYSTEM/管理员可读的私有目录，不提交，见[清理例外](../verification/artifacts/phase11/gui-state-cleanup-exception.json)。观测私有配置、五卷和两条真实追踪保留。
+
+下一步Phase12：完整删除、重置与业务/观测联合恢复。开工须先读当前架构/0011迁移head和本期来源依赖、撤销及ack_unknown契约；旧计划0010_lifecycle_verification编号需重新规划，不能直接复用。下方14–16的0010及旧“不暂存/不提交”和下一期11–13均为历史，由本段及顶部追加授权覆盖。
+
+### 14–16历史交付（当前Phase11状态以上方为准）
 
 最新交付：[实施规划](WORKBENCH-REFACTOR-IMPLEMENTATION.md)、[验证与实际GUI/API/日志](../verification/FORMAL-WORKBENCH-REFACTOR-VALIDATION.md)、[fresh最终审查](../verification/FORMAL-WORKBENCH-REFACTOR-REVIEW-FINAL.md)、[脚本/API测试说明](../verification/WORKBENCH-API-TESTING.md)。后端422/422（1173.482s）及最末提示词追加21/21、前端86/86、vue-tsc/Vite25.66s均通过；旧前端初审两HIGH及最末入口/质量/旧文案已关闭，原FAIL不改写。
 

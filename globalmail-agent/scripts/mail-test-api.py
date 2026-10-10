@@ -12,7 +12,7 @@ from uuid import uuid4
 
 def session_urls(path):
     value = json.loads(path.read_text(encoding="utf-8"))
-    if not re.fullmatch(r"phase(?:[3-9]|10|16)_browser_[0-9a-f]{32}", value["schema"]):
+    if not re.fullmatch(r"phase(?:[3-9]|10|11|16)_browser_[0-9a-f]{32}", value["schema"]):
         raise ValueError("isolated_session_required")
     urls = [urlsplit(value[key]) for key in ("api", "web")]
     if any(url.scheme != "http" or url.hostname != "127.0.0.1" or not url.port

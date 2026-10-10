@@ -1,0 +1,8 @@
+{
+  "SourceAndMarkdownCheck": "PASS",
+  "RawLogWhitespacePreserved": true,
+  "FullCheckExitBeforeMarkdownFix": 2,
+  "RawLogWarningCount": 10,
+  "SourcePathspec": "all staged files except raw phase11/*.log evidence",
+  "Reason": "保留工具原始输出的行尾空白和结束空行，不改写历史验证证据"
+}

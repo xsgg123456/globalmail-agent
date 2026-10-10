@@ -37,6 +37,18 @@ function Import-BackendEnvironment($Settings) {
             }
         }
     }
+    # Observability credentials are separate from the model and never sent to Vite.
+    $observabilityEnv = Join-Path $repoRoot '.local-data/observability/backend.env'
+    foreach ($name in @('ENABLED','BASE_URL','PUBLIC_KEY','SECRET_KEY','PROJECT_ID')) {
+        [Environment]::SetEnvironmentVariable("GLOBALMAIL_LANGFUSE_$name", $null, 'Process')
+    }
+    if (Test-Path -LiteralPath $observabilityEnv) {
+        foreach ($line in Get-Content -LiteralPath $observabilityEnv) {
+            if ($line -match '^(GLOBALMAIL_LANGFUSE_(?:ENABLED|BASE_URL|PUBLIC_KEY|SECRET_KEY|PROJECT_ID))=(.*)$') {
+                [Environment]::SetEnvironmentVariable($Matches[1], $Matches[2].Trim().Trim('"').Trim("'"), 'Process')
+            }
+        }
+    }
 }
 
 function Start-LocalProcess([string]$Name, [string]$Executable, [string[]]$Arguments, [string]$Directory) {

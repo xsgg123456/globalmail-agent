@@ -45,6 +45,7 @@
           <ElButton v-if="canRetry" :disabled="busy" @click="retry(run.id)">重试本轮</ElButton>
           <ElButton link @click="refreshRun">刷新记录</ElButton><span class="font-mono break-all">{{ run.id }}</span>
         </div>
+        <ObservabilityStatus v-if="run" :key="run.id" :run-id="run.id" :revision="traceRevision" />
         <ElAlert v-if="run && run.id !== detail.runs.at(-1)?.id" type="info" :closable="false" class="mt-4"><template #title><div class="flex-cb flex-wrap gap-2"><span>当前保留历史轮次及所选节点。</span><ElButton link type="primary" @click="selectRun(detail.runs.at(-1)!.id)">查看最新一轮 →</ElButton></div></template></ElAlert>
         <ElAlert v-if="actionError" :title="actionError" type="error" :closable="false" class="mt-3" />
       </section>
@@ -62,8 +63,9 @@
   import { duration } from '@/components/agent-runtime/run-presentation'
   import ExecutionFeed from '@/components/agent-runtime/ExecutionFeed.vue'
   import NodeDetail from '@/components/agent-runtime/NodeDetail.vue'
+  import ObservabilityStatus from '@/components/agent-runtime/ObservabilityStatus.vue'
   defineOptions({ name: 'AgentRuns' })
-  const { work, record, error, loading, rounds, run, steps, step, refreshRun, selectConversation, selectRun, selectStep, openMail } = useAgentConsole()
+  const { work, record, error, loading, rounds, run, steps, step, traceRevision, refreshRun, selectConversation, selectRun, selectStep, openMail } = useAgentConsole()
   const { items, selectedId, page, nextCursor, paginate, listError, detailError, detailLoading, detail, busy, actionError, stop, retry } = work
   const tokenCount = computed(() => (record.value?.model_calls ?? []).reduce((total, item) => total + (item.input_tokens ?? 0) + (item.output_tokens ?? 0), 0))
   const canRetry = computed(() => run.value && ['failed','interrupted','stopped'].includes(run.value.status) && detail.value?.conversation.lifecycle === 'open' && detail.value.conversation.auto_run_gate === (detail.value.conversation.persistent_human ? 'disabled' : 'manual_retry_required') && run.value.input_revision === detail.value.conversation.input_revision && run.value.id === detail.value.runs.at(-1)?.id)

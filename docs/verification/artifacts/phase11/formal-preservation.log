@@ -1,0 +1,5 @@
+D:\Work_Project\globalmail-agent\tmp\phase11-preservation.py:18: SAWarning: Did not recognize type 'vector' of column 'probe_vector'
+  table=sa.Table(name,sa.MetaData(),schema='public',autoload_with=conn)
+D:\Work_Project\globalmail-agent\tmp\phase11-preservation.py:18: SAWarning: Did not recognize type 'vector' of column 'vector'
+  table=sa.Table(name,sa.MetaData(),schema='public',autoload_with=conn)
+{"status": "preserved", "revision": "0011_observability", "tables": 77, "objects_preserved": true, "settings_preserved": true}

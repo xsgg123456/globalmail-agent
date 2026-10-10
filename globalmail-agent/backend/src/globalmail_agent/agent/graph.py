@@ -16,6 +16,7 @@ from globalmail_agent.agent.guard import guarded
 from globalmail_agent.application.conversation_lock import ServiceError
 from globalmail_agent.knowledge.base import canonical
 from globalmail_agent.observability.local_records import save_understanding
+from globalmail_agent.observability.tracing import observation, observed, digest
 
 
 class GraphState(TypedDict, total=False):
@@ -59,8 +60,9 @@ class AgentGraph:
                     from globalmail_agent.attachments.views import load_authorized_view
                     options = {"image_views": image_views, "image_loader": lambda ref: load_authorized_view(
                         self.gateway.engine, self.gateway.store, self.context, self.job, ref)}
-                output = self.model.request(messages, schema=schema, tools=tools,
-                    timeout=min(network_timeout(stage), remaining), **options)
+                with observation("model", stage=stage, request_hash=digest(key), image_count=len(image_views)):
+                    output = self.model.request(messages, schema=schema, tools=tools,
+                        timeout=min(network_timeout(stage), remaining), **options)
             except ServiceError as error:
                 error_code = error.code
                 if attempt == 0 and error.code in {"model_timeout", "model_rate_limited", "model_unavailable"}:
@@ -77,11 +79,15 @@ class AgentGraph:
                 raise ServiceError("model_output_incomplete", 503)
             return output
 
+    @observed("understanding")
     def understand(self, state):
         payload = self.context.payload
         from globalmail_agent.attachments.views import prepare_authorized_image_views
         from globalmail_agent.attachments.understanding import VisualUnderstanding, visual_sources, authorized_order_numbers, vision_schema, apply_manual_corrections
-        refs = prepare_authorized_image_views(self.gateway.engine, self.gateway.store, self.context, self.job) if payload.get("attachments") else []
+        with observation("attachment_prepare") as prepared:
+            refs = prepare_authorized_image_views(self.gateway.engine, self.gateway.store, self.context, self.job) if payload.get("attachments") else []
+            prepared.update(image_count=len(payload.get("attachments", [])), view_count=len(refs),
+                attachment_ids=[row["attachment_id"] for row in payload.get("attachments", [])])
         definition = VisualUnderstanding if refs else Understanding
         if refs:
             payload["image_views"] = [{"attachment_id": r["attachment_id"], "location": r["location"]} for r in refs]
@@ -199,6 +205,7 @@ class AgentGraph:
         return self.graph.invoke({"messages": [], "understanding": None, "calls": [], "proposal": None, "repairs": 0},
             {"configurable": {"thread_id": str(self.context.run_id)}, "recursion_limit": 32}, durability="sync")
 
+    @observed("policy")
     def validate(self, state):
         code, audit_error = None, None
         try:

@@ -1,0 +1,65 @@
+{
+  "schema": "phase11_browser_287a5f1bd5634c7ca4216952a916108f",
+  "business_reexecution": false,
+  "runs": [
+    {
+      "run_id": "e214058a-eefb-4346-a35b-b8ce3f43a33b",
+      "export": {
+        "run_id": "e214058a-eefb-4346-a35b-b8ce3f43a33b",
+        "trace_id": "308337ae660e413dbecb46b95f82b5b8",
+        "trace_url": "http://127.0.0.1:3001/project/globalmail-agent-local/traces/308337ae660e413dbecb46b95f82b5b8",
+        "export_status": "exported",
+        "reason_code": null,
+        "pending_count": 0
+      },
+      "remote_count": 36,
+      "generation_count": 10,
+      "session_id": "1a593df3-11f7-5f62-a2c6-8b43096b00a9",
+      "ids_unique": false,
+      "remote_usage": {
+        "input": 33596,
+        "output": 2506
+      },
+      "nodes": [
+        "attachment_prepare",
+        "context",
+        "model",
+        "outcome",
+        "policy",
+        "response",
+        "run",
+        "tool",
+        "understanding"
+      ]
+    },
+    {
+      "run_id": "6a25f963-639c-4176-8ffc-eefa83af6e3a",
+      "export": {
+        "run_id": "6a25f963-639c-4176-8ffc-eefa83af6e3a",
+        "trace_id": "a42744ffe3b246198446289a67509cca",
+        "trace_url": "http://127.0.0.1:3001/project/globalmail-agent-local/traces/a42744ffe3b246198446289a67509cca",
+        "export_status": "exported",
+        "reason_code": null,
+        "pending_count": 0
+      },
+      "remote_count": 14,
+      "generation_count": 4,
+      "session_id": "3730e65d-0666-5850-87b1-8cabf9f143fa",
+      "ids_unique": false,
+      "remote_usage": {
+        "input": 13700,
+        "output": 3724
+      },
+      "nodes": [
+        "attachment_prepare",
+        "context",
+        "model",
+        "outcome",
+        "run",
+        "understanding"
+      ]
+    }
+  ],
+  "usage_unchanged": true,
+  "usage_records": 7
+}

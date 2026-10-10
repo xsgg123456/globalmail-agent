@@ -1,0 +1,11 @@
+{
+  "original_revision": "0010_human_assistance",
+  "backup": "before-0011-20261010-095740",
+  "dump_restore_list_verified": true,
+  "old_business_tables": 77,
+  "dump_bytes": 465744,
+  "private_acl_all_protected": true,
+  "intended_revision": "0011_observability",
+  "object_files": 70,
+  "private_acl_allowed_principals_only": true
+}

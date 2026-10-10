@@ -1,0 +1,6 @@
+{
+  "http://127.0.0.1:15175": 200,
+  "http://127.0.0.1:3001/api/public/health": 200,
+  "http://127.0.0.1:18080/api/v1/health/ready": 200,
+  "http://127.0.0.1:15173/api/v1/health/ready": 200
+}

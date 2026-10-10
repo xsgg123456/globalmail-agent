@@ -1,5 +1,7 @@
 # Development Plan — GlobalMail Agent
 
+2026-10-10 Phase11工程完成：独立Langfuse自托管、实际run安全追踪与独立运行台入口已接入；后端451/451、前端91/91、编译/功能测试及[fresh两阶段独审](docs/verification/PHASE-11-REVIEW-4.md)通过。正式库备份后升级0011，77旧表、70对象和配置保留；本期隔离环境已清理，正式及观测服务留运行。见[实施规划](docs/planning/PHASE-11-IMPLEMENTATION.md)和[验收记录](docs/verification/PHASE-11-VALIDATION.md)。剩余Phase12–13未开始；真实模型业务失败和历史质量FAIL保留，82项AC仍待总验收。下方旧推进状态为历史，以本段为准。
+
 2026-10-10追加工作流授权：用户要求提交当前已验证改造到本地Git，覆盖此前不暂存/提交约束；不推送，保留私有配置、备份、临时目录和用户`.idea/`在提交之外。
 
 2026-10-09最新正式改造授权（v1.18）：用户要求按已批准预览重拆任务并改造前后端。优先顺序改为10→14→15→16→11→12→13；已完成1–10的结论不改写，11–13未开始并保留。Phase14收敛只读/持续人工/入站与提交权限；Phase15逐次真实模型记录及独立建议；Phase16接入正式邮件/运行台、删除测试界面并做脚本/API回归和本机交付。各阶段文件清单及可独立验收标准见[正式实施规划](docs/planning/WORKBENCH-REFACTOR-IMPLEMENTATION.md)。下方仅预览及旧商业执行任务属于历史；不新增数据中心/ERP，不暂存、不提交Git。
@@ -22,7 +24,7 @@
 
 2026-10-09当前用户任务：先交付沿用现有前端的交互预览，明确允许假数据；按 [预览实施规划](docs/planning/UI-PREVIEW-IMPLEMENTATION.md) 制作邮件、独立运行台、业务中心与实验室，做编译、现有前端回归、浏览器交互和独立审查。该任务不推进 Phase11，不计正式 Agent 能力验收；用户看过预览后再确定正式解耦实施范围。
 
-版本：v1.0；进度更新：2026-10-09。状态：Phase 1本轮探索结束，保留未通过项；Phase 2–6各期技术验证及独立审查通过；Phase 7工程已实现并提交09a818f，模型质量与最终验收延期；Phase 8工程四步验证及独立两阶段审查通过，模型质量延期；Phase 9、10工程四步验证及独立两阶段审查通过；Phase 11–13未开始。
+版本：v1.0；进度更新：2026-10-10。状态：Phase 1本轮探索结束，保留未通过项；Phase 2–6各期技术验证及独立审查通过；Phase 7工程已实现并提交09a818f，模型质量与最终验收延期；Phase 8工程四步验证及独立两阶段审查通过，模型质量延期；Phase 9–11及14–16工程四步验证及独立两阶段审查通过；Phase 12–13未开始。
 
 本文件记录开发顺序、交付物、关键文件与验收归属。它不改变业务范围，不将已有数据、组件实验或设计审查折算为正式应用完成。Phase 1 结果见 [图片实验报告](docs/verification/VISUAL-VALIDATION.md)：35场景108次真实请求，仍有关键业务失败，标签人工核对待完成。
 
@@ -55,7 +57,7 @@
 | 14 | 四类只读权限、持续人工及独立内部run | 10及已批准预览 | 工程验证及fresh独审通过；正式0010增量升级保旧，待用户查看 |
 | 15 | 逐次真实模型记录及独立客服建议 | 14 | 工程验证及fresh独审通过；历史未采集不反填，真实模型质量延期 |
 | 16 | 正式邮件/独立运行台接入与脚本/API验收 | 14、15 | 422后端/86前端、编译/GUI/CLI和fresh两阶段独审通过；[本期验证](docs/verification/FORMAL-WORKBENCH-REFACTOR-VALIDATION.md)，正式前后端已启动，待用户查看 |
-| 11 | 查看实际Langfuse追踪并验证观测降级 | 7、8、10、16 | 未开始 |
+| 11 | 查看实际Langfuse追踪并验证观测降级 | 7、8、10、16 | 工程四步验证及fresh两阶段独审通过；[证据](docs/verification/PHASE-11-VALIDATION.md)，模型业务质量留13 |
 | 12 | 重置/删除、联合备份恢复及防止旧数据复活 | 3、6、8、10、11 | 未开始 |
 | 13 | 七类业务、图片和故障回归通过，交付本地运行说明 | 1–12 | 未开始 |
 
@@ -250,6 +252,8 @@ Phase 2结果：[验证记录](docs/verification/PHASE-2-VALIDATION.md)、[独�
 
 ## Phase 11: 自托管Langfuse与实际观测验收
 
+工程状态：2026-10-10四步验证及fresh Stage1/2通过，正式0011保旧、服务就绪和隔离清理完成；[验收证据](docs/verification/PHASE-11-VALIDATION.md)。本期工程完成，真实模型业务语义留Phase13。
+
 **交付内容**：
 - 按官方自托管组合建立独立observability配置，使用独立库/凭据/卷；部署验证后固定完整镜像digest清单，SDK版本不冒充服务版本。
 - 将正式理解/视觉/模型/检索/工具/规则/提交关联到同一run，界面展示trace链接及观测故障，usage沿用唯一计量路径。
@@ -257,8 +261,10 @@ Phase 2结果：[验证记录](docs/verification/PHASE-2-VALIDATION.md)、[独�
 
 **关键文件（新增）**：
 - `globalmail-agent/infra/compose.observability.yaml`、`globalmail-agent/infra/observability-images.lock.json` — 按核验官方版本生成完整自托管清单；禁用浮动latest作为交付锁。
-- `globalmail-agent/backend/src/globalmail_agent/observability/tracing.py`、`globalmail-agent/backend/src/globalmail_agent/observability/exporter.py`、`globalmail-agent/backend/src/globalmail_agent/observability/media_filter.py`；修改`globalmail-agent/backend/src/globalmail_agent/observability/sanitization.py`、`globalmail-agent/backend/src/globalmail_agent/observability/local_records.py` — 受控callback/span、媒体预处理和导出门禁。
-- `globalmail-agent/backend/src/globalmail_agent/api/observability.py`；修改`globalmail-agent/frontend/src/components/mail-agent/AgentRunPanel.vue` — 实际关联与降级状态。
+- `globalmail-agent/backend/src/globalmail_agent/observability/` — tracing/snapshot安全receipt、records作用域与来源依赖、sdk_export父拓扑、transport一次性安全传输、exporter有界队列、media_filter在SDK前阻断；usage沿用原账本。
+- `globalmail-agent/backend/migrations/versions/0011_observability.py`、`globalmail-agent/backend/src/globalmail_agent/api/observability.py` — 增量缓冲关联、实际导出状态及本机入口。
+- `globalmail-agent/frontend/src/views/agent-runs/index.vue`、`globalmail-agent/frontend/src/components/agent-runtime/ObservabilityStatus.vue`及相关API/composables — 按Phase16的独立运行台展示真实关联与降级状态，SSE撤销立即失效。
+- `globalmail-agent/scripts/OBSERVABILITY.md`、观测启停/验证脚本及`verify-observability.py` — 私有配置、自托管验证、真实模型观测与只读读回验收。
 
 **验收标准**：自托管UI中可打开实际多工具及图文run，跨异步关联正确、不双计usage；测试正常/异常payload、媒体处理、队列和HTTP网络失败，敏感标记及图像字节/可访问链接均不出站。不能只依赖晚于SDK媒体处理的导出mask去拦图片，须在callback/媒体处理前阻断；FT-12通过，观测断开业务仍运行。登记本地trace及缓冲依赖，为Phase 12实际清理提供入口，不使用Langfuse Cloud替代。
 
@@ -383,7 +389,7 @@ SCN/JRN类别对应沿用验收映射第5节，Phase 10运行、Phase 13复核�
 | 检索 | pgvector Python 0.5.0；qwen3.7-text-embedding 1024维 | [模型能力](https://help.aliyun.com/zh/model-studio/qwen3-7-text-embedding)与本地60查询实验；v4仅在完整独立索引已构建时可回退 |
 | 文档解析 | pypdf 6.19.0、pypdfium2 5.14.0；MinerU 4.0.10 Basic、DocVortex 0.5.9 | [固定MinerU发布](https://github.com/opendatalab/MinerU/releases/tag/mineru-4.0.10-released)及115包实验锁；解析SDK2.x和主SDK3.x分环境 |
 | 客户图像 | Pillow 12.3.0 + 同一Qwen适配 | 沿用tech-spike锁；无默认独立OCR/VLM供应商 |
-| 观测 | Langfuse SDK 4.17.0；服务按官方自托管v4组合 | [官方Compose](https://langfuse.com/self-hosting/deployment/docker-compose)与[导出过滤](https://langfuse.com/docs/observability/features/masking)；Phase 11实装验收后冻结服务及全部依赖digest，不把尚未运行组合标为已锁定 |
+| 观测 | Langfuse Web/Worker 4.56.0、Python SDK 4.17.0；独立PG17.11/ClickHouse25.12.11.4/Redis7.4.11/MinIO2026-09-22 | Phase11实际六服务健康、认证UI/API及停启保留通过，[全部镜像digest锁](globalmail-agent/infra/observability-images.lock.json)已冻结；按[官方Compose](https://langfuse.com/self-hosting/deployment/docker-compose)部署，媒体在SDK前过滤 |
 
 PyPI固定版本元数据已核验FastAPI、LangGraph、checkpoint-postgres、langchain-openai、Langfuse、SQLAlchemy、MinerU、DocVortex均存在且Python范围接受3.12；这只验证发布元数据，不能代替全工程安装和运行。未引入新的业务框架、图数据库或业务Redis/Celery队列。MinerU集成保留固定版本许可与权重清单，按技术选型的既有集成要求核对。
 
@@ -418,4 +424,4 @@ PyPI固定版本元数据已核验FastAPI、LangGraph、checkpoint-postgres、la
 - 每阶段报告更新`docs/verification/ACCEPTANCE-RESULTS.md`的对应部分或模块实验报告，维护本文件阶段状态及`docs/planning/SESSION-HANDOFF.md`。AC满足全部条件后才勾选；历史设计审查和实验原始结果保持原结论。
 - 运行产生的含正文/图像/模型请求原始证据放Git忽略的`.local-data/`或`tmp/`；仓库只保留复核后的合成样本、去敏汇总与证据摘要。新增专题文档归`docs/`，模块README随源码，根目录保留约定五份Markdown。
 
-当前入口：Phase 10多事项、异步事件及连续跟进工程验证通过，证据见[验证记录](docs/verification/PHASE-10-VALIDATION.md)与[独立审查](docs/verification/PHASE-10-REVIEW-4.md)；下一期Phase 11自托管Langfuse与实际观测验收。Phase1/7/8模型质量、原51业务语义及21完整旅程按用户决定在完整链路后统一回归，全部首版范围以Phase13总验收为完成门槛。
+当前入口：Phase11实际观测工程验证和fresh两阶段独审通过，见[验证记录](docs/verification/PHASE-11-VALIDATION.md)与[独立审查](docs/verification/PHASE-11-REVIEW-4.md)；下一期Phase12完整删除、重置与联合恢复。Phase12实施前须按当前0011 head重新确定增量迁移编号，旧关键文件中的0010_lifecycle_verification仅为历史计划，不可直接复用。Phase1/7/8模型质量、原51业务语义及21完整旅程按用户决定在完整链路后统一回归，全部首版范围以Phase13总验收为完成门槛。

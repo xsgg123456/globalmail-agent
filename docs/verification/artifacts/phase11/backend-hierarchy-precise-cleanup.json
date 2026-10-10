@@ -1,0 +1,11 @@
+{
+  "status_code": 200,
+  "trace_ids": [
+    "308337ae660e413dbecb46b95f82b5b8",
+    "a42744ffe3b246198446289a67509cca"
+  ],
+  "confirmed_zero_v2": {
+    "308337ae660e413dbecb46b95f82b5b8": 0,
+    "a42744ffe3b246198446289a67509cca": 0
+  }
+}

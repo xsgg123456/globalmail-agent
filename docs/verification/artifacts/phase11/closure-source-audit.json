@@ -1,0 +1,234 @@
+{
+  "backend_freeze_match": true,
+  "backend_frozen_files": 283,
+  "backend_mismatches": [],
+  "source_changed": false,
+  "stopped_at_test_boundary": false,
+  "test_exit_code": 0,
+  "changed_program_file_count": 51,
+  "changed_program_files": {
+    "globalmail-agent/backend/.env.example": {
+      "sha256": "1eaab321c595f5e16f984120da445df9cb56f7aa452d70e29cc4f8dc70ca658c",
+      "lines": 17
+    },
+    "globalmail-agent/backend/migrations/versions/0011_observability.py": {
+      "sha256": "4d2caa1b285a68ebbac347c032d65b221d1f6b13deec9a915a38d7b420ee4a00",
+      "lines": 28
+    },
+    "globalmail-agent/backend/pyproject.toml": {
+      "sha256": "642d21a26ddaaaddf48579d881cb1ce784e7751f282b888b3ef456a8023d820a",
+      "lines": 27
+    },
+    "globalmail-agent/backend/src/globalmail_agent/adapters/agent_schema.py": {
+      "sha256": "6aebf5a8179ceccd5431ae58a3aec9c78f4d237e9b293ea5e68d00423e36daf5",
+      "lines": 108
+    },
+    "globalmail-agent/backend/src/globalmail_agent/adapters/database.py": {
+      "sha256": "8bf6a4d39b47b9285649550c38a76008644b6e4b29ecde33c1e581851f0869e1",
+      "lines": 42
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/context.py": {
+      "sha256": "ca7a8ac1d0bbe3c8a6a699f104cdf9a815b1918c662456dc8f527125157dc0ac",
+      "lines": 140
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/graph.py": {
+      "sha256": "f0f7e232fc39dda4a7b392048f40855fa3825b6a1a9ddc892bfbdf22ebe8ac2c",
+      "lines": 276
+    },
+    "globalmail-agent/backend/src/globalmail_agent/agent/tool_gateway.py": {
+      "sha256": "b4070f34ab073d0dac07b7e389e15cf23ee4bdc61b41f3c386d74512bb9ea9ce",
+      "lines": 183
+    },
+    "globalmail-agent/backend/src/globalmail_agent/api/observability.py": {
+      "sha256": "81dd5bca269bd72c777f43c01508c5dfae7dd6e252033fe39896b6c4322d6fbb",
+      "lines": 21
+    },
+    "globalmail-agent/backend/src/globalmail_agent/application/commit_outcome.py": {
+      "sha256": "73a97ff2276f6da46ee4edbc89febf9fd4faff48e6d5953f7da90fe092c7130a",
+      "lines": 118
+    },
+    "globalmail-agent/backend/src/globalmail_agent/main.py": {
+      "sha256": "4f126ba56eef305eca99ca18073b72c5186957b3162900c94f598a3bc609c1be",
+      "lines": 101
+    },
+    "globalmail-agent/backend/src/globalmail_agent/observability/exporter.py": {
+      "sha256": "c17b45adf084e20a6f8dec90995ff182c2a943e0f673b8a6e552973c74e88708",
+      "lines": 139
+    },
+    "globalmail-agent/backend/src/globalmail_agent/observability/media_filter.py": {
+      "sha256": "cee3b56a49136335bbb8fe187af96e159f28643b1598a0d97f7a68ecd5162772",
+      "lines": 65
+    },
+    "globalmail-agent/backend/src/globalmail_agent/observability/records.py": {
+      "sha256": "0afe5726d55fab15e6518b76f3ca5361a1ecc1be9413babfecf57791df21ceef",
+      "lines": 148
+    },
+    "globalmail-agent/backend/src/globalmail_agent/observability/sanitization.py": {
+      "sha256": "a432fb622c840924d38644bc9c92a3172d2536de25c1d688c90293356719632d",
+      "lines": 9
+    },
+    "globalmail-agent/backend/src/globalmail_agent/observability/sdk_export.py": {
+      "sha256": "1a057a6c890c5b5a27d9b60f6040c2610807305c2adb427375cf07fa8be9326e",
+      "lines": 199
+    },
+    "globalmail-agent/backend/src/globalmail_agent/observability/service.py": {
+      "sha256": "87bed7053b38767a9c09a8d6d7991faf3ff97da7179ff76e7650afd7da0da6f2",
+      "lines": 23
+    },
+    "globalmail-agent/backend/src/globalmail_agent/observability/snapshot.py": {
+      "sha256": "a09c3d95fe4a9b921662ecf6a8925926a8c834e617c1f6bfa53e3227670290a6",
+      "lines": 60
+    },
+    "globalmail-agent/backend/src/globalmail_agent/observability/tracing.py": {
+      "sha256": "18f584363ee2fc3724b4fd82c517be0ce0c6b9bc69e773bbefd2fd147a80d64d",
+      "lines": 69
+    },
+    "globalmail-agent/backend/src/globalmail_agent/observability/transport.py": {
+      "sha256": "2c96f04aee97e2264b3d0c0fe3ccfc65d547d8e71cc4906afd2ebdf5ef3e08ee",
+      "lines": 69
+    },
+    "globalmail-agent/backend/src/globalmail_agent/settings.py": {
+      "sha256": "ad0265c62fb6ac986137f9939b8414dd0001847a570fa8f341b8324b4ac2dde9",
+      "lines": 80
+    },
+    "globalmail-agent/backend/src/globalmail_agent/worker/agent_runner.py": {
+      "sha256": "8872cd3c58022a740ed07f85dbc6f4cfd0e6185ea1f853425eb1e5bc4db962a7",
+      "lines": 188
+    },
+    "globalmail-agent/backend/tests/test_observability.py": {
+      "sha256": "e89f189a60865253068f722d9dea7aeb292fe32578a0051869283fd041dd7a34",
+      "lines": 201
+    },
+    "globalmail-agent/backend/tests/test_observability_migration.py": {
+      "sha256": "853619f53d4be8b36783674a8db5e0f74e51f9d155d55f5c26573154cf2e9f88",
+      "lines": 56
+    },
+    "globalmail-agent/backend/tests/test_observability_recovery.py": {
+      "sha256": "7f839d200a0803d2b0c169a0cedd857f0d0435256c1b25ce283f220cf6fe35b7",
+      "lines": 93
+    },
+    "globalmail-agent/backend/tests/test_observability_sdk.py": {
+      "sha256": "5a66ca3f163d4ccb4fcf4a8cf06dae08556e9caf97297c1f688c78913b096777",
+      "lines": 212
+    },
+    "globalmail-agent/backend/tests/test_observability_vision.py": {
+      "sha256": "627518ab6049349a7cf8f439da1aeaf9e34c9bd86638f6f8cee12e12ec48e6b3",
+      "lines": 54
+    },
+    "globalmail-agent/backend/uv.lock": {
+      "sha256": "2f33482e473acecef323f8594b411582447ff8f1e39f4b5bb0c2f0e74325b240",
+      "lines": 1115
+    },
+    "globalmail-agent/frontend/scripts/observability-events.test.ts": {
+      "sha256": "f6dae3bc00636a847453b8554ec61f92f74a6051a9c63190d14f4baeb41b641f",
+      "lines": 86
+    },
+    "globalmail-agent/frontend/scripts/observability.test.ts": {
+      "sha256": "035b3ce750d7cb7e7850589f8b1ae9e892ba2f9d0eb977cd2e0c68e6c69d9fc2",
+      "lines": 58
+    },
+    "globalmail-agent/frontend/src/api/observability-api.ts": {
+      "sha256": "1839db441b30e380dda3f5257abd7a1fc0558c24ab785471d2cad3e6bca99672",
+      "lines": 43
+    },
+    "globalmail-agent/frontend/src/components/agent-runtime/ObservabilityStatus.vue": {
+      "sha256": "3f2e9c2a7641883208a061b867c0bd483b2f23cf93cc0d978549887b7292c154",
+      "lines": 26
+    },
+    "globalmail-agent/frontend/src/composables/use-agent-console.ts": {
+      "sha256": "b2145c89144361000416d024bd5de934355b1320834ca254c6007a7a5768279d",
+      "lines": 87
+    },
+    "globalmail-agent/frontend/src/composables/use-run-observability.ts": {
+      "sha256": "a4e27a3244445fcc2f00f373e9037d0389b6880e47fa45cb483af47746b74820",
+      "lines": 30
+    },
+    "globalmail-agent/frontend/src/composables/useConversationEvents.ts": {
+      "sha256": "e03c2d7d5947505838264a0ad1b00a42d4b6b0fdc752cc53c8ba7754054a516d",
+      "lines": 53
+    },
+    "globalmail-agent/frontend/src/views/agent-runs/index.vue": {
+      "sha256": "db5f7426c0e107018cd56930797e52099abaa36b19b39fbe7277a266db82e892",
+      "lines": 81
+    },
+    "globalmail-agent/infra/compose.observability.yaml": {
+      "sha256": "1427de17b59ee84352b9ae08474cc3f9854b3f6d9b55667a778859c9874feded",
+      "lines": 168
+    },
+    "globalmail-agent/infra/observability-images.lock.json": {
+      "sha256": "31c47ca6af1c91de29a31a80c0b3448441eb04d606999562a5fba6b3488fe53c",
+      "lines": 65
+    },
+    "globalmail-agent/scripts/init-observability.ps1": {
+      "sha256": "a338b7f7b81551a6d26c84382f1da10fbcf8c83f730b1f12f6cc62b44faf98ee",
+      "lines": 41
+    },
+    "globalmail-agent/scripts/local-common.ps1": {
+      "sha256": "c0cf38afae20949305f92f20d7237f7c1f9bb10ba6cc4df55d8a458bb5db3cf8",
+      "lines": 73
+    },
+    "globalmail-agent/scripts/mail-test-api.py": {
+      "sha256": "0f30fced0b78bbfd86a60b4de72912f3852c9f0683b912b4619cd3b030cb0f78",
+      "lines": 92
+    },
+    "globalmail-agent/scripts/observability-common.ps1": {
+      "sha256": "f466544554409a3fb8c5b073aec0c180ceb7534c3285e0bd7ded3a58e96df6f2",
+      "lines": 66
+    },
+    "globalmail-agent/scripts/observability-smoke.py": {
+      "sha256": "279918bedbed8ebbc66ceb4501c6bb5103dbb3b67701762047dc21877021448f",
+      "lines": 33
+    },
+    "globalmail-agent/scripts/phase3-test-server.py": {
+      "sha256": "dfa8f42b7b96b17ea88f8e2c2b0632c6bc02f0f45518869c9414693d6e281752",
+      "lines": 142
+    },
+    "globalmail-agent/scripts/start-local.ps1": {
+      "sha256": "9433ee797adcbe18b9dab53779e4dd9f19dafb868b8bb70d0995f5d7994f5356",
+      "lines": 73
+    },
+    "globalmail-agent/scripts/start-observability.ps1": {
+      "sha256": "d81bd11ba28da873cddb338cbdf9ec60e046519fea1c9489828cd893a7f45a04",
+      "lines": 7
+    },
+    "globalmail-agent/scripts/start-workbench-test.ps1": {
+      "sha256": "9f89e87238a5ade6f679cf5302e4580163afc343dcb511bbdf7c2aae03abd6be",
+      "lines": 22
+    },
+    "globalmail-agent/scripts/stop-observability.ps1": {
+      "sha256": "8137f8e4cbbbf4e17426c5cd77121b86e5539e419248ebecf27adfd14872786e",
+      "lines": 7
+    },
+    "globalmail-agent/scripts/test-observability-preservation.ps1": {
+      "sha256": "497fef29dd610fad9724917ee55315452db0d3704af798791b0bf063de6ef405",
+      "lines": 56
+    },
+    "globalmail-agent/scripts/test-observability.ps1": {
+      "sha256": "88159d4d439ec5ecdb470ee0cbcc5b85aa47e6767f65d06663683c37c9956979",
+      "lines": 51
+    },
+    "globalmail-agent/scripts/verify-observability.py": {
+      "sha256": "cbbfd37229acba820303ed6c4d4c00a1b1eec850db04d628d75641555a181974",
+      "lines": 221
+    }
+  },
+  "over_300_lines": [
+    {
+      "path": "globalmail-agent/backend/uv.lock",
+      "lines": 1115
+    }
+  ],
+  "security_scan_locations": {},
+  "readback_guard_current_script_matches": true,
+  "safe_restore_business_unchanged": true,
+  "safe_restore_no_reexecution": true,
+  "safe_restore_cost_unknown": true,
+  "formal_preservation_keys": [
+    "before_revision",
+    "after_revision",
+    "old_tables_immutable_columns_preserved",
+    "objects_preserved",
+    "settings_preserved",
+    "authorized_transition_columns"
+  ]
+}

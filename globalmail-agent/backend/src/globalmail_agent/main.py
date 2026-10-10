@@ -26,21 +26,26 @@ from globalmail_agent.api.attachments import attachment_router
 from globalmail_agent.api.visual_evidence import visual_evidence_router
 from globalmail_agent.api.after_sales import after_sales_router
 from globalmail_agent.api.testing import testing_router
+from globalmail_agent.api.observability import observability_router
+from globalmail_agent.observability.service import ObservabilityService
 
 
 def create_app(settings: Settings | None = None, *, engine=None, start_worker=True,
-               embedding_gateway=None, model_provider=None) -> FastAPI:
+               embedding_gateway=None, model_provider=None, observability_transport=None) -> FastAPI:
     settings = settings or Settings.from_env()
     database = engine if engine is not None else make_engine(settings)
     store = ObjectStore(settings.object_root, database)
     gateway = embedding_gateway if embedding_gateway is not None else EmbeddingGateway(settings)
     model = model_provider if model_provider is not None else ModelProvider(settings)
+    observability = ObservabilityService(database, store, settings, transport=observability_transport)
 
     @asynccontextmanager
     async def lifespan(app):
         runner = knowledge = None
+        if database is not None:
+            observability.start()
         if start_worker and database is not None:
-            runner = AgentRunner(database, store, DEFAULT_WORKSPACE_ID, model, gateway)
+            runner = AgentRunner(database, store, DEFAULT_WORKSPACE_ID, model, gateway, observability=observability)
             runner.start()
             knowledge = KnowledgeRunner(database, store, DEFAULT_WORKSPACE_ID, gateway)
             knowledge.start()
@@ -51,12 +56,14 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
                 runner.close()
             if knowledge is not None:
                 knowledge.close()
+            observability.close()
             if database is not None:
                 database.dispose()
 
     app = FastAPI(title="GlobalMail Agent", version="0.1.0", lifespan=lifespan,
                   docs_url=None, redoc_url=None, openapi_url=None)
     app.add_middleware(LocalAccessMiddleware, allowed_origins=settings.allowed_origins)
+    app.state.observability = observability
 
     @app.exception_handler(RequestValidationError)
     async def validation_error(request: Request, error):
@@ -84,6 +91,7 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
     app.include_router(visual_evidence_router(database, store))
     app.include_router(after_sales_router(database, store))
     app.include_router(testing_router(database, store))
+    app.include_router(observability_router(observability.records))
 
     return app
 

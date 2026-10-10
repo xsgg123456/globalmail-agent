@@ -450,7 +450,13 @@ SSE使用`GET /conversations/{id}/events?after_seq=`，支持Last-Event-ID、15�
 
 `usage_records`以provider_request_id或本地不可复用invocation_id去重，回调和手工埋点只选一条计量路径；provider返回unknown时不计0。Prompt由仓库版本/摘要固定；Langfuse仅展示，不能在线悄悄改变规则。纯合成样本可按明确配置记录内容；真实未复核正文默认只导出ID与摘要，导出白名单覆盖input/output/metadata/error及第三方span。脱敏失败丢弃观测内容、记录degraded，不回退明文。
 
-导出队列有界、异步、有限重试，Langfuse不可达不阻塞/回滚业务，不为补trace重新跑Agent；本地运行摘要足以刷新恢复。标准验收必须实际启用自托管服务，测HTTP失败/队列积压/敏感标记；目前只有SDK组件证据。观测数据纳入删除依赖登记。
+导出队列有界、异步、有限重试，Langfuse不可达不阻塞/回滚业务，不为补trace重新跑Agent；本地运行摘要足以刷新恢复。标准验收必须实际启用自托管服务，测HTTP失败/队列积压/敏感标记。观测数据纳入删除依赖登记；各轮实际验证结论由验收报告保存。
+
+2026-10-10 Phase11实施：正式Graph使用自定义ModelProvider，由实际节点先保存无正文的白名单receipt，队列仅保存run ID；独立导出器以官方SDK手动观测恢复同run层级与实际时间，避免将原始Graph/图片/异常交给第三方回调。模型generation的用量仅投影既有usage_records，不再增设计量来源。导出前复核run作用域、撤销/删除状态和generation，登记receipt/缓冲与来源依赖；本地API提供真实导出状态与本机trace入口。节点正文仍只由应用受控对象记录提供。具体实现与验收见[Phase11规划](docs/planning/PHASE-11-IMPLEMENTATION.md)，本条不是验收通过记录。
+
+Langfuse v4观测按一次性不可变导出：相同span ID重发不能保证去重，不能依赖后台合并。官方SDK生成完整OTLP spans，HTTP200接受后持久化exported并禁止重发；兼容events_only JSON入队回执及OTLP protobuf部分拒收。通过官方可配置HTTP Session关闭SDK自动重试，由应用队列统一管理；明确未连接/未发送或明确拒收才可有限重试。发送前持久登记接受结果未知，覆盖接受成功但本地落盘前崩溃窗口；超时、连接中断、5xx、不完整确认或进程恢复先受限读取v2 observations，核对完整ID集合且无重复，未证实则degraded/observability_ack_unknown并保留安全缓冲待核对，不盲目重发、不重跑业务。[官方不可变观测说明](https://langfuse.com/faq/all/tracing-data-updates)
+
+receipt父关系决定SDK创建顺序，真实时间只作兄弟节点排序；同一开始时间不能把子节点改挂根。缺父、循环、重复ID或span ID碰撞时停止本轮导出。HTTP传输的原响应体、reason和网络异常对象不交给SDK；Session仅返回固定安全Response，应用独立保存确定拒收/可重试/接受未知标记，SDK不能据固定响应补发。
 
 部署为业务Compose项目（PG和持久卷）及独立observability profile；后者使用官方组合并独立凭据/卷，服务镜像在部署验证后锁digest，不能用SDK版本替代。默认业务API/前端/数据库/观测入口均只绑定127.0.0.1，端口先检测；拒绝非法Host/Origin，跨源写入限允许Origin及JSON协议，本地无登录不等于可公网部署。Langfuse配置清单以当时官方Compose为准，其内部队列/分析存储不成为业务依赖。[官方自托管Compose](https://langfuse.com/self-hosting/deployment/docker-compose)
 

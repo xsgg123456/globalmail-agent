@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "langfuse_release": "v4.56.0",
+  "upstream_compose": "https://github.com/langfuse/langfuse/blob/v4.56.0/docker-compose.yml",
+  "release_source": "https://github.com/langfuse/langfuse/releases/tag/v4.56.0",
+  "resolved_at": "2026-10-10T01:35:32.2011948Z",
+  "project": "globalmail-agent-observability",
+  "images": [
+    {
+      "service": "langfuse-web",
+      "source_tag": "docker.langfuse.com/langfuse/langfuse:4.56.0",
+      "version": "4.56.0",
+      "image": "docker.langfuse.com/langfuse/langfuse@sha256:b1948c7c0931f277975b985e30e73536b1bca5822705ddd9a89ba7c1ed79b3ee",
+      "image_id": "sha256:b1948c7c0931f277975b985e30e73536b1bca5822705ddd9a89ba7c1ed79b3ee",
+      "architecture": "amd64",
+      "os": "linux"
+    },
+    {
+      "service": "langfuse-worker",
+      "source_tag": "docker.langfuse.com/langfuse/langfuse-worker:4.56.0",
+      "version": "4.56.0",
+      "image": "docker.langfuse.com/langfuse/langfuse-worker@sha256:3f7571ff3a725ebdcdf4c35e06bdf8c3f8325770691c673793ad61b328265e13",
+      "image_id": "sha256:3f7571ff3a725ebdcdf4c35e06bdf8c3f8325770691c673793ad61b328265e13",
+      "architecture": "amd64",
+      "os": "linux"
+    },
+    {
+      "service": "postgres",
+      "source_tag": "postgres:17",
+      "version": "17.11 (Debian 17.11-1.pgdg13+2)",
+      "image": "postgres@sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3",
+      "image_id": "sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3",
+      "architecture": "amd64",
+      "os": "linux"
+    },
+    {
+      "service": "clickhouse",
+      "source_tag": "clickhouse/clickhouse-server:25.12",
+      "version": "25.12.11.4",
+      "image": "clickhouse/clickhouse-server@sha256:8a790dd3468db22b1d4e7b18a176f378ff5ff6053b9c48dd4ea1fa71a24c5ba6",
+      "image_id": "sha256:8a790dd3468db22b1d4e7b18a176f378ff5ff6053b9c48dd4ea1fa71a24c5ba6",
+      "architecture": "amd64",
+      "os": "linux"
+    },
+    {
+      "service": "redis",
+      "source_tag": "redis:7",
+      "version": "7.4.11",
+      "image": "redis@sha256:4fa24486b8bcca8eec45ee0eb166edc674795e53a2b53d1a9ef263eecebaac85",
+      "image_id": "sha256:4fa24486b8bcca8eec45ee0eb166edc674795e53a2b53d1a9ef263eecebaac85",
+      "architecture": "amd64",
+      "os": "linux"
+    },
+    {
+      "service": "minio",
+      "source_tag": "cgr.dev/chainguard/minio:latest",
+      "version": "RELEASE.2026-09-22T19-25-18Z, go1.27.2",
+      "image": "cgr.dev/chainguard/minio@sha256:6476f81b9739912fa9f50ceae2bb049a30336527cccd24beccfbeb4145f8f696",
+      "image_id": "sha256:6476f81b9739912fa9f50ceae2bb049a30336527cccd24beccfbeb4145f8f696",
+      "architecture": "amd64",
+      "os": "linux"
+    }
+  ],
+  "deployment_verified_at": "2026-10-10T01:42:37.2250247Z"
+}

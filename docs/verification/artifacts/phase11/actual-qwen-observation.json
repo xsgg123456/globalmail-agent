@@ -1,0 +1,377 @@
+{
+  "source": "isolated synthetic scenarios with actual Qwen calls",
+  "schema": "phase11_browser_287a5f1bd5634c7ca4216952a916108f",
+  "scope": "Phase11 observation, not Phase13 semantic acceptance",
+  "runs": [
+    {
+      "run_id": "e214058a-eefb-4346-a35b-b8ce3f43a33b",
+      "conversation_id": "45ee8c94-4791-4029-8db3-2bc746f8d592",
+      "business_result": {
+        "error_code": "reply_citation_invalid"
+      },
+      "export": {
+        "run_id": "e214058a-eefb-4346-a35b-b8ce3f43a33b",
+        "trace_id": "308337ae660e413dbecb46b95f82b5b8",
+        "trace_url": "http://127.0.0.1:3001/project/globalmail-agent-local/traces/308337ae660e413dbecb46b95f82b5b8",
+        "export_status": "exported",
+        "reason_code": null,
+        "pending_count": 0
+      },
+      "model_calls": [
+        {
+          "stage": "understanding",
+          "status": "completed",
+          "provider_returned": true,
+          "input_tokens": 942,
+          "output_tokens": 404,
+          "image_views": 0
+        },
+        {
+          "stage": "decision",
+          "status": "completed",
+          "provider_returned": true,
+          "input_tokens": 3212,
+          "output_tokens": 79,
+          "image_views": 0
+        },
+        {
+          "stage": "decision",
+          "status": "completed",
+          "provider_returned": true,
+          "input_tokens": 4013,
+          "output_tokens": 40,
+          "image_views": 0
+        },
+        {
+          "stage": "decision",
+          "status": "completed",
+          "provider_returned": true,
+          "input_tokens": 4641,
+          "output_tokens": 365,
+          "image_views": 0
+        },
+        {
+          "stage": "decision",
+          "status": "completed",
+          "provider_returned": true,
+          "input_tokens": 3990,
+          "output_tokens": 365,
+          "image_views": 0
+        }
+      ],
+      "tools": [
+        {
+          "name": "get_order_snapshot",
+          "status": "ok"
+        },
+        {
+          "name": "get_shipment_status",
+          "status": "ok"
+        },
+        {
+          "name": "create_reply_draft",
+          "status": "ok"
+        },
+        {
+          "name": "create_reply_draft",
+          "status": "ok"
+        }
+      ],
+      "usage": {
+        "model_requests": 5,
+        "tool_calls": 4,
+        "input_tokens": 16798,
+        "output_tokens": 1253,
+        "unknown_requests": 0,
+        "reserved_tokens": 18051,
+        "active_ms": 33984,
+        "image_views": 0,
+        "limits": {
+          "model_requests": 6,
+          "tool_calls": 12,
+          "tokens": 80000,
+          "active_ms": 120000
+        },
+        "cost": null
+      },
+      "observation_pass": true,
+      "remote": {
+        "trace_id": "308337ae660e413dbecb46b95f82b5b8",
+        "session_id": "1a593df3-11f7-5f62-a2c6-8b43096b00a9",
+        "observations": [
+          {
+            "id": "9a8ed440ca0c5573",
+            "type": "SPAN",
+            "name": "outcome",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "9453110926ed904b",
+            "type": "SPAN",
+            "name": "policy",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "92c8fb463c6791b8",
+            "type": "SPAN",
+            "name": "response",
+            "parent_id": "bab756bfd7bef759",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "bab756bfd7bef759",
+            "type": "TOOL",
+            "name": "tool",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "9a99be78ba2166a9",
+            "type": "GENERATION",
+            "name": "model",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 3990,
+            "output_tokens": 365
+          },
+          {
+            "id": "882c87d3a020b4bd",
+            "type": "SPAN",
+            "name": "policy",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "b0f095412e2f192b",
+            "type": "SPAN",
+            "name": "response",
+            "parent_id": "a3211dea6073e895",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "a3211dea6073e895",
+            "type": "TOOL",
+            "name": "tool",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "858a960f98116b16",
+            "type": "GENERATION",
+            "name": "model",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 4641,
+            "output_tokens": 365
+          },
+          {
+            "id": "b5a33b4dc6484803",
+            "type": "TOOL",
+            "name": "tool",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "a33aae3af6ef9391",
+            "type": "GENERATION",
+            "name": "model",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 4013,
+            "output_tokens": 40
+          },
+          {
+            "id": "b57388486fc3d7b5",
+            "type": "TOOL",
+            "name": "tool",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "ab780c5166b6d812",
+            "type": "GENERATION",
+            "name": "model",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 3212,
+            "output_tokens": 79
+          },
+          {
+            "id": "8b166c1cdd9078fa",
+            "type": "GENERATION",
+            "name": "model",
+            "parent_id": "8769c9a41e40e2bd",
+            "input_tokens": 942,
+            "output_tokens": 404
+          },
+          {
+            "id": "92aa43dbdcbe0a76",
+            "type": "SPAN",
+            "name": "attachment_prepare",
+            "parent_id": "8769c9a41e40e2bd",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "8769c9a41e40e2bd",
+            "type": "SPAN",
+            "name": "understanding",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "8fcfaf56936c0ad1",
+            "type": "SPAN",
+            "name": "context",
+            "parent_id": "87df9cd4dc26c62a",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "87df9cd4dc26c62a",
+            "type": "SPAN",
+            "name": "run",
+            "parent_id": null,
+            "input_tokens": 0,
+            "output_tokens": 0
+          }
+        ]
+      },
+      "parent_links_match_receipts_pass": true,
+      "hierarchy_pass": true,
+      "usage_projection_pass": true,
+      "remote_sensitive_marker_absent": true
+    },
+    {
+      "run_id": "6a25f963-639c-4176-8ffc-eefa83af6e3a",
+      "conversation_id": "7c9a1869-ced7-414f-9b6a-d9803ec0a76b",
+      "business_result": {
+        "error_code": "understanding_schema_invalid"
+      },
+      "export": {
+        "run_id": "6a25f963-639c-4176-8ffc-eefa83af6e3a",
+        "trace_id": "a42744ffe3b246198446289a67509cca",
+        "trace_url": "http://127.0.0.1:3001/project/globalmail-agent-local/traces/a42744ffe3b246198446289a67509cca",
+        "export_status": "exported",
+        "reason_code": null,
+        "pending_count": 0
+      },
+      "model_calls": [
+        {
+          "stage": "understanding",
+          "status": "completed",
+          "provider_returned": true,
+          "input_tokens": 3419,
+          "output_tokens": 880,
+          "image_views": 1
+        },
+        {
+          "stage": "understanding",
+          "status": "completed",
+          "provider_returned": true,
+          "input_tokens": 3431,
+          "output_tokens": 982,
+          "image_views": 1
+        }
+      ],
+      "tools": [],
+      "usage": {
+        "model_requests": 2,
+        "tool_calls": 0,
+        "input_tokens": 6850,
+        "output_tokens": 1862,
+        "unknown_requests": 0,
+        "reserved_tokens": 8712,
+        "active_ms": 36422,
+        "image_views": 2,
+        "limits": {
+          "model_requests": 6,
+          "tool_calls": 12,
+          "tokens": 80000,
+          "active_ms": 120000
+        },
+        "cost": null
+      },
+      "observation_pass": true,
+      "image_source": "data/visual/v1/images/normal.png (AI synthetic)",
+      "remote": {
+        "trace_id": "a42744ffe3b246198446289a67509cca",
+        "session_id": "3730e65d-0666-5850-87b1-8cabf9f143fa",
+        "observations": [
+          {
+            "id": "8aafac9c675bddef",
+            "type": "SPAN",
+            "name": "outcome",
+            "parent_id": "b0050f0b3d80b007",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "b114942aa3db5780",
+            "type": "GENERATION",
+            "name": "model",
+            "parent_id": "9d4c6ddd264e793e",
+            "input_tokens": 3431,
+            "output_tokens": 982
+          },
+          {
+            "id": "9fcbca59a44d9f1e",
+            "type": "GENERATION",
+            "name": "model",
+            "parent_id": "9d4c6ddd264e793e",
+            "input_tokens": 3419,
+            "output_tokens": 880
+          },
+          {
+            "id": "a76e6a0495682b29",
+            "type": "SPAN",
+            "name": "attachment_prepare",
+            "parent_id": "9d4c6ddd264e793e",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "9d4c6ddd264e793e",
+            "type": "SPAN",
+            "name": "understanding",
+            "parent_id": "b0050f0b3d80b007",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "bc6b320e67152a7a",
+            "type": "SPAN",
+            "name": "context",
+            "parent_id": "b0050f0b3d80b007",
+            "input_tokens": 0,
+            "output_tokens": 0
+          },
+          {
+            "id": "b0050f0b3d80b007",
+            "type": "SPAN",
+            "name": "run",
+            "parent_id": null,
+            "input_tokens": 0,
+            "output_tokens": 0
+          }
+        ]
+      },
+      "parent_links_match_receipts_pass": true,
+      "hierarchy_pass": true,
+      "usage_projection_pass": true,
+      "remote_sensitive_marker_absent": true
+    }
+  ],
+  "text_multi_tool": true,
+  "actual_image_request": true,
+  "observation_pass": true,
+  "readback_without_reexecution": true
+}

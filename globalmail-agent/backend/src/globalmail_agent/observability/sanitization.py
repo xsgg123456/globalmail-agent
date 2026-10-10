@@ -1,7 +1,9 @@
 """Safe log metadata. Never copy provider exceptions, model reasoning or raw bodies."""
-ALLOWED = {"run_id", "stage", "status", "reason_code", "tool_name", "attempt_no", "request_id"}
+from globalmail_agent.observability.media_filter import safe_fields
 
 
 def safe_summary(values):
-    return {key: value for key, value in values.items() if key in ALLOWED
-        and isinstance(value, (str, int, bool)) and len(str(value)) <= 160}
+    try:
+        return safe_fields(values)
+    except Exception:
+        return {}  # Logging must also fail closed; export records separately mark degraded.

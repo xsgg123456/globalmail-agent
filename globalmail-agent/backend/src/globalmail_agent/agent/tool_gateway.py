@@ -17,6 +17,7 @@ from globalmail_agent.agent.tool_schemas import TOOLS, Draft, ReplyParts
 from globalmail_agent.knowledge.base import canonical, sha
 from globalmail_agent.knowledge.retrieval import KnowledgeSearch
 from globalmail_agent.knowledge.index_commands import SearchCommand
+from globalmail_agent.observability.tracing import observation
 
 
 class ToolGateway:
@@ -27,6 +28,11 @@ class ToolGateway:
         self.last_signature = None
 
     def call(self, call):
+        metadata = {"tool_name": call["name"]} if call["name"] in TOOLS else {}
+        with observation("tool", **metadata):
+            return self._call(call)
+
+    def _call(self, call):
         name = call["name"]
         if name == "create_reply_draft" and self.context.payload.get("execution_mode") == "human_assist":
             raise ServiceError("autonomous_reply_forbidden", 422)
@@ -137,7 +143,8 @@ class ToolGateway:
                 return result("unavailable", "historical_manifest_unavailable")
             command = SearchCommand(query=args.query, sku=line["sku"], types=args.types,
                 as_of=self.context.as_of, release_id=self.context.release_id, expected_release_epoch=self.context.release_epoch)
-            found = KnowledgeSearch(self.engine, self.store, self.embedding, self.context.workspace_id).search(command)
+            with observation("retrieval"):
+                found = KnowledgeSearch(self.engine, self.store, self.embedding, self.context.workspace_id).search(command)
             if found["reason"] == "stale_release":
                 raise ServiceError("stale_release")
             if found["reason"] in {"provider_error", "incomplete_source"}:
@@ -156,7 +163,8 @@ class ToolGateway:
             from globalmail_agent.application.understanding_revisions import revise_understanding
             return revise_understanding(self.engine, self.store, self.context, self.job, args, command_id)
         if name in {"create_reply_draft", "request_human_review"}:
-            return result(data=args.model_dump(mode="json"), simulation=simulation, source_kind="model_proposal")
+            with observation("response", tool_name=name):
+                return result(data=args.model_dump(mode="json"), simulation=simulation, source_kind="model_proposal")
         raise ServiceError("tool_not_allowed", 422)
 
     def register(self, references, sku):

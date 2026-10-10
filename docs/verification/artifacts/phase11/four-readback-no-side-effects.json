@@ -1,0 +1,71 @@
+{
+  "verdict": "PASS",
+  "exit_code": 0,
+  "real_remote_get_count": 2,
+  "exporter_start_calls": 0,
+  "export_calls": 0,
+  "model_calls": 0,
+  "graph_calls": 0,
+  "all_seven_tables_unchanged": true,
+  "before": {
+    "agent_runs": {
+      "count": 4,
+      "sha256": "5bab939d88e58bdfe7cddbcfa665bbfbe46b3d7a1eb07fbe12665e8c968c61ee"
+    },
+    "messages": {
+      "count": 5,
+      "sha256": "5ca6cf2f0a7cf0dfed16899707e10c455fba2403424c7a4a345a809882ad5deb"
+    },
+    "reply_artifacts": {
+      "count": 1,
+      "sha256": "e10ab6f972371d850a0b6a53bc906e557a42acf0535874ff592769819c895775"
+    },
+    "tool_commands": {
+      "count": 5,
+      "sha256": "3e7c5b528378ac3dc5ec27a1f9234ddd3f214113b6d2947d819387faa53a18b9"
+    },
+    "usage_records": {
+      "count": 10,
+      "sha256": "7e52eb35f511918ab48e8124bfa6ca830253031ee159bc0fbeb72740ec6d1a5f"
+    },
+    "trace_correlations": {
+      "count": 3,
+      "sha256": "f0d7d1732aef37d00f0d191b305ae362444f871ff5fdca5cde50b3f3c64a8a39"
+    },
+    "objects": {
+      "count": 47,
+      "sha256": "de8b78b6a206e026cc3bb0838b50f0382e44539fadf41c80d2bb05c0c33c48af"
+    }
+  },
+  "after": {
+    "agent_runs": {
+      "count": 4,
+      "sha256": "5bab939d88e58bdfe7cddbcfa665bbfbe46b3d7a1eb07fbe12665e8c968c61ee"
+    },
+    "messages": {
+      "count": 5,
+      "sha256": "5ca6cf2f0a7cf0dfed16899707e10c455fba2403424c7a4a345a809882ad5deb"
+    },
+    "reply_artifacts": {
+      "count": 1,
+      "sha256": "e10ab6f972371d850a0b6a53bc906e557a42acf0535874ff592769819c895775"
+    },
+    "tool_commands": {
+      "count": 5,
+      "sha256": "3e7c5b528378ac3dc5ec27a1f9234ddd3f214113b6d2947d819387faa53a18b9"
+    },
+    "usage_records": {
+      "count": 10,
+      "sha256": "7e52eb35f511918ab48e8124bfa6ca830253031ee159bc0fbeb72740ec6d1a5f"
+    },
+    "trace_correlations": {
+      "count": 3,
+      "sha256": "f0d7d1732aef37d00f0d191b305ae362444f871ff5fdca5cde50b3f3c64a8a39"
+    },
+    "objects": {
+      "count": 47,
+      "sha256": "de8b78b6a206e026cc3bb0838b50f0382e44539fadf41c80d2bb05c0c33c48af"
+    }
+  },
+  "verification_script_sha256": "cbbfd37229acba820303ed6c4d4c00a1b1eec850db04d628d75641555a181974"
+}
