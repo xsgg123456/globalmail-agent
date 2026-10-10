@@ -13,8 +13,8 @@ from globalmail_agent.knowledge.base import canonical
 from globalmail_agent.knowledge.release_queries import head
 from globalmail_agent.worker.leases import db_now
 
-PROMPT_VERSION = "after-sales/2"
-GRAPH_VERSION = "after-sales-graph/2"
+PROMPT_VERSION = "human-assistance/1"
+GRAPH_VERSION = "human-assistance-graph/1"
 
 
 @dataclass(frozen=True)
@@ -83,13 +83,14 @@ def load_context(engine, store, workspace, job, *, rebuild=False):
         notes.extend(image_notes)
         risks = active_risks(conn, store, conv) if conv["mode"] == "simulation" else []
         payload = {"mode": conv["mode"], "simulation": conv["mode"] == "simulation", "as_of": when.isoformat(),
+            "execution_mode": run["execution_mode"], "persistent_human": conv["persistent_human"],
             "messages": mail, "human_notes": notes, "case_facts": facts, "case_revision": conv["case_revision"],
             "trigger_message_id": str(cycle["trigger_message_id"]), "unread_attachments": image_manifest, "wake_pending": wakes,
             "attachments": image_manifest, "visual_sources": image_sources,
             "active_risks": risks,
             "risk_history": active_risks(conn, store, conv, status=None) if conv["mode"] == "simulation" else [],
             "limitations": ["Image metadata is not content. Only authorized views in this request are read; unread coverage stays explicit.",
-                "Simulation permits validated internal applications only. The scenario console is the sole execution controller; acceptance is not refund or shipment success."]}
+                "Business tools are read-only Mock snapshots. Commercial remedies require persistent human handling; no application, payment or fulfillment authority."]}
         for key, values in {
             "issues": [{k: v for k, v in row.items() if v is not None} for row in case["issues"] if row["order_line_id"]],
             "waits": [r for r in case["waits"] if r["status"] == "active"],
@@ -105,8 +106,7 @@ def load_context(engine, store, workspace, job, *, rebuild=False):
                 payload["verified_tool_sources"] = {identity: {"sender": row["sender"], "body": row["body"]}
                     for identity, row in tool_sources(conn, store, conv, run["id"]).items()}
             names = {"get_order_snapshot", "get_shipment_status", "get_after_sales_context",
-                "get_item_availability", "get_operation_status", "check_after_sales_eligibility",
-                "create_after_sales_operation", "cancel_after_sales_operation"}
+                "get_item_availability", "get_operation_status"}
             payload["verified_business_observations"] = [{"command_source_id": "command:" + str(row["id"]),
                 "tool_name": row["name"], "result": json.loads(read_bytes(conn, store, conv, row["result_object_id"]))}
                 for row in conn.execute(sa.select(a.tool_commands).where(a.tool_commands.c.run_id == run["id"],

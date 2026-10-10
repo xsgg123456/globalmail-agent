@@ -16,7 +16,7 @@ def correct_fulfillment(conn, conv, branch, line, command):
     original = {**row["source_snapshot"], **row["details"]}
     values = {}
     if command.event == "original_shipment":
-        if row["operation_id"] or row["parcel_purpose"] != "original_order" or not all([
+        if row["operation_id"] or row["parcel_purpose"] not in {"original", "original_order"} or not all([
                 command.status, command.carrier, command.tracking_number]):
             raise ServiceError("original_parcel_evidence_required", 422)
         ranks = {"label_created": 0, "shipped": 1, "in_transit": 1, "delivered": 2}

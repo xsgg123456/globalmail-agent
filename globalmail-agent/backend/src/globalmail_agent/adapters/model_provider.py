@@ -33,19 +33,7 @@ class ModelProvider:
                 data = base64.b64encode(image_loader(ref)).decode("ascii")
                 blocks.append({"type": "image_url", "image_url": {"url": "data:image/png;base64," + data}})
             target["content"] = blocks
-        options = {"model": self.model, "messages": messages, "max_tokens": 2000,
-            "temperature": 0.7, "extra_body": {"enable_thinking": False}}
-        if schema and schema.get("title") == "OutcomeReview" and not tools:
-            options.pop("max_tokens")
-            options.update(max_completion_tokens=VALIDATION_OPTIONS["max_completion_tokens"],
-                extra_body=dict(VALIDATION_OPTIONS["extra_body"]))
-        if schema:
-            options["response_format"] = {"type": "json_schema", "json_schema":
-                {"name": "mail_understanding", "strict": True, "schema": schema}}
-        if tools:
-            choice = {"type": "function", "function": {"name": tools[0]["function"]["name"]}} \
-                if len(tools) == 1 else "auto"
-            options.update(tools=tools, tool_choice=choice, parallel_tool_calls=False)
+        options = {**self.request_options(schema=schema, tools=tools), "messages": messages}
         try:
             response = self.client.with_options(timeout=timeout).chat.completions.create(**options)
             choice = response.choices[0]
@@ -64,6 +52,22 @@ class ModelProvider:
                 "model_rate_limited" if error.status_code == 429 else
                 "model_unavailable" if error.status_code >= 500 else "model_configuration_error")
             raise ServiceError(code, 503) from None
+
+    def request_options(self, *, schema=None, tools=None):
+        options = {"model": self.model, "max_tokens": 2000,
+            "temperature": 0.7, "extra_body": {"enable_thinking": False}}
+        if schema and schema.get("title") == "OutcomeReview" and not tools:
+            options.pop("max_tokens")
+            options.update(max_completion_tokens=VALIDATION_OPTIONS["max_completion_tokens"],
+                extra_body=dict(VALIDATION_OPTIONS["extra_body"]))
+        if schema:
+            options["response_format"] = {"type": "json_schema", "json_schema":
+                {"name": "mail_understanding", "strict": True, "schema": schema}}
+        if tools:
+            choice = {"type": "function", "function": {"name": tools[0]["function"]["name"]}} \
+                if len(tools) == 1 else "auto"
+            options.update(tools=tools, tool_choice=choice, parallel_tool_calls=False)
+        return options
 
 
 def prompt(name):

@@ -44,6 +44,8 @@ export function detailFixture(id = 'c-1'): ConversationDetail {
       reason: 'manual',
       draft: 'saved reply',
       note: 'saved note',
+      staff_draft: 'saved reply',
+      staff_note: 'saved note',
       reply: ''
     },
     runs: [],

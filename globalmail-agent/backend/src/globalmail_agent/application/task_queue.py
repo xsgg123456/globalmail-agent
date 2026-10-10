@@ -42,6 +42,7 @@ def enqueue(conn, conversation, event):
         conversation_id=conversation["id"], trigger_id=event["id"],
         trigger_message_id=UUID(str(event["payload"]["message_id"])), state="queued"))
     conn.execute(insert(agent_runs).values(id=run, **scope, **revisions, conversation_id=conversation["id"],
+        execution_mode="human_assist" if conversation.get("persistent_human") else "autonomous",
         processing_cycle_id=cycle, attempt_no=1, status="queued", trigger_id=event["id"]))
     conn.execute(insert(jobs).values(id=job, **scope, conversation_id=conversation["id"],
         run_id=run, cycle_id=cycle, kind="agent", status="queued", attempt_no=1))

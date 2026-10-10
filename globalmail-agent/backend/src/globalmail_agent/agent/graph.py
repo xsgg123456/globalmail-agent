@@ -45,8 +45,11 @@ class AgentGraph:
     def request(self, messages, stage, *, schema=None, tools=None, image_views=()):
         for attempt in range(2):
             schema_budget = tools or ([schema] if schema else [])
-            key = self.budget.reserve(messages, stage, self.model.model, schema_budget, image_views)
+            metadata = self.model.request_options(schema=schema, tools=tools) if hasattr(self.model, "request_options") else None
+            key = self.budget.reserve(messages, stage, self.model.model, schema_budget, image_views,
+                schema=schema, options=metadata, store=self.gateway.store, request_tools=tools)
             output = None
+            error_code = None
             try:
                 remaining = (120000 - self.budget.active_ms()) / 1000
                 if remaining <= 0:
@@ -59,11 +62,15 @@ class AgentGraph:
                 output = self.model.request(messages, schema=schema, tools=tools,
                     timeout=min(network_timeout(stage), remaining), **options)
             except ServiceError as error:
+                error_code = error.code
                 if attempt == 0 and error.code in {"model_timeout", "model_rate_limited", "model_unavailable"}:
                     time.sleep(0.25)
                     continue
                 raise
             finally:
+                from globalmail_agent.observability.model_records import finish_record
+                finish_record(self.gateway.engine, self.gateway.store, self.context.workspace_id,
+                    self.job, key, output, error_code or ("model_response_missing" if output is None else None))
                 self.budget.settle(key, output.get("usage") if output else None,
                     output.get("request_id") if output else None)
             if output["finish_reason"] in {"length", "content_filter"}:
@@ -109,6 +116,8 @@ class AgentGraph:
                     with guarded(self.gateway.engine, self.context.workspace_id, self.job) as (conn, conv, run, cycle):
                         business_sources = tool_sources(conn, self.gateway.store, conv, run["id"])
                 value = validate_sources(value, payload, tool_sources=business_sources)
+                from globalmail_agent.application.human_assistance import retain_human
+                retain_human(self.gateway.engine, self.gateway.store, self.context, self.job, value)
                 if refs:
                     from globalmail_agent.knowledge.base import sha
                     value.update(image_views=refs, visual_context_hash=sha(canonical(payload)))
@@ -140,44 +149,11 @@ class AgentGraph:
         raise ServiceError(last_code, 503)
 
     def decide(self, state):
-        multiple_waits = len(state["understanding"]["intents"]) > 1 or any(
-            issue.get("order_line_id") for issue in self.context.payload.get("issues", []))
-        menu = lambda allowed=None: schemas(allowed, multiple_waits=multiple_waits)
-        allowed = None
-        candidates = [*state["understanding"]["order_candidates"],
-            *[intent["order_number"] for intent in state["understanding"]["intents"] if intent["order_number"]]]
-        if not candidates and not self.context.payload.get("verified_business_observations"):
-            allowed = {"get_case_context", "create_reply_draft", "request_human_review", "update_case_state", "revise_understanding"}
         messages = [*state["messages"], {"role": "system", "content": prompt("grounding")}]
-        tools = menu(allowed)
-        from globalmail_agent.agent.tool_menu import stage_tools
-        tools, application_ready = stage_tools(tools, state, self.context)
-        if self.context.mode != "simulation":
-            from globalmail_agent.agent.tools.after_sales import NAMES as after_sales_tools
-            tools = [tool for tool in tools if tool["function"]["name"] not in after_sales_tools]
-        remaining = self.budget.remaining_requests()
-        if remaining <= 1:
-            tools = menu({"request_human_review"})
-        elif remaining <= 2:
-            # Keep every observation; reserve the last request for independent reply validation.
-            tools = menu({"create_reply_draft", "request_human_review"})
-        elif input_estimate(messages, tools) > 16000:
-            # Candidate writes may wait; keep scoped reads available while their requests fit.
-            read_and_terminal = set(schema["function"]["name"] for schema in tools) - {
-                "get_case_context", "update_case_state", "revise_understanding"}
-            if not application_ready:
-                from globalmail_agent.agent.tools.after_sales import NAMES
-                read_and_terminal -= NAMES
-            tools = menu(read_and_terminal)
-            if application_ready and input_estimate(messages, tools) > 16000:
-                tools = menu({'create_after_sales_operation', 'get_operation_status', 'create_reply_draft', 'request_human_review'})
-                if input_estimate(messages, tools) > 16000:
-                    tools = menu({'create_after_sales_operation', 'request_human_review'})
-            if input_estimate(messages, tools) > 16000:
-                tools = menu({"create_reply_draft", "request_human_review"})
-        if input_estimate(messages, tools) > 16000:
-            # A sourced handoff can still fit when the larger reply schema cannot.
-            tools = menu({"request_human_review"})
+        if self.context.payload.get("execution_mode") == "human_assist":
+            messages.append({"role": "system", "content": prompt("human-assistance")})
+        from globalmail_agent.agent.tool_menu import decision_menu
+        tools = decision_menu(state, self.context, self.budget, messages)
         output = self.request(messages, "decision", tools=tools)
         if not output["calls"]:
             raise ServiceError("model_tool_response_invalid", 503)
@@ -211,6 +187,8 @@ class AgentGraph:
                 with guarded(self.gateway.engine, self.context.workspace_id, self.job) as (conn, conv, run, cycle):
                     understanding = current_understanding(conn, self.gateway.store, conv, run["id"])
                     self.context.payload["case_revision"] = conv["case_revision"]
+                from globalmail_agent.application.human_assistance import retain_human
+                retain_human(self.gateway.engine, self.gateway.store, self.context, self.job, understanding)
                 messages[1] = {"role": "user", "content": canonical({
                     "context": self.context.payload, "understanding": understanding}).decode()}
             if call["name"] in {"create_reply_draft", "request_human_review"}:

@@ -2,7 +2,8 @@ from uuid import UUID
 from sqlalchemy import select, and_, or_
 from globalmail_agent.adapters.body_store import read_body
 from globalmail_agent.adapters.conversation_schema import (
-    conversations, identities, messages, human_reviews, agent_runs, case_issues, case_facts, replay_cursors)
+    conversations, identities, messages, human_reviews, agent_runs, case_issues, case_facts, replay_cursors,
+    processing_cycles)
 from globalmail_agent.application.conversation_lock import ServiceError
 
 
@@ -18,6 +19,11 @@ class QueryMixin:
         result = dict(row)
         for field, column in (("draft", "draft_object_id"), ("note", "note_object_id"), ("reply", "reply_object_id")):
             result[field] = read_body(conn, self.store, conversation, row[column])
+        from globalmail_agent.adapters.schema import objects
+        for field in ("draft", "note"):
+            source = conn.execute(select(objects.c.source_kind).where(
+                objects.c.id == row[field + "_object_id"])).scalar_one_or_none()
+            result["staff_" + field] = result[field] if source == "human_" + field else ""
         from globalmail_agent.attachments.revocation import REDACTED
         if REDACTED in (result["draft"], result["note"], result["reply"]):
             result["reason"] = REDACTED
@@ -80,7 +86,9 @@ class QueryMixin:
                     "human_history": [self.present_review(conn, conversation, r) for r in reviews if r["status"] != "open"],
                     "comparisons": [self.present_review(conn, conversation, r) for r in reviews
                         if r["status"] != "open"] if conversation["mode"] == "historical_replay" else [],
-                    "runs": [dict(r) for r in conn.execute(select(agent_runs).where(agent_runs.c.conversation_id == conversation_id)
+                    "runs": [dict(r) for r in conn.execute(select(agent_runs,
+                        processing_cycles.c.trigger_message_id).join(processing_cycles,
+                        processing_cycles.c.id == agent_runs.c.processing_cycle_id).where(agent_runs.c.conversation_id == conversation_id)
                         .order_by(agent_runs.c.created_at)).mappings()],
                     **case_state(conn, conversation),
                     "facts": [{**dict(f), "value": read_body(conn, self.store, conversation, f["value_object_id"])} for f in facts],

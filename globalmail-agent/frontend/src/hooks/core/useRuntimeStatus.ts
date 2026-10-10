@@ -10,8 +10,8 @@ interface Readiness {
 }
 interface RuntimeConfig {
   mode: 'local_single_user'
-  phase: 9
-  features: { conversations: true; business_queries: true; knowledge: true; agent: boolean; images: true; after_sales: true; simulation_control: true }
+  phase: 16
+  features: { conversations: true; business_queries: true; knowledge: true; agent: boolean; images: true; after_sales: true; simulation_control: false; human_assistance:true; model_call_records:true }
   model_configured: boolean
 }
 export function useRuntimeStatus() {

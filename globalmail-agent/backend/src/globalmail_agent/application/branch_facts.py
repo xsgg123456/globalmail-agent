@@ -1,9 +1,8 @@
 """Explicit scenario staff facts update the same ledger and retain immutable event history."""
-from uuid import uuid4, UUID
+from uuid import uuid4
 import sqlalchemy as sa
 from globalmail_agent.adapters import business_schema as b
-from globalmail_agent.adapters.conversation_schema import conversations, domain_events, case_issues, messages
-from globalmail_agent.application.after_sales_ledger import provenance
+from globalmail_agent.adapters.conversation_schema import conversations, domain_events, messages
 from globalmail_agent.application.business_read_model import scope_where
 from globalmail_agent.application.conversation_lock import DEFAULT_WORKSPACE_ID, ServiceError, lock_conversation
 from globalmail_agent.application.idempotency import prior, remember
@@ -58,14 +57,16 @@ class BranchFactsService:
             conn.execute(b.simulation_branches.update().where(b.simulation_branches.c.id == branch_id).values(state=state))
             event = record_event(conn, conv, "branch_fact", command.source_event_id, command.event, payload, suppressed=True)
             conn.execute(domain_events.update().where(domain_events.c.id == event["id"]).values(business_version=command.business_version))
-            wake = self._dispatch(conn, conv, line, command, event["id"])
-            conn.execute(domain_events.update().where(domain_events.c.id == event["id"]).values(status=wake["status"]))
-            # A record-only event still changes optimistic UI version, but does not queue a model.
-            if not wake["changed"]:
-                conn.execute(conversations.update().where(conversations.c.id == conv["id"]).values(row_version=conv["row_version"] + 1))
+            from globalmail_agent.application.task_queue import invalidate
+            invalidate(conn, conv["id"])
+            conn.execute(conversations.update().where(conversations.c.id == conv["id"]).values(
+                input_revision=conv["input_revision"] + 1, row_version=conv["row_version"] + 1,
+                scheduling_state="idle"))
+            status = "facts_updated"
+            conn.execute(domain_events.update().where(domain_events.c.id == event["id"]).values(status=status))
             append_ui_event(conn, conv["id"], "simulation.fact", {"event_id": str(event["id"]), "event": command.event,
-                "version": command.business_version, "wake_status": wake["status"]})
-            response = {"conversation_id": str(conv["id"]), "event_id": str(event["id"]), "status": wake["status"], "business_version": command.business_version}
+                "version": command.business_version, "wake_status": status})
+            response = {"conversation_id": str(conv["id"]), "event_id": str(event["id"]), "status": status, "business_version": command.business_version}
             remember(conn, self.workspace_id, key, name, digest, response)
             return response
 
@@ -119,36 +120,3 @@ class BranchFactsService:
         else:
             from globalmail_agent.application.branch_fulfillment import correct_fulfillment
             correct_fulfillment(conn, conv, branch, line, command)
-
-    def _dispatch(self, conn, conv, line, command, event_id):
-        from globalmail_agent.worker.event_dispatcher import dispatch_locked
-        rows = conn.execute(sa.select(b.operations).where(*scope_where(b.operations, conv),
-            b.operations.c.order_line_id == line["id"], b.operations.c.decision_id.is_not(None),
-            b.operations.c.status != "cancelled")).mappings().all()
-        affected = {"inventory_snapshot": {"replacement", "spare_part"}, "address_confirmation": {"replacement", "spare_part"},
-            "original_shipment": {"logistics"}, "inspection_correction": {"return", "refund", "replacement"},
-            "return_documents": {"return", "refund", "replacement"}, "service_note": {"logistics"}}[command.event]
-        results = []
-        for operation in rows:
-            if operation["kind"] not in affected:
-                continue
-            current = conn.execute(sa.select(conversations).where(conversations.c.id == conv["id"])).mappings().one()
-            mapped = {"inventory_snapshot": "inventory_changed", "inspection_correction": "inspected"}.get(command.event, command.event)
-            results.append(dispatch_locked(conn, current, operation, mapped, str(event_id)))
-        linked = {r["order_line_id"] for r in rows if r["kind"] in affected}
-        if not linked:
-            from globalmail_agent.adapters.agent_schema import wake_pending
-            from globalmail_agent.application.waits import _record_wake_locked
-            issues = conn.execute(sa.select(case_issues).where(case_issues.c.conversation_id == conv["id"],
-                case_issues.c.order_line_id == line["id"], case_issues.c.business_type.in_(affected),
-                case_issues.c.status == "open")).mappings().all()
-            condition = {"inventory_snapshot": "inventory", "original_shipment": "shipment_changed",
-                "inspection_correction": "warehouse_receipt", "return_documents": "warehouse_receipt"}.get(command.event, "manual_execution")
-            for issue in issues:
-                wake_key = condition + ":issue/" + str(issue["id"])
-                old = conn.execute(sa.select(wake_pending.c.business_version).where(
-                    wake_pending.c.conversation_id == conv["id"], wake_pending.c.condition_key == wake_key)).scalar_one_or_none()
-                current = conn.execute(sa.select(conversations).where(conversations.c.id == conv["id"])).mappings().one()
-                results.append(_record_wake_locked(conn, current, wake_key, max(command.business_version, (old or 0) + 1),
-                    source_event_id=str(event_id) + ":" + str(issue["id"])))
-        return {"changed": any(r["changed"] for r in results), "status": results[-1]["status"] if results else "record_only"}

@@ -1,38 +1,38 @@
-"""Stage-specific schemas reduce menu pressure without removing any observations."""
-import json
-from globalmail_agent.agent.tools.after_sales import NAMES
+"""Default runtime exposes reads and internal proposals, never commercial writes."""
+BLOCKED = {"check_after_sales_eligibility", "create_after_sales_operation", "cancel_after_sales_operation"}
 
 
 def after_sales_stage(state, context):
-    line_known = bool(context.payload.get('verified_business_observations'))
-    decision_ready = False
-    operations_known = False
-    for message in state['messages']:
-        if message.get('role') != 'tool':
-            continue
-        try:
-            output = json.loads(message['content'])
-        except (TypeError, ValueError):
-            continue
-        if output.get('status') not in {'ok', 'needs_input'}:
-            continue
-        data = output.get('data') or {}
-        line_known |= bool(data.get('selected_line_id') or data.get('order_line_id'))
-        operations_known |= bool(data.get('operations'))
-        if 'decision_id' in data:
-            decision_ready = output['status'] == 'ok' and data.get('authorized') is True
-        if data.get('operation'):
-            decision_ready = False
-    enabled = set()
-    if context.mode == 'simulation' and line_known:
-        enabled.add('check_after_sales_eligibility')
-        if decision_ready:
-            enabled.add('create_after_sales_operation')
-        if operations_known:
-            enabled.add('cancel_after_sales_operation')
-    return enabled, decision_ready
+    return set(), False
 
 
 def stage_tools(tools, state, context):
-    enabled, ready = after_sales_stage(state, context)
-    return [tool for tool in tools if tool['function']['name'] not in NAMES or tool['function']['name'] in enabled], ready
+    return [tool for tool in tools if tool['function']['name'] not in BLOCKED], False
+
+
+def decision_menu(state, context, budget, messages):
+    from globalmail_agent.agent.tool_schemas import schemas
+    from globalmail_agent.agent.budget import input_estimate
+    internal = context.payload.get("execution_mode") == "human_assist"
+    terminals = {"request_human_review"} if internal else {"create_reply_draft", "request_human_review"}
+    candidates = state["understanding"]["order_candidates"] or any(
+        i["order_number"] for i in state["understanding"]["intents"])
+    allowed = None if candidates or context.payload.get("verified_business_observations") else (
+        terminals | {"get_case_context", "update_case_state", "revise_understanding"})
+    def menu(names):
+        tools = schemas(names, multiple_waits=False)
+        return [t for t in tools if not (internal and t["function"]["name"] == "create_reply_draft")]
+    tools = menu(allowed)
+    remaining = budget.remaining_requests()
+    if remaining <= 1:
+        return menu({"request_human_review"})
+    if remaining <= 2:
+        return menu(terminals)
+    if input_estimate(messages, tools) > 16000:
+        tools = menu({t["function"]["name"] for t in tools} - {
+            "get_case_context", "update_case_state", "revise_understanding"})
+    if input_estimate(messages, tools) > 16000:
+        tools = menu(terminals)
+    if input_estimate(messages, tools) > 16000:
+        tools = menu({"request_human_review"})
+    return tools

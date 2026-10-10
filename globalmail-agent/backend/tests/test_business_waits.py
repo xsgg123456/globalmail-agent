@@ -62,6 +62,7 @@ class BusinessIssueTests(AgentFixture):
         op = BusinessQueries(self.engine).detail(cid)["data"]["operations"][0]["operation_id"]
         with self.engine.begin() as conn:
             record_wake(conn, lock_conversation(conn, cid), "manual_execution:" + op, 1)
+        self.append_mail(cid, "Please check my current progress.")
         job, context, _, _ = self.components()
         with self.engine.begin() as conn:
             conv = lock_conversation(conn, cid)
@@ -107,7 +108,7 @@ class BranchFactTests(AfterSalesFixture):
             bid, command.model_copy(update={"hardware_revision": None}), uuid4().hex))
         before = self.count(jobs)
         output = service.event(bid, command, uuid4().hex)
-        self.assertEqual(output["status"], "record_only")
+        self.assertEqual(output["status"], "facts_updated")
         self.assertEqual(self.count(jobs), before)
         replay = service.event(bid, command, uuid4().hex)
         self.assertTrue(replay["duplicate"])
@@ -121,7 +122,7 @@ class BranchFactTests(AfterSalesFixture):
         output, _, _ = self.create_operation(cid, context, request)
         op = output["data"]["operation"]["operation_id"]
         result = self.push(cid, op, "create_execution")
-        self.assertEqual(result["wake_status"], "pending")
+        self.assertEqual(result["wake_status"], "suppressed_by_human")
         with self.engine.connect() as conn:
             wake = conn.execute(sa.select(a.wake_pending)).mappings().one()
             self.assertEqual(wake["business_version"], 2)
@@ -138,6 +139,6 @@ class BranchFactTests(AfterSalesFixture):
         bid, command = self.fact(cid)
         before = self.count(jobs)
         output = BranchFactsService(self.engine, self.store).event(bid, command, uuid4().hex)
-        self.assertEqual(output["status"], "suppressed_by_human")
+        self.assertEqual(output["status"], "facts_updated")
         self.assertEqual(self.count(jobs), before)
         self.assertIsNone(self.leases.claim("business_cannot_cross_human"))

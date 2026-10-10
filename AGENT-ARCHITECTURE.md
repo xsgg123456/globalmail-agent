@@ -2,15 +2,40 @@
 
 本文件是根目录的主架构入口；其他专题、验证及交接位置见 [文档索引](docs/README.md)。
 
+2026-10-09 v1.18正式改造授权：按[正式规划](docs/planning/WORKBENCH-REFACTOR-IMPLEMENTATION.md)执行14→15→16后再继续原11–13。正式增量以下方“当前正式运行契约”八条为准：persistent_human/human_claimed、run.execution_mode、内部建议终局和逐次调用记录；租约允许受控human_assist，不授予自动发送或商业写权限。结案来信只登记、业务事件不唤起、旧执行链路退出默认应用，旧数据/报告保留，增量迁移。下方Phase9/10商业执行和普遍human_wait_customer恢复属于历史实现，普通不确定性恢复例外保留。邮件与运行页各自管理资源及SSE失效，不以构造记录冒充真实观测。
+
+2026-10-09v1.17预览授权：仅15175沿既有视觉实现七类演示、四类首轮只读HITL与持续人工建议/草稿，移除business/simulation页面。新客户来信可形成内部辅助DemoRun，但不会生成Agent出站；原输入快照/轮次/历史导航保留。测试命令只通过ui-preview本地开发接口/脚本修改构造内存数据，不访问/api、正式库或模型；正常构建不启用测试服务。本轮不变更下方正式后端协议或声称已移除实际售后写工具；具体完成标准见[预览规划](docs/planning/UI-PREVIEW-IMPLEMENTATION.md)。
+
+2026-10-09测试入口增量（Product-Spec v1.16，尚未实施）：本阶段不做独立场景实验室或邮件/运行台内嵌测试控件，测试样例、客户来信注入、历史逐封推进及重置通过脚本/API操作。测试入口调用后端能力，运行记录来自实际执行，业务数据可明确标记为Mock；正常客服回复仍走人工权限与出站契约。脚本/API具体交付及既有模拟接口的保留/精简范围待后续计划；现有15175预览保持原代码，不宣称已移除实验室。
+
+2026-10-09已确认需求增量（Product-Spec v1.15，尚未实现）：退款、退货、换货、补寄进入客服接管后持续由客服主导；后续每封客户来信仅触发Agent内部只读核查、建议及可选未发送草稿。内部辅助与自主客户回复必须分开权限，人工回复不恢复自主发送或交易/履约执行资格；查询失败保留人工处理，新来信/人工回复需使过时辅助结果重新核对。下方human_wait_customer→agent及“人审期间不排Agent”的旧契约仅继续作为普通不确定性HITL的目标和现有实现描述，不能直接用于该售后例外。辅助运行的具体任务/状态/API、持续人工模式解除条件及后端精简尚待对齐；不在本轮擅自确定字段、迁移或实现。历史验证不覆盖该增量。
+
+预览多轮约定（2026-10-09）：DemoRun通过conversationId归属会话、round在会话内排序、triggerMessageId/outputMessageId定位邮件，UI分别展示当前会话状态与所选历史轮结果。各轮messages上下文生成独立值快照，只含触发时可见前缀，不回写旧记录；Agent页以显式run_id或浏览器内存所选run保持历史位置，新run仅更新轮次列表/提示。新增来信和回执仍在实验室构造，人工/结案阻止生成自主跟进；刷新/重置恢复预置场景。本段仅约定15175，不定义新的正式表/API或替代下方真实运行门禁。
+
+2026-10-09临时交互预览：使用现有前端外壳，独立 `ui-preview` 模式、端口15175、专属路由与浏览器内存假数据；不代理 `/api`，不注册生产业务页面，不启动模型或写数据库。预览的模型输入/思考/工具记录仅表示布局和交互，不是实际执行观测。后端运行及既有主架构契约不随预览改变，正式解耦方案见 [规划](docs/planning/WORKBENCH-DECOUPLING-PROPOSAL.md)。
+
 2026-10-09用户调整开发顺序：保留Phase7全部运行与提交契约，停止核验器局部重复优化，继续图片输入与后续模块工程开发；模型语义和剩余业务质量回归延期到完整链路后。此次只改变推进顺序，未放宽权限、来源、预算、停止/撤销/人审和副作用约束；工程开发可推进不等于自动化质量已验收或正式发布。
 
-版本：v1.2；设计日期：2026-10-07；进度更新：2026-10-09。依据：Product-Spec v1.14、BUSINESS-SCENARIOS v1.4、TECH-SELECTION v1.3、KNOWLEDGE-DESIGN v1.3 及知识专项实测。
+版本：v1.3（v1.18正式改造）；设计日期：2026-10-07；进度更新：2026-10-09。依据：Product-Spec v1.18、BUSINESS-SCENARIOS v1.4、TECH-SELECTION v1.3、KNOWLEDGE-DESIGN v1.3 及知识专项实测。
 
 本文是开发设计基线；[Phase 2](docs/verification/PHASE-2-VALIDATION.md)已实现本机系统API、PG/对象依赖基础及前端外壳；[Phase 3](docs/verification/PHASE-3-VALIDATION.md)已实现会话/人审/调度协议；[Phase 4](docs/verification/PHASE-4-VALIDATION.md)已实现订单/账本/适配/库存查询与未发布政策的只读预览，四步技术验证及独立两阶段审查通过，具体集成见[实施约定](docs/planning/PHASE-4-IMPLEMENTATION.md)。其他业务契约尚待分阶段实现验收。技术取舍见 [后端总览](docs/architecture/BACKEND-ARCHITECTURE.md)，逐项验证设计见 [验收映射](docs/verification/AGENT-ACCEPTANCE.md)。具体已实现范围以DEV-PLAN和验证报告为准，其余数据库表、API路由和任务参数仍为工程设计；不改变Spec的业务授权与预算。
 
 v1.0 的独立设计审查已通过，范围见 [原架构审查报告](docs/verification/AGENT-ARCHITECTURE-REVIEW.md)；该报告不涵盖本次客户图片增量。v1.1 补充第4.4节及对应输入、提交、清理和 API 契约，已通过 [图片增量独立设计审查](docs/verification/AGENT-VISUAL-REVIEW.md)：危险分流优先级与旧计数两项发现均已修订复核关闭。图片工程随后由Phase8实现，四步验证及[第七轮独立审查](docs/verification/PHASE-8-REVIEW-7.md)通过；图片语义质量仍延期，正式库尚未升级0007。
 
 [Phase 5](docs/verification/PHASE-5-VALIDATION.md)已实现知识原件/不可变版本/精确适用范围、独立MinerU进程、持久任务及原件对照人工核对，四步技术验证和[独立两阶段审查](docs/verification/PHASE-5-REVIEW-CLOSED.md)通过；具体集成见[实施约定](docs/planning/PHASE-5-IMPLEMENTATION.md)。Phase6随后接入向量、检索、发布/回滚/下架，Phase7接入文本Agent，Phase8接入图片输入/证据更正撤销；[本期工程验证](docs/verification/PHASE-8-VALIDATION.md)与模型质量验收分开记录，彻底删除仍留Phase12。
+
+## 当前正式运行契约（v1.18）
+
+1. `conversations.persistent_human`标记四类持续人工，`human_claimed`区分待接管与客服已主导；不增加恢复按钮。`agent_runs.execution_mode`为autonomous/human_assist，租约、工具和提交共同校验；隐藏按钮不算权限保障。
+2. 首轮核验有源理解包含refund/return/replacement/parts时，在同租约事务转human_assist并保存持续人工与版本；后续客户来信可排独立内部run，包含此前实际人工往来。普通不确定性HITL保留人工回复后下一封恢复规则。
+3. 内部运行只提交human_advice/handoff，不创建客户Agent邮件、不登记商业等待或提交/取消申请。查询失败仍可客服处理。人工回复先撤销当前辅助run，再保存邮件和新输入版本；辅助不覆盖个人草稿。
+4. 已解决后新来信仍归原会话、仅登记，不隐式重开或排任务；接管/发送/重试不绕过结案。业务更新只更新可查事实和过期提示，不自行生成run/发信。
+5. 模型只可调用只读订单、物流、售后记录、库存/适配和知识查询，以及内部理解/草稿/接管工具；伪造商业写调用也被网关拒绝。旧表/历史回执保留可读，旧执行控制API退出默认应用。
+6. 实际请求全量文本不截断，保存Schema/参数及逐次返回；图片只登记受控引用，不复制base64或密钥。调用对象登记内容依赖，撤销/作用域仍生效；未返回reasoning及旧未采集明确显示，不补造思维链。思考开关及6模型/12工具/120活动秒预算保持。
+7. 建议绑定run/输入版本；新来信、人工回复或可观察业务版本变化后过期。采用只复制到客服输入框，确认期间二次校验run/输入/时效；手动发送才产生模拟人工邮件。
+8. 正式界面来自真实API/执行，不复制演示fixtures或编造成功节点。Mock是有来源的后端业务数据；模型替身测试只算工程证据，真实模型业务质量另外说明。
+
+以下Phase1–10架构段落保留为历史实现与存量数据说明。商业申请/执行/业务等待不再属于默认Agent链路；当前权限以本节为准。
 
 ## 0. 本轮规划与完成标准
 

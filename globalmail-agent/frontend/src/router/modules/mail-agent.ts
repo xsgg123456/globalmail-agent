@@ -13,6 +13,12 @@ export const mailAgentRoutes: AppRouteRecord = {
       meta: { title: '邮件工作台', icon: 'ri:mail-line', fixedTab: true }
     },
     {
+      path: '/agent-runs',
+      name: 'AgentRuns',
+      component: '/agent-runs/index',
+      meta: { title: 'Agent 运行台', icon: 'ri:robot-2-line' }
+    },
+    {
       path: '/knowledge',
       name: 'Knowledge',
       component: '/knowledge/index',

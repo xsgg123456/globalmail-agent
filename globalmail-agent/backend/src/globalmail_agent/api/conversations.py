@@ -30,6 +30,8 @@ def safe_call(request, action, status=200):
 def conversation_router(database, store):
     router = APIRouter(prefix="/api/v1")
     service = ConversationService(database, store)
+    from globalmail_agent.application.conversation_advice import ConversationAdvice
+    advice = ConversationAdvice(database, store)
 
     @router.get("/imports/example")
     def example(request: Request):
@@ -53,6 +55,10 @@ def conversation_router(database, store):
     @router.get("/conversations/{conversation_id}")
     def detail(request: Request, conversation_id: UUID):
         return safe_call(request, lambda: service.detail(conversation_id))
+
+    @router.get("/conversations/{conversation_id}/advice")
+    def internal_advice(request: Request, conversation_id: UUID):
+        return safe_call(request, lambda: advice.get(conversation_id))
 
     @router.post("/conversations/{conversation_id}/messages")
     def append(request: Request, conversation_id: UUID, command: AppendMessage,

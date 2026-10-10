@@ -37,7 +37,7 @@ export function validateSystemEnvelope<T>(
     valid =
       status === 200 &&
       data.mode === 'local_single_user' &&
-      data.phase === 9 &&
+      data.phase === 16 &&
       typeof data.model_configured === 'boolean' &&
       record(features) &&
       features.conversations === true &&
@@ -46,7 +46,9 @@ export function validateSystemEnvelope<T>(
       features.agent === true &&
       features.images === true &&
       features.after_sales === true &&
-      features.simulation_control === true
+      features.simulation_control === false &&
+      features.human_assistance === true &&
+      features.model_call_records === true
   }
   if (!valid) throw new Error('状态接口数据不符合运行契约')
   return body as unknown as ApiEnvelope<T>

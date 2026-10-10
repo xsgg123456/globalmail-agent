@@ -1,5 +1,27 @@
 # Development Plan — GlobalMail Agent
 
+2026-10-10追加工作流授权：用户要求提交当前已验证改造到本地Git，覆盖此前不暂存/提交约束；不推送，保留私有配置、备份、临时目录和用户`.idea/`在提交之外。
+
+2026-10-09最新正式改造授权（v1.18）：用户要求按已批准预览重拆任务并改造前后端。优先顺序改为10→14→15→16→11→12→13；已完成1–10的结论不改写，11–13未开始并保留。Phase14收敛只读/持续人工/入站与提交权限；Phase15逐次真实模型记录及独立建议；Phase16接入正式邮件/运行台、删除测试界面并做脚本/API回归和本机交付。各阶段文件清单及可独立验收标准见[正式实施规划](docs/planning/WORKBENCH-REFACTOR-IMPLEMENTATION.md)。下方仅预览及旧商业执行任务属于历史；不新增数据中心/ERP，不暂存、不提交Git。
+
+2026-10-10工程收口：14–16四步验证和fresh两阶段独审通过；正式0010升级保旧，15173/18080已启动，待用户查看。当前结果见[本期验证](docs/verification/FORMAL-WORKBENCH-REFACTOR-VALIDATION.md)，模型质量和11–13不记完成。
+
+2026-10-09当前授权任务：按Product-Spec v1.17和[业务收敛预览规划](docs/planning/UI-PREVIEW-IMPLEMENTATION.md)修改15175隔离前端。一比一继承既有视觉，去掉业务/实验室页面，七类样例与四类持续人工协作、独立运行快照、脚本/API测试入口，并做两模式编译/全量前端回归/浏览器及独立审查。此任务不推进正式Phase或修改后端交易/权限实现；正式链路的完整需求/计划映射待后续精简，不暂存/提交。
+
+本轮代码与验证：隔离预览已按上述范围实施，82项前端回归及两模式编译通过，浏览器及独立审查证据见[业务收敛验证](docs/verification/UI-BUSINESS-SCOPE-PREVIEW-VALIDATION.md)。后续由用户看预览反馈决定下一步，不自动继续旧Phase11或将旧重型售后后端视为已精简。
+
+2026-10-09测试入口选择：用户选择本阶段暂不做测试界面，通过脚本/API进行样例选择、模拟客户来信、历史逐封推进及重置；不保留独立场景实验室的目标页面，也不在邮件/运行台新增测试控件。已同步Product-Spec v1.16。原Phase3/9/10/13的测试入口及验收驱动需要后续更新，当前只提示影响，不擅自改阶段计划、实现脚本或删现有预览；不暂存/提交。
+
+2026-10-09最新需求确认：退款、退货、换货、补寄客服接管后持续人工主导；每封后续来信由Agent仅提供只读核查、内部建议及可选草稿，客服审核决定和发送。该增量已记入Product-Spec v1.15，尚未实现；Phase3/7的接管恢复和任务权限、Phase9/10的售后与多轮行为及后续验收映射受影响，需要后续对齐后更新实施计划。本轮仅记录影响，不自动重排Phase、改代码或把既有验证算作新规则通过。
+
+2026-10-09前端基线：多轮预览70项测试、两模式编译及fresh两阶段独审通过，用户确认当前前端先定下来，作为后续布局/交互基线。业务数据中心定位及售后主链路精简仍在讨论，未授权正式接入或视觉迭代，继续不暂存/提交。证据见[多轮验证](docs/verification/UI-MULTIROUND-PREVIEW-VALIDATION.md)。
+
+2026-10-09已完成预览任务：按用户确认增加“选会话→会话内选轮次→节点”的多轮交互与三封来信/一次业务回执样例；执行[预览规划的多轮迭代](docs/planning/UI-PREVIEW-IMPLEMENTATION.md)，保留历史快照、新轮提示及跨页位置。仅前端内存预览，不暂存/提交、不推进正式Phase。
+
+2026-10-09预览后续任务：按用户反馈重新设计Agent运行台视觉与信息层级，执行[预览规划的视觉迭代步骤](docs/planning/UI-PREVIEW-IMPLEMENTATION.md)。保持独立假数据范围、不推进正式Phase、不暂存或Git提交。
+
+2026-10-09当前用户任务：先交付沿用现有前端的交互预览，明确允许假数据；按 [预览实施规划](docs/planning/UI-PREVIEW-IMPLEMENTATION.md) 制作邮件、独立运行台、业务中心与实验室，做编译、现有前端回归、浏览器交互和独立审查。该任务不推进 Phase11，不计正式 Agent 能力验收；用户看过预览后再确定正式解耦实施范围。
+
 版本：v1.0；进度更新：2026-10-09。状态：Phase 1本轮探索结束，保留未通过项；Phase 2–6各期技术验证及独立审查通过；Phase 7工程已实现并提交09a818f，模型质量与最终验收延期；Phase 8工程四步验证及独立两阶段审查通过，模型质量延期；Phase 9、10工程四步验证及独立两阶段审查通过；Phase 11–13未开始。
 
 本文件记录开发顺序、交付物、关键文件与验收归属。它不改变业务范围，不将已有数据、组件实验或设计审查折算为正式应用完成。Phase 1 结果见 [图片实验报告](docs/verification/VISUAL-VALIDATION.md)：35场景108次真实请求，仍有关键业务失败，标签人工核对待完成。
@@ -8,8 +30,8 @@
 
 ## 1. 输入基线与实施规则
 
-- 产品依据：[Product-Spec v1.14](Product-Spec.md)，包括全部14项REQ、20项P0 SCOPE、82项AC及17项DEMO；2026-10-09仅核验节点预算调整，不改变业务验收目标。
-- 运行契约：[AGENT-ARCHITECTURE v1.2](AGENT-ARCHITECTURE.md)；专题见 [技术选型](docs/architecture/TECH-SELECTION.md)、[知识设计](docs/architecture/KNOWLEDGE-DESIGN.md)。主架构决定状态、权限、事务和发布行为，计划只分配实现工作。
+- 产品依据：[Product-Spec v1.18](Product-Spec.md)，包括14项REQ、20项P0 SCOPE、82项AC及17项DEMO；当前正式改造授权覆盖历史权限描述，模型质量仍保持原验收目标。
+- 运行契约：[AGENT-ARCHITECTURE v1.3](AGENT-ARCHITECTURE.md)的当前正式八契约；专题见 [技术选型](docs/architecture/TECH-SELECTION.md)、[知识设计](docs/architecture/KNOWLEDGE-DESIGN.md)。主架构决定状态、权限、事务和发布行为，计划只分配实现工作。
 - 场景依据：[业务场景](docs/business/BUSINESS-SCENARIOS.md)、[验收映射及18类故障时序](docs/verification/AGENT-ACCEPTANCE.md)、[数据契约](data/knowledge/v1/DATA-CONTRACT.md)。本轮对齐记录见 [文档一致性检查](docs/verification/DOCUMENT-CONSISTENCY-REVIEW.md)。
 - 已有：三品牌/8产品族/34 SKU、22份逻辑知识、51个环节输入和21条连续流程；前端副本、tech-spike与knowledge-spike已有证据。客户图片专项已实施且验收未通过；已有运行基础、会话/人审、业务查询及知识解析/发布检索。正式Agent与七类业务闭环按后续阶段交付。
 - UI依据：已复制的 Art Design Pro，来源与哈希见 [前端基线](globalmail-agent/frontend/FRONTEND-BASELINE.md)。没有独立 Design-Brief/设计稿，按已确认的ASM-008继承现成组件和主题，不新增视觉设计阶段、不重搭前端。
@@ -30,7 +52,10 @@
 | 8 | 在正式工作台接收图片、核验字段并分流 | 1、7 | 工程四步验证及独立两阶段审查通过；[验证记录](docs/verification/PHASE-8-VALIDATION.md)，AC082模型质量延期 |
 | 9 | 提交售后申请、模拟人工执行并查询回执 | 4、6、7；图片动作依赖8 | 工程四步验证及独立两阶段审查通过；[验证记录](docs/verification/PHASE-9-VALIDATION.md) |
 | 10 | 连续跟进、异步事件、多订单与方案变更 | 9 | 工程四步验证及独立两阶段审查通过；[验证记录](docs/verification/PHASE-10-VALIDATION.md)，21完整旅程与业务语义留Phase13 |
-| 11 | 查看实际Langfuse追踪并验证观测降级 | 7、8、10 | 未开始 |
+| 14 | 四类只读权限、持续人工及独立内部run | 10及已批准预览 | 工程验证及fresh独审通过；正式0010增量升级保旧，待用户查看 |
+| 15 | 逐次真实模型记录及独立客服建议 | 14 | 工程验证及fresh独审通过；历史未采集不反填，真实模型质量延期 |
+| 16 | 正式邮件/独立运行台接入与脚本/API验收 | 14、15 | 422后端/86前端、编译/GUI/CLI和fresh两阶段独审通过；[本期验证](docs/verification/FORMAL-WORKBENCH-REFACTOR-VALIDATION.md)，正式前后端已启动，待用户查看 |
+| 11 | 查看实际Langfuse追踪并验证观测降级 | 7、8、10、16 | 未开始 |
 | 12 | 重置/删除、联合备份恢复及防止旧数据复活 | 3、6、8、10、11 | 未开始 |
 | 13 | 七类业务、图片和故障回归通过，交付本地运行说明 | 1–12 | 未开始 |
 

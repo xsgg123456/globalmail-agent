@@ -13,6 +13,7 @@ from globalmail_agent.adapters.conversation_schema import messages
 from globalmail_agent.adapters.schema import SCOPE_KEYS
 from globalmail_agent.application.conversations import ConversationService
 from test_attachment_intake import AttachmentFixture
+from legacy_migration_fixture import LegacyConversations
 
 
 class AttachmentMigrationTests(AttachmentFixture):
@@ -31,7 +32,7 @@ class AttachmentMigrationTests(AttachmentFixture):
         with engine.begin() as conn:
             config.attributes["connection"] = conn
             command.upgrade(config, "0006_agent_results")
-        service = ConversationService(engine, ObjectStore(Path(self.temp.name), engine))
+        service = LegacyConversations(engine, ObjectStore(Path(self.temp.name), engine))
         # Seed Phase 7's exact shape without running Phase 8 acceptance/read guards
         # against a database which intentionally has not acquired the visual tables.
         with BodyWriter(service.store) as writer, engine.begin() as conn:
@@ -56,7 +57,7 @@ class AttachmentMigrationTests(AttachmentFixture):
             before = {name: [dict(r) for r in conn.execute(sa.select(old.tables[name])).mappings()] for name in
                 ("objects", "messages", "conversations", "agent_runs", "processing_cycles", "cycle_budgets")}
             config.attributes["connection"] = conn
-            command.upgrade(config, "head")
+            command.upgrade(config, "0009_business_waits")
             current = sa.MetaData()
             current.reflect(conn)
             for name, rows in before.items():

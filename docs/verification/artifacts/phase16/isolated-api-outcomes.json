@@ -1,0 +1,201 @@
+[
+  {
+    "owner": "human_review",
+    "lifecycle": "open",
+    "operations": {
+      "status": "ok",
+      "reason_code": "after_sales_ledger",
+      "data": {
+        "branch_id": "5458b410-dce0-4b3e-a00a-b2a85f534302",
+        "branch_generation": 1,
+        "conversation_version": 10,
+        "operations": [],
+        "executions": [],
+        "shipments": [],
+        "returns": []
+      },
+      "evidence_refs": [
+        {
+          "evidence_id": "branch:5458b410-dce0-4b3e-a00a-b2a85f534302",
+          "source_kind": "synthetic_scenario",
+          "source_hash": "42de893283fd67ddd792da1d783d17f52b25c78e0e85f2cc65d4861ab1b9ecc9",
+          "source_ref": "scenarios/inputs.jsonl#BASE-OUTON-04"
+        }
+      ],
+      "observed_at": "2026-10-09T23:58:04.670182+08:00",
+      "resource_versions": {
+        "conversation": 10,
+        "business_digest": "9c3e607ced2277c1c949be624b7521f353a824a570d2dd3ebd29a49e6b5805b0",
+        "branch_generation": 1,
+        "source_hash": "42de893283fd67ddd792da1d783d17f52b25c78e0e85f2cc65d4861ab1b9ecc9",
+        "policy": "1.0.1"
+      },
+      "source_kind": "synthetic_scenario",
+      "simulation": true,
+      "retryable": false
+    },
+    "id": "0d0076e8-81cf-4ebc-8735-9e937c718f8d",
+    "senders": [
+      "customer",
+      "simulated_human",
+      "customer"
+    ],
+    "runs": [
+      {
+        "outcome": "handoff",
+        "execution_mode": "human_assist",
+        "status": "handed_off"
+      },
+      {
+        "outcome": "human_advice",
+        "execution_mode": "human_assist",
+        "status": "completed"
+      }
+    ],
+    "persistent_human": true
+  },
+  {
+    "owner": "human_review",
+    "lifecycle": "open",
+    "operations": {
+      "status": "ok",
+      "reason_code": "after_sales_ledger",
+      "data": {
+        "branch_id": "0befe5ec-7207-41cc-a0fd-3c0b0599058a",
+        "branch_generation": 1,
+        "conversation_version": 5,
+        "operations": [],
+        "executions": [],
+        "shipments": [],
+        "returns": []
+      },
+      "evidence_refs": [
+        {
+          "evidence_id": "branch:0befe5ec-7207-41cc-a0fd-3c0b0599058a",
+          "source_kind": "synthetic_scenario",
+          "source_hash": "a317627e531a3552cf061c0e84523bc8a7fbb7d3479b41e4fb201a51229ef910",
+          "source_ref": "scenarios/inputs.jsonl#BASE-OUTON-05"
+        }
+      ],
+      "observed_at": "2026-10-09T23:58:04.837177+08:00",
+      "resource_versions": {
+        "conversation": 5,
+        "business_digest": "ed971cfe09a9fd41e2d27743a34fd7767076e2ee0f561ee842ad335ff6b3fd68",
+        "branch_generation": 1,
+        "source_hash": "a317627e531a3552cf061c0e84523bc8a7fbb7d3479b41e4fb201a51229ef910",
+        "policy": "1.0.1"
+      },
+      "source_kind": "synthetic_scenario",
+      "simulation": true,
+      "retryable": false
+    },
+    "id": "2a0af89c-9477-4ca7-8dba-584a0fdba008",
+    "senders": [
+      "customer"
+    ],
+    "runs": [
+      {
+        "outcome": "handoff",
+        "execution_mode": "human_assist",
+        "status": "handed_off"
+      }
+    ],
+    "persistent_human": true
+  },
+  {
+    "owner": "human_review",
+    "lifecycle": "open",
+    "operations": {
+      "status": "ok",
+      "reason_code": "after_sales_ledger",
+      "data": {
+        "branch_id": "7b359852-0483-4d0f-ae52-9994469578c4",
+        "branch_generation": 1,
+        "conversation_version": 5,
+        "operations": [],
+        "executions": [],
+        "shipments": [],
+        "returns": []
+      },
+      "evidence_refs": [
+        {
+          "evidence_id": "branch:7b359852-0483-4d0f-ae52-9994469578c4",
+          "source_kind": "synthetic_scenario",
+          "source_hash": "54904b4e4c08252a8e7ab12f566a72e816db5200ea5cf2b613a6177aa97f11f6",
+          "source_ref": "scenarios/inputs.jsonl#BASE-OUTON-06"
+        }
+      ],
+      "observed_at": "2026-10-09T23:58:04.904477+08:00",
+      "resource_versions": {
+        "conversation": 5,
+        "business_digest": "7643ea01ea157a2c6bbcfedae466b60289792c452393964079123fead1e09726",
+        "branch_generation": 1,
+        "source_hash": "54904b4e4c08252a8e7ab12f566a72e816db5200ea5cf2b613a6177aa97f11f6",
+        "policy": "1.0.1"
+      },
+      "source_kind": "synthetic_scenario",
+      "simulation": true,
+      "retryable": false
+    },
+    "id": "9fe2a86b-023e-4e7d-8505-b39ff13cc6b9",
+    "senders": [
+      "customer"
+    ],
+    "runs": [
+      {
+        "outcome": "handoff",
+        "execution_mode": "human_assist",
+        "status": "handed_off"
+      }
+    ],
+    "persistent_human": true
+  },
+  {
+    "owner": "human_review",
+    "lifecycle": "open",
+    "operations": {
+      "status": "ok",
+      "reason_code": "after_sales_ledger",
+      "data": {
+        "branch_id": "26ec6ebe-754e-4ffa-8302-49e58d8f9509",
+        "branch_generation": 1,
+        "conversation_version": 5,
+        "operations": [],
+        "executions": [],
+        "shipments": [],
+        "returns": []
+      },
+      "evidence_refs": [
+        {
+          "evidence_id": "branch:26ec6ebe-754e-4ffa-8302-49e58d8f9509",
+          "source_kind": "synthetic_scenario",
+          "source_hash": "52f01f8097506595eaf9a2de365c084b23001a5fd5aa16a1fbf8f8fded35efb1",
+          "source_ref": "scenarios/inputs.jsonl#BASE-OUTON-07"
+        }
+      ],
+      "observed_at": "2026-10-09T23:58:04.981424+08:00",
+      "resource_versions": {
+        "conversation": 5,
+        "business_digest": "5dafbe521830ab96950120a82975be74592dacbb9d255fa2e46a42e2a0b62c3a",
+        "branch_generation": 1,
+        "source_hash": "52f01f8097506595eaf9a2de365c084b23001a5fd5aa16a1fbf8f8fded35efb1",
+        "policy": "1.0.1"
+      },
+      "source_kind": "synthetic_scenario",
+      "simulation": true,
+      "retryable": false
+    },
+    "id": "6fdce1db-f028-4bbc-b66d-26176d3747a9",
+    "senders": [
+      "customer"
+    ],
+    "runs": [
+      {
+        "outcome": "handoff",
+        "execution_mode": "human_assist",
+        "status": "handed_off"
+      }
+    ],
+    "persistent_human": true
+  }
+]

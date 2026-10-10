@@ -10,7 +10,7 @@ from test_protocol import ProtocolFixture
 
 
 class HumanEventTests(ProtocolFixture):
-    def test_closed_conversation_rejects_takeover_and_new_input_reopens_without_review(self):
+    def test_closed_conversation_rejects_takeover_and_new_input_only_registers(self):
         cid, _ = self.create()
         state = self.conversation(cid)
         self.service.close(cid, Close(expected_version=state["row_version"]), uuid4().hex)
@@ -23,10 +23,10 @@ class HumanEventTests(ProtocolFixture):
         self.service.append(cid, AppendMessage(expected_version=closed["conversation"]["row_version"],
             body="Customer returns after closure."), uuid4().hex)
         reopened = self.service.detail(cid)
-        self.assertEqual(reopened["conversation"]["lifecycle"], "open")
-        self.assertEqual(reopened["conversation"]["processing_owner"], "agent")
+        self.assertEqual(reopened["conversation"]["lifecycle"], "resolved")
+        self.assertEqual(reopened["conversation"]["processing_owner"], "human_wait_customer")
         self.assertIsNone(reopened["review"])
-        self.assertIsNotNone(self.leases.claim("reopened_without_stale_review"))
+        self.assertIsNone(self.leases.claim("closed_input_must_not_run"))
 
     def test_saving_stale_draft_and_reloading_does_not_acknowledge_new_input(self):
         cid, _ = self.create()

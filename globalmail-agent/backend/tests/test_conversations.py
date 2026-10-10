@@ -137,7 +137,7 @@ class ConversationTests(unittest.TestCase):
         self.assertEqual(self.count(jobs), 2)
         self.assertEqual(len(state["messages"]), 3)
 
-    def test_close_revokes_and_new_customer_message_reopens(self):
+    def test_close_revokes_and_new_customer_message_only_registers(self):
         cid = self.create()
         state = self.detail(cid)
         self.service.close(cid, Close(expected_version=state["conversation"]["row_version"], note="Confirmed by customer."), uuid4().hex)
@@ -145,7 +145,8 @@ class ConversationTests(unittest.TestCase):
         self.assertEqual(state["conversation"]["lifecycle"], "resolved")
         self.assertEqual(state["runs"][0]["status"], "cancelled")
         self.service.append(cid, AppendMessage(expected_version=state["conversation"]["row_version"], body="Another question."), uuid4().hex)
-        self.assertEqual(self.detail(cid)["conversation"]["lifecycle"], "open")
+        self.assertEqual(self.detail(cid)["conversation"]["lifecycle"], "resolved")
+        self.assertEqual(len(self.detail(cid)["runs"]), len(state["runs"]))
 
     def test_history_real_prefix_group_id_and_comparison_isolation(self):
         payload = {**EXAMPLE, "group_id": "same-group", "sender_key": "unverified-key"}

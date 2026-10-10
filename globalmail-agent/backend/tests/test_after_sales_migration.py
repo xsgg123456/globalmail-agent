@@ -1,6 +1,8 @@
 """Frozen additive upgrade and actual composite constraints preserve preexisting records."""
 from pathlib import Path
 from uuid import uuid4
+from unittest.mock import patch
+from legacy_migration_fixture import LegacyScenarios, legacy_enqueue
 from alembic import command
 from alembic.config import Config
 import sqlalchemy as sa
@@ -34,8 +36,9 @@ class AfterSalesMigrationTests(ProtocolFixture):
         with engine.begin() as conn:
             config.attributes["connection"] = conn
             command.upgrade(config, start)
-        service = FixtureConversations(engine, ObjectStore(Path(self.temp.name), engine))
-        service.create("BASE-OUTON-04", Command(expected_version=0), uuid4().hex)
+        service = LegacyScenarios(engine, ObjectStore(Path(self.temp.name), engine))
+        with patch("globalmail_agent.application.conversation_base.enqueue", legacy_enqueue):
+            service.create("BASE-OUTON-04", Command(expected_version=0), uuid4().hex)
         with engine.begin() as conn:
             old = sa.MetaData()
             old.reflect(conn)

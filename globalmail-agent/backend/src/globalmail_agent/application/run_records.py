@@ -78,6 +78,11 @@ class RunRecords:
             waits = [dict(row) for row in conn.execute(sa.select(a.wait_conditions).where(a.wait_conditions.c.run_id == run_id)).mappings()]
             usage = usage_view(conn, basic["run"]["processing_cycle_id"])
             trace = conn.execute(sa.select(a.trace_correlations.c.trace_id).where(a.trace_correlations.c.run_id == run_id)).scalar_one_or_none()
+            from globalmail_agent.observability.model_records import read_records
+            model_calls = read_records(conn, self.store, conv, run_id)
+            advice = [json.loads(body(row["advice_object_id"])) for row in artifacts if row["advice_object_id"]]
+            context_value = json.loads(body(context_id)) if context_id else None
         return {**basic, "understanding": understanding_value,
             "tools": tools, "artifacts": artifacts, "references": [self.reference(run_id, identity) for identity in identities],
-            "waits": waits, "usage": usage, "trace_id": trace}
+            "waits": waits, "usage": usage, "trace_id": trace, "model_calls": model_calls, "advice": advice,
+            "context": context_value}

@@ -67,6 +67,7 @@ export type RunOutcome =
   | 'handoff'
   | 'wait_business'
   | 'no_material_update'
+  | 'human_advice'
 export interface ReplyArtifact {
   id: string
   outcome: RunOutcome
@@ -101,4 +102,41 @@ export interface AgentRunDetail {
   artifacts: ReplyArtifact[]
   usage: RunUsage
   waits: RunWait[]
+  model_calls?: ModelCall[]
+  advice?: AgentAdvice[]
+  context?: Record<string, unknown> | null
+}
+
+export interface ModelCall {
+  id: string
+  request_key: string
+  stage: string
+  model: string
+  status: string
+  request: Record<string, unknown> | null
+  response: Record<string, unknown> | null
+  reasoning_state: 'returned' | 'disabled' | 'not_returned' | 'failed' | 'not_recorded'
+  created_at: string
+  finished_at: string | null
+  error_code: string | null
+  input_tokens: number | null
+  output_tokens: number | null
+}
+export interface AgentAdvice {
+  summary: string
+  gaps: string[]
+  recommendations: string[]
+  draft: string
+  facts: UnderstandingResult['facts']
+  intents: UnderstandingIntent[]
+  run_id: string
+  input_revision: number
+  queried_at: string
+}
+export interface ConversationAdvice {
+  advice: AgentAdvice | null
+  run_id: string | null
+  stale: boolean
+  input_revision: number
+  observations: AgentToolCall[]
 }

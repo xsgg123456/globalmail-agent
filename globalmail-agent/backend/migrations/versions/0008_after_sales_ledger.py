@@ -105,8 +105,11 @@ def upgrade():
             op.create_check_constraint(name, table, check)
     metadata.reflect(conn, only=["workspaces", "simulation_branches", "operations", "executions", "inventory",
         "branch_order_lines", "tool_commands", "conversations"], extend_existing=True)
+    target = conn.execute(sa.text("SELECT current_schema()")).scalar_one()
+    existing = set(sa.inspect(conn).get_table_names(schema=target))
     for table in sa.sql.ddl.sort_tables([compensation_reservations, inventory_reservations, operation_commands, simulation_events]):
-        table.create(conn, checkfirst=True)
+        if table.name not in existing:
+            table.create(conn, checkfirst=False)
     if "executions_one_uncertain_managed" not in {i["name"] for i in sa.inspect(conn).get_indexes("executions")}:
         op.create_index("executions_one_uncertain_managed", "executions", ["operation_id"], unique=True,
             postgresql_where=sa.text("managed AND NOT confirmed_not_executed AND status IN ('accepted','processing','unknown','failed')"))

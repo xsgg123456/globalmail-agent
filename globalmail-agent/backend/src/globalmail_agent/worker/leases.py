@@ -21,9 +21,13 @@ def slot_for_update(connection, workspace_id, slot_key="agent", *, skip_locked=F
 
 
 def qualified(conversation, run):
+    internal = run.get("execution_mode") == "human_assist"
+    authority = (conversation.get("persistent_human") and conversation["processing_owner"] in
+        {"human_review", "human_wait_customer"} and conversation["auto_run_gate"] == "disabled") if internal else (
+        conversation["processing_owner"] == "agent" and conversation["auto_run_gate"] == "open"
+        and not conversation.get("persistent_human"))
     return (conversation["lifecycle"] == "open"
-            and conversation["processing_owner"] == "agent"
-            and conversation["auto_run_gate"] == "open"
+            and authority
             and not run["stop_requested"]
             and all(conversation[key] == run[key] for key in (
                 "input_revision", "authority_epoch", "branch_generation")))
@@ -120,10 +124,12 @@ class LeaseService:
                                 checkpoint_writable=False, finished_at=now))
                     connection.execute(processing_cycles.update().where(
                         processing_cycles.c.id == job["cycle_id"]).values(state="interrupted"))
-                    if qualified(conversation, {**conversation, "stop_requested": False}):
+                    run = connection.execute(sa.select(agent_runs).where(
+                        agent_runs.c.id == job["run_id"])).mappings().one()
+                    if qualified(conversation, run):
                         connection.execute(conversations.update().where(
                             conversations.c.id == conversation["id"])
-                            .values(auto_run_gate="manual_retry_required", scheduling_state="failed",
+                            .values(auto_run_gate="disabled" if conversation["persistent_human"] else "manual_retry_required", scheduling_state="failed",
                                     row_version=conversations.c.row_version + 1))
                     append_ui_event(connection, conversation["id"], "run.interrupted",
                                     {"run_id": str(job["run_id"])})

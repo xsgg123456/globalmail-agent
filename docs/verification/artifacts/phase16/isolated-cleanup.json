@@ -1,0 +1,10 @@
+{
+  "temporary_schemas_remaining": 0,
+  "temporary_ports_stopped": {
+    "18184": true,
+    "15176": true,
+    "18186": true,
+    "15177": true
+  },
+  "cli_object_directory_removed": true
+}

@@ -14,6 +14,7 @@ from globalmail_agent.knowledge.documents import DocumentService
 from globalmail_agent.knowledge.commands import CreateDocument
 from globalmail_agent.adapters.conversation_schema import jobs
 from test_protocol import ProtocolFixture
+from legacy_migration_fixture import LegacyConversations, legacy_enqueue
 
 
 class KnowledgeMigrationTests(ProtocolFixture):
@@ -33,7 +34,7 @@ class KnowledgeMigrationTests(ProtocolFixture):
             config.attributes["connection"] = conn
             command.upgrade(config, "0003_business_catalog")
         store = ObjectStore(Path(self.temp.name), engine)
-        conversations = ConversationService(engine, store)
+        conversations = LegacyConversations(engine, store)
         # Seed the old schema with its message/event/job contract, before current services require head.
         with BodyWriter(store) as writer, engine.begin() as conn:
             conv = conversations.new_conversation(conn, "upgrade@example.test", "simulation", "", True, "manual")
@@ -43,7 +44,7 @@ class KnowledgeMigrationTests(ProtocolFixture):
                 received_seq=message["received_seq"], input_revision=1)
             event = record_event(conn, conv, "message", str(message["id"]),
                 "customer_message.accepted", {"message_id": str(message["id"])})
-            original = {"conversation_id": str(conv["id"]), **enqueue(conn, conv, event)}
+            original = {"conversation_id": str(conv["id"]), **legacy_enqueue(conn, conv, event)}
         with engine.connect() as conn:
             existing = conn.execute(sa.select(jobs.c.id, jobs.c.run_id, jobs.c.cycle_id, jobs.c.conversation_id)).one()
         with engine.begin() as conn:

@@ -5,6 +5,7 @@ import sqlalchemy as sa
 from globalmail_agent.adapters import agent_schema as a
 from globalmail_agent.adapters.schema import SCOPE_KEYS
 from globalmail_agent.agent.guard import guarded
+from globalmail_agent.adapters.body_store import BodyWriter
 from globalmail_agent.application.conversation_lock import ServiceError
 from globalmail_agent.knowledge.chunking import proxy_tokens
 
@@ -43,13 +44,14 @@ class Budget:
     def active_ms(self):
         return self.base_ms + int((time.monotonic() - self.started) * 1000)
 
-    def reserve(self, messages, stage, model, tools=None, image_views=()):
+    def reserve(self, messages, stage, model, tools=None, image_views=(), *, schema=None, options=None, store=None, request_tools=None):
         estimate = input_estimate(messages, tools) + sum(r["visual_token_upper"] for r in image_views)
         reservation = estimate + output_limit(stage)
         if estimate > 16000:
             raise ServiceError("input_budget_exceeded")
         key = uuid4().hex
-        with guarded(self.engine, self.workspace, self.job) as (conn, conv, run, cycle):
+        from contextlib import nullcontext
+        with (BodyWriter(store) if store else nullcontext()) as writer, guarded(self.engine, self.workspace, self.job) as (conn, conv, run, cycle):
             row = self._row(conn)
             if row["image_views"] + len(image_views) > 6:
                 raise ServiceError("image_view_budget_exceeded")
@@ -62,8 +64,16 @@ class Budget:
                 unknown_requests=row["unknown_requests"] + 1, active_ms=self.active_ms()))
             conn.execute(sa.insert(a.usage_records).values(id=uuid4(), **{k: conv[k] for k in SCOPE_KEYS},
                 conversation_id=conv["id"], run_id=run["id"], request_key=key, stage=stage, status="reserved",
-                estimated_input=estimate, reserved_tokens=reservation, model=model))
+                estimated_input=estimate, reserved_tokens=reservation, model=model,
+                request_object_id=self._request_record(conn, writer, conv, run, messages, stage, model,
+                    schema, request_tools, options, image_views) if writer else None,
+                request_state="running" if writer else "not_recorded"))
         return key
+
+    @staticmethod
+    def _request_record(conn, writer, conv, run, messages, stage, model, schema, tools, options, image_views):
+        from globalmail_agent.observability.model_records import request_record
+        return request_record(conn, writer, conv, run, messages, stage, model, schema, tools, options, image_views)
 
     def remaining_requests(self):
         with guarded(self.engine, self.workspace, self.job) as (conn, conv, run, cycle):

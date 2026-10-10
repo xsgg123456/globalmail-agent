@@ -71,12 +71,11 @@ def record_wake(conn, conv, condition_key, business_version):
 
 def _record_wake_locked(conn, conv, condition_key, business_version, *, source_event_id=None):
     from globalmail_agent.application.event_store import record_event, append_ui_event
-    from globalmail_agent.application.task_queue import invalidate, enqueue
+    from globalmail_agent.application.task_queue import invalidate
     if type(business_version) is not int or business_version < 0:
         raise ServiceError("business_version_invalid", 422)
     old = conn.execute(sa.select(wake_pending).where(wake_pending.c.conversation_id == conv["id"],
         wake_pending.c.condition_key == condition_key).with_for_update()).mappings().first()
-    enabled = conv["lifecycle"] == "open" and conv["processing_owner"] == "agent" and conv["auto_run_gate"] == "open"
     if old and old["business_version"] >= business_version:
         return {"status": old["status"], "changed": False}
     condition, operation_id = condition_key.split(":", 1)
@@ -97,14 +96,16 @@ def _record_wake_locked(conn, conv, condition_key, business_version, *, source_e
     stmt = pg_insert(wake_pending).values(id=uuid4(), **{k: conv[k] for k in SCOPE_KEYS},
         conversation_id=conv["id"], condition_key=condition_key, business_version=business_version,
         issue_id=issue["id"], operation_id=operation_id,
-        status="pending" if enabled else "suppressed_by_human")
+        status="suppressed_by_human")
     conn.execute(stmt.on_conflict_do_update(index_elements=["conversation_id", "condition_key"],
         set_={"business_version": sa.func.greatest(wake_pending.c.business_version, business_version),
             "status": stmt.excluded.status, "observed_run_id": None,
             "issue_id": issue["id"], "operation_id": operation_id}))
     updated = dict(conv, input_revision=conv["input_revision"] + 1, row_version=conv["row_version"] + 1)
+    invalidate(conn, conv["id"])
     conn.execute(conversations.update().where(conversations.c.id == conv["id"]).values(
-        input_revision=updated["input_revision"], row_version=updated["row_version"]))
+        input_revision=updated["input_revision"], row_version=updated["row_version"],
+        scheduling_state="idle" if conv["scheduling_state"] in {"queued", "running"} else conv["scheduling_state"]))
     trigger = conn.execute(sa.select(messages.c.id).where(messages.c.conversation_id == conv["id"],
         messages.c.seq <= conv["visible_message_seq"], messages.c.sender.in_(["customer", "real_customer"]))
         .order_by(messages.c.seq.desc()).limit(1)).scalar_one_or_none()
@@ -112,17 +113,13 @@ def _record_wake_locked(conn, conv, condition_key, business_version, *, source_e
         raise ServiceError("customer_trigger_missing")
     event = record_event(conn, updated, "business_wait", source_event_id or condition_key + ":" + str(business_version),
         "operation.result_changed", {"message_id": str(trigger), "condition_key": condition_key,
-            "business_version": business_version}, suppressed=not enabled)
+            "business_version": business_version}, suppressed=True)
     conn.execute(domain_events.update().where(domain_events.c.id == event["id"]).values(
         issue_id=issue["id"], operation_id=operation_id, condition_type=condition, business_version=business_version))
-    task = {}
-    if enabled:
-        invalidate(conn, conv["id"])
-        task = enqueue(conn, updated, event)
     append_ui_event(conn, conv["id"], "business.wake", {"conversation_id": str(conv["id"]),
         "input_revision": updated["input_revision"],
-        "status": "pending" if enabled else "suppressed_by_human", **task})
-    return {"status": "pending" if enabled else "suppressed_by_human", "changed": True, **task}
+        "status": "suppressed_by_human"})
+    return {"status": "suppressed_by_human", "changed": True}
 
 
 def consume_wakes(conn, conv, run_id):

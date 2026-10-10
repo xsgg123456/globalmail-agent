@@ -1,0 +1,45 @@
+{
+  "environment": "isolated PostgreSQL schema + real FastAPI/Vite/Graph with ScriptedModel; not paid Qwen quality",
+  "viewportChecks": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "theme": "light"
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "theme": "dark"
+    }
+  ],
+  "verifiedInteractions": [
+    "first commercial round saves internal advice and no agent outbound",
+    "personal draft preserved mail ↔ console",
+    "adopt overwrite cancellation preserves personal input; confirmed adopt copies only",
+    "manual staff takeover/reply creates simulated_human mail",
+    "next customer mail adds second human_assist run, contains staff history and sends no agent mail",
+    "historical run + tool node restore after trigger-mail navigation",
+    "new round does not steal historical selection",
+    "close dialog opened on one conversation rejects completion after navigating away",
+    "provider absent reasoning explicitly identified",
+    "foreign conversation run_id is rejected with error, selecting valid round restores records"
+  ],
+  "screenshots": [
+    "formal-agent-desktop.png",
+    "formal-agent-1280-light.png",
+    "formal-agent-1280-dark.png",
+    "formal-mail-1280-light.png",
+    "formal-mail-1280-dark.png",
+    "formal-advice-1280.png",
+    "formal-knowledge-baseline.png",
+    "formal-run-scope-error.png"
+  ],
+  "excluded": "800 screenshot has existing Art mobile navigation overlay; mobile refinement is deferred P1 and is not claimed passed"
+}

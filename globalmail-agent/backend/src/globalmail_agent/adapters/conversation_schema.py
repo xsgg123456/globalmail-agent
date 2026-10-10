@@ -39,6 +39,8 @@ conversations = scoped("conversations",
         ("row_version", 1), ("input_revision", 0), ("authority_epoch", 0), ("branch_generation", 1),
         ("case_revision", 0), ("visible_message_seq", 0), ("next_seq", 0), ("received_seq", 0))],
     sa.Column("human_reply_after_seq", sa.BigInteger),
+    sa.Column("persistent_human", sa.Boolean, nullable=False, server_default=sa.false()),
+    sa.Column("human_claimed", sa.Boolean, nullable=False, server_default=sa.false()),
     sa.Column("lifecycle", sa.String(24), nullable=False, server_default="open"),
     sa.Column("processing_owner", sa.String(24), nullable=False, server_default="agent"),
     sa.Column("auto_run_gate", sa.String(24), nullable=False, server_default="open"),
@@ -84,6 +86,7 @@ processing_cycles = child("processing_cycles", sa.Column("trigger_id", sa.Uuid, 
     sa.CheckConstraint("input_revision > 0"))
 
 agent_runs = child("agent_runs", sa.Column("processing_cycle_id", sa.Uuid, nullable=False),
+    sa.Column("execution_mode", sa.String(24), nullable=False, server_default="autonomous"),
     sa.Column("attempt_no", sa.Integer, nullable=False), sa.Column("status", sa.String(24), nullable=False),
     *[sa.Column(k, sa.BigInteger, nullable=False) for k in
       ("input_revision", "authority_epoch", "branch_generation")],
@@ -94,7 +97,8 @@ agent_runs = child("agent_runs", sa.Column("processing_cycle_id", sa.Uuid, nulla
     sa.Column("started_at", sa.DateTime(timezone=True)), sa.Column("finished_at", sa.DateTime(timezone=True)),
     sa.ForeignKeyConstraint(["processing_cycle_id", *SCOPE_KEYS],
         ["processing_cycles.id", *[f"processing_cycles.{k}" for k in SCOPE_KEYS]]),
-    sa.UniqueConstraint("processing_cycle_id", "attempt_no"))
+    sa.UniqueConstraint("processing_cycle_id", "attempt_no"),
+    sa.CheckConstraint("execution_mode IN ('autonomous','human_assist')"))
 
 jobs = scoped("jobs", sa.Column("conversation_id", sa.Uuid), sa.Column("run_id", sa.Uuid),
     sa.Column("cycle_id", sa.Uuid), sa.Column("kind", sa.String(24), nullable=False),

@@ -64,20 +64,28 @@ class ServiceBase:
     def accept(self, conn, writer, conversation, message, *, historical=False):
         invalidate(conn, conversation["id"])
         owner = conversation["processing_owner"]
-        if owner == "human_wait_customer" or conversation["lifecycle"] == "resolved":
+        closed = conversation["lifecycle"] == "resolved"
+        internal = conversation.get("persistent_human", False) and not closed
+        if internal:
+            owner = "human_review"
+        elif owner == "human_wait_customer" and not closed:
             owner = "agent"
-        gate = "open" if owner == "agent" else conversation["auto_run_gate"]
+        gate = "disabled" if closed or internal else "open" if owner == "agent" else conversation["auto_run_gate"]
         self.update(conn, conversation, visible_message_seq=message["seq"],
             received_seq=message["received_seq"], input_revision=conversation["input_revision"] + 1,
-            lifecycle="open", processing_owner=owner, auto_run_gate=gate,
+            lifecycle="resolved" if closed else "open", processing_owner=owner, auto_run_gate=gate,
             human_reply_after_seq=None if owner == "agent" else conversation["human_reply_after_seq"],
             scheduling_state="idle")
         visible = list(conn.execute(select(messages).where(messages.c.conversation_id == conversation["id"],
             messages.c.seq <= conversation["visible_message_seq"]).order_by(messages.c.seq)).mappings())
-        rebuild(conn, writer, self.store, conversation, visible, message["sent_at"])
+        if not closed:
+            rebuild(conn, writer, self.store, conversation, visible, message["sent_at"])
+        if internal:
+            from globalmail_agent.application.human_assistance import ensure_review
+            ensure_review(conn, conversation, as_of=message["sent_at"])
         event = record_event(conn, conversation, "message", str(message["id"]),
             "customer_message.accepted", {"message_id": str(message["id"])}, suppressed=owner != "agent")
-        task = enqueue(conn, conversation, event) if owner == "agent" else {}
+        task = enqueue(conn, conversation, event) if not closed and (owner == "agent" or internal) else {}
         append_ui_event(conn, conversation["id"], "replay.advanced" if historical else "message.accepted",
             {"conversation_id": str(conversation["id"]), "message_id": str(message["id"]),
              "row_version": conversation["row_version"], "input_revision": conversation["input_revision"], **task})

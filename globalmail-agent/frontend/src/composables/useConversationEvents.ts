@@ -1,4 +1,4 @@
-import { ref, watch, onScopeDispose, type Ref } from 'vue'
+import { ref, watch, onScopeDispose, onActivated, onDeactivated, type Ref } from 'vue'
 import type { Conversation } from '@/api/mail-agent-contract'
 import { ConversationEventSession } from './conversation-event-session'
 
@@ -10,8 +10,10 @@ export function useConversationEvents(
   const session = new ConversationEventSession((url) => new EventSource(url))
   let refreshPending = false
   let dirty = false
+  let active = true
   function reconnect() {
     session.close()
+    if (!active) return
     const current = conversation.value
     if (!current) {
       state.value = '未选择会话'
@@ -43,5 +45,7 @@ export function useConversationEvents(
     { immediate: true }
   )
   onScopeDispose(() => session.close())
+  onActivated(() => { active = true; reconnect() })
+  onDeactivated(() => { active = false; dirty = false; session.close() })
   return { state, reconnect }
 }

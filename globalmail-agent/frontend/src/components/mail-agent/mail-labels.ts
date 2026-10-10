@@ -15,7 +15,7 @@ export const runLabels: Record<RunStatus, string> = {
 }
 export function conversationState(conversation: Conversation): string {
   if (conversation.lifecycle === 'resolved') return '已人工结案'
-  if (conversation.processing_owner === 'human_review') return '待人审'
+  if (conversation.processing_owner === 'human_review') return conversation.human_claimed ? '人工接管中' : '待人工接管'
   if (conversation.processing_owner === 'human_wait_customer') return '人工已回复 · 待客户'
   const labels = {
     idle: '未处理',

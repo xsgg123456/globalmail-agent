@@ -15,7 +15,7 @@
         ></template
       >
       <ElAlert
-        title="资料核对完成后，先构建索引，再显式发布。检索试查只使用当前合格的发布资料。正式 Agent 回复将在下一阶段接入。"
+        title="资料核对完成后，先构建索引，再显式发布。Agent 和检索试查只使用当前合格的发布资料，未发布资料不会成为回复依据。"
         type="info"
         :closable="false"
         class="mb-4"

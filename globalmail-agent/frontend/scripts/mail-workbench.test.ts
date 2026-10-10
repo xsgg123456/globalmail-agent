@@ -155,7 +155,7 @@ test('人审草稿PATCH使用review版本，完成人工回复另带会话和输
   )
 })
 
-test('自动人审晚于首次打开会话时加载服务器草稿，已有用户输入保留', async () => {
+test('Agent人审晚于首次打开会话时建议不自动放入回复框，已有用户输入保留', async () => {
   for (const existing of ['', '客服已编辑的回复']) {
     const api = makeApi(),
       server = detailFixture()
@@ -164,10 +164,10 @@ test('自动人审晚于首次打开会话时加载服务器草稿，已有用�
     const model = useMailWorkbench(api)
     await model.select('c-1')
     if (existing) model.setHuman({ reply: existing, note: '客服备注' })
-    server.review = { ...detailFixture().review!, draft: '服务器未发送草稿', note: '证据缺口' }
+    server.review = { ...detailFixture().review!, draft: 'Agent未发送建议', note: '证据缺口', staff_draft: '', staff_note: '' }
     await model.refreshDetail()
-    assert.equal(model.humanInput.value.reply, existing || '服务器未发送草稿')
-    assert.equal(model.humanInput.value.note, existing ? '客服备注' : '证据缺口')
+    assert.equal(model.humanInput.value.reply, existing)
+    assert.equal(model.humanInput.value.note, existing ? '客服备注' : '')
     assert.equal(model.humanStale.value, false)
   }
 })

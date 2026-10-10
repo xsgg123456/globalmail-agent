@@ -75,14 +75,16 @@ class JobService:
         version = conversation["row_version"] + 1
         connection.execute(conversations.update().where(conversations.c.id == conversation["id"])
             .values(authority_epoch=conversation["authority_epoch"] + 1,
-                    auto_run_gate="manual_retry_required", scheduling_state="stopped", row_version=version))
+                    auto_run_gate="disabled" if conversation["persistent_human"] else "manual_retry_required",
+                    scheduling_state="stopped", row_version=version))
         append_ui_event(connection, conversation["id"], "run.stopped", {"run_id": str(run["id"])})
         return {"conversation_id": str(conversation["id"]), "run_id": str(run["id"]), "version": version}
 
     def _retry(self, connection, conversation, run):
+        internal = conversation["persistent_human"] and conversation["processing_owner"] in {"human_review", "human_wait_customer"}
         if (run["status"] not in {"failed", "interrupted", "stopped"}
-                or conversation["lifecycle"] != "open" or conversation["processing_owner"] != "agent"
-                or conversation["auto_run_gate"] != "manual_retry_required"
+                or conversation["lifecycle"] != "open" or (conversation["processing_owner"] != "agent" and not internal)
+                or conversation["auto_run_gate"] != ("disabled" if internal else "manual_retry_required")
                 or conversation["input_revision"] != run["input_revision"]
                 or conversation["branch_generation"] != run["branch_generation"]):
             raise ServiceError("retry_not_allowed")
@@ -97,6 +99,7 @@ class JobService:
         versions = {key: conversation[key] for key in ("input_revision", "authority_epoch", "branch_generation")}
         connection.execute(sa.insert(agent_runs).values(id=new_run, **scope, **versions,
             conversation_id=conversation["id"], processing_cycle_id=cycle["id"],
+            execution_mode="human_assist" if internal else "autonomous",
             attempt_no=latest + 1, status="queued", trigger_id=run["trigger_id"]))
         connection.execute(sa.insert(jobs).values(id=new_job, **scope, conversation_id=conversation["id"],
             run_id=new_run, cycle_id=cycle["id"], kind="agent", status="queued", attempt_no=latest + 1))
@@ -104,7 +107,7 @@ class JobService:
             .values(state="queued", completed_at=None))
         version = conversation["row_version"] + 1
         connection.execute(conversations.update().where(conversations.c.id == conversation["id"])
-            .values(auto_run_gate="open", scheduling_state="queued", row_version=version))
+            .values(auto_run_gate="disabled" if internal else "open", scheduling_state="queued", row_version=version))
         append_ui_event(connection, conversation["id"], "run.retried", {"run_id": str(new_run)})
         return {"conversation_id": str(conversation["id"]), "run_id": str(new_run),
                 "job_id": str(new_job), "processing_cycle_id": str(cycle["id"]), "version": version}

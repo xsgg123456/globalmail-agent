@@ -79,13 +79,13 @@ class SimulationSafetyTests(AfterSalesFixture):
         self.assertEqual(authorized["returns"][0]["prepaid_label_ref"], "PREPAID-DOCUMENT")
         self.assertEqual(authorized["returns"][0]["return_address"], fields["return_address"])
 
-    def test_http_cross_branch_and_unknown_execution_reject_without_ledger_event(self):
+    def test_default_http_execution_route_is_disabled_and_old_records_still_read(self):
         cid, op = self.setup_operation()
         data = self.sales.listing(cid, op)["data"]
         response = self.post(f"/simulation/branches/{uuid4()}/events", {"conversation_id": str(cid),
             "expected_version": data["conversation_version"], "operation_id": op, "expected_operation_version": 1,
             "event": "create_execution"})
-        self.assertEqual(response.status_code, 422, response.text)
+        self.assertEqual(response.status_code, 404, response.text)
         self.assertEqual(self.count(a.simulation_events), 0)
         self.assertEqual(self.count(b.executions), 0)
         response = self.client.get(f"/api/v1/operations/{op}?conversation_id={cid}")

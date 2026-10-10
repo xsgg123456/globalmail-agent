@@ -48,16 +48,16 @@ class AgentMenuPressureTests(AgentFixture):
         output, job = self.execute(model)
         return cid, detail, model, output, job
 
-    def test_full_context_handoff_fits_when_both_terminal_schemas_do_not(self):
+    def test_full_context_handoff_remains_reachable_with_slim_read_only_menu(self):
         cid, detail, model, output, job = self.pressure_case(305)
         self.assertEqual(output.get("outcome"), "handoff", (output, len(model.requests)))
         request = model.requests[-1]
         names = {tool["function"]["name"] for tool in request["tools"]}
         both = input_estimate(request["messages"], schemas({"create_reply_draft", "request_human_review"}))
         human = input_estimate(request["messages"], request["tools"])
-        self.assertGreater(both, 16000, (both, human, names))
         self.assertLessEqual(human, 16000, (both, human, names))
-        self.assertEqual(names, {"request_human_review"}, (both, human, names))
+        self.assertIn("request_human_review", names)
+        self.assertTrue(names.isdisjoint({"create_after_sales_operation", "cancel_after_sales_operation", "check_after_sales_eligibility"}))
         self.assertIn(detail, request["messages"][1]["content"])
         earlier = model.requests[-2]["messages"]
         self.assertEqual(request["messages"][:len(earlier) - 1], earlier[:-1])

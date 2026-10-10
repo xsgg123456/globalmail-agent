@@ -27,6 +27,7 @@ class HumanReviewMixin:
                 raise ServiceError("conversation_not_open")
             invalidate(conn, conversation_id)
             self.update(conn, conversation, processing_owner="human_review", auto_run_gate="disabled",
+                human_claimed=True,
                 authority_epoch=conversation["authority_epoch"] + 1, scheduling_state="idle")
             review = self.open_review(conn, conversation)
             review_id = review["id"] if review else uuid4()
@@ -68,11 +69,14 @@ class HumanReviewMixin:
     def human_reply(self, conversation_id, command, key):
         def action(conn, writer):
             conversation = self.lock(conn, conversation_id, command.expected_version)
+            if conversation["lifecycle"] != "open":
+                raise ServiceError("conversation_not_open")
             if conversation["input_revision"] != command.expected_input_revision:
                 raise ServiceError("stale_input_revision")
             review = self.open_review(conn, conversation)
             if review is None or conversation["processing_owner"] != "human_review":
                 raise ServiceError("human_review_required")
+            invalidate(conn, conversation_id)
             dependencies = self.dependencies(conn, conversation)
             body_object = writer.put(conn, conversation, command.body, "human_reply", dependencies)
             note_object = (writer.put(conn, conversation, command.note, "human_note", dependencies)
@@ -91,9 +95,11 @@ class HumanReviewMixin:
                 self.update(conn, conversation, visible_message_seq=message["seq"],
                     received_seq=message["received_seq"], human_reply_after_seq=message["received_seq"],
                     processing_owner="human_wait_customer", scheduling_state="waiting_customer",
+                    human_claimed=True, input_revision=conversation["input_revision"] + 1,
                     authority_epoch=conversation["authority_epoch"] + 1)
             else:
                 self.update(conn, conversation, processing_owner="human_wait_customer",
+                    human_claimed=True, input_revision=conversation["input_revision"] + 1,
                     human_reply_after_seq=conversation["received_seq"], scheduling_state="waiting_customer",
                     authority_epoch=conversation["authority_epoch"] + 1)
             conn.execute(update(human_reviews).where(human_reviews.c.id == review["id"]).values(status="completed",

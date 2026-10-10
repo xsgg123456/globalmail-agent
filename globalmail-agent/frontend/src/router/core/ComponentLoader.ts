@@ -14,7 +14,10 @@ export class ComponentLoader {
 
   constructor() {
     // 动态导入 views 目录下所有 .vue 组件
-    this.modules = import.meta.glob('../../views/**/*.vue')
+    this.modules =
+      import.meta.env.MODE === 'ui-preview'
+        ? import.meta.glob(['../../views/ui-preview/**/*.vue', '../../views/index/index.vue'])
+        : import.meta.glob(['../../views/**/*.vue', '!../../views/ui-preview/**/*.vue'])
   }
 
   /**

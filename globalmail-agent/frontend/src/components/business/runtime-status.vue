@@ -45,7 +45,7 @@
         show-icon
       />
       <p class="mt-3 text-sm text-g-700"
-        >本机单用户 · 图文 Agent、售后申请与连续跟进 ·
+        >本机单用户 · 图文 Agent、只读业务查询、持续人工与运行记录 ·
         {{
           runtime
             ? runtime.model_configured

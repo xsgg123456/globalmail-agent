@@ -6,7 +6,7 @@ from globalmail_agent.adapters.schema import metadata
 from globalmail_agent.adapters import conversation_schema, business_schema, knowledge_schema, knowledge_index_schema, agent_schema, attachment_schema  # Register scoped metadata.
 from globalmail_agent.adapters import after_sales_schema
 
-SCHEMA_REVISION = "0009_business_waits"
+SCHEMA_REVISION = "0010_human_assistance"
 
 
 def make_engine(settings: Settings) -> Engine | None:

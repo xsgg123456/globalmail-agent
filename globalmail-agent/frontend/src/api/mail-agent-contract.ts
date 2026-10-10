@@ -43,6 +43,8 @@ export interface Conversation {
   branch_generation: number
   lifecycle: 'open' | 'resolved' | 'deleting' | 'deleted'
   processing_owner: ProcessingOwner
+  persistent_human?: boolean
+  human_claimed?: boolean
   auto_run_gate: 'open' | 'manual_retry_required' | 'disabled'
   scheduling_state: SchedulingState
   visible_message_seq: number
@@ -68,9 +70,14 @@ export interface HumanReview {
   draft: string
   note: string
   reply: string
+  staff_draft?: string
+  staff_note?: string
 }
 export interface AgentRun {
   id: string
+  conversation_id?: string
+  trigger_message_id?: string | null
+  execution_mode?: 'autonomous' | 'human_assist'
   status: RunStatus
   processing_cycle_id: string
   attempt_no: number

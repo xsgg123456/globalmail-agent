@@ -1,0 +1,45 @@
+{
+  "runtime": {
+    "code": 200,
+    "msg": "ok",
+    "data": {
+      "mode": "local_single_user",
+      "phase": 16,
+      "features": {
+        "conversations": true,
+        "business_queries": true,
+        "knowledge": true,
+        "agent": true,
+        "images": true,
+        "after_sales": true,
+        "simulation_control": false,
+        "human_assistance": true,
+        "model_call_records": true
+      },
+      "model_configured": true
+    },
+    "request_id": "1bf8b777-7647-4693-8af1-3919153b51ce"
+  },
+  "proxy": {
+    "code": 200,
+    "msg": "ok",
+    "data": {
+      "status": "ready",
+      "database": "ready",
+      "schema": "ready",
+      "object_store": "ready"
+    },
+    "request_id": "4d707d25-e318-4a5d-8a09-605049f931b4"
+  },
+  "ready": {
+    "code": 200,
+    "msg": "ok",
+    "data": {
+      "status": "ready",
+      "database": "ready",
+      "schema": "ready",
+      "object_store": "ready"
+    },
+    "request_id": "4aa7f1b3-7754-48ee-8e3a-ed084d68aafe"
+  }
+}

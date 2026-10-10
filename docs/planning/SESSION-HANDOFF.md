@@ -1,10 +1,40 @@
 # 新会话交接
 
+2026-10-10追加授权：用户要求“提交下git”，允许把本轮已验证的源码、预览和文档提交到本地main；此前“不暂存/不提交”属于旧授权。本次不推送远端，不纳入用户`.idea/`、私有配置、数据库备份或临时目录；提交结果以Git日志为准。
+
 文档位置：根目录保留 AGENTS、Product-Spec、变更记录、AGENT-ARCHITECTURE 及已创建的 [DEV-PLAN](../../DEV-PLAN.md)；其余专题由 [文档索引](../README.md) 导航。本文件位于 docs/planning；新任务按 AGENTS 中的目录约定存放产物，不恢复旧根目录副本。
 
-更新：2026-10-09。当前阶段：Phase1原FAIL保留、Phase2–6按各期报告交付，Phase7工程提交09a818f/质量延期；Phase8图片、Phase9内部售后及Phase10连续跟进工程四步验证、独立两阶段审查均通过，模型质量延期，本地提交以git log为准。Phase11–13未开始；82项产品AC未作整体验收。
+更新：2026-10-10。当前阶段：本轮正式14–16工程验证及fresh两阶段独审通过，用户已授权按批准交互改造正式前后端；继续不Git暂存/提交。此前Phase1原FAIL、Phase2–10各期历史结论保留；11–13未开始，模型质量及82项AC未作整体验收。
+
+最新交付：[实施规划](WORKBENCH-REFACTOR-IMPLEMENTATION.md)、[验证与实际GUI/API/日志](../verification/FORMAL-WORKBENCH-REFACTOR-VALIDATION.md)、[fresh最终审查](../verification/FORMAL-WORKBENCH-REFACTOR-REVIEW-FINAL.md)、[脚本/API测试说明](../verification/WORKBENCH-API-TESTING.md)。后端422/422（1173.482s）及最末提示词追加21/21、前端86/86、vue-tsc/Vite25.66s均通过；旧前端初审两HIGH及最末入口/质量/旧文案已关闭，原FAIL不改写。
+
+正式库0010，增量升级前备份`.local-data/backups/before-0010-20261009-233425`（public dump、70对象、私有设置）；77旧表保留字段摘要、对象字节和设置核对一致。正式API18080/前端15173已启动且直连/代理ready200；正式库原本0邮件会话，不塞测试邮件。四类持续人工和客服后续来信内部run、旧建议/晚到结果/结案隔离及真实模型请求账本已正式接入；默认商业写工具/申请取消执行HTTP不再提供，仍可读取旧历史。
+
+两套真实API/Graph/GUI隔离环境已停止并清理schema/临时对象；临时浏览器标签关闭、视口恢复。15175原批准预览保留。实际工程测试使用ScriptedModel，不称Qwen语义通过；供应商完整返回/SSE完成后展示，不是逐token流式。下一步用户查看正式改造，再按既定11–13推进观测、删除/联合恢复、模型质量；本轮没有新建业务CRUD中心、ERP或测试界面。以下2026-10-09“未授权正式后端”“仅预览”“正式库0009”等段落均属历史，由本段覆盖。
+
+2026-10-09最新前端预览：用户已授权按刚对齐业务沿原视觉实施15175预览，Product-Spec v1.17。当前移除业务中心/实验室及旧缓存入口，八客户覆盖七类及安全分流、初始13run；四类商业售后只读建议和草稿、客服持续主导及发送，后续来信独立internal run，三类普通有据回复、未知/错误/缺订单HITL，闭案不能接管重开。测试仅`globalmail-agent/scripts/drive-ui-preview.ps1`或预览专用API驱动，没有测试UI。最新82/82测试、两模式vue-tsc/Vite30.51s/19.37s、修改范围ESLint已通过；[本轮验证](../verification/UI-BUSINESS-SCOPE-PREVIEW-VALIDATION.md)及[最终独审](../verification/UI-BUSINESS-SCOPE-PREVIEW-REVIEW.md)记录实际范围。两轮原FAIL保留，最后筛选残留也已修复。预览已重置干净样例，入口`http://127.0.0.1:15175/#/workbench?conversation_id=demo-mail-02`；继续不Git暂存/提交，不改正式后端、不计真实Agent/82AC验收。下一步让用户查看交互后再对齐正式后端精简；旧实验室/申请执行预览记录均为历史。
+
+2026-10-09用户要求重启前后端查看：已用本机启停脚本启动当前代码（`-SkipInstall`），正式库由0005升级至0009；升级前完整备份位于`.local-data/runtime/restart-20261009T082608Z.dump`。升级后53张旧业务表的原列/行摘要、设置及源文件字节全部相同，核对结果位于`.local-data/runtime/restart-current-preservation.json`。工作台`http://127.0.0.1:15173/#/workbench`及API18080保留运行；页面、直连与前端代理ready均HTTP200，数据库/schema/对象存储均ready。下方“正式库0005、未正式升级、服务未监听”属于此次启动之前的历史状态；此次仅运行核对，不改变模型质量及82项AC结论。
+
+本轮预览最终独审Stage 1 PASS、Stage 2 PASS，无未关闭的本轮HIGH/MEDIUM；遗留“等待业务”筛选修复后重新完整复核。最新验证和审查报告已落盘，临时浏览器视口已恢复默认。
 
 ## 2026-10-09最新用户决定（覆盖下方旧推进门）
+
+最新选择：用户明确“暂不做测试界面，通过脚本或API测试”。独立场景实验室退出当前目标前端规划，样例选择/模拟客户来信/历史推进/重置保留为脚本/API测试能力，不移入邮件或运行台。已同步Product-Spec v1.16、变更记录和架构，DEV-PLAN仅提示受影响项；没有改预览、后端或脚本，没有Git暂存/提交。用户提出业务数据管理后置、将来独立做工具数据CRUD的方向，具体模块及权限仍待后续对齐。原测试/预览报告保留历史结论。
+
+用户已确认四类售后（退款、退货、换货、补寄）的多轮处理：客服接管后持续主导；每封后续来信由Agent仅只读查询、整理内部建议及可选未发送草稿，客服审核、决定并发送。人工回复不恢复自主回复/交易履约权限。已同步Product-Spec v1.15及变更记录，主架构标注增量，DEV-PLAN只记录受影响项；未修改后端、预览或历史验证，新行为尚未实施。持续人工模式解除条件及后端精简范围待对齐；普通不确定性HITL原规则保留。当前用户追问“业务数据中心是干什么的”，只说明现状/价值并讨论定位，不把页面精简、改名或移除写成已确认决定。
+
+用户已确认“前端先定下来”：当前多轮预览是后续前端布局/交互基线，不继续主动重设计。当前讨论Agent到底支持哪些业务及实际案例；已有七类范围尚未删减或新增，讨论需区分Agent自主判断/内部申请、客户确认、人工或外部业务执行和结果跟进。尚未授权新的程序开发或正式后端接入；不暂存/提交继续有效。
+
+最新用户要求按多轮方案改前端预览：15175已实现全局选会话→会话内选轮→执行节点，Emma三封客户邮件+发货回执共四轮。各轮上下文冻结、邮件最新/历史入口、触发邮件定位、业务run/step回跳、实验室追加来信生成下一轮及旧选择保留均已实测；人工/结案只登记来信。70项前端测试通过，末次两模式编译与fresh两阶段独审PASS，证据见[本轮验证](../verification/UI-MULTIROUND-PREVIEW-VALIDATION.md)和[审查](../verification/UI-MULTIROUND-PREVIEW-REVIEW.md)。关联补发列表漏项和连续来信节点时序已修复。预览地址`http://127.0.0.1:15175/#/agent-runs?conversation_id=demo-mail-01`；继续不暂存/提交，不调用真实模型或写正式库，不改变正式阶段/82项AC。
+
+用户随后要求“沿现有前端一比一改预览、加入假数据”。已按[实施规划](UI-PREVIEW-IMPLEMENTATION.md)制作独立15175前端模式，沿用Art外壳/主题/邮件时间线；邮件、Agent运行台、业务数据、实验室独立，3个内存演示会话。预览API阻断，不写正式DB或调用模型；原15173/18080仍运行。见[预览验证](../verification/UI-PREVIEW-VALIDATION.md)与[独审](../verification/UI-PREVIEW-REVIEW.md)。用户待查看交互并反馈，正式解耦方案及观测采集仍未实施；不推进Phase11或改变82项AC。启动脚本`globalmail-agent/scripts/start-ui-preview.ps1`，进程/日志在`.local-data/runtime/ui-preview-*`。
+
+用户随后明确要求“先不要Git提交”：本轮没有执行commit，主Agent已撤回自己的暂存，全部改动保留工作区，预览服务继续运行。后续调整与保存遵循用户此限制，不自动提交。
+
+用户随后反馈“Agent运行台太丑，重新设计”：预览第二版改为顶部运行概览、执行时间线/节点详情两栏、可搜索筛选的历史抽屉，输入按角色分段、原JSON折叠保留。明暗主题及1440/1280/800/414宽度已实测，64项与两模式编译通过；本轮[验证](../verification/AGENT-RUN-PREVIEW-REDESIGN-VALIDATION.md)和[fresh独审](../verification/AGENT-RUN-PREVIEW-REDESIGN-REVIEW.md)记录最新结论。15175继续运行，不暂存/提交，不改变正式后端与产品验收进度。
+
+用户此前查看前端后要求先排查交互耦合并给方案，已选择“独立Agent运行台，从邮件一键跳转”。当时的[独立范围排查](../verification/WORKBENCH-DECOUPLING-REVIEW.md)与[解耦建议](WORKBENCH-DECOUPLING-PROPOSAL.md)针对邮件/Agent/业务/模拟入口分离及真实逐次模型记录；正式方案和开启所有节点思考仍未授权实施。原Spec/架构/DEV-PLAN的正式契约保留，新增预览授权段；不将方案或假数据预览当作正式解耦完成。
 
 用户在Phase9提交后要求继续，Phase10工程四步验证已通过。主线程按[实施步骤](PHASE-10-IMPLEMENTATION.md)实现稳定订单事项、多等待、异步事实唤起、取消回执、原成功发件纠错、版本化连续事实及当前gate驱动。四轮实际审查发现的旧地址来源、纠错赔付、跨订单gate、同方案重确认、金额/币种/数量/SKU边界及保留旧选择时未知新目标被忽略均已修，原FAIL保留。[第四轮Stage1/2 PASS](../verification/PHASE-10-REVIEW-4.md)经用户本次批准复用实例，不称fresh、不修改AGENTS默认规则。
 

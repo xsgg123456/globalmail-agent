@@ -60,45 +60,27 @@ def commit_outcome(engine, store, context, job, understanding, proposal, *, safe
         context_object = conn.execute(sa.select(a.agent_run_contexts.c.context_object_id).where(
             a.agent_run_contexts.c.run_id == run["id"])).scalar_one()
         language = understanding["language"]
+        advice_object = None
+        if conv["persistent_human"] or run["execution_mode"] == "human_assist":
+            if not handoff:
+                raise ServiceError("autonomous_reply_forbidden", 422)
         if handoff:
             if understanding.get("risk_flags"):
                 from globalmail_agent.observability.local_records import store_understanding
                 from globalmail_agent.application.risk_records import store_risks
                 understanding_object = store_understanding(conn, writer, conv, run, understanding)
                 store_risks(conn, writer, conv, run, understanding, understanding_object)
-            body = command.draft
-            summary = command.summary + "\n待核查：" + "；".join(command.gaps)
-            draft_object = writer.put(conn, conv, body, "agent_unsent_draft", (context_object,)) if body else None
-            note = writer.put(conn, conv, summary, "agent_handoff_summary", (context_object,))
-            conn.execute(sa.insert(human_reviews).values(id=uuid4(), **scope, conversation_id=conv["id"],
-                status="open", input_revision=conv["input_revision"], reason="Agent转人工：" + command.reason,
-                visible_message_seq=conv["visible_message_seq"], as_of=context.as_of,
-                draft_object_id=draft_object, note_object_id=note))
-            conn.execute(conversations.update().where(conversations.c.id == conv["id"]).values(processing_owner="human_review",
-                auto_run_gate="disabled", authority_epoch=conv["authority_epoch"] + 1, scheduling_state="idle"))
-            outcome, status, citations, claims = "handoff", "handed_off", [], []
+            from globalmail_agent.application.advice_commit import save_advice
+            draft_object, advice_object, outcome, status = save_advice(
+                conn, writer, conv, run, context, command, understanding, context_object)
+            citations, claims = [], []
         else:
             validate_draft(conn, store, context, understanding, command)
             business_wait = command.waiting_for not in {"customer_information", "customer_feedback"}
-            if business_wait and (not (command.waiting_operation_id or command.waiting_issue_id) or context.mode != "simulation"):
-                raise ServiceError("business_wait_invalid", 422)
-            if context.mode == "simulation" and not register_wait(conn, conv, run["id"], command.waiting_for,
-                    command.waiting_operation_id, command.observed_business_version, command.waiting_issue_id):
-                return {"outcome": "superseded", "reason_code": "stale_business_context"}
-            if command.additional_waits and context.mode != "simulation":
-                raise ServiceError("business_wait_invalid", 422)
-            keys = {command.waiting_for + ":" + (command.waiting_operation_id or (
-                "issue/" + command.waiting_issue_id if command.waiting_issue_id else "customer"))}
-            for wait in command.additional_waits:
-                if not (wait.operation_id or wait.issue_id):
-                    raise ServiceError("business_wait_invalid", 422)
-                key = wait.condition_type + ":" + (wait.operation_id or "issue/" + wait.issue_id)
-                if key in keys:
-                    raise ServiceError("duplicate_business_wait", 422)
-                keys.add(key)
-                if not register_wait(conn, conv, run["id"], wait.condition_type, wait.operation_id, wait.observed_business_version, wait.issue_id):
-                    return {"outcome": "superseded", "reason_code": "stale_business_context"}
-            business_wait = business_wait or bool(command.additional_waits)
+            if business_wait or command.additional_waits:
+                raise ServiceError("business_wait_forbidden", 422)
+            if context.mode == "simulation":
+                register_wait(conn, conv, run["id"], command.waiting_for)
             body, citations = command.body, command.citation_ids
             claims = [c.model_dump(mode="json") for c in command.claims]
             draft_object = writer.put(conn, conv, body, "agent_reply", (context_object,))
@@ -109,13 +91,10 @@ def commit_outcome(engine, store, context, job, understanding, proposal, *, safe
                 register_dependencies(conn, scope, message["body_object_id"], (draft_object,))
                 conn.execute(conversations.update().where(conversations.c.id == conv["id"]).values(
                     visible_message_seq=message["seq"], received_seq=message["received_seq"],
-                    scheduling_state="waiting_business" if business_wait else "waiting_customer"))
+                    scheduling_state="waiting_customer"))
                 conn.execute(processing_cycles.update().where(processing_cycles.c.id == cycle["id"]).values(final_message_id=message["id"]))
                 persist_facts(conn, writer, conv, context.payload, understanding["facts"], "agent_final_candidates")
                 outcome = "reply_and_wait"
-            elif context.mode == "simulation" and business_wait:
-                outcome = "wait_business"
-                conn.execute(conversations.update().where(conversations.c.id == conv["id"]).values(scheduling_state="waiting_business"))
             else:
                 outcome = "historical_comparison"
                 conn.execute(conversations.update().where(conversations.c.id == conv["id"]).values(scheduling_state="waiting_customer"))
@@ -123,6 +102,7 @@ def commit_outcome(engine, store, context, job, understanding, proposal, *, safe
         artifact_id = uuid4()
         conn.execute(sa.insert(a.reply_artifacts).values(id=artifact_id, **scope, conversation_id=conv["id"], run_id=run["id"],
             cycle_id=cycle["id"], outcome=outcome, language=language, body_object_id=draft_object,
+            advice_object_id=advice_object,
             citation_ids=citations, claims=claims))
         conn.execute(agent_runs.update().where(agent_runs.c.id == run["id"]).values(status=status,
             outcome=outcome, finished_at=now, checkpoint_writable=False))

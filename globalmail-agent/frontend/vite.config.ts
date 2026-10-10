@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { localAccess } from './scripts/local-access'
+import { previewControl } from './scripts/preview-control'
 import viteCompression from 'vite-plugin-compression'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -14,6 +15,15 @@ import tailwindcss from '@tailwindcss/vite'
 export default ({ mode }: { mode: string }) => {
   const root = process.cwd()
   const env = loadEnv(mode, root)
+  const uiPreview = mode === 'ui-preview'
+  const blockPreviewApi: import('vite').Connect.NextHandleFunction = (req, res, next) => {
+    if (req.url?.startsWith('/api')) {
+      res.statusCode = 404
+      res.end('UI preview uses in-memory demo data only')
+      return
+    }
+    next()
+  }
   const {
     VITE_VERSION = '0.2.0',
     VITE_PORT = '15173',
@@ -21,7 +31,7 @@ export default ({ mode }: { mode: string }) => {
     VITE_API_URL = '/api/v1',
     VITE_API_PROXY_URL = 'http://127.0.0.1:18080'
   } = env
-  const port = Number(VITE_PORT)
+  const port = uiPreview ? 15175 : Number(VITE_PORT)
 
   console.log(`🚀 API_URL = ${VITE_API_URL}`)
   console.log(`🚀 VERSION = ${VITE_VERSION}`)
@@ -35,12 +45,14 @@ export default ({ mode }: { mode: string }) => {
       port,
       strictPort: true,
       cors: false,
-      proxy: {
-        '/api': {
-          target: VITE_API_PROXY_URL,
-          changeOrigin: true
-        }
-      },
+      proxy: uiPreview
+        ? {}
+        : {
+            '/api': {
+              target: VITE_API_PROXY_URL,
+              changeOrigin: true
+            }
+          },
       host: '127.0.0.1'
     },
     preview: { host: '127.0.0.1', port, strictPort: true, cors: false },
@@ -58,7 +70,7 @@ export default ({ mode }: { mode: string }) => {
     },
     build: {
       target: 'es2015',
-      outDir: 'dist',
+      outDir: uiPreview ? 'dist-ui-preview' : 'dist',
       chunkSizeWarningLimit: 2000,
       minify: 'terser',
       terserOptions: {
@@ -77,11 +89,31 @@ export default ({ mode }: { mode: string }) => {
     },
     plugins: [
       localAccess(port),
+      ...(uiPreview ? [previewControl()] : []),
+      ...(uiPreview
+        ? [
+            {
+              name: 'ui-preview-no-api',
+              configureServer(server: import('vite').ViteDevServer) {
+                server.middlewares.use(blockPreviewApi)
+              },
+              configurePreviewServer(server: import('vite').PreviewServer) {
+                server.middlewares.use(blockPreviewApi)
+              }
+            }
+          ]
+        : []),
       vue(),
       tailwindcss(),
       // 自动按需导入 API
       AutoImport({
-        imports: ['vue', 'vue-router', 'pinia', '@vueuse/core'],
+        imports: [
+          'vue',
+          'vue-router',
+          'pinia',
+          '@vueuse/core',
+          { 'element-plus/es': ['ElMessage', 'ElLoading'] }
+        ],
         dts: 'src/types/import/auto-imports.d.ts',
         resolvers: [ElementPlusResolver()],
         eslintrc: {

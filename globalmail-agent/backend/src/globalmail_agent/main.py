@@ -25,7 +25,7 @@ from globalmail_agent.knowledge.embedding import EmbeddingGateway
 from globalmail_agent.api.attachments import attachment_router
 from globalmail_agent.api.visual_evidence import visual_evidence_router
 from globalmail_agent.api.after_sales import after_sales_router
-from globalmail_agent.api.simulation import simulation_router
+from globalmail_agent.api.testing import testing_router
 
 
 def create_app(settings: Settings | None = None, *, engine=None, start_worker=True,
@@ -83,7 +83,7 @@ def create_app(settings: Settings | None = None, *, engine=None, start_worker=Tr
     app.include_router(attachment_router(database, store))
     app.include_router(visual_evidence_router(database, store))
     app.include_router(after_sales_router(database, store))
-    app.include_router(simulation_router(database, store))
+    app.include_router(testing_router(database, store))
 
     return app
 

@@ -33,111 +33,40 @@ class CompactResultTests(unittest.TestCase):
 
 
 class AgentAfterSalesTests(AfterSalesFixture):
-    def application(self):
+    def test_legacy_write_tools_are_denied_before_effect_or_budget(self):
         self.publish_policy()
-        cid, _, command = self.prepared()
-        job, context, _, gateway = self.components(embedding=self.gateway)
-        return cid, command, job, context, gateway
-
-    def checked_request(self, gateway, command):
-        _, checked = gateway.call(call('check_after_sales_eligibility', command.model_dump(mode='json')))
-        self.assertEqual(checked['status'], 'ok', checked)
-        self.assertTrue(checked['data']['authorized'], checked)
-        return {**command.model_dump(mode='json'), 'decision_id': checked['data']['decision_id']}
-
-    def test_create_and_receipt_are_atomic_and_replay_after_lost_response(self):
-        cid, command, job, context, gateway = self.application()
-        input_revision = self.conversation(cid)['input_revision']
-        request = call('create_after_sales_operation', self.checked_request(gateway, command), 'effect-once')
-        original = gateway.save_result
-        with patch.object(gateway, 'save_result', side_effect=RuntimeError('crash before receipt commit')):
-            with self.assertRaises(RuntimeError):
-                gateway.call(request)
-        self.assertEqual(self.count(b.operations), 0, 'Receipt failure must roll back the application effect')
-        gateway.save_result = original
-        first = gateway.call(request)
-        self.assertEqual(first[1]['status'], 'ok', first)
-        self.assertEqual(gateway.call(request), first, 'Lost HTTP/model response must replay stored receipt')
-        self.assertEqual(self.count(b.operations), 1)
-        self.assertEqual(self.budget_row(job)['tool_calls'], 3, 'Stored replay must not consume another call')
-        self.assertEqual(self.conversation(cid)['input_revision'], input_revision)
-
-    def test_internal_effect_invalidates_prior_credential_without_rewriting_object(self):
-        cid, command, job, context, gateway = self.application()
-        old_id, _ = gateway.call(call('get_after_sales_context', {'order_line_id': command.order_line_id}))
-        old = self.row(a.tool_commands, a.tool_commands.c.id == old_id)
-        obj = self.row(objects, objects.c.id == old['result_object_id'])
-        with self.engine.connect() as conn:
-            before = read_bytes(conn, self.store, self.row(conversations, conversations.c.id == cid), obj['id'])
-        new_id, applied = gateway.call(call('create_after_sales_operation', self.checked_request(gateway, command)))
-        self.assertIn('command:' + str(old_id), applied['superseded_source_ids'])
-        self.assertEqual(self.row(a.tool_commands, a.tool_commands.c.id == old_id)['status'], 'stale')
-        self.assertEqual(self.row(objects, objects.c.id == obj['id']), obj)
-        with self.engine.connect() as conn:
-            self.assertEqual(read_bytes(conn, self.store, self.row(conversations, conversations.c.id == cid), obj['id']), before)
-        text = 'Your internal refund application is accepted; payment is awaiting manual execution.'
-        value = draft(text, claims=[{'kind': 'order_fact', 'text': text, 'source_ids': ['command:' + str(new_id)]}],
-            waiting_for='manual_execution', waiting_operation_id=applied['data']['operation']['operation_id'],
-            observed_business_version=applied['data']['operation']['version'])
-        self.approve_fixture_draft(context, job, value)
-        commit_outcome(self.engine, self.store, context, job, understanding([]), {'kind': 'reply', 'data': value})
-        self.assertEqual(len(self.outbound(cid)), 1)
-
-    def test_stop_before_effect_denies(self):
-        cid, command, job, context, gateway = self.application()
-        request = call('create_after_sales_operation', self.checked_request(gateway, command))
-        self.controls.control(job['run_id'], 'stop', Command(expected_version=self.conversation(cid)['row_version']), uuid4().hex)
-        with self.assertRaises(ServiceError):
-            gateway.call(request)
+        cid, _, request = self.prepared()
+        job, _, _, gateway = self.components(embedding=self.gateway)
+        for name in ('check_after_sales_eligibility', 'create_after_sales_operation', 'cancel_after_sales_operation'):
+            self.assert_error('tool_not_allowed', lambda: gateway.call(call(name, request.model_dump(mode='json'))))
         self.assertEqual(self.count(b.operations), 0)
+        self.assertEqual(self.budget_row(job)['tool_calls'], 0)
+        self.assertEqual(self.outbound(cid), [])
 
-    def test_stop_after_committed_effect_preserves_application_and_receipt(self):
-        cid, command, job, context, gateway = self.application()
-        command_id, accepted = gateway.call(call('create_after_sales_operation', self.checked_request(gateway, command)))
-        receipt = self.row(a.tool_commands, a.tool_commands.c.id == command_id)
-        self.controls.control(job['run_id'], 'stop', Command(expected_version=self.conversation(cid)['row_version']), uuid4().hex)
-        self.assertEqual(self.count(b.operations), 1)
-        self.assertEqual(self.row(a.tool_commands, a.tool_commands.c.id == command_id), receipt)
-        self.assertEqual(self.sales.listing(cid)['data']['operations'][0]['status'], 'accepted')
-
-    def test_finite_graph_creates_real_application_and_waits_on_actual_version(self):
+    def test_read_receipt_replays_and_stop_preserves_existing_manual_record(self):
         self.publish_policy()
-        cid, _, command = self.prepared()
-        def identify(messages):
-            payload = json.loads(messages[1]['content'])
-            from globalmail_agent.application.business_queries import BusinessQueries
-            order = BusinessQueries(self.engine).detail(cid)['data']['orders'][0]['display_order_number']
-            source = next(row for row in payload['messages'] if order in row['body'])
-            selected = payload['messages'][-1]
-            return understanding([], missing_information=[], order_candidates=[{'value': order, 'sources': [
-                {'message_id': source['message_id'], 'quote': order}]}], intents=[{'business_type': 'refund',
-                'order_number': order, 'target_item': None, 'condition': None, 'requested_solution': 'refund',
-                'consent': 'explicit', 'sources': [{'message_id': source['message_id'], 'quote': order},
-                    {'message_id': selected['message_id'], 'quote': selected['body']}]}])
-        def submit(messages):
-            check = json.loads(next(row['content'] for row in reversed(messages) if row['role'] == 'tool'))
-            return {'calls': [call('create_after_sales_operation', {**command.model_dump(mode='json'),
-                'decision_id': check['data']['decision_id']})]}
-        def reply(messages):
-            record = next(row for row in reversed(messages) if row['role'] == 'tool')
-            result = json.loads(record['content'])
-            operation = result['data']['operation']
-            text = 'Your refund application is accepted and awaits manual execution.'
-            return {'calls': [call('create_reply_draft', draft(text,
-                claims=[{'kind': 'order_fact', 'text': text, 'source_ids': [result['command_source_id']]}],
-                waiting_for='manual_execution', waiting_operation_id=operation['operation_id'],
-                observed_business_version=operation['version']))]}
-        from globalmail_agent.application.business_queries import BusinessQueries
-        order = BusinessQueries(self.engine).detail(cid)['data']['orders'][0]['display_order_number']
-        model = ScriptedModel(identify, {'calls': [call('get_order_snapshot', {'display_order_number': order})]},
-            {'calls': [call('check_after_sales_eligibility', command.model_dump(mode='json'))]}, submit, reply)
+        cid, context, request = self.prepared()
+        self.create_operation(cid, context, request)
+        job, _, _, gateway = self.components(embedding=self.gateway)
+        query = call('get_after_sales_context', {'order_line_id': request.order_line_id}, 'read-once')
+        first = gateway.call(query)
+        self.assertEqual(gateway.call(query), first)
+        receipt = self.row(a.tool_commands, a.tool_commands.c.id == first[0])
+        before = self.sales.listing(cid)
+        self.controls.control(job['run_id'], 'stop', Command(expected_version=self.conversation(cid)['row_version']), uuid4().hex)
+        current = self.sales.listing(cid)
+        self.assertEqual(current['data']['operations'], before['data']['operations'])
+        self.assertEqual(current['data']['executions'], before['data']['executions'])
+        self.assertEqual(self.row(a.tool_commands, a.tool_commands.c.id == first[0]), receipt)
+        self.assertEqual(self.budget_row(job)['tool_calls'], 1)
+        self.assertEqual(self.outbound(cid), [])
+
+    def test_model_cannot_call_legacy_application_even_with_valid_selection(self):
+        self.publish_policy()
+        cid, _, request = self.prepared()
+        model = ScriptedModel(understanding([]), {'calls':[call('create_after_sales_operation', request.model_dump(mode='json'))]})
         result, job = self.execute(model, embedding=self.gateway)
-        from globalmail_agent.agent.budget import input_estimate
-        from globalmail_agent.agent.tool_schemas import schemas
-        self.assertEqual(result.get('outcome'), 'reply_and_wait', {'result': result, 'requests': [
-            [t['function']['name'] for t in r.get('tools') or []] for r in model.requests], 'application_menu':
-            input_estimate(model.requests[-1]['messages'], schemas({'create_after_sales_operation', 'get_operation_status', 'get_after_sales_context', 'get_item_availability', 'create_reply_draft', 'request_human_review'}))})
-        self.assertEqual(self.count(b.operations), 1)
-        self.assertEqual(len(self.outbound(cid)), 1)
-        self.assertFalse(any(tool['function']['name'] in {'simulation_event', 'create_execution'}
-            for request in model.requests for tool in request.get('tools') or []))
+        self.assertEqual(result.get('error_code'), 'model_tool_not_allowed', result)
+        self.assertEqual(self.count(b.operations), 0)
+        self.assertEqual(self.outbound(cid), [])
+        self.assertEqual(self.budget_row(job)['model_requests'], 2)

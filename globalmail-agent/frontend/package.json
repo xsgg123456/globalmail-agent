@@ -8,6 +8,8 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev:ui-preview": "vite --mode ui-preview",
+    "build:ui-preview": "vue-tsc --noEmit && vite build --mode ui-preview",
     "build": "vue-tsc --noEmit && vite build",
     "test": "tsx --test scripts/*.test.ts",
     "serve": "vite preview",

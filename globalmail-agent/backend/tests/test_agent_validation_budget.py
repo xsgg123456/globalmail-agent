@@ -30,7 +30,7 @@ class ReviewUsageModel(ScriptedModel):
 class ValidationBudgetTests(AgentFixture):
     def test_unknown_validation_retains_full_reservation_and_late_settlement_is_idempotent(self):
         self.create_mail()
-        job, _, budget, _ = self.components()
+        job, context, budget, gateway = self.components()
         messages = [{"role": "user", "content": "Complete source"}]
         key = budget.reserve(messages, "validation", "qwen3.7-plus")
         expected = input_estimate(messages) + 4000
@@ -80,10 +80,11 @@ class ValidationBudgetTests(AgentFixture):
 
     def test_network_wait_never_exceeds_remaining_cycle_time(self):
         self.create_mail()
-        job, _, budget, _ = self.components()
+        job, context, budget, gateway = self.components()
         model = ScriptedModel({})
         graph = AgentGraph.__new__(AgentGraph)
         graph.budget, graph.model = budget, model
+        graph.job, graph.context, graph.gateway = job, context, gateway
         with patch.object(budget, "active_ms", return_value=117500):
             graph.request([], "validation")
         self.assertEqual(model.requests[0]["timeout"], 2.5)

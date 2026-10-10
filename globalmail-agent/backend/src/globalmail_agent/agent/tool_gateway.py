@@ -17,7 +17,6 @@ from globalmail_agent.agent.tool_schemas import TOOLS, Draft, ReplyParts
 from globalmail_agent.knowledge.base import canonical, sha
 from globalmail_agent.knowledge.retrieval import KnowledgeSearch
 from globalmail_agent.knowledge.index_commands import SearchCommand
-from globalmail_agent.agent.tools.after_sales import NAMES as AFTER_SALES_TOOLS, call_after_sales
 
 
 class ToolGateway:
@@ -29,6 +28,8 @@ class ToolGateway:
 
     def call(self, call):
         name = call["name"]
+        if name == "create_reply_draft" and self.context.payload.get("execution_mode") == "human_assist":
+            raise ServiceError("autonomous_reply_forbidden", 422)
         if name not in TOOLS:
             raise ServiceError("tool_not_allowed", 422)
         try:
@@ -60,12 +61,11 @@ class ToolGateway:
                     run_id=run["id"], command_key=key, name=name, payload_hash=digest, arguments=payload, status="pending"))
                 conn.execute(sa.insert(a.tool_calls).values(id=uuid4(), **scope, conversation_id=conv["id"], run_id=run["id"],
                     command_id=identity, provider_call_id=key, position=position))
-        output = call_after_sales(self, name, args, identity) if name in AFTER_SALES_TOOLS else self.execute(name, args, identity)
+        output = self.execute(name, args, identity)
         if name == "revise_understanding" and output["status"] == "ok":
             return identity, output  # Revision and receipt were committed in the same guarded transaction.
-        if name not in AFTER_SALES_TOOLS:
-            with BodyWriter(self.store) as writer, guarded(self.engine, self.context.workspace_id, self.job) as (conn, conv, run, cycle):
-                self.save_result(conn, writer, conv, run, name, identity, output)
+        with BodyWriter(self.store) as writer, guarded(self.engine, self.context.workspace_id, self.job) as (conn, conv, run, cycle):
+            self.save_result(conn, writer, conv, run, name, identity, output)
         signature = (name, digest, sha(canonical({"status": output["status"], "data": output["data"],
             "reason_code": output["reason_code"], "resource_versions": output["resource_versions"]})))
         if name not in {"create_reply_draft", "request_human_review"} and signature == self.last_signature:
@@ -115,7 +115,7 @@ class ToolGateway:
             keys = ("shipments",) if name == "get_shipment_status" else ("operations", "executions", "returns", "customer_choices", "attempted_steps")
             output["data"] = {k: [r for r in data.get(k, []) if not r.get("order_line_id") or r["order_line_id"] == args.order_line_id] for k in keys}
             output["data"].update(order_line_id=args.order_line_id, policy_authorized=False,
-                limitation="Check current published policy and explicit customer selection before an internal application; it is not an execution.")
+                limitation="Read-only existing records. Customer support decides and operates in the business system; no application or execution authority.")
             return output
         if name == "get_operation_status":
             output = self._detail()

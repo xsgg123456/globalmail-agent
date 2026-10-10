@@ -2,7 +2,6 @@
 from typing import Literal
 from pydantic import Field
 from globalmail_agent.agent.understanding import StrictModel, Fact, Intent, SourceRef
-from globalmail_agent.domain.operations import CheckOperation, CreateOperation, CancelOperation
 
 
 class Empty(StrictModel):
@@ -76,18 +75,17 @@ class Draft(ReplyParts):
 
 
 class Handoff(StrictModel):
-    reason: Literal["no_applicable_evidence", "conflicting_evidence", "failed_steps", "cannot_decide", "safety_risk", "no_progress"]
+    reason: Literal["commercial_after_sales", "no_applicable_evidence", "conflicting_evidence", "failed_steps", "cannot_decide", "safety_risk", "no_progress"]
     summary: str = Field(min_length=1, max_length=3000)
     gaps: list[str] = Field(min_length=1, max_length=20)
     draft: str = Field(max_length=8000)
+    recommendations: list[str] = Field(default_factory=list, max_length=20)
 
 
 TOOLS = {"get_case_context": Empty, "get_order_snapshot": Order, "get_shipment_status": Line,
     "get_after_sales_context": Line, "get_item_availability": Availability, "get_operation_status": Operation,
     "search_reference": Search, "update_case_state": StateUpdate, "revise_understanding": UnderstandingRevision,
     "create_reply_draft": Draft, "request_human_review": Handoff}
-TOOLS.update(check_after_sales_eligibility=CheckOperation,
-    create_after_sales_operation=CreateOperation, cancel_after_sales_operation=CancelOperation)
 
 
 def compact_schema(value):
@@ -102,10 +100,11 @@ def compact_schema(value):
 
 def schemas(allowed=None, *, multiple_waits=True):
     reply_schema = ReplyParts.model_json_schema()
-    if not multiple_waits:
-        reply_schema["properties"].pop("additional_waits", None)
-        reply_schema["properties"].pop("waiting_issue_id", None)
-        reply_schema.get("$defs", {}).pop("BusinessWait", None)
+    # Legacy DTOs remain readable, but new model calls have no business-wait workflow.
+    for key in ("additional_waits", "waiting_issue_id", "waiting_operation_id", "observed_business_version"):
+        reply_schema["properties"].pop(key, None)
+    reply_schema["properties"]["waiting_for"]["enum"] = ["customer_information", "customer_feedback"]
+    reply_schema.get("$defs", {}).pop("BusinessWait", None)
     return [{"type": "function", "function": {"name": name, "parameters": compact_schema(
         reply_schema if name == "create_reply_draft" else model.model_json_schema()),
         **({"description": "Revise candidates using exact visible-message/human-note or successful current-run command:<id> quotes; never authorize or clear risks."}

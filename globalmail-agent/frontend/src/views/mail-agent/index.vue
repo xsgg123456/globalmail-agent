@@ -1,277 +1,82 @@
 <template>
   <div>
-    <RuntimeStatus />
-    <div
-      ref="workbench"
-      class="page-content flex !p-0 overflow-hidden"
-      :class="{ 'flex-col': narrow }"
-      :style="{ height: narrow ? 'auto' : 'min(850px, max(600px, calc(100vh - 270px)))' }"
-    >
-      <ConversationList
-        class="w-[260px]"
-        :class="{ 'w-full! max-h-[380px] border-b-d': narrow }"
-        :items="items"
-        :selected-id="selectedId"
-        :mode="mode"
-        :state="state"
-        :loading="listLoading"
-        :busy="busy"
-        :error="listError"
-        :page="page"
-        :has-previous="page > 1"
-        :has-next="Boolean(nextCursor)"
-        @select="select"
-        @mode="filter('mode', $event)"
-        @state="filter('state', $event)"
-        @create="openDialog('create')"
-        @import="openDialog('import')"
-        @refresh="refreshList"
-        @previous="paginate(false)"
-        @next="paginate(true)"
-      >
-        <template #scenario
-          ><BusinessScenarioLauncher :disabled="busy" @created="selectScenario"
-        /></template>
-      </ConversationList>
-      <section
-        class="box-border flex-1 min-w-0 flex flex-col"
-        :class="{ 'min-h-[600px]': narrow }"
-        aria-label="邮件往来"
-      >
-        <div class="flex-cb flex-wrap gap-3 p-4">
-          <div class="min-w-0">
-            <h2 class="text-base font-medium break-words">{{
-              detail?.conversation.subject || '邮件往来'
-            }}</h2>
-            <p v-if="detail" class="text-xs text-g-700 mt-2 break-all"
-              >{{ detail.conversation.sender_key }} · {{ modeLabel(detail.conversation.mode) }} ·
-              {{ conversationState(detail.conversation) }}</p
-            >
-          </div>
-          <div class="flex flex-wrap gap-2">
-            <ElButton v-if="selectedId" :loading="detailLoading" @click="refreshCurrent"
-              >刷新会话</ElButton
-            >
-            <ElButton v-if="compact && detail" @click="drawer = true">处理详情与人审</ElButton>
-          </div>
+    <div class="page-content flex !p-0 overflow-hidden mail-layout">
+      <MailConversationList :items="items" :selected-id="selectedId" :state="state" :loading="listLoading" :error="listError" :page="page" :has-next="Boolean(nextCursor)" @select="selectMail" @filter="filter('state',$event)" @refresh="refreshList" @previous="paginate(false)" @next="paginate(true)" />
+      <section class="flex-1 min-w-0 flex flex-col min-h-0" aria-label="邮件往来">
+        <div class="p-4 flex-cb flex-wrap gap-3">
+          <div class="min-w-0"><h2 class="text-base font-medium break-words">{{ conversation?.subject || '邮件往来' }}</h2><p v-if="conversation" class="text-xs text-g-700 mt-2 break-all">{{ conversation.sender_key }} · {{ modeLabel(conversation.mode) }}</p></div>
+          <div v-if="conversation" class="flex flex-wrap gap-2"><ElButton :disabled="busy || conversation.lifecycle !== 'open' || (conversation.human_claimed && conversation.processing_owner === 'human_review')" @click="takeover">人工接管</ElButton><ElButton :disabled="busy || conversation.lifecycle !== 'open'" @click="confirmClose">标记已解决</ElButton><ElButton :loading="detailLoading" @click="refreshCurrent">刷新</ElButton></div>
         </div>
-        <ElAlert
-          v-if="detailError"
-          :title="detailError"
-          type="error"
-          :closable="false"
-          show-icon
-          class="mx-4 mb-3 max-w-[calc(100%-32px)]"
-        />
-        <ElAlert
-          v-if="actionError"
-          :title="actionError"
-          type="error"
-          :closable="false"
-          show-icon
-          class="mx-4 mb-3 max-w-[calc(100%-32px)]"
-        />
-        <ElAlert
-          v-if="actionNotice"
-          :title="actionNotice"
-          type="success"
-          :closable="true"
-          show-icon
-          class="mx-4 mb-3 max-w-[calc(100%-32px)]"
-          @close="actionNotice = ''"
-        />
+        <ElAlert v-if="detailError || actionError" :title="detailError || actionError" type="error" :closable="false" class="mx-4 mb-3 !w-auto" />
+        <ElAlert v-if="actionNotice" :title="actionNotice" type="success" class="mx-4 mb-3 !w-auto" @close="actionNotice=''" />
         <ElSkeleton v-if="detailLoading && !detail" :rows="6" animated class="p-4" />
-        <template v-else-if="detail">
-          <MessageTimeline
-            @image="selectedImage = $event"
-            :messages="detail.messages"
-            :conversation-id="detail.conversation.id"
-            :scroll-signal="scrollSignal"
-            :class="{ 'max-h-[500px]': narrow }"
-          />
-          <MessageComposer
-            :conversation-id="detail.conversation.id"
-            :model-value="incomingInput"
-            :historical="detail.conversation.mode === 'historical_replay'"
-            :replay="detail.replay"
-            :busy="busy"
-            :active-run="activeRun"
-            :human-review="detail.conversation.processing_owner === 'human_review'"
-            :resolved="detail.conversation.lifecycle === 'resolved'"
-            @update:model-value="setIncoming"
-            @submit="append"
-            @next="nextReplay"
-          />
+        <template v-else-if="detail && conversation">
+          <div class="mx-4 mb-3 p-3 rounded-md bg-active-color flex-cb flex-wrap gap-3">
+            <div class="flex items-center flex-wrap gap-2 text-sm"><ArtSvgIcon icon="ri:robot-2-line" class="text-lg text-theme" /><span>Agent</span><ElTag size="small" effect="plain">{{ conversationState(conversation) }}</ElTag><span class="text-xs text-g-700">{{ statusNote }}</span></div>
+            <div class="flex flex-wrap gap-2"><ElButton size="small" @click="showAdvice">查看客服建议</ElButton><ElButton size="small" @click="openRuns()">全部 {{ roundCount }} 轮 →</ElButton><ElButton type="primary" plain size="small" :disabled="!detail.runs.length" @click="openRuns(detail.runs.at(-1)?.id)">查看最新运行 →</ElButton></div>
+          </div>
+          <p v-if="focusedMessage" class="mx-4 mb-3 text-xs text-theme" role="status">已定位第 {{ focusedMessage.seq }} 封邮件 · {{ focusedMessage.sender === 'customer' ? '客户来信' : '跟进回复' }}</p>
+          <MessageTimeline ref="timeline" :messages="detail.messages" :conversation-id="selectedId" :scroll-signal="scrollSignal" @image="selectedImage=$event" />
+          <StaffReply :model-value="humanInput" :busy="busy" :resolved="conversation.lifecycle !== 'open'" :can-reply="conversation.processing_owner === 'human_review' && detail.review?.status === 'open'" :stale="humanStale" :historical="conversation.mode === 'historical_replay'" :risks="detail.active_risks" @update:model-value="setHuman" @acknowledge="acknowledgeHuman" @save="saveHuman" @send="completeHuman" />
         </template>
-        <ElEmpty
-          v-else
-          :description="
-            selectedId
-              ? '会话读取失败，请点击刷新会话重试'
-              : '选择会话，或新建模拟会话、导入历史案例'
-          "
-          :image-size="100"
-          class="flex-1"
-        />
-      </section>
-      <section
-        v-if="!compact"
-        class="w-[360px] shrink-0 overflow-y-auto border-l-d min-w-0"
-        aria-label="Agent 处理记录"
-      >
-        <AgentProcessPanel
-          v-if="detail"
-          v-bind="panelProps"
-          @human-input="setHuman"
-          @takeover="takeover"
-          @save="saveHuman"
-          @complete="completeHuman"
-          @close="confirmClose"
-          @stop="stop"
-          @retry="retry"
-          @acknowledge="acknowledgeHuman"
-          @business-changed="refreshCurrent"
-        />
-        <ElEmpty v-else description="选择会话后查看任务与人审" :image-size="70" />
+        <ElEmpty v-else :description="selectedId ? '会话读取失败，请刷新重试' : '选择客户会话查看邮件往来'" :image-size="100" class="flex-1" />
       </section>
     </div>
-    <ElDrawer
-      v-model="drawer"
-      title="Agent 处理记录与人审"
-      size="min(420px, 100vw)"
-      destroy-on-close
-    >
-      <AgentProcessPanel
-        v-if="detail"
-        v-bind="panelProps"
-        @human-input="setHuman"
-        @takeover="takeover"
-        @save="saveHuman"
-        @complete="completeHuman"
-        @close="confirmClose"
-        @stop="stop"
-        @retry="retry"
-        @acknowledge="acknowledgeHuman"
-        @business-changed="refreshCurrent"
-      />
-    </ElDrawer>
-    <ConversationDialog
-      v-model="dialogVisible"
-      :kind="dialogKind"
-      :busy="busy"
-      :submit-command="createOrImport"
-    />
-    <ImageEvidenceDrawer v-if="detail" :image="selectedImage" :conversation="detail.conversation"
-      @close="selectedImage = null" @changed="refreshCurrent" />
+    <AgentAdviceDrawer v-model="adviceOpen" :snapshot="snapshot" :can-adopt="Boolean(currentAdvice)" :loading="adviceLoading" :error="adviceError" @adopt="adopt" />
+    <ImageEvidenceDrawer v-if="detail" :image="selectedImage" :conversation="detail.conversation" @close="selectedImage=null" @changed="refreshCurrent" />
   </div>
 </template>
 <script setup lang="ts">
-  import { computed, onMounted, ref, watch } from 'vue'
+  import { computed, nextTick, onActivated, onMounted, ref, watch } from 'vue'
+  import { onBeforeRouteLeave, useRoute, useRouter } from 'vue-router'
+  import { ElMessageBox } from 'element-plus'
+  import { useMailWorkbench } from '@/composables/useMailWorkbench'
+  import { useConversationAdvice } from '@/composables/use-conversation-advice'
+  import { useConversationEvents } from '@/composables/useConversationEvents'
+  import MailConversationList from '@/components/mail-agent/MailConversationList.vue'
+  import MessageTimeline from '@/components/mail-agent/MessageTimeline.vue'
+  import StaffReply from '@/components/mail-agent/StaffReply.vue'
+  import AgentAdviceDrawer from '@/components/mail-agent/AgentAdviceDrawer.vue'
   import ImageEvidenceDrawer from '@/components/mail-agent/ImageEvidenceDrawer.vue'
   import type { ImageAttachment } from '@/api/attachment-contract'
-  import { useElementSize } from '@vueuse/core'
-  import { ElMessageBox } from 'element-plus'
-  import RuntimeStatus from '@/components/business/runtime-status.vue'
-  import ConversationList from '@/components/mail-agent/ConversationList.vue'
-  import MessageTimeline from '@/components/mail-agent/MessageTimeline.vue'
-  import MessageComposer from '@/components/mail-agent/MessageComposer.vue'
-  import AgentProcessPanel from '@/components/mail-agent/AgentProcessPanel.vue'
-  import ConversationDialog from '@/components/mail-agent/ConversationDialog.vue'
-  import BusinessScenarioLauncher from '@/components/mail-agent/BusinessScenarioLauncher.vue'
   import { conversationState, modeLabel } from '@/components/mail-agent/mail-labels'
-  import { useMailWorkbench } from '@/composables/useMailWorkbench'
-  import { useConversationEvents } from '@/composables/useConversationEvents'
-  defineOptions({ name: 'MailWorkbench' })
-  const {
-    items,
-    selectedId,
-    mode,
-    state,
-    page,
-    nextCursor,
-    listLoading,
-    listError,
-    detail,
-    detailLoading,
-    detailError,
-    busy,
-    actionError,
-    actionNotice,
-    incomingInput,
-    humanInput,
-    humanStale,
-    acknowledgeHuman,
-    scrollSignal,
-    conversation,
-    filter,
-    paginate,
-    select,
-    refreshList,
-    refreshDetail,
-    createOrImport,
-    setIncoming,
-    setHuman,
-    append,
-    nextReplay,
-    takeover,
-    saveHuman,
-    completeHuman,
-    close,
-    stop,
-    retry
-  } = useMailWorkbench()
-  const { state: eventState, reconnect } = useConversationEvents(conversation, async () => {
-    await refreshDetail()
-    await refreshList()
-  })
-  const workbench = ref<HTMLElement>()
-  const { width } = useElementSize(workbench)
-  const compact = computed(() => width.value < 1024)
-  const narrow = computed(() => width.value < 640)
-  const drawer = ref(false)
-  const selectedImage = ref<ImageAttachment | null>(null)
-  watch(selectedId, () => { selectedImage.value = null })
-  watch(detail, (snapshot) => {
-    const id = selectedImage.value?.attachment_id
-    if (id) selectedImage.value = snapshot?.messages.flatMap((message) => message.attachments ?? []).find((image) => image.attachment_id === id) ?? null
-  })
-  const dialogVisible = ref(false)
-  const dialogKind = ref<'create' | 'import'>('create')
-  const activeRun = computed(() =>
-    Boolean(detail.value?.runs.some((run) => ['queued', 'running'].includes(run.status)))
-  )
-  const panelProps = computed(() => ({
-    detail: detail.value!,
-    humanInput: humanInput.value,
-    humanStale: humanStale.value,
-    busy: busy.value,
-    eventState: eventState.value
-  }))
-  function openDialog(kind: 'create' | 'import') {
-    dialogKind.value = kind
-    dialogVisible.value = true
+  import { readingPositions } from '@/composables/mail-reading-state'
+  defineOptions({name:'MailWorkbench'})
+  const route=useRoute(), router=useRouter(), work=useMailWorkbench()
+  const { items, selectedId, state, page, nextCursor, listLoading, listError, detail, conversation, detailLoading, detailError, busy, actionError, actionNotice, humanInput, humanStale, scrollSignal, refreshList, refreshDetail, filter, paginate, setHuman, acknowledgeHuman, takeover, saveHuman, completeHuman, close }=work
+  const { open:adviceOpen, snapshot, current:currentAdvice, loading:adviceLoading, error:adviceError, refresh:refreshAdvice, adopt }=useConversationAdvice(work)
+  const timeline=ref<InstanceType<typeof MessageTimeline>>(), selectedImage=ref<ImageAttachment|null>(null)
+  const roundCount=computed(()=>new Set(detail.value?.runs.map(item=>item.processing_cycle_id)).size)
+  const focusedMessage=computed(()=>detail.value?.messages.find(item=>item.id===route.query.message_id))
+  const statusNote=computed(()=>conversation.value?.lifecycle==='resolved' ? '已人工结案，后续来信只登记' : conversation.value?.persistent_human ? '客服持续主导 · Agent 只提供内部建议和草稿' : '按本轮权限处理')
+  const events=useConversationEvents(conversation,async()=>{await refreshDetail();await refreshList();await refreshAdvice()})
+  function savePosition(){const node=timeline.value?.$el as HTMLElement|undefined;if(node)readingPositions[selectedId.value]=node.scrollTop}
+  async function restorePosition(){
+    await nextTick();await nextTick()
+    const node=timeline.value?.$el as HTMLElement|undefined;if(!node)return
+    const index=detail.value?.messages.findIndex(item=>item.id===focusedMessage.value?.id)??-1
+    const article=index>=0?node.querySelectorAll('article')[index]:undefined
+    node.scrollTop=article?node.scrollTop+article.getBoundingClientRect().top-node.getBoundingClientRect().top-16:(readingPositions[selectedId.value]??node.scrollHeight)
   }
-  async function refreshCurrent() {
-    await refreshDetail(true)
-    if (!detailError.value) reconnect()
+  function selectMail(id:string){savePosition();void router.replace({path:'/workbench',query:{conversation_id:id}})}
+  async function synchronize(){
+    if(route.path!=='/workbench')return
+    const id=typeof route.query.conversation_id==='string'?route.query.conversation_id:selectedId.value
+    if(id&&id!==selectedId.value){savePosition();await work.select(id)}else if(id)await refreshDetail()
+    await refreshAdvice();await restorePosition()
   }
-  async function selectScenario(id: string) {
-    await filter('mode', '')
-    await filter('state', '')
-    await select(id)
-    actionNotice.value = '初始业务资料已载入独立会话，可以核对订单与售后条件。'
-  }
-  async function confirmClose() {
-    try {
-      await ElMessageBox.confirm(
-        '确认客户问题已解决？结案会停止当前任务。之后客户新来信会重开原会话。',
-        '人工确认结案',
-        { confirmButtonText: '确认结案', cancelButtonText: '取消', type: 'warning' }
-      )
-      await close()
-    } catch {
-      /* 用户取消，保持会话状态。 */
-    }
-  }
-  onMounted(refreshList)
+  watch(()=>[route.query.conversation_id,route.query.message_id],synchronize)
+  watch(selectedId,()=>{selectedImage.value=null})
+  watch(detail,()=>{if(selectedImage.value)selectedImage.value=detail.value?.messages.flatMap(item=>item.attachments??[]).find(item=>item.attachment_id===selectedImage.value?.attachment_id)??null})
+  onBeforeRouteLeave(savePosition)
+  onActivated(()=>{void synchronize();events.reconnect()})
+  onMounted(async()=>{await refreshList();if(!route.query.conversation_id&&!selectedId.value&&items.value[0])await router.replace({path:'/workbench',query:{conversation_id:items.value[0].id}});await synchronize()})
+  async function refreshCurrent(){await refreshDetail(true);await refreshAdvice();if(!detailError.value)events.reconnect()}
+  async function showAdvice(){adviceOpen.value=true;await refreshAdvice()}
+  function openRuns(runId?:string){savePosition();void router.push({path:'/agent-runs',query:{conversation_id:selectedId.value,run_id:runId}})}
+  async function confirmClose(){const id=selectedId.value,version=conversation.value?.row_version;try{await ElMessageBox.confirm('确认问题已解决？结案会停止本轮任务，后续客户来信只登记，不自动重开。','人工确认结案',{confirmButtonText:'确认结案',cancelButtonText:'取消'});if(route.path!=='/workbench'||id!==selectedId.value||version!==conversation.value?.row_version){actionError.value='会话已变化，请核对后重新结案。';return}await close()}catch{/* 保留当前状态 */}}
 </script>
+<style scoped>
+  .mail-layout {height:min(850px,max(650px,calc(100vh - 220px)));}
+  @media(max-width:850px){.mail-layout{flex-direction:column;height:auto;}.mail-layout>section{min-height:650px;}}
+</style>

@@ -32,11 +32,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--api-port", type=int, default=18181)
     parser.add_argument("--web-port", type=int, default=15174)
-    parser.add_argument("--phase", type=int, choices=(3, 4, 5, 6, 7, 8, 9, 10), default=3)
+    parser.add_argument("--phase", type=int, choices=(3, 4, 5, 6, 7, 8, 9, 10, 16), default=3)
     parser.add_argument("--manual-agent", action="store_true", help="Phase7 UI driver controls isolated runs; no background model calls")
     args = parser.parse_args()
-    if args.manual_agent and args.phase not in (7, 8, 9, 10):
-        parser.error("--manual-agent requires --phase 7, 8, 9 or 10")
+    if args.manual_agent and args.phase not in (7, 8, 9, 10, 16):
+        parser.error("--manual-agent requires --phase 7, 8, 9, 10 or 16")
     temporary_root = ROOT / "tmp"
     temporary_root.mkdir(exist_ok=True)
     stop_file = temporary_root / f"phase{args.phase}-browser.stop"
@@ -106,8 +106,11 @@ def main():
                 time.sleep(0.2)
             else:
                 raise RuntimeError("isolated_test_server_not_ready")
-            print(json.dumps({"status": "ready", "web": f"http://127.0.0.1:{args.web_port}/#/workbench",
-                              "api": f"http://127.0.0.1:{args.api_port}", "schema": schema}), flush=True)
+            session = Path(temporary) / "session.json"
+            descriptor = {"status": "ready", "web": f"http://127.0.0.1:{args.web_port}/#/workbench",
+                          "api": f"http://127.0.0.1:{args.api_port}", "schema": schema}
+            session.write_text(json.dumps(descriptor), encoding="utf-8")
+            print(json.dumps({**descriptor, "session": str(session)}), flush=True)
             try:
                 print(f"Stop by creating tmp/phase{args.phase}-browser.stop.", flush=True)
                 while not stop_file.exists():

@@ -56,14 +56,19 @@ tool_calls = run_child("tool_calls", sa.Column("command_id", sa.Uuid, nullable=F
 reply_artifacts = run_child("reply_artifacts", sa.Column("cycle_id", sa.Uuid, nullable=False),
     sa.Column("outcome", sa.String(32), nullable=False), sa.Column("language", sa.String(32), nullable=False),
     sa.Column("body_object_id", sa.Uuid), object_fk("body_object_id"),
+    sa.Column("advice_object_id", sa.Uuid), object_fk("advice_object_id"),
     sa.Column("citation_ids", JSONB, nullable=False), sa.Column("claims", JSONB, nullable=False),
     fk("processing_cycles", "cycle_id"), sa.UniqueConstraint("cycle_id"),
-    sa.CheckConstraint("outcome IN ('reply_and_wait','historical_comparison','handoff','wait_business','no_material_update')"))
+    sa.CheckConstraint("outcome IN ('reply_and_wait','historical_comparison','handoff','human_advice','wait_business','no_material_update')"))
 usage_records = run_child("usage_records", sa.Column("request_key", sa.String(160), nullable=False),
     sa.Column("stage", sa.String(40), nullable=False), sa.Column("status", sa.String(24), nullable=False),
     sa.Column("estimated_input", sa.Integer, nullable=False), sa.Column("reserved_tokens", sa.Integer, nullable=False),
     sa.Column("input_tokens", sa.Integer), sa.Column("output_tokens", sa.Integer),
     sa.Column("provider_request_id", sa.String(160)), sa.Column("model", sa.String(160), nullable=False),
+    sa.Column("request_object_id", sa.Uuid), object_fk("request_object_id"),
+    sa.Column("response_object_id", sa.Uuid), object_fk("response_object_id"),
+    sa.Column("request_state", sa.String(24), nullable=False, server_default="not_recorded"),
+    sa.Column("error_code", sa.String(80)), sa.Column("finished_at", sa.DateTime(timezone=True)),
     sa.UniqueConstraint("run_id", "request_key"),
     sa.CheckConstraint("estimated_input >= 0 AND reserved_tokens >= 0 AND (input_tokens IS NULL OR input_tokens >= 0) AND (output_tokens IS NULL OR output_tokens >= 0)"))
 agent_run_dependencies = run_child("agent_run_dependencies",

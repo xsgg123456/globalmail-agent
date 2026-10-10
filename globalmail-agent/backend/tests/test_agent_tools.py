@@ -43,7 +43,7 @@ class AgentToolTests(AgentFixture):
         for name in ("create_execution", "simulation_event", "run_shell", "send_email"):
             self.assert_error("tool_not_allowed", lambda: gateway.call(call(name, {})))
         for name in ("check_after_sales_eligibility", "create_after_sales_operation", "cancel_after_sales_operation"):
-            self.assert_error("tool_parameters_invalid", lambda: gateway.call(call(name, {"workspace_id": "forged"})))
+            self.assert_error("tool_not_allowed", lambda: gateway.call(call(name, {"workspace_id": "forged"})))
         self.assertEqual(self.count(a.tool_commands), 0)
         self.assertEqual(self.budget_row(gateway.job)["tool_calls"], 0)
 
@@ -144,16 +144,17 @@ class AgentToolTests(AgentFixture):
             common = {"order_number": None, "target_item": None, "requested_solution": None, "sources": [source]}
             return understanding(messages, intents=[{**common, "business_type": "shipment", "condition": None, "consent": "none"},
                 {**common, "business_type": "refund", "condition": "If it still does not arrive", "consent": "conditional"}])
-        model = ScriptedModel(conditional, terminal("Please provide your order number so we can check the parcel."))
+        from test_human_assistance import handoff
+        model = ScriptedModel(conditional, handoff())
         output, job = self.execute(model)
-        self.assertEqual(output["outcome"], "reply_and_wait", output)
+        self.assertEqual(output["outcome"], "handoff", output)
         from globalmail_agent.application.run_records import RunRecords
         value = RunRecords(self.engine, self.store).get(job["run_id"])["understanding"]
         self.assertEqual([i["business_type"] for i in value["intents"]], ["shipment", "refund"])
         self.assertEqual(value["intents"][1]["consent"], "conditional")
         for table in (b.operations, b.executions, b.shipments, b.return_receipts):
             self.assertEqual(self.count(table), 0)
-        self.assertEqual(len(self.outbound(cid)), 1)
+        self.assertEqual(len(self.outbound(cid)), 0)
 
     def test_historical_future_snapshot_and_simulation_policy_never_enter_model(self):
         package = FixturePackage()

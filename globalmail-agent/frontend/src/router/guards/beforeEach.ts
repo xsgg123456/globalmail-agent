@@ -16,10 +16,11 @@ export function setupBeforeEachGuard(router: Router): void {
   useMenuStore().setMenuList(routeModules)
   const tabs = useWorktabStore()
   // 移除模板时期保存的演示页签（catch-all 不能当作有效业务路由）。
-  tabs.opened = retainLocalTabs(tabs.opened)
+  const preview = import.meta.env.MODE === 'ui-preview'
+  tabs.opened = retainLocalTabs(tabs.opened, preview)
   tabs.keepAliveExclude = []
   const user = useUserStore()
-  user.setSearchHistory(retainLocalTabs(user.searchHistory))
+  user.setSearchHistory(retainLocalTabs(user.searchHistory, preview))
   user.setToken('', '')
   user.setLockStatus(false)
   router.beforeEach((to) => {

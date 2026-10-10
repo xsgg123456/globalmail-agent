@@ -145,10 +145,11 @@ class AgentRunner:
                 conn.execute(jobs.update().where(jobs.c.id == job["id"]).values(status=status, error_code=code, lease_expires_at=None))
                 conn.execute(processing_cycles.update().where(processing_cycles.c.id == cycle["id"]).values(state=status))
                 conn.execute(conversations.update().where(conversations.c.id == conv["id"]).values(scheduling_state="failed",
-                    auto_run_gate="manual_retry_required", row_version=conv["row_version"] + 1))
+                    auto_run_gate="disabled" if conv["persistent_human"] else "manual_retry_required",
+                    row_version=conv["row_version"] + 1))
                 from globalmail_agent.adapters.attachment_schema import message_attachments
                 conn.execute(message_attachments.update().where(message_attachments.c.processing_run_id == run["id"],
-                    message_attachments.c.status == "processing").values(status="failed", failure_reason=code))
+                    message_attachments.c.status == "processing").values(status="failed", processing_run_id=None, failure_reason=code))
                 append_ui_event(conn, conv["id"], "run.failed", {"run_id": str(run["id"]), "reason_code": code})
                 release_slot(conn, slot_for_update(conn, self.workspace_id))
         except ServiceError:
